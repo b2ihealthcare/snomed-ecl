@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="ecl"
+            id="com.b2international.snomed.ecl.Ecl"
+            name="Ecl Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="com.b2international.snomed.ecl.Ecl.validate">
+         <activeWhen>
+            <reference
+                    definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+            </reference>
+         </activeWhen>
+      	</handler>
+      	<!-- copy qualified name -->
+        <handler
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+            <activeWhen>
+				<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened" />
+            </activeWhen>
+        </handler>
+        <handler
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+            <activeWhen>
+            	<and>
+            		<reference definitionId="com.b2international.snomed.ecl.Ecl.XtextEditor.opened" />
+	                <iterate>
+						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+					</iterate>
+				</and>
+            </activeWhen>
+        </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="com.b2international.snomed.ecl.Ecl.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="com.b2international.snomed.ecl.Ecl" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+        <definition id="com.b2international.snomed.ecl.Ecl.XtextEditor.opened">
+            <and>
+                <reference definitionId="isXtextEditorActive"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="com.b2international.snomed.ecl.Ecl" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+        	category="com.b2international.snowowl.preferences.SnowowlPreferencePage"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="com.b2international.snomed.ecl.Ecl"
+            name="ECL Editor">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+        </page>
+        <page
+            category="com.b2international.snomed.ecl.Ecl"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="com.b2international.snomed.ecl.Ecl.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+        </page>
+        <page
+            category="com.b2international.snomed.ecl.Ecl"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="com.b2international.snomed.ecl.Ecl.templates"
+            name="Templates">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="com.b2international.snomed.ecl.Ecl"
+            name="Ecl">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="com.b2international.snomed.ecl.ui.keyword_Ecl"
+            label="Ecl"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="com.b2international.snomed.ecl.Ecl.validate"
+            name="Validate">
+      </command>
+      <!-- copy qualified name -->
+      <command
+            id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+            categoryId="org.eclipse.ui.category.edit"
+            description="Copy the qualified name for the selected element"
+            name="Copy Qualified Name">
+      </command>
+      <command
+            id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+            categoryId="org.eclipse.ui.category.edit"
+            description="Copy the qualified name for the selected element"
+            name="Copy Qualified Name">
+      </command>
+      <command
+            defaultHandler="com.b2international.snomed.ecl.ui.handler.ExecuteECLHandler"
+            description="Execute ECL query"
+            id="com.b2international.snomed.ecl.ui.execute"
+            name="Execute ECL">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="com.b2international.snomed.ecl.Ecl.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+         <!-- copy qualified name -->
+         <menuContribution locationURI="popup:#TextEditorContext?after=copy">
+         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
+         		style="push" tooltip="Copy Qualified Name">
+            	<visibleWhen checkEnabled="false">
+                	<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened" />
+            	</visibleWhen>
+         	</command>  
+         </menuContribution>
+         <menuContribution locationURI="menu:edit?after=copy">
+         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+            	style="push" tooltip="Copy Qualified Name">
+            	<visibleWhen checkEnabled="false">
+                	<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened" />
+            	</visibleWhen>
+         	</command>  
+         </menuContribution>
+         <menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
+				style="push" tooltip="Copy Qualified Name">
+         		<visibleWhen checkEnabled="false">
+	            	<and>
+	            		<reference definitionId="com.b2international.snomed.ecl.Ecl.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+         </menuContribution>
+         <!-- main menu -->
+		 <menuContribution
+            allPopups="false"
+            locationURI="menu:com.b2international.tools.menu?before=scriptingGroup">
+           <command
+                  commandId="com.b2international.snomed.ecl.ui.execute"
+                  icon="icons/obj16/ecl_execute_query.png"
+                  style="push"
+                  tooltip="Execute ECL Query">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="com.b2international.snomed.ecl.Ecl">
+                     </equals>
+                  </with>
+               </visibleWhen>
+            </command>
+      	</menuContribution>
+		<!-- main toolbar -->
+		<menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?before=scripting">
+         <toolbar
+               id="com.b2international.snomed.ecl.ui.toolbar"
+               label="ECL">
+            <command
+                  commandId="com.b2international.snomed.ecl.ui.execute"
+                  icon="icons/obj16/ecl_execute_query.png"
+                  style="push"
+                  tooltip="Execute ECl Query">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="com.b2international.snomed.ecl.Ecl">
+                     </equals>
+                  </with>
+               </visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+       <menuContribution
+       		locationURI="popup:#TextEditorContext?after=group.edit">
+	     <separator
+	           name="com.b2international.snomed.ecl.ui.separator1"
+	           visible="true">
+	     </separator>
+	     <command
+	           commandId="com.b2international.snomed.ecl.ui.execute"
+	           icon="icons/obj16/ecl_execute_query.png"
+	           style="push">
+	        <visibleWhen
+	              checkEnabled="false">
+	           <reference
+	                 definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+	           </reference>
+	        </visibleWhen>
+	     </command>
+	     <separator
+	           name="com.b2international.snomed.ecl.ui.separator2"
+	           visible="true">
+	     </separator>
+	  </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="ecl">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="ecl">
+        </resourceServiceProvider>
+    </extension>
+
+
+	<!-- marker definitions for com.b2international.snomed.ecl.Ecl -->
+	<extension
+	        id="ecl.check.fast"
+	        name="Ecl Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.fast"/>
+	    <persistent value="true"/>
+	</extension>
+	<extension
+	        id="ecl.check.normal"
+	        name="Ecl Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.normal"/>
+	    <persistent value="true"/>
+	</extension>
+	<extension
+	        id="ecl.check.expensive"
+	        name="Ecl Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.expensive"/>
+	    <persistent value="true"/>
+	</extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="ecl"
+            >
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="com.b2international.snomed.ecl.Ecl"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="com.b2international.snomed.ecl.Ecl.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="com.b2international.snomed.ecl.Ecl"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="com.b2international.snomed.ecl.Ecl.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="com.b2international.snomed.ecl.ui.keyword_Ecl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
+			<command
+				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
+				id="com.b2international.snomed.ecl.Ecl.OpenGeneratedCode"
+				style="push">
+					<visibleWhen checkEnabled="false">
+						<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened" />
+					</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
+				<activeWhen>
+					<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened" />
+				</activeWhen>
+		</handler>
+	</extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for com.b2international.snomed.ecl.Ecl -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="com.b2international.snomed.ecl.ui.ecl.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="com.b2international.snomed.ecl.ui.ecl.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="com.b2international.snomed.ecl.ui.ecl.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="com.b2international.snomed.ecl.Ecl.compare.contentViewers"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="ecl">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="com.b2international.snomed.ecl.Ecl.compare.contentMergeViewers"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="ecl" label="Ecl Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="com.b2international.snomed.ecl.Ecl.editors.documentProviders"
+            class="com.b2international.snomed.ecl.ui.EclExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="ecl">
+    </provider>
+  </extension>
+  <extension point="org.eclipse.team.core.fileTypes">
+    <fileTypes
+            extension="ecl"
+            type="text">
+    </fileTypes>
+  </extension>
+  <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.b2international.snomed.ecl.ui.execute"
+            contextId="org.eclipse.xtext.ui.XtextEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+CR">
+      </key>
+   </extension>
+</plugin>

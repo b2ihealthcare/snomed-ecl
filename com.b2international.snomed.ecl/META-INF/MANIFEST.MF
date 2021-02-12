@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.b2international.snomed.ecl
+Bundle-ManifestVersion: 2
+Bundle-Name: SNOMED CT Expression Constraint Language Core
+Bundle-Vendor: B2i Healthcare
+Bundle-Version: 1.3.0.qualifier
+Bundle-SymbolicName: com.b2international.snomed.ecl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext;bundle-version="[2.21.0,2.22.0)";visibility:=reexport,
+ org.eclipse.xtext.util;bundle-version="[2.21.0,2.22.0)",
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.21.0,2.22.0)",
+ org.eclipse.xtext.common.types;bundle-version="[2.21.0,2.22.0)",
+ org.antlr.runtime,
+ org.objectweb.asm;bundle-version="[7.2.0,7.3.0)";resolution:=optional
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.b2international.snomed.ecl,
+ com.b2international.snomed.ecl,
+ com.b2international.snomed.ecl.converter,
+ com.b2international.snomed.ecl.ecl,
+ com.b2international.snomed.ecl.ecl.impl,
+ com.b2international.snomed.ecl.ecl.util,
+ com.b2international.snomed.ecl.generator,
+ com.b2international.snomed.ecl.parser.antlr,
+ com.b2international.snomed.ecl.parser.antlr.internal,
+ com.b2international.snomed.ecl.parser.antlr.lexer,
+ com.b2international.snomed.ecl.scoping,
+ com.b2international.snomed.ecl.scoping,
+ com.b2international.snomed.ecl.serializer,
+ com.b2international.snomed.ecl.serializer,
+ com.b2international.snomed.ecl.services,
+ com.b2international.snomed.ecl.validation,
+ com.b2international.snomed.ecl.validation
