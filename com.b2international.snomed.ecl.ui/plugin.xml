@@ -2,6 +2,7 @@
 <?eclipse version="3.0"?>
 
 <plugin>
+   <extension-point id="eclAdditionalModules" name="eclAdditionalModules" schema="schema/eclAdditionalModules.exsd"/>
 
     <extension
             point="org.eclipse.ui.editors">
@@ -140,12 +141,6 @@
             description="Copy the qualified name for the selected element"
             name="Copy Qualified Name">
       </command>
-      <command
-            defaultHandler="com.b2international.snomed.ecl.ui.handler.ExecuteECLHandler"
-            description="Execute ECL query"
-            id="com.b2international.snomed.ecl.ui.execute"
-            name="Execute ECL">
-      </command>
     </extension>
     <extension point="org.eclipse.ui.menus">
         <menuContribution
@@ -191,71 +186,6 @@
 				</visibleWhen>
 			</command>
          </menuContribution>
-         <!-- main menu -->
-		 <menuContribution
-            allPopups="false"
-            locationURI="menu:com.b2international.tools.menu?before=scriptingGroup">
-           <command
-                  commandId="com.b2international.snomed.ecl.ui.execute"
-                  icon="icons/obj16/ecl_execute_query.png"
-                  style="push"
-                  tooltip="Execute ECL Query">
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="activeEditorId">
-                     <equals
-                           value="com.b2international.snomed.ecl.Ecl">
-                     </equals>
-                  </with>
-               </visibleWhen>
-            </command>
-      	</menuContribution>
-		<!-- main toolbar -->
-		<menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?before=scripting">
-         <toolbar
-               id="com.b2international.snomed.ecl.ui.toolbar"
-               label="ECL">
-            <command
-                  commandId="com.b2international.snomed.ecl.ui.execute"
-                  icon="icons/obj16/ecl_execute_query.png"
-                  style="push"
-                  tooltip="Execute ECl Query">
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="activeEditorId">
-                     <equals
-                           value="com.b2international.snomed.ecl.Ecl">
-                     </equals>
-                  </with>
-               </visibleWhen>
-            </command>
-         </toolbar>
-      </menuContribution>
-       <menuContribution
-       		locationURI="popup:#TextEditorContext?after=group.edit">
-	     <separator
-	           name="com.b2international.snomed.ecl.ui.separator1"
-	           visible="true">
-	     </separator>
-	     <command
-	           commandId="com.b2international.snomed.ecl.ui.execute"
-	           icon="icons/obj16/ecl_execute_query.png"
-	           style="push">
-	        <visibleWhen
-	              checkEnabled="false">
-	           <reference
-	                 definitionId="com.b2international.snomed.ecl.Ecl.Editor.opened">
-	           </reference>
-	        </visibleWhen>
-	     </command>
-	     <separator
-	           name="com.b2international.snomed.ecl.ui.separator2"
-	           visible="true">
-	     </separator>
-	  </menuContribution>
     </extension>
     <extension point="org.eclipse.ui.menus">
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">

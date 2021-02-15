@@ -28,3 +28,4 @@ Export-Package: com.b2international.snomed.ecl.ide,
  com.b2international.snomed.ecl.ui.outline,
  com.b2international.snomed.ecl.ui.quickfix,
  com.b2international.snomed.ecl.validation
+Bundle-Activator: com.b2international.snomed.ecl.ui.EclUiPlugin
