@@ -50,7 +50,6 @@ public class ConceptXtextTemplateProposal extends XtextTemplateProposal {
 	
 	private final IRegion region;
 	private IRegion selectedRegion;
-	private Image image;
 
 	/**
 	 * Creates a template proposal with a template and its context.
@@ -78,22 +77,12 @@ public class ConceptXtextTemplateProposal extends XtextTemplateProposal {
 	}
 	
 	private Image getImage(Template template) {
-		
 		if ("Concept".equals(getTemplate().getName())) {
-			if (image == null) {
-				image = EclUiPlugin.getInstance().getImageRegistry().get(FIND_PATH);
-			}
-			return image;
-		
-		//for everything else
+			return EclUiPlugin.getInstance().getImage(FIND_PATH);
 		} else if ("Template".equals(getTemplate().getName())) {
-			image = EclUiPlugin.getInstance().getImageRegistry().get(TEMPLATE);
-			return image;
-			
-		} 
-		else {
-			image = EclUiPlugin.getInstance().getImageRegistry().get(ATTRIBUTE_ICON_PATH);
-			return image;
+			return EclUiPlugin.getInstance().getImage(TEMPLATE);
+		} else {
+			return EclUiPlugin.getInstance().getImage(ATTRIBUTE_ICON_PATH);
 		}
 	}
 	

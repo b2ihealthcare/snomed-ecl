@@ -23,6 +23,8 @@ import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
@@ -101,6 +103,28 @@ public class EclActivator extends AbstractUIPlugin {
 	protected com.google.inject.Module getSharedStateModule() {
 		return new SharedStateModule();
 	}
+
+	public final Image getImage(String relativePath) {
+		Image image = getImageRegistry().get(relativePath);
+		if (image == null) {
+			final ImageDescriptor imageDescriptor = getImageDescriptor(relativePath);
+			if (imageDescriptor != null) {
+				image = imageDescriptor.createImage();
+			}
+		}
+		return image;
+	}
 	
+	public final ImageDescriptor getImageDescriptor(String relativePath) {
+		
+		if (relativePath == null) return null;
+		
+		ImageDescriptor descriptor = getImageRegistry().getDescriptor(relativePath);
+		if (descriptor == null) {
+			descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(getBundle().getSymbolicName(), relativePath);
+			getImageRegistry().put(relativePath, descriptor);
+		}
+		return descriptor;
+	}
 	
 }

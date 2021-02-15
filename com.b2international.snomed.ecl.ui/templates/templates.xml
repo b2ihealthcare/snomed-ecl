@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <templates>
-	<template id="com.b2international.snowowl.snomed.ecl.insertconcepttemplate" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.insertconcepttemplate" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Add new concept from picker" enabled="true" name="Concept">${id}|${name}|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.template" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.template" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Bleeding finger" enabled="true" name="Template">243796009|Situation with explicit context|: 
 		{
 			246090004|Associated finding|=
@@ -15,48 +15,48 @@
 			408732007|Subject relationship context|=410604004|Subject of record|
 		}</template>
 	
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteISA" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteISA" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Is a" enabled="true" name="isa">116680003|Is a|</template>
 	
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteFindingSite" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteFindingSite" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Finding site" enabled="true" name="finding site">363698007|Finding site|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteAssociatedMorphology" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteAssociatedMorphology" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Associated morphology" enabled="true" name="associated morphology">116676008|Associated morphology|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteMethod" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteMethod" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Method" enabled="true" name="method">260686004|Method|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouritePartOf" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouritePartOf" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Part of" enabled="true" name="part of">123005000|Part of|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteProcedureSiteDirect" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteProcedureSiteDirect" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Procedure site - Direct" enabled="true" name="procedure site-direct">405813007|Procedure site - Direct|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteInterprets" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteInterprets" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Interprets" enabled="true" name="interprets">363714003|Interprets|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteCausativeAgent" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteCausativeAgent" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Causative agent" enabled="true" name="causative agent">246075003|Causative agent|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteHasActiveIngredient" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteHasActiveIngredient" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Has active ingredient" enabled="true" name="has active ingredient">127489000|Has active ingredient|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteHasDoseForm" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteHasDoseForm" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Has dose form" enabled="true" name="has dose form">411116001|Has dose form|</template>
 		
-	<template id="com.b2international.snowowl.snomed.ecl.favouriteHasStrength" autoinsert="false"
-		context="com.b2international.snowowl.snomed.ecl.Ecl.EclConceptReference" deleted="false"
+	<template id="com.b2international.snomed.ecl.favouriteHasStrength" autoinsert="false"
+		context="com.b2international.snomed.ecl.Ecl.EclConceptReference" deleted="false"
 		description="Has strength" enabled="true" name="has strength">411117005|Has strength|</template>
 		
 </templates>
