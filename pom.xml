@@ -212,5 +212,14 @@
 		<connection>scm:git:ssh://github.com/b2ihealthcare/snomed-ecl.git</connection>
 		<developerConnection>scm:git:ssh@github.com:b2ihealthcare/snomed-ecl.git</developerConnection>
 	</scm>
+
+	<profiles>
+		<profile>
+      		<id>extra-modules</id>
+      		<modules>
+      			<module>com.b2international.snomed.ecl.examples</module>
+      		</modules>
+    	</profile>
+	</profiles>
 	
 </project>
