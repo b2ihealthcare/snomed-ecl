@@ -34,7 +34,7 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.MANGO_TOKENS, "Digits, Wildcard", mangoStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PURPLE_TOKENS, "Strings", purpleStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.GREEN_TOKENS, "Comments", greenStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PRETTY_BLACK_TOKENS, "Square bracket, descendant, ancestor, child parent of, dash, dot", prettyBlackStyle());
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PRETTY_BLACK_TOKENS, "Square bracket, descendant of, ancestor of, child of, parent of, dash, dot", prettyBlackStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.BOOLEAN, "Booleans", booleanStyle());
 		acceptor.acceptDefaultHighlighting(EclTokens.TERM_STRING, "Concept names", termStyle());
 		acceptor.acceptDefaultHighlighting(EclTokens.CARDINALITY_RULE, "Cardinalities", cardinalityStyle());
