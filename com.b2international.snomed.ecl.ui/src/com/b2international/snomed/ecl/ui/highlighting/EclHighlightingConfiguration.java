@@ -30,25 +30,48 @@ import com.b2international.snomed.ecl.ui.EclTokens;
 public class EclHighlightingConfiguration implements IHighlightingConfiguration {
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
-		acceptor.acceptDefaultHighlighting(EclTokens.PIPE, "Pipe", pipeStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.RED_TOKENS, "Grammar constructs", redStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.TERM, "Term", termStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.CONCEPTID, "Concept ID", conceptIdStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.SL_COMMENT, "Single-line comment", commentStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.ML_COMMENT, "Multi-line comment", commentStyle());
-	}
-
-	private TextStyle pipeStyle() {
-		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(60, 230, 65));
-		return textStyle;
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.MANGO_TOKENS, "Digits, Wildcard", mangoStyle());
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PURPLE_TOKENS, "Strings", purpleStyle());
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.GREEN_TOKENS, "Comments", greenStyle());
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PRETTY_BLACK_TOKENS, "Square bracket, descendant, ancestor, child parent of, dash, dot", prettyBlackStyle());
+		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.BOOLEAN, "Booleans", booleanStyle());
+		acceptor.acceptDefaultHighlighting(EclTokens.TERM_STRING, "Concept names", termStyle());
+		acceptor.acceptDefaultHighlighting(EclTokens.CARDINALITY_RULE, "Cardinalities", cardinalityStyle());
 	}
 
 	private TextStyle redStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(232, 114, 149));
+		return textStyle;
+	}
+	
+	private TextStyle mangoStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(250, 140, 0));
+		return textStyle;
+	}
+	
+	private TextStyle purpleStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(148, 40, 255));
+		return textStyle;
+	}
+	
+	private TextStyle greenStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(63, 127, 95));
+		return textStyle;
+	}
+	
+	private TextStyle prettyBlackStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(80, 80, 80));
 		return textStyle;
 	}
 
@@ -58,19 +81,18 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 		textStyle.setColor(new RGB(83, 132, 245));
 		return textStyle;
 	}
-
-	private TextStyle conceptIdStyle() {
+	
+	private TextStyle cardinalityStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(0, 0, 0));
+		textStyle.setColor(new RGB(0, 170, 0));
 		return textStyle;
 	}
-
-	private TextStyle commentStyle() {
+	
+	private TextStyle booleanStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(63, 127, 95));
+		textStyle.setColor(new RGB(0, 0, 170));
 		return textStyle;
 	}
-
 }

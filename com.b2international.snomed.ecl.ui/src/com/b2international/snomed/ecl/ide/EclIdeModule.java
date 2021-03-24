@@ -32,8 +32,7 @@ public class EclIdeModule extends AbstractEclIdeModule {
 	
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
 		return EclSemanticHighlightingCalculator.class;
-	}
-	
+	}	
 }
 
 

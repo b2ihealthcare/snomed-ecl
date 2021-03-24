@@ -40,11 +40,13 @@ public class EclSemanticHighlightingCalculator implements ISemanticHighlightingC
 		for (INode abstractNode : allNodes) {
 			if (abstractNode.getGrammarElement() instanceof RuleCall) {
 				RuleCall rule = (RuleCall) abstractNode.getGrammarElement();
-
-				if (rule.getRule().getName().equals(EclTokens.CONCEPTID)) {
-					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclTokens.CONCEPTID);
-				} else if (rule.getRule().getName().equals(EclTokens.TERM)) {
-					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclTokens.TERM);
+				final String ruleName = rule.getRule().getName();
+				System.out.println( rule.getRule().getName());
+				if (ruleName.equals(EclTokens.TERM_STRING)) {
+					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclTokens.TERM_STRING);
+				} else if (ruleName.equals(EclTokens.CARDINALITY_RULE)) {
+					// colors just the 0..1 part
+					acceptor.addPosition(abstractNode.getOffset() + 1, abstractNode.getLength() - 2, EclTokens.CARDINALITY_RULE);
 				}
 			}
 		}
