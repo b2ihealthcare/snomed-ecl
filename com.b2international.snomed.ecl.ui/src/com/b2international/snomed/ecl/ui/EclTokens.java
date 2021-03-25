@@ -81,6 +81,10 @@ public class EclTokens {
 	private static final String MULTI_LINE_COMMENT = PREFIX + "ML_COMMENT";
 	private static final String SINGLE_LINE_COMMENT = PREFIX + "SL_COMMENT";
 	private static final String STRING = PREFIX + "STRING";
+	
+	//New operators from v1.4
+	private static final String CHILD_OR_SELF_OF = PREFIX + "DBL_LT_EM";
+	private static final String PARENT_OR_SELF_OF = PREFIX + "DBL_GT_EM";
 
 	public static final Set<String> RED_TOKENS = buildRedTokens();
 	public static final Set<String> MANGO_TOKENS = buildMangoTokens();
@@ -115,6 +119,8 @@ public class EclTokens {
 		redtokens.add(ANCESTOR_OR_SELF_OF);
 		redtokens.add(CHILD_OF);
 		redtokens.add(PARENT_OF);
+		redtokens.add(CHILD_OR_SELF_OF);
+		redtokens.add(PARENT_OR_SELF_OF);
 		return redtokens;
 	}
 	
