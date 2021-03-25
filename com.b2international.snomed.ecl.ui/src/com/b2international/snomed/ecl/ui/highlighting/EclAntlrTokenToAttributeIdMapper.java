@@ -16,7 +16,6 @@
 package com.b2international.snomed.ecl.ui.highlighting;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 
@@ -30,10 +29,8 @@ import com.b2international.snomed.ecl.ui.EclTokens;
 public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttributeIdMapper {
 
 	public final static String RED_TOKENS = "RED_TOKENS";
-	public final static String MANGO_TOKENS = "MANGO_TOKENS";
 	public static final String PURPLE_TOKENS = "PURPLE_TOKENS";
 	public static final String GREEN_TOKENS = "GREEN_TOKENS";
-	public static final String PRETTY_BLACK_TOKENS = "PRETTY_BLACK_TOKENS";
 	public static final String BOOLEAN = "BOOLEAN";
 	private static final List<String> BOOLEANS_LIST = List.of("'true'", "'false'");
 
@@ -45,16 +42,8 @@ public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttrib
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
 
-		if (EclTokens.TERM_STRING.equals(tokenName)) {
-			return EclTokens.TERM_STRING;
-		}
-
 		if (EclTokens.RED_TOKENS.contains(tokenName)) {
 			return RED_TOKENS;
-		}
-
-		if (EclTokens.MANGO_TOKENS.contains(tokenName)) {
-			return MANGO_TOKENS;
 		}
 		
 		if (EclTokens.PURPLE_TOKENS.contains(tokenName)) {
@@ -64,15 +53,11 @@ public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttrib
 		if (EclTokens.GREEN_TOKENS.contains(tokenName)) {
 			return GREEN_TOKENS;
 		}
-		if (EclTokens.PRETTY_BLACK_TOKENS.contains(tokenName)) {
-			return PRETTY_BLACK_TOKENS;
-		}
-		
+
 		if(BOOLEANS_LIST.contains(tokenName)) {
 			return BOOLEAN;
 		}
 		
 		return tokenName;
 	}
-
 }

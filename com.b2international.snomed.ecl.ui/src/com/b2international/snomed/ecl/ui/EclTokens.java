@@ -18,18 +18,20 @@ package com.b2international.snomed.ecl.ui;
 import java.util.HashSet;
 import java.util.Set;
 /**
- * Tokens are made from the terminal rules in Ecl.xtext
+ * Tokens are made from the rules in the Ecl.xtext
  * @since 1.3.0
  */
 public class EclTokens {
 
 	public static final String PREFIX = "RULE_";
-
+	
+	public static final String SNOMED_IDENTIFIER = "SnomedIdentifier";
+	public static final String PIPE = "PIPE";
+	public static final String TERM_STRING = "TERM_STRING";
 	
 	// I made the ones which we don't use outside of the class 
 	//private so it is easier to tell which ones are not part of any color group
-	public static final String TERM_STRING = PREFIX + "TERM_STRING";
-	public static final String CARDINALITY_RULE = "Cardinality";
+	public static final String RULE_TERM_STRING = PREFIX + "TERM_STRING";
 	private static final String REVERSED = PREFIX + "REVERSED";
 	private static final String TO = PREFIX + "TO";
 	private static final String COMMA = PREFIX + "COMMA";
@@ -87,10 +89,8 @@ public class EclTokens {
 	private static final String PARENT_OR_SELF_OF = PREFIX + "DBL_GT_EM";
 
 	public static final Set<String> RED_TOKENS = buildRedTokens();
-	public static final Set<String> MANGO_TOKENS = buildMangoTokens();
 	public static final Set<String> PURPLE_TOKENS = buildPurpleTokens();
 	public static final Set<String> GREEN_TOKENS = buildGreenTokens();
-	public static final Set<String> PRETTY_BLACK_TOKENS = buildPrettyBlackTokens();
 
 	private static Set<String> buildRedTokens() {
 		Set<String> redtokens = new HashSet<String>();
@@ -121,15 +121,14 @@ public class EclTokens {
 		redtokens.add(PARENT_OF);
 		redtokens.add(CHILD_OR_SELF_OF);
 		redtokens.add(PARENT_OR_SELF_OF);
+		redtokens.add(OPENING_SQUARE_BRACKET);
+		redtokens.add(CLOSING_SQUARE_BRACKET);
+		redtokens.add(ZERO);
+		redtokens.add(DIGIT_NONZERO);
+		redtokens.add(WILDCARD);
+		redtokens.add(DASH);
+		redtokens.add(DOT);
 		return redtokens;
-	}
-	
-	private static Set<String> buildMangoTokens() {
-		Set<String> mangotokens = new HashSet<String>();
-		mangotokens.add(ZERO);
-		mangotokens.add(DIGIT_NONZERO);
-		mangotokens.add(WILDCARD);
-		return mangotokens;
 	}
 	
 	private static Set<String> buildPurpleTokens() {
@@ -143,14 +142,5 @@ public class EclTokens {
 		greentokens.add(SINGLE_LINE_COMMENT);
 		greentokens.add(MULTI_LINE_COMMENT);
 		return greentokens;
-	}
-	
-	private static Set<String> buildPrettyBlackTokens() {
-		Set<String> prettyBlacktokens = new HashSet<String>();
-		prettyBlacktokens.add(OPENING_SQUARE_BRACKET);
-		prettyBlacktokens.add(CLOSING_SQUARE_BRACKET);
-		prettyBlacktokens.add(DASH);
-		prettyBlacktokens.add(DOT);
-		return prettyBlacktokens;
 	}
 }

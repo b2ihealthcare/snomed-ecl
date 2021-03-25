@@ -31,26 +31,18 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.RED_TOKENS, "Grammar constructs", redStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.MANGO_TOKENS, "Digits, Wildcard", mangoStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PURPLE_TOKENS, "Strings", purpleStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.GREEN_TOKENS, "Comments", greenStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PRETTY_BLACK_TOKENS, "Square bracket, descendant of, ancestor of, child of, parent of, dash, dot", prettyBlackStyle());
 		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.BOOLEAN, "Booleans", booleanStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.TERM_STRING, "Concept names", termStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.CARDINALITY_RULE, "Cardinalities", cardinalityStyle());
+		acceptor.acceptDefaultHighlighting(EclTokens.SNOMED_IDENTIFIER, "Snomed identifiers", snomedIdentifierStyle());
+		acceptor.acceptDefaultHighlighting(EclTokens.TERM_STRING, "Term strings", termStyle());
+		acceptor.acceptDefaultHighlighting(EclTokens.PIPE, "Pipes", pipeStyle());
 	}
 
 	private TextStyle redStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(232, 114, 149));
-		return textStyle;
-	}
-	
-	private TextStyle mangoStyle() {
-		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(250, 140, 0));
+		textStyle.setColor(new RGB(160, 0, 0));
 		return textStyle;
 	}
 	
@@ -68,24 +60,24 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 		return textStyle;
 	}
 	
-	private TextStyle prettyBlackStyle() {
+	private TextStyle snomedIdentifierStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(80, 80, 80));
+		textStyle.setColor(new RGB(96, 96, 96));
 		return textStyle;
 	}
 
-	private TextStyle termStyle() {
+	private TextStyle pipeStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(83, 132, 245));
 		return textStyle;
 	}
 	
-	private TextStyle cardinalityStyle() {
+	private TextStyle termStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(0, 170, 0));
+		textStyle.setColor(new RGB(30, 3, 0));
 		return textStyle;
 	}
 	
