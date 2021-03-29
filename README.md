@@ -14,13 +14,13 @@ See the official documentation [here](http://snomed.org/ecl)
 
 SNOMED CT ECL uses Maven for its build system. In order to run the build and create a p2 update site and the maven packages simply run the following command in the cloned directory. 
 
-    mvn clean package
+    ./mvnw clean package
 
 The packages can be found in the `com.b2international.snomed.ecl.update/target` folder, when the build is complete.
 
 To run the test cases, use the following command:
 
-    mvn clean verify
+    ./mvnw clean verify
 
 # Contributing
 
