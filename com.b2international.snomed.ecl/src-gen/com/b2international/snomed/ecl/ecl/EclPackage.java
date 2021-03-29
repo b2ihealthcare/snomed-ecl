@@ -145,6 +145,34 @@ public interface EclPackage extends EPackage
   int CHILD_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOrSelfOfImpl <em>Child Or Self Of</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.ChildOrSelfOfImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getChildOrSelfOf()
+   * @generated
+   */
+  int CHILD_OR_SELF_OF = 3;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHILD_OR_SELF_OF__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Child Or Self Of</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHILD_OR_SELF_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.DescendantOfImpl <em>Descendant Of</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -152,7 +180,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDescendantOf()
    * @generated
    */
-  int DESCENDANT_OF = 3;
+  int DESCENDANT_OF = 4;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -180,7 +208,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDescendantOrSelfOf()
    * @generated
    */
-  int DESCENDANT_OR_SELF_OF = 4;
+  int DESCENDANT_OR_SELF_OF = 5;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -208,7 +236,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getParentOf()
    * @generated
    */
-  int PARENT_OF = 5;
+  int PARENT_OF = 6;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -229,6 +257,34 @@ public interface EclPackage extends EPackage
   int PARENT_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ParentOrSelfOfImpl <em>Parent Or Self Of</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.ParentOrSelfOfImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getParentOrSelfOf()
+   * @generated
+   */
+  int PARENT_OR_SELF_OF = 7;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENT_OR_SELF_OF__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parent Or Self Of</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENT_OR_SELF_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.AncestorOfImpl <em>Ancestor Of</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -236,7 +292,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAncestorOf()
    * @generated
    */
-  int ANCESTOR_OF = 6;
+  int ANCESTOR_OF = 8;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -264,7 +320,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAncestorOrSelfOf()
    * @generated
    */
-  int ANCESTOR_OR_SELF_OF = 7;
+  int ANCESTOR_OR_SELF_OF = 9;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -292,7 +348,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getMemberOf()
    * @generated
    */
-  int MEMBER_OF = 8;
+  int MEMBER_OF = 10;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -320,7 +376,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEclConceptReference()
    * @generated
    */
-  int ECL_CONCEPT_REFERENCE = 9;
+  int ECL_CONCEPT_REFERENCE = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -357,7 +413,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAny()
    * @generated
    */
-  int ANY = 10;
+  int ANY = 12;
 
   /**
    * The number of structural features of the '<em>Any</em>' class.
@@ -376,7 +432,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEclRefinement()
    * @generated
    */
-  int ECL_REFINEMENT = 11;
+  int ECL_REFINEMENT = 13;
 
   /**
    * The number of structural features of the '<em>Refinement</em>' class.
@@ -395,7 +451,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getNestedRefinement()
    * @generated
    */
-  int NESTED_REFINEMENT = 12;
+  int NESTED_REFINEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Nested</b></em>' containment reference.
@@ -423,7 +479,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEclAttributeGroup()
    * @generated
    */
-  int ECL_ATTRIBUTE_GROUP = 13;
+  int ECL_ATTRIBUTE_GROUP = 15;
 
   /**
    * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
@@ -460,7 +516,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAttributeConstraint()
    * @generated
    */
-  int ATTRIBUTE_CONSTRAINT = 14;
+  int ATTRIBUTE_CONSTRAINT = 16;
 
   /**
    * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
@@ -515,7 +571,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getCardinality()
    * @generated
    */
-  int CARDINALITY = 15;
+  int CARDINALITY = 17;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -552,7 +608,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 16;
+  int COMPARISON = 18;
 
   /**
    * The number of structural features of the '<em>Comparison</em>' class.
@@ -571,7 +627,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAttributeComparison()
    * @generated
    */
-  int ATTRIBUTE_COMPARISON = 17;
+  int ATTRIBUTE_COMPARISON = 19;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -599,7 +655,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDataTypeComparison()
    * @generated
    */
-  int DATA_TYPE_COMPARISON = 18;
+  int DATA_TYPE_COMPARISON = 20;
 
   /**
    * The number of structural features of the '<em>Data Type Comparison</em>' class.
@@ -618,7 +674,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAttributeValueEquals()
    * @generated
    */
-  int ATTRIBUTE_VALUE_EQUALS = 19;
+  int ATTRIBUTE_VALUE_EQUALS = 21;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -646,7 +702,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAttributeValueNotEquals()
    * @generated
    */
-  int ATTRIBUTE_VALUE_NOT_EQUALS = 20;
+  int ATTRIBUTE_VALUE_NOT_EQUALS = 22;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -674,7 +730,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getBooleanValueEquals()
    * @generated
    */
-  int BOOLEAN_VALUE_EQUALS = 21;
+  int BOOLEAN_VALUE_EQUALS = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -702,7 +758,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getBooleanValueNotEquals()
    * @generated
    */
-  int BOOLEAN_VALUE_NOT_EQUALS = 22;
+  int BOOLEAN_VALUE_NOT_EQUALS = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -730,7 +786,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getStringValueEquals()
    * @generated
    */
-  int STRING_VALUE_EQUALS = 23;
+  int STRING_VALUE_EQUALS = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -758,7 +814,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getStringValueNotEquals()
    * @generated
    */
-  int STRING_VALUE_NOT_EQUALS = 24;
+  int STRING_VALUE_NOT_EQUALS = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -786,7 +842,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueEquals()
    * @generated
    */
-  int INTEGER_VALUE_EQUALS = 25;
+  int INTEGER_VALUE_EQUALS = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -814,7 +870,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueNotEquals()
    * @generated
    */
-  int INTEGER_VALUE_NOT_EQUALS = 26;
+  int INTEGER_VALUE_NOT_EQUALS = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -842,7 +898,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueGreaterThan()
    * @generated
    */
-  int INTEGER_VALUE_GREATER_THAN = 27;
+  int INTEGER_VALUE_GREATER_THAN = 29;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -870,7 +926,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueLessThan()
    * @generated
    */
-  int INTEGER_VALUE_LESS_THAN = 28;
+  int INTEGER_VALUE_LESS_THAN = 30;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -898,7 +954,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueGreaterThanEquals()
    * @generated
    */
-  int INTEGER_VALUE_GREATER_THAN_EQUALS = 29;
+  int INTEGER_VALUE_GREATER_THAN_EQUALS = 31;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -926,7 +982,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getIntegerValueLessThanEquals()
    * @generated
    */
-  int INTEGER_VALUE_LESS_THAN_EQUALS = 30;
+  int INTEGER_VALUE_LESS_THAN_EQUALS = 32;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -954,7 +1010,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueEquals()
    * @generated
    */
-  int DECIMAL_VALUE_EQUALS = 31;
+  int DECIMAL_VALUE_EQUALS = 33;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -982,7 +1038,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueNotEquals()
    * @generated
    */
-  int DECIMAL_VALUE_NOT_EQUALS = 32;
+  int DECIMAL_VALUE_NOT_EQUALS = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1010,7 +1066,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueGreaterThan()
    * @generated
    */
-  int DECIMAL_VALUE_GREATER_THAN = 33;
+  int DECIMAL_VALUE_GREATER_THAN = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1038,7 +1094,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueLessThan()
    * @generated
    */
-  int DECIMAL_VALUE_LESS_THAN = 34;
+  int DECIMAL_VALUE_LESS_THAN = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1066,7 +1122,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueGreaterThanEquals()
    * @generated
    */
-  int DECIMAL_VALUE_GREATER_THAN_EQUALS = 35;
+  int DECIMAL_VALUE_GREATER_THAN_EQUALS = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1094,7 +1150,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDecimalValueLessThanEquals()
    * @generated
    */
-  int DECIMAL_VALUE_LESS_THAN_EQUALS = 36;
+  int DECIMAL_VALUE_LESS_THAN_EQUALS = 38;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1122,7 +1178,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getNestedExpression()
    * @generated
    */
-  int NESTED_EXPRESSION = 37;
+  int NESTED_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>Nested</b></em>' containment reference.
@@ -1150,7 +1206,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
    * @generated
    */
-  int OR_EXPRESSION_CONSTRAINT = 38;
+  int OR_EXPRESSION_CONSTRAINT = 40;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1187,7 +1243,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndExpressionConstraint()
    * @generated
    */
-  int AND_EXPRESSION_CONSTRAINT = 39;
+  int AND_EXPRESSION_CONSTRAINT = 41;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1224,7 +1280,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getExclusionExpressionConstraint()
    * @generated
    */
-  int EXCLUSION_EXPRESSION_CONSTRAINT = 40;
+  int EXCLUSION_EXPRESSION_CONSTRAINT = 42;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1261,7 +1317,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getRefinedExpressionConstraint()
    * @generated
    */
-  int REFINED_EXPRESSION_CONSTRAINT = 41;
+  int REFINED_EXPRESSION_CONSTRAINT = 43;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -1298,7 +1354,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDottedExpressionConstraint()
    * @generated
    */
-  int DOTTED_EXPRESSION_CONSTRAINT = 42;
+  int DOTTED_EXPRESSION_CONSTRAINT = 44;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -1335,7 +1391,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 43;
+  int OR_REFINEMENT = 45;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1372,7 +1428,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 44;
+  int AND_REFINEMENT = 46;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1455,6 +1511,27 @@ public interface EclPackage extends EPackage
   EReference getChildOf_Constraint();
 
   /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ChildOrSelfOf <em>Child Or Self Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Child Or Self Of</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ChildOrSelfOf
+   * @generated
+   */
+  EClass getChildOrSelfOf();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.ChildOrSelfOf#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ChildOrSelfOf#getConstraint()
+   * @see #getChildOrSelfOf()
+   * @generated
+   */
+  EReference getChildOrSelfOf_Constraint();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.DescendantOf <em>Descendant Of</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1516,6 +1593,27 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EReference getParentOf_Constraint();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ParentOrSelfOf <em>Parent Or Self Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parent Or Self Of</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ParentOrSelfOf
+   * @generated
+   */
+  EClass getParentOrSelfOf();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.ParentOrSelfOf#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ParentOrSelfOf#getConstraint()
+   * @see #getParentOrSelfOf()
+   * @generated
+   */
+  EReference getParentOrSelfOf_Constraint();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.AncestorOf <em>Ancestor Of</em>}'.
@@ -2483,6 +2581,24 @@ public interface EclPackage extends EPackage
     EReference CHILD_OF__CONSTRAINT = eINSTANCE.getChildOf_Constraint();
 
     /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOrSelfOfImpl <em>Child Or Self Of</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.ChildOrSelfOfImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getChildOrSelfOf()
+     * @generated
+     */
+    EClass CHILD_OR_SELF_OF = eINSTANCE.getChildOrSelfOf();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHILD_OR_SELF_OF__CONSTRAINT = eINSTANCE.getChildOrSelfOf_Constraint();
+
+    /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.DescendantOfImpl <em>Descendant Of</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2535,6 +2651,24 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EReference PARENT_OF__CONSTRAINT = eINSTANCE.getParentOf_Constraint();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ParentOrSelfOfImpl <em>Parent Or Self Of</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.ParentOrSelfOfImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getParentOrSelfOf()
+     * @generated
+     */
+    EClass PARENT_OR_SELF_OF = eINSTANCE.getParentOrSelfOf();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENT_OR_SELF_OF__CONSTRAINT = eINSTANCE.getParentOrSelfOf_Constraint();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.AncestorOfImpl <em>Ancestor Of</em>}' class.

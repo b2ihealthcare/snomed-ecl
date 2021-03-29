@@ -24,6 +24,9 @@ import java.util.Collection;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.util.Modules2;
 
 import com.b2international.snomed.ecl.ui.internal.EclActivator;
@@ -81,6 +84,29 @@ public class EclUiPlugin extends EclActivator {
 	/*Returns with true if the configuration element has the given attribute. Otherwise returns with false.*/
 	private static boolean hasAttributeOf(final IConfigurationElement element, final String attributeName) {
 		return newHashSet(element.getAttributeNames()).contains(attributeName);
+	}
+	
+	public final Image getImage(String relativePath) {
+		Image image = getImageRegistry().get(relativePath);
+		if (image == null) {
+			final ImageDescriptor imageDescriptor = getImageDescriptor(relativePath);
+			if (imageDescriptor != null) {
+				image = imageDescriptor.createImage();
+			}
+		}
+		return image;
+	}
+	
+	public final ImageDescriptor getImageDescriptor(String relativePath) {
+		
+		if (relativePath == null) return null;
+		
+		ImageDescriptor descriptor = getImageRegistry().getDescriptor(relativePath);
+		if (descriptor == null) {
+			descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(getBundle().getSymbolicName(), relativePath);
+			getImageRegistry().put(relativePath, descriptor);
+		}
+		return descriptor;
 	}
 	
 }

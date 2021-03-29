@@ -27,6 +27,7 @@ import com.b2international.snomed.ecl.ecl.BooleanValueEquals;
 import com.b2international.snomed.ecl.ecl.BooleanValueNotEquals;
 import com.b2international.snomed.ecl.ecl.Cardinality;
 import com.b2international.snomed.ecl.ecl.ChildOf;
+import com.b2international.snomed.ecl.ecl.ChildOrSelfOf;
 import com.b2international.snomed.ecl.ecl.DecimalValueEquals;
 import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThan;
 import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThanEquals;
@@ -52,6 +53,7 @@ import com.b2international.snomed.ecl.ecl.NestedRefinement;
 import com.b2international.snomed.ecl.ecl.OrExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.OrRefinement;
 import com.b2international.snomed.ecl.ecl.ParentOf;
+import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
 import com.b2international.snomed.ecl.ecl.StringValueEquals;
@@ -133,6 +135,9 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 				return; 
 			case EclPackage.CHILD_OF:
 				sequence_ChildOf(context, (ChildOf) semanticObject); 
+				return; 
+			case EclPackage.CHILD_OR_SELF_OF:
+				sequence_ChildOrSelfOf(context, (ChildOrSelfOf) semanticObject); 
 				return; 
 			case EclPackage.DECIMAL_VALUE_EQUALS:
 				sequence_DecimalValueEquals(context, (DecimalValueEquals) semanticObject); 
@@ -235,6 +240,9 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 				else break;
 			case EclPackage.PARENT_OF:
 				sequence_ParentOf(context, (ParentOf) semanticObject); 
+				return; 
+			case EclPackage.PARENT_OR_SELF_OF:
+				sequence_ParentOrSelfOf(context, (ParentOrSelfOf) semanticObject); 
 				return; 
 			case EclPackage.REFINED_EXPRESSION_CONSTRAINT:
 				sequence_RefinedExpressionConstraint(context, (RefinedExpressionConstraint) semanticObject); 
@@ -564,6 +572,36 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getChildOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns ChildOrSelfOf
+	 *     OrExpressionConstraint returns ChildOrSelfOf
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     AndExpressionConstraint returns ChildOrSelfOf
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     ExclusionExpressionConstraint returns ChildOrSelfOf
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     RefinedExpressionConstraint returns ChildOrSelfOf
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     DottedExpressionConstraint returns ChildOrSelfOf
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     SubExpressionConstraint returns ChildOrSelfOf
+	 *     ChildOrSelfOf returns ChildOrSelfOf
+	 *
+	 * Constraint:
+	 *     constraint=EclFocusConcept
+	 */
+	protected void sequence_ChildOrSelfOf(ISerializationContext context, ChildOrSelfOf semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.CHILD_OR_SELF_OF__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.CHILD_OR_SELF_OF__CONSTRAINT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getChildOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
 		feeder.finish();
 	}
 	
@@ -1167,6 +1205,36 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParentOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns ParentOrSelfOf
+	 *     OrExpressionConstraint returns ParentOrSelfOf
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     AndExpressionConstraint returns ParentOrSelfOf
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     ExclusionExpressionConstraint returns ParentOrSelfOf
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     RefinedExpressionConstraint returns ParentOrSelfOf
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     DottedExpressionConstraint returns ParentOrSelfOf
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     SubExpressionConstraint returns ParentOrSelfOf
+	 *     ParentOrSelfOf returns ParentOrSelfOf
+	 *
+	 * Constraint:
+	 *     constraint=EclFocusConcept
+	 */
+	protected void sequence_ParentOrSelfOf(ISerializationContext context, ParentOrSelfOf semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.PARENT_OR_SELF_OF__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.PARENT_OR_SELF_OF__CONSTRAINT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParentOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
 		feeder.finish();
 	}
 	

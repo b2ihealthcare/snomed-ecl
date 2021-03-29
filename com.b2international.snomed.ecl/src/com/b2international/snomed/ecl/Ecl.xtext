@@ -41,13 +41,16 @@ DottedExpressionConstraint returns ExpressionConstraint:
 	SubExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=SubExpressionConstraint)*;
 
 SubExpressionConstraint returns ExpressionConstraint:
-	ChildOf | DescendantOf | DescendantOrSelfOf | ParentOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
+	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
 
 EclFocusConcept returns ExpressionConstraint:
 	MemberOf | EclConceptReference | Any | NestedExpression;
 
 ChildOf:
 	LT_EM constraint=EclFocusConcept;
+
+ChildOrSelfOf:
+	DBL_LT_EM constraint=EclFocusConcept;
 
 DescendantOf:
 	LT constraint=EclFocusConcept;
@@ -57,6 +60,9 @@ DescendantOrSelfOf:
 
 ParentOf:
 	GT_EM constraint=EclFocusConcept;
+	
+ParentOrSelfOf:
+	DBL_GT_EM constraint=EclFocusConcept;
 
 AncestorOf:
 	GT constraint=EclFocusConcept;
@@ -300,8 +306,14 @@ terminal DBL_GT:
 terminal LT_EM:
 	'<!';
 
+terminal DBL_LT_EM:
+	'<<!';
+	
 terminal GT_EM:
 	'>!';
+
+terminal DBL_GT_EM:
+	'>>!';
 
 terminal GTE:
 	'>=';

@@ -316,6 +316,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleChildOrSelfOf
+entryRuleChildOrSelfOf
+:
+{ before(grammarAccess.getChildOrSelfOfRule()); }
+	 ruleChildOrSelfOf
+{ after(grammarAccess.getChildOrSelfOfRule()); } 
+	 EOF 
+;
+
+// Rule ChildOrSelfOf
+ruleChildOrSelfOf 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getChildOrSelfOfAccess().getGroup()); }
+		(rule__ChildOrSelfOf__Group__0)
+		{ after(grammarAccess.getChildOrSelfOfAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleDescendantOf
 entryRuleDescendantOf
 :
@@ -385,6 +410,31 @@ ruleParentOf
 		{ before(grammarAccess.getParentOfAccess().getGroup()); }
 		(rule__ParentOf__Group__0)
 		{ after(grammarAccess.getParentOfAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleParentOrSelfOf
+entryRuleParentOrSelfOf
+:
+{ before(grammarAccess.getParentOrSelfOfRule()); }
+	 ruleParentOrSelfOf
+{ after(grammarAccess.getParentOrSelfOfRule()); } 
+	 EOF 
+;
+
+// Rule ParentOrSelfOf
+ruleParentOrSelfOf 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getParentOrSelfOfAccess().getGroup()); }
+		(rule__ParentOrSelfOf__Group__0)
+		{ after(grammarAccess.getParentOrSelfOfAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1655,39 +1705,51 @@ rule__SubExpressionConstraint__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getDescendantOfParserRuleCall_1()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getChildOrSelfOfParserRuleCall_1()); }
+		ruleChildOrSelfOf
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getChildOrSelfOfParserRuleCall_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getDescendantOfParserRuleCall_2()); }
 		ruleDescendantOf
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getDescendantOfParserRuleCall_1()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getDescendantOfParserRuleCall_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getDescendantOrSelfOfParserRuleCall_2()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getDescendantOrSelfOfParserRuleCall_3()); }
 		ruleDescendantOrSelfOf
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getDescendantOrSelfOfParserRuleCall_2()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getDescendantOrSelfOfParserRuleCall_3()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getParentOfParserRuleCall_3()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getParentOfParserRuleCall_4()); }
 		ruleParentOf
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getParentOfParserRuleCall_3()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getParentOfParserRuleCall_4()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getAncestorOfParserRuleCall_4()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getParentOrSelfOfParserRuleCall_5()); }
+		ruleParentOrSelfOf
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getParentOrSelfOfParserRuleCall_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getAncestorOfParserRuleCall_6()); }
 		ruleAncestorOf
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getAncestorOfParserRuleCall_4()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getAncestorOfParserRuleCall_6()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getAncestorOrSelfOfParserRuleCall_5()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getAncestorOrSelfOfParserRuleCall_7()); }
 		ruleAncestorOrSelfOf
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getAncestorOrSelfOfParserRuleCall_5()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getAncestorOrSelfOfParserRuleCall_7()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_6()); }
+		{ before(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_8()); }
 		ruleEclFocusConcept
-		{ after(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_6()); }
+		{ after(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_8()); }
 	)
 ;
 finally {
@@ -3026,6 +3088,60 @@ finally {
 }
 
 
+rule__ChildOrSelfOf__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ChildOrSelfOf__Group__0__Impl
+	rule__ChildOrSelfOf__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChildOrSelfOf__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getChildOrSelfOfAccess().getDBL_LT_EMTerminalRuleCall_0()); }
+	RULE_DBL_LT_EM
+	{ after(grammarAccess.getChildOrSelfOfAccess().getDBL_LT_EMTerminalRuleCall_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChildOrSelfOf__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ChildOrSelfOf__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ChildOrSelfOf__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getChildOrSelfOfAccess().getConstraintAssignment_1()); }
+	(rule__ChildOrSelfOf__ConstraintAssignment_1)
+	{ after(grammarAccess.getChildOrSelfOfAccess().getConstraintAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__DescendantOf__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -3181,6 +3297,60 @@ rule__ParentOf__Group__1__Impl
 	{ before(grammarAccess.getParentOfAccess().getConstraintAssignment_1()); }
 	(rule__ParentOf__ConstraintAssignment_1)
 	{ after(grammarAccess.getParentOfAccess().getConstraintAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ParentOrSelfOf__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ParentOrSelfOf__Group__0__Impl
+	rule__ParentOrSelfOf__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ParentOrSelfOf__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getParentOrSelfOfAccess().getDBL_GT_EMTerminalRuleCall_0()); }
+	RULE_DBL_GT_EM
+	{ after(grammarAccess.getParentOrSelfOfAccess().getDBL_GT_EMTerminalRuleCall_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ParentOrSelfOf__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ParentOrSelfOf__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ParentOrSelfOf__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getParentOrSelfOfAccess().getConstraintAssignment_1()); }
+	(rule__ParentOrSelfOf__ConstraintAssignment_1)
+	{ after(grammarAccess.getParentOrSelfOfAccess().getConstraintAssignment_1()); }
 )
 ;
 finally {
@@ -6459,6 +6629,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ChildOrSelfOf__ConstraintAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getChildOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
+		ruleEclFocusConcept
+		{ after(grammarAccess.getChildOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__DescendantOf__ConstraintAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -6498,6 +6683,21 @@ rule__ParentOf__ConstraintAssignment_1
 		{ before(grammarAccess.getParentOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
 		ruleEclFocusConcept
 		{ after(grammarAccess.getParentOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ParentOrSelfOf__ConstraintAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getParentOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
+		ruleEclFocusConcept
+		{ after(grammarAccess.getParentOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); }
 	)
 ;
 finally {

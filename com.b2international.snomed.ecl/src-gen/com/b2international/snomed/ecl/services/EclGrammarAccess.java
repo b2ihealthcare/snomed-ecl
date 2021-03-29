@@ -28,11 +28,11 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
+import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
 @Singleton
-public class EclGrammarAccess extends AbstractGrammarElementFinder {
+public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
 	public class ScriptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.Script");
@@ -258,40 +258,50 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SubExpressionConstraint");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cChildOfParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDescendantOfParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDescendantOrSelfOfParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cParentOfParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cAncestorOfParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cAncestorOrSelfOfParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cEclFocusConceptParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cChildOrSelfOfParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDescendantOfParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDescendantOrSelfOfParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cParentOfParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cParentOrSelfOfParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cAncestorOfParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cAncestorOrSelfOfParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cEclFocusConceptParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//SubExpressionConstraint ExpressionConstraint:
-		//	ChildOf | DescendantOf | DescendantOrSelfOf | ParentOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
+		//	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf |
+		//	AncestorOrSelfOf | EclFocusConcept;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ChildOf | DescendantOf | DescendantOrSelfOf | ParentOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept
+		//ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf
+		//| EclFocusConcept
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ChildOf
 		public RuleCall getChildOfParserRuleCall_0() { return cChildOfParserRuleCall_0; }
 		
+		//ChildOrSelfOf
+		public RuleCall getChildOrSelfOfParserRuleCall_1() { return cChildOrSelfOfParserRuleCall_1; }
+		
 		//DescendantOf
-		public RuleCall getDescendantOfParserRuleCall_1() { return cDescendantOfParserRuleCall_1; }
+		public RuleCall getDescendantOfParserRuleCall_2() { return cDescendantOfParserRuleCall_2; }
 		
 		//DescendantOrSelfOf
-		public RuleCall getDescendantOrSelfOfParserRuleCall_2() { return cDescendantOrSelfOfParserRuleCall_2; }
+		public RuleCall getDescendantOrSelfOfParserRuleCall_3() { return cDescendantOrSelfOfParserRuleCall_3; }
 		
 		//ParentOf
-		public RuleCall getParentOfParserRuleCall_3() { return cParentOfParserRuleCall_3; }
+		public RuleCall getParentOfParserRuleCall_4() { return cParentOfParserRuleCall_4; }
+		
+		//ParentOrSelfOf
+		public RuleCall getParentOrSelfOfParserRuleCall_5() { return cParentOrSelfOfParserRuleCall_5; }
 		
 		//AncestorOf
-		public RuleCall getAncestorOfParserRuleCall_4() { return cAncestorOfParserRuleCall_4; }
+		public RuleCall getAncestorOfParserRuleCall_6() { return cAncestorOfParserRuleCall_6; }
 		
 		//AncestorOrSelfOf
-		public RuleCall getAncestorOrSelfOfParserRuleCall_5() { return cAncestorOrSelfOfParserRuleCall_5; }
+		public RuleCall getAncestorOrSelfOfParserRuleCall_7() { return cAncestorOrSelfOfParserRuleCall_7; }
 		
 		//EclFocusConcept
-		public RuleCall getEclFocusConceptParserRuleCall_6() { return cEclFocusConceptParserRuleCall_6; }
+		public RuleCall getEclFocusConceptParserRuleCall_8() { return cEclFocusConceptParserRuleCall_8; }
 	}
 	public class EclFocusConceptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EclFocusConcept");
@@ -336,6 +346,29 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LT_EM
 		public RuleCall getLT_EMTerminalRuleCall_0() { return cLT_EMTerminalRuleCall_0; }
+		
+		//constraint=EclFocusConcept
+		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
+		
+		//EclFocusConcept
+		public RuleCall getConstraintEclFocusConceptParserRuleCall_1_0() { return cConstraintEclFocusConceptParserRuleCall_1_0; }
+	}
+	public class ChildOrSelfOfElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ChildOrSelfOf");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cDBL_LT_EMTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cConstraintAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConstraintEclFocusConceptParserRuleCall_1_0 = (RuleCall)cConstraintAssignment_1.eContents().get(0);
+		
+		//ChildOrSelfOf:
+		//	DBL_LT_EM constraint=EclFocusConcept;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DBL_LT_EM constraint=EclFocusConcept
+		public Group getGroup() { return cGroup; }
+		
+		//DBL_LT_EM
+		public RuleCall getDBL_LT_EMTerminalRuleCall_0() { return cDBL_LT_EMTerminalRuleCall_0; }
 		
 		//constraint=EclFocusConcept
 		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
@@ -405,6 +438,29 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GT_EM
 		public RuleCall getGT_EMTerminalRuleCall_0() { return cGT_EMTerminalRuleCall_0; }
+		
+		//constraint=EclFocusConcept
+		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
+		
+		//EclFocusConcept
+		public RuleCall getConstraintEclFocusConceptParserRuleCall_1_0() { return cConstraintEclFocusConceptParserRuleCall_1_0; }
+	}
+	public class ParentOrSelfOfElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ParentOrSelfOf");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cDBL_GT_EMTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cConstraintAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConstraintEclFocusConceptParserRuleCall_1_0 = (RuleCall)cConstraintAssignment_1.eContents().get(0);
+		
+		//ParentOrSelfOf:
+		//	DBL_GT_EM constraint=EclFocusConcept;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DBL_GT_EM constraint=EclFocusConcept
+		public Group getGroup() { return cGroup; }
+		
+		//DBL_GT_EM
+		public RuleCall getDBL_GT_EMTerminalRuleCall_0() { return cDBL_GT_EMTerminalRuleCall_0; }
 		
 		//constraint=EclFocusConcept
 		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
@@ -1806,9 +1862,11 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 	private final SubExpressionConstraintElements pSubExpressionConstraint;
 	private final EclFocusConceptElements pEclFocusConcept;
 	private final ChildOfElements pChildOf;
+	private final ChildOrSelfOfElements pChildOrSelfOf;
 	private final DescendantOfElements pDescendantOf;
 	private final DescendantOrSelfOfElements pDescendantOrSelfOf;
 	private final ParentOfElements pParentOf;
+	private final ParentOrSelfOfElements pParentOrSelfOf;
 	private final AncestorOfElements pAncestorOf;
 	private final AncestorOrSelfOfElements pAncestorOrSelfOf;
 	private final MemberOfElements pMemberOf;
@@ -1884,7 +1942,9 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tDBL_LT;
 	private final TerminalRule tDBL_GT;
 	private final TerminalRule tLT_EM;
+	private final TerminalRule tDBL_LT_EM;
 	private final TerminalRule tGT_EM;
+	private final TerminalRule tDBL_GT_EM;
 	private final TerminalRule tGTE;
 	private final TerminalRule tLTE;
 	private final TerminalRule tHASH;
@@ -1908,9 +1968,11 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSubExpressionConstraint = new SubExpressionConstraintElements();
 		this.pEclFocusConcept = new EclFocusConceptElements();
 		this.pChildOf = new ChildOfElements();
+		this.pChildOrSelfOf = new ChildOrSelfOfElements();
 		this.pDescendantOf = new DescendantOfElements();
 		this.pDescendantOrSelfOf = new DescendantOrSelfOfElements();
 		this.pParentOf = new ParentOfElements();
+		this.pParentOrSelfOf = new ParentOrSelfOfElements();
 		this.pAncestorOf = new AncestorOfElements();
 		this.pAncestorOrSelfOf = new AncestorOrSelfOfElements();
 		this.pMemberOf = new MemberOfElements();
@@ -1986,7 +2048,9 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		this.tDBL_LT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_LT");
 		this.tDBL_GT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_GT");
 		this.tLT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LT_EM");
+		this.tDBL_LT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_LT_EM");
 		this.tGT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.GT_EM");
+		this.tDBL_GT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_GT_EM");
 		this.tGTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.GTE");
 		this.tLTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LTE");
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HASH");
@@ -2092,7 +2156,8 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SubExpressionConstraint ExpressionConstraint:
-	//	ChildOf | DescendantOf | DescendantOrSelfOf | ParentOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
+	//	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf |
+	//	AncestorOrSelfOf | EclFocusConcept;
 	public SubExpressionConstraintElements getSubExpressionConstraintAccess() {
 		return pSubExpressionConstraint;
 	}
@@ -2119,6 +2184,16 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getChildOfRule() {
 		return getChildOfAccess().getRule();
+	}
+	
+	//ChildOrSelfOf:
+	//	DBL_LT_EM constraint=EclFocusConcept;
+	public ChildOrSelfOfElements getChildOrSelfOfAccess() {
+		return pChildOrSelfOf;
+	}
+	
+	public ParserRule getChildOrSelfOfRule() {
+		return getChildOrSelfOfAccess().getRule();
 	}
 	
 	//DescendantOf:
@@ -2149,6 +2224,16 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getParentOfRule() {
 		return getParentOfAccess().getRule();
+	}
+	
+	//ParentOrSelfOf:
+	//	DBL_GT_EM constraint=EclFocusConcept;
+	public ParentOrSelfOfElements getParentOrSelfOfAccess() {
+		return pParentOrSelfOf;
+	}
+	
+	public ParserRule getParentOrSelfOfRule() {
+		return getParentOrSelfOfAccess().getRule();
 	}
 	
 	//AncestorOf:
@@ -2806,10 +2891,22 @@ public class EclGrammarAccess extends AbstractGrammarElementFinder {
 		return tLT_EM;
 	}
 	
+	//terminal DBL_LT_EM:
+	//	'<<!';
+	public TerminalRule getDBL_LT_EMRule() {
+		return tDBL_LT_EM;
+	}
+	
 	//terminal GT_EM:
 	//	'>!';
 	public TerminalRule getGT_EMRule() {
 		return tGT_EM;
+	}
+	
+	//terminal DBL_GT_EM:
+	//	'>>!';
+	public TerminalRule getDBL_GT_EMRule() {
+		return tDBL_GT_EM;
 	}
 	
 	//terminal GTE:

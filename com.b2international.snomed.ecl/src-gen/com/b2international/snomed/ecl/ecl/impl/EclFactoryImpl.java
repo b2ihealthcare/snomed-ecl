@@ -80,9 +80,11 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.SCRIPT: return createScript();
       case EclPackage.EXPRESSION_CONSTRAINT: return createExpressionConstraint();
       case EclPackage.CHILD_OF: return createChildOf();
+      case EclPackage.CHILD_OR_SELF_OF: return createChildOrSelfOf();
       case EclPackage.DESCENDANT_OF: return createDescendantOf();
       case EclPackage.DESCENDANT_OR_SELF_OF: return createDescendantOrSelfOf();
       case EclPackage.PARENT_OF: return createParentOf();
+      case EclPackage.PARENT_OR_SELF_OF: return createParentOrSelfOf();
       case EclPackage.ANCESTOR_OF: return createAncestorOf();
       case EclPackage.ANCESTOR_OR_SELF_OF: return createAncestorOrSelfOf();
       case EclPackage.MEMBER_OF: return createMemberOf();
@@ -169,6 +171,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public ChildOrSelfOf createChildOrSelfOf()
+  {
+    ChildOrSelfOfImpl childOrSelfOf = new ChildOrSelfOfImpl();
+    return childOrSelfOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DescendantOf createDescendantOf()
   {
     DescendantOfImpl descendantOf = new DescendantOfImpl();
@@ -197,6 +211,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     ParentOfImpl parentOf = new ParentOfImpl();
     return parentOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ParentOrSelfOf createParentOrSelfOf()
+  {
+    ParentOrSelfOfImpl parentOrSelfOf = new ParentOrSelfOfImpl();
+    return parentOrSelfOf;
   }
 
   /**

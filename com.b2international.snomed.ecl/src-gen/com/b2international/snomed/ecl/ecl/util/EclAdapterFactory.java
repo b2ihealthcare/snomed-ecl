@@ -103,6 +103,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createChildOfAdapter();
       }
       @Override
+      public Adapter caseChildOrSelfOf(ChildOrSelfOf object)
+      {
+        return createChildOrSelfOfAdapter();
+      }
+      @Override
       public Adapter caseDescendantOf(DescendantOf object)
       {
         return createDescendantOfAdapter();
@@ -116,6 +121,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseParentOf(ParentOf object)
       {
         return createParentOfAdapter();
+      }
+      @Override
+      public Adapter caseParentOrSelfOf(ParentOrSelfOf object)
+      {
+        return createParentOrSelfOfAdapter();
       }
       @Override
       public Adapter caseAncestorOf(AncestorOf object)
@@ -380,6 +390,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ChildOrSelfOf <em>Child Or Self Of</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ChildOrSelfOf
+   * @generated
+   */
+  public Adapter createChildOrSelfOfAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DescendantOf <em>Descendant Of</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -420,6 +445,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParentOfAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ParentOrSelfOf <em>Parent Or Self Of</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ParentOrSelfOf
+   * @generated
+   */
+  public Adapter createParentOrSelfOfAdapter()
   {
     return null;
   }

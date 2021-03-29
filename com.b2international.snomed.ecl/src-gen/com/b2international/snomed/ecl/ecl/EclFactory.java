@@ -63,6 +63,15 @@ public interface EclFactory extends EFactory
   ChildOf createChildOf();
 
   /**
+   * Returns a new object of class '<em>Child Or Self Of</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Child Or Self Of</em>'.
+   * @generated
+   */
+  ChildOrSelfOf createChildOrSelfOf();
+
+  /**
    * Returns a new object of class '<em>Descendant Of</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -88,6 +97,15 @@ public interface EclFactory extends EFactory
    * @generated
    */
   ParentOf createParentOf();
+
+  /**
+   * Returns a new object of class '<em>Parent Or Self Of</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parent Or Self Of</em>'.
+   * @generated
+   */
+  ParentOrSelfOf createParentOrSelfOf();
 
   /**
    * Returns a new object of class '<em>Ancestor Of</em>'.

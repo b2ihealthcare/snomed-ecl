@@ -78,11 +78,11 @@ public class ConceptXtextTemplateProposal extends XtextTemplateProposal {
 	
 	private Image getImage(Template template) {
 		if ("Concept".equals(getTemplate().getName())) {
-			return EclUiPlugin.getInstance().getImage(FIND_PATH);
+			return EclUiPlugin.getDefault().getImage(FIND_PATH);
 		} else if ("Template".equals(getTemplate().getName())) {
-			return EclUiPlugin.getInstance().getImage(TEMPLATE);
+			return EclUiPlugin.getDefault().getImage(TEMPLATE);
 		} else {
-			return EclUiPlugin.getInstance().getImage(ATTRIBUTE_ICON_PATH);
+			return EclUiPlugin.getDefault().getImage(ATTRIBUTE_ICON_PATH);
 		}
 	}
 	
