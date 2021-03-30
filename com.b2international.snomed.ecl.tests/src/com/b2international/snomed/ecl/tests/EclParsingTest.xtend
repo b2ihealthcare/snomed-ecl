@@ -109,7 +109,7 @@ class EclParsingTest {
 			<! 404684003 |clinical finding|
 		'''.assertNoErrors
 	}
-
+	
 	@Test
 	def void test_6_1_5_AncestorOf_1() {
 		'''
@@ -142,6 +142,20 @@ class EclParsingTest {
 	def void test_6_1_9_Any_1() {
 		'''
 			*
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_6_1_10_ChildOrSelfOf_1() {
+		'''
+			<<! 404684003 |clinical finding|
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_6_1_11_ParentOrSelfOf_1() {
+		'''
+			>>! 404684003 |clinical finding|
 		'''.assertNoErrors
 	}
 
