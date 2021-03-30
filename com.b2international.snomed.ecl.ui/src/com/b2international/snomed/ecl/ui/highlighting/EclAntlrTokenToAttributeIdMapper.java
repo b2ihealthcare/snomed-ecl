@@ -15,11 +15,13 @@
  */
 package com.b2international.snomed.ecl.ui.highlighting;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 
-import com.b2international.snomed.ecl.ui.EclTokens;
+import com.b2international.snomed.ecl.ide.contentassist.antlr.internal.InternalEclParser;
+import com.b2international.snomed.ecl.ui.EclHighlightingRuleIDs;
 
 
 /**
@@ -28,34 +30,97 @@ import com.b2international.snomed.ecl.ui.EclTokens;
  */
 public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttributeIdMapper {
 
-	public final static String RED_TOKENS = "RED_TOKENS";
-	public static final String PURPLE_TOKENS = "PURPLE_TOKENS";
-	public static final String GREEN_TOKENS = "GREEN_TOKENS";
-	public static final String BOOLEAN = "BOOLEAN";
-	private static final List<String> BOOLEANS_LIST = List.of("'true'", "'false'");
-
+	private static final String[] tokenNames = InternalEclParser.tokenNames;
+	
+	private static final Set<String> RED_TOKENS = buildRedTokens();
+	private static final Set<String> PURPLE_TOKENS = buildPurpleTokens();
+	private static final Set<String> GREEN_TOKENS = buildGreenTokens();
+	private static final Set<String> BLUE_TOKENS = buildBlueTokens();
+	
+	
+	private static Set<String> buildRedTokens() {
+		final Set<String> redtokens = new HashSet<String>();
+		redtokens.add(tokenNames[InternalEclParser.RULE_COLON]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_PLUS]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_CURLY_OPEN]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_CURLY_CLOSE]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_EQUAL]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_CONJUNCTION]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DISJUNCTION]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_ROUND_OPEN]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_ROUND_CLOSE]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_COMMA]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_CARET]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_GT]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_GTE]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_LT]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_LTE]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_NOT_EQUAL]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_TO]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_HASH]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_EXCLUSION]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_REVERSED]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_LT]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_GT]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_LT_EM]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_GT_EM]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_SQUARE_OPEN]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_SQUARE_CLOSE]);
+		
+		redtokens.add(tokenNames[InternalEclParser.RULE_ZERO]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DIGIT_NONZERO]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_WILDCARD]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DASH]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DOT]);
+		return redtokens;
+	}
+	
+	private static Set<String> buildPurpleTokens() {
+		final Set<String> purpletokens = new HashSet<String>();
+		purpletokens.add(tokenNames[InternalEclParser.RULE_STRING]);
+		return purpletokens;
+	}
+	
+	private static Set<String> buildGreenTokens() {
+		final Set<String> greentokens = new HashSet<String>();
+		greentokens.add(tokenNames[InternalEclParser.RULE_SL_COMMENT]);
+		greentokens.add(tokenNames[InternalEclParser.RULE_ML_COMMENT]);
+		return greentokens;
+	}
+	
+	private static Set<String> buildBlueTokens() {
+		final Set<String> bluetokens = new HashSet<String>();
+		bluetokens.add(tokenNames[InternalEclParser.True]);
+		bluetokens.add(tokenNames[InternalEclParser.False]);
+		return bluetokens;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper#calculateId(java.lang.String, int)
 	 */
-	static int counter =0;
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
 
-		if (EclTokens.RED_TOKENS.contains(tokenName)) {
-			return RED_TOKENS;
+		if (RED_TOKENS.contains(tokenName)) {
+			return EclHighlightingRuleIDs.RED_TOKENS_RULE_ID;
 		}
 		
-		if (EclTokens.PURPLE_TOKENS.contains(tokenName)) {
-			return PURPLE_TOKENS;
+		if (PURPLE_TOKENS.contains(tokenName)) {
+			return EclHighlightingRuleIDs.PURPLE_TOKENS_RULE_ID;
 		}
 		
-		if (EclTokens.GREEN_TOKENS.contains(tokenName)) {
-			return GREEN_TOKENS;
+		if (GREEN_TOKENS.contains(tokenName)) {
+			return EclHighlightingRuleIDs.GREEN_TOKENS_RULE_ID;
 		}
 
-		if(BOOLEANS_LIST.contains(tokenName)) {
-			return BOOLEAN;
+		if(BLUE_TOKENS.contains(tokenName)) {
+			return EclHighlightingRuleIDs.BLUE_TOKENS_RULE_ID;
 		}
 		
 		return tokenName;

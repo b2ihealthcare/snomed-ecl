@@ -27,7 +27,7 @@ import com.b2international.snomed.ecl.ui.highlighting.EclSemanticHighlightingCal
 public class EclIdeModule extends AbstractEclIdeModule {
 	
 	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
-		return EclAntlrTokenToAttributeIdMapper.class;
+		return EclAntlrTokenToAttributeIdMapper.class ;
 	}
 	
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {

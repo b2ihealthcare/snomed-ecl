@@ -20,7 +20,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
-import com.b2international.snomed.ecl.ui.EclTokens;
+import com.b2international.snomed.ecl.ui.EclHighlightingRuleIDs;
 
 
 /**
@@ -30,13 +30,13 @@ import com.b2international.snomed.ecl.ui.EclTokens;
 public class EclHighlightingConfiguration implements IHighlightingConfiguration {
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.RED_TOKENS, "Grammar constructs", redStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.PURPLE_TOKENS, "Strings", purpleStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.GREEN_TOKENS, "Comments", greenStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.BOOLEAN, "Booleans", booleanStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.SNOMED_IDENTIFIER, "Snomed identifiers", snomedIdentifierStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.TERM_STRING, "Term strings", termStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.PIPE, "Pipes", pipeStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.RED_TOKENS_RULE_ID, "Grammar constructs", redStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.PURPLE_TOKENS_RULE_ID, "Strings", purpleStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.GREEN_TOKENS_RULE_ID, "Comments", greenStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.BLUE_TOKENS_RULE_ID, "Booleans", blueStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.SNOMED_IDENTIFIER, "Snomed identifiers", snomedIdentifierStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.TERM_STRING, "Term strings", termStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.PIPE, "Pipes", pipeStyle());
 	}
 
 	private TextStyle redStyle() {
@@ -81,7 +81,7 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 		return textStyle;
 	}
 	
-	private TextStyle booleanStyle() {
+	private TextStyle blueStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(0, 0, 170));
