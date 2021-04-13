@@ -77,6 +77,8 @@ public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttrib
 		redtokens.add(tokenNames[InternalEclParser.RULE_WILDCARD]);
 		redtokens.add(tokenNames[InternalEclParser.RULE_DASH]);
 		redtokens.add(tokenNames[InternalEclParser.RULE_DOT]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_GT_EM]);
+		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_LT_EM]);
 		return redtokens;
 	}
 	
