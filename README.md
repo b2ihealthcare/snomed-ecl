@@ -3,24 +3,29 @@
 SNOMED CT Expression Constraint Language Implementation with IDE integration(s), user interface using Xtext.
 
 [![build status](https://img.shields.io/github/workflow/status/b2ihealthcare/snomed-ecl/Java%20CI/main?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/actions)
-[![latest release](https://img.shields.io/github/tag/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.3.0)
+[![latest release](https://img.shields.io/github/tag/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.4.0)
 [![GitHub](https://img.shields.io/github/license/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/blob/main/LICENSE)
 
 # Documentation
 
 See the official documentation [here](http://snomed.org/ecl)
 
+# Supported versions
+
+* 1.4.0 - https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.4.0
+* 1.3.0 - https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.3.0
+
 # Building from source
 
 SNOMED CT ECL uses Maven for its build system. In order to run the build and create a p2 update site and the maven packages simply run the following command in the cloned directory. 
 
-    mvn clean package
+    ./mvnw clean package
 
 The packages can be found in the `com.b2international.snomed.ecl.update/target` folder, when the build is complete.
 
 To run the test cases, use the following command:
 
-    mvn clean verify
+    ./mvnw clean verify
 
 # Contributing
 
