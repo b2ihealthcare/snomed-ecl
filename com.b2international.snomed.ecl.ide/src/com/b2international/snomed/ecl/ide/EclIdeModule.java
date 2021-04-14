@@ -15,25 +15,16 @@
  */
 package com.b2international.snomed.ecl.ide;
 
-import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
-import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 
-import com.b2international.snomed.ecl.ui.highlighting.EclAntlrTokenToAttributeIdMapper;
-import com.b2international.snomed.ecl.ui.highlighting.EclSemanticHighlightingCalculator;
+import com.b2international.snomed.ecl.ide.contentassist.EclIdeProposalProvider;
 
 /**
  * Use this class to register ide components.
  */
 public class EclIdeModule extends AbstractEclIdeModule {
 	
-	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
-		return EclAntlrTokenToAttributeIdMapper.class;
+	public Class<? extends IdeContentProposalProvider> bindIdeContentProposalProvider() {
+		return EclIdeProposalProvider.class;
 	}
-	
-	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
-		return EclSemanticHighlightingCalculator.class;
-	}
-	
 }
-
-

@@ -13,300 +13,207 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl.ui.contentassist;
+package com.b2international.snomed.ecl.ide.contentassist;
 
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.contentassist.ICompletionProposal;
-import org.eclipse.jface.viewers.StyledString;
-import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.graphics.TextStyle;
-import org.eclipse.text.edits.InsertEdit;
-import org.eclipse.text.edits.ReplaceEdit;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.utils.EditorUtils;
+import org.eclipse.xtext.ide.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ide.editor.contentassist.ContentAssistEntry;
+import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor;
 
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
-import com.b2international.snomed.ecl.ui.SnomedConceptProvider;
-import com.b2international.snomed.ecl.ui.SnomedConceptProvider.Concept;
-import com.b2international.snomed.ecl.ui.internal.EclActivator;
-import com.google.common.base.Strings;
-import com.google.inject.Inject;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.
  */
-public class EclProposalProvider extends AbstractEclProposalProvider {
-
-	private static final Styler GRAY = new Styler() {
-		
-		private static final String INACTIVE_GRAY = "192,192,192";
-		
-		@Override
-		public void applyStyles(TextStyle textStyle) {
-			textStyle.foreground = EditorUtils.colorFromString(INACTIVE_GRAY);
-		}
-		
-	};
-	
-	@Inject
-	private SnomedConceptProvider termProvider;
+public class EclIdeProposalProvider extends AbstractEclIdeProposalProvider {
 	
 	@Override
-	public void complete_TERM_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_TERM_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		if (model instanceof EclConceptReference) {
-			EclConceptReference conceptRef = (EclConceptReference) model;
-
-			if (conceptRef.getId() != null && conceptRef.getId().length() > 0 && (Strings.isNullOrEmpty(conceptRef.getTerm()) || !conceptRef.getTerm().endsWith("|"))) {
-				String conceptId = conceptRef.getId();
-				
-				final Concept concept = termProvider.getConcept(conceptId);
-				
-				if (concept == null) {
-					return;
-				}
-				
-				IXtextDocument document = context.getDocument();
-
-				try {
-					final int offset = context.getOffset() - context.getPrefix().length();
-					final String textToInsert = "|" + concept.getTerm() + "|";
-					int lengthToInsert = textToInsert.length();
-					if (offset + lengthToInsert > document.getLength()) {
-						lengthToInsert = document.getLength() - offset;
-					}
-
-					if (context.getPrefix().length() > 0) {
-						ReplaceEdit replaceEdit = new ReplaceEdit(offset, context.getPrefix().length(), textToInsert);
-						replaceEdit.apply(document);
-					} else {
-						InsertEdit insertEdit = new InsertEdit(offset, textToInsert);
-						insertEdit.apply(document);
-					}
-
-					// set the cursor to the end of the inserted string
-					IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-							.getActiveEditor();
-
-					if (editor instanceof XtextEditor) {
-						((XtextEditor) editor).selectAndReveal(offset + textToInsert.length(), 0);
-					}
-				} catch (BadLocationException e) {
-					EclActivator.getInstance().getLog().log(new Status(Status.ERROR, EclActivator.PLUGIN_ID, e.getMessage(), e));
-				}
-			}
+			ContentAssistEntry entry = getProposalCreator().createProposal("|term|", context, ContentAssistEntry.KIND_TEXT, null);
+			acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry)); 
 		}
 	}
 	
 	@Override
 	public void complete_CONJUNCTION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		 acceptor.accept(createKeywordProposal("AND", "Conjunction", context));
+			IIdeContentProposalAcceptor acceptor) {
+		 createKeywordProposal("AND", "Conjunction", context, acceptor);
 	}
 	
 	@Override
 	public void complete_DISJUNCTION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		acceptor.accept(createKeywordProposal("OR", "Disjunction", context));
+			IIdeContentProposalAcceptor acceptor) {
+		createKeywordProposal("OR", "Disjunction", context, acceptor);
 	}
 	
 	@Override
 	public void complete_EXCLUSION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		acceptor.accept(createKeywordProposal("MINUS", "Exclusion", context));
+			IIdeContentProposalAcceptor acceptor) {
+		createKeywordProposal("MINUS", "Exclusion", context, acceptor);
 	}
 	
 	@Override
 	public void complete_COLON(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Refined expression constraint", acceptor);
 	}
 
 	@Override
 	public void complete_CURLY_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Opening attribute group",acceptor);
 	}
 
 	@Override
 	public void complete_CURLY_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Closing attribute group", acceptor);
 	}
 
 	@Override
 	public void complete_SQUARE_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Cardinality", acceptor);
 	}
 
 	@Override
 	public void complete_SQUARE_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Cardinality", acceptor);
 	}
 
 	@Override
 	public void complete_PLUS(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Numeric value", acceptor);
 	}
 
 	@Override
 	public void complete_DASH(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Numeric value", acceptor);
 	}
 
 	@Override
 	public void complete_CARET(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Member of" , acceptor);
 	}
 
 	@Override
 	public void complete_DOT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Decimal", acceptor);
 	}
 
 	@Override
 	public void complete_WILDCARD(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Any", acceptor);
 	}
 
 	@Override
 	public void complete_EQUAL(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Equals", acceptor);
 	}
 
 	@Override
 	public void complete_NOT_EQUAL(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Not equals", acceptor);
 	}
 
 	@Override
 	public void complete_LT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Descendant of", acceptor);
 	}
 
 	@Override
 	public void complete_GT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Ancestor of", acceptor);
 	}
 
 	@Override
 	public void complete_DBL_LT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Descendant or self of", acceptor);
 	}
 
 	@Override
 	public void complete_DBL_GT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Ancestor or self of", acceptor);
 	}
 
 	@Override
 	public void complete_LT_EM(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Child of", acceptor);
 	}
 
 	@Override
 	public void complete_GT_EM(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Parent of", acceptor);
 	}
 
 	@Override
 	public void complete_GTE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Greater than or equals", acceptor);
 	}
 
 	@Override
 	public void complete_LTE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Less than or equals", acceptor);
 	}
 
 	@Override
 	public void complete_HASH(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, acceptor);
 	}
 	
 	@Override
-	public void complete_REVERSED(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_REVERSED(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Reverse attribute", acceptor);
 	}
 	
 	@Override
-	public void complete_TO(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_TO(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, acceptor);
 	}
 	
 	@Override
-	public void complete_ROUND_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_ROUND_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Closing nested expression", acceptor);
 	}
 	
 	@Override
-	public void complete_ROUND_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_ROUND_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(ruleCall, context, "Opening nested expression", acceptor);
 	}
 	
 	protected void createKeywordProposal(AbstractElement element, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		createKeywordProposal(element, context, null, acceptor);
 	}
 	
-	
-	@Override
-	protected StyledString getKeywordDisplayString(Keyword keyword) {
-		StyledString result = new StyledString(keyword.getValue());
-		
-		String explanation = getKeywordExplanation(keyword.getValue());
-		if (!Strings.isNullOrEmpty(explanation)) {
-			result.append(" - ", GRAY);
-			result.append(explanation, GRAY);
-		}
-		
-		return result;
-	}
-	
-	protected String getKeywordExplanation(String keyword) {
-		switch (keyword) {
-		case ",": return "Conjunction";
-		case "AND": return "Conjunction";
-		case "OR": return "Union (Disjunction)";
-		case "MINUS": return "Exclusion";
-		default: return "";
-		}
-	}
-	
 	protected void createKeywordProposal(AbstractElement element, ContentAssistContext context, String explanation,
-			ICompletionProposalAcceptor acceptor) {
+			IIdeContentProposalAcceptor acceptor) {
 		if (element instanceof Keyword) {
 			Keyword keyword = (Keyword) element;
-			acceptor.accept(createKeywordProposal(keyword.getValue(), explanation, context));
+			createKeywordProposal(keyword.getValue(), explanation, context, acceptor);
 		} else if (element instanceof RuleCall) {
 			final RuleCall ruleCall = (RuleCall) element;
 			final AbstractElement alternatives = ruleCall.getRule().getAlternatives();
@@ -318,8 +225,10 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 		} 
 	}
 
-	protected ICompletionProposal createKeywordProposal(String keyword, String explanation, ContentAssistContext context) {
-		return createCompletionProposal(keyword, explanation == null ? null : new StyledString(keyword).append(new StyledString(String.format(" - %s", explanation), GRAY)), null, context);
+	protected void createKeywordProposal(String keyword, String explanation, ContentAssistContext context,
+			IIdeContentProposalAcceptor acceptor) {
+		ContentAssistEntry entry = getProposalCreator().createProposal(keyword, context,
+				ContentAssistEntry.KIND_KEYWORD, e -> e.setDescription(explanation));
+		acceptor.accept(entry, getProposalPriorities().getKeywordPriority(keyword, entry));
 	}
-	
 }

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.b2international.snomed.ecl.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: SNOMED CT Expression Constraint Language IDE Plug-in
+Bundle-Vendor: B2i Healthcare
+Bundle-Version: 1.5.0.qualifier
+Bundle-SymbolicName: com.b2international.snomed.ecl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.b2international.snomed.ecl;visibility:=reexport,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.b2international.snomed.ecl.ide.contentassist.antlr,
+ com.b2international.snomed.ecl.ide.contentassist.antlr.internal,
+ com.b2international.snomed.ecl.ide.contentassist.antlr.lexer

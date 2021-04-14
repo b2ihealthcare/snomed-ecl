@@ -28,9 +28,9 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateProposal;
 
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider;
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider.Concept;
 import com.b2international.snomed.ecl.ui.EclUiPlugin;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider.Concept;
 import com.b2international.snomed.ecl.ui.internal.EclActivator;
 
 /**

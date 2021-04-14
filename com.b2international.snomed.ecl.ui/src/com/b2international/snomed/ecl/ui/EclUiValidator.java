@@ -19,8 +19,7 @@ import org.eclipse.xtext.validation.Check;
 
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider;
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider.Concept;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider.Concept;
 import com.b2international.snomed.ecl.validation.EclValidator;
 import com.google.inject.Inject;
 
