@@ -24,4 +24,7 @@ import com.b2international.snomed.ecl.ide.contentassist.EclIdeProposalProvider;
  */
 public class EclIdeModule extends AbstractEclIdeModule {
 	
+	public Class<? extends IdeContentProposalProvider> bindIdeContentProposalProvider() {
+		return EclIdeProposalProvider.class;
+	}
 }
