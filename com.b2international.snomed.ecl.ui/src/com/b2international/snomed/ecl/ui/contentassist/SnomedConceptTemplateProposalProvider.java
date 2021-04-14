@@ -25,7 +25,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.templates.ContextTypeIdHelper;
 import org.eclipse.xtext.ui.editor.templates.DefaultTemplateProposalProvider;
 
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

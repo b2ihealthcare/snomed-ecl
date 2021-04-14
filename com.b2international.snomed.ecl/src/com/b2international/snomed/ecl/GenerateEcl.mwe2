@@ -45,7 +45,6 @@ Workflow {
 				rootPath = rootPath
 				genericIde = {
                     enabled = true
-                    name = "com.b2international.snomed.ecl.ui"
 				}
 				runtimeTest = {
 					enabled = true

@@ -52,6 +52,14 @@ public class EclUiModule extends AbstractEclUiModule {
 		return EclHighlightingConfiguration.class;
 	}
 	
+	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
+		return EclAntlrTokenToAttributeIdMapper.class;
+	}
+	
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
+		return EclSemanticHighlightingCalculator.class;
+	}
+	
 	@SingletonBinding(eager = true)
 	public Class<? extends EclValidator> bindEclValidator() {
 		return EclUiValidator.class;

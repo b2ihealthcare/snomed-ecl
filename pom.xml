@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.b2international</groupId>
 	<artifactId>ecl-parent</artifactId>
-	<version>1.4.0</version>
+	<version>1.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -26,15 +26,16 @@
 		
 		<!-- Deployment -->
 		<maven.repository.id>nexus_deployment</maven.repository.id>
-		<nexus.url>https://nexus.b2i.sg</nexus.url>
-		<nexus.releases.url>${nexus.url}/repository/maven-releases</nexus.releases.url>
-		<nexus.snapshots.url>${nexus.url}/repository/maven-snapshots</nexus.snapshots.url>
+		<maven.releases.repository>https://nexus.b2i.sg/repository/maven-releases</maven.releases.repository>
+		<maven.snapshots.repository>https://nexus.b2i.sg/repository/maven-snapshots</maven.snapshots.repository>
+	
 	</properties>
 	
 	<modules>
 		<module>com.b2international.snomed.ecl</module>
 		<module>com.b2international.snomed.ecl.tests</module>
 		<module>com.b2international.snomed.ecl.feature</module>
+		<module>com.b2international.snomed.ecl.ide</module>
 		<module>com.b2international.snomed.ecl.ui</module>
 		<module>com.b2international.snomed.ecl.ui.feature</module>
 		<module>com.b2international.snomed.ecl.update</module>
@@ -191,11 +192,11 @@
 	<distributionManagement>
 		<repository>
 			<id>${maven.repository.id}</id>
-			<url>${nexus.releases.url}</url>
+			<url>${maven.releases.repository}</url>
 		</repository>
 		<snapshotRepository>
 			<id>${maven.repository.id}</id>
-			<url>${nexus.snapshots.url}</url>
+			<url>${maven.snapshots.repository}</url>
 		</snapshotRepository>
 	</distributionManagement>
 
