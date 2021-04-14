@@ -35,6 +35,7 @@
 		<module>com.b2international.snomed.ecl</module>
 		<module>com.b2international.snomed.ecl.tests</module>
 		<module>com.b2international.snomed.ecl.feature</module>
+		<module>com.b2international.snomed.ecl.ide</module>
 		<module>com.b2international.snomed.ecl.ui</module>
 		<module>com.b2international.snomed.ecl.ui.feature</module>
 		<module>com.b2international.snomed.ecl.update</module>
