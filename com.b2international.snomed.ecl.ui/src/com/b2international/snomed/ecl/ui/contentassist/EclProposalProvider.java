@@ -37,8 +37,8 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider;
-import com.b2international.snomed.ecl.ide.SnomedConceptProvider.Concept;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider;
+import com.b2international.snomed.ecl.ui.SnomedConceptProvider.Concept;
 import com.b2international.snomed.ecl.ui.internal.EclActivator;
 import com.google.common.base.Strings;
 import com.google.inject.Inject;
