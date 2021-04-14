@@ -2,7 +2,7 @@
 <feature
       id="com.b2international.snomed.ecl.feature"
       label="SNOMED CT Expression Constraint Language Core Feature"
-      version="1.4.0"
+      version="1.5.0.qualifier"
       provider-name="B2i Healthcare">
 
    <description url="http://www.example.com/description">
