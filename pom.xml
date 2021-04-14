@@ -26,9 +26,9 @@
 		
 		<!-- Deployment -->
 		<maven.repository.id>nexus_deployment</maven.repository.id>
-		<nexus.url>https://nexus.b2i.sg</nexus.url>
-		<nexus.releases.url>${nexus.url}/repository/maven-releases</nexus.releases.url>
-		<nexus.snapshots.url>${nexus.url}/repository/maven-snapshots</nexus.snapshots.url>
+		<maven.releases.repository>https://nexus.b2i.sg/repository/maven-releases</maven.releases.repository>
+		<maven.snapshots.repository>https://nexus.b2i.sg/repository/maven-snapshots</maven.snapshots.repository>
+	
 	</properties>
 	
 	<modules>
@@ -191,11 +191,11 @@
 	<distributionManagement>
 		<repository>
 			<id>${maven.repository.id}</id>
-			<url>${nexus.releases.url}</url>
+			<url>${maven.releases.repository}</url>
 		</repository>
 		<snapshotRepository>
 			<id>${maven.repository.id}</id>
-			<url>${nexus.snapshots.url}</url>
+			<url>${maven.snapshots.repository}</url>
 		</snapshotRepository>
 	</distributionManagement>
 
