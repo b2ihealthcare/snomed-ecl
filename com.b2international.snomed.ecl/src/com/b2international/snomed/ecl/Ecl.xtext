@@ -28,8 +28,7 @@ OrExpressionConstraint returns ExpressionConstraint:
 	AndExpressionConstraint ({OrExpressionConstraint.left=current} DISJUNCTION right=AndExpressionConstraint)*;
 
 AndExpressionConstraint returns ExpressionConstraint:
-	ExclusionExpressionConstraint ({AndExpressionConstraint.left=current} (CONJUNCTION | COMMA)
-	right=ExclusionExpressionConstraint)*;
+	ExclusionExpressionConstraint ({AndExpressionConstraint.left=current} (CONJUNCTION | COMMA) right=ExclusionExpressionConstraint)*;
 
 ExclusionExpressionConstraint returns ExpressionConstraint:
 	RefinedExpressionConstraint ({ExclusionExpressionConstraint.left=current} EXCLUSION right=RefinedExpressionConstraint)?;
@@ -41,11 +40,11 @@ DottedExpressionConstraint returns ExpressionConstraint:
 	SubExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=SubExpressionConstraint)*;
 
 SubExpressionConstraint returns ExpressionConstraint:
-	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
+	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept | FilterConstraint;
 
 EclFocusConcept returns ExpressionConstraint:
 	MemberOf | EclConceptReference | Any | NestedExpression;
-
+	
 ChildOf:
 	LT_EM constraint=EclFocusConcept;
 
@@ -75,6 +74,9 @@ MemberOf:
 
 EclConceptReference:
 	id=SnomedIdentifier (term=TERM_STRING)?;
+
+EclConceptReferenceSet:
+	ROUND_OPEN concepts+=EclConceptReference ( concepts+=EclConceptReference)* ROUND_CLOSE; 
 
 Any:
 	WILDCARD {Any};
@@ -198,6 +200,72 @@ DecimalValueLessThanEquals:
 
 NestedExpression:
 	ROUND_OPEN nested=ExpressionConstraint ROUND_CLOSE;
+
+// filters
+
+FilterConstraint:
+	DOUBLE_CURLY_OPEN Filter DOUBLE_CURLY_CLOSE;
+
+Filter:
+	DisjunctionFilter;
+
+DisjunctionFilter returns Filter:
+	ConjunctionFilter ({DisjunctionFilter.left=current} DISJUNCTION right=ConjunctionFilter)*;
+
+ConjunctionFilter returns Filter:
+	ExclusionFilter ({ConjunctionFilter.left=current} (CONJUNCTION | COMMA) right=ExclusionFilter)*;
+
+ExclusionFilter returns Filter:
+	PropertyFilter ({ExclusionFilter.left=current} EXCLUSION right=PropertyFilter)?;
+
+NestedFilter:
+	ROUND_OPEN nested=Filter ROUND_CLOSE;
+
+PropertyFilter:
+	TermFilter | LanguageCodeFilter 
+//	| PreferredInFilter | AcceptableInFilter | LanguageRefSetFilter | TypeFilter
+	| NestedFilter;
+ 
+TermFilter:
+	TERM_KEYWORD EQUAL (TypedTermFilter | TypedTermFilterSet);
+
+TypedTermFilter:
+	(lexicalSearchType=LexicalSearchType COLON)? term=STRING; // no special treatment for the term filter STRING, we allow everything for any lexical search type
+
+TypedTermFilterSet:
+	ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
+
+// TODO not sure if we can support mixed cases here, for now it is not supported
+enum LexicalSearchType:
+	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact"; // regex and exact match is an extension to ECL 1.5
+
+LanguageCodeFilter:
+	LANGUAGE_KEYWORD EQUAL (languageCodes+=STRING | ROUND_OPEN languageCodes+=STRING (languageCodes+=STRING)* ROUND_CLOSE);
+
+//typeFilter = typeIdFilter / typeTokenFilter
+//typeIdFilter = typeId ws booleanComparisonOperator ws (eclConceptReference / eclConceptReferenceSet)
+//typeId = ("t"/"T") ("y"/"Y") ("p"/"P") ("e"/"E") ("i"/"I") ("d"/"D")
+//typeTokenFilter = type ws booleanComparisonOperator ws (typeToken / typeTokenSet)
+//type = ("t"/"T") ("y"/"Y") ("p"/"P") ("e"/"E")
+//typeToken = synonym / fullySpecifiedName / definition
+//typeTokenSet = "(" ws typeToken *(mws typeToken) ws ")"
+//synonym = ("s"/"S") ("y"/"Y") ("n"/"N")
+//fullySpecifiedName = ("f"/"F") ("s"/"S") ("n"/"N")
+//definition = ("d"/"D") ("e"/"E") ("f"/"F")
+//dialectFilter = (dialectIdFilter / dialectAliasFilter) [ ws acceptabilitySet ]
+//dialectIdFilter = dialectId ws booleanComparisonOperator ws (eclConceptReference / dialectIdSet)
+//dialectId = ("d"/"D") ("i"/"I") ("a"/"A") ("l"/"L") ("e"/"E") ("c"/"C") ("t"/"T") ("i"/"I") ("d"/"D")
+//dialectAliasFilter = dialect ws booleanComparisonOperator ws (dialectAlias / dialectAliasSet)
+//dialect = ("d"/"D") ("i"/"I") ("a"/"A") ("l"/"L") ("e"/"E") ("c"/"C") ("t"/"T")
+//dialectAlias = alpha *( dash / alpha / integerValue)
+//dialectAliasSet = "(" ws dialectAlias [ws acceptabilitySet] *(mws dialectAlias [ws acceptabilitySet] ) ws ")"
+//dialectIdSet = "(" ws eclConceptReference [ws acceptabilitySet] *(mws eclConceptReference [ws acceptabilitySet] ) ws ")"
+//acceptabilitySet = acceptabilityIdSet / acceptabilityTokenSet
+//acceptabilityIdSet = eclConceptReferenceSet
+//acceptabilityTokenSet = "(" ws acceptabilityToken *(mws acceptabilityToken) ws ")"
+//acceptabilityToken = acceptable / preferred
+//acceptable = ("a"/"A") ("c"/"C") ("c"/"C") ("e"/"E") ("p"/"P") ("t"/"T")
+//preferred = ("p"/"P") ("r"/"R") ("e"/"E") ("f"/"F") ("e"/"E") ("r"/"R")
 
 // hidden grammar rules
 SnomedIdentifier hidden():
@@ -323,6 +391,21 @@ terminal LTE:
 
 terminal HASH:
 	'#';
+
+terminal DOUBLE_CURLY_OPEN:
+	'{{';
+
+terminal DOUBLE_CURLY_CLOSE:
+	'}}';
+	
+terminal TERM_KEYWORD:
+	('t'|'T') ('e'|'E') ('r'|'R') ('m'|'M');
+	
+terminal LANGUAGE_KEYWORD:
+	('l'|'L') ('a'|'A') ('n'|'N') ('g'|'G') ('u'|'U') ('a'|'A') ('g'|'G') ('e'|'E');
+	
+terminal ALPHA:
+	'a'..'z';
 
 // comment terminals
 terminal WS:
