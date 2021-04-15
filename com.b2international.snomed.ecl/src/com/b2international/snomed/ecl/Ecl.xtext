@@ -222,9 +222,7 @@ NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
-	TermFilter | LanguageCodeFilter 
-//	| PreferredInFilter | AcceptableInFilter | LanguageRefSetFilter | TypeFilter
-	| NestedFilter;
+	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter;
  
 TermFilter:
 	TERM_KEYWORD EQUAL (TypedTermFilter | TypedTermFilterSet);
@@ -240,37 +238,45 @@ enum LexicalSearchType:
 	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact"; // regex and exact match is an extension to ECL 1.5
 
 LanguageCodeFilter:
-	LANGUAGE_KEYWORD EQUAL (languageCodes+=STRING | ROUND_OPEN languageCodes+=STRING (languageCodes+=STRING)* ROUND_CLOSE);
+	LANGUAGE_KEYWORD EQUAL (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
 
-//typeFilter = typeIdFilter / typeTokenFilter
-//typeIdFilter = typeId ws booleanComparisonOperator ws (eclConceptReference / eclConceptReferenceSet)
-//typeId = ("t"/"T") ("y"/"Y") ("p"/"P") ("e"/"E") ("i"/"I") ("d"/"D")
-//typeTokenFilter = type ws booleanComparisonOperator ws (typeToken / typeTokenSet)
-//type = ("t"/"T") ("y"/"Y") ("p"/"P") ("e"/"E")
-//typeToken = synonym / fullySpecifiedName / definition
-//typeTokenSet = "(" ws typeToken *(mws typeToken) ws ")"
-//synonym = ("s"/"S") ("y"/"Y") ("n"/"N")
-//fullySpecifiedName = ("f"/"F") ("s"/"S") ("n"/"N")
-//definition = ("d"/"D") ("e"/"E") ("f"/"F")
-//dialectFilter = (dialectIdFilter / dialectAliasFilter) [ ws acceptabilitySet ]
-//dialectIdFilter = dialectId ws booleanComparisonOperator ws (eclConceptReference / dialectIdSet)
-//dialectId = ("d"/"D") ("i"/"I") ("a"/"A") ("l"/"L") ("e"/"E") ("c"/"C") ("t"/"T") ("i"/"I") ("d"/"D")
-//dialectAliasFilter = dialect ws booleanComparisonOperator ws (dialectAlias / dialectAliasSet)
-//dialect = ("d"/"D") ("i"/"I") ("a"/"A") ("l"/"L") ("e"/"E") ("c"/"C") ("t"/"T")
-//dialectAlias = alpha *( dash / alpha / integerValue)
-//dialectAliasSet = "(" ws dialectAlias [ws acceptabilitySet] *(mws dialectAlias [ws acceptabilitySet] ) ws ")"
-//dialectIdSet = "(" ws eclConceptReference [ws acceptabilitySet] *(mws eclConceptReference [ws acceptabilitySet] ) ws ")"
-//acceptabilitySet = acceptabilityIdSet / acceptabilityTokenSet
-//acceptabilityIdSet = eclConceptReferenceSet
-//acceptabilityTokenSet = "(" ws acceptabilityToken *(mws acceptabilityToken) ws ")"
-//acceptabilityToken = acceptable / preferred
-//acceptable = ("a"/"A") ("c"/"C") ("c"/"C") ("e"/"E") ("p"/"P") ("t"/"T")
-//preferred = ("p"/"P") ("r"/"R") ("e"/"E") ("f"/"F") ("e"/"E") ("r"/"R")
+TypeFilter:
+	TypeIdFilter | TypeTokenFilter;
 
+TypeIdFilter:
+	TYPEID_KEYWORD EQUAL type=(EclConceptReference | EclConceptReferenceSet);
+
+// allowing any STRING to be represented as type token here, validator will restrict it to the available set
+TypeTokenFilter:
+	TYPE_KEYWORD EQUAL (tokens+=STRING | ROUND_OPEN tokens+=STRING (tokens+=STRING)* ROUND_CLOSE);
+
+DialectFilter:
+ 	DialectIdFilter | DialectAliasFilter;
+
+DialectIdFilter:
+	DIALECTID_KEYWORD EQUAL (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
+
+DialectAliasFilter:
+	DIALECT_KEYWORD EQUAL (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
+
+Dialect:
+	languageRefSetId=EclConceptReference (acceptability=Acceptability)?;
+	
+DialectAlias:
+	alias=DialectAliasValue (acceptability=Acceptability)?;
+
+Acceptability:
+	AcceptabilityIdSet | AcceptabilityTokenSet;
+
+AcceptabilityIdSet:
+	acceptabilities=EclConceptReferenceSet;
+
+AcceptabilityTokenSet:
+	ROUND_OPEN acceptabilities+=Alphabetical (acceptabilities+=Alphabetical)* ROUND_CLOSE;
+	
 // hidden grammar rules
 SnomedIdentifier hidden():
-	DIGIT_NONZERO (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO)
-	(DIGIT_NONZERO | ZERO)+;
+	DIGIT_NONZERO (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO)+;
 
 NonNegativeInteger returns ecore::EInt hidden():
 	ZERO | DIGIT_NONZERO (DIGIT_NONZERO | ZERO)*;
@@ -289,6 +295,12 @@ NonNegativeDecimal returns ecore::EBigDecimal hidden():
 	
 Boolean returns ecore::EBoolean hidden(): 
 	'true'|'false';
+
+DialectAliasValue returns ecore::EString hidden():
+	ALPHA ( DASH | ALPHA | ZERO | DIGIT_NONZERO)*;
+
+Alphabetical returns ecore::EString hidden():
+	(ALPHA)+;
 
 terminal TERM_STRING:
 	"|" (!("|"))* "|";
@@ -397,13 +409,25 @@ terminal DOUBLE_CURLY_OPEN:
 
 terminal DOUBLE_CURLY_CLOSE:
 	'}}';
-	
+
 terminal TERM_KEYWORD:
 	('t'|'T') ('e'|'E') ('r'|'R') ('m'|'M');
-	
+
 terminal LANGUAGE_KEYWORD:
 	('l'|'L') ('a'|'A') ('n'|'N') ('g'|'G') ('u'|'U') ('a'|'A') ('g'|'G') ('e'|'E');
-	
+
+terminal TYPEID_KEYWORD:
+	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E') ('i'|'I') ('d'|'D');
+
+terminal TYPE_KEYWORD:
+	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E');
+
+terminal DIALECTID_KEYWORD:
+	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T') ('i'|'I') ('d'|'D');
+
+terminal DIALECT_KEYWORD:
+	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T');
+
 terminal ALPHA:
 	'a'..'z';
 
