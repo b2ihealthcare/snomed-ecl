@@ -12670,7 +12670,15 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             loop65:
             do {
                 int alt65=3;
-                alt65 = dfa65.predict(input);
+                int LA65_0 = input.LA(1);
+
+                if ( (LA65_0==RULE_DIGIT_NONZERO) ) {
+                    alt65=1;
+                }
+                else if ( (LA65_0==RULE_ZERO) ) {
+                    alt65=2;
+                }
+                
                 switch (alt65) {
             	case 1 :
             	    // InternalEclParser.g:4334:4: this_DIGIT_NONZERO_9= RULE_DIGIT_NONZERO
