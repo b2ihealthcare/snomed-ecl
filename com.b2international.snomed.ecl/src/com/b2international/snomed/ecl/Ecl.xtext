@@ -248,7 +248,7 @@ TypeIdFilter:
 
 // allowing any STRING to be represented as type token here, validator will restrict it to the available set
 TypeTokenFilter:
-	TYPE_KEYWORD EQUAL (tokens+=STRING | ROUND_OPEN tokens+=STRING (tokens+=STRING)* ROUND_CLOSE);
+	TYPE_KEYWORD EQUAL (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
 
 DialectFilter:
  	DialectIdFilter | DialectAliasFilter;
@@ -297,7 +297,7 @@ Boolean returns ecore::EBoolean hidden():
 	'true'|'false';
 
 DialectAliasValue returns ecore::EString hidden():
-	ALPHA ( DASH | ALPHA | ZERO | DIGIT_NONZERO)*;
+	ALPHA (DASH | ALPHA | ZERO | DIGIT_NONZERO)*;
 
 Alphabetical returns ecore::EString hidden():
 	(ALPHA)+;
