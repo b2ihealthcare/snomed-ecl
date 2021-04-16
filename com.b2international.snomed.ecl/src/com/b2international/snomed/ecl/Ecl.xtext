@@ -171,39 +171,39 @@ PropertyFilter:
 	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter;
  
 TermFilter:
-	TERM_KEYWORD EQUAL (TypedTermFilter | TypedTermFilterSet);
+	TERM_KEYWORD (TypedTermFilter | TypedTermFilterSet);
 
 TypedTermFilter:
-	(lexicalSearchType=LexicalSearchType COLON)? term=STRING; // no special treatment for the term filter STRING, we allow everything for any lexical search type
+	op=(EQUAL | NOT_EQUAL) (lexicalSearchType=LexicalSearchType COLON)? term=STRING; // no special treatment for the term filter STRING, we allow everything for any lexical search type
 
 TypedTermFilterSet:
-	ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
+	op=(EQUAL | NOT_EQUAL) ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
 
 // TODO not sure if we can support mixed cases here, for now it is not supported
 enum LexicalSearchType:
 	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact"; // regex and exact match is an extension to ECL 1.5
 
 LanguageCodeFilter:
-	LANGUAGE_KEYWORD EQUAL (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
+	LANGUAGE_KEYWORD op=(EQUAL | NOT_EQUAL) (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
 
 TypeFilter:
 	TypeIdFilter | TypeTokenFilter;
 
 TypeIdFilter:
-	TYPEID_KEYWORD EQUAL type=(EclConceptReference | EclConceptReferenceSet);
+	TYPEID_KEYWORD op=(EQUAL | NOT_EQUAL) type=(EclConceptReference | EclConceptReferenceSet);
 
 // allowing any STRING to be represented as type token here, validator will restrict it to the available set
 TypeTokenFilter:
-	TYPE_KEYWORD EQUAL (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
+	TYPE_KEYWORD op=(EQUAL | NOT_EQUAL) (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
 
 DialectFilter:
  	DialectIdFilter | DialectAliasFilter;
 
 DialectIdFilter:
-	DIALECTID_KEYWORD EQUAL (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
+	DIALECTID_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
 
 DialectAliasFilter:
-	DIALECT_KEYWORD EQUAL (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
+	DIALECT_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
 
 Dialect:
 	languageRefSetId=EclConceptReference (acceptability=Acceptability)?;
