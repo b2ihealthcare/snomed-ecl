@@ -20,7 +20,7 @@ import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 import com.b2international.snomed.ecl.ide.contentassist.EclIdeProposalProvider;
 
 /**
- * Use this class to register ide components.
+ * Use this class to register IDE components.
  */
 public class EclIdeModule extends AbstractEclIdeModule {
 	
