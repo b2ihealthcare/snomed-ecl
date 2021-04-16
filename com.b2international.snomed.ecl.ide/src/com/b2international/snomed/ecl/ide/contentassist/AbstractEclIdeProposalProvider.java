@@ -161,6 +161,9 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 	public void completeEclConceptReference_Term(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeEclConceptReferenceSet_Concepts(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
 	public void completeOrRefinement_Right(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
@@ -203,61 +206,133 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 	public void completeCardinality_Max(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeAttributeValueEquals_Constraint(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void completeAttributeComparison_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeAttributeComparison_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeAttributeValueNotEquals_Constraint(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void completeBooleanValueComparison_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeBooleanValueComparison_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeBooleanValueEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void completeStringValueComparison_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeStringValueComparison_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeBooleanValueNotEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void completeIntegerValueComparison_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(2)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(3)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(4)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(5)), context, acceptor);
+	}
+	public void completeIntegerValueComparison_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeStringValueEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	public void completeDecimalValueComparison_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(2)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(3)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(4)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(5)), context, acceptor);
 	}
-	public void completeStringValueNotEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueNotEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueGreaterThan_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueLessThan_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueGreaterThanEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeIntegerValueLessThanEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueNotEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueGreaterThan_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueLessThan_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueGreaterThanEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeDecimalValueLessThanEquals_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void completeDecimalValueComparison_Value(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeNestedExpression_Nested(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDisjunctionFilter_Right(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeConjunctionFilter_Right(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeExclusionFilter_Right(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeNestedFilter_Nested(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypedTermFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeTypedTermFilter_LexicalSearchType(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypedTermFilter_Term(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypedTermFilterSet_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeTypedTermFilterSet_Terms(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeLanguageCodeFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeLanguageCodeFilter_LanguageCodes(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeTypeIdFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeTypeIdFilter_Type(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeTypeTokenFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeTypeTokenFilter_Tokens(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialectIdFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeDialectIdFilter_Dialects(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialectAliasFilter_Op(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		_createProposals(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(1)), context, acceptor);
+	}
+	public void completeDialectAliasFilter_Dialects(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialect_LanguageRefSetId(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialect_Acceptability(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialectAlias_Alias(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeDialectAlias_Acceptability(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeAcceptabilityIdSet_Acceptabilities(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeAcceptabilityTokenSet_Acceptabilities(EObject model, Assignment assignment, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		_createProposals(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 
@@ -318,6 +393,9 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 	public void complete_EclConceptReference(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
+	public void complete_EclConceptReferenceSet(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
 	public void complete_Any(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
@@ -369,61 +447,88 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 	public void complete_DataTypeComparison(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void complete_AttributeValueEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void complete_BooleanValueComparison(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void complete_AttributeValueNotEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void complete_StringValueComparison(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void complete_BooleanValueEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void complete_IntegerValueComparison(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void complete_BooleanValueNotEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_StringValueEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_StringValueNotEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueNotEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueGreaterThan(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueLessThan(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueGreaterThanEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_IntegerValueLessThanEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueNotEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueGreaterThan(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueLessThan(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueGreaterThanEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_DecimalValueLessThanEquals(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+	public void complete_DecimalValueComparison(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 	public void complete_NestedExpression(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_FilterConstraint(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_Filter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DisjunctionFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_ConjunctionFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_ExclusionFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_NestedFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_PropertyFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TermFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TypedTermFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TypedTermFilterSet(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_LexicalSearchType(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_LanguageCodeFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TypeFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TypeIdFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TypeTokenFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DialectFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DialectIdFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DialectAliasFilter(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_Dialect(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DialectAlias(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_Acceptability(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_AcceptabilityIdSet(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_AcceptabilityTokenSet(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 	public void complete_SnomedIdentifier(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
@@ -445,6 +550,12 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 		// subclasses may override
 	}
 	public void complete_Boolean(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DialectAliasValue(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_Alphabetical(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 	public void complete_TERM_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
@@ -547,6 +658,33 @@ public abstract class AbstractEclIdeProposalProvider extends IdeContentProposalP
 		// subclasses may override
 	}
 	public void complete_HASH(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DOUBLE_CURLY_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DOUBLE_CURLY_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TERM_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_LANGUAGE_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TYPEID_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_TYPE_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DIALECTID_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_DIALECT_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		// subclasses may override
+	}
+	public void complete_ALPHA(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 	public void complete_WS(EObject model, RuleCall ruleCall, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
