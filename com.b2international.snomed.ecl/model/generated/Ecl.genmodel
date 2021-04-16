@@ -6,6 +6,12 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="Ecl" basePackage="com.b2international.snomed.ecl" disposableProviderFactory="true"
       fileExtensions="ecl" ecorePackage="Ecl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ecl.ecore#//LexicalSearchType">
+      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/MATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/WILD"/>
+      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/REGEX"/>
+      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/EXACT"/>
+    </genEnums>
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
@@ -41,6 +47,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EclConceptReference/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EclConceptReference/term"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//EclConceptReferenceSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//EclConceptReferenceSet/concepts"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//Any"/>
     <genClasses ecoreClass="Ecl.ecore#//EclRefinement"/>
     <genClasses ecoreClass="Ecl.ecore#//NestedRefinement">
@@ -60,63 +69,80 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//Cardinality/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//Cardinality/max"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//Comparison"/>
+    <genClasses ecoreClass="Ecl.ecore#//Comparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//Comparison/op"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//AttributeComparison">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AttributeComparison/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AttributeComparison/value"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//DataTypeComparison"/>
-    <genClasses ecoreClass="Ecl.ecore#//AttributeValueEquals"/>
-    <genClasses ecoreClass="Ecl.ecore#//AttributeValueNotEquals"/>
-    <genClasses ecoreClass="Ecl.ecore#//BooleanValueEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//BooleanValueEquals/value"/>
+    <genClasses ecoreClass="Ecl.ecore#//BooleanValueComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//BooleanValueComparison/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//BooleanValueNotEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//BooleanValueNotEquals/value"/>
+    <genClasses ecoreClass="Ecl.ecore#//StringValueComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//StringValueComparison/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//StringValueEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//StringValueEquals/value"/>
+    <genClasses ecoreClass="Ecl.ecore#//IntegerValueComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueComparison/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//StringValueNotEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//StringValueNotEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueNotEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueNotEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueGreaterThan">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueGreaterThan/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueLessThan">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueLessThan/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueGreaterThanEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueGreaterThanEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//IntegerValueLessThanEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueLessThanEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueNotEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueNotEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueGreaterThan">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueGreaterThan/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueLessThan">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueLessThan/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueGreaterThanEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueGreaterThanEquals/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//DecimalValueLessThanEquals">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueLessThanEquals/value"/>
+    <genClasses ecoreClass="Ecl.ecore#//DecimalValueComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DecimalValueComparison/value"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//NestedExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedExpression/nested"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//FilterConstraint"/>
+    <genClasses ecoreClass="Ecl.ecore#//Filter"/>
+    <genClasses ecoreClass="Ecl.ecore#//NestedFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedFilter/nested"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//PropertyFilter"/>
+    <genClasses ecoreClass="Ecl.ecore#//TermFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilter/lexicalSearchType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilter/term"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilterSet/terms"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//LanguageCodeFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageCodeFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageCodeFilter/languageCodes"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypeFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypeFilter/op"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypeIdFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypeIdFilter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypeTokenFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypeTokenFilter/tokens"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DialectFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DialectFilter/op"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DialectIdFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DialectIdFilter/dialects"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DialectAliasFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DialectAliasFilter/dialects"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//Dialect">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Dialect/languageRefSetId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Dialect/acceptability"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DialectAlias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DialectAlias/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DialectAlias/acceptability"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//Acceptability"/>
+    <genClasses ecoreClass="Ecl.ecore#//AcceptabilityIdSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AcceptabilityIdSet/acceptabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//AcceptabilityTokenSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AcceptabilityTokenSet/acceptabilities"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>
@@ -145,6 +171,18 @@
     <genClasses ecoreClass="Ecl.ecore#//AndRefinement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AndRefinement/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AndRefinement/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DisjunctionFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DisjunctionFilter/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DisjunctionFilter/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ConjunctionFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ConjunctionFilter/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ConjunctionFilter/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ExclusionFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExclusionFilter/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExclusionFilter/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -46,6 +46,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EclConceptReferenceSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
+        eType="#//EclConceptReference" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Any" eSuperTypes="#//ExpressionConstraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="EclRefinement"/>
   <eClassifiers xsi:type="ecore:EClass" name="NestedRefinement" eSuperTypes="#//EclRefinement">
@@ -71,65 +75,100 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comparison"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeComparison" eSuperTypes="#//Comparison">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ExpressionConstraint"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTypeComparison" eSuperTypes="#//Comparison"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueEquals" eSuperTypes="#//AttributeComparison"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueNotEquals" eSuperTypes="#//AttributeComparison"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanValueEquals" eSuperTypes="#//DataTypeComparison">
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanValueComparison" eSuperTypes="#//DataTypeComparison">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanValueNotEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValueEquals" eSuperTypes="#//DataTypeComparison">
+  <eClassifiers xsi:type="ecore:EClass" name="StringValueComparison" eSuperTypes="#//DataTypeComparison">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValueNotEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueEquals" eSuperTypes="#//DataTypeComparison">
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueComparison" eSuperTypes="#//DataTypeComparison">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueNotEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueGreaterThan" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueLessThan" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueGreaterThanEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValueLessThanEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueNotEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueGreaterThan" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueLessThan" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueGreaterThanEquals" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueLessThanEquals" eSuperTypes="#//DataTypeComparison">
+  <eClassifiers xsi:type="ecore:EClass" name="DecimalValueComparison" eSuperTypes="#//DataTypeComparison">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NestedExpression" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//ExpressionConstraint"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterConstraint" eSuperTypes="#//ExpressionConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//FilterConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//Filter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyFilter" eSuperTypes="#//Filter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TermFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilter" eSuperTypes="#//TermFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lexicalSearchType" eType="#//LexicalSearchType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilterSet" eSuperTypes="#//TermFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="terms" upperBound="-1"
+        eType="#//TypedTermFilter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LexicalSearchType">
+    <eLiterals name="MATCH" literal="match"/>
+    <eLiterals name="WILD" value="1" literal="wild"/>
+    <eLiterals name="REGEX" value="2" literal="regex"/>
+    <eLiterals name="EXACT" value="3" literal="exact"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LanguageCodeFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="languageCodes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeIdFilter" eSuperTypes="#//TypeFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeTokenFilter" eSuperTypes="#//TypeFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokens" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialectFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialectIdFilter" eSuperTypes="#//DialectFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialects" upperBound="-1"
+        eType="#//Dialect" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialectAliasFilter" eSuperTypes="#//DialectFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialects" upperBound="-1"
+        eType="#//DialectAlias" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dialect">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//EclConceptReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="acceptability" eType="#//Acceptability"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialectAlias">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="acceptability" eType="#//Acceptability"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Acceptability"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptabilityIdSet" eSuperTypes="#//Acceptability">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="acceptabilities" eType="#//EclConceptReferenceSet"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptabilityTokenSet" eSuperTypes="#//Acceptability">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceptabilities" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ExpressionConstraint"
@@ -171,6 +210,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//EclRefinement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//EclRefinement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisjunctionFilter" eSuperTypes="#//Filter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Filter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Filter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionFilter" eSuperTypes="#//Filter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Filter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Filter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExclusionFilter" eSuperTypes="#//Filter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//PropertyFilter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//PropertyFilter"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

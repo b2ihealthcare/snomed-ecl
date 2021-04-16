@@ -148,6 +148,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createEclConceptReferenceAdapter();
       }
       @Override
+      public Adapter caseEclConceptReferenceSet(EclConceptReferenceSet object)
+      {
+        return createEclConceptReferenceSetAdapter();
+      }
+      @Override
       public Adapter caseAny(Any object)
       {
         return createAnyAdapter();
@@ -193,99 +198,124 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createDataTypeComparisonAdapter();
       }
       @Override
-      public Adapter caseAttributeValueEquals(AttributeValueEquals object)
+      public Adapter caseBooleanValueComparison(BooleanValueComparison object)
       {
-        return createAttributeValueEqualsAdapter();
+        return createBooleanValueComparisonAdapter();
       }
       @Override
-      public Adapter caseAttributeValueNotEquals(AttributeValueNotEquals object)
+      public Adapter caseStringValueComparison(StringValueComparison object)
       {
-        return createAttributeValueNotEqualsAdapter();
+        return createStringValueComparisonAdapter();
       }
       @Override
-      public Adapter caseBooleanValueEquals(BooleanValueEquals object)
+      public Adapter caseIntegerValueComparison(IntegerValueComparison object)
       {
-        return createBooleanValueEqualsAdapter();
+        return createIntegerValueComparisonAdapter();
       }
       @Override
-      public Adapter caseBooleanValueNotEquals(BooleanValueNotEquals object)
+      public Adapter caseDecimalValueComparison(DecimalValueComparison object)
       {
-        return createBooleanValueNotEqualsAdapter();
-      }
-      @Override
-      public Adapter caseStringValueEquals(StringValueEquals object)
-      {
-        return createStringValueEqualsAdapter();
-      }
-      @Override
-      public Adapter caseStringValueNotEquals(StringValueNotEquals object)
-      {
-        return createStringValueNotEqualsAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueEquals(IntegerValueEquals object)
-      {
-        return createIntegerValueEqualsAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueNotEquals(IntegerValueNotEquals object)
-      {
-        return createIntegerValueNotEqualsAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueGreaterThan(IntegerValueGreaterThan object)
-      {
-        return createIntegerValueGreaterThanAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueLessThan(IntegerValueLessThan object)
-      {
-        return createIntegerValueLessThanAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueGreaterThanEquals(IntegerValueGreaterThanEquals object)
-      {
-        return createIntegerValueGreaterThanEqualsAdapter();
-      }
-      @Override
-      public Adapter caseIntegerValueLessThanEquals(IntegerValueLessThanEquals object)
-      {
-        return createIntegerValueLessThanEqualsAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueEquals(DecimalValueEquals object)
-      {
-        return createDecimalValueEqualsAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueNotEquals(DecimalValueNotEquals object)
-      {
-        return createDecimalValueNotEqualsAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueGreaterThan(DecimalValueGreaterThan object)
-      {
-        return createDecimalValueGreaterThanAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueLessThan(DecimalValueLessThan object)
-      {
-        return createDecimalValueLessThanAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueGreaterThanEquals(DecimalValueGreaterThanEquals object)
-      {
-        return createDecimalValueGreaterThanEqualsAdapter();
-      }
-      @Override
-      public Adapter caseDecimalValueLessThanEquals(DecimalValueLessThanEquals object)
-      {
-        return createDecimalValueLessThanEqualsAdapter();
+        return createDecimalValueComparisonAdapter();
       }
       @Override
       public Adapter caseNestedExpression(NestedExpression object)
       {
         return createNestedExpressionAdapter();
+      }
+      @Override
+      public Adapter caseFilterConstraint(FilterConstraint object)
+      {
+        return createFilterConstraintAdapter();
+      }
+      @Override
+      public Adapter caseFilter(Filter object)
+      {
+        return createFilterAdapter();
+      }
+      @Override
+      public Adapter caseNestedFilter(NestedFilter object)
+      {
+        return createNestedFilterAdapter();
+      }
+      @Override
+      public Adapter casePropertyFilter(PropertyFilter object)
+      {
+        return createPropertyFilterAdapter();
+      }
+      @Override
+      public Adapter caseTermFilter(TermFilter object)
+      {
+        return createTermFilterAdapter();
+      }
+      @Override
+      public Adapter caseTypedTermFilter(TypedTermFilter object)
+      {
+        return createTypedTermFilterAdapter();
+      }
+      @Override
+      public Adapter caseTypedTermFilterSet(TypedTermFilterSet object)
+      {
+        return createTypedTermFilterSetAdapter();
+      }
+      @Override
+      public Adapter caseLanguageCodeFilter(LanguageCodeFilter object)
+      {
+        return createLanguageCodeFilterAdapter();
+      }
+      @Override
+      public Adapter caseTypeFilter(TypeFilter object)
+      {
+        return createTypeFilterAdapter();
+      }
+      @Override
+      public Adapter caseTypeIdFilter(TypeIdFilter object)
+      {
+        return createTypeIdFilterAdapter();
+      }
+      @Override
+      public Adapter caseTypeTokenFilter(TypeTokenFilter object)
+      {
+        return createTypeTokenFilterAdapter();
+      }
+      @Override
+      public Adapter caseDialectFilter(DialectFilter object)
+      {
+        return createDialectFilterAdapter();
+      }
+      @Override
+      public Adapter caseDialectIdFilter(DialectIdFilter object)
+      {
+        return createDialectIdFilterAdapter();
+      }
+      @Override
+      public Adapter caseDialectAliasFilter(DialectAliasFilter object)
+      {
+        return createDialectAliasFilterAdapter();
+      }
+      @Override
+      public Adapter caseDialect(Dialect object)
+      {
+        return createDialectAdapter();
+      }
+      @Override
+      public Adapter caseDialectAlias(DialectAlias object)
+      {
+        return createDialectAliasAdapter();
+      }
+      @Override
+      public Adapter caseAcceptability(Acceptability object)
+      {
+        return createAcceptabilityAdapter();
+      }
+      @Override
+      public Adapter caseAcceptabilityIdSet(AcceptabilityIdSet object)
+      {
+        return createAcceptabilityIdSetAdapter();
+      }
+      @Override
+      public Adapter caseAcceptabilityTokenSet(AcceptabilityTokenSet object)
+      {
+        return createAcceptabilityTokenSetAdapter();
       }
       @Override
       public Adapter caseOrExpressionConstraint(OrExpressionConstraint object)
@@ -321,6 +351,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAndRefinement(AndRefinement object)
       {
         return createAndRefinementAdapter();
+      }
+      @Override
+      public Adapter caseDisjunctionFilter(DisjunctionFilter object)
+      {
+        return createDisjunctionFilterAdapter();
+      }
+      @Override
+      public Adapter caseConjunctionFilter(ConjunctionFilter object)
+      {
+        return createConjunctionFilterAdapter();
+      }
+      @Override
+      public Adapter caseExclusionFilter(ExclusionFilter object)
+      {
+        return createExclusionFilterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -525,6 +570,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.EclConceptReferenceSet <em>Concept Reference Set</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.EclConceptReferenceSet
+   * @generated
+   */
+  public Adapter createEclConceptReferenceSetAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Any <em>Any</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -660,271 +720,61 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AttributeValueEquals <em>Attribute Value Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.BooleanValueComparison <em>Boolean Value Comparison</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.AttributeValueEquals
+   * @see com.b2international.snomed.ecl.ecl.BooleanValueComparison
    * @generated
    */
-  public Adapter createAttributeValueEqualsAdapter()
+  public Adapter createBooleanValueComparisonAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AttributeValueNotEquals <em>Attribute Value Not Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.StringValueComparison <em>String Value Comparison</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.AttributeValueNotEquals
+   * @see com.b2international.snomed.ecl.ecl.StringValueComparison
    * @generated
    */
-  public Adapter createAttributeValueNotEqualsAdapter()
+  public Adapter createStringValueComparisonAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.BooleanValueEquals <em>Boolean Value Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueComparison <em>Integer Value Comparison</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.BooleanValueEquals
+   * @see com.b2international.snomed.ecl.ecl.IntegerValueComparison
    * @generated
    */
-  public Adapter createBooleanValueEqualsAdapter()
+  public Adapter createIntegerValueComparisonAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.BooleanValueNotEquals <em>Boolean Value Not Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueComparison <em>Decimal Value Comparison</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.BooleanValueNotEquals
+   * @see com.b2international.snomed.ecl.ecl.DecimalValueComparison
    * @generated
    */
-  public Adapter createBooleanValueNotEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.StringValueEquals <em>String Value Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.StringValueEquals
-   * @generated
-   */
-  public Adapter createStringValueEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.StringValueNotEquals <em>String Value Not Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.StringValueNotEquals
-   * @generated
-   */
-  public Adapter createStringValueNotEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueEquals <em>Integer Value Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueEquals
-   * @generated
-   */
-  public Adapter createIntegerValueEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueNotEquals <em>Integer Value Not Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueNotEquals
-   * @generated
-   */
-  public Adapter createIntegerValueNotEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueGreaterThan <em>Integer Value Greater Than</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueGreaterThan
-   * @generated
-   */
-  public Adapter createIntegerValueGreaterThanAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueLessThan <em>Integer Value Less Than</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueLessThan
-   * @generated
-   */
-  public Adapter createIntegerValueLessThanAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueGreaterThanEquals <em>Integer Value Greater Than Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueGreaterThanEquals
-   * @generated
-   */
-  public Adapter createIntegerValueGreaterThanEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.IntegerValueLessThanEquals <em>Integer Value Less Than Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.IntegerValueLessThanEquals
-   * @generated
-   */
-  public Adapter createIntegerValueLessThanEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueEquals <em>Decimal Value Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueEquals
-   * @generated
-   */
-  public Adapter createDecimalValueEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueNotEquals <em>Decimal Value Not Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueNotEquals
-   * @generated
-   */
-  public Adapter createDecimalValueNotEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueGreaterThan <em>Decimal Value Greater Than</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueGreaterThan
-   * @generated
-   */
-  public Adapter createDecimalValueGreaterThanAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueLessThan <em>Decimal Value Less Than</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueLessThan
-   * @generated
-   */
-  public Adapter createDecimalValueLessThanAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueGreaterThanEquals <em>Decimal Value Greater Than Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueGreaterThanEquals
-   * @generated
-   */
-  public Adapter createDecimalValueGreaterThanEqualsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DecimalValueLessThanEquals <em>Decimal Value Less Than Equals</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.DecimalValueLessThanEquals
-   * @generated
-   */
-  public Adapter createDecimalValueLessThanEqualsAdapter()
+  public Adapter createDecimalValueComparisonAdapter()
   {
     return null;
   }
@@ -940,6 +790,291 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNestedExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.FilterConstraint <em>Filter Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.FilterConstraint
+   * @generated
+   */
+  public Adapter createFilterConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Filter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Filter
+   * @generated
+   */
+  public Adapter createFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.NestedFilter <em>Nested Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.NestedFilter
+   * @generated
+   */
+  public Adapter createNestedFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.PropertyFilter <em>Property Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.PropertyFilter
+   * @generated
+   */
+  public Adapter createPropertyFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TermFilter <em>Term Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TermFilter
+   * @generated
+   */
+  public Adapter createTermFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter <em>Typed Term Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypedTermFilter
+   * @generated
+   */
+  public Adapter createTypedTermFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet <em>Typed Term Filter Set</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterSet
+   * @generated
+   */
+  public Adapter createTypedTermFilterSetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.LanguageCodeFilter <em>Language Code Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.LanguageCodeFilter
+   * @generated
+   */
+  public Adapter createLanguageCodeFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypeFilter <em>Type Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypeFilter
+   * @generated
+   */
+  public Adapter createTypeFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypeIdFilter <em>Type Id Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypeIdFilter
+   * @generated
+   */
+  public Adapter createTypeIdFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypeTokenFilter <em>Type Token Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypeTokenFilter
+   * @generated
+   */
+  public Adapter createTypeTokenFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DialectFilter <em>Dialect Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DialectFilter
+   * @generated
+   */
+  public Adapter createDialectFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DialectIdFilter <em>Dialect Id Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DialectIdFilter
+   * @generated
+   */
+  public Adapter createDialectIdFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DialectAliasFilter <em>Dialect Alias Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DialectAliasFilter
+   * @generated
+   */
+  public Adapter createDialectAliasFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Dialect <em>Dialect</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Dialect
+   * @generated
+   */
+  public Adapter createDialectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DialectAlias <em>Dialect Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DialectAlias
+   * @generated
+   */
+  public Adapter createDialectAliasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Acceptability <em>Acceptability</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Acceptability
+   * @generated
+   */
+  public Adapter createAcceptabilityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityIdSet <em>Acceptability Id Set</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.AcceptabilityIdSet
+   * @generated
+   */
+  public Adapter createAcceptabilityIdSetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet <em>Acceptability Token Set</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet
+   * @generated
+   */
+  public Adapter createAcceptabilityTokenSetAdapter()
   {
     return null;
   }
@@ -1045,6 +1180,51 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAndRefinementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DisjunctionFilter <em>Disjunction Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DisjunctionFilter
+   * @generated
+   */
+  public Adapter createDisjunctionFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ConjunctionFilter <em>Conjunction Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ConjunctionFilter
+   * @generated
+   */
+  public Adapter createConjunctionFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ExclusionFilter <em>Exclusion Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ExclusionFilter
+   * @generated
+   */
+  public Adapter createExclusionFilterAdapter()
   {
     return null;
   }

@@ -23,9 +23,17 @@ package com.b2international.snomed.ecl.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
+Exact : ('E'|'e')('X'|'x')('A'|'a')('C'|'c')('T'|'t');
+
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
 
+Match : ('M'|'m')('A'|'a')('T'|'t')('C'|'c')('H'|'h');
+
+Regex : ('R'|'r')('E'|'e')('G'|'g')('E'|'e')('X'|'x');
+
 True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
+
+Wild : ('W'|'w')('I'|'i')('L'|'l')('D'|'d');
 
 RULE_TERM_STRING : '|' ~('|')* '|';
 
@@ -94,6 +102,24 @@ RULE_GTE : '>=';
 RULE_LTE : '<=';
 
 RULE_HASH : '#';
+
+RULE_DOUBLE_CURLY_OPEN : '{{';
+
+RULE_DOUBLE_CURLY_CLOSE : '}}';
+
+RULE_TERM_KEYWORD : ('t'|'T') ('e'|'E') ('r'|'R') ('m'|'M');
+
+RULE_LANGUAGE_KEYWORD : ('l'|'L') ('a'|'A') ('n'|'N') ('g'|'G') ('u'|'U') ('a'|'A') ('g'|'G') ('e'|'E');
+
+RULE_TYPEID_KEYWORD : ('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E') ('i'|'I') ('d'|'D');
+
+RULE_TYPE_KEYWORD : ('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E');
+
+RULE_DIALECTID_KEYWORD : ('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T') ('i'|'I') ('d'|'D');
+
+RULE_DIALECT_KEYWORD : ('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T');
+
+RULE_ALPHA : 'a'..'z';
 
 RULE_WS : (' '|'\t'|'\n'|'\r');
 

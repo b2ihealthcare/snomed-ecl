@@ -144,6 +144,15 @@ public interface EclFactory extends EFactory
   EclConceptReference createEclConceptReference();
 
   /**
+   * Returns a new object of class '<em>Concept Reference Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concept Reference Set</em>'.
+   * @generated
+   */
+  EclConceptReferenceSet createEclConceptReferenceSet();
+
+  /**
    * Returns a new object of class '<em>Any</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -225,166 +234,40 @@ public interface EclFactory extends EFactory
   DataTypeComparison createDataTypeComparison();
 
   /**
-   * Returns a new object of class '<em>Attribute Value Equals</em>'.
+   * Returns a new object of class '<em>Boolean Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute Value Equals</em>'.
+   * @return a new object of class '<em>Boolean Value Comparison</em>'.
    * @generated
    */
-  AttributeValueEquals createAttributeValueEquals();
+  BooleanValueComparison createBooleanValueComparison();
 
   /**
-   * Returns a new object of class '<em>Attribute Value Not Equals</em>'.
+   * Returns a new object of class '<em>String Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute Value Not Equals</em>'.
+   * @return a new object of class '<em>String Value Comparison</em>'.
    * @generated
    */
-  AttributeValueNotEquals createAttributeValueNotEquals();
+  StringValueComparison createStringValueComparison();
 
   /**
-   * Returns a new object of class '<em>Boolean Value Equals</em>'.
+   * Returns a new object of class '<em>Integer Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Value Equals</em>'.
+   * @return a new object of class '<em>Integer Value Comparison</em>'.
    * @generated
    */
-  BooleanValueEquals createBooleanValueEquals();
+  IntegerValueComparison createIntegerValueComparison();
 
   /**
-   * Returns a new object of class '<em>Boolean Value Not Equals</em>'.
+   * Returns a new object of class '<em>Decimal Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Value Not Equals</em>'.
+   * @return a new object of class '<em>Decimal Value Comparison</em>'.
    * @generated
    */
-  BooleanValueNotEquals createBooleanValueNotEquals();
-
-  /**
-   * Returns a new object of class '<em>String Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Value Equals</em>'.
-   * @generated
-   */
-  StringValueEquals createStringValueEquals();
-
-  /**
-   * Returns a new object of class '<em>String Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Value Not Equals</em>'.
-   * @generated
-   */
-  StringValueNotEquals createStringValueNotEquals();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Equals</em>'.
-   * @generated
-   */
-  IntegerValueEquals createIntegerValueEquals();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Not Equals</em>'.
-   * @generated
-   */
-  IntegerValueNotEquals createIntegerValueNotEquals();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Greater Than</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Greater Than</em>'.
-   * @generated
-   */
-  IntegerValueGreaterThan createIntegerValueGreaterThan();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Less Than</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Less Than</em>'.
-   * @generated
-   */
-  IntegerValueLessThan createIntegerValueLessThan();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Greater Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Greater Than Equals</em>'.
-   * @generated
-   */
-  IntegerValueGreaterThanEquals createIntegerValueGreaterThanEquals();
-
-  /**
-   * Returns a new object of class '<em>Integer Value Less Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Value Less Than Equals</em>'.
-   * @generated
-   */
-  IntegerValueLessThanEquals createIntegerValueLessThanEquals();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Equals</em>'.
-   * @generated
-   */
-  DecimalValueEquals createDecimalValueEquals();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Not Equals</em>'.
-   * @generated
-   */
-  DecimalValueNotEquals createDecimalValueNotEquals();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Greater Than</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Greater Than</em>'.
-   * @generated
-   */
-  DecimalValueGreaterThan createDecimalValueGreaterThan();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Less Than</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Less Than</em>'.
-   * @generated
-   */
-  DecimalValueLessThan createDecimalValueLessThan();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Greater Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Greater Than Equals</em>'.
-   * @generated
-   */
-  DecimalValueGreaterThanEquals createDecimalValueGreaterThanEquals();
-
-  /**
-   * Returns a new object of class '<em>Decimal Value Less Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decimal Value Less Than Equals</em>'.
-   * @generated
-   */
-  DecimalValueLessThanEquals createDecimalValueLessThanEquals();
+  DecimalValueComparison createDecimalValueComparison();
 
   /**
    * Returns a new object of class '<em>Nested Expression</em>'.
@@ -394,6 +277,177 @@ public interface EclFactory extends EFactory
    * @generated
    */
   NestedExpression createNestedExpression();
+
+  /**
+   * Returns a new object of class '<em>Filter Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter Constraint</em>'.
+   * @generated
+   */
+  FilterConstraint createFilterConstraint();
+
+  /**
+   * Returns a new object of class '<em>Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter</em>'.
+   * @generated
+   */
+  Filter createFilter();
+
+  /**
+   * Returns a new object of class '<em>Nested Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nested Filter</em>'.
+   * @generated
+   */
+  NestedFilter createNestedFilter();
+
+  /**
+   * Returns a new object of class '<em>Property Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property Filter</em>'.
+   * @generated
+   */
+  PropertyFilter createPropertyFilter();
+
+  /**
+   * Returns a new object of class '<em>Term Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Term Filter</em>'.
+   * @generated
+   */
+  TermFilter createTermFilter();
+
+  /**
+   * Returns a new object of class '<em>Typed Term Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Term Filter</em>'.
+   * @generated
+   */
+  TypedTermFilter createTypedTermFilter();
+
+  /**
+   * Returns a new object of class '<em>Typed Term Filter Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Term Filter Set</em>'.
+   * @generated
+   */
+  TypedTermFilterSet createTypedTermFilterSet();
+
+  /**
+   * Returns a new object of class '<em>Language Code Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language Code Filter</em>'.
+   * @generated
+   */
+  LanguageCodeFilter createLanguageCodeFilter();
+
+  /**
+   * Returns a new object of class '<em>Type Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Filter</em>'.
+   * @generated
+   */
+  TypeFilter createTypeFilter();
+
+  /**
+   * Returns a new object of class '<em>Type Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Id Filter</em>'.
+   * @generated
+   */
+  TypeIdFilter createTypeIdFilter();
+
+  /**
+   * Returns a new object of class '<em>Type Token Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Token Filter</em>'.
+   * @generated
+   */
+  TypeTokenFilter createTypeTokenFilter();
+
+  /**
+   * Returns a new object of class '<em>Dialect Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dialect Filter</em>'.
+   * @generated
+   */
+  DialectFilter createDialectFilter();
+
+  /**
+   * Returns a new object of class '<em>Dialect Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dialect Id Filter</em>'.
+   * @generated
+   */
+  DialectIdFilter createDialectIdFilter();
+
+  /**
+   * Returns a new object of class '<em>Dialect Alias Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dialect Alias Filter</em>'.
+   * @generated
+   */
+  DialectAliasFilter createDialectAliasFilter();
+
+  /**
+   * Returns a new object of class '<em>Dialect</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dialect</em>'.
+   * @generated
+   */
+  Dialect createDialect();
+
+  /**
+   * Returns a new object of class '<em>Dialect Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dialect Alias</em>'.
+   * @generated
+   */
+  DialectAlias createDialectAlias();
+
+  /**
+   * Returns a new object of class '<em>Acceptability</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Acceptability</em>'.
+   * @generated
+   */
+  Acceptability createAcceptability();
+
+  /**
+   * Returns a new object of class '<em>Acceptability Id Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Acceptability Id Set</em>'.
+   * @generated
+   */
+  AcceptabilityIdSet createAcceptabilityIdSet();
+
+  /**
+   * Returns a new object of class '<em>Acceptability Token Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Acceptability Token Set</em>'.
+   * @generated
+   */
+  AcceptabilityTokenSet createAcceptabilityTokenSet();
 
   /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.
@@ -457,6 +511,33 @@ public interface EclFactory extends EFactory
    * @generated
    */
   AndRefinement createAndRefinement();
+
+  /**
+   * Returns a new object of class '<em>Disjunction Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Disjunction Filter</em>'.
+   * @generated
+   */
+  DisjunctionFilter createDisjunctionFilter();
+
+  /**
+   * Returns a new object of class '<em>Conjunction Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conjunction Filter</em>'.
+   * @generated
+   */
+  ConjunctionFilter createConjunctionFilter();
+
+  /**
+   * Returns a new object of class '<em>Exclusion Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exclusion Filter</em>'.
+   * @generated
+   */
+  ExclusionFilter createExclusionFilter();
 
   /**
    * Returns the package supported by this factory.

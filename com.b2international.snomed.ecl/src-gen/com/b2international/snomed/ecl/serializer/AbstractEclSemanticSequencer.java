@@ -15,40 +15,40 @@
  */
 package com.b2international.snomed.ecl.serializer;
 
+import com.b2international.snomed.ecl.ecl.AcceptabilityIdSet;
+import com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
 import com.b2international.snomed.ecl.ecl.AncestorOrSelfOf;
 import com.b2international.snomed.ecl.ecl.AndExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.AndRefinement;
 import com.b2international.snomed.ecl.ecl.Any;
+import com.b2international.snomed.ecl.ecl.AttributeComparison;
 import com.b2international.snomed.ecl.ecl.AttributeConstraint;
-import com.b2international.snomed.ecl.ecl.AttributeValueEquals;
-import com.b2international.snomed.ecl.ecl.AttributeValueNotEquals;
-import com.b2international.snomed.ecl.ecl.BooleanValueEquals;
-import com.b2international.snomed.ecl.ecl.BooleanValueNotEquals;
+import com.b2international.snomed.ecl.ecl.BooleanValueComparison;
 import com.b2international.snomed.ecl.ecl.Cardinality;
 import com.b2international.snomed.ecl.ecl.ChildOf;
 import com.b2international.snomed.ecl.ecl.ChildOrSelfOf;
-import com.b2international.snomed.ecl.ecl.DecimalValueEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThan;
-import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThanEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueLessThan;
-import com.b2international.snomed.ecl.ecl.DecimalValueLessThanEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueNotEquals;
+import com.b2international.snomed.ecl.ecl.ConjunctionFilter;
+import com.b2international.snomed.ecl.ecl.DecimalValueComparison;
 import com.b2international.snomed.ecl.ecl.DescendantOf;
 import com.b2international.snomed.ecl.ecl.DescendantOrSelfOf;
+import com.b2international.snomed.ecl.ecl.Dialect;
+import com.b2international.snomed.ecl.ecl.DialectAlias;
+import com.b2international.snomed.ecl.ecl.DialectAliasFilter;
+import com.b2international.snomed.ecl.ecl.DialectIdFilter;
+import com.b2international.snomed.ecl.ecl.DisjunctionFilter;
 import com.b2international.snomed.ecl.ecl.DottedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.EclAttributeGroup;
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
+import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
-import com.b2international.snomed.ecl.ecl.IntegerValueEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueGreaterThan;
-import com.b2international.snomed.ecl.ecl.IntegerValueGreaterThanEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueLessThan;
-import com.b2international.snomed.ecl.ecl.IntegerValueLessThanEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueNotEquals;
+import com.b2international.snomed.ecl.ecl.ExclusionFilter;
+import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
+import com.b2international.snomed.ecl.ecl.LanguageCodeFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
+import com.b2international.snomed.ecl.ecl.NestedFilter;
 import com.b2international.snomed.ecl.ecl.NestedRefinement;
 import com.b2international.snomed.ecl.ecl.OrExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.OrRefinement;
@@ -56,8 +56,11 @@ import com.b2international.snomed.ecl.ecl.ParentOf;
 import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
-import com.b2international.snomed.ecl.ecl.StringValueEquals;
-import com.b2international.snomed.ecl.ecl.StringValueNotEquals;
+import com.b2international.snomed.ecl.ecl.StringValueComparison;
+import com.b2international.snomed.ecl.ecl.TypeIdFilter;
+import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
 import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -85,6 +88,12 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EclPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case EclPackage.ACCEPTABILITY_ID_SET:
+				sequence_AcceptabilityIdSet(context, (AcceptabilityIdSet) semanticObject); 
+				return; 
+			case EclPackage.ACCEPTABILITY_TOKEN_SET:
+				sequence_AcceptabilityTokenSet(context, (AcceptabilityTokenSet) semanticObject); 
+				return; 
 			case EclPackage.ANCESTOR_OF:
 				sequence_AncestorOf(context, (AncestorOf) semanticObject); 
 				return; 
@@ -115,20 +124,14 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 			case EclPackage.ANY:
 				sequence_Any(context, (Any) semanticObject); 
 				return; 
+			case EclPackage.ATTRIBUTE_COMPARISON:
+				sequence_AttributeComparison(context, (AttributeComparison) semanticObject); 
+				return; 
 			case EclPackage.ATTRIBUTE_CONSTRAINT:
 				sequence_AttributeConstraint(context, (AttributeConstraint) semanticObject); 
 				return; 
-			case EclPackage.ATTRIBUTE_VALUE_EQUALS:
-				sequence_AttributeValueEquals(context, (AttributeValueEquals) semanticObject); 
-				return; 
-			case EclPackage.ATTRIBUTE_VALUE_NOT_EQUALS:
-				sequence_AttributeValueNotEquals(context, (AttributeValueNotEquals) semanticObject); 
-				return; 
-			case EclPackage.BOOLEAN_VALUE_EQUALS:
-				sequence_BooleanValueEquals(context, (BooleanValueEquals) semanticObject); 
-				return; 
-			case EclPackage.BOOLEAN_VALUE_NOT_EQUALS:
-				sequence_BooleanValueNotEquals(context, (BooleanValueNotEquals) semanticObject); 
+			case EclPackage.BOOLEAN_VALUE_COMPARISON:
+				sequence_BooleanValueComparison(context, (BooleanValueComparison) semanticObject); 
 				return; 
 			case EclPackage.CARDINALITY:
 				sequence_Cardinality(context, (Cardinality) semanticObject); 
@@ -139,29 +142,32 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 			case EclPackage.CHILD_OR_SELF_OF:
 				sequence_ChildOrSelfOf(context, (ChildOrSelfOf) semanticObject); 
 				return; 
-			case EclPackage.DECIMAL_VALUE_EQUALS:
-				sequence_DecimalValueEquals(context, (DecimalValueEquals) semanticObject); 
+			case EclPackage.CONJUNCTION_FILTER:
+				sequence_ConjunctionFilter(context, (ConjunctionFilter) semanticObject); 
 				return; 
-			case EclPackage.DECIMAL_VALUE_GREATER_THAN:
-				sequence_DecimalValueGreaterThan(context, (DecimalValueGreaterThan) semanticObject); 
-				return; 
-			case EclPackage.DECIMAL_VALUE_GREATER_THAN_EQUALS:
-				sequence_DecimalValueGreaterThanEquals(context, (DecimalValueGreaterThanEquals) semanticObject); 
-				return; 
-			case EclPackage.DECIMAL_VALUE_LESS_THAN:
-				sequence_DecimalValueLessThan(context, (DecimalValueLessThan) semanticObject); 
-				return; 
-			case EclPackage.DECIMAL_VALUE_LESS_THAN_EQUALS:
-				sequence_DecimalValueLessThanEquals(context, (DecimalValueLessThanEquals) semanticObject); 
-				return; 
-			case EclPackage.DECIMAL_VALUE_NOT_EQUALS:
-				sequence_DecimalValueNotEquals(context, (DecimalValueNotEquals) semanticObject); 
+			case EclPackage.DECIMAL_VALUE_COMPARISON:
+				sequence_DecimalValueComparison(context, (DecimalValueComparison) semanticObject); 
 				return; 
 			case EclPackage.DESCENDANT_OF:
 				sequence_DescendantOf(context, (DescendantOf) semanticObject); 
 				return; 
 			case EclPackage.DESCENDANT_OR_SELF_OF:
 				sequence_DescendantOrSelfOf(context, (DescendantOrSelfOf) semanticObject); 
+				return; 
+			case EclPackage.DIALECT:
+				sequence_Dialect(context, (Dialect) semanticObject); 
+				return; 
+			case EclPackage.DIALECT_ALIAS:
+				sequence_DialectAlias(context, (DialectAlias) semanticObject); 
+				return; 
+			case EclPackage.DIALECT_ALIAS_FILTER:
+				sequence_DialectAliasFilter(context, (DialectAliasFilter) semanticObject); 
+				return; 
+			case EclPackage.DIALECT_ID_FILTER:
+				sequence_DialectIdFilter(context, (DialectIdFilter) semanticObject); 
+				return; 
+			case EclPackage.DISJUNCTION_FILTER:
+				sequence_DisjunctionFilter(context, (DisjunctionFilter) semanticObject); 
 				return; 
 			case EclPackage.DOTTED_EXPRESSION_CONSTRAINT:
 				sequence_DottedExpressionConstraint(context, (DottedExpressionConstraint) semanticObject); 
@@ -172,32 +178,29 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 			case EclPackage.ECL_CONCEPT_REFERENCE:
 				sequence_EclConceptReference(context, (EclConceptReference) semanticObject); 
 				return; 
+			case EclPackage.ECL_CONCEPT_REFERENCE_SET:
+				sequence_EclConceptReferenceSet(context, (EclConceptReferenceSet) semanticObject); 
+				return; 
 			case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT:
 				sequence_ExclusionExpressionConstraint(context, (ExclusionExpressionConstraint) semanticObject); 
 				return; 
-			case EclPackage.INTEGER_VALUE_EQUALS:
-				sequence_IntegerValueEquals(context, (IntegerValueEquals) semanticObject); 
+			case EclPackage.EXCLUSION_FILTER:
+				sequence_ExclusionFilter(context, (ExclusionFilter) semanticObject); 
 				return; 
-			case EclPackage.INTEGER_VALUE_GREATER_THAN:
-				sequence_IntegerValueGreaterThan(context, (IntegerValueGreaterThan) semanticObject); 
+			case EclPackage.INTEGER_VALUE_COMPARISON:
+				sequence_IntegerValueComparison(context, (IntegerValueComparison) semanticObject); 
 				return; 
-			case EclPackage.INTEGER_VALUE_GREATER_THAN_EQUALS:
-				sequence_IntegerValueGreaterThanEquals(context, (IntegerValueGreaterThanEquals) semanticObject); 
-				return; 
-			case EclPackage.INTEGER_VALUE_LESS_THAN:
-				sequence_IntegerValueLessThan(context, (IntegerValueLessThan) semanticObject); 
-				return; 
-			case EclPackage.INTEGER_VALUE_LESS_THAN_EQUALS:
-				sequence_IntegerValueLessThanEquals(context, (IntegerValueLessThanEquals) semanticObject); 
-				return; 
-			case EclPackage.INTEGER_VALUE_NOT_EQUALS:
-				sequence_IntegerValueNotEquals(context, (IntegerValueNotEquals) semanticObject); 
+			case EclPackage.LANGUAGE_CODE_FILTER:
+				sequence_LanguageCodeFilter(context, (LanguageCodeFilter) semanticObject); 
 				return; 
 			case EclPackage.MEMBER_OF:
 				sequence_MemberOf(context, (MemberOf) semanticObject); 
 				return; 
 			case EclPackage.NESTED_EXPRESSION:
 				sequence_NestedExpression(context, (NestedExpression) semanticObject); 
+				return; 
+			case EclPackage.NESTED_FILTER:
+				sequence_NestedFilter(context, (NestedFilter) semanticObject); 
 				return; 
 			case EclPackage.NESTED_REFINEMENT:
 				if (rule == grammarAccess.getEclAttributeSetRule()
@@ -250,16 +253,57 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 			case EclPackage.SCRIPT:
 				sequence_Script(context, (Script) semanticObject); 
 				return; 
-			case EclPackage.STRING_VALUE_EQUALS:
-				sequence_StringValueEquals(context, (StringValueEquals) semanticObject); 
+			case EclPackage.STRING_VALUE_COMPARISON:
+				sequence_StringValueComparison(context, (StringValueComparison) semanticObject); 
 				return; 
-			case EclPackage.STRING_VALUE_NOT_EQUALS:
-				sequence_StringValueNotEquals(context, (StringValueNotEquals) semanticObject); 
+			case EclPackage.TYPE_ID_FILTER:
+				sequence_TypeIdFilter(context, (TypeIdFilter) semanticObject); 
+				return; 
+			case EclPackage.TYPE_TOKEN_FILTER:
+				sequence_TypeTokenFilter(context, (TypeTokenFilter) semanticObject); 
+				return; 
+			case EclPackage.TYPED_TERM_FILTER:
+				sequence_TypedTermFilter(context, (TypedTermFilter) semanticObject); 
+				return; 
+			case EclPackage.TYPED_TERM_FILTER_SET:
+				sequence_TypedTermFilterSet(context, (TypedTermFilterSet) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Acceptability returns AcceptabilityIdSet
+	 *     AcceptabilityIdSet returns AcceptabilityIdSet
+	 *
+	 * Constraint:
+	 *     acceptabilities=EclConceptReferenceSet
+	 */
+	protected void sequence_AcceptabilityIdSet(ISerializationContext context, AcceptabilityIdSet semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACCEPTABILITY_ID_SET__ACCEPTABILITIES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACCEPTABILITY_ID_SET__ACCEPTABILITIES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0(), semanticObject.getAcceptabilities());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Acceptability returns AcceptabilityTokenSet
+	 *     AcceptabilityTokenSet returns AcceptabilityTokenSet
+	 *
+	 * Constraint:
+	 *     (acceptabilities+=Alphabetical acceptabilities+=Alphabetical*)
+	 */
+	protected void sequence_AcceptabilityTokenSet(ISerializationContext context, AcceptabilityTokenSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -423,6 +467,19 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
+	 *     Comparison returns AttributeComparison
+	 *     AttributeComparison returns AttributeComparison
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) value=SubExpressionConstraint)
+	 */
+	protected void sequence_AttributeComparison(ISerializationContext context, AttributeComparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EclRefinement returns AttributeConstraint
 	 *     OrRefinement returns AttributeConstraint
 	 *     OrRefinement.OrRefinement_1_0_0 returns AttributeConstraint
@@ -447,81 +504,15 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns AttributeValueEquals
-	 *     AttributeComparison returns AttributeValueEquals
-	 *     AttributeValueEquals returns AttributeValueEquals
+	 *     Comparison returns BooleanValueComparison
+	 *     DataTypeComparison returns BooleanValueComparison
+	 *     BooleanValueComparison returns BooleanValueComparison
 	 *
 	 * Constraint:
-	 *     constraint=SubExpressionConstraint
+	 *     ((op=EQUAL | op=NOT_EQUAL) value=Boolean)
 	 */
-	protected void sequence_AttributeValueEquals(ISerializationContext context, AttributeValueEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ATTRIBUTE_COMPARISON__CONSTRAINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ATTRIBUTE_COMPARISON__CONSTRAINT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeValueEqualsAccess().getConstraintSubExpressionConstraintParserRuleCall_1_0(), semanticObject.getConstraint());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns AttributeValueNotEquals
-	 *     AttributeComparison returns AttributeValueNotEquals
-	 *     AttributeValueNotEquals returns AttributeValueNotEquals
-	 *
-	 * Constraint:
-	 *     constraint=SubExpressionConstraint
-	 */
-	protected void sequence_AttributeValueNotEquals(ISerializationContext context, AttributeValueNotEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ATTRIBUTE_COMPARISON__CONSTRAINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ATTRIBUTE_COMPARISON__CONSTRAINT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeValueNotEqualsAccess().getConstraintSubExpressionConstraintParserRuleCall_1_0(), semanticObject.getConstraint());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns BooleanValueEquals
-	 *     DataTypeComparison returns BooleanValueEquals
-	 *     BooleanValueEquals returns BooleanValueEquals
-	 *
-	 * Constraint:
-	 *     value=Boolean
-	 */
-	protected void sequence_BooleanValueEquals(ISerializationContext context, BooleanValueEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.BOOLEAN_VALUE_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.BOOLEAN_VALUE_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBooleanValueEqualsAccess().getValueBooleanParserRuleCall_1_0(), semanticObject.isValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns BooleanValueNotEquals
-	 *     DataTypeComparison returns BooleanValueNotEquals
-	 *     BooleanValueNotEquals returns BooleanValueNotEquals
-	 *
-	 * Constraint:
-	 *     value=Boolean
-	 */
-	protected void sequence_BooleanValueNotEquals(ISerializationContext context, BooleanValueNotEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.BOOLEAN_VALUE_NOT_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.BOOLEAN_VALUE_NOT_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBooleanValueNotEqualsAccess().getValueBooleanParserRuleCall_1_0(), semanticObject.isValue());
-		feeder.finish();
+	protected void sequence_BooleanValueComparison(ISerializationContext context, BooleanValueComparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -608,121 +599,63 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns DecimalValueEquals
-	 *     DataTypeComparison returns DecimalValueEquals
-	 *     DecimalValueEquals returns DecimalValueEquals
+	 *     ExpressionConstraint returns ConjunctionFilter
+	 *     OrExpressionConstraint returns ConjunctionFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ConjunctionFilter
+	 *     AndExpressionConstraint returns ConjunctionFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ConjunctionFilter
+	 *     ExclusionExpressionConstraint returns ConjunctionFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ConjunctionFilter
+	 *     RefinedExpressionConstraint returns ConjunctionFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ConjunctionFilter
+	 *     DottedExpressionConstraint returns ConjunctionFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ConjunctionFilter
+	 *     SubExpressionConstraint returns ConjunctionFilter
+	 *     FilterConstraint returns ConjunctionFilter
+	 *     Filter returns ConjunctionFilter
+	 *     DisjunctionFilter returns ConjunctionFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns ConjunctionFilter
+	 *     ConjunctionFilter returns ConjunctionFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ConjunctionFilter
 	 *
 	 * Constraint:
-	 *     value=Decimal
+	 *     (left=ConjunctionFilter_ConjunctionFilter_1_0 right=ExclusionFilter)
 	 */
-	protected void sequence_DecimalValueEquals(ISerializationContext context, DecimalValueEquals semanticObject) {
+	protected void sequence_ConjunctionFilter(ISerializationContext context, ConjunctionFilter semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_EQUALS__VALUE));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.CONJUNCTION_FILTER__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.CONJUNCTION_FILTER__LEFT));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueEqualsAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getConjunctionFilterAccess().getConjunctionFilterLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getConjunctionFilterAccess().getRightExclusionFilterParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns DecimalValueGreaterThanEquals
-	 *     DataTypeComparison returns DecimalValueGreaterThanEquals
-	 *     DecimalValueGreaterThanEquals returns DecimalValueGreaterThanEquals
+	 *     Comparison returns DecimalValueComparison
+	 *     DataTypeComparison returns DecimalValueComparison
+	 *     DecimalValueComparison returns DecimalValueComparison
 	 *
 	 * Constraint:
-	 *     value=Decimal
+	 *     (
+	 *         (
+	 *             op=EQUAL | 
+	 *             op=NOT_EQUAL | 
+	 *             op=GT | 
+	 *             op=LT | 
+	 *             op=GTE | 
+	 *             op=LTE
+	 *         ) 
+	 *         value=Decimal
+	 *     )
 	 */
-	protected void sequence_DecimalValueGreaterThanEquals(ISerializationContext context, DecimalValueGreaterThanEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_GREATER_THAN_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_GREATER_THAN_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueGreaterThanEqualsAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns DecimalValueGreaterThan
-	 *     DataTypeComparison returns DecimalValueGreaterThan
-	 *     DecimalValueGreaterThan returns DecimalValueGreaterThan
-	 *
-	 * Constraint:
-	 *     value=Decimal
-	 */
-	protected void sequence_DecimalValueGreaterThan(ISerializationContext context, DecimalValueGreaterThan semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_GREATER_THAN__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_GREATER_THAN__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueGreaterThanAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns DecimalValueLessThanEquals
-	 *     DataTypeComparison returns DecimalValueLessThanEquals
-	 *     DecimalValueLessThanEquals returns DecimalValueLessThanEquals
-	 *
-	 * Constraint:
-	 *     value=Decimal
-	 */
-	protected void sequence_DecimalValueLessThanEquals(ISerializationContext context, DecimalValueLessThanEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_LESS_THAN_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_LESS_THAN_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueLessThanEqualsAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns DecimalValueLessThan
-	 *     DataTypeComparison returns DecimalValueLessThan
-	 *     DecimalValueLessThan returns DecimalValueLessThan
-	 *
-	 * Constraint:
-	 *     value=Decimal
-	 */
-	protected void sequence_DecimalValueLessThan(ISerializationContext context, DecimalValueLessThan semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_LESS_THAN__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_LESS_THAN__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueLessThanAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns DecimalValueNotEquals
-	 *     DataTypeComparison returns DecimalValueNotEquals
-	 *     DecimalValueNotEquals returns DecimalValueNotEquals
-	 *
-	 * Constraint:
-	 *     value=Decimal
-	 */
-	protected void sequence_DecimalValueNotEquals(ISerializationContext context, DecimalValueNotEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DECIMAL_VALUE_NOT_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DECIMAL_VALUE_NOT_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDecimalValueNotEqualsAccess().getValueDecimalParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_DecimalValueComparison(ISerializationContext context, DecimalValueComparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -788,6 +721,134 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
+	 *     ExpressionConstraint returns DialectAliasFilter
+	 *     OrExpressionConstraint returns DialectAliasFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DialectAliasFilter
+	 *     AndExpressionConstraint returns DialectAliasFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DialectAliasFilter
+	 *     ExclusionExpressionConstraint returns DialectAliasFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DialectAliasFilter
+	 *     RefinedExpressionConstraint returns DialectAliasFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DialectAliasFilter
+	 *     DottedExpressionConstraint returns DialectAliasFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DialectAliasFilter
+	 *     SubExpressionConstraint returns DialectAliasFilter
+	 *     FilterConstraint returns DialectAliasFilter
+	 *     Filter returns DialectAliasFilter
+	 *     DisjunctionFilter returns DialectAliasFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns DialectAliasFilter
+	 *     ConjunctionFilter returns DialectAliasFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns DialectAliasFilter
+	 *     ExclusionFilter returns DialectAliasFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns DialectAliasFilter
+	 *     PropertyFilter returns DialectAliasFilter
+	 *     DialectFilter returns DialectAliasFilter
+	 *     DialectAliasFilter returns DialectAliasFilter
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) (dialects+=DialectAlias | (dialects+=DialectAlias dialects+=DialectAlias*)))
+	 */
+	protected void sequence_DialectAliasFilter(ISerializationContext context, DialectAliasFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DialectAlias returns DialectAlias
+	 *
+	 * Constraint:
+	 *     (alias=DialectAliasValue acceptability=Acceptability?)
+	 */
+	protected void sequence_DialectAlias(ISerializationContext context, DialectAlias semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns DialectIdFilter
+	 *     OrExpressionConstraint returns DialectIdFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DialectIdFilter
+	 *     AndExpressionConstraint returns DialectIdFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DialectIdFilter
+	 *     ExclusionExpressionConstraint returns DialectIdFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DialectIdFilter
+	 *     RefinedExpressionConstraint returns DialectIdFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DialectIdFilter
+	 *     DottedExpressionConstraint returns DialectIdFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DialectIdFilter
+	 *     SubExpressionConstraint returns DialectIdFilter
+	 *     FilterConstraint returns DialectIdFilter
+	 *     Filter returns DialectIdFilter
+	 *     DisjunctionFilter returns DialectIdFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns DialectIdFilter
+	 *     ConjunctionFilter returns DialectIdFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns DialectIdFilter
+	 *     ExclusionFilter returns DialectIdFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns DialectIdFilter
+	 *     PropertyFilter returns DialectIdFilter
+	 *     DialectFilter returns DialectIdFilter
+	 *     DialectIdFilter returns DialectIdFilter
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) (dialects+=Dialect | (dialects+=Dialect dialects+=Dialect*)))
+	 */
+	protected void sequence_DialectIdFilter(ISerializationContext context, DialectIdFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Dialect returns Dialect
+	 *
+	 * Constraint:
+	 *     (languageRefSetId=EclConceptReference acceptability=Acceptability?)
+	 */
+	protected void sequence_Dialect(ISerializationContext context, Dialect semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns DisjunctionFilter
+	 *     OrExpressionConstraint returns DisjunctionFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DisjunctionFilter
+	 *     AndExpressionConstraint returns DisjunctionFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DisjunctionFilter
+	 *     ExclusionExpressionConstraint returns DisjunctionFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DisjunctionFilter
+	 *     RefinedExpressionConstraint returns DisjunctionFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DisjunctionFilter
+	 *     DottedExpressionConstraint returns DisjunctionFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DisjunctionFilter
+	 *     SubExpressionConstraint returns DisjunctionFilter
+	 *     FilterConstraint returns DisjunctionFilter
+	 *     Filter returns DisjunctionFilter
+	 *     DisjunctionFilter returns DisjunctionFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns DisjunctionFilter
+	 *
+	 * Constraint:
+	 *     (left=DisjunctionFilter_DisjunctionFilter_1_0 right=ConjunctionFilter)
+	 */
+	protected void sequence_DisjunctionFilter(ISerializationContext context, DisjunctionFilter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DISJUNCTION_FILTER__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DISJUNCTION_FILTER__LEFT));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDisjunctionFilterAccess().getDisjunctionFilterLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDisjunctionFilterAccess().getRightConjunctionFilterParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ExpressionConstraint returns DottedExpressionConstraint
 	 *     OrExpressionConstraint returns DottedExpressionConstraint
 	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DottedExpressionConstraint
@@ -831,6 +892,18 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	 *     (cardinality=Cardinality? refinement=EclAttributeSet)
 	 */
 	protected void sequence_EclAttributeGroup(ISerializationContext context, EclAttributeGroup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EclConceptReferenceSet returns EclConceptReferenceSet
+	 *
+	 * Constraint:
+	 *     (concepts+=EclConceptReference concepts+=EclConceptReference*)
+	 */
+	protected void sequence_EclConceptReferenceSet(ISerializationContext context, EclConceptReferenceSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -888,121 +961,97 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns IntegerValueEquals
-	 *     DataTypeComparison returns IntegerValueEquals
-	 *     IntegerValueEquals returns IntegerValueEquals
+	 *     ExpressionConstraint returns ExclusionFilter
+	 *     OrExpressionConstraint returns ExclusionFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ExclusionFilter
+	 *     AndExpressionConstraint returns ExclusionFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ExclusionFilter
+	 *     ExclusionExpressionConstraint returns ExclusionFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ExclusionFilter
+	 *     RefinedExpressionConstraint returns ExclusionFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ExclusionFilter
+	 *     DottedExpressionConstraint returns ExclusionFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ExclusionFilter
+	 *     SubExpressionConstraint returns ExclusionFilter
+	 *     FilterConstraint returns ExclusionFilter
+	 *     Filter returns ExclusionFilter
+	 *     DisjunctionFilter returns ExclusionFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns ExclusionFilter
+	 *     ConjunctionFilter returns ExclusionFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ExclusionFilter
+	 *     ExclusionFilter returns ExclusionFilter
 	 *
 	 * Constraint:
-	 *     value=Integer
+	 *     (left=ExclusionFilter_ExclusionFilter_1_0 right=PropertyFilter)
 	 */
-	protected void sequence_IntegerValueEquals(ISerializationContext context, IntegerValueEquals semanticObject) {
+	protected void sequence_ExclusionFilter(ISerializationContext context, ExclusionFilter semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_EQUALS__VALUE));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__LEFT));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueEqualsAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getExclusionFilterAccess().getExclusionFilterLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExclusionFilterAccess().getRightPropertyFilterParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns IntegerValueGreaterThanEquals
-	 *     DataTypeComparison returns IntegerValueGreaterThanEquals
-	 *     IntegerValueGreaterThanEquals returns IntegerValueGreaterThanEquals
+	 *     Comparison returns IntegerValueComparison
+	 *     DataTypeComparison returns IntegerValueComparison
+	 *     IntegerValueComparison returns IntegerValueComparison
 	 *
 	 * Constraint:
-	 *     value=Integer
+	 *     (
+	 *         (
+	 *             op=EQUAL | 
+	 *             op=NOT_EQUAL | 
+	 *             op=GT | 
+	 *             op=LT | 
+	 *             op=GTE | 
+	 *             op=LTE
+	 *         ) 
+	 *         value=Integer
+	 *     )
 	 */
-	protected void sequence_IntegerValueGreaterThanEquals(ISerializationContext context, IntegerValueGreaterThanEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_GREATER_THAN_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_GREATER_THAN_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueGreaterThanEqualsAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_IntegerValueComparison(ISerializationContext context, IntegerValueComparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns IntegerValueGreaterThan
-	 *     DataTypeComparison returns IntegerValueGreaterThan
-	 *     IntegerValueGreaterThan returns IntegerValueGreaterThan
+	 *     ExpressionConstraint returns LanguageCodeFilter
+	 *     OrExpressionConstraint returns LanguageCodeFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns LanguageCodeFilter
+	 *     AndExpressionConstraint returns LanguageCodeFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns LanguageCodeFilter
+	 *     ExclusionExpressionConstraint returns LanguageCodeFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns LanguageCodeFilter
+	 *     RefinedExpressionConstraint returns LanguageCodeFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns LanguageCodeFilter
+	 *     DottedExpressionConstraint returns LanguageCodeFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns LanguageCodeFilter
+	 *     SubExpressionConstraint returns LanguageCodeFilter
+	 *     FilterConstraint returns LanguageCodeFilter
+	 *     Filter returns LanguageCodeFilter
+	 *     DisjunctionFilter returns LanguageCodeFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns LanguageCodeFilter
+	 *     ConjunctionFilter returns LanguageCodeFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns LanguageCodeFilter
+	 *     ExclusionFilter returns LanguageCodeFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns LanguageCodeFilter
+	 *     PropertyFilter returns LanguageCodeFilter
+	 *     LanguageCodeFilter returns LanguageCodeFilter
 	 *
 	 * Constraint:
-	 *     value=Integer
+	 *     ((op=EQUAL | op=NOT_EQUAL) (languageCodes+=Alphabetical | (languageCodes+=Alphabetical languageCodes+=Alphabetical*)))
 	 */
-	protected void sequence_IntegerValueGreaterThan(ISerializationContext context, IntegerValueGreaterThan semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_GREATER_THAN__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_GREATER_THAN__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueGreaterThanAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns IntegerValueLessThanEquals
-	 *     DataTypeComparison returns IntegerValueLessThanEquals
-	 *     IntegerValueLessThanEquals returns IntegerValueLessThanEquals
-	 *
-	 * Constraint:
-	 *     value=Integer
-	 */
-	protected void sequence_IntegerValueLessThanEquals(ISerializationContext context, IntegerValueLessThanEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_LESS_THAN_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_LESS_THAN_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueLessThanEqualsAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns IntegerValueLessThan
-	 *     DataTypeComparison returns IntegerValueLessThan
-	 *     IntegerValueLessThan returns IntegerValueLessThan
-	 *
-	 * Constraint:
-	 *     value=Integer
-	 */
-	protected void sequence_IntegerValueLessThan(ISerializationContext context, IntegerValueLessThan semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_LESS_THAN__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_LESS_THAN__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueLessThanAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Comparison returns IntegerValueNotEquals
-	 *     DataTypeComparison returns IntegerValueNotEquals
-	 *     IntegerValueNotEquals returns IntegerValueNotEquals
-	 *
-	 * Constraint:
-	 *     value=Integer
-	 */
-	protected void sequence_IntegerValueNotEquals(ISerializationContext context, IntegerValueNotEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.INTEGER_VALUE_NOT_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.INTEGER_VALUE_NOT_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerValueNotEqualsAccess().getValueIntegerParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_LanguageCodeFilter(ISerializationContext context, LanguageCodeFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1082,6 +1131,45 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNestedExpressionAccess().getNestedExpressionConstraintParserRuleCall_1_0(), semanticObject.getNested());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns NestedFilter
+	 *     OrExpressionConstraint returns NestedFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns NestedFilter
+	 *     AndExpressionConstraint returns NestedFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns NestedFilter
+	 *     ExclusionExpressionConstraint returns NestedFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns NestedFilter
+	 *     RefinedExpressionConstraint returns NestedFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns NestedFilter
+	 *     DottedExpressionConstraint returns NestedFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns NestedFilter
+	 *     SubExpressionConstraint returns NestedFilter
+	 *     FilterConstraint returns NestedFilter
+	 *     Filter returns NestedFilter
+	 *     DisjunctionFilter returns NestedFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns NestedFilter
+	 *     ConjunctionFilter returns NestedFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns NestedFilter
+	 *     ExclusionFilter returns NestedFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns NestedFilter
+	 *     NestedFilter returns NestedFilter
+	 *     PropertyFilter returns NestedFilter
+	 *
+	 * Constraint:
+	 *     nested=Filter
+	 */
+	protected void sequence_NestedFilter(ISerializationContext context, NestedFilter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.NESTED_FILTER__NESTED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.NESTED_FILTER__NESTED));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNestedFilterAccess().getNestedFilterParserRuleCall_1_0(), semanticObject.getNested());
 		feeder.finish();
 	}
 	
@@ -1281,41 +1369,151 @@ public abstract class AbstractEclSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns StringValueEquals
-	 *     DataTypeComparison returns StringValueEquals
-	 *     StringValueEquals returns StringValueEquals
+	 *     Comparison returns StringValueComparison
+	 *     DataTypeComparison returns StringValueComparison
+	 *     StringValueComparison returns StringValueComparison
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     ((op=EQUAL | op=NOT_EQUAL) value=STRING)
 	 */
-	protected void sequence_StringValueEquals(ISerializationContext context, StringValueEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.STRING_VALUE_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.STRING_VALUE_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringValueEqualsAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_StringValueComparison(ISerializationContext context, StringValueComparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns StringValueNotEquals
-	 *     DataTypeComparison returns StringValueNotEquals
-	 *     StringValueNotEquals returns StringValueNotEquals
+	 *     ExpressionConstraint returns TypeIdFilter
+	 *     OrExpressionConstraint returns TypeIdFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypeIdFilter
+	 *     AndExpressionConstraint returns TypeIdFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypeIdFilter
+	 *     ExclusionExpressionConstraint returns TypeIdFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypeIdFilter
+	 *     RefinedExpressionConstraint returns TypeIdFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypeIdFilter
+	 *     DottedExpressionConstraint returns TypeIdFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypeIdFilter
+	 *     SubExpressionConstraint returns TypeIdFilter
+	 *     FilterConstraint returns TypeIdFilter
+	 *     Filter returns TypeIdFilter
+	 *     DisjunctionFilter returns TypeIdFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypeIdFilter
+	 *     ConjunctionFilter returns TypeIdFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypeIdFilter
+	 *     ExclusionFilter returns TypeIdFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypeIdFilter
+	 *     PropertyFilter returns TypeIdFilter
+	 *     TypeFilter returns TypeIdFilter
+	 *     TypeIdFilter returns TypeIdFilter
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     ((op=EQUAL | op=NOT_EQUAL) (type=EclConceptReference | type=EclConceptReferenceSet))
 	 */
-	protected void sequence_StringValueNotEquals(ISerializationContext context, StringValueNotEquals semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.STRING_VALUE_NOT_EQUALS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.STRING_VALUE_NOT_EQUALS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringValueNotEqualsAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_TypeIdFilter(ISerializationContext context, TypeIdFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns TypeTokenFilter
+	 *     OrExpressionConstraint returns TypeTokenFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypeTokenFilter
+	 *     AndExpressionConstraint returns TypeTokenFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypeTokenFilter
+	 *     ExclusionExpressionConstraint returns TypeTokenFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypeTokenFilter
+	 *     RefinedExpressionConstraint returns TypeTokenFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypeTokenFilter
+	 *     DottedExpressionConstraint returns TypeTokenFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypeTokenFilter
+	 *     SubExpressionConstraint returns TypeTokenFilter
+	 *     FilterConstraint returns TypeTokenFilter
+	 *     Filter returns TypeTokenFilter
+	 *     DisjunctionFilter returns TypeTokenFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypeTokenFilter
+	 *     ConjunctionFilter returns TypeTokenFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypeTokenFilter
+	 *     ExclusionFilter returns TypeTokenFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypeTokenFilter
+	 *     PropertyFilter returns TypeTokenFilter
+	 *     TypeFilter returns TypeTokenFilter
+	 *     TypeTokenFilter returns TypeTokenFilter
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) (tokens+=Alphabetical | (tokens+=Alphabetical tokens+=Alphabetical*)))
+	 */
+	protected void sequence_TypeTokenFilter(ISerializationContext context, TypeTokenFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns TypedTermFilterSet
+	 *     OrExpressionConstraint returns TypedTermFilterSet
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypedTermFilterSet
+	 *     AndExpressionConstraint returns TypedTermFilterSet
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypedTermFilterSet
+	 *     ExclusionExpressionConstraint returns TypedTermFilterSet
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypedTermFilterSet
+	 *     RefinedExpressionConstraint returns TypedTermFilterSet
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypedTermFilterSet
+	 *     DottedExpressionConstraint returns TypedTermFilterSet
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypedTermFilterSet
+	 *     SubExpressionConstraint returns TypedTermFilterSet
+	 *     FilterConstraint returns TypedTermFilterSet
+	 *     Filter returns TypedTermFilterSet
+	 *     DisjunctionFilter returns TypedTermFilterSet
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilterSet
+	 *     ConjunctionFilter returns TypedTermFilterSet
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilterSet
+	 *     ExclusionFilter returns TypedTermFilterSet
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypedTermFilterSet
+	 *     PropertyFilter returns TypedTermFilterSet
+	 *     TermFilter returns TypedTermFilterSet
+	 *     TypedTermFilterSet returns TypedTermFilterSet
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) terms+=TypedTermFilter terms+=TypedTermFilter*)
+	 */
+	protected void sequence_TypedTermFilterSet(ISerializationContext context, TypedTermFilterSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns TypedTermFilter
+	 *     OrExpressionConstraint returns TypedTermFilter
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypedTermFilter
+	 *     AndExpressionConstraint returns TypedTermFilter
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypedTermFilter
+	 *     ExclusionExpressionConstraint returns TypedTermFilter
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypedTermFilter
+	 *     RefinedExpressionConstraint returns TypedTermFilter
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypedTermFilter
+	 *     DottedExpressionConstraint returns TypedTermFilter
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypedTermFilter
+	 *     SubExpressionConstraint returns TypedTermFilter
+	 *     FilterConstraint returns TypedTermFilter
+	 *     Filter returns TypedTermFilter
+	 *     DisjunctionFilter returns TypedTermFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilter
+	 *     ConjunctionFilter returns TypedTermFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilter
+	 *     ExclusionFilter returns TypedTermFilter
+	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypedTermFilter
+	 *     PropertyFilter returns TypedTermFilter
+	 *     TermFilter returns TypedTermFilter
+	 *     TypedTermFilter returns TypedTermFilter
+	 *
+	 * Constraint:
+	 *     ((op=EQUAL | op=NOT_EQUAL) lexicalSearchType=LexicalSearchType? term=STRING)
+	 */
+	protected void sequence_TypedTermFilter(ISerializationContext context, TypedTermFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -179,6 +179,13 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.ECL_CONCEPT_REFERENCE_SET:
+      {
+        EclConceptReferenceSet eclConceptReferenceSet = (EclConceptReferenceSet)theEObject;
+        T result = caseEclConceptReferenceSet(eclConceptReferenceSet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.ANY:
       {
         Any any = (Any)theEObject;
@@ -248,165 +255,39 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.ATTRIBUTE_VALUE_EQUALS:
+      case EclPackage.BOOLEAN_VALUE_COMPARISON:
       {
-        AttributeValueEquals attributeValueEquals = (AttributeValueEquals)theEObject;
-        T result = caseAttributeValueEquals(attributeValueEquals);
-        if (result == null) result = caseAttributeComparison(attributeValueEquals);
-        if (result == null) result = caseComparison(attributeValueEquals);
+        BooleanValueComparison booleanValueComparison = (BooleanValueComparison)theEObject;
+        T result = caseBooleanValueComparison(booleanValueComparison);
+        if (result == null) result = caseDataTypeComparison(booleanValueComparison);
+        if (result == null) result = caseComparison(booleanValueComparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.ATTRIBUTE_VALUE_NOT_EQUALS:
+      case EclPackage.STRING_VALUE_COMPARISON:
       {
-        AttributeValueNotEquals attributeValueNotEquals = (AttributeValueNotEquals)theEObject;
-        T result = caseAttributeValueNotEquals(attributeValueNotEquals);
-        if (result == null) result = caseAttributeComparison(attributeValueNotEquals);
-        if (result == null) result = caseComparison(attributeValueNotEquals);
+        StringValueComparison stringValueComparison = (StringValueComparison)theEObject;
+        T result = caseStringValueComparison(stringValueComparison);
+        if (result == null) result = caseDataTypeComparison(stringValueComparison);
+        if (result == null) result = caseComparison(stringValueComparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.BOOLEAN_VALUE_EQUALS:
+      case EclPackage.INTEGER_VALUE_COMPARISON:
       {
-        BooleanValueEquals booleanValueEquals = (BooleanValueEquals)theEObject;
-        T result = caseBooleanValueEquals(booleanValueEquals);
-        if (result == null) result = caseDataTypeComparison(booleanValueEquals);
-        if (result == null) result = caseComparison(booleanValueEquals);
+        IntegerValueComparison integerValueComparison = (IntegerValueComparison)theEObject;
+        T result = caseIntegerValueComparison(integerValueComparison);
+        if (result == null) result = caseDataTypeComparison(integerValueComparison);
+        if (result == null) result = caseComparison(integerValueComparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.BOOLEAN_VALUE_NOT_EQUALS:
+      case EclPackage.DECIMAL_VALUE_COMPARISON:
       {
-        BooleanValueNotEquals booleanValueNotEquals = (BooleanValueNotEquals)theEObject;
-        T result = caseBooleanValueNotEquals(booleanValueNotEquals);
-        if (result == null) result = caseDataTypeComparison(booleanValueNotEquals);
-        if (result == null) result = caseComparison(booleanValueNotEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.STRING_VALUE_EQUALS:
-      {
-        StringValueEquals stringValueEquals = (StringValueEquals)theEObject;
-        T result = caseStringValueEquals(stringValueEquals);
-        if (result == null) result = caseDataTypeComparison(stringValueEquals);
-        if (result == null) result = caseComparison(stringValueEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.STRING_VALUE_NOT_EQUALS:
-      {
-        StringValueNotEquals stringValueNotEquals = (StringValueNotEquals)theEObject;
-        T result = caseStringValueNotEquals(stringValueNotEquals);
-        if (result == null) result = caseDataTypeComparison(stringValueNotEquals);
-        if (result == null) result = caseComparison(stringValueNotEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_EQUALS:
-      {
-        IntegerValueEquals integerValueEquals = (IntegerValueEquals)theEObject;
-        T result = caseIntegerValueEquals(integerValueEquals);
-        if (result == null) result = caseDataTypeComparison(integerValueEquals);
-        if (result == null) result = caseComparison(integerValueEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_NOT_EQUALS:
-      {
-        IntegerValueNotEquals integerValueNotEquals = (IntegerValueNotEquals)theEObject;
-        T result = caseIntegerValueNotEquals(integerValueNotEquals);
-        if (result == null) result = caseDataTypeComparison(integerValueNotEquals);
-        if (result == null) result = caseComparison(integerValueNotEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_GREATER_THAN:
-      {
-        IntegerValueGreaterThan integerValueGreaterThan = (IntegerValueGreaterThan)theEObject;
-        T result = caseIntegerValueGreaterThan(integerValueGreaterThan);
-        if (result == null) result = caseDataTypeComparison(integerValueGreaterThan);
-        if (result == null) result = caseComparison(integerValueGreaterThan);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_LESS_THAN:
-      {
-        IntegerValueLessThan integerValueLessThan = (IntegerValueLessThan)theEObject;
-        T result = caseIntegerValueLessThan(integerValueLessThan);
-        if (result == null) result = caseDataTypeComparison(integerValueLessThan);
-        if (result == null) result = caseComparison(integerValueLessThan);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_GREATER_THAN_EQUALS:
-      {
-        IntegerValueGreaterThanEquals integerValueGreaterThanEquals = (IntegerValueGreaterThanEquals)theEObject;
-        T result = caseIntegerValueGreaterThanEquals(integerValueGreaterThanEquals);
-        if (result == null) result = caseDataTypeComparison(integerValueGreaterThanEquals);
-        if (result == null) result = caseComparison(integerValueGreaterThanEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.INTEGER_VALUE_LESS_THAN_EQUALS:
-      {
-        IntegerValueLessThanEquals integerValueLessThanEquals = (IntegerValueLessThanEquals)theEObject;
-        T result = caseIntegerValueLessThanEquals(integerValueLessThanEquals);
-        if (result == null) result = caseDataTypeComparison(integerValueLessThanEquals);
-        if (result == null) result = caseComparison(integerValueLessThanEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_EQUALS:
-      {
-        DecimalValueEquals decimalValueEquals = (DecimalValueEquals)theEObject;
-        T result = caseDecimalValueEquals(decimalValueEquals);
-        if (result == null) result = caseDataTypeComparison(decimalValueEquals);
-        if (result == null) result = caseComparison(decimalValueEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_NOT_EQUALS:
-      {
-        DecimalValueNotEquals decimalValueNotEquals = (DecimalValueNotEquals)theEObject;
-        T result = caseDecimalValueNotEquals(decimalValueNotEquals);
-        if (result == null) result = caseDataTypeComparison(decimalValueNotEquals);
-        if (result == null) result = caseComparison(decimalValueNotEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_GREATER_THAN:
-      {
-        DecimalValueGreaterThan decimalValueGreaterThan = (DecimalValueGreaterThan)theEObject;
-        T result = caseDecimalValueGreaterThan(decimalValueGreaterThan);
-        if (result == null) result = caseDataTypeComparison(decimalValueGreaterThan);
-        if (result == null) result = caseComparison(decimalValueGreaterThan);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_LESS_THAN:
-      {
-        DecimalValueLessThan decimalValueLessThan = (DecimalValueLessThan)theEObject;
-        T result = caseDecimalValueLessThan(decimalValueLessThan);
-        if (result == null) result = caseDataTypeComparison(decimalValueLessThan);
-        if (result == null) result = caseComparison(decimalValueLessThan);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_GREATER_THAN_EQUALS:
-      {
-        DecimalValueGreaterThanEquals decimalValueGreaterThanEquals = (DecimalValueGreaterThanEquals)theEObject;
-        T result = caseDecimalValueGreaterThanEquals(decimalValueGreaterThanEquals);
-        if (result == null) result = caseDataTypeComparison(decimalValueGreaterThanEquals);
-        if (result == null) result = caseComparison(decimalValueGreaterThanEquals);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.DECIMAL_VALUE_LESS_THAN_EQUALS:
-      {
-        DecimalValueLessThanEquals decimalValueLessThanEquals = (DecimalValueLessThanEquals)theEObject;
-        T result = caseDecimalValueLessThanEquals(decimalValueLessThanEquals);
-        if (result == null) result = caseDataTypeComparison(decimalValueLessThanEquals);
-        if (result == null) result = caseComparison(decimalValueLessThanEquals);
+        DecimalValueComparison decimalValueComparison = (DecimalValueComparison)theEObject;
+        T result = caseDecimalValueComparison(decimalValueComparison);
+        if (result == null) result = caseDataTypeComparison(decimalValueComparison);
+        if (result == null) result = caseComparison(decimalValueComparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -415,6 +296,197 @@ public class EclSwitch<T> extends Switch<T>
         NestedExpression nestedExpression = (NestedExpression)theEObject;
         T result = caseNestedExpression(nestedExpression);
         if (result == null) result = caseExpressionConstraint(nestedExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.FILTER_CONSTRAINT:
+      {
+        FilterConstraint filterConstraint = (FilterConstraint)theEObject;
+        T result = caseFilterConstraint(filterConstraint);
+        if (result == null) result = caseExpressionConstraint(filterConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.FILTER:
+      {
+        Filter filter = (Filter)theEObject;
+        T result = caseFilter(filter);
+        if (result == null) result = caseFilterConstraint(filter);
+        if (result == null) result = caseExpressionConstraint(filter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.NESTED_FILTER:
+      {
+        NestedFilter nestedFilter = (NestedFilter)theEObject;
+        T result = caseNestedFilter(nestedFilter);
+        if (result == null) result = casePropertyFilter(nestedFilter);
+        if (result == null) result = caseFilter(nestedFilter);
+        if (result == null) result = caseFilterConstraint(nestedFilter);
+        if (result == null) result = caseExpressionConstraint(nestedFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.PROPERTY_FILTER:
+      {
+        PropertyFilter propertyFilter = (PropertyFilter)theEObject;
+        T result = casePropertyFilter(propertyFilter);
+        if (result == null) result = caseFilter(propertyFilter);
+        if (result == null) result = caseFilterConstraint(propertyFilter);
+        if (result == null) result = caseExpressionConstraint(propertyFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TERM_FILTER:
+      {
+        TermFilter termFilter = (TermFilter)theEObject;
+        T result = caseTermFilter(termFilter);
+        if (result == null) result = casePropertyFilter(termFilter);
+        if (result == null) result = caseFilter(termFilter);
+        if (result == null) result = caseFilterConstraint(termFilter);
+        if (result == null) result = caseExpressionConstraint(termFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPED_TERM_FILTER:
+      {
+        TypedTermFilter typedTermFilter = (TypedTermFilter)theEObject;
+        T result = caseTypedTermFilter(typedTermFilter);
+        if (result == null) result = caseTermFilter(typedTermFilter);
+        if (result == null) result = casePropertyFilter(typedTermFilter);
+        if (result == null) result = caseFilter(typedTermFilter);
+        if (result == null) result = caseFilterConstraint(typedTermFilter);
+        if (result == null) result = caseExpressionConstraint(typedTermFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPED_TERM_FILTER_SET:
+      {
+        TypedTermFilterSet typedTermFilterSet = (TypedTermFilterSet)theEObject;
+        T result = caseTypedTermFilterSet(typedTermFilterSet);
+        if (result == null) result = caseTermFilter(typedTermFilterSet);
+        if (result == null) result = casePropertyFilter(typedTermFilterSet);
+        if (result == null) result = caseFilter(typedTermFilterSet);
+        if (result == null) result = caseFilterConstraint(typedTermFilterSet);
+        if (result == null) result = caseExpressionConstraint(typedTermFilterSet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.LANGUAGE_CODE_FILTER:
+      {
+        LanguageCodeFilter languageCodeFilter = (LanguageCodeFilter)theEObject;
+        T result = caseLanguageCodeFilter(languageCodeFilter);
+        if (result == null) result = casePropertyFilter(languageCodeFilter);
+        if (result == null) result = caseFilter(languageCodeFilter);
+        if (result == null) result = caseFilterConstraint(languageCodeFilter);
+        if (result == null) result = caseExpressionConstraint(languageCodeFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPE_FILTER:
+      {
+        TypeFilter typeFilter = (TypeFilter)theEObject;
+        T result = caseTypeFilter(typeFilter);
+        if (result == null) result = casePropertyFilter(typeFilter);
+        if (result == null) result = caseFilter(typeFilter);
+        if (result == null) result = caseFilterConstraint(typeFilter);
+        if (result == null) result = caseExpressionConstraint(typeFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPE_ID_FILTER:
+      {
+        TypeIdFilter typeIdFilter = (TypeIdFilter)theEObject;
+        T result = caseTypeIdFilter(typeIdFilter);
+        if (result == null) result = caseTypeFilter(typeIdFilter);
+        if (result == null) result = casePropertyFilter(typeIdFilter);
+        if (result == null) result = caseFilter(typeIdFilter);
+        if (result == null) result = caseFilterConstraint(typeIdFilter);
+        if (result == null) result = caseExpressionConstraint(typeIdFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPE_TOKEN_FILTER:
+      {
+        TypeTokenFilter typeTokenFilter = (TypeTokenFilter)theEObject;
+        T result = caseTypeTokenFilter(typeTokenFilter);
+        if (result == null) result = caseTypeFilter(typeTokenFilter);
+        if (result == null) result = casePropertyFilter(typeTokenFilter);
+        if (result == null) result = caseFilter(typeTokenFilter);
+        if (result == null) result = caseFilterConstraint(typeTokenFilter);
+        if (result == null) result = caseExpressionConstraint(typeTokenFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DIALECT_FILTER:
+      {
+        DialectFilter dialectFilter = (DialectFilter)theEObject;
+        T result = caseDialectFilter(dialectFilter);
+        if (result == null) result = casePropertyFilter(dialectFilter);
+        if (result == null) result = caseFilter(dialectFilter);
+        if (result == null) result = caseFilterConstraint(dialectFilter);
+        if (result == null) result = caseExpressionConstraint(dialectFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DIALECT_ID_FILTER:
+      {
+        DialectIdFilter dialectIdFilter = (DialectIdFilter)theEObject;
+        T result = caseDialectIdFilter(dialectIdFilter);
+        if (result == null) result = caseDialectFilter(dialectIdFilter);
+        if (result == null) result = casePropertyFilter(dialectIdFilter);
+        if (result == null) result = caseFilter(dialectIdFilter);
+        if (result == null) result = caseFilterConstraint(dialectIdFilter);
+        if (result == null) result = caseExpressionConstraint(dialectIdFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DIALECT_ALIAS_FILTER:
+      {
+        DialectAliasFilter dialectAliasFilter = (DialectAliasFilter)theEObject;
+        T result = caseDialectAliasFilter(dialectAliasFilter);
+        if (result == null) result = caseDialectFilter(dialectAliasFilter);
+        if (result == null) result = casePropertyFilter(dialectAliasFilter);
+        if (result == null) result = caseFilter(dialectAliasFilter);
+        if (result == null) result = caseFilterConstraint(dialectAliasFilter);
+        if (result == null) result = caseExpressionConstraint(dialectAliasFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DIALECT:
+      {
+        Dialect dialect = (Dialect)theEObject;
+        T result = caseDialect(dialect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DIALECT_ALIAS:
+      {
+        DialectAlias dialectAlias = (DialectAlias)theEObject;
+        T result = caseDialectAlias(dialectAlias);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.ACCEPTABILITY:
+      {
+        Acceptability acceptability = (Acceptability)theEObject;
+        T result = caseAcceptability(acceptability);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.ACCEPTABILITY_ID_SET:
+      {
+        AcceptabilityIdSet acceptabilityIdSet = (AcceptabilityIdSet)theEObject;
+        T result = caseAcceptabilityIdSet(acceptabilityIdSet);
+        if (result == null) result = caseAcceptability(acceptabilityIdSet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.ACCEPTABILITY_TOKEN_SET:
+      {
+        AcceptabilityTokenSet acceptabilityTokenSet = (AcceptabilityTokenSet)theEObject;
+        T result = caseAcceptabilityTokenSet(acceptabilityTokenSet);
+        if (result == null) result = caseAcceptability(acceptabilityTokenSet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -471,6 +543,36 @@ public class EclSwitch<T> extends Switch<T>
         AndRefinement andRefinement = (AndRefinement)theEObject;
         T result = caseAndRefinement(andRefinement);
         if (result == null) result = caseEclRefinement(andRefinement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.DISJUNCTION_FILTER:
+      {
+        DisjunctionFilter disjunctionFilter = (DisjunctionFilter)theEObject;
+        T result = caseDisjunctionFilter(disjunctionFilter);
+        if (result == null) result = caseFilter(disjunctionFilter);
+        if (result == null) result = caseFilterConstraint(disjunctionFilter);
+        if (result == null) result = caseExpressionConstraint(disjunctionFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.CONJUNCTION_FILTER:
+      {
+        ConjunctionFilter conjunctionFilter = (ConjunctionFilter)theEObject;
+        T result = caseConjunctionFilter(conjunctionFilter);
+        if (result == null) result = caseFilter(conjunctionFilter);
+        if (result == null) result = caseFilterConstraint(conjunctionFilter);
+        if (result == null) result = caseExpressionConstraint(conjunctionFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.EXCLUSION_FILTER:
+      {
+        ExclusionFilter exclusionFilter = (ExclusionFilter)theEObject;
+        T result = caseExclusionFilter(exclusionFilter);
+        if (result == null) result = caseFilter(exclusionFilter);
+        if (result == null) result = caseFilterConstraint(exclusionFilter);
+        if (result == null) result = caseExpressionConstraint(exclusionFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -671,6 +773,22 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Concept Reference Set</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concept Reference Set</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEclConceptReferenceSet(EclConceptReferenceSet object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Any</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -815,289 +933,65 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute Value Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute Value Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Value Comparison</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAttributeValueEquals(AttributeValueEquals object)
+  public T caseBooleanValueComparison(BooleanValueComparison object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute Value Not Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>String Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute Value Not Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>String Value Comparison</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAttributeValueNotEquals(AttributeValueNotEquals object)
+  public T caseStringValueComparison(StringValueComparison object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Value Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Integer Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Value Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Integer Value Comparison</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBooleanValueEquals(BooleanValueEquals object)
+  public T caseIntegerValueComparison(IntegerValueComparison object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Value Not Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Comparison</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Value Not Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Decimal Value Comparison</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBooleanValueNotEquals(BooleanValueNotEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>String Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Value Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStringValueEquals(StringValueEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>String Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Value Not Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStringValueNotEquals(StringValueNotEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueEquals(IntegerValueEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Not Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueNotEquals(IntegerValueNotEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Greater Than</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Greater Than</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueGreaterThan(IntegerValueGreaterThan object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Less Than</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Less Than</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueLessThan(IntegerValueLessThan object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Greater Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Greater Than Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueGreaterThanEquals(IntegerValueGreaterThanEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Value Less Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Value Less Than Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntegerValueLessThanEquals(IntegerValueLessThanEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueEquals(DecimalValueEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Not Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Not Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueNotEquals(DecimalValueNotEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Greater Than</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Greater Than</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueGreaterThan(DecimalValueGreaterThan object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Less Than</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Less Than</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueLessThan(DecimalValueLessThan object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Greater Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Greater Than Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueGreaterThanEquals(DecimalValueGreaterThanEquals object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Decimal Value Less Than Equals</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decimal Value Less Than Equals</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDecimalValueLessThanEquals(DecimalValueLessThanEquals object)
+  public T caseDecimalValueComparison(DecimalValueComparison object)
   {
     return null;
   }
@@ -1114,6 +1008,310 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNestedExpression(NestedExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Filter Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Filter Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFilterConstraint(FilterConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFilter(Filter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nested Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nested Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNestedFilter(NestedFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Property Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Property Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePropertyFilter(PropertyFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Term Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Term Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTermFilter(TermFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypedTermFilter(TypedTermFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypedTermFilterSet(TypedTermFilterSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language Code Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language Code Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguageCodeFilter(LanguageCodeFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeFilter(TypeFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Id Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeIdFilter(TypeIdFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Token Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Token Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeTokenFilter(TypeTokenFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dialect Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dialect Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDialectFilter(DialectFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dialect Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dialect Id Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDialectIdFilter(DialectIdFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dialect Alias Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dialect Alias Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDialectAliasFilter(DialectAliasFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dialect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dialect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDialect(Dialect object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dialect Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dialect Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDialectAlias(DialectAlias object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Acceptability</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Acceptability</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAcceptability(Acceptability object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Acceptability Id Set</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Acceptability Id Set</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAcceptabilityIdSet(AcceptabilityIdSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Acceptability Token Set</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Acceptability Token Set</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAcceptabilityTokenSet(AcceptabilityTokenSet object)
   {
     return null;
   }
@@ -1226,6 +1424,54 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAndRefinement(AndRefinement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Disjunction Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Disjunction Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDisjunctionFilter(DisjunctionFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Conjunction Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conjunction Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConjunctionFilter(ConjunctionFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exclusion Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exclusion Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExclusionFilter(ExclusionFilter object)
   {
     return null;
   }
