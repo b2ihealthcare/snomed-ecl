@@ -15,6 +15,9 @@
  */
 package com.b2international.snomed.ecl.validation;
 
+import java.util.List;
+import java.util.Set;
+
 import org.eclipse.xtext.validation.Check;
 
 import com.b2international.snomed.ecl.Ecl;
@@ -32,6 +35,12 @@ public class EclValidator extends AbstractEclValidator {
 	
 	private static final String CARDINALITY_RANGE_ERROR_MESSAGE = "Cardinality minimum value should not be greater than maximum value";
 	private static final String CARDINALITY_RANGE_ERROR_CODE = "cardinality.range.error";
+	
+	// TODO make it configurable
+	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
+	
+	private static final String UNSUPPORTED_TYPE_TOKEN_MESSAGE = "Unsupported type token";
+	private static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
 
 	@Override
 	public boolean isLanguageSpecific() {
@@ -96,6 +105,16 @@ public class EclValidator extends AbstractEclValidator {
 
 	private boolean isAmbiguous(EclRefinement parent, EclRefinement child) {
 		return parent.getClass() != child.getClass() && (child instanceof AndRefinement || child instanceof OrRefinement);
+	}
+	
+	@Check
+	public void checkTypeToken(TypeTokenFilter it) {
+		final List<String> tokens = it.getTokens() == null ? List.of() : it.getTokens();
+		for (String token : tokens) {
+			if (!SUPPORTED_TYPE_TOKENS.contains(token.toLowerCase())) {
+				error(UNSUPPORTED_TYPE_TOKEN_MESSAGE, it, EclPackage.Literals.TYPE_TOKEN_FILTER__TOKENS, UNSUPPORTED_TYPE_TOKEN_CODE);
+			}
+		}
 	}
 	
 }
