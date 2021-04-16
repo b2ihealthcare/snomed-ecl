@@ -124,79 +124,25 @@ Comparison:
 	AttributeComparison | DataTypeComparison;
 
 AttributeComparison:
-	AttributeValueEquals | AttributeValueNotEquals;
+	op=(EQUAL | NOT_EQUAL) value=SubExpressionConstraint;
 
 DataTypeComparison:
-	BooleanValueEquals
-	| BooleanValueNotEquals
-	| StringValueEquals
-	| StringValueNotEquals
-	| IntegerValueEquals
-	| IntegerValueNotEquals
-	| IntegerValueGreaterThan
-	| IntegerValueGreaterThanEquals
-	| IntegerValueLessThan
-	| IntegerValueLessThanEquals
-	| DecimalValueEquals
-	| DecimalValueNotEquals
-	| DecimalValueGreaterThan
-	| DecimalValueGreaterThanEquals
-	| DecimalValueLessThan
-	| DecimalValueLessThanEquals;
+	BooleanValueComparison
+	| StringValueComparison
+	| IntegerValueComparison
+	| DecimalValueComparison;
 
-AttributeValueEquals:
-	EQUAL constraint=SubExpressionConstraint;
+BooleanValueComparison:
+	op=(EQUAL | NOT_EQUAL) value=Boolean;
 
-AttributeValueNotEquals:
-	NOT_EQUAL constraint=SubExpressionConstraint;
+StringValueComparison:
+	op=(EQUAL | NOT_EQUAL) value=STRING;
 
-BooleanValueEquals:
-	EQUAL value=Boolean;
+IntegerValueComparison:
+	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Integer;
 
-BooleanValueNotEquals:
-	NOT_EQUAL value=Boolean;
-
-StringValueEquals:
-	EQUAL value=STRING;
-
-StringValueNotEquals:
-	NOT_EQUAL value=STRING;
-
-IntegerValueEquals:
-	EQUAL HASH value=Integer;
-
-IntegerValueNotEquals:
-	NOT_EQUAL HASH value=Integer;
-
-IntegerValueGreaterThan:
-	GT HASH value=Integer;
-
-IntegerValueLessThan:
-	LT HASH value=Integer;
-
-IntegerValueGreaterThanEquals:
-	GTE HASH value=Integer;
-
-IntegerValueLessThanEquals:
-	LTE HASH value=Integer;
-
-DecimalValueEquals:
-	EQUAL HASH value=Decimal;
-
-DecimalValueNotEquals:
-	NOT_EQUAL HASH value=Decimal;
-
-DecimalValueGreaterThan:
-	GT HASH value=Decimal;
-
-DecimalValueLessThan:
-	LT HASH value=Decimal;
-
-DecimalValueGreaterThanEquals:
-	GTE HASH value=Decimal;
-
-DecimalValueLessThanEquals:
-	LTE HASH value=Decimal;
+DecimalValueComparison:
+	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Decimal;
 
 NestedExpression:
 	ROUND_OPEN nested=ExpressionConstraint ROUND_CLOSE;
