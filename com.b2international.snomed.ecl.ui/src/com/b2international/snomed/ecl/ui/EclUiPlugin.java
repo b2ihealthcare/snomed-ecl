@@ -46,19 +46,25 @@ public class EclUiPlugin extends EclActivator {
 	@Override
 	protected Injector createInjector(String language) {
 		try {
-			com.google.inject.Module runtimeModule = getRuntimeModule(language);
-			// additional core language bindings go here via extension point
-			for (Module additionalRuntimeModule : getExtensions("com.b2international.snomed.ecl.ui.eclAdditionalModules", "class", Module.class)) {
-				runtimeModule = Modules2.mixin(runtimeModule, additionalRuntimeModule);
-			}
-			
-			com.google.inject.Module sharedStateModule = getSharedStateModule();
-			com.google.inject.Module uiModule = getUiModule(language);
-			com.google.inject.Module mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
-			return Guice.createInjector(mergedModule);
+			com.google.inject.Module combinedModule = getCombinedModule(language);
+			return Guice.createInjector(combinedModule);
 		} catch (Exception e) {
 			throw new RuntimeException("Failed to create injector for " + language, e);
 		}
+	}
+
+	public Module getCombinedModule(String language) {
+		com.google.inject.Module runtimeModule = getRuntimeModule(language);
+		com.google.inject.Module sharedStateModule = getSharedStateModule();
+		com.google.inject.Module uiModule = getUiModule(language);
+		com.google.inject.Module combinedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
+			
+		// Overriding modules go here via extension point
+		for (Module additionalRuntimeModule : getExtensions("com.b2international.snomed.ecl.ui.eclAdditionalModules", "class", Module.class)) {
+			combinedModule = Modules2.mixin(combinedModule, additionalRuntimeModule);
+		}
+
+		return combinedModule;
 	}
 	
 	private static final <T> Collection<T> getExtensions(final String extensionPoint, final String classAttributeName, final Class<T> type) {
