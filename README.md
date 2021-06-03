@@ -12,8 +12,7 @@ See the official documentation [here](http://snomed.org/ecl)
 
 # Supported versions
 
-* https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.4.1 - ECL 1.4.0
-* https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.4.0 - ECL 1.4.0
+* https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.4.3 - ECL 1.4.0
 * https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.3.0 - ECL 1.3.0
 
 # Building from source
