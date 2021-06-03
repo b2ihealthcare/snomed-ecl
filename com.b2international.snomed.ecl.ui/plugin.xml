@@ -389,13 +389,4 @@
             type="text">
     </fileTypes>
   </extension>
-  <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="com.b2international.snomed.ecl.ui.execute"
-            contextId="org.eclipse.xtext.ui.XtextEditorScope"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M1+CR">
-      </key>
-   </extension>
 </plugin>
