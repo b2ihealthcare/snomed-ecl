@@ -288,14 +288,14 @@ terminal TO:
 terminal COMMA:
 	',';
 	
-terminal CONJUNCTION:
-	'and';
+CONJUNCTION:
+	'AND';
 
-terminal DISJUNCTION:
-	'or';
+DISJUNCTION:
+	'OR';
 
-terminal EXCLUSION:
-	'minus';
+EXCLUSION:
+	'MINUS';
 	
 terminal ZERO:
 	'0';
@@ -384,52 +384,52 @@ terminal DOUBLE_CURLY_OPEN:
 terminal DOUBLE_CURLY_CLOSE:
 	'}}';
 
-terminal TERM_KEYWORD:
+TERM_KEYWORD:
 	'term';
 
-terminal LANGUAGE_KEYWORD:
+LANGUAGE_KEYWORD:
 	'language';
 
-terminal TYPEID_KEYWORD:
+TYPEID_KEYWORD:
 	'typeId';
 
-terminal TYPE_KEYWORD:
+TYPE_KEYWORD:
 	'type';
 
-terminal DIALECTID_KEYWORD:
+DIALECTID_KEYWORD:
 	'dialectId';
 
-terminal DIALECT_KEYWORD:
+DIALECT_KEYWORD:
 	'dialect';
 
-terminal ACTIVE_KEYWORD:
+ACTIVE_KEYWORD:
 	'active';
 
-terminal MODULEID_KEYWORD:
+MODULEID_KEYWORD:
 	'moduleId';
 
-terminal PREFERRED_IN_KEYWORD:
+PREFERRED_IN_KEYWORD:
 	'preferredIn';
 
-terminal ACCEPTABLE_IN_KEYWORD:
+ACCEPTABLE_IN_KEYWORD:
 	'acceptableIn';
 
-terminal LANGUAGE_REFSET_ID_KEYWORD:
+LANGUAGE_REFSET_ID_KEYWORD:
 	'languageRefSetId';
 
-terminal CASE_SIGNIFICANCE_ID_KEYWORD:
+CASE_SIGNIFICANCE_ID_KEYWORD:
 	'caseSignificanceId';
 
-terminal LEXICAL_SEARCH_TYPE:
+LEXICAL_SEARCH_TYPE:
 	'match' | 'wild' | 'regex' | 'exact'; // regex and exact match is an extension to ECL 1.5
 
-terminal DOMAIN:
+DOMAIN:
 	'Concept' | 'Description'; 
 
-terminal NON_NUMERIC_OPERATOR:
+NON_NUMERIC_OPERATOR:
 	EQUAL | NOT_EQUAL;
 
-terminal NUMERIC_OPERATOR:
+NUMERIC_OPERATOR:
 	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
 
 terminal ALPHA:
