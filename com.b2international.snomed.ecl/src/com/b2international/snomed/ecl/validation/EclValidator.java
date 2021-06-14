@@ -16,12 +16,19 @@
 package com.b2international.snomed.ecl.validation;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.eclipse.xtext.validation.Check;
 
+import com.b2international.snomed.ecl.Domain;
 import com.b2international.snomed.ecl.Ecl;
+import com.b2international.snomed.ecl.EclRuntimeModule;
 import com.b2international.snomed.ecl.ecl.*;
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Sets;
 
 /**
  * This class contains custom validation rules. 
@@ -36,12 +43,26 @@ public class EclValidator extends AbstractEclValidator {
 	private static final String CARDINALITY_RANGE_ERROR_MESSAGE = "Cardinality minimum value should not be greater than maximum value";
 	private static final String CARDINALITY_RANGE_ERROR_CODE = "cardinality.range.error";
 	
-	// TODO make it configurable
-	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
-	
 	private static final String UNSUPPORTED_TYPE_TOKEN_MESSAGE = "Unsupported type token";
 	private static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
 
+	private static final String DOMAIN_INCONSISTENCY_MESSAGE = "Inconsistent domains on left and right side of a binary operator, specify the domain (Concept, Description) the disambiguate the meaning of the expression";
+	private static final String DOMAIN_INCONSISTENCY_CODE = "binaryoperator.inconsistentdomain";
+	
+	private static final String LANGUAGE_CODE_NONEXISITING_MESSAGE = "Non-existent ISO-639 language code present in filter";
+	private static final String LANGUAGE_CODE_NONEXISITING_CODE = "languagecode.nonexisting";
+
+	// TODO: Make supported description type tokens configurable
+	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
+	private static final Supplier<Set<String>> SUPPORTED_LANGUAGE_CODES = Suppliers.memoize(() -> toCaseInsensitiveSet(List.of(Locale.getISOLanguages())));
+	private static final int SUPPORTED_MIN_TERM_LENGTH = 2;
+	
+	private static final Set<String> toCaseInsensitiveSet(final Iterable<String> iterable) {
+		return FluentIterable.from(iterable)
+			.transform(l -> l.toLowerCase(Locale.ENGLISH))
+			.toSet();				
+	}
+	
 	@Override
 	public boolean isLanguageSpecific() {
 		return false;
@@ -108,13 +129,80 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkTypeToken(TypeTokenFilter it) {
-		final List<String> tokens = it.getTokens() == null ? List.of() : it.getTokens();
-		for (String token : tokens) {
-			if (!SUPPORTED_TYPE_TOKENS.contains(token.toLowerCase())) {
-				error(UNSUPPORTED_TYPE_TOKEN_MESSAGE, it, EclPackage.Literals.TYPE_TOKEN_FILTER__TOKENS, UNSUPPORTED_TYPE_TOKEN_CODE);
-			}
+	public void checkTypeTokenFilter(TypeTokenFilter it) {
+		final Set<String> tokens = toCaseInsensitiveSet(it.getTokens());
+		final Set<String> unsupportedTokens = Sets.difference(tokens, SUPPORTED_TYPE_TOKENS);
+		if (!unsupportedTokens.isEmpty()) {
+			error(UNSUPPORTED_TYPE_TOKEN_MESSAGE, it, EclPackage.Literals.TYPE_TOKEN_FILTER__TOKENS, UNSUPPORTED_TYPE_TOKEN_CODE);
 		}
 	}
 	
+	@Check
+	public void checkLanguageCodeFilter(LanguageCodeFilter it) {
+		final Set<String> codes = toCaseInsensitiveSet(it.getLanguageCodes());
+		final Set<String> unsupportedCodes = Sets.difference(codes, SUPPORTED_LANGUAGE_CODES.get());
+		if (!unsupportedCodes.isEmpty()) {
+			error(LANGUAGE_CODE_NONEXISITING_MESSAGE, it, EclPackage.Literals.LANGUAGE_CODE_FILTER__LANGUAGE_CODES, LANGUAGE_CODE_NONEXISITING_CODE);
+		}
+	}
+
+	@Check
+	public void checkDisjunctionFilter(DisjunctionFilter it) {
+		if (isAmbiguous(it, it.getLeft())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
+		} else if (isAmbiguous(it, it.getRight())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
+		}
+		
+		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
+		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
+		
+		if (leftDomain != rightDomain) {
+			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
+		}
+		
+	}
+	
+	@Check
+	public void checkConjunction(ConjunctionFilter it) {
+		if (isAmbiguous(it, it.getLeft())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
+		} else if (isAmbiguous(it, it.getRight())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
+		}
+		
+		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
+		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
+		
+		if (leftDomain != rightDomain) {
+			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
+		}
+	}
+	
+	@Check
+	public void checkExclusion(ExclusionFilter it) {
+		if (isAmbiguous(it, it.getLeft())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
+		} else if (isAmbiguous(it, it.getRight())) {
+			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
+		}
+		
+		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
+		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
+		
+		if (leftDomain != rightDomain) {
+			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.EXCLUSION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
+		}
+	}
+	
+	@Check
+	public void checkTypedTermFilter(TypedTermFilter it) {
+		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
+			error(String.format("At least %d characters are required for typed term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER__TERM);
+		}
+	}
+	
+	private boolean isAmbiguous(Filter parent, Filter child) {
+		return parent.getClass() != child.getClass() && (child instanceof DisjunctionFilter || child instanceof ConjunctionFilter || child instanceof ExclusionFilter);
+	}
 }
