@@ -76,7 +76,7 @@ Workflow {
               }
             }
 			serializer = {
-				generateStub = true
+				generateStub = false
 			}
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
@@ -84,8 +84,12 @@ Workflow {
 				generateDeprecationValidation = true
 			}
 			generator = {
-				generateXtendStub = false
+				generateStub = false
 			}
+			scopeProvider = {
+				generateStub = false
+			}
+			
 		}
 	}
 }
