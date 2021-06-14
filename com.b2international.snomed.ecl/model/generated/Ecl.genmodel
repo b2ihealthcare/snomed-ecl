@@ -6,12 +6,6 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="Ecl" basePackage="com.b2international.snomed.ecl" disposableProviderFactory="true"
       fileExtensions="ecl" ecorePackage="Ecl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ecl.ecore#//LexicalSearchType">
-      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/MATCH"/>
-      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/WILD"/>
-      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/REGEX"/>
-      <genEnumLiterals ecoreEnumLiteral="Ecl.ecore#//LexicalSearchType/EXACT"/>
-    </genEnums>
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
@@ -143,6 +137,26 @@
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//AcceptabilityTokenSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AcceptabilityTokenSet/acceptabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ActiveFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/domain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/active"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ModuleFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ModuleFilter/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ModuleFilter/moduleId"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//PreferredInFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//PreferredInFilter/languageRefSetId"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//AcceptableInFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AcceptableInFilter/languageRefSetId"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//LanguageRefSetFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//LanguageRefSetFilter/languageRefSetId"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//CaseSignificanceFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//CaseSignificanceFilter/caseSignificanceId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>

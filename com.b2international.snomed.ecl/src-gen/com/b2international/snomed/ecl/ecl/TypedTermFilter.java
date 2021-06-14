@@ -37,28 +37,25 @@ public interface TypedTermFilter extends TermFilter
 {
   /**
    * Returns the value of the '<em><b>Lexical Search Type</b></em>' attribute.
-   * The literals are from the enumeration {@link com.b2international.snomed.ecl.ecl.LexicalSearchType}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lexical Search Type</em>' attribute.
-   * @see com.b2international.snomed.ecl.ecl.LexicalSearchType
-   * @see #setLexicalSearchType(LexicalSearchType)
+   * @see #setLexicalSearchType(String)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter_LexicalSearchType()
    * @model
    * @generated
    */
-  LexicalSearchType getLexicalSearchType();
+  String getLexicalSearchType();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getLexicalSearchType <em>Lexical Search Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Lexical Search Type</em>' attribute.
-   * @see com.b2international.snomed.ecl.ecl.LexicalSearchType
    * @see #getLexicalSearchType()
    * @generated
    */
-  void setLexicalSearchType(LexicalSearchType value);
+  void setLexicalSearchType(String value);
 
   /**
    * Returns the value of the '<em><b>Term</b></em>' attribute.

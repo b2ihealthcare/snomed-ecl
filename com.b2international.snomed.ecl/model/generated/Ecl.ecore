@@ -110,18 +110,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilter" eSuperTypes="#//TermFilter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lexicalSearchType" eType="#//LexicalSearchType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lexicalSearchType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilterSet" eSuperTypes="#//TermFilter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="terms" upperBound="-1"
         eType="#//TypedTermFilter" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LexicalSearchType">
-    <eLiterals name="MATCH" literal="match"/>
-    <eLiterals name="WILD" value="1" literal="wild"/>
-    <eLiterals name="REGEX" value="2" literal="regex"/>
-    <eLiterals name="EXACT" value="3" literal="exact"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LanguageCodeFilter" eSuperTypes="#//PropertyFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -169,6 +163,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="AcceptabilityTokenSet" eSuperTypes="#//Acceptability">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceptabilities" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActiveFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="moduleId" eType="#//ExpressionConstraint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PreferredInFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptableInFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LanguageRefSetFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CaseSignificanceFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caseSignificanceId" eType="#//ExpressionConstraint"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ExpressionConstraint"

@@ -18,6 +18,8 @@ package com.b2international.snomed.ecl.ecl.impl;
 import com.b2international.snomed.ecl.ecl.Acceptability;
 import com.b2international.snomed.ecl.ecl.AcceptabilityIdSet;
 import com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet;
+import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
+import com.b2international.snomed.ecl.ecl.ActiveFilter;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
 import com.b2international.snomed.ecl.ecl.AncestorOrSelfOf;
 import com.b2international.snomed.ecl.ecl.AndExpressionConstraint;
@@ -27,6 +29,7 @@ import com.b2international.snomed.ecl.ecl.AttributeComparison;
 import com.b2international.snomed.ecl.ecl.AttributeConstraint;
 import com.b2international.snomed.ecl.ecl.BooleanValueComparison;
 import com.b2international.snomed.ecl.ecl.Cardinality;
+import com.b2international.snomed.ecl.ecl.CaseSignificanceFilter;
 import com.b2international.snomed.ecl.ecl.ChildOf;
 import com.b2international.snomed.ecl.ecl.ChildOrSelfOf;
 import com.b2international.snomed.ecl.ecl.Comparison;
@@ -55,8 +58,9 @@ import com.b2international.snomed.ecl.ecl.Filter;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageCodeFilter;
-import com.b2international.snomed.ecl.ecl.LexicalSearchType;
+import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
+import com.b2international.snomed.ecl.ecl.ModuleFilter;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
 import com.b2international.snomed.ecl.ecl.NestedFilter;
 import com.b2international.snomed.ecl.ecl.NestedRefinement;
@@ -64,6 +68,7 @@ import com.b2international.snomed.ecl.ecl.OrExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.OrRefinement;
 import com.b2international.snomed.ecl.ecl.ParentOf;
 import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
+import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.PropertyFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
@@ -77,7 +82,6 @@ import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -418,6 +422,48 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass activeFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass moduleFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preferredInFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass acceptableInFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageRefSetFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass caseSignificanceFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass orExpressionConstraintEClass = null;
 
   /**
@@ -482,13 +528,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass exclusionFilterEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum lexicalSearchTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1593,6 +1632,160 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getActiveFilter()
+  {
+    return activeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Domain()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Active()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getModuleFilter()
+  {
+    return moduleFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getModuleFilter_Domain()
+  {
+    return (EAttribute)moduleFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModuleFilter_ModuleId()
+  {
+    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPreferredInFilter()
+  {
+    return preferredInFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPreferredInFilter_LanguageRefSetId()
+  {
+    return (EReference)preferredInFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAcceptableInFilter()
+  {
+    return acceptableInFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAcceptableInFilter_LanguageRefSetId()
+  {
+    return (EReference)acceptableInFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLanguageRefSetFilter()
+  {
+    return languageRefSetFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLanguageRefSetFilter_LanguageRefSetId()
+  {
+    return (EReference)languageRefSetFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCaseSignificanceFilter()
+  {
+    return caseSignificanceFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseSignificanceFilter_CaseSignificanceId()
+  {
+    return (EReference)caseSignificanceFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOrExpressionConstraint()
   {
     return orExpressionConstraintEClass;
@@ -1923,17 +2116,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EEnum getLexicalSearchType()
-  {
-    return lexicalSearchTypeEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EclFactory getEclFactory()
   {
     return (EclFactory)getEFactoryInstance();
@@ -2099,6 +2281,26 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     acceptabilityTokenSetEClass = createEClass(ACCEPTABILITY_TOKEN_SET);
     createEAttribute(acceptabilityTokenSetEClass, ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES);
 
+    activeFilterEClass = createEClass(ACTIVE_FILTER);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__DOMAIN);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__ACTIVE);
+
+    moduleFilterEClass = createEClass(MODULE_FILTER);
+    createEAttribute(moduleFilterEClass, MODULE_FILTER__DOMAIN);
+    createEReference(moduleFilterEClass, MODULE_FILTER__MODULE_ID);
+
+    preferredInFilterEClass = createEClass(PREFERRED_IN_FILTER);
+    createEReference(preferredInFilterEClass, PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID);
+
+    acceptableInFilterEClass = createEClass(ACCEPTABLE_IN_FILTER);
+    createEReference(acceptableInFilterEClass, ACCEPTABLE_IN_FILTER__LANGUAGE_REF_SET_ID);
+
+    languageRefSetFilterEClass = createEClass(LANGUAGE_REF_SET_FILTER);
+    createEReference(languageRefSetFilterEClass, LANGUAGE_REF_SET_FILTER__LANGUAGE_REF_SET_ID);
+
+    caseSignificanceFilterEClass = createEClass(CASE_SIGNIFICANCE_FILTER);
+    createEReference(caseSignificanceFilterEClass, CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID);
+
     orExpressionConstraintEClass = createEClass(OR_EXPRESSION_CONSTRAINT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__LEFT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__RIGHT);
@@ -2138,9 +2340,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     exclusionFilterEClass = createEClass(EXCLUSION_FILTER);
     createEReference(exclusionFilterEClass, EXCLUSION_FILTER__LEFT);
     createEReference(exclusionFilterEClass, EXCLUSION_FILTER__RIGHT);
-
-    // Create enums
-    lexicalSearchTypeEEnum = createEEnum(LEXICAL_SEARCH_TYPE);
   }
 
   /**
@@ -2209,6 +2408,12 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     dialectAliasFilterEClass.getESuperTypes().add(this.getDialectFilter());
     acceptabilityIdSetEClass.getESuperTypes().add(this.getAcceptability());
     acceptabilityTokenSetEClass.getESuperTypes().add(this.getAcceptability());
+    activeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    moduleFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    preferredInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    acceptableInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    languageRefSetFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    caseSignificanceFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     orExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     andExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     exclusionExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
@@ -2317,7 +2522,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedTermFilterEClass, TypedTermFilter.class, "TypedTermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypedTermFilter_LexicalSearchType(), this.getLexicalSearchType(), "lexicalSearchType", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypedTermFilter_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypedTermFilter_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedTermFilterSetEClass, TypedTermFilterSet.class, "TypedTermFilterSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2361,6 +2566,26 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(acceptabilityTokenSetEClass, AcceptabilityTokenSet.class, "AcceptabilityTokenSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAcceptabilityTokenSet_Acceptabilities(), ecorePackage.getEString(), "acceptabilities", null, 0, -1, AcceptabilityTokenSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(activeFilterEClass, ActiveFilter.class, "ActiveFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActiveFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActiveFilter_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(moduleFilterEClass, ModuleFilter.class, "ModuleFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModuleFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleFilter_ModuleId(), this.getExpressionConstraint(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preferredInFilterEClass, PreferredInFilter.class, "PreferredInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreferredInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, PreferredInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(acceptableInFilterEClass, AcceptableInFilter.class, "AcceptableInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAcceptableInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, AcceptableInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageRefSetFilterEClass, LanguageRefSetFilter.class, "LanguageRefSetFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLanguageRefSetFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, LanguageRefSetFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(caseSignificanceFilterEClass, CaseSignificanceFilter.class, "CaseSignificanceFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCaseSignificanceFilter_CaseSignificanceId(), this.getExpressionConstraint(), null, "caseSignificanceId", null, 0, 1, CaseSignificanceFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(orExpressionConstraintEClass, OrExpressionConstraint.class, "OrExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrExpressionConstraint_Left(), this.getExpressionConstraint(), null, "left", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOrExpressionConstraint_Right(), this.getExpressionConstraint(), null, "right", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2400,13 +2625,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(exclusionFilterEClass, ExclusionFilter.class, "ExclusionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExclusionFilter_Left(), this.getPropertyFilter(), null, "left", null, 0, 1, ExclusionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExclusionFilter_Right(), this.getPropertyFilter(), null, "right", null, 0, 1, ExclusionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(lexicalSearchTypeEEnum, LexicalSearchType.class, "LexicalSearchType");
-    addEEnumLiteral(lexicalSearchTypeEEnum, LexicalSearchType.MATCH);
-    addEEnumLiteral(lexicalSearchTypeEEnum, LexicalSearchType.WILD);
-    addEEnumLiteral(lexicalSearchTypeEEnum, LexicalSearchType.REGEX);
-    addEEnumLiteral(lexicalSearchTypeEEnum, LexicalSearchType.EXACT);
 
     // Create resource
     createResource(eNS_URI);

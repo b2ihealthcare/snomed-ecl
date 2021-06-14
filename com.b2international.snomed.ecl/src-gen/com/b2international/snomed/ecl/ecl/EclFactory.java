@@ -450,6 +450,60 @@ public interface EclFactory extends EFactory
   AcceptabilityTokenSet createAcceptabilityTokenSet();
 
   /**
+   * Returns a new object of class '<em>Active Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Active Filter</em>'.
+   * @generated
+   */
+  ActiveFilter createActiveFilter();
+
+  /**
+   * Returns a new object of class '<em>Module Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Module Filter</em>'.
+   * @generated
+   */
+  ModuleFilter createModuleFilter();
+
+  /**
+   * Returns a new object of class '<em>Preferred In Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Preferred In Filter</em>'.
+   * @generated
+   */
+  PreferredInFilter createPreferredInFilter();
+
+  /**
+   * Returns a new object of class '<em>Acceptable In Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Acceptable In Filter</em>'.
+   * @generated
+   */
+  AcceptableInFilter createAcceptableInFilter();
+
+  /**
+   * Returns a new object of class '<em>Language Ref Set Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language Ref Set Filter</em>'.
+   * @generated
+   */
+  LanguageRefSetFilter createLanguageRefSetFilter();
+
+  /**
+   * Returns a new object of class '<em>Case Significance Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Case Significance Filter</em>'.
+   * @generated
+   */
+  CaseSignificanceFilter createCaseSignificanceFilter();
+
+  /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

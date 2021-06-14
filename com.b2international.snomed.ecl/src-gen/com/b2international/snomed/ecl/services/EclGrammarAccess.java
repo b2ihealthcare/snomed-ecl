@@ -21,8 +21,6 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -1058,30 +1056,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.AttributeComparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSubExpressionConstraintParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//AttributeComparison:
-		//	op=(EQUAL | NOT_EQUAL) value=SubExpressionConstraint;
+		//	op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL) value=SubExpressionConstraint
+		//op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//value=SubExpressionConstraint
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -1123,30 +1113,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.BooleanValueComparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueBooleanParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//BooleanValueComparison:
-		//	op=(EQUAL | NOT_EQUAL) value=Boolean;
+		//	op=NON_NUMERIC_OPERATOR value=Boolean;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL) value=Boolean
+		//op=NON_NUMERIC_OPERATOR value=Boolean
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//value=Boolean
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -1158,30 +1140,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.StringValueComparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//StringValueComparison:
-		//	op=(EQUAL | NOT_EQUAL) value=STRING;
+		//	op=NON_NUMERIC_OPERATOR value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL) value=STRING
+		//op=NON_NUMERIC_OPERATOR value=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//value=STRING
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -1193,47 +1167,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.IntegerValueComparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
-		private final RuleCall cOpGTTerminalRuleCall_0_0_2 = (RuleCall)cOpAlternatives_0_0.eContents().get(2);
-		private final RuleCall cOpLTTerminalRuleCall_0_0_3 = (RuleCall)cOpAlternatives_0_0.eContents().get(3);
-		private final RuleCall cOpGTETerminalRuleCall_0_0_4 = (RuleCall)cOpAlternatives_0_0.eContents().get(4);
-		private final RuleCall cOpLTETerminalRuleCall_0_0_5 = (RuleCall)cOpAlternatives_0_0.eContents().get(5);
+		private final RuleCall cOpNUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final RuleCall cHASHTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueIntegerParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//IntegerValueComparison:
-		//	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Integer;
+		//	op=NUMERIC_OPERATOR HASH value=Integer;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Integer
+		//op=NUMERIC_OPERATOR HASH value=Integer
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE)
+		//op=NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
-		
-		//GT
-		public RuleCall getOpGTTerminalRuleCall_0_0_2() { return cOpGTTerminalRuleCall_0_0_2; }
-		
-		//LT
-		public RuleCall getOpLTTerminalRuleCall_0_0_3() { return cOpLTTerminalRuleCall_0_0_3; }
-		
-		//GTE
-		public RuleCall getOpGTETerminalRuleCall_0_0_4() { return cOpGTETerminalRuleCall_0_0_4; }
-		
-		//LTE
-		public RuleCall getOpLTETerminalRuleCall_0_0_5() { return cOpLTETerminalRuleCall_0_0_5; }
+		//NUMERIC_OPERATOR
+		public RuleCall getOpNUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//HASH
 		public RuleCall getHASHTerminalRuleCall_1() { return cHASHTerminalRuleCall_1; }
@@ -1248,47 +1198,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DecimalValueComparison");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
-		private final RuleCall cOpGTTerminalRuleCall_0_0_2 = (RuleCall)cOpAlternatives_0_0.eContents().get(2);
-		private final RuleCall cOpLTTerminalRuleCall_0_0_3 = (RuleCall)cOpAlternatives_0_0.eContents().get(3);
-		private final RuleCall cOpGTETerminalRuleCall_0_0_4 = (RuleCall)cOpAlternatives_0_0.eContents().get(4);
-		private final RuleCall cOpLTETerminalRuleCall_0_0_5 = (RuleCall)cOpAlternatives_0_0.eContents().get(5);
+		private final RuleCall cOpNUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final RuleCall cHASHTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueDecimalParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//DecimalValueComparison:
-		//	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Decimal;
+		//	op=NUMERIC_OPERATOR HASH value=Decimal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Decimal
+		//op=NUMERIC_OPERATOR HASH value=Decimal
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE)
+		//op=NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
-		
-		//GT
-		public RuleCall getOpGTTerminalRuleCall_0_0_2() { return cOpGTTerminalRuleCall_0_0_2; }
-		
-		//LT
-		public RuleCall getOpLTTerminalRuleCall_0_0_3() { return cOpLTTerminalRuleCall_0_0_3; }
-		
-		//GTE
-		public RuleCall getOpGTETerminalRuleCall_0_0_4() { return cOpGTETerminalRuleCall_0_0_4; }
-		
-		//LTE
-		public RuleCall getOpLTETerminalRuleCall_0_0_5() { return cOpLTETerminalRuleCall_0_0_5; }
+		//NUMERIC_OPERATOR
+		public RuleCall getOpNUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//HASH
 		public RuleCall getHASHTerminalRuleCall_1() { return cHASHTerminalRuleCall_1; }
@@ -1508,15 +1434,25 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cLanguageCodeFilterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cTypeFilterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDialectFilterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNestedFilterParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cActiveFilterParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cPreferredInFilterParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cAcceptableInFilterParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cLanguageRefSetFilterParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cModuleFilterParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cCaseSignificanceFilterParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cNestedFilterParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
 		//PropertyFilter:
-		//	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter;
+		//	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | ActiveFilter | PreferredInFilter | AcceptableInFilter |
+		//	LanguageRefSetFilter | ModuleFilter | CaseSignificanceFilter | NestedFilter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter
+		//// ECL 1.5 filters
+		//TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | ActiveFilter | PreferredInFilter | AcceptableInFilter |
+		//LanguageRefSetFilter | ModuleFilter | CaseSignificanceFilter | NestedFilter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//// ECL 1.5 filters
 		//TermFilter
 		public RuleCall getTermFilterParserRuleCall_0() { return cTermFilterParserRuleCall_0; }
 		
@@ -1529,8 +1465,28 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DialectFilter
 		public RuleCall getDialectFilterParserRuleCall_3() { return cDialectFilterParserRuleCall_3; }
 		
+		//// QL 0.1 filters (ECL extensions)	 
+		//ActiveFilter
+		public RuleCall getActiveFilterParserRuleCall_4() { return cActiveFilterParserRuleCall_4; }
+		
+		//PreferredInFilter
+		public RuleCall getPreferredInFilterParserRuleCall_5() { return cPreferredInFilterParserRuleCall_5; }
+		
+		//AcceptableInFilter
+		public RuleCall getAcceptableInFilterParserRuleCall_6() { return cAcceptableInFilterParserRuleCall_6; }
+		
+		//LanguageRefSetFilter
+		public RuleCall getLanguageRefSetFilterParserRuleCall_7() { return cLanguageRefSetFilterParserRuleCall_7; }
+		
+		//ModuleFilter
+		public RuleCall getModuleFilterParserRuleCall_8() { return cModuleFilterParserRuleCall_8; }
+		
+		//CaseSignificanceFilter
+		public RuleCall getCaseSignificanceFilterParserRuleCall_9() { return cCaseSignificanceFilterParserRuleCall_9; }
+		
+		//// Allows grouping filters for boolean operators
 		//NestedFilter
-		public RuleCall getNestedFilterParserRuleCall_4() { return cNestedFilterParserRuleCall_4; }
+		public RuleCall getNestedFilterParserRuleCall_10() { return cNestedFilterParserRuleCall_10; }
 	}
 	public class TermFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TermFilter");
@@ -1563,43 +1519,36 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TypedTermFilter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cLexicalSearchTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cLexicalSearchTypeLexicalSearchTypeEnumRuleCall_1_0_0 = (RuleCall)cLexicalSearchTypeAssignment_1_0.eContents().get(0);
+		private final RuleCall cLexicalSearchTypeLEXICAL_SEARCH_TYPETerminalRuleCall_1_0_0 = (RuleCall)cLexicalSearchTypeAssignment_1_0.eContents().get(0);
 		private final RuleCall cCOLONTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final Assignment cTermAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTermSTRINGTerminalRuleCall_2_0 = (RuleCall)cTermAssignment_2.eContents().get(0);
 		
+		//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 		//TypedTermFilter:
-		//	op=(EQUAL | NOT_EQUAL) (lexicalSearchType=LexicalSearchType COLON)? term=STRING;
+		//	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL) (lexicalSearchType=LexicalSearchType COLON)? term=STRING
+		//op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
-		
-		//(lexicalSearchType=LexicalSearchType COLON)?
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//lexicalSearchType=LexicalSearchType
+		//lexicalSearchType=LEXICAL_SEARCH_TYPE
 		public Assignment getLexicalSearchTypeAssignment_1_0() { return cLexicalSearchTypeAssignment_1_0; }
 		
-		//LexicalSearchType
-		public RuleCall getLexicalSearchTypeLexicalSearchTypeEnumRuleCall_1_0_0() { return cLexicalSearchTypeLexicalSearchTypeEnumRuleCall_1_0_0; }
+		//LEXICAL_SEARCH_TYPE
+		public RuleCall getLexicalSearchTypeLEXICAL_SEARCH_TYPETerminalRuleCall_1_0_0() { return cLexicalSearchTypeLEXICAL_SEARCH_TYPETerminalRuleCall_1_0_0; }
 		
 		//COLON
 		public RuleCall getCOLONTerminalRuleCall_1_1() { return cCOLONTerminalRuleCall_1_1; }
@@ -1614,9 +1563,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TypedTermFilterSet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final RuleCall cROUND_OPENTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cTermsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTermsTypedTermFilterParserRuleCall_2_0 = (RuleCall)cTermsAssignment_2.eContents().get(0);
@@ -1624,25 +1571,18 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cTermsTypedTermFilterParserRuleCall_3_0 = (RuleCall)cTermsAssignment_3.eContents().get(0);
 		private final RuleCall cROUND_CLOSETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
-		//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 		//TypedTermFilterSet:
-		//	op=(EQUAL | NOT_EQUAL) ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE;
+		//	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=(EQUAL | NOT_EQUAL) ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE
+		//op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE
 		public Group getGroup() { return cGroup; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_0_0_0() { return cOpEQUALTerminalRuleCall_0_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_0_0_1() { return cOpNOT_EQUALTerminalRuleCall_0_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_0_0; }
 		
 		//ROUND_OPEN
 		public RuleCall getROUND_OPENTerminalRuleCall_1() { return cROUND_OPENTerminalRuleCall_1; }
@@ -1667,9 +1607,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cLANGUAGE_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_1_0_0 = (RuleCall)cOpAlternatives_1_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_1_0_1 = (RuleCall)cOpAlternatives_1_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cLanguageCodesAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cLanguageCodesAlphabeticalParserRuleCall_2_0_0 = (RuleCall)cLanguageCodesAssignment_2_0.eContents().get(0);
@@ -1681,30 +1619,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cLanguageCodesAlphabeticalParserRuleCall_2_1_2_0 = (RuleCall)cLanguageCodesAssignment_2_1_2.eContents().get(0);
 		private final RuleCall cROUND_CLOSETerminalRuleCall_2_1_3 = (RuleCall)cGroup_2_1.eContents().get(3);
 		
-		//// regex and exact match is an extension to ECL 1.5
 		//LanguageCodeFilter:
-		//	LANGUAGE_KEYWORD op=(EQUAL | NOT_EQUAL) (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
+		//	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
 		//	languageCodes+=Alphabetical* ROUND_CLOSE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LANGUAGE_KEYWORD op=(EQUAL | NOT_EQUAL) (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
+		//LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
 		//languageCodes+=Alphabetical* ROUND_CLOSE)
 		public Group getGroup() { return cGroup; }
 		
 		//LANGUAGE_KEYWORD
 		public RuleCall getLANGUAGE_KEYWORDTerminalRuleCall_0() { return cLANGUAGE_KEYWORDTerminalRuleCall_0; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_1_0_0() { return cOpEQUALTerminalRuleCall_1_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_1_0_1() { return cOpNOT_EQUALTerminalRuleCall_1_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0; }
 		
 		//(languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical languageCodes+=Alphabetical* ROUND_CLOSE)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -1760,35 +1691,27 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cTYPEID_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_1_0_0 = (RuleCall)cOpAlternatives_1_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_1_0_1 = (RuleCall)cOpAlternatives_1_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Alternatives cTypeAlternatives_2_0 = (Alternatives)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeEclConceptReferenceParserRuleCall_2_0_0 = (RuleCall)cTypeAlternatives_2_0.eContents().get(0);
 		private final RuleCall cTypeEclConceptReferenceSetParserRuleCall_2_0_1 = (RuleCall)cTypeAlternatives_2_0.eContents().get(1);
 		
 		//TypeIdFilter:
-		//	TYPEID_KEYWORD op=(EQUAL | NOT_EQUAL) type=(EclConceptReference | EclConceptReferenceSet);
+		//	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TYPEID_KEYWORD op=(EQUAL | NOT_EQUAL) type=(EclConceptReference | EclConceptReferenceSet)
+		//TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet)
 		public Group getGroup() { return cGroup; }
 		
 		//TYPEID_KEYWORD
 		public RuleCall getTYPEID_KEYWORDTerminalRuleCall_0() { return cTYPEID_KEYWORDTerminalRuleCall_0; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_1_0_0() { return cOpEQUALTerminalRuleCall_1_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_1_0_1() { return cOpNOT_EQUALTerminalRuleCall_1_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0; }
 		
 		//type=(EclConceptReference | EclConceptReferenceSet)
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
@@ -1807,9 +1730,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cTYPE_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_1_0_0 = (RuleCall)cOpAlternatives_1_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_1_0_1 = (RuleCall)cOpAlternatives_1_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cTokensAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cTokensAlphabeticalParserRuleCall_2_0_0 = (RuleCall)cTokensAssignment_2_0.eContents().get(0);
@@ -1823,28 +1744,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//// allowing any STRING to be represented as type token here, validator will restrict it to the available set
 		//TypeTokenFilter:
-		//	TYPE_KEYWORD op=(EQUAL | NOT_EQUAL) (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
+		//	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
 		//	ROUND_CLOSE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TYPE_KEYWORD op=(EQUAL | NOT_EQUAL) (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
+		//TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
 		//ROUND_CLOSE)
 		public Group getGroup() { return cGroup; }
 		
 		//TYPE_KEYWORD
 		public RuleCall getTYPE_KEYWORDTerminalRuleCall_0() { return cTYPE_KEYWORDTerminalRuleCall_0; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_1_0_0() { return cOpEQUALTerminalRuleCall_1_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_1_0_1() { return cOpNOT_EQUALTerminalRuleCall_1_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0; }
 		
 		//(tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical* ROUND_CLOSE)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -1900,9 +1815,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cDIALECTID_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_1_0_0 = (RuleCall)cOpAlternatives_1_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_1_0_1 = (RuleCall)cOpAlternatives_1_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cDialectsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cDialectsDialectParserRuleCall_2_0_0 = (RuleCall)cDialectsAssignment_2_0.eContents().get(0);
@@ -1915,28 +1828,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cROUND_CLOSETerminalRuleCall_2_1_3 = (RuleCall)cGroup_2_1.eContents().get(3);
 		
 		//DialectIdFilter:
-		//	DIALECTID_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
+		//	DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
 		//	ROUND_CLOSE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DIALECTID_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
+		//DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
 		//ROUND_CLOSE)
 		public Group getGroup() { return cGroup; }
 		
 		//DIALECTID_KEYWORD
 		public RuleCall getDIALECTID_KEYWORDTerminalRuleCall_0() { return cDIALECTID_KEYWORDTerminalRuleCall_0; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_1_0_0() { return cOpEQUALTerminalRuleCall_1_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_1_0_1() { return cOpNOT_EQUALTerminalRuleCall_1_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0; }
 		
 		//(dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect* ROUND_CLOSE)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -1973,9 +1880,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cDIALECT_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
-		private final RuleCall cOpEQUALTerminalRuleCall_1_0_0 = (RuleCall)cOpAlternatives_1_0.eContents().get(0);
-		private final RuleCall cOpNOT_EQUALTerminalRuleCall_1_0_1 = (RuleCall)cOpAlternatives_1_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cDialectsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cDialectsDialectAliasParserRuleCall_2_0_0 = (RuleCall)cDialectsAssignment_2_0.eContents().get(0);
@@ -1988,28 +1893,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cROUND_CLOSETerminalRuleCall_2_1_3 = (RuleCall)cGroup_2_1.eContents().get(3);
 		
 		//DialectAliasFilter:
-		//	DIALECT_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
+		//	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
 		//	dialects+=DialectAlias* ROUND_CLOSE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DIALECT_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
+		//DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
 		//dialects+=DialectAlias* ROUND_CLOSE)
 		public Group getGroup() { return cGroup; }
 		
 		//DIALECT_KEYWORD
 		public RuleCall getDIALECT_KEYWORDTerminalRuleCall_0() { return cDIALECT_KEYWORDTerminalRuleCall_0; }
 		
-		//op=(EQUAL | NOT_EQUAL)
+		//op=NON_NUMERIC_OPERATOR
 		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
-		//(EQUAL | NOT_EQUAL)
-		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
-		
-		//EQUAL
-		public RuleCall getOpEQUALTerminalRuleCall_1_0_0() { return cOpEQUALTerminalRuleCall_1_0_0; }
-		
-		//NOT_EQUAL
-		public RuleCall getOpNOT_EQUALTerminalRuleCall_1_0_1() { return cOpNOT_EQUALTerminalRuleCall_1_0_1; }
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORTerminalRuleCall_1_0; }
 		
 		//(dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias dialects+=DialectAlias* ROUND_CLOSE)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -2163,6 +2062,200 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//ROUND_CLOSE
 		public RuleCall getROUND_CLOSETerminalRuleCall_3() { return cROUND_CLOSETerminalRuleCall_3; }
+	}
+	public class ActiveFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ActiveFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cDomainAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cDomainDOMAINTerminalRuleCall_0_0_0 = (RuleCall)cDomainAssignment_0_0.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cACTIVE_KEYWORDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cEQUALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cActiveAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cActiveBooleanParserRuleCall_3_0 = (RuleCall)cActiveAssignment_3.eContents().get(0);
+		
+		//ActiveFilter:
+		//	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean
+		public Group getGroup() { return cGroup; }
+		
+		//(domain=DOMAIN DOT)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//domain=DOMAIN
+		public Assignment getDomainAssignment_0_0() { return cDomainAssignment_0_0; }
+		
+		//DOMAIN
+		public RuleCall getDomainDOMAINTerminalRuleCall_0_0_0() { return cDomainDOMAINTerminalRuleCall_0_0_0; }
+		
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_0_1() { return cDOTTerminalRuleCall_0_1; }
+		
+		//ACTIVE_KEYWORD
+		public RuleCall getACTIVE_KEYWORDTerminalRuleCall_1() { return cACTIVE_KEYWORDTerminalRuleCall_1; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_2() { return cEQUALTerminalRuleCall_2; }
+		
+		//active=Boolean
+		public Assignment getActiveAssignment_3() { return cActiveAssignment_3; }
+		
+		//Boolean
+		public RuleCall getActiveBooleanParserRuleCall_3_0() { return cActiveBooleanParserRuleCall_3_0; }
+	}
+	public class ModuleFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ModuleFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cDomainAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cDomainDOMAINTerminalRuleCall_0_0_0 = (RuleCall)cDomainAssignment_0_0.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cMODULEID_KEYWORDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cEQUALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cModuleIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModuleIdExpressionConstraintParserRuleCall_3_0 = (RuleCall)cModuleIdAssignment_3.eContents().get(0);
+		
+		//ModuleFilter:
+		//	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint
+		public Group getGroup() { return cGroup; }
+		
+		//(domain=DOMAIN DOT)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//domain=DOMAIN
+		public Assignment getDomainAssignment_0_0() { return cDomainAssignment_0_0; }
+		
+		//DOMAIN
+		public RuleCall getDomainDOMAINTerminalRuleCall_0_0_0() { return cDomainDOMAINTerminalRuleCall_0_0_0; }
+		
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_0_1() { return cDOTTerminalRuleCall_0_1; }
+		
+		//MODULEID_KEYWORD
+		public RuleCall getMODULEID_KEYWORDTerminalRuleCall_1() { return cMODULEID_KEYWORDTerminalRuleCall_1; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_2() { return cEQUALTerminalRuleCall_2; }
+		
+		//moduleId=ExpressionConstraint
+		public Assignment getModuleIdAssignment_3() { return cModuleIdAssignment_3; }
+		
+		//ExpressionConstraint
+		public RuleCall getModuleIdExpressionConstraintParserRuleCall_3_0() { return cModuleIdExpressionConstraintParserRuleCall_3_0; }
+	}
+	public class PreferredInFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.PreferredInFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPREFERRED_IN_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEQUALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cLanguageRefSetIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0 = (RuleCall)cLanguageRefSetIdAssignment_2.eContents().get(0);
+		
+		//PreferredInFilter:
+		//	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint
+		public Group getGroup() { return cGroup; }
+		
+		//PREFERRED_IN_KEYWORD
+		public RuleCall getPREFERRED_IN_KEYWORDTerminalRuleCall_0() { return cPREFERRED_IN_KEYWORDTerminalRuleCall_0; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_1() { return cEQUALTerminalRuleCall_1; }
+		
+		//languageRefSetId=ExpressionConstraint
+		public Assignment getLanguageRefSetIdAssignment_2() { return cLanguageRefSetIdAssignment_2; }
+		
+		//ExpressionConstraint
+		public RuleCall getLanguageRefSetIdExpressionConstraintParserRuleCall_2_0() { return cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0; }
+	}
+	public class AcceptableInFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.AcceptableInFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cACCEPTABLE_IN_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEQUALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cLanguageRefSetIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0 = (RuleCall)cLanguageRefSetIdAssignment_2.eContents().get(0);
+		
+		//AcceptableInFilter:
+		//	ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint
+		public Group getGroup() { return cGroup; }
+		
+		//ACCEPTABLE_IN_KEYWORD
+		public RuleCall getACCEPTABLE_IN_KEYWORDTerminalRuleCall_0() { return cACCEPTABLE_IN_KEYWORDTerminalRuleCall_0; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_1() { return cEQUALTerminalRuleCall_1; }
+		
+		//languageRefSetId=ExpressionConstraint
+		public Assignment getLanguageRefSetIdAssignment_2() { return cLanguageRefSetIdAssignment_2; }
+		
+		//ExpressionConstraint
+		public RuleCall getLanguageRefSetIdExpressionConstraintParserRuleCall_2_0() { return cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0; }
+	}
+	public class LanguageRefSetFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LanguageRefSetFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEQUALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cLanguageRefSetIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0 = (RuleCall)cLanguageRefSetIdAssignment_2.eContents().get(0);
+		
+		//LanguageRefSetFilter:
+		//	LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=ExpressionConstraint
+		public Group getGroup() { return cGroup; }
+		
+		//LANGUAGE_REFSET_ID_KEYWORD
+		public RuleCall getLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_0() { return cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_0; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_1() { return cEQUALTerminalRuleCall_1; }
+		
+		//languageRefSetId=ExpressionConstraint
+		public Assignment getLanguageRefSetIdAssignment_2() { return cLanguageRefSetIdAssignment_2; }
+		
+		//ExpressionConstraint
+		public RuleCall getLanguageRefSetIdExpressionConstraintParserRuleCall_2_0() { return cLanguageRefSetIdExpressionConstraintParserRuleCall_2_0; }
+	}
+	public class CaseSignificanceFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CaseSignificanceFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEQUALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cCaseSignificanceIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCaseSignificanceIdExpressionConstraintParserRuleCall_2_0 = (RuleCall)cCaseSignificanceIdAssignment_2.eContents().get(0);
+		
+		//CaseSignificanceFilter:
+		//	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint
+		public Group getGroup() { return cGroup; }
+		
+		//CASE_SIGNIFICANCE_ID_KEYWORD
+		public RuleCall getCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0() { return cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0; }
+		
+		//EQUAL
+		public RuleCall getEQUALTerminalRuleCall_1() { return cEQUALTerminalRuleCall_1; }
+		
+		//caseSignificanceId=ExpressionConstraint
+		public Assignment getCaseSignificanceIdAssignment_2() { return cCaseSignificanceIdAssignment_2; }
+		
+		//ExpressionConstraint
+		public RuleCall getCaseSignificanceIdExpressionConstraintParserRuleCall_2_0() { return cCaseSignificanceIdExpressionConstraintParserRuleCall_2_0; }
 	}
 	public class SnomedIdentifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SnomedIdentifier");
@@ -2447,49 +2540,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public RuleCall getALPHATerminalRuleCall() { return cALPHATerminalRuleCall; }
 	}
 	
-	public class LexicalSearchTypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LexicalSearchType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cMATCHEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMATCHMatchKeyword_0_0 = (Keyword)cMATCHEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cWILDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cWILDWildKeyword_1_0 = (Keyword)cWILDEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cREGEXEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cREGEXRegexKeyword_2_0 = (Keyword)cREGEXEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cEXACTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cEXACTExactKeyword_3_0 = (Keyword)cEXACTEnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum LexicalSearchType:
-		//	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact";
-		public EnumRule getRule() { return rule; }
-		
-		//MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//MATCH="match"
-		public EnumLiteralDeclaration getMATCHEnumLiteralDeclaration_0() { return cMATCHEnumLiteralDeclaration_0; }
-		
-		//"match"
-		public Keyword getMATCHMatchKeyword_0_0() { return cMATCHMatchKeyword_0_0; }
-		
-		//WILD="wild"
-		public EnumLiteralDeclaration getWILDEnumLiteralDeclaration_1() { return cWILDEnumLiteralDeclaration_1; }
-		
-		//"wild"
-		public Keyword getWILDWildKeyword_1_0() { return cWILDWildKeyword_1_0; }
-		
-		//REGEX="regex"
-		public EnumLiteralDeclaration getREGEXEnumLiteralDeclaration_2() { return cREGEXEnumLiteralDeclaration_2; }
-		
-		//"regex"
-		public Keyword getREGEXRegexKeyword_2_0() { return cREGEXRegexKeyword_2_0; }
-		
-		//EXACT="exact"
-		public EnumLiteralDeclaration getEXACTEnumLiteralDeclaration_3() { return cEXACTEnumLiteralDeclaration_3; }
-		
-		//"exact"
-		public Keyword getEXACTExactKeyword_3_0() { return cEXACTExactKeyword_3_0; }
-	}
 	
 	private final ScriptElements pScript;
 	private final ExpressionConstraintElements pExpressionConstraint;
@@ -2543,7 +2593,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TermFilterElements pTermFilter;
 	private final TypedTermFilterElements pTypedTermFilter;
 	private final TypedTermFilterSetElements pTypedTermFilterSet;
-	private final LexicalSearchTypeElements eLexicalSearchType;
 	private final LanguageCodeFilterElements pLanguageCodeFilter;
 	private final TypeFilterElements pTypeFilter;
 	private final TypeIdFilterElements pTypeIdFilter;
@@ -2556,6 +2605,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final AcceptabilityElements pAcceptability;
 	private final AcceptabilityIdSetElements pAcceptabilityIdSet;
 	private final AcceptabilityTokenSetElements pAcceptabilityTokenSet;
+	private final ActiveFilterElements pActiveFilter;
+	private final ModuleFilterElements pModuleFilter;
+	private final PreferredInFilterElements pPreferredInFilter;
+	private final AcceptableInFilterElements pAcceptableInFilter;
+	private final LanguageRefSetFilterElements pLanguageRefSetFilter;
+	private final CaseSignificanceFilterElements pCaseSignificanceFilter;
 	private final SnomedIdentifierElements pSnomedIdentifier;
 	private final NonNegativeIntegerElements pNonNegativeInteger;
 	private final MaxValueElements pMaxValue;
@@ -2607,6 +2662,16 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tTYPE_KEYWORD;
 	private final TerminalRule tDIALECTID_KEYWORD;
 	private final TerminalRule tDIALECT_KEYWORD;
+	private final TerminalRule tACTIVE_KEYWORD;
+	private final TerminalRule tMODULEID_KEYWORD;
+	private final TerminalRule tPREFERRED_IN_KEYWORD;
+	private final TerminalRule tACCEPTABLE_IN_KEYWORD;
+	private final TerminalRule tLANGUAGE_REFSET_ID_KEYWORD;
+	private final TerminalRule tCASE_SIGNIFICANCE_ID_KEYWORD;
+	private final TerminalRule tLEXICAL_SEARCH_TYPE;
+	private final TerminalRule tDOMAIN;
+	private final TerminalRule tNON_NUMERIC_OPERATOR;
+	private final TerminalRule tNUMERIC_OPERATOR;
 	private final TerminalRule tALPHA;
 	private final TerminalRule tWS;
 	private final TerminalRule tML_COMMENT;
@@ -2670,7 +2735,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pTermFilter = new TermFilterElements();
 		this.pTypedTermFilter = new TypedTermFilterElements();
 		this.pTypedTermFilterSet = new TypedTermFilterSetElements();
-		this.eLexicalSearchType = new LexicalSearchTypeElements();
 		this.pLanguageCodeFilter = new LanguageCodeFilterElements();
 		this.pTypeFilter = new TypeFilterElements();
 		this.pTypeIdFilter = new TypeIdFilterElements();
@@ -2683,6 +2747,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pAcceptability = new AcceptabilityElements();
 		this.pAcceptabilityIdSet = new AcceptabilityIdSetElements();
 		this.pAcceptabilityTokenSet = new AcceptabilityTokenSetElements();
+		this.pActiveFilter = new ActiveFilterElements();
+		this.pModuleFilter = new ModuleFilterElements();
+		this.pPreferredInFilter = new PreferredInFilterElements();
+		this.pAcceptableInFilter = new AcceptableInFilterElements();
+		this.pLanguageRefSetFilter = new LanguageRefSetFilterElements();
+		this.pCaseSignificanceFilter = new CaseSignificanceFilterElements();
 		this.pSnomedIdentifier = new SnomedIdentifierElements();
 		this.pNonNegativeInteger = new NonNegativeIntegerElements();
 		this.pMaxValue = new MaxValueElements();
@@ -2734,6 +2804,16 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tTYPE_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TYPE_KEYWORD");
 		this.tDIALECTID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DIALECTID_KEYWORD");
 		this.tDIALECT_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DIALECT_KEYWORD");
+		this.tACTIVE_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ACTIVE_KEYWORD");
+		this.tMODULEID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MODULEID_KEYWORD");
+		this.tPREFERRED_IN_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.PREFERRED_IN_KEYWORD");
+		this.tACCEPTABLE_IN_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ACCEPTABLE_IN_KEYWORD");
+		this.tLANGUAGE_REFSET_ID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LANGUAGE_REFSET_ID_KEYWORD");
+		this.tCASE_SIGNIFICANCE_ID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CASE_SIGNIFICANCE_ID_KEYWORD");
+		this.tLEXICAL_SEARCH_TYPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LEXICAL_SEARCH_TYPE");
+		this.tDOMAIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DOMAIN");
+		this.tNON_NUMERIC_OPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+		this.tNUMERIC_OPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.NUMERIC_OPERATOR");
 		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ALPHA");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.WS");
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ML_COMMENT");
@@ -3118,7 +3198,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//AttributeComparison:
-	//	op=(EQUAL | NOT_EQUAL) value=SubExpressionConstraint;
+	//	op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint;
 	public AttributeComparisonElements getAttributeComparisonAccess() {
 		return pAttributeComparison;
 	}
@@ -3141,7 +3221,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//BooleanValueComparison:
-	//	op=(EQUAL | NOT_EQUAL) value=Boolean;
+	//	op=NON_NUMERIC_OPERATOR value=Boolean;
 	public BooleanValueComparisonElements getBooleanValueComparisonAccess() {
 		return pBooleanValueComparison;
 	}
@@ -3151,7 +3231,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//StringValueComparison:
-	//	op=(EQUAL | NOT_EQUAL) value=STRING;
+	//	op=NON_NUMERIC_OPERATOR value=STRING;
 	public StringValueComparisonElements getStringValueComparisonAccess() {
 		return pStringValueComparison;
 	}
@@ -3161,7 +3241,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//IntegerValueComparison:
-	//	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Integer;
+	//	op=NUMERIC_OPERATOR HASH value=Integer;
 	public IntegerValueComparisonElements getIntegerValueComparisonAccess() {
 		return pIntegerValueComparison;
 	}
@@ -3171,7 +3251,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//DecimalValueComparison:
-	//	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Decimal;
+	//	op=NUMERIC_OPERATOR HASH value=Decimal;
 	public DecimalValueComparisonElements getDecimalValueComparisonAccess() {
 		return pDecimalValueComparison;
 	}
@@ -3252,7 +3332,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//PropertyFilter:
-	//	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter;
+	//	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | ActiveFilter | PreferredInFilter | AcceptableInFilter |
+	//	LanguageRefSetFilter | ModuleFilter | CaseSignificanceFilter | NestedFilter;
 	public PropertyFilterElements getPropertyFilterAccess() {
 		return pPropertyFilter;
 	}
@@ -3271,8 +3352,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getTermFilterAccess().getRule();
 	}
 	
+	//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 	//TypedTermFilter:
-	//	op=(EQUAL | NOT_EQUAL) (lexicalSearchType=LexicalSearchType COLON)? term=STRING;
+	//	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
 	public TypedTermFilterElements getTypedTermFilterAccess() {
 		return pTypedTermFilter;
 	}
@@ -3281,9 +3363,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getTypedTermFilterAccess().getRule();
 	}
 	
-	//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 	//TypedTermFilterSet:
-	//	op=(EQUAL | NOT_EQUAL) ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE;
+	//	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter terms+=TypedTermFilter* ROUND_CLOSE;
 	public TypedTermFilterSetElements getTypedTermFilterSetAccess() {
 		return pTypedTermFilterSet;
 	}
@@ -3292,19 +3373,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getTypedTermFilterSetAccess().getRule();
 	}
 	
-	//enum LexicalSearchType:
-	//	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact";
-	public LexicalSearchTypeElements getLexicalSearchTypeAccess() {
-		return eLexicalSearchType;
-	}
-	
-	public EnumRule getLexicalSearchTypeRule() {
-		return getLexicalSearchTypeAccess().getRule();
-	}
-	
-	//// regex and exact match is an extension to ECL 1.5
 	//LanguageCodeFilter:
-	//	LANGUAGE_KEYWORD op=(EQUAL | NOT_EQUAL) (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
+	//	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical
 	//	languageCodes+=Alphabetical* ROUND_CLOSE);
 	public LanguageCodeFilterElements getLanguageCodeFilterAccess() {
 		return pLanguageCodeFilter;
@@ -3325,7 +3395,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//TypeIdFilter:
-	//	TYPEID_KEYWORD op=(EQUAL | NOT_EQUAL) type=(EclConceptReference | EclConceptReferenceSet);
+	//	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet);
 	public TypeIdFilterElements getTypeIdFilterAccess() {
 		return pTypeIdFilter;
 	}
@@ -3336,7 +3406,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//// allowing any STRING to be represented as type token here, validator will restrict it to the available set
 	//TypeTokenFilter:
-	//	TYPE_KEYWORD op=(EQUAL | NOT_EQUAL) (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
+	//	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical tokens+=Alphabetical*
 	//	ROUND_CLOSE);
 	public TypeTokenFilterElements getTypeTokenFilterAccess() {
 		return pTypeTokenFilter;
@@ -3357,7 +3427,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//DialectIdFilter:
-	//	DIALECTID_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
+	//	DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN dialects+=Dialect dialects+=Dialect*
 	//	ROUND_CLOSE);
 	public DialectIdFilterElements getDialectIdFilterAccess() {
 		return pDialectIdFilter;
@@ -3368,7 +3438,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//DialectAliasFilter:
-	//	DIALECT_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
+	//	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias
 	//	dialects+=DialectAlias* ROUND_CLOSE);
 	public DialectAliasFilterElements getDialectAliasFilterAccess() {
 		return pDialectAliasFilter;
@@ -3426,6 +3496,66 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getAcceptabilityTokenSetRule() {
 		return getAcceptabilityTokenSetAccess().getRule();
+	}
+	
+	//ActiveFilter:
+	//	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean;
+	public ActiveFilterElements getActiveFilterAccess() {
+		return pActiveFilter;
+	}
+	
+	public ParserRule getActiveFilterRule() {
+		return getActiveFilterAccess().getRule();
+	}
+	
+	//ModuleFilter:
+	//	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
+	public ModuleFilterElements getModuleFilterAccess() {
+		return pModuleFilter;
+	}
+	
+	public ParserRule getModuleFilterRule() {
+		return getModuleFilterAccess().getRule();
+	}
+	
+	//PreferredInFilter:
+	//	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	public PreferredInFilterElements getPreferredInFilterAccess() {
+		return pPreferredInFilter;
+	}
+	
+	public ParserRule getPreferredInFilterRule() {
+		return getPreferredInFilterAccess().getRule();
+	}
+	
+	//AcceptableInFilter:
+	//	ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	public AcceptableInFilterElements getAcceptableInFilterAccess() {
+		return pAcceptableInFilter;
+	}
+	
+	public ParserRule getAcceptableInFilterRule() {
+		return getAcceptableInFilterAccess().getRule();
+	}
+	
+	//LanguageRefSetFilter:
+	//	LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	public LanguageRefSetFilterElements getLanguageRefSetFilterAccess() {
+		return pLanguageRefSetFilter;
+	}
+	
+	public ParserRule getLanguageRefSetFilterRule() {
+		return getLanguageRefSetFilterAccess().getRule();
+	}
+	
+	//CaseSignificanceFilter:
+	//	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint;
+	public CaseSignificanceFilterElements getCaseSignificanceFilterAccess() {
+		return pCaseSignificanceFilter;
+	}
+	
+	public ParserRule getCaseSignificanceFilterRule() {
+		return getCaseSignificanceFilterAccess().getRule();
 	}
 	
 	//// hidden grammar rules
@@ -3545,19 +3675,19 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//terminal CONJUNCTION:
-	//	('a' | 'A') ('n' | 'N') ('d' | 'D');
+	//	'and';
 	public TerminalRule getCONJUNCTIONRule() {
 		return tCONJUNCTION;
 	}
 	
 	//terminal DISJUNCTION:
-	//	('o' | 'O') ('r' | 'R');
+	//	'or';
 	public TerminalRule getDISJUNCTIONRule() {
 		return tDISJUNCTION;
 	}
 	
 	//terminal EXCLUSION:
-	//	('m' | 'M') ('i' | 'I') ('n' | 'N') ('u' | 'U') ('s' | 'S');
+	//	'minus';
 	public TerminalRule getEXCLUSIONRule() {
 		return tEXCLUSION;
 	}
@@ -3737,39 +3867,99 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//terminal TERM_KEYWORD:
-	//	('t' | 'T') ('e' | 'E') ('r' | 'R') ('m' | 'M');
+	//	'term';
 	public TerminalRule getTERM_KEYWORDRule() {
 		return tTERM_KEYWORD;
 	}
 	
 	//terminal LANGUAGE_KEYWORD:
-	//	('l' | 'L') ('a' | 'A') ('n' | 'N') ('g' | 'G') ('u' | 'U') ('a' | 'A') ('g' | 'G') ('e' | 'E');
+	//	'language';
 	public TerminalRule getLANGUAGE_KEYWORDRule() {
 		return tLANGUAGE_KEYWORD;
 	}
 	
 	//terminal TYPEID_KEYWORD:
-	//	('t' | 'T') ('y' | 'Y') ('p' | 'P') ('e' | 'E') ('i' | 'I') ('d' | 'D');
+	//	'typeId';
 	public TerminalRule getTYPEID_KEYWORDRule() {
 		return tTYPEID_KEYWORD;
 	}
 	
 	//terminal TYPE_KEYWORD:
-	//	('t' | 'T') ('y' | 'Y') ('p' | 'P') ('e' | 'E');
+	//	'type';
 	public TerminalRule getTYPE_KEYWORDRule() {
 		return tTYPE_KEYWORD;
 	}
 	
 	//terminal DIALECTID_KEYWORD:
-	//	('d' | 'D') ('i' | 'I') ('a' | 'A') ('l' | 'L') ('e' | 'E') ('c' | 'C') ('t' | 'T') ('i' | 'I') ('d' | 'D');
+	//	'dialectId';
 	public TerminalRule getDIALECTID_KEYWORDRule() {
 		return tDIALECTID_KEYWORD;
 	}
 	
 	//terminal DIALECT_KEYWORD:
-	//	('d' | 'D') ('i' | 'I') ('a' | 'A') ('l' | 'L') ('e' | 'E') ('c' | 'C') ('t' | 'T');
+	//	'dialect';
 	public TerminalRule getDIALECT_KEYWORDRule() {
 		return tDIALECT_KEYWORD;
+	}
+	
+	//terminal ACTIVE_KEYWORD:
+	//	'active';
+	public TerminalRule getACTIVE_KEYWORDRule() {
+		return tACTIVE_KEYWORD;
+	}
+	
+	//terminal MODULEID_KEYWORD:
+	//	'moduleId';
+	public TerminalRule getMODULEID_KEYWORDRule() {
+		return tMODULEID_KEYWORD;
+	}
+	
+	//terminal PREFERRED_IN_KEYWORD:
+	//	'preferredIn';
+	public TerminalRule getPREFERRED_IN_KEYWORDRule() {
+		return tPREFERRED_IN_KEYWORD;
+	}
+	
+	//terminal ACCEPTABLE_IN_KEYWORD:
+	//	'acceptableIn';
+	public TerminalRule getACCEPTABLE_IN_KEYWORDRule() {
+		return tACCEPTABLE_IN_KEYWORD;
+	}
+	
+	//terminal LANGUAGE_REFSET_ID_KEYWORD:
+	//	'languageRefSetId';
+	public TerminalRule getLANGUAGE_REFSET_ID_KEYWORDRule() {
+		return tLANGUAGE_REFSET_ID_KEYWORD;
+	}
+	
+	//terminal CASE_SIGNIFICANCE_ID_KEYWORD:
+	//	'caseSignificanceId';
+	public TerminalRule getCASE_SIGNIFICANCE_ID_KEYWORDRule() {
+		return tCASE_SIGNIFICANCE_ID_KEYWORD;
+	}
+	
+	//terminal LEXICAL_SEARCH_TYPE:
+	//	'match' | 'wild' | 'regex' | 'exact';
+	public TerminalRule getLEXICAL_SEARCH_TYPERule() {
+		return tLEXICAL_SEARCH_TYPE;
+	}
+	
+	//terminal DOMAIN:
+	//	'Concept' | 'Description';
+	public TerminalRule getDOMAINRule() {
+		return tDOMAIN;
+	}
+	
+	//terminal NON_NUMERIC_OPERATOR:
+	//	EQUAL | NOT_EQUAL;
+	public TerminalRule getNON_NUMERIC_OPERATORRule() {
+		return tNON_NUMERIC_OPERATOR;
+	}
+	
+	//terminal NUMERIC_OPERATOR:
+	//	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
+	public TerminalRule getNUMERIC_OPERATORRule() {
+		return tNUMERIC_OPERATOR;
 	}
 	
 	//terminal ALPHA:

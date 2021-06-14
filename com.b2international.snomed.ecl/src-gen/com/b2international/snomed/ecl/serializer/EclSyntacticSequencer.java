@@ -30,7 +30,7 @@ import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISyn
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
 @SuppressWarnings("all")
-public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSequencer {
+public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EclGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTIONTerminalRuleCall_1_1_0;
@@ -49,8 +49,14 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getCARETRule())
+		if (ruleCall.getRule() == grammarAccess.getACCEPTABLE_IN_KEYWORDRule())
+			return getACCEPTABLE_IN_KEYWORDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getACTIVE_KEYWORDRule())
+			return getACTIVE_KEYWORDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getCARETRule())
 			return getCARETToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getCASE_SIGNIFICANCE_ID_KEYWORDRule())
+			return getCASE_SIGNIFICANCE_ID_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getCOLONRule())
 			return getCOLONToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getCOMMARule())
@@ -81,6 +87,8 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 			return getDOUBLE_CURLY_CLOSEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDOUBLE_CURLY_OPENRule())
 			return getDOUBLE_CURLY_OPENToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getEQUALRule())
+			return getEQUALToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEXCLUSIONRule())
 			return getEXCLUSIONToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getGTRule())
@@ -91,10 +99,16 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 			return getHASHToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLANGUAGE_KEYWORDRule())
 			return getLANGUAGE_KEYWORDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getLANGUAGE_REFSET_ID_KEYWORDRule())
+			return getLANGUAGE_REFSET_ID_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLTRule())
 			return getLTToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLT_EMRule())
 			return getLT_EMToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMODULEID_KEYWORDRule())
+			return getMODULEID_KEYWORDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getPREFERRED_IN_KEYWORDRule())
+			return getPREFERRED_IN_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getREVERSEDRule())
 			return getREVERSEDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getROUND_CLOSERule())
@@ -119,6 +133,26 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	}
 	
 	/**
+	 * terminal ACCEPTABLE_IN_KEYWORD:
+	 * 	'acceptableIn';
+	 */
+	protected String getACCEPTABLE_IN_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "acceptableIn";
+	}
+	
+	/**
+	 * terminal ACTIVE_KEYWORD:
+	 * 	'active';
+	 */
+	protected String getACTIVE_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "active";
+	}
+	
+	/**
 	 * terminal CARET:
 	 * 	'^';
 	 */
@@ -126,6 +160,16 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 		if (node != null)
 			return getTokenText(node);
 		return "^";
+	}
+	
+	/**
+	 * terminal CASE_SIGNIFICANCE_ID_KEYWORD:
+	 * 	'caseSignificanceId';
+	 */
+	protected String getCASE_SIGNIFICANCE_ID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "caseSignificanceId";
 	}
 	
 	/**
@@ -150,7 +194,7 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal CONJUNCTION:
-	 * 	('a' | 'A') ('n' | 'N') ('d' | 'D');
+	 * 	'and';
 	 */
 	protected String getCONJUNCTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -220,17 +264,17 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal DIALECTID_KEYWORD:
-	 * 	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T') ('i'|'I') ('d'|'D');
+	 * 	'dialectId';
 	 */
 	protected String getDIALECTID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "dialectid";
+		return "dialectId";
 	}
 	
 	/**
 	 * terminal DIALECT_KEYWORD:
-	 * 	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T');
+	 * 	'dialect';
 	 */
 	protected String getDIALECT_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -240,7 +284,7 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal DISJUNCTION:
-	 * 	('o' | 'O') ('r' | 'R');
+	 * 	'or';
 	 */
 	protected String getDISJUNCTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -279,8 +323,18 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	}
 	
 	/**
+	 * terminal EQUAL:
+	 * 	'=';
+	 */
+	protected String getEQUALToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "=";
+	}
+	
+	/**
 	 * terminal EXCLUSION:
-	 * 	('m' | 'M') ('i' | 'I') ('n' | 'N') ('u' | 'U') ('s' | 'S');
+	 * 	'minus';
 	 */
 	protected String getEXCLUSIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -320,12 +374,22 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal LANGUAGE_KEYWORD:
-	 * 	('l'|'L') ('a'|'A') ('n'|'N') ('g'|'G') ('u'|'U') ('a'|'A') ('g'|'G') ('e'|'E');
+	 * 	'language';
 	 */
 	protected String getLANGUAGE_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "language";
+	}
+	
+	/**
+	 * terminal LANGUAGE_REFSET_ID_KEYWORD:
+	 * 	'languageRefSetId';
+	 */
+	protected String getLANGUAGE_REFSET_ID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "languageRefSetId";
 	}
 	
 	/**
@@ -346,6 +410,26 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 		if (node != null)
 			return getTokenText(node);
 		return "<!";
+	}
+	
+	/**
+	 * terminal MODULEID_KEYWORD:
+	 * 	'moduleId';
+	 */
+	protected String getMODULEID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "moduleId";
+	}
+	
+	/**
+	 * terminal PREFERRED_IN_KEYWORD:
+	 * 	'preferredIn';
+	 */
+	protected String getPREFERRED_IN_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "preferredIn";
 	}
 	
 	/**
@@ -400,7 +484,7 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal TERM_KEYWORD:
-	 * 	('t'|'T') ('e'|'E') ('r'|'R') ('m'|'M');
+	 * 	'term';
 	 */
 	protected String getTERM_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -420,17 +504,17 @@ public abstract class AbstractEclSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * terminal TYPEID_KEYWORD:
-	 * 	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E') ('i'|'I') ('d'|'D');
+	 * 	'typeId';
 	 */
 	protected String getTYPEID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "typeid";
+		return "typeId";
 	}
 	
 	/**
 	 * terminal TYPE_KEYWORD:
-	 * 	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E');
+	 * 	'type';
 	 */
 	protected String getTYPE_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

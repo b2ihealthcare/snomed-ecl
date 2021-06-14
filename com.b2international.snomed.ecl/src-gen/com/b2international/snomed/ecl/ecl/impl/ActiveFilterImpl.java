@@ -15,8 +15,8 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
+import com.b2international.snomed.ecl.ecl.ActiveFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.TypedTermFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -26,66 +26,66 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Typed Term Filter</b></em>'.
+ * An implementation of the model object '<em><b>Active Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getLexicalSearchType <em>Lexical Search Type</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getTerm <em>Term</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#isActive <em>Active</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilter
+public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
 {
   /**
-   * The default value of the '{@link #getLexicalSearchType() <em>Lexical Search Type</em>}' attribute.
+   * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLexicalSearchType()
+   * @see #getDomain()
    * @generated
    * @ordered
    */
-  protected static final String LEXICAL_SEARCH_TYPE_EDEFAULT = null;
+  protected static final String DOMAIN_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLexicalSearchType() <em>Lexical Search Type</em>}' attribute.
+   * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLexicalSearchType()
+   * @see #getDomain()
    * @generated
    * @ordered
    */
-  protected String lexicalSearchType = LEXICAL_SEARCH_TYPE_EDEFAULT;
+  protected String domain = DOMAIN_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTerm() <em>Term</em>}' attribute.
+   * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTerm()
+   * @see #isActive()
    * @generated
    * @ordered
    */
-  protected static final String TERM_EDEFAULT = null;
+  protected static final boolean ACTIVE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getTerm() <em>Term</em>}' attribute.
+   * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTerm()
+   * @see #isActive()
    * @generated
    * @ordered
    */
-  protected String term = TERM_EDEFAULT;
+  protected boolean active = ACTIVE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypedTermFilterImpl()
+  protected ActiveFilterImpl()
   {
     super();
   }
@@ -98,7 +98,7 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.TYPED_TERM_FILTER;
+    return EclPackage.Literals.ACTIVE_FILTER;
   }
 
   /**
@@ -107,9 +107,9 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public String getLexicalSearchType()
+  public String getDomain()
   {
-    return lexicalSearchType;
+    return domain;
   }
 
   /**
@@ -118,12 +118,12 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public void setLexicalSearchType(String newLexicalSearchType)
+  public void setDomain(String newDomain)
   {
-    String oldLexicalSearchType = lexicalSearchType;
-    lexicalSearchType = newLexicalSearchType;
+    String oldDomain = domain;
+    domain = newDomain;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE, oldLexicalSearchType, lexicalSearchType));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ACTIVE_FILTER__DOMAIN, oldDomain, domain));
   }
 
   /**
@@ -132,9 +132,9 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public String getTerm()
+  public boolean isActive()
   {
-    return term;
+    return active;
   }
 
   /**
@@ -143,12 +143,12 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public void setTerm(String newTerm)
+  public void setActive(boolean newActive)
   {
-    String oldTerm = term;
-    term = newTerm;
+    boolean oldActive = active;
+    active = newActive;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__TERM, oldTerm, term));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ACTIVE_FILTER__ACTIVE, oldActive, active));
   }
 
   /**
@@ -161,10 +161,10 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        return getLexicalSearchType();
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        return getTerm();
+      case EclPackage.ACTIVE_FILTER__DOMAIN:
+        return getDomain();
+      case EclPackage.ACTIVE_FILTER__ACTIVE:
+        return isActive();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -179,11 +179,11 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        setLexicalSearchType((String)newValue);
+      case EclPackage.ACTIVE_FILTER__DOMAIN:
+        setDomain((String)newValue);
         return;
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        setTerm((String)newValue);
+      case EclPackage.ACTIVE_FILTER__ACTIVE:
+        setActive((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,11 +199,11 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        setLexicalSearchType(LEXICAL_SEARCH_TYPE_EDEFAULT);
+      case EclPackage.ACTIVE_FILTER__DOMAIN:
+        setDomain(DOMAIN_EDEFAULT);
         return;
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        setTerm(TERM_EDEFAULT);
+      case EclPackage.ACTIVE_FILTER__ACTIVE:
+        setActive(ACTIVE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -219,10 +219,10 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        return LEXICAL_SEARCH_TYPE_EDEFAULT == null ? lexicalSearchType != null : !LEXICAL_SEARCH_TYPE_EDEFAULT.equals(lexicalSearchType);
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        return TERM_EDEFAULT == null ? term != null : !TERM_EDEFAULT.equals(term);
+      case EclPackage.ACTIVE_FILTER__DOMAIN:
+        return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
+      case EclPackage.ACTIVE_FILTER__ACTIVE:
+        return active != ACTIVE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -238,12 +238,12 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (lexicalSearchType: ");
-    result.append(lexicalSearchType);
-    result.append(", term: ");
-    result.append(term);
+    result.append(" (domain: ");
+    result.append(domain);
+    result.append(", active: ");
+    result.append(active);
     result.append(')');
     return result.toString();
   }
 
-} //TypedTermFilterImpl
+} //ActiveFilterImpl

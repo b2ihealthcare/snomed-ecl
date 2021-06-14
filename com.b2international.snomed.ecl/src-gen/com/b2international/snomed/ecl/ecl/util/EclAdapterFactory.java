@@ -318,6 +318,36 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createAcceptabilityTokenSetAdapter();
       }
       @Override
+      public Adapter caseActiveFilter(ActiveFilter object)
+      {
+        return createActiveFilterAdapter();
+      }
+      @Override
+      public Adapter caseModuleFilter(ModuleFilter object)
+      {
+        return createModuleFilterAdapter();
+      }
+      @Override
+      public Adapter casePreferredInFilter(PreferredInFilter object)
+      {
+        return createPreferredInFilterAdapter();
+      }
+      @Override
+      public Adapter caseAcceptableInFilter(AcceptableInFilter object)
+      {
+        return createAcceptableInFilterAdapter();
+      }
+      @Override
+      public Adapter caseLanguageRefSetFilter(LanguageRefSetFilter object)
+      {
+        return createLanguageRefSetFilterAdapter();
+      }
+      @Override
+      public Adapter caseCaseSignificanceFilter(CaseSignificanceFilter object)
+      {
+        return createCaseSignificanceFilterAdapter();
+      }
+      @Override
       public Adapter caseOrExpressionConstraint(OrExpressionConstraint object)
       {
         return createOrExpressionConstraintAdapter();
@@ -1075,6 +1105,96 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAcceptabilityTokenSetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ActiveFilter <em>Active Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ActiveFilter
+   * @generated
+   */
+  public Adapter createActiveFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ModuleFilter <em>Module Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ModuleFilter
+   * @generated
+   */
+  public Adapter createModuleFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.PreferredInFilter <em>Preferred In Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.PreferredInFilter
+   * @generated
+   */
+  public Adapter createPreferredInFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AcceptableInFilter <em>Acceptable In Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.AcceptableInFilter
+   * @generated
+   */
+  public Adapter createAcceptableInFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.LanguageRefSetFilter <em>Language Ref Set Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.LanguageRefSetFilter
+   * @generated
+   */
+  public Adapter createLanguageRefSetFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.CaseSignificanceFilter <em>Case Significance Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.CaseSignificanceFilter
+   * @generated
+   */
+  public Adapter createCaseSignificanceFilterAdapter()
   {
     return null;
   }

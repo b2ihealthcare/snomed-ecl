@@ -15,7 +15,6 @@
  */
 package com.b2international.snomed.ecl;
 
-import com.b2international.snomed.ecl.generator.EclGenerator;
 import com.b2international.snomed.ecl.parser.antlr.EclAntlrTokenFileProvider;
 import com.b2international.snomed.ecl.parser.antlr.EclParser;
 import com.b2international.snomed.ecl.parser.antlr.lexer.InternalEclLexer;
@@ -33,7 +32,6 @@ import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.conversion.impl.AbstractIDValueConverter;
 import org.eclipse.xtext.conversion.impl.IgnoreCaseIDValueConverter;
-import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.parser.IParser;
@@ -223,11 +221,6 @@ public abstract class AbstractEclRuntimeModule extends DefaultRuntimeModule {
 	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
 	public void configureIResourceDescriptionsPersisted(Binder binder) {
 		binder.bind(IResourceDescriptions.class).annotatedWith(Names.named(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS)).to(ResourceSetBasedResourceDescriptions.class);
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
-	public Class<? extends IGenerator2> bindIGenerator2() {
-		return EclGenerator.class;
 	}
 	
 }

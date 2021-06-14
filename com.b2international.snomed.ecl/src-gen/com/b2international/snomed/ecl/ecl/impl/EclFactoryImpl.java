@@ -18,7 +18,6 @@ package com.b2international.snomed.ecl.ecl.impl;
 import com.b2international.snomed.ecl.ecl.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -124,6 +123,12 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.ACCEPTABILITY: return createAcceptability();
       case EclPackage.ACCEPTABILITY_ID_SET: return createAcceptabilityIdSet();
       case EclPackage.ACCEPTABILITY_TOKEN_SET: return createAcceptabilityTokenSet();
+      case EclPackage.ACTIVE_FILTER: return createActiveFilter();
+      case EclPackage.MODULE_FILTER: return createModuleFilter();
+      case EclPackage.PREFERRED_IN_FILTER: return createPreferredInFilter();
+      case EclPackage.ACCEPTABLE_IN_FILTER: return createAcceptableInFilter();
+      case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
+      case EclPackage.CASE_SIGNIFICANCE_FILTER: return createCaseSignificanceFilter();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
@@ -136,40 +141,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.EXCLUSION_FILTER: return createExclusionFilter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case EclPackage.LEXICAL_SEARCH_TYPE:
-        return createLexicalSearchTypeFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case EclPackage.LEXICAL_SEARCH_TYPE:
-        return convertLexicalSearchTypeToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -731,6 +702,78 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public ActiveFilter createActiveFilter()
+  {
+    ActiveFilterImpl activeFilter = new ActiveFilterImpl();
+    return activeFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ModuleFilter createModuleFilter()
+  {
+    ModuleFilterImpl moduleFilter = new ModuleFilterImpl();
+    return moduleFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PreferredInFilter createPreferredInFilter()
+  {
+    PreferredInFilterImpl preferredInFilter = new PreferredInFilterImpl();
+    return preferredInFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AcceptableInFilter createAcceptableInFilter()
+  {
+    AcceptableInFilterImpl acceptableInFilter = new AcceptableInFilterImpl();
+    return acceptableInFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LanguageRefSetFilter createLanguageRefSetFilter()
+  {
+    LanguageRefSetFilterImpl languageRefSetFilter = new LanguageRefSetFilterImpl();
+    return languageRefSetFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CaseSignificanceFilter createCaseSignificanceFilter()
+  {
+    CaseSignificanceFilterImpl caseSignificanceFilter = new CaseSignificanceFilterImpl();
+    return caseSignificanceFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrExpressionConstraint createOrExpressionConstraint()
   {
     OrExpressionConstraintImpl orExpressionConstraint = new OrExpressionConstraintImpl();
@@ -843,28 +886,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     ExclusionFilterImpl exclusionFilter = new ExclusionFilterImpl();
     return exclusionFilter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LexicalSearchType createLexicalSearchTypeFromString(EDataType eDataType, String initialValue)
-  {
-    LexicalSearchType result = LexicalSearchType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertLexicalSearchTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

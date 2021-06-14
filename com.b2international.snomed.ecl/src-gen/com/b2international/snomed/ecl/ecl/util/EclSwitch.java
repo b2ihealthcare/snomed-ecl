@@ -490,6 +490,72 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.ACTIVE_FILTER:
+      {
+        ActiveFilter activeFilter = (ActiveFilter)theEObject;
+        T result = caseActiveFilter(activeFilter);
+        if (result == null) result = casePropertyFilter(activeFilter);
+        if (result == null) result = caseFilter(activeFilter);
+        if (result == null) result = caseFilterConstraint(activeFilter);
+        if (result == null) result = caseExpressionConstraint(activeFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.MODULE_FILTER:
+      {
+        ModuleFilter moduleFilter = (ModuleFilter)theEObject;
+        T result = caseModuleFilter(moduleFilter);
+        if (result == null) result = casePropertyFilter(moduleFilter);
+        if (result == null) result = caseFilter(moduleFilter);
+        if (result == null) result = caseFilterConstraint(moduleFilter);
+        if (result == null) result = caseExpressionConstraint(moduleFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.PREFERRED_IN_FILTER:
+      {
+        PreferredInFilter preferredInFilter = (PreferredInFilter)theEObject;
+        T result = casePreferredInFilter(preferredInFilter);
+        if (result == null) result = casePropertyFilter(preferredInFilter);
+        if (result == null) result = caseFilter(preferredInFilter);
+        if (result == null) result = caseFilterConstraint(preferredInFilter);
+        if (result == null) result = caseExpressionConstraint(preferredInFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.ACCEPTABLE_IN_FILTER:
+      {
+        AcceptableInFilter acceptableInFilter = (AcceptableInFilter)theEObject;
+        T result = caseAcceptableInFilter(acceptableInFilter);
+        if (result == null) result = casePropertyFilter(acceptableInFilter);
+        if (result == null) result = caseFilter(acceptableInFilter);
+        if (result == null) result = caseFilterConstraint(acceptableInFilter);
+        if (result == null) result = caseExpressionConstraint(acceptableInFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.LANGUAGE_REF_SET_FILTER:
+      {
+        LanguageRefSetFilter languageRefSetFilter = (LanguageRefSetFilter)theEObject;
+        T result = caseLanguageRefSetFilter(languageRefSetFilter);
+        if (result == null) result = casePropertyFilter(languageRefSetFilter);
+        if (result == null) result = caseFilter(languageRefSetFilter);
+        if (result == null) result = caseFilterConstraint(languageRefSetFilter);
+        if (result == null) result = caseExpressionConstraint(languageRefSetFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.CASE_SIGNIFICANCE_FILTER:
+      {
+        CaseSignificanceFilter caseSignificanceFilter = (CaseSignificanceFilter)theEObject;
+        T result = caseCaseSignificanceFilter(caseSignificanceFilter);
+        if (result == null) result = casePropertyFilter(caseSignificanceFilter);
+        if (result == null) result = caseFilter(caseSignificanceFilter);
+        if (result == null) result = caseFilterConstraint(caseSignificanceFilter);
+        if (result == null) result = caseExpressionConstraint(caseSignificanceFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.OR_EXPRESSION_CONSTRAINT:
       {
         OrExpressionConstraint orExpressionConstraint = (OrExpressionConstraint)theEObject;
@@ -1312,6 +1378,102 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAcceptabilityTokenSet(AcceptabilityTokenSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Active Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Active Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActiveFilter(ActiveFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Module Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Module Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModuleFilter(ModuleFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Preferred In Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Preferred In Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePreferredInFilter(PreferredInFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Acceptable In Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Acceptable In Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAcceptableInFilter(AcceptableInFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language Ref Set Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language Ref Set Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguageRefSetFilter(LanguageRefSetFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Significance Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Significance Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseSignificanceFilter(CaseSignificanceFilter object)
   {
     return null;
   }
