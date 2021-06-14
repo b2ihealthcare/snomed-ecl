@@ -23,9 +23,51 @@ package com.b2international.snomed.ecl.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
+CaseSignificanceId : ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s')('I'|'i')('G'|'g')('N'|'n')('I'|'i')('F'|'f')('I'|'i')('C'|'c')('A'|'a')('N'|'n')('C'|'c')('E'|'e')('I'|'i')('D'|'d');
+
+LanguageRefSetId : ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e')('R'|'r')('E'|'e')('F'|'f')('S'|'s')('E'|'e')('T'|'t')('I'|'i')('D'|'d');
+
+AcceptableIn : ('A'|'a')('C'|'c')('C'|'c')('E'|'e')('P'|'p')('T'|'t')('A'|'a')('B'|'b')('L'|'l')('E'|'e')('I'|'i')('N'|'n');
+
+Description : ('D'|'d')('E'|'e')('S'|'s')('C'|'c')('R'|'r')('I'|'i')('P'|'p')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
+
+PreferredIn : ('P'|'p')('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('R'|'r')('E'|'e')('D'|'d')('I'|'i')('N'|'n');
+
+DialectId : ('D'|'d')('I'|'i')('A'|'a')('L'|'l')('E'|'e')('C'|'c')('T'|'t')('I'|'i')('D'|'d');
+
+Language : ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e');
+
+ModuleId : ('M'|'m')('O'|'o')('D'|'d')('U'|'u')('L'|'l')('E'|'e')('I'|'i')('D'|'d');
+
+Concept : ('C'|'c')('O'|'o')('N'|'n')('C'|'c')('E'|'e')('P'|'p')('T'|'t');
+
+Dialect : ('D'|'d')('I'|'i')('A'|'a')('L'|'l')('E'|'e')('C'|'c')('T'|'t');
+
+Active : ('A'|'a')('C'|'c')('T'|'t')('I'|'i')('V'|'v')('E'|'e');
+
+TypeId : ('T'|'t')('Y'|'y')('P'|'p')('E'|'e')('I'|'i')('D'|'d');
+
+Exact : ('E'|'e')('X'|'x')('A'|'a')('C'|'c')('T'|'t');
+
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
 
+Match : ('M'|'m')('A'|'a')('T'|'t')('C'|'c')('H'|'h');
+
+Minus : ('M'|'m')('I'|'i')('N'|'n')('U'|'u')('S'|'s');
+
+Regex : ('R'|'r')('E'|'e')('G'|'g')('E'|'e')('X'|'x');
+
+Term : ('T'|'t')('E'|'e')('R'|'r')('M'|'m');
+
 True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
+
+Type : ('T'|'t')('Y'|'y')('P'|'p')('E'|'e');
+
+Wild : ('W'|'w')('I'|'i')('L'|'l')('D'|'d');
+
+And : ('A'|'a')('N'|'n')('D'|'d');
+
+Or : ('O'|'o')('R'|'r');
 
 RULE_TERM_STRING : '|' ~('|')* '|';
 
@@ -34,12 +76,6 @@ RULE_REVERSED : 'R';
 RULE_TO : '..';
 
 RULE_COMMA : ',';
-
-RULE_CONJUNCTION : 'and';
-
-RULE_DISJUNCTION : 'or';
-
-RULE_EXCLUSION : 'minus';
 
 RULE_ZERO : '0';
 
@@ -71,7 +107,7 @@ RULE_WILDCARD : '*';
 
 RULE_EQUAL : '=';
 
-fragment RULE_NOT_EQUAL : '!=';
+RULE_NOT_EQUAL : '!=';
 
 RULE_LT : '<';
 
@@ -89,47 +125,15 @@ RULE_GT_EM : '>!';
 
 RULE_DBL_GT_EM : '>>!';
 
-fragment RULE_GTE : '>=';
+RULE_GTE : '>=';
 
-fragment RULE_LTE : '<=';
+RULE_LTE : '<=';
 
 RULE_HASH : '#';
 
 RULE_DOUBLE_CURLY_OPEN : '{{';
 
 RULE_DOUBLE_CURLY_CLOSE : '}}';
-
-RULE_TERM_KEYWORD : 'term';
-
-RULE_LANGUAGE_KEYWORD : 'language';
-
-RULE_TYPEID_KEYWORD : 'typeId';
-
-RULE_TYPE_KEYWORD : 'type';
-
-RULE_DIALECTID_KEYWORD : 'dialectId';
-
-RULE_DIALECT_KEYWORD : 'dialect';
-
-RULE_ACTIVE_KEYWORD : 'active';
-
-RULE_MODULEID_KEYWORD : 'moduleId';
-
-RULE_PREFERRED_IN_KEYWORD : 'preferredIn';
-
-RULE_ACCEPTABLE_IN_KEYWORD : 'acceptableIn';
-
-RULE_LANGUAGE_REFSET_ID_KEYWORD : 'languageRefSetId';
-
-RULE_CASE_SIGNIFICANCE_ID_KEYWORD : 'caseSignificanceId';
-
-RULE_LEXICAL_SEARCH_TYPE : ('match'|'wild'|'regex'|'exact');
-
-RULE_DOMAIN : ('Concept'|'Description');
-
-RULE_NON_NUMERIC_OPERATOR : (RULE_EQUAL|RULE_NOT_EQUAL);
-
-RULE_NUMERIC_OPERATOR : (RULE_EQUAL|RULE_NOT_EQUAL|RULE_GT|RULE_LT|RULE_GTE|RULE_LTE);
 
 RULE_ALPHA : 'a'..'z';
 
