@@ -124,7 +124,7 @@ Comparison:
 	AttributeComparison | DataTypeComparison;
 
 AttributeComparison:
-	op=(EQUAL | NOT_EQUAL) value=SubExpressionConstraint;
+	op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint;
 
 DataTypeComparison:
 	BooleanValueComparison
@@ -133,16 +133,16 @@ DataTypeComparison:
 	| DecimalValueComparison;
 
 BooleanValueComparison:
-	op=(EQUAL | NOT_EQUAL) value=Boolean;
+	op=NON_NUMERIC_OPERATOR value=Boolean;
 
 StringValueComparison:
-	op=(EQUAL | NOT_EQUAL) value=STRING;
+	op=NON_NUMERIC_OPERATOR value=STRING;
 
 IntegerValueComparison:
-	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Integer;
+	op=NUMERIC_OPERATOR HASH value=Integer;
 
 DecimalValueComparison:
-	op=(EQUAL | NOT_EQUAL | GT | LT | GTE | LTE) HASH value=Decimal;
+	op=NUMERIC_OPERATOR HASH value=Decimal;
 
 NestedExpression:
 	ROUND_OPEN nested=ExpressionConstraint ROUND_CLOSE;
@@ -168,42 +168,52 @@ NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
-	TermFilter | LanguageCodeFilter | TypeFilter | DialectFilter | NestedFilter;
+	// ECL 1.5 filters
+	TermFilter | 
+	LanguageCodeFilter |
+	TypeFilter | 
+	DialectFilter | 
+	// QL 0.1 filters (ECL extensions)	 
+	ActiveFilter | 
+	PreferredInFilter | 
+	AcceptableInFilter | 
+	LanguageRefSetFilter | 
+	ModuleFilter | 
+	CaseSignificanceFilter | 
+	// Allows grouping filters for boolean operators
+	NestedFilter;
  
 TermFilter:
 	TERM_KEYWORD (TypedTermFilter | TypedTermFilterSet);
 
+// no special treatment for the term filter STRING, we allow everything for any lexical search type
 TypedTermFilter:
-	op=(EQUAL | NOT_EQUAL) (lexicalSearchType=LexicalSearchType COLON)? term=STRING; // no special treatment for the term filter STRING, we allow everything for any lexical search type
+	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
 
 TypedTermFilterSet:
-	op=(EQUAL | NOT_EQUAL) ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
-
-// TODO not sure if we can support mixed cases here, for now it is not supported
-enum LexicalSearchType:
-	MATCH="match" | WILD="wild" | REGEX="regex" | EXACT="exact"; // regex and exact match is an extension to ECL 1.5
+	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
 
 LanguageCodeFilter:
-	LANGUAGE_KEYWORD op=(EQUAL | NOT_EQUAL) (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
+	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
 
 TypeFilter:
 	TypeIdFilter | TypeTokenFilter;
 
 TypeIdFilter:
-	TYPEID_KEYWORD op=(EQUAL | NOT_EQUAL) type=(EclConceptReference | EclConceptReferenceSet);
+	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet);
 
 // allowing any STRING to be represented as type token here, validator will restrict it to the available set
 TypeTokenFilter:
-	TYPE_KEYWORD op=(EQUAL | NOT_EQUAL) (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
+	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
 
 DialectFilter:
  	DialectIdFilter | DialectAliasFilter;
 
 DialectIdFilter:
-	DIALECTID_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
+	DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
 
 DialectAliasFilter:
-	DIALECT_KEYWORD op=(EQUAL | NOT_EQUAL) (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
+	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
 
 Dialect:
 	languageRefSetId=EclConceptReference (acceptability=Acceptability)?;
@@ -219,7 +229,25 @@ AcceptabilityIdSet:
 
 AcceptabilityTokenSet:
 	ROUND_OPEN acceptabilities+=Alphabetical (acceptabilities+=Alphabetical)* ROUND_CLOSE;
-	
+
+ActiveFilter:
+	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL (active=Boolean);
+
+ModuleFilter:
+	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
+
+PreferredInFilter:
+	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+
+AcceptableInFilter:
+	ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+
+LanguageRefSetFilter:
+	LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+
+CaseSignificanceFilter:
+	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint;
+
 // hidden grammar rules
 SnomedIdentifier hidden():
 	DIGIT_NONZERO (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO)+;
@@ -261,13 +289,13 @@ terminal COMMA:
 	',';
 	
 terminal CONJUNCTION:
-	('a' | 'A') ('n' | 'N') ('d' | 'D');
+	'and';
 
 terminal DISJUNCTION:
-	('o' | 'O') ('r' | 'R');
+	'or';
 
 terminal EXCLUSION:
-	('m' | 'M') ('i' | 'I') ('n' | 'N') ('u' | 'U') ('s' | 'S');
+	'minus';
 	
 terminal ZERO:
 	'0';
@@ -357,22 +385,52 @@ terminal DOUBLE_CURLY_CLOSE:
 	'}}';
 
 terminal TERM_KEYWORD:
-	('t'|'T') ('e'|'E') ('r'|'R') ('m'|'M');
+	'term';
 
 terminal LANGUAGE_KEYWORD:
-	('l'|'L') ('a'|'A') ('n'|'N') ('g'|'G') ('u'|'U') ('a'|'A') ('g'|'G') ('e'|'E');
+	'language';
 
 terminal TYPEID_KEYWORD:
-	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E') ('i'|'I') ('d'|'D');
+	'typeId';
 
 terminal TYPE_KEYWORD:
-	('t'|'T') ('y'|'Y') ('p'|'P') ('e'|'E');
+	'type';
 
 terminal DIALECTID_KEYWORD:
-	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T') ('i'|'I') ('d'|'D');
+	'dialectId';
 
 terminal DIALECT_KEYWORD:
-	('d'|'D') ('i'|'I') ('a'|'A') ('l'|'L') ('e'|'E') ('c'|'C') ('t'|'T');
+	'dialect';
+
+terminal ACTIVE_KEYWORD:
+	'active';
+
+terminal MODULEID_KEYWORD:
+	'moduleId';
+
+terminal PREFERRED_IN_KEYWORD:
+	'preferredIn';
+
+terminal ACCEPTABLE_IN_KEYWORD:
+	'acceptableIn';
+
+terminal LANGUAGE_REFSET_ID_KEYWORD:
+	'languageRefSetId';
+
+terminal CASE_SIGNIFICANCE_ID_KEYWORD:
+	'caseSignificanceId';
+
+terminal LEXICAL_SEARCH_TYPE:
+	'match' | 'wild' | 'regex' | 'exact'; // regex and exact match is an extension to ECL 1.5
+
+terminal DOMAIN:
+	'Concept' | 'Description'; 
+
+terminal NON_NUMERIC_OPERATOR:
+	EQUAL | NOT_EQUAL;
+
+terminal NUMERIC_OPERATOR:
+	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
 
 terminal ALPHA:
 	'a'..'z';
