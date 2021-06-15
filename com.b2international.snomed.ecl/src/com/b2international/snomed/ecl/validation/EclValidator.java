@@ -138,11 +138,11 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkLanguageCodeFilter(LanguageCodeFilter it) {
+	public void checkLanguageFilter(LanguageFilter it) {
 		final Set<String> codes = toCaseInsensitiveSet(it.getLanguageCodes());
 		final Set<String> unsupportedCodes = Sets.difference(codes, SUPPORTED_LANGUAGE_CODES.get());
 		if (!unsupportedCodes.isEmpty()) {
-			error(LANGUAGE_CODE_NONEXISITING_MESSAGE, it, EclPackage.Literals.LANGUAGE_CODE_FILTER__LANGUAGE_CODES, LANGUAGE_CODE_NONEXISITING_CODE);
+			error(LANGUAGE_CODE_NONEXISITING_MESSAGE, it, EclPackage.Literals.LANGUAGE_FILTER__LANGUAGE_CODES, LANGUAGE_CODE_NONEXISITING_CODE);
 		}
 	}
 
@@ -180,22 +180,6 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkExclusion(ExclusionFilter it) {
-		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
-		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
-		}
-		
-		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
-		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
-		
-		if (leftDomain != rightDomain) {
-			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.EXCLUSION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
-		}
-	}
-	
-	@Check
 	public void checkTypedTermFilter(TypedTermFilter it) {
 		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
 			error(String.format("At least %d characters are required for typed term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER__TERM);
@@ -203,6 +187,6 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	private boolean isAmbiguous(Filter parent, Filter child) {
-		return parent.getClass() != child.getClass() && (child instanceof DisjunctionFilter || child instanceof ConjunctionFilter || child instanceof ExclusionFilter);
+		return parent.getClass() != child.getClass() && (child instanceof DisjunctionFilter || child instanceof ConjunctionFilter);
 	}
 }

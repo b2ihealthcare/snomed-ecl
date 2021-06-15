@@ -59,13 +59,6 @@ public class EclRuntimeModule extends AbstractEclRuntimeModule {
 				throw new IllegalStateException("Disjunction filter has inconsistent left and right domains.");
 			}
 			return leftDomain;
-		} else if (filter instanceof ExclusionFilter) {
-			final Domain leftDomain = getDomain(((ExclusionFilter) filter).getLeft());
-			final Domain rightDomain = getDomain(((ExclusionFilter) filter).getRight());
-			if (leftDomain != rightDomain) {
-				throw new IllegalStateException("Exclusion filter has inconsistent left and right domains.");
-			}
-			return leftDomain;
 		} else if (filter instanceof ActiveFilter) {
 			// XXX: case-insensitive enum literals are not supported by Xtext, so we convert allowed values here
 			return Domain.valueOf(((ActiveFilter) filter).getDomain().toUpperCase(Locale.ENGLISH));
@@ -81,7 +74,7 @@ public class EclRuntimeModule extends AbstractEclRuntimeModule {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageRefSetFilter) {
 			return Domain.DESCRIPTION;
-		} else if (filter instanceof LanguageCodeFilter) {
+		} else if (filter instanceof LanguageFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof CaseSignificanceFilter) {
 			return Domain.DESCRIPTION;
