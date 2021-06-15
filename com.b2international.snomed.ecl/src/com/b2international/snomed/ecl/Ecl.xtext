@@ -37,10 +37,13 @@ RefinedExpressionConstraint returns ExpressionConstraint:
 	DottedExpressionConstraint ({RefinedExpressionConstraint.constraint=current} COLON refinement=EclRefinement)?;
 
 DottedExpressionConstraint returns ExpressionConstraint:
-	SubExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=SubExpressionConstraint)*;
+	FilteredExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=FilteredExpressionConstraint)*;
 
+FilteredExpressionConstraint returns ExpressionConstraint:
+	expression=SubExpressionConstraint filters+=FilterConstraint*;
+	
 SubExpressionConstraint returns ExpressionConstraint:
-	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept | FilterConstraint;
+	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
 
 EclFocusConcept returns ExpressionConstraint:
 	MemberOf | EclConceptReference | Any | NestedExpression;
@@ -115,7 +118,7 @@ NestedAttributeSet returns NestedRefinement:
 	ROUND_OPEN nested=EclAttributeSet ROUND_CLOSE;
 
 AttributeConstraint:
-	(cardinality=Cardinality)? (reversed?=REVERSED)? attribute=SubExpressionConstraint comparison=Comparison;
+	(cardinality=Cardinality)? (reversed?=REVERSED)? attribute=FilteredExpressionConstraint comparison=Comparison;
 
 Cardinality:
 	SQUARE_OPEN min=NonNegativeInteger TO max=MaxValue SQUARE_CLOSE;
@@ -124,7 +127,7 @@ Comparison:
 	AttributeComparison | DataTypeComparison;
 
 AttributeComparison:
-	op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint;
+	op=NON_NUMERIC_OPERATOR value=FilteredExpressionConstraint;
 
 DataTypeComparison:
 	BooleanValueComparison
@@ -155,33 +158,32 @@ FilterConstraint:
 Filter:
 	DisjunctionFilter;
 
+// Conjunction (OR) of filters is an extension to ECL 1.5
 DisjunctionFilter returns Filter:
 	ConjunctionFilter ({DisjunctionFilter.left=current} DISJUNCTION right=ConjunctionFilter)*;
 
+// Using the "AND" keyword for disjunctions is an extension to ECL 1.5
 ConjunctionFilter returns Filter:
-	ExclusionFilter ({ConjunctionFilter.left=current} (CONJUNCTION | COMMA) right=ExclusionFilter)*;
-
-ExclusionFilter returns Filter:
-	PropertyFilter ({ExclusionFilter.left=current} EXCLUSION right=PropertyFilter)?;
+	PropertyFilter ({ConjunctionFilter.left=current} (CONJUNCTION | COMMA) right=PropertyFilter)*;
 
 NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
 	// ECL 1.5 filters
-	TermFilter | 
-	LanguageCodeFilter |
-	TypeFilter | 
-	DialectFilter | 
+	TermFilter 
+	| LanguageFilter 
+	| TypeFilter 
+	| DialectFilter 
 	// QL 0.1 filters (ECL extensions)	 
-	ActiveFilter | 
-	PreferredInFilter | 
-	AcceptableInFilter | 
-	LanguageRefSetFilter | 
-	ModuleFilter | 
-	CaseSignificanceFilter | 
+	| ActiveFilter 
+	| PreferredInFilter
+	| AcceptableInFilter
+	| LanguageRefSetFilter
+	| ModuleFilter
+	| CaseSignificanceFilter 
 	// Allows grouping filters for boolean operators
-	NestedFilter;
+	| NestedFilter;
  
 TermFilter:
 	TERM_KEYWORD (TypedTermFilter | TypedTermFilterSet);
@@ -193,7 +195,7 @@ TypedTermFilter:
 TypedTermFilterSet:
 	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
 
-LanguageCodeFilter:
+LanguageFilter:
 	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
 
 TypeFilter:
@@ -421,7 +423,12 @@ CASE_SIGNIFICANCE_ID_KEYWORD:
 	'caseSignificanceId';
 
 LEXICAL_SEARCH_TYPE:
-	'match' | 'wild' | 'regex' | 'exact'; // regex and exact match is an extension to ECL 1.5
+	// Lexical search types supported in ECL 1.5 
+	'match' 
+	| 'wild'
+	// Lexical search type extensions
+	| 'regex' 
+	| 'exact';
 
 DOMAIN:
 	'Concept' | 'Description'; 
@@ -433,7 +440,7 @@ NUMERIC_OPERATOR:
 	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
 
 terminal ALPHA:
-	'a'..'z';
+	'a'..'z' | 'A'..'Z';
 
 // comment terminals
 terminal WS:
