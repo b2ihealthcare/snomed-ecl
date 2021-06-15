@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2017 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2011-2021 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ import org.junit.runner.RunWith
 import static org.junit.Assert.*
 
 /**
- * Parsing test for the SNOMED CT ECL.
+ * Parsing test for the SNOMED CT ECL grammar and associated extensions.
+ * 
+ * @since 1.4
  */
 @InjectWith(EclInjectorProvider)
 @RunWith(XtextRunner)
@@ -41,6 +43,102 @@ class EclParsingTest {
 	@Test
 	def void test_empty() {
 		''.assertNoErrors;
+	}
+	
+	@Test
+	def void test_whitespace() {
+		' \n \t'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_only() {
+		'* {{ active=true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_inactive_only() {
+		'* {{ active=false }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_module() {
+		'* {{ moduleId= 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_term_filter() {
+		'* {{ term = "Clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_and_module() {
+		'* {{ active=true, moduleId = 900000000000207008 }}'.assertNoErrors;
+		'* {{ active=true AND moduleId = 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_or_module() {
+		'* {{ active=true OR moduleId = 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_type_filter() {
+		'* {{ typeId = 900000000000550004 }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_multi_domain_query_and() {
+		'* {{ active=false }} AND * {{ term="clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_multi_domain_query_or() {
+		'* {{ active=false }} OR * {{ term="clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_multi_domain_query_minus() {
+		'* {{ active=false }} MINUS * {{ term="clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_query_conjuction() {
+		'* {{ active = false AND Description.active = true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_query_disjunction() {
+		'* {{ active = false OR Description.active = true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_query_disjunction_w_parenthesis() {
+		'* {{ active = false OR (Description.active = true) }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_preferredIn_filter() {
+		'* {{ preferredIn = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_acceptableIn_filter() {
+		'* {{ acceptableIn = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_languageRefset_filter() {
+		'* {{ languageRefSetId = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_language_filter() {
+		'* {{ language = en }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_caseSignificance_filter() {
+		'* {{ caseSignificanceId = 900000000000448009 }}'.assertNoErrors;
 	}
 
 	@Test
