@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.LanguageCodeFilter;
+import com.b2international.snomed.ecl.ecl.LanguageFilter;
 
 import java.util.Collection;
 
@@ -32,19 +32,19 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Language Code Filter</b></em>'.
+ * An implementation of the model object '<em><b>Language Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.LanguageCodeFilterImpl#getOp <em>Op</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.LanguageCodeFilterImpl#getLanguageCodes <em>Language Codes</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.LanguageFilterImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.LanguageFilterImpl#getLanguageCodes <em>Language Codes</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LanguageCodeFilterImpl extends PropertyFilterImpl implements LanguageCodeFilter
+public class LanguageFilterImpl extends PropertyFilterImpl implements LanguageFilter
 {
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -81,7 +81,7 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LanguageCodeFilterImpl()
+  protected LanguageFilterImpl()
   {
     super();
   }
@@ -94,7 +94,7 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.LANGUAGE_CODE_FILTER;
+    return EclPackage.Literals.LANGUAGE_FILTER;
   }
 
   /**
@@ -119,7 +119,7 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
     String oldOp = op;
     op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.LANGUAGE_CODE_FILTER__OP, oldOp, op));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.LANGUAGE_FILTER__OP, oldOp, op));
   }
 
   /**
@@ -132,7 +132,7 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   {
     if (languageCodes == null)
     {
-      languageCodes = new EDataTypeEList<String>(String.class, this, EclPackage.LANGUAGE_CODE_FILTER__LANGUAGE_CODES);
+      languageCodes = new EDataTypeEList<String>(String.class, this, EclPackage.LANGUAGE_FILTER__LANGUAGE_CODES);
     }
     return languageCodes;
   }
@@ -147,9 +147,9 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   {
     switch (featureID)
     {
-      case EclPackage.LANGUAGE_CODE_FILTER__OP:
+      case EclPackage.LANGUAGE_FILTER__OP:
         return getOp();
-      case EclPackage.LANGUAGE_CODE_FILTER__LANGUAGE_CODES:
+      case EclPackage.LANGUAGE_FILTER__LANGUAGE_CODES:
         return getLanguageCodes();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -166,10 +166,10 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   {
     switch (featureID)
     {
-      case EclPackage.LANGUAGE_CODE_FILTER__OP:
+      case EclPackage.LANGUAGE_FILTER__OP:
         setOp((String)newValue);
         return;
-      case EclPackage.LANGUAGE_CODE_FILTER__LANGUAGE_CODES:
+      case EclPackage.LANGUAGE_FILTER__LANGUAGE_CODES:
         getLanguageCodes().clear();
         getLanguageCodes().addAll((Collection<? extends String>)newValue);
         return;
@@ -187,10 +187,10 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   {
     switch (featureID)
     {
-      case EclPackage.LANGUAGE_CODE_FILTER__OP:
+      case EclPackage.LANGUAGE_FILTER__OP:
         setOp(OP_EDEFAULT);
         return;
-      case EclPackage.LANGUAGE_CODE_FILTER__LANGUAGE_CODES:
+      case EclPackage.LANGUAGE_FILTER__LANGUAGE_CODES:
         getLanguageCodes().clear();
         return;
     }
@@ -207,9 +207,9 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
   {
     switch (featureID)
     {
-      case EclPackage.LANGUAGE_CODE_FILTER__OP:
+      case EclPackage.LANGUAGE_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case EclPackage.LANGUAGE_CODE_FILTER__LANGUAGE_CODES:
+      case EclPackage.LANGUAGE_FILTER__LANGUAGE_CODES:
         return languageCodes != null && !languageCodes.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -234,4 +234,4 @@ public class LanguageCodeFilterImpl extends PropertyFilterImpl implements Langua
     return result.toString();
   }
 
-} //LanguageCodeFilterImpl
+} //LanguageFilterImpl

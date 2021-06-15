@@ -342,13 +342,13 @@ public interface EclFactory extends EFactory
   TypedTermFilterSet createTypedTermFilterSet();
 
   /**
-   * Returns a new object of class '<em>Language Code Filter</em>'.
+   * Returns a new object of class '<em>Language Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Language Code Filter</em>'.
+   * @return a new object of class '<em>Language Filter</em>'.
    * @generated
    */
-  LanguageCodeFilter createLanguageCodeFilter();
+  LanguageFilter createLanguageFilter();
 
   /**
    * Returns a new object of class '<em>Type Filter</em>'.
@@ -583,15 +583,6 @@ public interface EclFactory extends EFactory
    * @generated
    */
   ConjunctionFilter createConjunctionFilter();
-
-  /**
-   * Returns a new object of class '<em>Exclusion Filter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exclusion Filter</em>'.
-   * @generated
-   */
-  ExclusionFilter createExclusionFilter();
 
   /**
    * Returns the package supported by this factory.

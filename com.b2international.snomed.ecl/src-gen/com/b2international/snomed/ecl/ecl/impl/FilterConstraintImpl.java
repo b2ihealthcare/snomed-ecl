@@ -20,6 +20,8 @@ import com.b2international.snomed.ecl.ecl.FilterConstraint;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Filter Constraint</b></em>'.
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class FilterConstraintImpl extends ExpressionConstraintImpl implements FilterConstraint
+public class FilterConstraintImpl extends MinimalEObjectImpl.Container implements FilterConstraint
 {
   /**
    * <!-- begin-user-doc -->

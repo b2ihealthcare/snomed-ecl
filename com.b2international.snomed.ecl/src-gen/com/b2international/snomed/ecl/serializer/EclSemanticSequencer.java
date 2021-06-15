@@ -46,9 +46,9 @@ import com.b2international.snomed.ecl.ecl.EclConceptReference;
 import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
-import com.b2international.snomed.ecl.ecl.ExclusionFilter;
+import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
-import com.b2international.snomed.ecl.ecl.LanguageCodeFilter;
+import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
@@ -199,14 +199,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT:
 				sequence_ExclusionExpressionConstraint(context, (ExclusionExpressionConstraint) semanticObject); 
 				return; 
-			case EclPackage.EXCLUSION_FILTER:
-				sequence_ExclusionFilter(context, (ExclusionFilter) semanticObject); 
+			case EclPackage.EXPRESSION_CONSTRAINT:
+				sequence_FilteredExpressionConstraint(context, (ExpressionConstraint) semanticObject); 
 				return; 
 			case EclPackage.INTEGER_VALUE_COMPARISON:
 				sequence_IntegerValueComparison(context, (IntegerValueComparison) semanticObject); 
 				return; 
-			case EclPackage.LANGUAGE_CODE_FILTER:
-				sequence_LanguageCodeFilter(context, (LanguageCodeFilter) semanticObject); 
+			case EclPackage.LANGUAGE_FILTER:
+				sequence_LanguageFilter(context, (LanguageFilter) semanticObject); 
 				return; 
 			case EclPackage.LANGUAGE_REF_SET_FILTER:
 				sequence_LanguageRefSetFilter(context, (LanguageRefSetFilter) semanticObject); 
@@ -331,26 +331,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns AcceptableInFilter
-	 *     OrExpressionConstraint returns AcceptableInFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns AcceptableInFilter
-	 *     AndExpressionConstraint returns AcceptableInFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns AcceptableInFilter
-	 *     ExclusionExpressionConstraint returns AcceptableInFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns AcceptableInFilter
-	 *     RefinedExpressionConstraint returns AcceptableInFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AcceptableInFilter
-	 *     DottedExpressionConstraint returns AcceptableInFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AcceptableInFilter
-	 *     SubExpressionConstraint returns AcceptableInFilter
 	 *     FilterConstraint returns AcceptableInFilter
 	 *     Filter returns AcceptableInFilter
 	 *     DisjunctionFilter returns AcceptableInFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns AcceptableInFilter
 	 *     ConjunctionFilter returns AcceptableInFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns AcceptableInFilter
-	 *     ExclusionFilter returns AcceptableInFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns AcceptableInFilter
 	 *     PropertyFilter returns AcceptableInFilter
 	 *     AcceptableInFilter returns AcceptableInFilter
 	 *
@@ -370,26 +356,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ActiveFilter
-	 *     OrExpressionConstraint returns ActiveFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ActiveFilter
-	 *     AndExpressionConstraint returns ActiveFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ActiveFilter
-	 *     ExclusionExpressionConstraint returns ActiveFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ActiveFilter
-	 *     RefinedExpressionConstraint returns ActiveFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ActiveFilter
-	 *     DottedExpressionConstraint returns ActiveFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ActiveFilter
-	 *     SubExpressionConstraint returns ActiveFilter
 	 *     FilterConstraint returns ActiveFilter
 	 *     Filter returns ActiveFilter
 	 *     DisjunctionFilter returns ActiveFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns ActiveFilter
 	 *     ConjunctionFilter returns ActiveFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ActiveFilter
-	 *     ExclusionFilter returns ActiveFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns ActiveFilter
 	 *     PropertyFilter returns ActiveFilter
 	 *     ActiveFilter returns ActiveFilter
 	 *
@@ -403,17 +375,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns AncestorOf
-	 *     OrExpressionConstraint returns AncestorOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns AncestorOf
-	 *     AndExpressionConstraint returns AncestorOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns AncestorOf
-	 *     ExclusionExpressionConstraint returns AncestorOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns AncestorOf
-	 *     RefinedExpressionConstraint returns AncestorOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AncestorOf
-	 *     DottedExpressionConstraint returns AncestorOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOf
 	 *     SubExpressionConstraint returns AncestorOf
 	 *     AncestorOf returns AncestorOf
 	 *
@@ -433,17 +394,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns AncestorOrSelfOf
-	 *     OrExpressionConstraint returns AncestorOrSelfOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns AncestorOrSelfOf
-	 *     AndExpressionConstraint returns AncestorOrSelfOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns AncestorOrSelfOf
-	 *     ExclusionExpressionConstraint returns AncestorOrSelfOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns AncestorOrSelfOf
-	 *     RefinedExpressionConstraint returns AncestorOrSelfOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AncestorOrSelfOf
-	 *     DottedExpressionConstraint returns AncestorOrSelfOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     SubExpressionConstraint returns AncestorOrSelfOf
 	 *     AncestorOrSelfOf returns AncestorOrSelfOf
 	 *
@@ -538,17 +488,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns Any
-	 *     OrExpressionConstraint returns Any
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns Any
-	 *     AndExpressionConstraint returns Any
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns Any
-	 *     ExclusionExpressionConstraint returns Any
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns Any
-	 *     RefinedExpressionConstraint returns Any
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns Any
-	 *     DottedExpressionConstraint returns Any
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns Any
 	 *     SubExpressionConstraint returns Any
 	 *     EclFocusConcept returns Any
 	 *     Any returns Any
@@ -567,7 +506,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AttributeComparison returns AttributeComparison
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR value=SubExpressionConstraint)
+	 *     (op=NON_NUMERIC_OPERATOR value=FilteredExpressionConstraint)
 	 */
 	protected void sequence_AttributeComparison(ISerializationContext context, AttributeComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -578,7 +517,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getAttributeComparisonAccess().getValueSubExpressionConstraintParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAttributeComparisonAccess().getValueFilteredExpressionConstraintParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -600,7 +539,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AttributeConstraint returns AttributeConstraint
 	 *
 	 * Constraint:
-	 *     (cardinality=Cardinality? reversed?=REVERSED? attribute=SubExpressionConstraint comparison=Comparison)
+	 *     (cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison)
 	 */
 	protected void sequence_AttributeConstraint(ISerializationContext context, AttributeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -653,26 +592,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns CaseSignificanceFilter
-	 *     OrExpressionConstraint returns CaseSignificanceFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns CaseSignificanceFilter
-	 *     AndExpressionConstraint returns CaseSignificanceFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns CaseSignificanceFilter
-	 *     ExclusionExpressionConstraint returns CaseSignificanceFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns CaseSignificanceFilter
-	 *     RefinedExpressionConstraint returns CaseSignificanceFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns CaseSignificanceFilter
-	 *     DottedExpressionConstraint returns CaseSignificanceFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns CaseSignificanceFilter
-	 *     SubExpressionConstraint returns CaseSignificanceFilter
 	 *     FilterConstraint returns CaseSignificanceFilter
 	 *     Filter returns CaseSignificanceFilter
 	 *     DisjunctionFilter returns CaseSignificanceFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns CaseSignificanceFilter
 	 *     ConjunctionFilter returns CaseSignificanceFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns CaseSignificanceFilter
-	 *     ExclusionFilter returns CaseSignificanceFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns CaseSignificanceFilter
 	 *     PropertyFilter returns CaseSignificanceFilter
 	 *     CaseSignificanceFilter returns CaseSignificanceFilter
 	 *
@@ -692,17 +617,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ChildOf
-	 *     OrExpressionConstraint returns ChildOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ChildOf
-	 *     AndExpressionConstraint returns ChildOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ChildOf
-	 *     ExclusionExpressionConstraint returns ChildOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ChildOf
-	 *     RefinedExpressionConstraint returns ChildOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ChildOf
-	 *     DottedExpressionConstraint returns ChildOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOf
 	 *     SubExpressionConstraint returns ChildOf
 	 *     ChildOf returns ChildOf
 	 *
@@ -722,17 +636,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ChildOrSelfOf
-	 *     OrExpressionConstraint returns ChildOrSelfOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ChildOrSelfOf
-	 *     AndExpressionConstraint returns ChildOrSelfOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ChildOrSelfOf
-	 *     ExclusionExpressionConstraint returns ChildOrSelfOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ChildOrSelfOf
-	 *     RefinedExpressionConstraint returns ChildOrSelfOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ChildOrSelfOf
-	 *     DottedExpressionConstraint returns ChildOrSelfOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     SubExpressionConstraint returns ChildOrSelfOf
 	 *     ChildOrSelfOf returns ChildOrSelfOf
 	 *
@@ -752,18 +655,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ConjunctionFilter
-	 *     OrExpressionConstraint returns ConjunctionFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ConjunctionFilter
-	 *     AndExpressionConstraint returns ConjunctionFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ConjunctionFilter
-	 *     ExclusionExpressionConstraint returns ConjunctionFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ConjunctionFilter
-	 *     RefinedExpressionConstraint returns ConjunctionFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ConjunctionFilter
-	 *     DottedExpressionConstraint returns ConjunctionFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ConjunctionFilter
-	 *     SubExpressionConstraint returns ConjunctionFilter
 	 *     FilterConstraint returns ConjunctionFilter
 	 *     Filter returns ConjunctionFilter
 	 *     DisjunctionFilter returns ConjunctionFilter
@@ -772,7 +663,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ConjunctionFilter
 	 *
 	 * Constraint:
-	 *     (left=ConjunctionFilter_ConjunctionFilter_1_0 right=ExclusionFilter)
+	 *     (left=ConjunctionFilter_ConjunctionFilter_1_0 right=PropertyFilter)
 	 */
 	protected void sequence_ConjunctionFilter(ISerializationContext context, ConjunctionFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -783,7 +674,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getConjunctionFilterAccess().getConjunctionFilterLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getConjunctionFilterAccess().getRightExclusionFilterParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getConjunctionFilterAccess().getRightPropertyFilterParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -813,17 +704,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns DescendantOf
-	 *     OrExpressionConstraint returns DescendantOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DescendantOf
-	 *     AndExpressionConstraint returns DescendantOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DescendantOf
-	 *     ExclusionExpressionConstraint returns DescendantOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DescendantOf
-	 *     RefinedExpressionConstraint returns DescendantOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DescendantOf
-	 *     DottedExpressionConstraint returns DescendantOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOf
 	 *     SubExpressionConstraint returns DescendantOf
 	 *     DescendantOf returns DescendantOf
 	 *
@@ -843,17 +723,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns DescendantOrSelfOf
-	 *     OrExpressionConstraint returns DescendantOrSelfOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DescendantOrSelfOf
-	 *     AndExpressionConstraint returns DescendantOrSelfOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DescendantOrSelfOf
-	 *     ExclusionExpressionConstraint returns DescendantOrSelfOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DescendantOrSelfOf
-	 *     RefinedExpressionConstraint returns DescendantOrSelfOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DescendantOrSelfOf
-	 *     DottedExpressionConstraint returns DescendantOrSelfOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     SubExpressionConstraint returns DescendantOrSelfOf
 	 *     DescendantOrSelfOf returns DescendantOrSelfOf
 	 *
@@ -873,26 +742,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns DialectAliasFilter
-	 *     OrExpressionConstraint returns DialectAliasFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DialectAliasFilter
-	 *     AndExpressionConstraint returns DialectAliasFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DialectAliasFilter
-	 *     ExclusionExpressionConstraint returns DialectAliasFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DialectAliasFilter
-	 *     RefinedExpressionConstraint returns DialectAliasFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DialectAliasFilter
-	 *     DottedExpressionConstraint returns DialectAliasFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DialectAliasFilter
-	 *     SubExpressionConstraint returns DialectAliasFilter
 	 *     FilterConstraint returns DialectAliasFilter
 	 *     Filter returns DialectAliasFilter
 	 *     DisjunctionFilter returns DialectAliasFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns DialectAliasFilter
 	 *     ConjunctionFilter returns DialectAliasFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns DialectAliasFilter
-	 *     ExclusionFilter returns DialectAliasFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns DialectAliasFilter
 	 *     PropertyFilter returns DialectAliasFilter
 	 *     DialectFilter returns DialectAliasFilter
 	 *     DialectAliasFilter returns DialectAliasFilter
@@ -919,26 +774,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns DialectIdFilter
-	 *     OrExpressionConstraint returns DialectIdFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DialectIdFilter
-	 *     AndExpressionConstraint returns DialectIdFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DialectIdFilter
-	 *     ExclusionExpressionConstraint returns DialectIdFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DialectIdFilter
-	 *     RefinedExpressionConstraint returns DialectIdFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DialectIdFilter
-	 *     DottedExpressionConstraint returns DialectIdFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DialectIdFilter
-	 *     SubExpressionConstraint returns DialectIdFilter
 	 *     FilterConstraint returns DialectIdFilter
 	 *     Filter returns DialectIdFilter
 	 *     DisjunctionFilter returns DialectIdFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns DialectIdFilter
 	 *     ConjunctionFilter returns DialectIdFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns DialectIdFilter
-	 *     ExclusionFilter returns DialectIdFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns DialectIdFilter
 	 *     PropertyFilter returns DialectIdFilter
 	 *     DialectFilter returns DialectIdFilter
 	 *     DialectIdFilter returns DialectIdFilter
@@ -965,18 +806,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns DisjunctionFilter
-	 *     OrExpressionConstraint returns DisjunctionFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns DisjunctionFilter
-	 *     AndExpressionConstraint returns DisjunctionFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns DisjunctionFilter
-	 *     ExclusionExpressionConstraint returns DisjunctionFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns DisjunctionFilter
-	 *     RefinedExpressionConstraint returns DisjunctionFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DisjunctionFilter
-	 *     DottedExpressionConstraint returns DisjunctionFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DisjunctionFilter
-	 *     SubExpressionConstraint returns DisjunctionFilter
 	 *     FilterConstraint returns DisjunctionFilter
 	 *     Filter returns DisjunctionFilter
 	 *     DisjunctionFilter returns DisjunctionFilter
@@ -1014,7 +843,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DottedExpressionConstraint
 	 *
 	 * Constraint:
-	 *     (constraint=DottedExpressionConstraint_DottedExpressionConstraint_1_0 attribute=SubExpressionConstraint)
+	 *     (constraint=DottedExpressionConstraint_DottedExpressionConstraint_1_0 attribute=FilteredExpressionConstraint)
 	 */
 	protected void sequence_DottedExpressionConstraint(ISerializationContext context, DottedExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1025,7 +854,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getDottedExpressionConstraintConstraintAction_1_0(), semanticObject.getConstraint());
-		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSubExpressionConstraintParserRuleCall_1_2_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0(), semanticObject.getAttribute());
 		feeder.finish();
 	}
 	
@@ -1062,17 +891,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns EclConceptReference
-	 *     OrExpressionConstraint returns EclConceptReference
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns EclConceptReference
-	 *     AndExpressionConstraint returns EclConceptReference
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns EclConceptReference
-	 *     ExclusionExpressionConstraint returns EclConceptReference
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns EclConceptReference
-	 *     RefinedExpressionConstraint returns EclConceptReference
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns EclConceptReference
-	 *     DottedExpressionConstraint returns EclConceptReference
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns EclConceptReference
 	 *     SubExpressionConstraint returns EclConceptReference
 	 *     EclFocusConcept returns EclConceptReference
 	 *     EclConceptReference returns EclConceptReference
@@ -1113,40 +931,24 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ExclusionFilter
-	 *     OrExpressionConstraint returns ExclusionFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ExclusionFilter
-	 *     AndExpressionConstraint returns ExclusionFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ExclusionFilter
-	 *     ExclusionExpressionConstraint returns ExclusionFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ExclusionFilter
-	 *     RefinedExpressionConstraint returns ExclusionFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ExclusionFilter
-	 *     DottedExpressionConstraint returns ExclusionFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ExclusionFilter
-	 *     SubExpressionConstraint returns ExclusionFilter
-	 *     FilterConstraint returns ExclusionFilter
-	 *     Filter returns ExclusionFilter
-	 *     DisjunctionFilter returns ExclusionFilter
-	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns ExclusionFilter
-	 *     ConjunctionFilter returns ExclusionFilter
-	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ExclusionFilter
-	 *     ExclusionFilter returns ExclusionFilter
+	 *     ExpressionConstraint returns ExpressionConstraint
+	 *     OrExpressionConstraint returns ExpressionConstraint
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ExpressionConstraint
+	 *     AndExpressionConstraint returns ExpressionConstraint
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ExpressionConstraint
+	 *     ExclusionExpressionConstraint returns ExpressionConstraint
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ExpressionConstraint
+	 *     RefinedExpressionConstraint returns ExpressionConstraint
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ExpressionConstraint
+	 *     DottedExpressionConstraint returns ExpressionConstraint
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ExpressionConstraint
+	 *     FilteredExpressionConstraint returns ExpressionConstraint
 	 *
 	 * Constraint:
-	 *     (left=ExclusionFilter_ExclusionFilter_1_0 right=PropertyFilter)
+	 *     (expression=SubExpressionConstraint filters+=FilterConstraint*)
 	 */
-	protected void sequence_ExclusionFilter(ISerializationContext context, ExclusionFilter semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__LEFT));
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXCLUSION_FILTER__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExclusionFilterAccess().getExclusionFilterLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExclusionFilterAccess().getRightPropertyFilterParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
+	protected void sequence_FilteredExpressionConstraint(ISerializationContext context, ExpressionConstraint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1175,59 +977,31 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns LanguageCodeFilter
-	 *     OrExpressionConstraint returns LanguageCodeFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns LanguageCodeFilter
-	 *     AndExpressionConstraint returns LanguageCodeFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns LanguageCodeFilter
-	 *     ExclusionExpressionConstraint returns LanguageCodeFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns LanguageCodeFilter
-	 *     RefinedExpressionConstraint returns LanguageCodeFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns LanguageCodeFilter
-	 *     DottedExpressionConstraint returns LanguageCodeFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns LanguageCodeFilter
-	 *     SubExpressionConstraint returns LanguageCodeFilter
-	 *     FilterConstraint returns LanguageCodeFilter
-	 *     Filter returns LanguageCodeFilter
-	 *     DisjunctionFilter returns LanguageCodeFilter
-	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns LanguageCodeFilter
-	 *     ConjunctionFilter returns LanguageCodeFilter
-	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns LanguageCodeFilter
-	 *     ExclusionFilter returns LanguageCodeFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns LanguageCodeFilter
-	 *     PropertyFilter returns LanguageCodeFilter
-	 *     LanguageCodeFilter returns LanguageCodeFilter
+	 *     FilterConstraint returns LanguageFilter
+	 *     Filter returns LanguageFilter
+	 *     DisjunctionFilter returns LanguageFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns LanguageFilter
+	 *     ConjunctionFilter returns LanguageFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns LanguageFilter
+	 *     PropertyFilter returns LanguageFilter
+	 *     LanguageFilter returns LanguageFilter
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | (languageCodes+=Alphabetical languageCodes+=Alphabetical*)))
 	 */
-	protected void sequence_LanguageCodeFilter(ISerializationContext context, LanguageCodeFilter semanticObject) {
+	protected void sequence_LanguageFilter(ISerializationContext context, LanguageFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns LanguageRefSetFilter
-	 *     OrExpressionConstraint returns LanguageRefSetFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns LanguageRefSetFilter
-	 *     AndExpressionConstraint returns LanguageRefSetFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns LanguageRefSetFilter
-	 *     ExclusionExpressionConstraint returns LanguageRefSetFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns LanguageRefSetFilter
-	 *     RefinedExpressionConstraint returns LanguageRefSetFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns LanguageRefSetFilter
-	 *     DottedExpressionConstraint returns LanguageRefSetFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns LanguageRefSetFilter
-	 *     SubExpressionConstraint returns LanguageRefSetFilter
 	 *     FilterConstraint returns LanguageRefSetFilter
 	 *     Filter returns LanguageRefSetFilter
 	 *     DisjunctionFilter returns LanguageRefSetFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns LanguageRefSetFilter
 	 *     ConjunctionFilter returns LanguageRefSetFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns LanguageRefSetFilter
-	 *     ExclusionFilter returns LanguageRefSetFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns LanguageRefSetFilter
 	 *     PropertyFilter returns LanguageRefSetFilter
 	 *     LanguageRefSetFilter returns LanguageRefSetFilter
 	 *
@@ -1247,17 +1021,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns MemberOf
-	 *     OrExpressionConstraint returns MemberOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns MemberOf
-	 *     AndExpressionConstraint returns MemberOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns MemberOf
-	 *     ExclusionExpressionConstraint returns MemberOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns MemberOf
-	 *     RefinedExpressionConstraint returns MemberOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns MemberOf
-	 *     DottedExpressionConstraint returns MemberOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns MemberOf
 	 *     SubExpressionConstraint returns MemberOf
 	 *     EclFocusConcept returns MemberOf
 	 *     MemberOf returns MemberOf
@@ -1272,26 +1035,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ModuleFilter
-	 *     OrExpressionConstraint returns ModuleFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ModuleFilter
-	 *     AndExpressionConstraint returns ModuleFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ModuleFilter
-	 *     ExclusionExpressionConstraint returns ModuleFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ModuleFilter
-	 *     RefinedExpressionConstraint returns ModuleFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ModuleFilter
-	 *     DottedExpressionConstraint returns ModuleFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ModuleFilter
-	 *     SubExpressionConstraint returns ModuleFilter
 	 *     FilterConstraint returns ModuleFilter
 	 *     Filter returns ModuleFilter
 	 *     DisjunctionFilter returns ModuleFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns ModuleFilter
 	 *     ConjunctionFilter returns ModuleFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns ModuleFilter
-	 *     ExclusionFilter returns ModuleFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns ModuleFilter
 	 *     PropertyFilter returns ModuleFilter
 	 *     ModuleFilter returns ModuleFilter
 	 *
@@ -1329,17 +1078,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns NestedExpression
-	 *     OrExpressionConstraint returns NestedExpression
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns NestedExpression
-	 *     AndExpressionConstraint returns NestedExpression
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns NestedExpression
-	 *     ExclusionExpressionConstraint returns NestedExpression
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns NestedExpression
-	 *     RefinedExpressionConstraint returns NestedExpression
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns NestedExpression
-	 *     DottedExpressionConstraint returns NestedExpression
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns NestedExpression
 	 *     SubExpressionConstraint returns NestedExpression
 	 *     EclFocusConcept returns NestedExpression
 	 *     NestedExpression returns NestedExpression
@@ -1360,26 +1098,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns NestedFilter
-	 *     OrExpressionConstraint returns NestedFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns NestedFilter
-	 *     AndExpressionConstraint returns NestedFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns NestedFilter
-	 *     ExclusionExpressionConstraint returns NestedFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns NestedFilter
-	 *     RefinedExpressionConstraint returns NestedFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns NestedFilter
-	 *     DottedExpressionConstraint returns NestedFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns NestedFilter
-	 *     SubExpressionConstraint returns NestedFilter
 	 *     FilterConstraint returns NestedFilter
 	 *     Filter returns NestedFilter
 	 *     DisjunctionFilter returns NestedFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns NestedFilter
 	 *     ConjunctionFilter returns NestedFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns NestedFilter
-	 *     ExclusionFilter returns NestedFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns NestedFilter
 	 *     NestedFilter returns NestedFilter
 	 *     PropertyFilter returns NestedFilter
 	 *
@@ -1492,17 +1216,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ParentOf
-	 *     OrExpressionConstraint returns ParentOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ParentOf
-	 *     AndExpressionConstraint returns ParentOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ParentOf
-	 *     ExclusionExpressionConstraint returns ParentOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ParentOf
-	 *     RefinedExpressionConstraint returns ParentOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ParentOf
-	 *     DottedExpressionConstraint returns ParentOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOf
 	 *     SubExpressionConstraint returns ParentOf
 	 *     ParentOf returns ParentOf
 	 *
@@ -1522,17 +1235,6 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns ParentOrSelfOf
-	 *     OrExpressionConstraint returns ParentOrSelfOf
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ParentOrSelfOf
-	 *     AndExpressionConstraint returns ParentOrSelfOf
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ParentOrSelfOf
-	 *     ExclusionExpressionConstraint returns ParentOrSelfOf
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ParentOrSelfOf
-	 *     RefinedExpressionConstraint returns ParentOrSelfOf
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ParentOrSelfOf
-	 *     DottedExpressionConstraint returns ParentOrSelfOf
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     SubExpressionConstraint returns ParentOrSelfOf
 	 *     ParentOrSelfOf returns ParentOrSelfOf
 	 *
@@ -1552,26 +1254,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns PreferredInFilter
-	 *     OrExpressionConstraint returns PreferredInFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns PreferredInFilter
-	 *     AndExpressionConstraint returns PreferredInFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns PreferredInFilter
-	 *     ExclusionExpressionConstraint returns PreferredInFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns PreferredInFilter
-	 *     RefinedExpressionConstraint returns PreferredInFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns PreferredInFilter
-	 *     DottedExpressionConstraint returns PreferredInFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns PreferredInFilter
-	 *     SubExpressionConstraint returns PreferredInFilter
 	 *     FilterConstraint returns PreferredInFilter
 	 *     Filter returns PreferredInFilter
 	 *     DisjunctionFilter returns PreferredInFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns PreferredInFilter
 	 *     ConjunctionFilter returns PreferredInFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns PreferredInFilter
-	 *     ExclusionFilter returns PreferredInFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns PreferredInFilter
 	 *     PropertyFilter returns PreferredInFilter
 	 *     PreferredInFilter returns PreferredInFilter
 	 *
@@ -1654,26 +1342,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns TypeIdFilter
-	 *     OrExpressionConstraint returns TypeIdFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypeIdFilter
-	 *     AndExpressionConstraint returns TypeIdFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypeIdFilter
-	 *     ExclusionExpressionConstraint returns TypeIdFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypeIdFilter
-	 *     RefinedExpressionConstraint returns TypeIdFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypeIdFilter
-	 *     DottedExpressionConstraint returns TypeIdFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypeIdFilter
-	 *     SubExpressionConstraint returns TypeIdFilter
 	 *     FilterConstraint returns TypeIdFilter
 	 *     Filter returns TypeIdFilter
 	 *     DisjunctionFilter returns TypeIdFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypeIdFilter
 	 *     ConjunctionFilter returns TypeIdFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypeIdFilter
-	 *     ExclusionFilter returns TypeIdFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypeIdFilter
 	 *     PropertyFilter returns TypeIdFilter
 	 *     TypeFilter returns TypeIdFilter
 	 *     TypeIdFilter returns TypeIdFilter
@@ -1688,26 +1362,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns TypeTokenFilter
-	 *     OrExpressionConstraint returns TypeTokenFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypeTokenFilter
-	 *     AndExpressionConstraint returns TypeTokenFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypeTokenFilter
-	 *     ExclusionExpressionConstraint returns TypeTokenFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypeTokenFilter
-	 *     RefinedExpressionConstraint returns TypeTokenFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypeTokenFilter
-	 *     DottedExpressionConstraint returns TypeTokenFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypeTokenFilter
-	 *     SubExpressionConstraint returns TypeTokenFilter
 	 *     FilterConstraint returns TypeTokenFilter
 	 *     Filter returns TypeTokenFilter
 	 *     DisjunctionFilter returns TypeTokenFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypeTokenFilter
 	 *     ConjunctionFilter returns TypeTokenFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypeTokenFilter
-	 *     ExclusionFilter returns TypeTokenFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypeTokenFilter
 	 *     PropertyFilter returns TypeTokenFilter
 	 *     TypeFilter returns TypeTokenFilter
 	 *     TypeTokenFilter returns TypeTokenFilter
@@ -1722,26 +1382,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns TypedTermFilterSet
-	 *     OrExpressionConstraint returns TypedTermFilterSet
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypedTermFilterSet
-	 *     AndExpressionConstraint returns TypedTermFilterSet
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypedTermFilterSet
-	 *     ExclusionExpressionConstraint returns TypedTermFilterSet
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypedTermFilterSet
-	 *     RefinedExpressionConstraint returns TypedTermFilterSet
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypedTermFilterSet
-	 *     DottedExpressionConstraint returns TypedTermFilterSet
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypedTermFilterSet
-	 *     SubExpressionConstraint returns TypedTermFilterSet
 	 *     FilterConstraint returns TypedTermFilterSet
 	 *     Filter returns TypedTermFilterSet
 	 *     DisjunctionFilter returns TypedTermFilterSet
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilterSet
 	 *     ConjunctionFilter returns TypedTermFilterSet
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilterSet
-	 *     ExclusionFilter returns TypedTermFilterSet
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypedTermFilterSet
 	 *     PropertyFilter returns TypedTermFilterSet
 	 *     TermFilter returns TypedTermFilterSet
 	 *     TypedTermFilterSet returns TypedTermFilterSet
@@ -1756,26 +1402,12 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExpressionConstraint returns TypedTermFilter
-	 *     OrExpressionConstraint returns TypedTermFilter
-	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns TypedTermFilter
-	 *     AndExpressionConstraint returns TypedTermFilter
-	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns TypedTermFilter
-	 *     ExclusionExpressionConstraint returns TypedTermFilter
-	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns TypedTermFilter
-	 *     RefinedExpressionConstraint returns TypedTermFilter
-	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns TypedTermFilter
-	 *     DottedExpressionConstraint returns TypedTermFilter
-	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns TypedTermFilter
-	 *     SubExpressionConstraint returns TypedTermFilter
 	 *     FilterConstraint returns TypedTermFilter
 	 *     Filter returns TypedTermFilter
 	 *     DisjunctionFilter returns TypedTermFilter
 	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilter
 	 *     ConjunctionFilter returns TypedTermFilter
 	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilter
-	 *     ExclusionFilter returns TypedTermFilter
-	 *     ExclusionFilter.ExclusionFilter_1_0 returns TypedTermFilter
 	 *     PropertyFilter returns TypedTermFilter
 	 *     TermFilter returns TypedTermFilter
 	 *     TypedTermFilter returns TypedTermFilter

@@ -258,9 +258,9 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createTypedTermFilterSetAdapter();
       }
       @Override
-      public Adapter caseLanguageCodeFilter(LanguageCodeFilter object)
+      public Adapter caseLanguageFilter(LanguageFilter object)
       {
-        return createLanguageCodeFilterAdapter();
+        return createLanguageFilterAdapter();
       }
       @Override
       public Adapter caseTypeFilter(TypeFilter object)
@@ -391,11 +391,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConjunctionFilter(ConjunctionFilter object)
       {
         return createConjunctionFilterAdapter();
-      }
-      @Override
-      public Adapter caseExclusionFilter(ExclusionFilter object)
-      {
-        return createExclusionFilterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -930,16 +925,16 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.LanguageCodeFilter <em>Language Code Filter</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.LanguageFilter <em>Language Filter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.LanguageCodeFilter
+   * @see com.b2international.snomed.ecl.ecl.LanguageFilter
    * @generated
    */
-  public Adapter createLanguageCodeFilterAdapter()
+  public Adapter createLanguageFilterAdapter()
   {
     return null;
   }
@@ -1330,21 +1325,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConjunctionFilterAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ExclusionFilter <em>Exclusion Filter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.ExclusionFilter
-   * @generated
-   */
-  public Adapter createExclusionFilterAdapter()
   {
     return null;
   }

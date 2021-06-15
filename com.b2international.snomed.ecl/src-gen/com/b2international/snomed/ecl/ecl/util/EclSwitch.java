@@ -303,7 +303,6 @@ public class EclSwitch<T> extends Switch<T>
       {
         FilterConstraint filterConstraint = (FilterConstraint)theEObject;
         T result = caseFilterConstraint(filterConstraint);
-        if (result == null) result = caseExpressionConstraint(filterConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -312,7 +311,6 @@ public class EclSwitch<T> extends Switch<T>
         Filter filter = (Filter)theEObject;
         T result = caseFilter(filter);
         if (result == null) result = caseFilterConstraint(filter);
-        if (result == null) result = caseExpressionConstraint(filter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -323,7 +321,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(nestedFilter);
         if (result == null) result = caseFilter(nestedFilter);
         if (result == null) result = caseFilterConstraint(nestedFilter);
-        if (result == null) result = caseExpressionConstraint(nestedFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -333,7 +330,6 @@ public class EclSwitch<T> extends Switch<T>
         T result = casePropertyFilter(propertyFilter);
         if (result == null) result = caseFilter(propertyFilter);
         if (result == null) result = caseFilterConstraint(propertyFilter);
-        if (result == null) result = caseExpressionConstraint(propertyFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -344,7 +340,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(termFilter);
         if (result == null) result = caseFilter(termFilter);
         if (result == null) result = caseFilterConstraint(termFilter);
-        if (result == null) result = caseExpressionConstraint(termFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -356,7 +351,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(typedTermFilter);
         if (result == null) result = caseFilter(typedTermFilter);
         if (result == null) result = caseFilterConstraint(typedTermFilter);
-        if (result == null) result = caseExpressionConstraint(typedTermFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -368,18 +362,16 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(typedTermFilterSet);
         if (result == null) result = caseFilter(typedTermFilterSet);
         if (result == null) result = caseFilterConstraint(typedTermFilterSet);
-        if (result == null) result = caseExpressionConstraint(typedTermFilterSet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.LANGUAGE_CODE_FILTER:
+      case EclPackage.LANGUAGE_FILTER:
       {
-        LanguageCodeFilter languageCodeFilter = (LanguageCodeFilter)theEObject;
-        T result = caseLanguageCodeFilter(languageCodeFilter);
-        if (result == null) result = casePropertyFilter(languageCodeFilter);
-        if (result == null) result = caseFilter(languageCodeFilter);
-        if (result == null) result = caseFilterConstraint(languageCodeFilter);
-        if (result == null) result = caseExpressionConstraint(languageCodeFilter);
+        LanguageFilter languageFilter = (LanguageFilter)theEObject;
+        T result = caseLanguageFilter(languageFilter);
+        if (result == null) result = casePropertyFilter(languageFilter);
+        if (result == null) result = caseFilter(languageFilter);
+        if (result == null) result = caseFilterConstraint(languageFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -390,7 +382,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(typeFilter);
         if (result == null) result = caseFilter(typeFilter);
         if (result == null) result = caseFilterConstraint(typeFilter);
-        if (result == null) result = caseExpressionConstraint(typeFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -402,7 +393,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(typeIdFilter);
         if (result == null) result = caseFilter(typeIdFilter);
         if (result == null) result = caseFilterConstraint(typeIdFilter);
-        if (result == null) result = caseExpressionConstraint(typeIdFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -414,7 +404,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(typeTokenFilter);
         if (result == null) result = caseFilter(typeTokenFilter);
         if (result == null) result = caseFilterConstraint(typeTokenFilter);
-        if (result == null) result = caseExpressionConstraint(typeTokenFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -425,7 +414,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(dialectFilter);
         if (result == null) result = caseFilter(dialectFilter);
         if (result == null) result = caseFilterConstraint(dialectFilter);
-        if (result == null) result = caseExpressionConstraint(dialectFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -437,7 +425,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(dialectIdFilter);
         if (result == null) result = caseFilter(dialectIdFilter);
         if (result == null) result = caseFilterConstraint(dialectIdFilter);
-        if (result == null) result = caseExpressionConstraint(dialectIdFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -449,7 +436,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(dialectAliasFilter);
         if (result == null) result = caseFilter(dialectAliasFilter);
         if (result == null) result = caseFilterConstraint(dialectAliasFilter);
-        if (result == null) result = caseExpressionConstraint(dialectAliasFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -497,7 +483,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(activeFilter);
         if (result == null) result = caseFilter(activeFilter);
         if (result == null) result = caseFilterConstraint(activeFilter);
-        if (result == null) result = caseExpressionConstraint(activeFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -508,7 +493,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(moduleFilter);
         if (result == null) result = caseFilter(moduleFilter);
         if (result == null) result = caseFilterConstraint(moduleFilter);
-        if (result == null) result = caseExpressionConstraint(moduleFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -519,7 +503,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(preferredInFilter);
         if (result == null) result = caseFilter(preferredInFilter);
         if (result == null) result = caseFilterConstraint(preferredInFilter);
-        if (result == null) result = caseExpressionConstraint(preferredInFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -530,7 +513,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(acceptableInFilter);
         if (result == null) result = caseFilter(acceptableInFilter);
         if (result == null) result = caseFilterConstraint(acceptableInFilter);
-        if (result == null) result = caseExpressionConstraint(acceptableInFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -541,7 +523,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(languageRefSetFilter);
         if (result == null) result = caseFilter(languageRefSetFilter);
         if (result == null) result = caseFilterConstraint(languageRefSetFilter);
-        if (result == null) result = caseExpressionConstraint(languageRefSetFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -552,7 +533,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = casePropertyFilter(caseSignificanceFilter);
         if (result == null) result = caseFilter(caseSignificanceFilter);
         if (result == null) result = caseFilterConstraint(caseSignificanceFilter);
-        if (result == null) result = caseExpressionConstraint(caseSignificanceFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -618,7 +598,6 @@ public class EclSwitch<T> extends Switch<T>
         T result = caseDisjunctionFilter(disjunctionFilter);
         if (result == null) result = caseFilter(disjunctionFilter);
         if (result == null) result = caseFilterConstraint(disjunctionFilter);
-        if (result == null) result = caseExpressionConstraint(disjunctionFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -628,17 +607,6 @@ public class EclSwitch<T> extends Switch<T>
         T result = caseConjunctionFilter(conjunctionFilter);
         if (result == null) result = caseFilter(conjunctionFilter);
         if (result == null) result = caseFilterConstraint(conjunctionFilter);
-        if (result == null) result = caseExpressionConstraint(conjunctionFilter);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.EXCLUSION_FILTER:
-      {
-        ExclusionFilter exclusionFilter = (ExclusionFilter)theEObject;
-        T result = caseExclusionFilter(exclusionFilter);
-        if (result == null) result = caseFilter(exclusionFilter);
-        if (result == null) result = caseFilterConstraint(exclusionFilter);
-        if (result == null) result = caseExpressionConstraint(exclusionFilter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1191,17 +1159,17 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Language Code Filter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Language Filter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Language Code Filter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Language Filter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLanguageCodeFilter(LanguageCodeFilter object)
+  public T caseLanguageFilter(LanguageFilter object)
   {
     return null;
   }
@@ -1618,22 +1586,6 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConjunctionFilter(ConjunctionFilter object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Exclusion Filter</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exclusion Filter</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExclusionFilter(ExclusionFilter object)
   {
     return null;
   }

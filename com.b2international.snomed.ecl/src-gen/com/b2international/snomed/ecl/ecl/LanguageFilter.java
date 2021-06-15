@@ -19,22 +19,22 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Language Code Filter</b></em>'.
+ * A representation of the model object '<em><b>Language Filter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.LanguageCodeFilter#getOp <em>Op</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.LanguageCodeFilter#getLanguageCodes <em>Language Codes</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.LanguageFilter#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.LanguageFilter#getLanguageCodes <em>Language Codes</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageCodeFilter()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageFilter()
  * @model
  * @generated
  */
-public interface LanguageCodeFilter extends PropertyFilter
+public interface LanguageFilter extends PropertyFilter
 {
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
@@ -42,14 +42,14 @@ public interface LanguageCodeFilter extends PropertyFilter
    * <!-- end-user-doc -->
    * @return the value of the '<em>Op</em>' attribute.
    * @see #setOp(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageCodeFilter_Op()
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageFilter_Op()
    * @model
    * @generated
    */
   String getOp();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.LanguageCodeFilter#getOp <em>Op</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.LanguageFilter#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Op</em>' attribute.
@@ -64,10 +64,10 @@ public interface LanguageCodeFilter extends PropertyFilter
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Language Codes</em>' attribute list.
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageCodeFilter_LanguageCodes()
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getLanguageFilter_LanguageCodes()
    * @model unique="false"
    * @generated
    */
   EList<String> getLanguageCodes();
 
-} // LanguageCodeFilter
+} // LanguageFilter

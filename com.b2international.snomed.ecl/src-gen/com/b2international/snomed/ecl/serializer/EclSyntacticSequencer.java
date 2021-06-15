@@ -194,12 +194,12 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * CONJUNCTION:
-	 * 	'and';
+	 * 	'AND';
 	 */
 	protected String getCONJUNCTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "and";
+		return "AND";
 	}
 	
 	/**
@@ -284,12 +284,12 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * DISJUNCTION:
-	 * 	'or';
+	 * 	'OR';
 	 */
 	protected String getDISJUNCTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "or";
+		return "OR";
 	}
 	
 	/**
@@ -334,12 +334,12 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * EXCLUSION:
-	 * 	'minus';
+	 * 	'MINUS';
 	 */
 	protected String getEXCLUSIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "minus";
+		return "MINUS";
 	}
 	
 	/**
@@ -588,7 +588,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     CONJUNCTION | COMMA
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     {ConjunctionFilter.left=} (ambiguity) right=ExclusionFilter
+	 *     {ConjunctionFilter.left=} (ambiguity) right=PropertyFilter
 	 */
 	protected void emit_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTIONParserRuleCall_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

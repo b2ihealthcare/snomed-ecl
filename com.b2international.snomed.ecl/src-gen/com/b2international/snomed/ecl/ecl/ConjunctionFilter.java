@@ -62,12 +62,12 @@ public interface ConjunctionFilter extends Filter
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Filter)
+   * @see #setRight(PropertyFilter)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getConjunctionFilter_Right()
    * @model containment="true"
    * @generated
    */
-  Filter getRight();
+  PropertyFilter getRight();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ConjunctionFilter#getRight <em>Right</em>}' containment reference.
@@ -77,6 +77,6 @@ public interface ConjunctionFilter extends Filter
    * @see #getRight()
    * @generated
    */
-  void setRight(Filter value);
+  void setRight(PropertyFilter value);
 
 } // ConjunctionFilter

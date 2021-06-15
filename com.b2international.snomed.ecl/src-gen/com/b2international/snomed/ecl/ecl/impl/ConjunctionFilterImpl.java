@@ -18,6 +18,7 @@ package com.b2international.snomed.ecl.ecl.impl;
 import com.b2international.snomed.ecl.ecl.ConjunctionFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.Filter;
+import com.b2international.snomed.ecl.ecl.PropertyFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -61,7 +62,7 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
    * @generated
    * @ordered
    */
-  protected Filter right;
+  protected PropertyFilter right;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,7 +141,7 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
    * @generated
    */
   @Override
-  public Filter getRight()
+  public PropertyFilter getRight()
   {
     return right;
   }
@@ -150,9 +151,9 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Filter newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(PropertyFilter newRight, NotificationChain msgs)
   {
-    Filter oldRight = right;
+    PropertyFilter oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -168,7 +169,7 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
    * @generated
    */
   @Override
-  public void setRight(Filter newRight)
+  public void setRight(PropertyFilter newRight)
   {
     if (newRight != right)
     {
@@ -234,7 +235,7 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
         setLeft((Filter)newValue);
         return;
       case EclPackage.CONJUNCTION_FILTER__RIGHT:
-        setRight((Filter)newValue);
+        setRight((PropertyFilter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -254,7 +255,7 @@ public class ConjunctionFilterImpl extends FilterImpl implements ConjunctionFilt
         setLeft((Filter)null);
         return;
       case EclPackage.CONJUNCTION_FILTER__RIGHT:
-        setRight((Filter)null);
+        setRight((PropertyFilter)null);
         return;
     }
     super.eUnset(featureID);

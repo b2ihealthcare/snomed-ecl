@@ -47,13 +47,13 @@ Active : ('A'|'a')('C'|'c')('T'|'t')('I'|'i')('V'|'v')('E'|'e');
 
 TypeId : ('T'|'t')('Y'|'y')('P'|'p')('E'|'e')('I'|'i')('D'|'d');
 
+MINUS : ('M'|'m')('I'|'i')('N'|'n')('U'|'u')('S'|'s');
+
 Exact : ('E'|'e')('X'|'x')('A'|'a')('C'|'c')('T'|'t');
 
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
 
 Match : ('M'|'m')('A'|'a')('T'|'t')('C'|'c')('H'|'h');
-
-Minus : ('M'|'m')('I'|'i')('N'|'n')('U'|'u')('S'|'s');
 
 Regex : ('R'|'r')('E'|'e')('G'|'g')('E'|'e')('X'|'x');
 
@@ -65,9 +65,9 @@ Type : ('T'|'t')('Y'|'y')('P'|'p')('E'|'e');
 
 Wild : ('W'|'w')('I'|'i')('L'|'l')('D'|'d');
 
-And : ('A'|'a')('N'|'n')('D'|'d');
+AND : ('A'|'a')('N'|'n')('D'|'d');
 
-Or : ('O'|'o')('R'|'r');
+OR : ('O'|'o')('R'|'r');
 
 RULE_TERM_STRING : '|' ~('|')* '|';
 
@@ -135,7 +135,7 @@ RULE_DOUBLE_CURLY_OPEN : '{{';
 
 RULE_DOUBLE_CURLY_CLOSE : '}}';
 
-RULE_ALPHA : 'a'..'z';
+RULE_ALPHA : ('a'..'z'|'A'..'Z');
 
 RULE_WS : (' '|'\t'|'\n'|'\r');
 

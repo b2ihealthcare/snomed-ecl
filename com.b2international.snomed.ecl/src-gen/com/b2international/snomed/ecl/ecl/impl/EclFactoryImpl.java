@@ -111,7 +111,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.TERM_FILTER: return createTermFilter();
       case EclPackage.TYPED_TERM_FILTER: return createTypedTermFilter();
       case EclPackage.TYPED_TERM_FILTER_SET: return createTypedTermFilterSet();
-      case EclPackage.LANGUAGE_CODE_FILTER: return createLanguageCodeFilter();
+      case EclPackage.LANGUAGE_FILTER: return createLanguageFilter();
       case EclPackage.TYPE_FILTER: return createTypeFilter();
       case EclPackage.TYPE_ID_FILTER: return createTypeIdFilter();
       case EclPackage.TYPE_TOKEN_FILTER: return createTypeTokenFilter();
@@ -138,7 +138,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
       case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
       case EclPackage.CONJUNCTION_FILTER: return createConjunctionFilter();
-      case EclPackage.EXCLUSION_FILTER: return createExclusionFilter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -558,10 +557,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public LanguageCodeFilter createLanguageCodeFilter()
+  public LanguageFilter createLanguageFilter()
   {
-    LanguageCodeFilterImpl languageCodeFilter = new LanguageCodeFilterImpl();
-    return languageCodeFilter;
+    LanguageFilterImpl languageFilter = new LanguageFilterImpl();
+    return languageFilter;
   }
 
   /**
@@ -874,18 +873,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     ConjunctionFilterImpl conjunctionFilter = new ConjunctionFilterImpl();
     return conjunctionFilter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ExclusionFilter createExclusionFilter()
-  {
-    ExclusionFilterImpl exclusionFilter = new ExclusionFilterImpl();
-    return exclusionFilter;
   }
 
   /**

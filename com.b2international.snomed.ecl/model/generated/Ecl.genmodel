@@ -9,7 +9,10 @@
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint"/>
+    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExpressionConstraint/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExpressionConstraint/filters"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ChildOf">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ChildOf/constraint"/>
     </genClasses>
@@ -101,9 +104,9 @@
     <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterSet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilterSet/terms"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//LanguageCodeFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageCodeFilter/op"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageCodeFilter/languageCodes"/>
+    <genClasses ecoreClass="Ecl.ecore#//LanguageFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageFilter/languageCodes"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TypeFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypeFilter/op"/>
@@ -193,10 +196,6 @@
     <genClasses ecoreClass="Ecl.ecore#//ConjunctionFilter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ConjunctionFilter/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ConjunctionFilter/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ExclusionFilter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExclusionFilter/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ExclusionFilter/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -52,12 +52,11 @@ import com.b2international.snomed.ecl.ecl.EclFactory;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.EclRefinement;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
-import com.b2international.snomed.ecl.ecl.ExclusionFilter;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Filter;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
-import com.b2international.snomed.ecl.ecl.LanguageCodeFilter;
+import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
@@ -338,7 +337,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass languageCodeFilterEClass = null;
+  private EClass languageFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -523,13 +522,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   private EClass conjunctionFilterEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass exclusionFilterEClass = null;
-
-  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -623,6 +615,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EClass getExpressionConstraint()
   {
     return expressionConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionConstraint_Expression()
+  {
+    return (EReference)expressionConstraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionConstraint_Filters()
+  {
+    return (EReference)expressionConstraintEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1346,9 +1360,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getLanguageCodeFilter()
+  public EClass getLanguageFilter()
   {
-    return languageCodeFilterEClass;
+    return languageFilterEClass;
   }
 
   /**
@@ -1357,9 +1371,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getLanguageCodeFilter_Op()
+  public EAttribute getLanguageFilter_Op()
   {
-    return (EAttribute)languageCodeFilterEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)languageFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1368,9 +1382,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getLanguageCodeFilter_LanguageCodes()
+  public EAttribute getLanguageFilter_LanguageCodes()
   {
-    return (EAttribute)languageCodeFilterEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)languageFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2083,39 +2097,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getExclusionFilter()
-  {
-    return exclusionFilterEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExclusionFilter_Left()
-  {
-    return (EReference)exclusionFilterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExclusionFilter_Right()
-  {
-    return (EReference)exclusionFilterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EclFactory getEclFactory()
   {
     return (EclFactory)getEFactoryInstance();
@@ -2145,6 +2126,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(scriptEClass, SCRIPT__CONSTRAINT);
 
     expressionConstraintEClass = createEClass(EXPRESSION_CONSTRAINT);
+    createEReference(expressionConstraintEClass, EXPRESSION_CONSTRAINT__EXPRESSION);
+    createEReference(expressionConstraintEClass, EXPRESSION_CONSTRAINT__FILTERS);
 
     childOfEClass = createEClass(CHILD_OF);
     createEReference(childOfEClass, CHILD_OF__CONSTRAINT);
@@ -2243,9 +2226,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     typedTermFilterSetEClass = createEClass(TYPED_TERM_FILTER_SET);
     createEReference(typedTermFilterSetEClass, TYPED_TERM_FILTER_SET__TERMS);
 
-    languageCodeFilterEClass = createEClass(LANGUAGE_CODE_FILTER);
-    createEAttribute(languageCodeFilterEClass, LANGUAGE_CODE_FILTER__OP);
-    createEAttribute(languageCodeFilterEClass, LANGUAGE_CODE_FILTER__LANGUAGE_CODES);
+    languageFilterEClass = createEClass(LANGUAGE_FILTER);
+    createEAttribute(languageFilterEClass, LANGUAGE_FILTER__OP);
+    createEAttribute(languageFilterEClass, LANGUAGE_FILTER__LANGUAGE_CODES);
 
     typeFilterEClass = createEClass(TYPE_FILTER);
     createEAttribute(typeFilterEClass, TYPE_FILTER__OP);
@@ -2336,10 +2319,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     conjunctionFilterEClass = createEClass(CONJUNCTION_FILTER);
     createEReference(conjunctionFilterEClass, CONJUNCTION_FILTER__LEFT);
     createEReference(conjunctionFilterEClass, CONJUNCTION_FILTER__RIGHT);
-
-    exclusionFilterEClass = createEClass(EXCLUSION_FILTER);
-    createEReference(exclusionFilterEClass, EXCLUSION_FILTER__LEFT);
-    createEReference(exclusionFilterEClass, EXCLUSION_FILTER__RIGHT);
   }
 
   /**
@@ -2392,14 +2371,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     integerValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
     decimalValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
     nestedExpressionEClass.getESuperTypes().add(this.getExpressionConstraint());
-    filterConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     filterEClass.getESuperTypes().add(this.getFilterConstraint());
     nestedFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     propertyFilterEClass.getESuperTypes().add(this.getFilter());
     termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typedTermFilterEClass.getESuperTypes().add(this.getTermFilter());
     typedTermFilterSetEClass.getESuperTypes().add(this.getTermFilter());
-    languageCodeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    languageFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeIdFilterEClass.getESuperTypes().add(this.getTypeFilter());
     typeTokenFilterEClass.getESuperTypes().add(this.getTypeFilter());
@@ -2423,13 +2401,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     andRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     disjunctionFilterEClass.getESuperTypes().add(this.getFilter());
     conjunctionFilterEClass.getESuperTypes().add(this.getFilter());
-    exclusionFilterEClass.getESuperTypes().add(this.getFilter());
 
     // Initialize classes and features; add operations and parameters
     initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScript_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionConstraintEClass, ExpressionConstraint.class, "ExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionConstraint_Expression(), this.getExpressionConstraint(), null, "expression", null, 0, 1, ExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionConstraint_Filters(), this.getFilterConstraint(), null, "filters", null, 0, -1, ExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(childOfEClass, ChildOf.class, "ChildOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChildOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, ChildOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2528,9 +2507,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(typedTermFilterSetEClass, TypedTermFilterSet.class, "TypedTermFilterSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypedTermFilterSet_Terms(), this.getTypedTermFilter(), null, "terms", null, 0, -1, TypedTermFilterSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(languageCodeFilterEClass, LanguageCodeFilter.class, "LanguageCodeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLanguageCodeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, LanguageCodeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLanguageCodeFilter_LanguageCodes(), ecorePackage.getEString(), "languageCodes", null, 0, -1, LanguageCodeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(languageFilterEClass, LanguageFilter.class, "LanguageFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLanguageFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLanguageFilter_LanguageCodes(), ecorePackage.getEString(), "languageCodes", null, 0, -1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeFilterEClass, TypeFilter.class, "TypeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TypeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2620,11 +2599,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(conjunctionFilterEClass, ConjunctionFilter.class, "ConjunctionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConjunctionFilter_Left(), this.getFilter(), null, "left", null, 0, 1, ConjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConjunctionFilter_Right(), this.getFilter(), null, "right", null, 0, 1, ConjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(exclusionFilterEClass, ExclusionFilter.class, "ExclusionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExclusionFilter_Left(), this.getPropertyFilter(), null, "left", null, 0, 1, ExclusionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExclusionFilter_Right(), this.getPropertyFilter(), null, "right", null, 0, 1, ExclusionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConjunctionFilter_Right(), this.getPropertyFilter(), null, "right", null, 0, 1, ConjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

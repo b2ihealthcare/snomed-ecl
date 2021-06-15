@@ -15,6 +15,7 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,6 @@ package com.b2international.snomed.ecl.ecl;
  * @model
  * @generated
  */
-public interface FilterConstraint extends ExpressionConstraint
+public interface FilterConstraint extends EObject
 {
 } // FilterConstraint
