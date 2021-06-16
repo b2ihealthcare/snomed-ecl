@@ -233,7 +233,7 @@ AcceptabilityTokenSet:
 	ROUND_OPEN acceptabilities+=Alphabetical (acceptabilities+=Alphabetical)* ROUND_CLOSE;
 
 ActiveFilter:
-	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL (active=Boolean);
+	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean;
 
 ModuleFilter:
 	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
@@ -337,7 +337,7 @@ terminal CARET:
 
 terminal DOT:
 	'.';
-
+	
 terminal WILDCARD:
 	'*';
 
