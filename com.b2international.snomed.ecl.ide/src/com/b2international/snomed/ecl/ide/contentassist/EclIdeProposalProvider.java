@@ -17,6 +17,7 @@ package com.b2international.snomed.ecl.ide.contentassist;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.AbstractRule;
@@ -62,6 +63,54 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			}
 		}));
 	
+	private static final Map<String, String> RULE_DESCRIPTIONS = Map.ofEntries(
+		Map.entry("CONJUNCTION",                  "Conjunction"),
+		Map.entry("COMMA",                        "Conjunction"),
+		Map.entry("DISJUNCTION",                  "Disjunction"),
+		Map.entry("EXCLUSION",                    "Exclusion"),
+		Map.entry("COLON",                        "Refinement"),
+		Map.entry("CURLY_OPEN",                   "Opening attribute group"),
+		Map.entry("CURLY_CLOSE",                  "Closing attribute group"),
+		Map.entry("SQUARE_OPEN",                  "Opening cardinality"),
+		Map.entry("SQUARE_CLOSE",                 "Closing cardinality"),
+		Map.entry("TO",                           "Cardinality range"),
+		Map.entry("PLUS",                         "Numeric value"),
+		Map.entry("DASH",                         "Numeric value"),
+		Map.entry("CARET",                        "Member of"),
+		Map.entry("DOMAIN",                       "Filter attribute prefix"),
+		Map.entry("WILDCARD",                     "Any"),
+		Map.entry("EQUAL",                        "Equals"),
+		Map.entry("NOT_EQUAL",                    "Not equals"),
+		Map.entry("LT",                           "Descendant of"),
+		Map.entry("GT",                           "Ancestor of"),
+		Map.entry("DBL_LT",                       "Descendant or self of"),
+		Map.entry("DBL_GT",                       "Ancestor or self of"),
+		Map.entry("LT_EM",                        "Child of"),
+		Map.entry("GT_EM",                        "Parent of"),
+		Map.entry("DBL_LT_EM",                    "Child or self of"),
+		Map.entry("DBL_GT_EM",                    "Parent or self of"),
+		Map.entry("GTE",                          "Greater than or equals"),
+		Map.entry("LTE",                          "Less than or equals"),
+		Map.entry("REVERSED",                     "Reverse attribute"),
+		Map.entry("ROUND_CLOSE",                  "Closing nested expression"),
+		Map.entry("ROUND_OPEN",                   "Opening nested expression"),
+		Map.entry("DOUBLE_CURLY_OPEN",            "Opening filter constraint"),
+		Map.entry("DOUBLE_CURLY_CLOSE",           "Closing filter constraint"),
+		Map.entry("TERM_KEYWORD",                 "Description term filter"),
+		Map.entry("LANGUAGE_KEYWORD",             "Description language filter"),
+		Map.entry("TYPEID_KEYWORD",               "Description type ID filter"),
+		Map.entry("TYPE_KEYWORD",                 "Description type tag filter"),
+		Map.entry("DIALECTID_KEYWORD",            "Description dialect ID filter"),
+		Map.entry("DIALECT_KEYWORD",              "Description dialect tag filter"),
+		Map.entry("ACTIVE_KEYWORD",               "Component status filter"),
+		Map.entry("MODULEID_KEYWORD",             "Component module filter"),
+		Map.entry("PREFERRED_IN_KEYWORD",         "Description acceptability filter"),
+		Map.entry("ACCEPTABLE_IN_KEYWORD",        "Description acceptability filter"),
+		Map.entry("LANGUAGE_REFSET_ID_KEYWORD",   "Description acceptability filter"),
+		Map.entry("CASE_SIGNIFICANCE_ID_KEYWORD", "Description case significance filter"),
+		Map.entry("TERM_STRING",                  "Concept term")
+	);
+	
 	@Override
 	protected void _createProposals(final AbstractElement element, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
@@ -94,7 +143,6 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			// The implementation in the superclass handles cross-references, which we don't have
 			// super._createProposals(assignment, context, acceptor);
 		}
-		
 	}
 
 	@Override
@@ -102,7 +150,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			final IIdeContentProposalAcceptor acceptor) {
 		
 		final AbstractRule rule = ruleCall.getRule();
-		final Method completeMethod = completeMethods.getUnchecked(rule.getName());
+		final String name = rule.getName();
+		final Method completeMethod = completeMethods.getUnchecked(name);
 		
 		if (completeMethod != FALLBACK_METHOD) {
 			try {
@@ -110,6 +159,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			} catch (IllegalAccessException | InvocationTargetException e) {
 				throw new RuntimeException(e);
 			}
+		} else if (RULE_DESCRIPTIONS.containsKey(name)) {
+			createKeywordProposal(ruleCall, context, acceptor, RULE_DESCRIPTIONS.get(name));
 		} else {
 			// Default implementation: create keyword without description from alternatives
 			createKeywordProposal(ruleCall, context, acceptor);
@@ -125,137 +176,24 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		}
 	}
 
-	public void complete_TERM_STRING(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		final ContentAssistEntry entry = getProposalCreator().createProposal("|term|", context, ContentAssistEntry.KIND_KEYWORD, 
-			e -> e.setDescription("Concept term"));
-		acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-	}
-
-	public void complete_CONJUNCTION(final RuleCall ruleCall, final ContentAssistContext context,
+	public void complete_TERM_STRING(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("AND", context, acceptor, "Conjunction");
-	}
-
-	public void complete_DISJUNCTION(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("OR", context, acceptor, "Disjunction");
-	}
-
-	public void complete_EXCLUSION(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("MINUS", context, acceptor, "Exclusion");
-	}
-
-	public void complete_COLON(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Refined expression constraint");
-	}
-
-	public void complete_CURLY_OPEN(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor,"Opening attribute group");
-	}
-
-	public void complete_CURLY_CLOSE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Closing attribute group");
-	}
-
-	public void complete_SQUARE_OPEN(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Cardinality");
-	}
-
-	public void complete_SQUARE_CLOSE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Cardinality");
-	}
-
-	public void complete_PLUS(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Numeric value");
-	}
-
-	public void complete_DASH(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Numeric value");
-	}
-
-	public void complete_CARET(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor , "Member of");
-	}
-
-	public void complete_DOT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Decimal");
-	}
-
-	public void complete_WILDCARD(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Any");
-	}
-
-	public void complete_EQUAL(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Equals");
-	}
-
-	public void complete_NOT_EQUAL(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Not equals");
-	}
-
-	public void complete_LT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Descendant of");
-	}
-
-	public void complete_GT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Ancestor of");
-	}
-
-	public void complete_DBL_LT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Descendant or self of");
-	}
-
-	public void complete_DBL_GT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Ancestor or self of");
-	}
-
-	public void complete_LT_EM(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Child of");
-	}
-
-	public void complete_GT_EM(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Parent of");
-	}
-
-	public void complete_GTE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Greater than or equals");
-	}
-
-	public void complete_LTE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Less than or equals");
-	}
-
-	public void complete_REVERSED(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Reverse attribute");
-	}
-
-	public void complete_ROUND_CLOSE(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Closing nested expression");
-	}
-
-	public void complete_ROUND_OPEN(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Opening nested expression");
+		
+		String prefix = context.getPrefix().trim();
+		
+		/*
+		 * If the prefix is not empty, it must have at least one leading pipe character.
+		 * Add one to the end as the suggestion, if required.
+		 */
+		if (prefix.isEmpty()) {
+			prefix = "|term|";
+		} else if (!prefix.endsWith("|")) {
+			prefix = prefix + "|";
+		}
+		
+		final AbstractRule rule = ruleCall.getRule();
+		final String ruleName = rule.getName();
+		createKeywordProposal(prefix, context, acceptor, RULE_DESCRIPTIONS.get(ruleName));
 	}
 
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context,
@@ -275,7 +213,7 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		} else if (element instanceof Alternatives) {
 			final Alternatives alternatives = (Alternatives) element;
 			for (final AbstractElement e : alternatives.getElements()) {
-				createKeywordProposal(e, context, acceptor);
+				createKeywordProposal(e, context, acceptor, description);
 			}
 		} 
 	}
