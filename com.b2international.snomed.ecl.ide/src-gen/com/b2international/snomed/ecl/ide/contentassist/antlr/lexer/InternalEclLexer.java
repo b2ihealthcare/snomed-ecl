@@ -12,60 +12,68 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalEclLexer extends Lexer {
-    public static final int RULE_DIALECT_KEYWORD=51;
-    public static final int RULE_LANGUAGE_KEYWORD=47;
-    public static final int RULE_DIGIT_NONZERO=18;
-    public static final int RULE_CURLY_OPEN=20;
-    public static final int RULE_TO=12;
-    public static final int RULE_ROUND_CLOSE=23;
-    public static final int RULE_DBL_GT=36;
-    public static final int True=8;
-    public static final int RULE_GT=34;
-    public static final int False=5;
-    public static final int RULE_GTE=41;
-    public static final int Regex=7;
-    public static final int RULE_ROUND_OPEN=22;
-    public static final int RULE_DBL_LT=35;
-    public static final int RULE_TYPEID_KEYWORD=48;
-    public static final int RULE_NOT_EQUAL=32;
-    public static final int RULE_SQUARE_CLOSE=25;
-    public static final int RULE_SQUARE_OPEN=24;
-    public static final int RULE_EQUAL=31;
-    public static final int RULE_COMMA=13;
-    public static final int RULE_LT_EM=37;
-    public static final int RULE_CURLY_CLOSE=21;
-    public static final int RULE_ZERO=17;
-    public static final int RULE_DBL_GT_EM=40;
-    public static final int RULE_COLON=19;
-    public static final int RULE_LT=33;
-    public static final int RULE_DOUBLE_CURLY_CLOSE=45;
-    public static final int RULE_ML_COMMENT=54;
-    public static final int RULE_LTE=42;
-    public static final int RULE_ALPHA=52;
-    public static final int Wild=9;
-    public static final int RULE_TYPE_KEYWORD=49;
-    public static final int RULE_STRING=56;
-    public static final int RULE_REVERSED=11;
-    public static final int Match=6;
-    public static final int RULE_SL_COMMENT=55;
-    public static final int RULE_HASH=43;
-    public static final int RULE_DASH=27;
-    public static final int RULE_PLUS=26;
-    public static final int Exact=4;
-    public static final int RULE_DOT=29;
+    public static final int RULE_DIGIT_NONZERO=32;
+    public static final int RULE_CURLY_OPEN=34;
+    public static final int RULE_TO=29;
+    public static final int RULE_ROUND_CLOSE=37;
+    public static final int RULE_DBL_GT=50;
+    public static final int True=22;
+    public static final int RULE_GT=48;
+    public static final int False=18;
+    public static final int DialectId=9;
+    public static final int MINUS=16;
+    public static final int RULE_GTE=55;
+    public static final int ModuleId=11;
+    public static final int Regex=20;
+    public static final int RULE_ROUND_OPEN=36;
+    public static final int RULE_DBL_LT=49;
+    public static final int RULE_NOT_EQUAL=46;
+    public static final int Concept=12;
+    public static final int AcceptableIn=6;
+    public static final int TypeId=15;
+    public static final int RULE_SQUARE_CLOSE=39;
+    public static final int RULE_SQUARE_OPEN=38;
+    public static final int RULE_EQUAL=45;
+    public static final int RULE_COMMA=30;
+    public static final int RULE_LT_EM=51;
+    public static final int RULE_CURLY_CLOSE=35;
+    public static final int RULE_ZERO=31;
+    public static final int RULE_DBL_GT_EM=54;
+    public static final int Term=21;
+    public static final int RULE_COLON=33;
+    public static final int RULE_LT=47;
+    public static final int Active=14;
+    public static final int RULE_DOUBLE_CURLY_CLOSE=59;
+    public static final int AND=25;
+    public static final int RULE_ML_COMMENT=62;
+    public static final int RULE_LTE=56;
+    public static final int RULE_ALPHA=60;
+    public static final int Description=7;
+    public static final int Wild=24;
+    public static final int RULE_STRING=64;
+    public static final int RULE_REVERSED=28;
+    public static final int Match=19;
+    public static final int RULE_SL_COMMENT=63;
+    public static final int PreferredIn=8;
+    public static final int RULE_HASH=57;
+    public static final int Language=10;
+    public static final int RULE_DASH=41;
+    public static final int Dialect=13;
+    public static final int RULE_PLUS=40;
+    public static final int Exact=17;
+    public static final int RULE_DOT=43;
     public static final int EOF=-1;
-    public static final int RULE_DIALECTID_KEYWORD=50;
-    public static final int RULE_GT_EM=39;
-    public static final int RULE_TERM_KEYWORD=46;
-    public static final int RULE_WS=53;
-    public static final int RULE_EXCLUSION=16;
-    public static final int RULE_CARET=28;
-    public static final int RULE_DOUBLE_CURLY_OPEN=44;
-    public static final int RULE_CONJUNCTION=14;
-    public static final int RULE_WILDCARD=30;
-    public static final int RULE_DISJUNCTION=15;
-    public static final int RULE_TERM_STRING=10;
-    public static final int RULE_DBL_LT_EM=38;
+    public static final int OR=26;
+    public static final int RULE_GT_EM=53;
+    public static final int RULE_WS=61;
+    public static final int RULE_CARET=42;
+    public static final int Type=23;
+    public static final int RULE_DOUBLE_CURLY_OPEN=58;
+    public static final int RULE_WILDCARD=44;
+    public static final int LanguageRefSetId=5;
+    public static final int RULE_TERM_STRING=27;
+    public static final int RULE_DBL_LT_EM=52;
+    public static final int CaseSignificanceId=4;
 
     // delegates
     // delegators
@@ -80,13 +88,1376 @@ public class InternalEclLexer extends Lexer {
     }
     public String getGrammarFileName() { return "InternalEclLexer.g"; }
 
+    // $ANTLR start "CaseSignificanceId"
+    public final void mCaseSignificanceId() throws RecognitionException {
+        try {
+            int _type = CaseSignificanceId;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:26:20: ( ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' ) ( 'S' | 's' ) ( 'I' | 'i' ) ( 'G' | 'g' ) ( 'N' | 'n' ) ( 'I' | 'i' ) ( 'F' | 'f' ) ( 'I' | 'i' ) ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:26:22: ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' ) ( 'S' | 's' ) ( 'I' | 'i' ) ( 'G' | 'g' ) ( 'N' | 'n' ) ( 'I' | 'i' ) ( 'F' | 'f' ) ( 'I' | 'i' ) ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "CaseSignificanceId"
+
+    // $ANTLR start "LanguageRefSetId"
+    public final void mLanguageRefSetId() throws RecognitionException {
+        try {
+            int _type = LanguageRefSetId;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:28:18: ( ( 'L' | 'l' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'G' | 'g' ) ( 'U' | 'u' ) ( 'A' | 'a' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'F' | 'f' ) ( 'S' | 's' ) ( 'E' | 'e' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:28:20: ( 'L' | 'l' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'G' | 'g' ) ( 'U' | 'u' ) ( 'A' | 'a' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'F' | 'f' ) ( 'S' | 's' ) ( 'E' | 'e' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "LanguageRefSetId"
+
+    // $ANTLR start "AcceptableIn"
+    public final void mAcceptableIn() throws RecognitionException {
+        try {
+            int _type = AcceptableIn;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:30:14: ( ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'P' | 'p' ) ( 'T' | 't' ) ( 'A' | 'a' ) ( 'B' | 'b' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'N' | 'n' ) )
+            // InternalEclLexer.g:30:16: ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'P' | 'p' ) ( 'T' | 't' ) ( 'A' | 'a' ) ( 'B' | 'b' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'N' | 'n' )
+            {
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "AcceptableIn"
+
+    // $ANTLR start "Description"
+    public final void mDescription() throws RecognitionException {
+        try {
+            int _type = Description;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:32:13: ( ( 'D' | 'd' ) ( 'E' | 'e' ) ( 'S' | 's' ) ( 'C' | 'c' ) ( 'R' | 'r' ) ( 'I' | 'i' ) ( 'P' | 'p' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'O' | 'o' ) ( 'N' | 'n' ) )
+            // InternalEclLexer.g:32:15: ( 'D' | 'd' ) ( 'E' | 'e' ) ( 'S' | 's' ) ( 'C' | 'c' ) ( 'R' | 'r' ) ( 'I' | 'i' ) ( 'P' | 'p' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'O' | 'o' ) ( 'N' | 'n' )
+            {
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Description"
+
+    // $ANTLR start "PreferredIn"
+    public final void mPreferredIn() throws RecognitionException {
+        try {
+            int _type = PreferredIn;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:34:13: ( ( 'P' | 'p' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'F' | 'f' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'N' | 'n' ) )
+            // InternalEclLexer.g:34:15: ( 'P' | 'p' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'F' | 'f' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'N' | 'n' )
+            {
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "PreferredIn"
+
+    // $ANTLR start "DialectId"
+    public final void mDialectId() throws RecognitionException {
+        try {
+            int _type = DialectId;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:36:11: ( ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'C' | 'c' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:36:13: ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'C' | 'c' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "DialectId"
+
+    // $ANTLR start "Language"
+    public final void mLanguage() throws RecognitionException {
+        try {
+            int _type = Language;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:38:10: ( ( 'L' | 'l' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'G' | 'g' ) ( 'U' | 'u' ) ( 'A' | 'a' ) ( 'G' | 'g' ) ( 'E' | 'e' ) )
+            // InternalEclLexer.g:38:12: ( 'L' | 'l' ) ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'G' | 'g' ) ( 'U' | 'u' ) ( 'A' | 'a' ) ( 'G' | 'g' ) ( 'E' | 'e' )
+            {
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Language"
+
+    // $ANTLR start "ModuleId"
+    public final void mModuleId() throws RecognitionException {
+        try {
+            int _type = ModuleId;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:40:10: ( ( 'M' | 'm' ) ( 'O' | 'o' ) ( 'D' | 'd' ) ( 'U' | 'u' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:40:12: ( 'M' | 'm' ) ( 'O' | 'o' ) ( 'D' | 'd' ) ( 'U' | 'u' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "ModuleId"
+
+    // $ANTLR start "Concept"
+    public final void mConcept() throws RecognitionException {
+        try {
+            int _type = Concept;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:42:9: ( ( 'C' | 'c' ) ( 'O' | 'o' ) ( 'N' | 'n' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'P' | 'p' ) ( 'T' | 't' ) )
+            // InternalEclLexer.g:42:11: ( 'C' | 'c' ) ( 'O' | 'o' ) ( 'N' | 'n' ) ( 'C' | 'c' ) ( 'E' | 'e' ) ( 'P' | 'p' ) ( 'T' | 't' )
+            {
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Concept"
+
+    // $ANTLR start "Dialect"
+    public final void mDialect() throws RecognitionException {
+        try {
+            int _type = Dialect;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:44:9: ( ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'C' | 'c' ) ( 'T' | 't' ) )
+            // InternalEclLexer.g:44:11: ( 'D' | 'd' ) ( 'I' | 'i' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'E' | 'e' ) ( 'C' | 'c' ) ( 'T' | 't' )
+            {
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Dialect"
+
+    // $ANTLR start "Active"
+    public final void mActive() throws RecognitionException {
+        try {
+            int _type = Active;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:46:8: ( ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'V' | 'v' ) ( 'E' | 'e' ) )
+            // InternalEclLexer.g:46:10: ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' ) ( 'I' | 'i' ) ( 'V' | 'v' ) ( 'E' | 'e' )
+            {
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='V'||input.LA(1)=='v' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Active"
+
+    // $ANTLR start "TypeId"
+    public final void mTypeId() throws RecognitionException {
+        try {
+            int _type = TypeId;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:48:8: ( ( 'T' | 't' ) ( 'Y' | 'y' ) ( 'P' | 'p' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:48:10: ( 'T' | 't' ) ( 'Y' | 'y' ) ( 'P' | 'p' ) ( 'E' | 'e' ) ( 'I' | 'i' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "TypeId"
+
+    // $ANTLR start "MINUS"
+    public final void mMINUS() throws RecognitionException {
+        try {
+            int _type = MINUS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:50:7: ( ( 'M' | 'm' ) ( 'I' | 'i' ) ( 'N' | 'n' ) ( 'U' | 'u' ) ( 'S' | 's' ) )
+            // InternalEclLexer.g:50:9: ( 'M' | 'm' ) ( 'I' | 'i' ) ( 'N' | 'n' ) ( 'U' | 'u' ) ( 'S' | 's' )
+            {
+            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "MINUS"
+
     // $ANTLR start "Exact"
     public final void mExact() throws RecognitionException {
         try {
             int _type = Exact;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:26:7: ( ( 'E' | 'e' ) ( 'X' | 'x' ) ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' ) )
-            // InternalEclLexer.g:26:9: ( 'E' | 'e' ) ( 'X' | 'x' ) ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' )
+            // InternalEclLexer.g:52:7: ( ( 'E' | 'e' ) ( 'X' | 'x' ) ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' ) )
+            // InternalEclLexer.g:52:9: ( 'E' | 'e' ) ( 'X' | 'x' ) ( 'A' | 'a' ) ( 'C' | 'c' ) ( 'T' | 't' )
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -149,8 +1520,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = False;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:28:7: ( ( 'F' | 'f' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
-            // InternalEclLexer.g:28:9: ( 'F' | 'f' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' )
+            // InternalEclLexer.g:54:7: ( ( 'F' | 'f' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
+            // InternalEclLexer.g:54:9: ( 'F' | 'f' ) ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' )
             {
             if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
                 input.consume();
@@ -213,8 +1584,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = Match;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:30:7: ( ( 'M' | 'm' ) ( 'A' | 'a' ) ( 'T' | 't' ) ( 'C' | 'c' ) ( 'H' | 'h' ) )
-            // InternalEclLexer.g:30:9: ( 'M' | 'm' ) ( 'A' | 'a' ) ( 'T' | 't' ) ( 'C' | 'c' ) ( 'H' | 'h' )
+            // InternalEclLexer.g:56:7: ( ( 'M' | 'm' ) ( 'A' | 'a' ) ( 'T' | 't' ) ( 'C' | 'c' ) ( 'H' | 'h' ) )
+            // InternalEclLexer.g:56:9: ( 'M' | 'm' ) ( 'A' | 'a' ) ( 'T' | 't' ) ( 'C' | 'c' ) ( 'H' | 'h' )
             {
             if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
                 input.consume();
@@ -277,8 +1648,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = Regex;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:32:7: ( ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'X' | 'x' ) )
-            // InternalEclLexer.g:32:9: ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'X' | 'x' )
+            // InternalEclLexer.g:58:7: ( ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'X' | 'x' ) )
+            // InternalEclLexer.g:58:9: ( 'R' | 'r' ) ( 'E' | 'e' ) ( 'G' | 'g' ) ( 'E' | 'e' ) ( 'X' | 'x' )
             {
             if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
                 input.consume();
@@ -336,13 +1707,68 @@ public class InternalEclLexer extends Lexer {
     }
     // $ANTLR end "Regex"
 
+    // $ANTLR start "Term"
+    public final void mTerm() throws RecognitionException {
+        try {
+            int _type = Term;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:60:6: ( ( 'T' | 't' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'M' | 'm' ) )
+            // InternalEclLexer.g:60:8: ( 'T' | 't' ) ( 'E' | 'e' ) ( 'R' | 'r' ) ( 'M' | 'm' )
+            {
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Term"
+
     // $ANTLR start "True"
     public final void mTrue() throws RecognitionException {
         try {
             int _type = True;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:34:6: ( ( 'T' | 't' ) ( 'R' | 'r' ) ( 'U' | 'u' ) ( 'E' | 'e' ) )
-            // InternalEclLexer.g:34:8: ( 'T' | 't' ) ( 'R' | 'r' ) ( 'U' | 'u' ) ( 'E' | 'e' )
+            // InternalEclLexer.g:62:6: ( ( 'T' | 't' ) ( 'R' | 'r' ) ( 'U' | 'u' ) ( 'E' | 'e' ) )
+            // InternalEclLexer.g:62:8: ( 'T' | 't' ) ( 'R' | 'r' ) ( 'U' | 'u' ) ( 'E' | 'e' )
             {
             if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
                 input.consume();
@@ -391,13 +1817,68 @@ public class InternalEclLexer extends Lexer {
     }
     // $ANTLR end "True"
 
+    // $ANTLR start "Type"
+    public final void mType() throws RecognitionException {
+        try {
+            int _type = Type;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:64:6: ( ( 'T' | 't' ) ( 'Y' | 'y' ) ( 'P' | 'p' ) ( 'E' | 'e' ) )
+            // InternalEclLexer.g:64:8: ( 'T' | 't' ) ( 'Y' | 'y' ) ( 'P' | 'p' ) ( 'E' | 'e' )
+            {
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Type"
+
     // $ANTLR start "Wild"
     public final void mWild() throws RecognitionException {
         try {
             int _type = Wild;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:36:6: ( ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'L' | 'l' ) ( 'D' | 'd' ) )
-            // InternalEclLexer.g:36:8: ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'L' | 'l' ) ( 'D' | 'd' )
+            // InternalEclLexer.g:66:6: ( ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'L' | 'l' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:66:8: ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'L' | 'l' ) ( 'D' | 'd' )
             {
             if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
                 input.consume();
@@ -446,16 +1927,99 @@ public class InternalEclLexer extends Lexer {
     }
     // $ANTLR end "Wild"
 
+    // $ANTLR start "AND"
+    public final void mAND() throws RecognitionException {
+        try {
+            int _type = AND;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:68:5: ( ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'D' | 'd' ) )
+            // InternalEclLexer.g:68:7: ( 'A' | 'a' ) ( 'N' | 'n' ) ( 'D' | 'd' )
+            {
+            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "AND"
+
+    // $ANTLR start "OR"
+    public final void mOR() throws RecognitionException {
+        try {
+            int _type = OR;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalEclLexer.g:70:4: ( ( 'O' | 'o' ) ( 'R' | 'r' ) )
+            // InternalEclLexer.g:70:6: ( 'O' | 'o' ) ( 'R' | 'r' )
+            {
+            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "OR"
+
     // $ANTLR start "RULE_TERM_STRING"
     public final void mRULE_TERM_STRING() throws RecognitionException {
         try {
             int _type = RULE_TERM_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:38:18: ( '|' (~ ( '|' ) )* '|' )
-            // InternalEclLexer.g:38:20: '|' (~ ( '|' ) )* '|'
+            // InternalEclLexer.g:72:18: ( '|' (~ ( '|' ) )* '|' )
+            // InternalEclLexer.g:72:20: '|' (~ ( '|' ) )* '|'
             {
             match('|'); 
-            // InternalEclLexer.g:38:24: (~ ( '|' ) )*
+            // InternalEclLexer.g:72:24: (~ ( '|' ) )*
             loop1:
             do {
                 int alt1=2;
@@ -468,7 +2032,7 @@ public class InternalEclLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalEclLexer.g:38:24: ~ ( '|' )
+            	    // InternalEclLexer.g:72:24: ~ ( '|' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='{')||(input.LA(1)>='}' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -505,8 +2069,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_REVERSED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:40:15: ( 'R' )
-            // InternalEclLexer.g:40:17: 'R'
+            // InternalEclLexer.g:74:15: ( 'R' )
+            // InternalEclLexer.g:74:17: 'R'
             {
             match('R'); 
 
@@ -525,8 +2089,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_TO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:42:9: ( '..' )
-            // InternalEclLexer.g:42:11: '..'
+            // InternalEclLexer.g:76:9: ( '..' )
+            // InternalEclLexer.g:76:11: '..'
             {
             match(".."); 
 
@@ -546,8 +2110,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:44:12: ( ',' )
-            // InternalEclLexer.g:44:14: ','
+            // InternalEclLexer.g:78:12: ( ',' )
+            // InternalEclLexer.g:78:14: ','
             {
             match(','); 
 
@@ -561,160 +2125,13 @@ public class InternalEclLexer extends Lexer {
     }
     // $ANTLR end "RULE_COMMA"
 
-    // $ANTLR start "RULE_CONJUNCTION"
-    public final void mRULE_CONJUNCTION() throws RecognitionException {
-        try {
-            int _type = RULE_CONJUNCTION;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:46:18: ( ( 'a' | 'A' ) ( 'n' | 'N' ) ( 'd' | 'D' ) )
-            // InternalEclLexer.g:46:20: ( 'a' | 'A' ) ( 'n' | 'N' ) ( 'd' | 'D' )
-            {
-            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_CONJUNCTION"
-
-    // $ANTLR start "RULE_DISJUNCTION"
-    public final void mRULE_DISJUNCTION() throws RecognitionException {
-        try {
-            int _type = RULE_DISJUNCTION;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:48:18: ( ( 'o' | 'O' ) ( 'r' | 'R' ) )
-            // InternalEclLexer.g:48:20: ( 'o' | 'O' ) ( 'r' | 'R' )
-            {
-            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_DISJUNCTION"
-
-    // $ANTLR start "RULE_EXCLUSION"
-    public final void mRULE_EXCLUSION() throws RecognitionException {
-        try {
-            int _type = RULE_EXCLUSION;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:50:16: ( ( 'm' | 'M' ) ( 'i' | 'I' ) ( 'n' | 'N' ) ( 'u' | 'U' ) ( 's' | 'S' ) )
-            // InternalEclLexer.g:50:18: ( 'm' | 'M' ) ( 'i' | 'I' ) ( 'n' | 'N' ) ( 'u' | 'U' ) ( 's' | 'S' )
-            {
-            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_EXCLUSION"
-
     // $ANTLR start "RULE_ZERO"
     public final void mRULE_ZERO() throws RecognitionException {
         try {
             int _type = RULE_ZERO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:52:11: ( '0' )
-            // InternalEclLexer.g:52:13: '0'
+            // InternalEclLexer.g:80:11: ( '0' )
+            // InternalEclLexer.g:80:13: '0'
             {
             match('0'); 
 
@@ -733,8 +2150,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DIGIT_NONZERO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:54:20: ( '1' .. '9' )
-            // InternalEclLexer.g:54:22: '1' .. '9'
+            // InternalEclLexer.g:82:20: ( '1' .. '9' )
+            // InternalEclLexer.g:82:22: '1' .. '9'
             {
             matchRange('1','9'); 
 
@@ -753,8 +2170,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:56:12: ( ':' )
-            // InternalEclLexer.g:56:14: ':'
+            // InternalEclLexer.g:84:12: ( ':' )
+            // InternalEclLexer.g:84:14: ':'
             {
             match(':'); 
 
@@ -773,8 +2190,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_CURLY_OPEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:58:17: ( '{' )
-            // InternalEclLexer.g:58:19: '{'
+            // InternalEclLexer.g:86:17: ( '{' )
+            // InternalEclLexer.g:86:19: '{'
             {
             match('{'); 
 
@@ -793,8 +2210,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_CURLY_CLOSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:60:18: ( '}' )
-            // InternalEclLexer.g:60:20: '}'
+            // InternalEclLexer.g:88:18: ( '}' )
+            // InternalEclLexer.g:88:20: '}'
             {
             match('}'); 
 
@@ -813,8 +2230,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_ROUND_OPEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:62:17: ( '(' )
-            // InternalEclLexer.g:62:19: '('
+            // InternalEclLexer.g:90:17: ( '(' )
+            // InternalEclLexer.g:90:19: '('
             {
             match('('); 
 
@@ -833,8 +2250,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_ROUND_CLOSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:64:18: ( ')' )
-            // InternalEclLexer.g:64:20: ')'
+            // InternalEclLexer.g:92:18: ( ')' )
+            // InternalEclLexer.g:92:20: ')'
             {
             match(')'); 
 
@@ -853,8 +2270,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_SQUARE_OPEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:66:18: ( '[' )
-            // InternalEclLexer.g:66:20: '['
+            // InternalEclLexer.g:94:18: ( '[' )
+            // InternalEclLexer.g:94:20: '['
             {
             match('['); 
 
@@ -873,8 +2290,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_SQUARE_CLOSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:68:19: ( ']' )
-            // InternalEclLexer.g:68:21: ']'
+            // InternalEclLexer.g:96:19: ( ']' )
+            // InternalEclLexer.g:96:21: ']'
             {
             match(']'); 
 
@@ -893,8 +2310,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:70:11: ( '+' )
-            // InternalEclLexer.g:70:13: '+'
+            // InternalEclLexer.g:98:11: ( '+' )
+            // InternalEclLexer.g:98:13: '+'
             {
             match('+'); 
 
@@ -913,8 +2330,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:72:11: ( '-' )
-            // InternalEclLexer.g:72:13: '-'
+            // InternalEclLexer.g:100:11: ( '-' )
+            // InternalEclLexer.g:100:13: '-'
             {
             match('-'); 
 
@@ -933,8 +2350,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_CARET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:74:12: ( '^' )
-            // InternalEclLexer.g:74:14: '^'
+            // InternalEclLexer.g:102:12: ( '^' )
+            // InternalEclLexer.g:102:14: '^'
             {
             match('^'); 
 
@@ -953,8 +2370,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:76:10: ( '.' )
-            // InternalEclLexer.g:76:12: '.'
+            // InternalEclLexer.g:104:10: ( '.' )
+            // InternalEclLexer.g:104:12: '.'
             {
             match('.'); 
 
@@ -973,8 +2390,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_WILDCARD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:78:15: ( '*' )
-            // InternalEclLexer.g:78:17: '*'
+            // InternalEclLexer.g:106:15: ( '*' )
+            // InternalEclLexer.g:106:17: '*'
             {
             match('*'); 
 
@@ -993,8 +2410,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:80:12: ( '=' )
-            // InternalEclLexer.g:80:14: '='
+            // InternalEclLexer.g:108:12: ( '=' )
+            // InternalEclLexer.g:108:14: '='
             {
             match('='); 
 
@@ -1013,8 +2430,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_NOT_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:82:16: ( '!=' )
-            // InternalEclLexer.g:82:18: '!='
+            // InternalEclLexer.g:110:16: ( '!=' )
+            // InternalEclLexer.g:110:18: '!='
             {
             match("!="); 
 
@@ -1034,8 +2451,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:84:9: ( '<' )
-            // InternalEclLexer.g:84:11: '<'
+            // InternalEclLexer.g:112:9: ( '<' )
+            // InternalEclLexer.g:112:11: '<'
             {
             match('<'); 
 
@@ -1054,8 +2471,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:86:9: ( '>' )
-            // InternalEclLexer.g:86:11: '>'
+            // InternalEclLexer.g:114:9: ( '>' )
+            // InternalEclLexer.g:114:11: '>'
             {
             match('>'); 
 
@@ -1074,8 +2491,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DBL_LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:88:13: ( '<<' )
-            // InternalEclLexer.g:88:15: '<<'
+            // InternalEclLexer.g:116:13: ( '<<' )
+            // InternalEclLexer.g:116:15: '<<'
             {
             match("<<"); 
 
@@ -1095,8 +2512,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DBL_GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:90:13: ( '>>' )
-            // InternalEclLexer.g:90:15: '>>'
+            // InternalEclLexer.g:118:13: ( '>>' )
+            // InternalEclLexer.g:118:15: '>>'
             {
             match(">>"); 
 
@@ -1116,8 +2533,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_LT_EM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:92:12: ( '<!' )
-            // InternalEclLexer.g:92:14: '<!'
+            // InternalEclLexer.g:120:12: ( '<!' )
+            // InternalEclLexer.g:120:14: '<!'
             {
             match("<!"); 
 
@@ -1137,8 +2554,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DBL_LT_EM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:94:16: ( '<<!' )
-            // InternalEclLexer.g:94:18: '<<!'
+            // InternalEclLexer.g:122:16: ( '<<!' )
+            // InternalEclLexer.g:122:18: '<<!'
             {
             match("<<!"); 
 
@@ -1158,8 +2575,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_GT_EM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:96:12: ( '>!' )
-            // InternalEclLexer.g:96:14: '>!'
+            // InternalEclLexer.g:124:12: ( '>!' )
+            // InternalEclLexer.g:124:14: '>!'
             {
             match(">!"); 
 
@@ -1179,8 +2596,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DBL_GT_EM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:98:16: ( '>>!' )
-            // InternalEclLexer.g:98:18: '>>!'
+            // InternalEclLexer.g:126:16: ( '>>!' )
+            // InternalEclLexer.g:126:18: '>>!'
             {
             match(">>!"); 
 
@@ -1200,8 +2617,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_GTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:100:10: ( '>=' )
-            // InternalEclLexer.g:100:12: '>='
+            // InternalEclLexer.g:128:10: ( '>=' )
+            // InternalEclLexer.g:128:12: '>='
             {
             match(">="); 
 
@@ -1221,8 +2638,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_LTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:102:10: ( '<=' )
-            // InternalEclLexer.g:102:12: '<='
+            // InternalEclLexer.g:130:10: ( '<=' )
+            // InternalEclLexer.g:130:12: '<='
             {
             match("<="); 
 
@@ -1242,8 +2659,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:104:11: ( '#' )
-            // InternalEclLexer.g:104:13: '#'
+            // InternalEclLexer.g:132:11: ( '#' )
+            // InternalEclLexer.g:132:13: '#'
             {
             match('#'); 
 
@@ -1262,8 +2679,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE_CURLY_OPEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:106:24: ( '{{' )
-            // InternalEclLexer.g:106:26: '{{'
+            // InternalEclLexer.g:134:24: ( '{{' )
+            // InternalEclLexer.g:134:26: '{{'
             {
             match("{{"); 
 
@@ -1283,8 +2700,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE_CURLY_CLOSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:108:25: ( '}}' )
-            // InternalEclLexer.g:108:27: '}}'
+            // InternalEclLexer.g:136:25: ( '}}' )
+            // InternalEclLexer.g:136:27: '}}'
             {
             match("}}"); 
 
@@ -1299,471 +2716,23 @@ public class InternalEclLexer extends Lexer {
     }
     // $ANTLR end "RULE_DOUBLE_CURLY_CLOSE"
 
-    // $ANTLR start "RULE_TERM_KEYWORD"
-    public final void mRULE_TERM_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_TERM_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:110:19: ( ( 't' | 'T' ) ( 'e' | 'E' ) ( 'r' | 'R' ) ( 'm' | 'M' ) )
-            // InternalEclLexer.g:110:21: ( 't' | 'T' ) ( 'e' | 'E' ) ( 'r' | 'R' ) ( 'm' | 'M' )
-            {
-            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_TERM_KEYWORD"
-
-    // $ANTLR start "RULE_LANGUAGE_KEYWORD"
-    public final void mRULE_LANGUAGE_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_LANGUAGE_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:112:23: ( ( 'l' | 'L' ) ( 'a' | 'A' ) ( 'n' | 'N' ) ( 'g' | 'G' ) ( 'u' | 'U' ) ( 'a' | 'A' ) ( 'g' | 'G' ) ( 'e' | 'E' ) )
-            // InternalEclLexer.g:112:25: ( 'l' | 'L' ) ( 'a' | 'A' ) ( 'n' | 'N' ) ( 'g' | 'G' ) ( 'u' | 'U' ) ( 'a' | 'A' ) ( 'g' | 'G' ) ( 'e' | 'E' )
-            {
-            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_LANGUAGE_KEYWORD"
-
-    // $ANTLR start "RULE_TYPEID_KEYWORD"
-    public final void mRULE_TYPEID_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_TYPEID_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:114:21: ( ( 't' | 'T' ) ( 'y' | 'Y' ) ( 'p' | 'P' ) ( 'e' | 'E' ) ( 'i' | 'I' ) ( 'd' | 'D' ) )
-            // InternalEclLexer.g:114:23: ( 't' | 'T' ) ( 'y' | 'Y' ) ( 'p' | 'P' ) ( 'e' | 'E' ) ( 'i' | 'I' ) ( 'd' | 'D' )
-            {
-            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_TYPEID_KEYWORD"
-
-    // $ANTLR start "RULE_TYPE_KEYWORD"
-    public final void mRULE_TYPE_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_TYPE_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:116:19: ( ( 't' | 'T' ) ( 'y' | 'Y' ) ( 'p' | 'P' ) ( 'e' | 'E' ) )
-            // InternalEclLexer.g:116:21: ( 't' | 'T' ) ( 'y' | 'Y' ) ( 'p' | 'P' ) ( 'e' | 'E' )
-            {
-            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_TYPE_KEYWORD"
-
-    // $ANTLR start "RULE_DIALECTID_KEYWORD"
-    public final void mRULE_DIALECTID_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_DIALECTID_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:118:24: ( ( 'd' | 'D' ) ( 'i' | 'I' ) ( 'a' | 'A' ) ( 'l' | 'L' ) ( 'e' | 'E' ) ( 'c' | 'C' ) ( 't' | 'T' ) ( 'i' | 'I' ) ( 'd' | 'D' ) )
-            // InternalEclLexer.g:118:26: ( 'd' | 'D' ) ( 'i' | 'I' ) ( 'a' | 'A' ) ( 'l' | 'L' ) ( 'e' | 'E' ) ( 'c' | 'C' ) ( 't' | 'T' ) ( 'i' | 'I' ) ( 'd' | 'D' )
-            {
-            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_DIALECTID_KEYWORD"
-
-    // $ANTLR start "RULE_DIALECT_KEYWORD"
-    public final void mRULE_DIALECT_KEYWORD() throws RecognitionException {
-        try {
-            int _type = RULE_DIALECT_KEYWORD;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:120:22: ( ( 'd' | 'D' ) ( 'i' | 'I' ) ( 'a' | 'A' ) ( 'l' | 'L' ) ( 'e' | 'E' ) ( 'c' | 'C' ) ( 't' | 'T' ) )
-            // InternalEclLexer.g:120:24: ( 'd' | 'D' ) ( 'i' | 'I' ) ( 'a' | 'A' ) ( 'l' | 'L' ) ( 'e' | 'E' ) ( 'c' | 'C' ) ( 't' | 'T' )
-            {
-            if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_DIALECT_KEYWORD"
-
     // $ANTLR start "RULE_ALPHA"
     public final void mRULE_ALPHA() throws RecognitionException {
         try {
             int _type = RULE_ALPHA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:122:12: ( 'a' .. 'z' )
-            // InternalEclLexer.g:122:14: 'a' .. 'z'
+            // InternalEclLexer.g:138:12: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // InternalEclLexer.g:138:14: ( 'a' .. 'z' | 'A' .. 'Z' )
             {
-            matchRange('a','z'); 
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
 
             }
 
@@ -1780,8 +2749,8 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:124:9: ( ( ' ' | '\\t' | '\\n' | '\\r' ) )
-            // InternalEclLexer.g:124:11: ( ' ' | '\\t' | '\\n' | '\\r' )
+            // InternalEclLexer.g:140:9: ( ( ' ' | '\\t' | '\\n' | '\\r' ) )
+            // InternalEclLexer.g:140:11: ( ' ' | '\\t' | '\\n' | '\\r' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1808,12 +2777,12 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:126:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalEclLexer.g:126:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalEclLexer.g:142:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalEclLexer.g:142:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalEclLexer.g:126:24: ( options {greedy=false; } : . )*
+            // InternalEclLexer.g:142:24: ( options {greedy=false; } : . )*
             loop2:
             do {
                 int alt2=2;
@@ -1838,7 +2807,7 @@ public class InternalEclLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalEclLexer.g:126:52: .
+            	    // InternalEclLexer.g:142:52: .
             	    {
             	    matchAny(); 
 
@@ -1868,12 +2837,12 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:128:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalEclLexer.g:128:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalEclLexer.g:144:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalEclLexer.g:144:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalEclLexer.g:128:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalEclLexer.g:144:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop3:
             do {
                 int alt3=2;
@@ -1886,7 +2855,7 @@ public class InternalEclLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalEclLexer.g:128:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalEclLexer.g:144:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1906,7 +2875,7 @@ public class InternalEclLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalEclLexer.g:128:40: ( ( '\\r' )? '\\n' )?
+            // InternalEclLexer.g:144:40: ( ( '\\r' )? '\\n' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1915,9 +2884,9 @@ public class InternalEclLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalEclLexer.g:128:41: ( '\\r' )? '\\n'
+                    // InternalEclLexer.g:144:41: ( '\\r' )? '\\n'
                     {
-                    // InternalEclLexer.g:128:41: ( '\\r' )?
+                    // InternalEclLexer.g:144:41: ( '\\r' )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -1926,7 +2895,7 @@ public class InternalEclLexer extends Lexer {
                     }
                     switch (alt4) {
                         case 1 :
-                            // InternalEclLexer.g:128:41: '\\r'
+                            // InternalEclLexer.g:144:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1958,10 +2927,10 @@ public class InternalEclLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEclLexer.g:130:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalEclLexer.g:130:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEclLexer.g:146:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalEclLexer.g:146:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalEclLexer.g:130:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEclLexer.g:146:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1979,10 +2948,10 @@ public class InternalEclLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalEclLexer.g:130:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalEclLexer.g:146:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalEclLexer.g:130:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalEclLexer.g:146:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1998,7 +2967,7 @@ public class InternalEclLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalEclLexer.g:130:21: '\\\\' .
+                    	    // InternalEclLexer.g:146:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2006,7 +2975,7 @@ public class InternalEclLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEclLexer.g:130:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalEclLexer.g:146:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2031,10 +3000,10 @@ public class InternalEclLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalEclLexer.g:130:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalEclLexer.g:146:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalEclLexer.g:130:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalEclLexer.g:146:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -2050,7 +3019,7 @@ public class InternalEclLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalEclLexer.g:130:54: '\\\\' .
+                    	    // InternalEclLexer.g:146:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2058,7 +3027,7 @@ public class InternalEclLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEclLexer.g:130:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalEclLexer.g:146:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2097,376 +3066,432 @@ public class InternalEclLexer extends Lexer {
     // $ANTLR end "RULE_STRING"
 
     public void mTokens() throws RecognitionException {
-        // InternalEclLexer.g:1:8: ( Exact | False | Match | Regex | True | Wild | RULE_TERM_STRING | RULE_REVERSED | RULE_TO | RULE_COMMA | RULE_CONJUNCTION | RULE_DISJUNCTION | RULE_EXCLUSION | RULE_ZERO | RULE_DIGIT_NONZERO | RULE_COLON | RULE_CURLY_OPEN | RULE_CURLY_CLOSE | RULE_ROUND_OPEN | RULE_ROUND_CLOSE | RULE_SQUARE_OPEN | RULE_SQUARE_CLOSE | RULE_PLUS | RULE_DASH | RULE_CARET | RULE_DOT | RULE_WILDCARD | RULE_EQUAL | RULE_NOT_EQUAL | RULE_LT | RULE_GT | RULE_DBL_LT | RULE_DBL_GT | RULE_LT_EM | RULE_DBL_LT_EM | RULE_GT_EM | RULE_DBL_GT_EM | RULE_GTE | RULE_LTE | RULE_HASH | RULE_DOUBLE_CURLY_OPEN | RULE_DOUBLE_CURLY_CLOSE | RULE_TERM_KEYWORD | RULE_LANGUAGE_KEYWORD | RULE_TYPEID_KEYWORD | RULE_TYPE_KEYWORD | RULE_DIALECTID_KEYWORD | RULE_DIALECT_KEYWORD | RULE_ALPHA | RULE_WS | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_STRING )
-        int alt9=53;
+        // InternalEclLexer.g:1:8: ( CaseSignificanceId | LanguageRefSetId | AcceptableIn | Description | PreferredIn | DialectId | Language | ModuleId | Concept | Dialect | Active | TypeId | MINUS | Exact | False | Match | Regex | Term | True | Type | Wild | AND | OR | RULE_TERM_STRING | RULE_REVERSED | RULE_TO | RULE_COMMA | RULE_ZERO | RULE_DIGIT_NONZERO | RULE_COLON | RULE_CURLY_OPEN | RULE_CURLY_CLOSE | RULE_ROUND_OPEN | RULE_ROUND_CLOSE | RULE_SQUARE_OPEN | RULE_SQUARE_CLOSE | RULE_PLUS | RULE_DASH | RULE_CARET | RULE_DOT | RULE_WILDCARD | RULE_EQUAL | RULE_NOT_EQUAL | RULE_LT | RULE_GT | RULE_DBL_LT | RULE_DBL_GT | RULE_LT_EM | RULE_DBL_LT_EM | RULE_GT_EM | RULE_DBL_GT_EM | RULE_GTE | RULE_LTE | RULE_HASH | RULE_DOUBLE_CURLY_OPEN | RULE_DOUBLE_CURLY_CLOSE | RULE_ALPHA | RULE_WS | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_STRING )
+        int alt9=61;
         alt9 = dfa9.predict(input);
         switch (alt9) {
             case 1 :
-                // InternalEclLexer.g:1:10: Exact
+                // InternalEclLexer.g:1:10: CaseSignificanceId
+                {
+                mCaseSignificanceId(); 
+
+                }
+                break;
+            case 2 :
+                // InternalEclLexer.g:1:29: LanguageRefSetId
+                {
+                mLanguageRefSetId(); 
+
+                }
+                break;
+            case 3 :
+                // InternalEclLexer.g:1:46: AcceptableIn
+                {
+                mAcceptableIn(); 
+
+                }
+                break;
+            case 4 :
+                // InternalEclLexer.g:1:59: Description
+                {
+                mDescription(); 
+
+                }
+                break;
+            case 5 :
+                // InternalEclLexer.g:1:71: PreferredIn
+                {
+                mPreferredIn(); 
+
+                }
+                break;
+            case 6 :
+                // InternalEclLexer.g:1:83: DialectId
+                {
+                mDialectId(); 
+
+                }
+                break;
+            case 7 :
+                // InternalEclLexer.g:1:93: Language
+                {
+                mLanguage(); 
+
+                }
+                break;
+            case 8 :
+                // InternalEclLexer.g:1:102: ModuleId
+                {
+                mModuleId(); 
+
+                }
+                break;
+            case 9 :
+                // InternalEclLexer.g:1:111: Concept
+                {
+                mConcept(); 
+
+                }
+                break;
+            case 10 :
+                // InternalEclLexer.g:1:119: Dialect
+                {
+                mDialect(); 
+
+                }
+                break;
+            case 11 :
+                // InternalEclLexer.g:1:127: Active
+                {
+                mActive(); 
+
+                }
+                break;
+            case 12 :
+                // InternalEclLexer.g:1:134: TypeId
+                {
+                mTypeId(); 
+
+                }
+                break;
+            case 13 :
+                // InternalEclLexer.g:1:141: MINUS
+                {
+                mMINUS(); 
+
+                }
+                break;
+            case 14 :
+                // InternalEclLexer.g:1:147: Exact
                 {
                 mExact(); 
 
                 }
                 break;
-            case 2 :
-                // InternalEclLexer.g:1:16: False
+            case 15 :
+                // InternalEclLexer.g:1:153: False
                 {
                 mFalse(); 
 
                 }
                 break;
-            case 3 :
-                // InternalEclLexer.g:1:22: Match
+            case 16 :
+                // InternalEclLexer.g:1:159: Match
                 {
                 mMatch(); 
 
                 }
                 break;
-            case 4 :
-                // InternalEclLexer.g:1:28: Regex
+            case 17 :
+                // InternalEclLexer.g:1:165: Regex
                 {
                 mRegex(); 
 
                 }
                 break;
-            case 5 :
-                // InternalEclLexer.g:1:34: True
+            case 18 :
+                // InternalEclLexer.g:1:171: Term
+                {
+                mTerm(); 
+
+                }
+                break;
+            case 19 :
+                // InternalEclLexer.g:1:176: True
                 {
                 mTrue(); 
 
                 }
                 break;
-            case 6 :
-                // InternalEclLexer.g:1:39: Wild
+            case 20 :
+                // InternalEclLexer.g:1:181: Type
+                {
+                mType(); 
+
+                }
+                break;
+            case 21 :
+                // InternalEclLexer.g:1:186: Wild
                 {
                 mWild(); 
 
                 }
                 break;
-            case 7 :
-                // InternalEclLexer.g:1:44: RULE_TERM_STRING
+            case 22 :
+                // InternalEclLexer.g:1:191: AND
+                {
+                mAND(); 
+
+                }
+                break;
+            case 23 :
+                // InternalEclLexer.g:1:195: OR
+                {
+                mOR(); 
+
+                }
+                break;
+            case 24 :
+                // InternalEclLexer.g:1:198: RULE_TERM_STRING
                 {
                 mRULE_TERM_STRING(); 
 
                 }
                 break;
-            case 8 :
-                // InternalEclLexer.g:1:61: RULE_REVERSED
+            case 25 :
+                // InternalEclLexer.g:1:215: RULE_REVERSED
                 {
                 mRULE_REVERSED(); 
 
                 }
                 break;
-            case 9 :
-                // InternalEclLexer.g:1:75: RULE_TO
+            case 26 :
+                // InternalEclLexer.g:1:229: RULE_TO
                 {
                 mRULE_TO(); 
 
                 }
                 break;
-            case 10 :
-                // InternalEclLexer.g:1:83: RULE_COMMA
+            case 27 :
+                // InternalEclLexer.g:1:237: RULE_COMMA
                 {
                 mRULE_COMMA(); 
 
                 }
                 break;
-            case 11 :
-                // InternalEclLexer.g:1:94: RULE_CONJUNCTION
-                {
-                mRULE_CONJUNCTION(); 
-
-                }
-                break;
-            case 12 :
-                // InternalEclLexer.g:1:111: RULE_DISJUNCTION
-                {
-                mRULE_DISJUNCTION(); 
-
-                }
-                break;
-            case 13 :
-                // InternalEclLexer.g:1:128: RULE_EXCLUSION
-                {
-                mRULE_EXCLUSION(); 
-
-                }
-                break;
-            case 14 :
-                // InternalEclLexer.g:1:143: RULE_ZERO
+            case 28 :
+                // InternalEclLexer.g:1:248: RULE_ZERO
                 {
                 mRULE_ZERO(); 
 
                 }
                 break;
-            case 15 :
-                // InternalEclLexer.g:1:153: RULE_DIGIT_NONZERO
+            case 29 :
+                // InternalEclLexer.g:1:258: RULE_DIGIT_NONZERO
                 {
                 mRULE_DIGIT_NONZERO(); 
 
                 }
                 break;
-            case 16 :
-                // InternalEclLexer.g:1:172: RULE_COLON
+            case 30 :
+                // InternalEclLexer.g:1:277: RULE_COLON
                 {
                 mRULE_COLON(); 
 
                 }
                 break;
-            case 17 :
-                // InternalEclLexer.g:1:183: RULE_CURLY_OPEN
+            case 31 :
+                // InternalEclLexer.g:1:288: RULE_CURLY_OPEN
                 {
                 mRULE_CURLY_OPEN(); 
 
                 }
                 break;
-            case 18 :
-                // InternalEclLexer.g:1:199: RULE_CURLY_CLOSE
+            case 32 :
+                // InternalEclLexer.g:1:304: RULE_CURLY_CLOSE
                 {
                 mRULE_CURLY_CLOSE(); 
 
                 }
                 break;
-            case 19 :
-                // InternalEclLexer.g:1:216: RULE_ROUND_OPEN
+            case 33 :
+                // InternalEclLexer.g:1:321: RULE_ROUND_OPEN
                 {
                 mRULE_ROUND_OPEN(); 
 
                 }
                 break;
-            case 20 :
-                // InternalEclLexer.g:1:232: RULE_ROUND_CLOSE
+            case 34 :
+                // InternalEclLexer.g:1:337: RULE_ROUND_CLOSE
                 {
                 mRULE_ROUND_CLOSE(); 
 
                 }
                 break;
-            case 21 :
-                // InternalEclLexer.g:1:249: RULE_SQUARE_OPEN
+            case 35 :
+                // InternalEclLexer.g:1:354: RULE_SQUARE_OPEN
                 {
                 mRULE_SQUARE_OPEN(); 
 
                 }
                 break;
-            case 22 :
-                // InternalEclLexer.g:1:266: RULE_SQUARE_CLOSE
+            case 36 :
+                // InternalEclLexer.g:1:371: RULE_SQUARE_CLOSE
                 {
                 mRULE_SQUARE_CLOSE(); 
 
                 }
                 break;
-            case 23 :
-                // InternalEclLexer.g:1:284: RULE_PLUS
+            case 37 :
+                // InternalEclLexer.g:1:389: RULE_PLUS
                 {
                 mRULE_PLUS(); 
 
                 }
                 break;
-            case 24 :
-                // InternalEclLexer.g:1:294: RULE_DASH
+            case 38 :
+                // InternalEclLexer.g:1:399: RULE_DASH
                 {
                 mRULE_DASH(); 
 
                 }
                 break;
-            case 25 :
-                // InternalEclLexer.g:1:304: RULE_CARET
+            case 39 :
+                // InternalEclLexer.g:1:409: RULE_CARET
                 {
                 mRULE_CARET(); 
 
                 }
                 break;
-            case 26 :
-                // InternalEclLexer.g:1:315: RULE_DOT
+            case 40 :
+                // InternalEclLexer.g:1:420: RULE_DOT
                 {
                 mRULE_DOT(); 
 
                 }
                 break;
-            case 27 :
-                // InternalEclLexer.g:1:324: RULE_WILDCARD
+            case 41 :
+                // InternalEclLexer.g:1:429: RULE_WILDCARD
                 {
                 mRULE_WILDCARD(); 
 
                 }
                 break;
-            case 28 :
-                // InternalEclLexer.g:1:338: RULE_EQUAL
+            case 42 :
+                // InternalEclLexer.g:1:443: RULE_EQUAL
                 {
                 mRULE_EQUAL(); 
 
                 }
                 break;
-            case 29 :
-                // InternalEclLexer.g:1:349: RULE_NOT_EQUAL
+            case 43 :
+                // InternalEclLexer.g:1:454: RULE_NOT_EQUAL
                 {
                 mRULE_NOT_EQUAL(); 
 
                 }
                 break;
-            case 30 :
-                // InternalEclLexer.g:1:364: RULE_LT
+            case 44 :
+                // InternalEclLexer.g:1:469: RULE_LT
                 {
                 mRULE_LT(); 
 
                 }
                 break;
-            case 31 :
-                // InternalEclLexer.g:1:372: RULE_GT
+            case 45 :
+                // InternalEclLexer.g:1:477: RULE_GT
                 {
                 mRULE_GT(); 
 
                 }
                 break;
-            case 32 :
-                // InternalEclLexer.g:1:380: RULE_DBL_LT
+            case 46 :
+                // InternalEclLexer.g:1:485: RULE_DBL_LT
                 {
                 mRULE_DBL_LT(); 
 
                 }
                 break;
-            case 33 :
-                // InternalEclLexer.g:1:392: RULE_DBL_GT
+            case 47 :
+                // InternalEclLexer.g:1:497: RULE_DBL_GT
                 {
                 mRULE_DBL_GT(); 
 
                 }
                 break;
-            case 34 :
-                // InternalEclLexer.g:1:404: RULE_LT_EM
+            case 48 :
+                // InternalEclLexer.g:1:509: RULE_LT_EM
                 {
                 mRULE_LT_EM(); 
 
                 }
                 break;
-            case 35 :
-                // InternalEclLexer.g:1:415: RULE_DBL_LT_EM
+            case 49 :
+                // InternalEclLexer.g:1:520: RULE_DBL_LT_EM
                 {
                 mRULE_DBL_LT_EM(); 
 
                 }
                 break;
-            case 36 :
-                // InternalEclLexer.g:1:430: RULE_GT_EM
+            case 50 :
+                // InternalEclLexer.g:1:535: RULE_GT_EM
                 {
                 mRULE_GT_EM(); 
 
                 }
                 break;
-            case 37 :
-                // InternalEclLexer.g:1:441: RULE_DBL_GT_EM
+            case 51 :
+                // InternalEclLexer.g:1:546: RULE_DBL_GT_EM
                 {
                 mRULE_DBL_GT_EM(); 
 
                 }
                 break;
-            case 38 :
-                // InternalEclLexer.g:1:456: RULE_GTE
+            case 52 :
+                // InternalEclLexer.g:1:561: RULE_GTE
                 {
                 mRULE_GTE(); 
 
                 }
                 break;
-            case 39 :
-                // InternalEclLexer.g:1:465: RULE_LTE
+            case 53 :
+                // InternalEclLexer.g:1:570: RULE_LTE
                 {
                 mRULE_LTE(); 
 
                 }
                 break;
-            case 40 :
-                // InternalEclLexer.g:1:474: RULE_HASH
+            case 54 :
+                // InternalEclLexer.g:1:579: RULE_HASH
                 {
                 mRULE_HASH(); 
 
                 }
                 break;
-            case 41 :
-                // InternalEclLexer.g:1:484: RULE_DOUBLE_CURLY_OPEN
+            case 55 :
+                // InternalEclLexer.g:1:589: RULE_DOUBLE_CURLY_OPEN
                 {
                 mRULE_DOUBLE_CURLY_OPEN(); 
 
                 }
                 break;
-            case 42 :
-                // InternalEclLexer.g:1:507: RULE_DOUBLE_CURLY_CLOSE
+            case 56 :
+                // InternalEclLexer.g:1:612: RULE_DOUBLE_CURLY_CLOSE
                 {
                 mRULE_DOUBLE_CURLY_CLOSE(); 
 
                 }
                 break;
-            case 43 :
-                // InternalEclLexer.g:1:531: RULE_TERM_KEYWORD
-                {
-                mRULE_TERM_KEYWORD(); 
-
-                }
-                break;
-            case 44 :
-                // InternalEclLexer.g:1:549: RULE_LANGUAGE_KEYWORD
-                {
-                mRULE_LANGUAGE_KEYWORD(); 
-
-                }
-                break;
-            case 45 :
-                // InternalEclLexer.g:1:571: RULE_TYPEID_KEYWORD
-                {
-                mRULE_TYPEID_KEYWORD(); 
-
-                }
-                break;
-            case 46 :
-                // InternalEclLexer.g:1:591: RULE_TYPE_KEYWORD
-                {
-                mRULE_TYPE_KEYWORD(); 
-
-                }
-                break;
-            case 47 :
-                // InternalEclLexer.g:1:609: RULE_DIALECTID_KEYWORD
-                {
-                mRULE_DIALECTID_KEYWORD(); 
-
-                }
-                break;
-            case 48 :
-                // InternalEclLexer.g:1:632: RULE_DIALECT_KEYWORD
-                {
-                mRULE_DIALECT_KEYWORD(); 
-
-                }
-                break;
-            case 49 :
-                // InternalEclLexer.g:1:653: RULE_ALPHA
+            case 57 :
+                // InternalEclLexer.g:1:636: RULE_ALPHA
                 {
                 mRULE_ALPHA(); 
 
                 }
                 break;
-            case 50 :
-                // InternalEclLexer.g:1:664: RULE_WS
+            case 58 :
+                // InternalEclLexer.g:1:647: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 51 :
-                // InternalEclLexer.g:1:672: RULE_ML_COMMENT
+            case 59 :
+                // InternalEclLexer.g:1:655: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 52 :
-                // InternalEclLexer.g:1:688: RULE_SL_COMMENT
+            case 60 :
+                // InternalEclLexer.g:1:671: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 53 :
-                // InternalEclLexer.g:1:704: RULE_STRING
+            case 61 :
+                // InternalEclLexer.g:1:687: RULE_STRING
                 {
                 mRULE_STRING(); 
 
@@ -2480,65 +3505,42 @@ public class InternalEclLexer extends Lexer {
 
     protected DFA9 dfa9 = new DFA9(this);
     static final String DFA9_eotS =
-        "\1\uffff\3\52\1\61\2\52\1\uffff\1\52\1\66\1\uffff\2\52\3\uffff\1\70\1\72\12\uffff\1\76\1\102\1\uffff\2\52\32\uffff\1\110\3\uffff\1\112\14\uffff\1\117\5\uffff\1\124\2\uffff";
+        "\1\uffff\11\43\1\70\2\43\1\uffff\1\43\1\74\4\uffff\1\76\1\100\12\uffff\1\104\1\110\37\uffff\1\121\3\uffff\1\123\20\uffff\1\132\7\uffff\1\141\1\143\4\uffff";
     static final String DFA9_eofS =
-        "\125\uffff";
+        "\144\uffff";
     static final String DFA9_minS =
-        "\1\11\1\130\2\101\2\105\1\111\1\uffff\1\105\1\56\1\uffff\1\116\1\122\3\uffff\1\173\1\175\12\uffff\2\41\1\uffff\1\101\1\111\2\uffff\1\101\1\105\4\uffff\1\111\2\uffff\1\52\7\uffff\1\120\6\uffff\1\41\3\uffff\1\41\3\uffff\1\101\2\uffff\1\105\4\uffff\1\114\1\111\1\105\2\uffff\1\103\1\124\1\111\2\uffff";
+        "\1\11\2\101\1\103\1\105\1\122\1\101\1\105\1\130\1\101\1\105\1\111\1\122\1\uffff\1\105\1\56\4\uffff\1\173\1\175\12\uffff\2\41\3\uffff\1\52\3\uffff\1\116\1\103\2\uffff\1\101\4\uffff\1\120\16\uffff\1\41\3\uffff\1\41\5\uffff\1\107\2\uffff\1\114\1\105\4\uffff\1\125\1\105\1\111\1\101\1\103\2\uffff\1\107\1\124\1\105\1\111\1\122\4\uffff";
     static final String DFA9_maxS =
-        "\1\175\1\170\1\141\1\151\1\145\1\171\1\151\1\uffff\1\145\1\56\1\uffff\1\156\1\162\3\uffff\1\173\1\175\12\uffff\1\75\1\76\1\uffff\1\141\1\151\2\uffff\1\151\1\171\4\uffff\1\151\2\uffff\1\57\7\uffff\1\160\6\uffff\1\41\3\uffff\1\41\3\uffff\1\141\2\uffff\1\145\4\uffff\1\154\1\151\1\145\2\uffff\1\143\1\164\1\151\2\uffff";
+        "\1\175\1\157\1\141\1\156\1\151\1\162\1\157\1\171\1\170\1\141\1\145\1\151\1\162\1\uffff\1\145\1\56\4\uffff\1\173\1\175\12\uffff\1\75\1\76\3\uffff\1\57\3\uffff\1\156\1\164\2\uffff\1\141\4\uffff\1\160\16\uffff\1\41\3\uffff\1\41\5\uffff\1\147\2\uffff\1\154\1\145\4\uffff\1\165\1\145\1\151\1\141\1\143\2\uffff\1\147\1\164\1\145\1\151\1\162\4\uffff";
     static final String DFA9_acceptS =
-        "\7\uffff\1\7\2\uffff\1\12\2\uffff\1\16\1\17\1\20\2\uffff\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\33\1\34\1\35\2\uffff\1\50\2\uffff\1\1\1\2\2\uffff\1\6\1\13\1\14\1\54\1\uffff\1\61\1\62\1\uffff\1\65\1\3\1\15\1\4\1\10\1\5\1\53\1\uffff\1\11\1\32\1\51\1\21\1\52\1\22\1\uffff\1\42\1\47\1\36\1\uffff\1\44\1\46\1\37\1\uffff\1\63\1\64\1\uffff\1\43\1\40\1\45\1\41\3\uffff\1\55\1\56\3\uffff\1\57\1\60";
+        "\15\uffff\1\30\2\uffff\1\33\1\34\1\35\1\36\2\uffff\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\51\1\52\1\53\2\uffff\1\66\1\71\1\72\1\uffff\1\75\1\1\1\11\2\uffff\1\26\1\4\1\uffff\1\5\1\10\1\15\1\20\1\uffff\1\22\1\23\1\16\1\17\1\21\1\31\1\25\1\27\1\32\1\50\1\67\1\37\1\70\1\40\1\uffff\1\60\1\65\1\54\1\uffff\1\62\1\64\1\55\1\73\1\74\1\uffff\1\3\1\13\2\uffff\1\61\1\56\1\63\1\57\5\uffff\1\14\1\24\5\uffff\1\6\1\12\1\2\1\7";
     static final String DFA9_specialS =
-        "\125\uffff}>";
+        "\144\uffff}>";
     static final String[] DFA9_transitionS = DFA9_transitionS_.DFA9_transitionS;
     private static final class DFA9_transitionS_ {
         static final String[] DFA9_transitionS = {
-                "\2\53\2\uffff\1\53\22\uffff\1\53\1\33\1\55\1\36\3\uffff\1\55\1\22\1\23\1\31\1\26\1\12\1\27\1\11\1\54\1\15\11\16\1\17\1\uffff\1\34\1\32\1\35\2\uffff\1\46\2\uffff\1\51\1\41\1\42\5\uffff\1\50\1\43\1\uffff\1\47\2\uffff\1\4\1\uffff\1\44\2\uffff\1\45\3\uffff\1\24\1\uffff\1\25\1\30\2\uffff\1\13\2\52\1\40\1\1\1\2\5\52\1\37\1\3\1\52\1\14\2\52\1\10\1\52\1\5\2\52\1\6\3\52\1\20\1\7\1\21",
-                "\1\41\37\uffff\1\41",
-                "\1\42\37\uffff\1\42",
-                "\1\56\7\uffff\1\57\27\uffff\1\56\7\uffff\1\57",
-                "\1\60\37\uffff\1\60",
-                "\1\63\14\uffff\1\62\6\uffff\1\64\13\uffff\1\63\14\uffff\1\62\6\uffff\1\64",
-                "\1\45\37\uffff\1\45",
+                "\2\44\2\uffff\1\44\22\uffff\1\44\1\37\1\46\1\42\3\uffff\1\46\1\26\1\27\1\35\1\32\1\20\1\33\1\17\1\45\1\21\11\22\1\23\1\uffff\1\40\1\36\1\41\2\uffff\1\3\1\43\1\1\1\4\1\10\1\11\5\43\1\2\1\6\1\43\1\14\1\5\1\43\1\12\1\43\1\7\2\43\1\13\3\43\1\30\1\uffff\1\31\1\34\2\uffff\1\3\1\43\1\1\1\4\1\10\1\11\5\43\1\2\1\6\1\43\1\14\1\5\1\43\1\16\1\43\1\7\2\43\1\13\3\43\1\24\1\15\1\25",
+                "\1\47\15\uffff\1\50\21\uffff\1\47\15\uffff\1\50",
+                "\1\51\37\uffff\1\51",
+                "\1\52\12\uffff\1\53\24\uffff\1\52\12\uffff\1\53",
+                "\1\54\3\uffff\1\55\33\uffff\1\54\3\uffff\1\55",
+                "\1\56\37\uffff\1\56",
+                "\1\61\7\uffff\1\60\5\uffff\1\57\21\uffff\1\61\7\uffff\1\60\5\uffff\1\57",
+                "\1\63\14\uffff\1\64\6\uffff\1\62\13\uffff\1\63\14\uffff\1\64\6\uffff\1\62",
+                "\1\65\37\uffff\1\65",
+                "\1\66\37\uffff\1\66",
+                "\1\67\37\uffff\1\67",
+                "\1\71\37\uffff\1\71",
+                "\1\72\37\uffff\1\72",
                 "",
-                "\1\60\37\uffff\1\60",
-                "\1\65",
-                "",
-                "\1\46\37\uffff\1\46",
-                "\1\47\37\uffff\1\47",
-                "",
-                "",
-                "",
-                "\1\67",
-                "\1\71",
+                "\1\67\37\uffff\1\67",
+                "\1\73",
                 "",
                 "",
                 "",
                 "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "\1\74\32\uffff\1\73\1\75",
-                "\1\100\33\uffff\1\101\1\77",
-                "",
-                "\1\50\37\uffff\1\50",
-                "\1\103\37\uffff\1\103",
-                "",
-                "",
-                "\1\56\7\uffff\1\57\27\uffff\1\56\7\uffff\1\57",
-                "\1\63\14\uffff\1\62\6\uffff\1\64\13\uffff\1\63\14\uffff\1\62\6\uffff\1\64",
-                "",
-                "",
-                "",
-                "",
-                "\1\103\37\uffff\1\103",
-                "",
-                "",
-                "\1\104\4\uffff\1\105",
+                "\1\75",
+                "\1\77",
                 "",
                 "",
                 "",
@@ -2546,37 +3548,75 @@ public class InternalEclLexer extends Lexer {
                 "",
                 "",
                 "",
-                "\1\106\37\uffff\1\106",
                 "",
                 "",
                 "",
+                "\1\102\32\uffff\1\101\1\103",
+                "\1\106\33\uffff\1\107\1\105",
                 "",
                 "",
                 "",
-                "\1\107",
-                "",
-                "",
-                "",
-                "\1\111",
+                "\1\111\4\uffff\1\112",
                 "",
                 "",
                 "",
                 "\1\113\37\uffff\1\113",
+                "\1\114\20\uffff\1\115\16\uffff\1\114\20\uffff\1\115",
                 "",
                 "",
-                "\1\114\37\uffff\1\114",
-                "",
-                "",
-                "",
-                "",
-                "\1\115\37\uffff\1\115",
                 "\1\116\37\uffff\1\116",
-                "\1\120\37\uffff\1\120",
                 "",
                 "",
-                "\1\121\37\uffff\1\121",
-                "\1\122\37\uffff\1\122",
-                "\1\123\37\uffff\1\123",
+                "",
+                "",
+                "\1\117\37\uffff\1\117",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "\1\120",
+                "",
+                "",
+                "",
+                "\1\122",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "\1\124\37\uffff\1\124",
+                "",
+                "",
+                "\1\125\37\uffff\1\125",
+                "\1\126\37\uffff\1\126",
+                "",
+                "",
+                "",
+                "",
+                "\1\127\37\uffff\1\127",
+                "\1\130\37\uffff\1\130",
+                "\1\131\37\uffff\1\131",
+                "\1\133\37\uffff\1\133",
+                "\1\134\37\uffff\1\134",
+                "",
+                "",
+                "\1\135\37\uffff\1\135",
+                "\1\136\37\uffff\1\136",
+                "\1\137\37\uffff\1\137",
+                "\1\140\37\uffff\1\140",
+                "\1\142\37\uffff\1\142",
+                "",
+                "",
                 "",
                 ""
         };
@@ -2612,7 +3652,7 @@ public class InternalEclLexer extends Lexer {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( Exact | False | Match | Regex | True | Wild | RULE_TERM_STRING | RULE_REVERSED | RULE_TO | RULE_COMMA | RULE_CONJUNCTION | RULE_DISJUNCTION | RULE_EXCLUSION | RULE_ZERO | RULE_DIGIT_NONZERO | RULE_COLON | RULE_CURLY_OPEN | RULE_CURLY_CLOSE | RULE_ROUND_OPEN | RULE_ROUND_CLOSE | RULE_SQUARE_OPEN | RULE_SQUARE_CLOSE | RULE_PLUS | RULE_DASH | RULE_CARET | RULE_DOT | RULE_WILDCARD | RULE_EQUAL | RULE_NOT_EQUAL | RULE_LT | RULE_GT | RULE_DBL_LT | RULE_DBL_GT | RULE_LT_EM | RULE_DBL_LT_EM | RULE_GT_EM | RULE_DBL_GT_EM | RULE_GTE | RULE_LTE | RULE_HASH | RULE_DOUBLE_CURLY_OPEN | RULE_DOUBLE_CURLY_CLOSE | RULE_TERM_KEYWORD | RULE_LANGUAGE_KEYWORD | RULE_TYPEID_KEYWORD | RULE_TYPE_KEYWORD | RULE_DIALECTID_KEYWORD | RULE_DIALECT_KEYWORD | RULE_ALPHA | RULE_WS | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_STRING );";
+            return "1:1: Tokens : ( CaseSignificanceId | LanguageRefSetId | AcceptableIn | Description | PreferredIn | DialectId | Language | ModuleId | Concept | Dialect | Active | TypeId | MINUS | Exact | False | Match | Regex | Term | True | Type | Wild | AND | OR | RULE_TERM_STRING | RULE_REVERSED | RULE_TO | RULE_COMMA | RULE_ZERO | RULE_DIGIT_NONZERO | RULE_COLON | RULE_CURLY_OPEN | RULE_CURLY_CLOSE | RULE_ROUND_OPEN | RULE_ROUND_CLOSE | RULE_SQUARE_OPEN | RULE_SQUARE_CLOSE | RULE_PLUS | RULE_DASH | RULE_CARET | RULE_DOT | RULE_WILDCARD | RULE_EQUAL | RULE_NOT_EQUAL | RULE_LT | RULE_GT | RULE_DBL_LT | RULE_DBL_GT | RULE_LT_EM | RULE_DBL_LT_EM | RULE_GT_EM | RULE_DBL_GT_EM | RULE_GTE | RULE_LTE | RULE_HASH | RULE_DOUBLE_CURLY_OPEN | RULE_DOUBLE_CURLY_CLOSE | RULE_ALPHA | RULE_WS | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_STRING );";
         }
     }
  
