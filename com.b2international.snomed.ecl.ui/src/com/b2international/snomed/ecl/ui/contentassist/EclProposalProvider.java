@@ -15,10 +15,11 @@
  */
 package com.b2international.snomed.ecl.ui.contentassist;
 
+import java.util.Map;
+
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.graphics.TextStyle;
@@ -26,8 +27,6 @@ import org.eclipse.text.edits.InsertEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -63,6 +62,54 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 	@Inject
 	private SnomedConceptProvider termProvider;
 	
+	private static final Map<String, String> KEYWORD_DESCRIPTIONS = Map.ofEntries(
+		Map.entry("CONJUNCTION",                  "Conjunction"),
+		Map.entry("COMMA",                        "Conjunction"),
+		Map.entry("DISJUNCTION",                  "Disjunction"),
+		Map.entry("EXCLUSION",                    "Exclusion"),
+		Map.entry("COLON",                        "Refinement"),
+		Map.entry("CURLY_OPEN",                   "Opening attribute group"),
+		Map.entry("CURLY_CLOSE",                  "Closing attribute group"),
+		Map.entry("SQUARE_OPEN",                  "Opening cardinality"),
+		Map.entry("SQUARE_CLOSE",                 "Closing cardinality"),
+		Map.entry("TO",                           "Cardinality range"),
+		Map.entry("PLUS",                         "Numeric value"),
+		Map.entry("DASH",                         "Numeric value"),
+		Map.entry("CARET",                        "Member of"),
+		Map.entry("DOMAIN",                       "Filter attribute prefix"),
+		Map.entry("WILDCARD",                     "Any"),
+		Map.entry("EQUAL",                        "Equals"),
+		Map.entry("NOT_EQUAL",                    "Not equals"),
+		Map.entry("LT",                           "Descendant of"),
+		Map.entry("GT",                           "Ancestor of"),
+		Map.entry("DBL_LT",                       "Descendant or self of"),
+		Map.entry("DBL_GT",                       "Ancestor or self of"),
+		Map.entry("LT_EM",                        "Child of"),
+		Map.entry("GT_EM",                        "Parent of"),
+		Map.entry("DBL_LT_EM",                    "Child or self of"),
+		Map.entry("DBL_GT_EM",                    "Parent or self of"),
+		Map.entry("GTE",                          "Greater than or equals"),
+		Map.entry("LTE",                          "Less than or equals"),
+		Map.entry("REVERSED",                     "Reverse attribute"),
+		Map.entry("ROUND_CLOSE",                  "Closing nested expression"),
+		Map.entry("ROUND_OPEN",                   "Opening nested expression"),
+		Map.entry("DOUBLE_CURLY_OPEN",            "Opening filter constraint"),
+		Map.entry("DOUBLE_CURLY_CLOSE",           "Closing filter constraint"),
+		Map.entry("TERM_KEYWORD",                 "Description term filter"),
+		Map.entry("LANGUAGE_KEYWORD",             "Description language filter"),
+		Map.entry("TYPEID_KEYWORD",               "Description type ID filter"),
+		Map.entry("TYPE_KEYWORD",                 "Description type tag filter"),
+		Map.entry("DIALECTID_KEYWORD",            "Description dialect ID filter"),
+		Map.entry("DIALECT_KEYWORD",              "Description dialect tag filter"),
+		Map.entry("ACTIVE_KEYWORD",               "Component status filter"),
+		Map.entry("MODULEID_KEYWORD",             "Component module filter"),
+		Map.entry("PREFERRED_IN_KEYWORD",         "Description acceptability filter"),
+		Map.entry("ACCEPTABLE_IN_KEYWORD",        "Description acceptability filter"),
+		Map.entry("LANGUAGE_REFSET_ID_KEYWORD",   "Description acceptability filter"),
+		Map.entry("CASE_SIGNIFICANCE_ID_KEYWORD", "Description case significance filter"),
+		Map.entry("TERM_STRING",                  "Concept term")
+	);
+
 	@Override
 	public void complete_TERM_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (model instanceof EclConceptReference) {
@@ -110,216 +157,19 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 	}
 	
 	@Override
-	public void complete_CONJUNCTION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		 acceptor.accept(createKeywordProposal("AND", "Conjunction", context));
-	}
-	
-	@Override
-	public void complete_DISJUNCTION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		acceptor.accept(createKeywordProposal("OR", "Disjunction", context));
-	}
-	
-	@Override
-	public void complete_EXCLUSION(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		acceptor.accept(createKeywordProposal("MINUS", "Exclusion", context));
-	}
-	
-	@Override
-	public void complete_COLON(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Refined expression constraint", acceptor);
-	}
-
-	@Override
-	public void complete_CURLY_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Opening attribute group",acceptor);
-	}
-
-	@Override
-	public void complete_CURLY_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Closing attribute group", acceptor);
-	}
-
-	@Override
-	public void complete_SQUARE_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Cardinality", acceptor);
-	}
-
-	@Override
-	public void complete_SQUARE_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Cardinality", acceptor);
-	}
-
-	@Override
-	public void complete_PLUS(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Numeric value", acceptor);
-	}
-
-	@Override
-	public void complete_DASH(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Numeric value", acceptor);
-	}
-
-	@Override
-	public void complete_CARET(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Member of" , acceptor);
-	}
-
-	@Override
-	public void complete_DOT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Decimal", acceptor);
-	}
-
-	@Override
-	public void complete_WILDCARD(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Any", acceptor);
-	}
-
-	@Override
-	public void complete_EQUAL(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Equals", acceptor);
-	}
-
-	@Override
-	public void complete_NOT_EQUAL(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Not equals", acceptor);
-	}
-
-	@Override
-	public void complete_LT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Descendant of", acceptor);
-	}
-
-	@Override
-	public void complete_GT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Ancestor of", acceptor);
-	}
-
-	@Override
-	public void complete_DBL_LT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Descendant or self of", acceptor);
-	}
-
-	@Override
-	public void complete_DBL_GT(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Ancestor or self of", acceptor);
-	}
-
-	@Override
-	public void complete_LT_EM(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Child of", acceptor);
-	}
-
-	@Override
-	public void complete_GT_EM(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Parent of", acceptor);
-	}
-
-	@Override
-	public void complete_GTE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Greater than or equals", acceptor);
-	}
-
-	@Override
-	public void complete_LTE(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Less than or equals", acceptor);
-	}
-
-	@Override
-	public void complete_HASH(EObject model, RuleCall ruleCall, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor);
-	}
-	
-	@Override
-	public void complete_REVERSED(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Reverse attribute", acceptor);
-	}
-	
-	@Override
-	public void complete_TO(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor);
-	}
-	
-	@Override
-	public void complete_ROUND_CLOSE(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Closing nested expression", acceptor);
-	}
-	
-	@Override
-	public void complete_ROUND_OPEN(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, "Opening nested expression", acceptor);
-	}
-	
-	protected void createKeywordProposal(AbstractElement element, ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) {
-		createKeywordProposal(element, context, null, acceptor);
-	}
-	
-	
-	@Override
 	protected StyledString getKeywordDisplayString(Keyword keyword) {
 		StyledString result = new StyledString(keyword.getValue());
 		
-		String explanation = getKeywordExplanation(keyword.getValue());
-		if (!Strings.isNullOrEmpty(explanation)) {
+		String description = getKeywordDescription(keyword.getValue());
+		if (!Strings.isNullOrEmpty(description)) {
 			result.append(" - ", GRAY);
-			result.append(explanation, GRAY);
+			result.append(description, GRAY);
 		}
 		
 		return result;
 	}
 	
-	protected String getKeywordExplanation(String keyword) {
-		switch (keyword) {
-		case ",": return "Conjunction";
-		case "AND": return "Conjunction";
-		case "OR": return "Union (Disjunction)";
-		case "MINUS": return "Exclusion";
-		default: return "";
-		}
+	protected String getKeywordDescription(String keyword) {
+		return KEYWORD_DESCRIPTIONS.getOrDefault(keyword, "");
 	}
-	
-	protected void createKeywordProposal(AbstractElement element, ContentAssistContext context, String explanation,
-			ICompletionProposalAcceptor acceptor) {
-		if (element instanceof Keyword) {
-			Keyword keyword = (Keyword) element;
-			acceptor.accept(createKeywordProposal(keyword.getValue(), explanation, context));
-		} else if (element instanceof RuleCall) {
-			final RuleCall ruleCall = (RuleCall) element;
-			final AbstractElement alternatives = ruleCall.getRule().getAlternatives();
-			createKeywordProposal(alternatives, context, explanation, acceptor);
-		} else if (element instanceof Alternatives) {
-			for (AbstractElement e : ((Alternatives) element).getElements()) {
-				createKeywordProposal(e, context, acceptor);
-			}
-		} 
-	}
-
-	protected ICompletionProposal createKeywordProposal(String keyword, String explanation, ContentAssistContext context) {
-		return createCompletionProposal(keyword, explanation == null ? null : new StyledString(keyword).append(new StyledString(String.format(" - %s", explanation), GRAY)), null, context);
-	}
-	
 }
