@@ -23,7 +23,6 @@ import org.eclipse.xtext.validation.Check;
 
 import com.b2international.snomed.ecl.Domain;
 import com.b2international.snomed.ecl.Ecl;
-import com.b2international.snomed.ecl.EclRuntimeModule;
 import com.b2international.snomed.ecl.ecl.*;
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
@@ -154,8 +153,8 @@ public class EclValidator extends AbstractEclValidator {
 			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
 		}
 		
-		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
-		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
+		Domain leftDomain = Ecl.getDomain(it.getLeft());
+		Domain rightDomain = Ecl.getDomain(it.getRight());
 		
 		if (leftDomain != rightDomain) {
 			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
@@ -171,8 +170,8 @@ public class EclValidator extends AbstractEclValidator {
 			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
 		}
 		
-		Domain leftDomain = EclRuntimeModule.getDomain(it.getLeft());
-		Domain rightDomain = EclRuntimeModule.getDomain(it.getRight());
+		Domain leftDomain = Ecl.getDomain(it.getLeft());
+		Domain rightDomain = Ecl.getDomain(it.getRight());
 		
 		if (leftDomain != rightDomain) {
 			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, DOMAIN_INCONSISTENCY_CODE);
