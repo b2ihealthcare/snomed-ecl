@@ -20,6 +20,7 @@ import java.util.Locale;
 
 import com.b2international.snomed.ecl.ecl.*;
 import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
 
 /**
  * @since 1.3
@@ -82,9 +83,9 @@ public final class Ecl {
 			return leftDomain;
 		} else if (filter instanceof ActiveFilter) {
 			// XXX: case-insensitive enum literals are not supported by Xtext, so we convert allowed values here
-			return Domain.valueOf(((ActiveFilter) filter).getDomain().toUpperCase(Locale.ENGLISH));
+			return getDomain(((ActiveFilter) filter).getDomain());
 		} else if (filter instanceof ModuleFilter) {
-			return Domain.valueOf(((ModuleFilter) filter).getDomain().toUpperCase(Locale.ENGLISH));
+			return getDomain(((ModuleFilter) filter).getDomain());
 		} else if (filter instanceof TypeFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof TermFilter) {
@@ -102,5 +103,18 @@ public final class Ecl {
 		} else {
 			throw new UnsupportedOperationException("Not implemented case: " + filter);
 		}
+	}
+
+	private static Domain getDomain(final String domainAsString) {
+		if (Strings.isNullOrEmpty(domainAsString)) {
+			return Domain.CONCEPT;
+		}
+		
+		final Domain domain = Domain.valueOf(domainAsString.toUpperCase(Locale.ENGLISH));
+		if (domain == null) {
+			return Domain.CONCEPT;
+		}
+		
+		return domain;
 	}
 }
