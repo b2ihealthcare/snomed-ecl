@@ -40,7 +40,7 @@ DottedExpressionConstraint returns ExpressionConstraint:
 	FilteredExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=FilteredExpressionConstraint)*;
 
 FilteredExpressionConstraint returns ExpressionConstraint:
-	expression=SubExpressionConstraint filters+=FilterConstraint*;
+	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 	
 SubExpressionConstraint returns ExpressionConstraint:
 	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
