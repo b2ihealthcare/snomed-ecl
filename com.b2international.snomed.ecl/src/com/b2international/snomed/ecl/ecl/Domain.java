@@ -13,38 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl;
-
-import java.util.Arrays;
+package com.b2international.snomed.ecl.ecl;
 
 /**
- * Enumerates comparison operators, both for numbers and non-numeric data types.
+ * Enumerates the "subject" of the filter expression it operates on.
  * 
- * @since ECL 1.5
+ * @since 1.5
  */
-public enum Operator {
-	EQUALS("="),
-	NOT_EQUALS("!="),
-	GT(">"),
-	GTE(">="),
-	LT("<"),
-	LTE("<=");
-
-	private String op;
-
-	private Operator(final String op) {
-		this.op = op;
-	}
-	
-	@Override
-	public String toString() {
-		return op;
-	}
-	
-	public static Operator fromString(final String op) {
-		return Arrays.stream(Operator.values())
-			.filter(candidate -> candidate.op.equals(op))
-			.findFirst()
-			.orElse(null);
-	}
+public enum Domain {
+	CONCEPT,
+	DESCRIPTION;
 }

@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.eclipse.xtext.validation.Check;
 
-import com.b2international.snomed.ecl.Domain;
 import com.b2international.snomed.ecl.Ecl;
 import com.b2international.snomed.ecl.ecl.*;
 import com.google.common.base.Supplier;

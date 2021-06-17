@@ -13,35 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl;
+package com.b2international.snomed.ecl.ecl;
 
 import java.util.Arrays;
 
 /**
- * Enumerates supported description search types. 
+ * Enumerates comparison operators, both for numbers and non-numeric data types.
  * 
- * @since ECL 1.5 (including extensions)
+ * @since ECL 1.5
  */
-public enum LexicalSearchType {
-	MATCH("match"), 
-	WILD("wild"),
-	REGEX("regex"),
-	EXACT("exact");
+public enum Operator {
+	EQUALS("="),
+	NOT_EQUALS("!="),
+	GT(">"),
+	GTE(">="),
+	LT("<"),
+	LTE("<=");
 
-	private String searchType;
+	private String op;
 
-	private LexicalSearchType(final String searchType) {
-		this.searchType = searchType;
+	private Operator(final String op) {
+		this.op = op;
 	}
 	
 	@Override
 	public String toString() {
-		return searchType;
+		return op;
 	}
 	
-	public static LexicalSearchType fromString(final String searchType) {
-		return Arrays.stream(LexicalSearchType.values())
-			.filter(candidate -> candidate.searchType.equalsIgnoreCase(searchType))
+	public static Operator fromString(final String op) {
+		return Arrays.stream(Operator.values())
+			.filter(candidate -> candidate.op.equals(op))
 			.findFirst()
 			.orElse(null);
 	}
