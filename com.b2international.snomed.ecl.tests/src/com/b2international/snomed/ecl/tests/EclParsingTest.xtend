@@ -100,20 +100,20 @@ class EclParsingTest {
 	def void test_multi_domain_query_minus() {
 		'* {{ active=false }} MINUS * {{ term="clin find" }}'.assertNoErrors;
 	}
-	
+
 	@Test
 	def void test_query_conjuction() {
-		'* {{ active = false AND Description.active = true }}'.assertNoErrors;
+		'* {{ active = false }} AND * {{ Description.active = true }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_query_disjunction() {
-		'* {{ active = false OR Description.active = true }}'.assertNoErrors;
+		'* {{ active = false }} OR * {{ Description.active = true }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_query_disjunction_w_parenthesis() {
-		'* {{ active = false OR (Description.active = true) }}'.assertNoErrors;
+		'* {{ active = false }} OR (* {{ Description.active = true }})'.assertNoErrors;
 	}
 	
 	@Test
