@@ -576,6 +576,14 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.FILTERED_EXPRESSION_CONSTRAINT:
+      {
+        FilteredExpressionConstraint filteredExpressionConstraint = (FilteredExpressionConstraint)theEObject;
+        T result = caseFilteredExpressionConstraint(filteredExpressionConstraint);
+        if (result == null) result = caseExpressionConstraint(filteredExpressionConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.OR_REFINEMENT:
       {
         OrRefinement orRefinement = (OrRefinement)theEObject;
@@ -1522,6 +1530,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDottedExpressionConstraint(DottedExpressionConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Filtered Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Filtered Expression Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
   {
     return null;
   }

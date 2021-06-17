@@ -108,31 +108,13 @@ public interface EclPackage extends EPackage
   int EXPRESSION_CONSTRAINT = 1;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_CONSTRAINT__EXPRESSION = 0;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_CONSTRAINT__FILTERS = 1;
-
-  /**
    * The number of structural features of the '<em>Expression Constraint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = 2;
+  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOfImpl <em>Child Of</em>}' class.
@@ -143,24 +125,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int CHILD_OF = 2;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -191,24 +155,6 @@ public interface EclPackage extends EPackage
   int CHILD_OR_SELF_OF = 3;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OR_SELF_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OR_SELF_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -235,24 +181,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int DESCENDANT_OF = 4;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -283,24 +211,6 @@ public interface EclPackage extends EPackage
   int DESCENDANT_OR_SELF_OF = 5;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OR_SELF_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OR_SELF_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -327,24 +237,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int PARENT_OF = 6;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -375,24 +267,6 @@ public interface EclPackage extends EPackage
   int PARENT_OR_SELF_OF = 7;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OR_SELF_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OR_SELF_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -419,24 +293,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ANCESTOR_OF = 8;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -467,24 +323,6 @@ public interface EclPackage extends EPackage
   int ANCESTOR_OR_SELF_OF = 9;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OR_SELF_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OR_SELF_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -513,24 +351,6 @@ public interface EclPackage extends EPackage
   int MEMBER_OF = 10;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_OF__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_OF__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -557,24 +377,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ECL_CONCEPT_REFERENCE = 11;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ECL_CONCEPT_REFERENCE__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ECL_CONCEPT_REFERENCE__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -640,24 +442,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ANY = 13;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANY__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANY__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The number of structural features of the '<em>Any</em>' class.
@@ -1094,24 +878,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int NESTED_EXPRESSION = 26;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_EXPRESSION__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_EXPRESSION__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Nested</b></em>' containment reference.
@@ -1914,24 +1680,6 @@ public interface EclPackage extends EPackage
   int OR_EXPRESSION_CONSTRAINT = 52;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR_EXPRESSION_CONSTRAINT__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR_EXPRESSION_CONSTRAINT__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1967,24 +1715,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int AND_EXPRESSION_CONSTRAINT = 53;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_EXPRESSION_CONSTRAINT__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_EXPRESSION_CONSTRAINT__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2024,24 +1754,6 @@ public interface EclPackage extends EPackage
   int EXCLUSION_EXPRESSION_CONSTRAINT = 54;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXCLUSION_EXPRESSION_CONSTRAINT__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXCLUSION_EXPRESSION_CONSTRAINT__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2077,24 +1789,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int REFINED_EXPRESSION_CONSTRAINT = 55;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFINED_EXPRESSION_CONSTRAINT__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFINED_EXPRESSION_CONSTRAINT__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2134,24 +1828,6 @@ public interface EclPackage extends EPackage
   int DOTTED_EXPRESSION_CONSTRAINT = 56;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOTTED_EXPRESSION_CONSTRAINT__EXPRESSION = EXPRESSION_CONSTRAINT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOTTED_EXPRESSION_CONSTRAINT__FILTERS = EXPRESSION_CONSTRAINT__FILTERS;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2179,6 +1855,43 @@ public interface EclPackage extends EPackage
   int DOTTED_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
+   * @generated
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT = 57;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Filter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT__FILTER = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Filtered Expression Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.OrRefinementImpl <em>Or Refinement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2186,7 +1899,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 57;
+  int OR_REFINEMENT = 58;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2223,7 +1936,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 58;
+  int AND_REFINEMENT = 59;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2260,7 +1973,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDisjunctionFilter()
    * @generated
    */
-  int DISJUNCTION_FILTER = 59;
+  int DISJUNCTION_FILTER = 60;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2297,7 +2010,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getConjunctionFilter()
    * @generated
    */
-  int CONJUNCTION_FILTER = 60;
+  int CONJUNCTION_FILTER = 61;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2357,28 +2070,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EClass getExpressionConstraint();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ExpressionConstraint#getExpression()
-   * @see #getExpressionConstraint()
-   * @generated
-   */
-  EReference getExpressionConstraint_Expression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getFilters <em>Filters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Filters</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ExpressionConstraint#getFilters()
-   * @see #getExpressionConstraint()
-   * @generated
-   */
-  EReference getExpressionConstraint_Filters();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ChildOf <em>Child Of</em>}'.
@@ -3646,6 +3337,38 @@ public interface EclPackage extends EPackage
   EReference getDottedExpressionConstraint_Attribute();
 
   /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint <em>Filtered Expression Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filtered Expression Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint
+   * @generated
+   */
+  EClass getFilteredExpressionConstraint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint()
+   * @see #getFilteredExpressionConstraint()
+   * @generated
+   */
+  EReference getFilteredExpressionConstraint_Constraint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter()
+   * @see #getFilteredExpressionConstraint()
+   * @generated
+   */
+  EReference getFilteredExpressionConstraint_Filter();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.OrRefinement <em>Or Refinement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3823,22 +3546,6 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION_CONSTRAINT = eINSTANCE.getExpressionConstraint();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION_CONSTRAINT__EXPRESSION = eINSTANCE.getExpressionConstraint_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Filters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION_CONSTRAINT__FILTERS = eINSTANCE.getExpressionConstraint_Filters();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOfImpl <em>Child Of</em>}' class.
@@ -4909,6 +4616,32 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EReference DOTTED_EXPRESSION_CONSTRAINT__ATTRIBUTE = eINSTANCE.getDottedExpressionConstraint_Attribute();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
+     * @generated
+     */
+    EClass FILTERED_EXPRESSION_CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint_Constraint();
+
+    /**
+     * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTERED_EXPRESSION_CONSTRAINT__FILTER = eINSTANCE.getFilteredExpressionConstraint_Filter();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.OrRefinementImpl <em>Or Refinement</em>}' class.

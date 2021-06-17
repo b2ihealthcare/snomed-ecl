@@ -134,6 +134,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
       case EclPackage.REFINED_EXPRESSION_CONSTRAINT: return createRefinedExpressionConstraint();
       case EclPackage.DOTTED_EXPRESSION_CONSTRAINT: return createDottedExpressionConstraint();
+      case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
       case EclPackage.OR_REFINEMENT: return createOrRefinement();
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
       case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
@@ -825,6 +826,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     DottedExpressionConstraintImpl dottedExpressionConstraint = new DottedExpressionConstraintImpl();
     return dottedExpressionConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FilteredExpressionConstraint createFilteredExpressionConstraint()
+  {
+    FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
+    return filteredExpressionConstraint;
   }
 
   /**

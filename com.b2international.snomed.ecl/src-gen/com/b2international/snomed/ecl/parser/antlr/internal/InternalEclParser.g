@@ -513,42 +513,46 @@ ruleFilteredExpressionConstraint returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0());
+		}
+		this_SubExpressionConstraint_0=ruleSubExpressionConstraint
+		{
+			$current = $this_SubExpressionConstraint_0.current;
+			afterParserOrEnumRuleCall();
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getExpressionSubExpressionConstraintParserRuleCall_0_0());
+					/* */
 				}
-				lv_expression_0_0=ruleSubExpressionConstraint
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFilteredExpressionConstraintRule());
-					}
-					set(
-						$current,
-						"expression",
-						lv_expression_0_0,
-						"com.b2international.snomed.ecl.Ecl.SubExpressionConstraint");
-					afterParserOrEnumRuleCall();
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0(),
+						$current);
 				}
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getFiltersFilterConstraintParserRuleCall_1_0());
-				}
-				lv_filters_1_0=ruleFilterConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFilteredExpressionConstraintRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0());
 					}
-					add(
-						$current,
-						"filters",
-						lv_filters_1_0,
-						"com.b2international.snomed.ecl.Ecl.FilterConstraint");
-					afterParserOrEnumRuleCall();
-				}
+					lv_filter_2_0=ruleFilterConstraint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredExpressionConstraintRule());
+						}
+						set(
+							$current,
+							"filter",
+							lv_filter_2_0,
+							"com.b2international.snomed.ecl.Ecl.FilterConstraint");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 	)

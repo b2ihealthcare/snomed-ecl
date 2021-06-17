@@ -259,29 +259,33 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class FilteredExpressionConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.FilteredExpressionConstraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cExpressionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cExpressionSubExpressionConstraintParserRuleCall_0_0 = (RuleCall)cExpressionAssignment_0.eContents().get(0);
-		private final Assignment cFiltersAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFiltersFilterConstraintParserRuleCall_1_0 = (RuleCall)cFiltersAssignment_1.eContents().get(0);
+		private final RuleCall cSubExpressionConstraintParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cFilteredExpressionConstraintConstraintAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cFilterAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cFilterFilterConstraintParserRuleCall_1_1_0 = (RuleCall)cFilterAssignment_1_1.eContents().get(0);
 		
 		//FilteredExpressionConstraint ExpressionConstraint:
-		//	expression=SubExpressionConstraint filters+=FilterConstraint*;
+		//	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//expression=SubExpressionConstraint filters+=FilterConstraint*
+		//SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*
 		public Group getGroup() { return cGroup; }
 		
-		//expression=SubExpressionConstraint
-		public Assignment getExpressionAssignment_0() { return cExpressionAssignment_0; }
-		
 		//SubExpressionConstraint
-		public RuleCall getExpressionSubExpressionConstraintParserRuleCall_0_0() { return cExpressionSubExpressionConstraintParserRuleCall_0_0; }
+		public RuleCall getSubExpressionConstraintParserRuleCall_0() { return cSubExpressionConstraintParserRuleCall_0; }
 		
-		//filters+=FilterConstraint*
-		public Assignment getFiltersAssignment_1() { return cFiltersAssignment_1; }
+		//({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{FilteredExpressionConstraint.constraint=current}
+		public Action getFilteredExpressionConstraintConstraintAction_1_0() { return cFilteredExpressionConstraintConstraintAction_1_0; }
+		
+		//filter=FilterConstraint
+		public Assignment getFilterAssignment_1_1() { return cFilterAssignment_1_1; }
 		
 		//FilterConstraint
-		public RuleCall getFiltersFilterConstraintParserRuleCall_1_0() { return cFiltersFilterConstraintParserRuleCall_1_0; }
+		public RuleCall getFilterFilterConstraintParserRuleCall_1_1_0() { return cFilterFilterConstraintParserRuleCall_1_1_0; }
 	}
 	public class SubExpressionConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SubExpressionConstraint");
@@ -3189,7 +3193,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//FilteredExpressionConstraint ExpressionConstraint:
-	//	expression=SubExpressionConstraint filters+=FilterConstraint*;
+	//	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 	public FilteredExpressionConstraintElements getFilteredExpressionConstraintAccess() {
 		return pFilteredExpressionConstraint;
 	}

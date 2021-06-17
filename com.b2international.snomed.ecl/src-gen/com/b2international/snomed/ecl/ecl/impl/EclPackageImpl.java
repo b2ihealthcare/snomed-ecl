@@ -55,6 +55,7 @@ import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Filter;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
+import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
@@ -498,6 +499,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass filteredExpressionConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass orRefinementEClass = null;
 
   /**
@@ -615,28 +623,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EClass getExpressionConstraint()
   {
     return expressionConstraintEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpressionConstraint_Expression()
-  {
-    return (EReference)expressionConstraintEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpressionConstraint_Filters()
-  {
-    return (EReference)expressionConstraintEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1965,6 +1951,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getFilteredExpressionConstraint()
+  {
+    return filteredExpressionConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilteredExpressionConstraint_Constraint()
+  {
+    return (EReference)filteredExpressionConstraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilteredExpressionConstraint_Filter()
+  {
+    return (EReference)filteredExpressionConstraintEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOrRefinement()
   {
     return orRefinementEClass;
@@ -2126,8 +2145,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(scriptEClass, SCRIPT__CONSTRAINT);
 
     expressionConstraintEClass = createEClass(EXPRESSION_CONSTRAINT);
-    createEReference(expressionConstraintEClass, EXPRESSION_CONSTRAINT__EXPRESSION);
-    createEReference(expressionConstraintEClass, EXPRESSION_CONSTRAINT__FILTERS);
 
     childOfEClass = createEClass(CHILD_OF);
     createEReference(childOfEClass, CHILD_OF__CONSTRAINT);
@@ -2304,6 +2321,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(dottedExpressionConstraintEClass, DOTTED_EXPRESSION_CONSTRAINT__CONSTRAINT);
     createEReference(dottedExpressionConstraintEClass, DOTTED_EXPRESSION_CONSTRAINT__ATTRIBUTE);
 
+    filteredExpressionConstraintEClass = createEClass(FILTERED_EXPRESSION_CONSTRAINT);
+    createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT);
+    createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__FILTER);
+
     orRefinementEClass = createEClass(OR_REFINEMENT);
     createEReference(orRefinementEClass, OR_REFINEMENT__LEFT);
     createEReference(orRefinementEClass, OR_REFINEMENT__RIGHT);
@@ -2397,6 +2418,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     exclusionExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     refinedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     dottedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
+    filteredExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     orRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     andRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     disjunctionFilterEClass.getESuperTypes().add(this.getFilter());
@@ -2407,8 +2429,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getScript_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionConstraintEClass, ExpressionConstraint.class, "ExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpressionConstraint_Expression(), this.getExpressionConstraint(), null, "expression", null, 0, 1, ExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpressionConstraint_Filters(), this.getFilterConstraint(), null, "filters", null, 0, -1, ExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(childOfEClass, ChildOf.class, "ChildOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChildOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, ChildOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2584,6 +2604,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(dottedExpressionConstraintEClass, DottedExpressionConstraint.class, "DottedExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDottedExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, DottedExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDottedExpressionConstraint_Attribute(), this.getExpressionConstraint(), null, "attribute", null, 0, 1, DottedExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(filteredExpressionConstraintEClass, FilteredExpressionConstraint.class, "FilteredExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFilteredExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFilteredExpressionConstraint_Filter(), this.getFilterConstraint(), null, "filter", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orRefinementEClass, OrRefinement.class, "OrRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrRefinement_Left(), this.getEclRefinement(), null, "left", null, 0, 1, OrRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
