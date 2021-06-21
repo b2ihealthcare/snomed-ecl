@@ -29,29 +29,52 @@ public final class Ecl {
 
 	public static final String ANY = "*";
 	public static final int MAX_CARDINALITY = -1;
-	public static final Joiner OR_JOINER = Joiner.on(" OR ");
-	public static final Joiner AND_JOINER = Joiner.on(" AND ");
+	
+	private static final Joiner OR_JOINER = Joiner.on(") OR (");
+	private static final Joiner AND_JOINER = Joiner.on(") AND (");
 	
 	private Ecl() {}
 
-	public static String or(String...eclExpressions) {
-		return OR_JOINER.join(eclExpressions);
+	public static String or(String... eclExpressions) {
+		final StringBuilder builder = new StringBuilder();
+		builder.append('(');
+		OR_JOINER.appendTo(builder, eclExpressions);
+		builder.append(')');
+		return builder.toString();
 	}
 	
 	public static String or(Collection<String> eclExpressions) {
-		return OR_JOINER.join(eclExpressions);
+		final StringBuilder builder = new StringBuilder();
+		builder.append('(');
+		OR_JOINER.appendTo(builder, eclExpressions);
+		builder.append(')');
+		return builder.toString();
 	}
 	
-	public static String and(String...eclExpressions) {
-		return AND_JOINER.join(eclExpressions);
+	public static String and(String... eclExpressions) {
+		final StringBuilder builder = new StringBuilder();
+		builder.append('(');
+		AND_JOINER.appendTo(builder, eclExpressions);
+		builder.append(')');
+		return builder.toString();
 	}
 	
 	public static String and(Collection<String> eclExpressions) {
-		return AND_JOINER.join(eclExpressions);
+		final StringBuilder builder = new StringBuilder();
+		builder.append('(');
+		AND_JOINER.appendTo(builder, eclExpressions);
+		builder.append(')');
+		return builder.toString();
 	}
 
 	public static String exclude(String from, String exclusion) {
-		return String.format("(%s) MINUS (%s)", from, exclusion);
+		final StringBuilder builder = new StringBuilder();
+		builder.append('(');
+		builder.append(from);
+		builder.append(") MINUS (");
+		builder.append(exclusion);
+		builder.append(')');
+		return builder.toString();
 	}
 
 	/**
