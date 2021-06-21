@@ -6096,7 +6096,7 @@ rule__AttributeConstraint__Group__3__Impl
 :
 (
 	{ before(grammarAccess.getAttributeConstraintAccess().getComparisonAssignment_3()); }
-	(rule__AttributeConstraint__ComparisonAssignment_3)
+	(rule__AttributeConstraint__ComparisonAssignment_3)?
 	{ after(grammarAccess.getAttributeConstraintAccess().getComparisonAssignment_3()); }
 )
 ;

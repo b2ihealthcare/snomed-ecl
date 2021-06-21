@@ -578,7 +578,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AttributeConstraint returns AttributeConstraint
 	 *
 	 * Constraint:
-	 *     (cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison)
+	 *     (cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison?)
 	 */
 	protected void sequence_AttributeConstraint(ISerializationContext context, AttributeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

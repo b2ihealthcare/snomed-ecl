@@ -5778,7 +5778,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttributeConstraint"
-    // InternalEclParser.g:1940:1: ruleAttributeConstraint returns [EObject current=null] : ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) ) ) ;
+    // InternalEclParser.g:1940:1: ruleAttributeConstraint returns [EObject current=null] : ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )? ) ;
     public final EObject ruleAttributeConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -5794,11 +5794,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEclParser.g:1946:2: ( ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) ) ) )
-            // InternalEclParser.g:1947:2: ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) ) )
+            // InternalEclParser.g:1946:2: ( ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )? ) )
+            // InternalEclParser.g:1947:2: ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )? )
             {
-            // InternalEclParser.g:1947:2: ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) ) )
-            // InternalEclParser.g:1948:3: ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )
+            // InternalEclParser.g:1947:2: ( ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )? )
+            // InternalEclParser.g:1948:3: ( (lv_cardinality_0_0= ruleCardinality ) )? ( (lv_reversed_1_0= RULE_REVERSED ) )? ( (lv_attribute_2_0= ruleFilteredExpressionConstraint ) ) ( (lv_comparison_3_0= ruleComparison ) )?
             {
             // InternalEclParser.g:1948:3: ( (lv_cardinality_0_0= ruleCardinality ) )?
             int alt23=2;
@@ -5922,38 +5922,49 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEclParser.g:2004:3: ( (lv_comparison_3_0= ruleComparison ) )
-            // InternalEclParser.g:2005:4: (lv_comparison_3_0= ruleComparison )
-            {
-            // InternalEclParser.g:2005:4: (lv_comparison_3_0= ruleComparison )
-            // InternalEclParser.g:2006:5: lv_comparison_3_0= ruleComparison
-            {
-            if ( state.backtracking==0 ) {
+            // InternalEclParser.g:2004:3: ( (lv_comparison_3_0= ruleComparison ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-              					newCompositeNode(grammarAccess.getAttributeConstraintAccess().getComparisonComparisonParserRuleCall_3_0());
-              				
+            if ( ((LA25_0>=RULE_EQUAL && LA25_0<=RULE_GT)||(LA25_0>=RULE_GTE && LA25_0<=RULE_LTE)) ) {
+                alt25=1;
             }
-            pushFollow(FollowSets000.FOLLOW_2);
-            lv_comparison_3_0=ruleComparison();
+            switch (alt25) {
+                case 1 :
+                    // InternalEclParser.g:2005:4: (lv_comparison_3_0= ruleComparison )
+                    {
+                    // InternalEclParser.g:2005:4: (lv_comparison_3_0= ruleComparison )
+                    // InternalEclParser.g:2006:5: lv_comparison_3_0= ruleComparison
+                    {
+                    if ( state.backtracking==0 ) {
 
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
+                      					newCompositeNode(grammarAccess.getAttributeConstraintAccess().getComparisonComparisonParserRuleCall_3_0());
+                      				
+                    }
+                    pushFollow(FollowSets000.FOLLOW_2);
+                    lv_comparison_3_0=ruleComparison();
 
-              					if (current==null) {
-              						current = createModelElementForParent(grammarAccess.getAttributeConstraintRule());
-              					}
-              					set(
-              						current,
-              						"comparison",
-              						lv_comparison_3_0,
-              						"com.b2international.snomed.ecl.Ecl.Comparison");
-              					afterParserOrEnumRuleCall();
-              				
-            }
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-            }
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getAttributeConstraintRule());
+                      					}
+                      					set(
+                      						current,
+                      						"comparison",
+                      						lv_comparison_3_0,
+                      						"com.b2international.snomed.ecl.Ecl.Comparison");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
 
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -6214,22 +6225,22 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:2110:2: (this_AttributeComparison_0= ruleAttributeComparison | this_DataTypeComparison_1= ruleDataTypeComparison )
             {
             // InternalEclParser.g:2110:2: (this_AttributeComparison_0= ruleAttributeComparison | this_DataTypeComparison_1= ruleDataTypeComparison )
-            int alt25=2;
+            int alt26=2;
             switch ( input.LA(1) ) {
             case RULE_EQUAL:
                 {
-                int LA25_1 = input.LA(2);
+                int LA26_1 = input.LA(2);
 
-                if ( (LA25_1==False||LA25_1==True||LA25_1==RULE_HASH||LA25_1==RULE_STRING) ) {
-                    alt25=2;
+                if ( (LA26_1==False||LA26_1==True||LA26_1==RULE_HASH||LA26_1==RULE_STRING) ) {
+                    alt26=2;
                 }
-                else if ( (LA25_1==RULE_DIGIT_NONZERO||LA25_1==RULE_ROUND_OPEN||LA25_1==RULE_CARET||LA25_1==RULE_WILDCARD||(LA25_1>=RULE_LT && LA25_1<=RULE_DBL_GT_EM)) ) {
-                    alt25=1;
+                else if ( (LA26_1==RULE_DIGIT_NONZERO||LA26_1==RULE_ROUND_OPEN||LA26_1==RULE_CARET||LA26_1==RULE_WILDCARD||(LA26_1>=RULE_LT && LA26_1<=RULE_DBL_GT_EM)) ) {
+                    alt26=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 25, 1, input);
+                        new NoViableAltException("", 26, 1, input);
 
                     throw nvae;
                 }
@@ -6237,18 +6248,18 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_NOT_EQUAL:
                 {
-                int LA25_2 = input.LA(2);
+                int LA26_2 = input.LA(2);
 
-                if ( (LA25_2==False||LA25_2==True||LA25_2==RULE_HASH||LA25_2==RULE_STRING) ) {
-                    alt25=2;
+                if ( (LA26_2==False||LA26_2==True||LA26_2==RULE_HASH||LA26_2==RULE_STRING) ) {
+                    alt26=2;
                 }
-                else if ( (LA25_2==RULE_DIGIT_NONZERO||LA25_2==RULE_ROUND_OPEN||LA25_2==RULE_CARET||LA25_2==RULE_WILDCARD||(LA25_2>=RULE_LT && LA25_2<=RULE_DBL_GT_EM)) ) {
-                    alt25=1;
+                else if ( (LA26_2==RULE_DIGIT_NONZERO||LA26_2==RULE_ROUND_OPEN||LA26_2==RULE_CARET||LA26_2==RULE_WILDCARD||(LA26_2>=RULE_LT && LA26_2<=RULE_DBL_GT_EM)) ) {
+                    alt26=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 25, 2, input);
+                        new NoViableAltException("", 26, 2, input);
 
                     throw nvae;
                 }
@@ -6259,18 +6270,18 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             case RULE_GTE:
             case RULE_LTE:
                 {
-                alt25=2;
+                alt26=2;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 25, 0, input);
+                    new NoViableAltException("", 26, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
                     // InternalEclParser.g:2111:3: this_AttributeComparison_0= ruleAttributeComparison
                     {
@@ -6565,9 +6576,9 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:2209:2: (this_BooleanValueComparison_0= ruleBooleanValueComparison | this_StringValueComparison_1= ruleStringValueComparison | this_IntegerValueComparison_2= ruleIntegerValueComparison | this_DecimalValueComparison_3= ruleDecimalValueComparison )
             {
             // InternalEclParser.g:2209:2: (this_BooleanValueComparison_0= ruleBooleanValueComparison | this_StringValueComparison_1= ruleStringValueComparison | this_IntegerValueComparison_2= ruleIntegerValueComparison | this_DecimalValueComparison_3= ruleDecimalValueComparison )
-            int alt26=4;
-            alt26 = dfa26.predict(input);
-            switch (alt26) {
+            int alt27=4;
+            alt27 = dfa27.predict(input);
+            switch (alt27) {
                 case 1 :
                     // InternalEclParser.g:2210:3: this_BooleanValueComparison_0= ruleBooleanValueComparison
                     {
@@ -7751,17 +7762,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:2634:3: ( () ruleDISJUNCTION ( (lv_right_3_0= ruleConjunctionFilter ) ) )*
-            loop27:
+            loop28:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA27_0==OR) ) {
-                    alt27=1;
+                if ( (LA28_0==OR) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt28) {
             	case 1 :
             	    // InternalEclParser.g:2635:4: () ruleDISJUNCTION ( (lv_right_3_0= ruleConjunctionFilter ) )
             	    {
@@ -7843,7 +7854,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop28;
                 }
             } while (true);
 
@@ -7954,17 +7965,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:2705:3: ( () ( ruleCONJUNCTION | this_COMMA_3= RULE_COMMA ) ( (lv_right_4_0= rulePropertyFilter ) ) )*
-            loop29:
+            loop30:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA29_0==AND||LA29_0==RULE_COMMA) ) {
-                    alt29=1;
+                if ( (LA30_0==AND||LA30_0==RULE_COMMA) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt30) {
             	case 1 :
             	    // InternalEclParser.g:2706:4: () ( ruleCONJUNCTION | this_COMMA_3= RULE_COMMA ) ( (lv_right_4_0= rulePropertyFilter ) )
             	    {
@@ -7987,23 +7998,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    }
 
             	    // InternalEclParser.g:2716:4: ( ruleCONJUNCTION | this_COMMA_3= RULE_COMMA )
-            	    int alt28=2;
-            	    int LA28_0 = input.LA(1);
+            	    int alt29=2;
+            	    int LA29_0 = input.LA(1);
 
-            	    if ( (LA28_0==AND) ) {
-            	        alt28=1;
+            	    if ( (LA29_0==AND) ) {
+            	        alt29=1;
             	    }
-            	    else if ( (LA28_0==RULE_COMMA) ) {
-            	        alt28=2;
+            	    else if ( (LA29_0==RULE_COMMA) ) {
+            	        alt29=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 28, 0, input);
+            	            new NoViableAltException("", 29, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt28) {
+            	    switch (alt29) {
             	        case 1 :
             	            // InternalEclParser.g:2717:5: ruleCONJUNCTION
             	            {
@@ -8085,7 +8096,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop30;
                 }
             } while (true);
 
@@ -8320,9 +8331,9 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:2817:2: (this_TermFilter_0= ruleTermFilter | this_LanguageFilter_1= ruleLanguageFilter | this_TypeFilter_2= ruleTypeFilter | this_DialectFilter_3= ruleDialectFilter | this_ActiveFilter_4= ruleActiveFilter | this_PreferredInFilter_5= rulePreferredInFilter | this_AcceptableInFilter_6= ruleAcceptableInFilter | this_LanguageRefSetFilter_7= ruleLanguageRefSetFilter | this_ModuleFilter_8= ruleModuleFilter | this_CaseSignificanceFilter_9= ruleCaseSignificanceFilter | this_NestedFilter_10= ruleNestedFilter )
             {
             // InternalEclParser.g:2817:2: (this_TermFilter_0= ruleTermFilter | this_LanguageFilter_1= ruleLanguageFilter | this_TypeFilter_2= ruleTypeFilter | this_DialectFilter_3= ruleDialectFilter | this_ActiveFilter_4= ruleActiveFilter | this_PreferredInFilter_5= rulePreferredInFilter | this_AcceptableInFilter_6= ruleAcceptableInFilter | this_LanguageRefSetFilter_7= ruleLanguageRefSetFilter | this_ModuleFilter_8= ruleModuleFilter | this_CaseSignificanceFilter_9= ruleCaseSignificanceFilter | this_NestedFilter_10= ruleNestedFilter )
-            int alt30=11;
-            alt30 = dfa30.predict(input);
-            switch (alt30) {
+            int alt31=11;
+            alt31 = dfa31.predict(input);
+            switch (alt31) {
                 case 1 :
                     // InternalEclParser.g:2818:3: this_TermFilter_0= ruleTermFilter
                     {
@@ -8725,39 +8736,39 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:2978:3: (this_TypedTermFilter_1= ruleTypedTermFilter | this_TypedTermFilterSet_2= ruleTypedTermFilterSet )
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_EQUAL) ) {
-                int LA31_1 = input.LA(2);
+            if ( (LA32_0==RULE_EQUAL) ) {
+                int LA32_1 = input.LA(2);
 
-                if ( (LA31_1==Exact||(LA31_1>=Match && LA31_1<=Regex)||LA31_1==Wild||LA31_1==RULE_STRING) ) {
-                    alt31=1;
+                if ( (LA32_1==Exact||(LA32_1>=Match && LA32_1<=Regex)||LA32_1==Wild||LA32_1==RULE_STRING) ) {
+                    alt32=1;
                 }
-                else if ( (LA31_1==RULE_ROUND_OPEN) ) {
-                    alt31=2;
+                else if ( (LA32_1==RULE_ROUND_OPEN) ) {
+                    alt32=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 31, 1, input);
+                        new NoViableAltException("", 32, 1, input);
 
                     throw nvae;
                 }
             }
-            else if ( (LA31_0==RULE_NOT_EQUAL) ) {
-                int LA31_2 = input.LA(2);
+            else if ( (LA32_0==RULE_NOT_EQUAL) ) {
+                int LA32_2 = input.LA(2);
 
-                if ( (LA31_2==Exact||(LA31_2>=Match && LA31_2<=Regex)||LA31_2==Wild||LA31_2==RULE_STRING) ) {
-                    alt31=1;
+                if ( (LA32_2==RULE_ROUND_OPEN) ) {
+                    alt32=2;
                 }
-                else if ( (LA31_2==RULE_ROUND_OPEN) ) {
-                    alt31=2;
+                else if ( (LA32_2==Exact||(LA32_2>=Match && LA32_2<=Regex)||LA32_2==Wild||LA32_2==RULE_STRING) ) {
+                    alt32=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 31, 2, input);
+                        new NoViableAltException("", 32, 2, input);
 
                     throw nvae;
                 }
@@ -8765,11 +8776,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 31, 0, input);
+                    new NoViableAltException("", 32, 0, input);
 
                 throw nvae;
             }
-            switch (alt31) {
+            switch (alt32) {
                 case 1 :
                     // InternalEclParser.g:2979:4: this_TypedTermFilter_1= ruleTypedTermFilter
                     {
@@ -8949,13 +8960,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3041:3: ( ( (lv_lexicalSearchType_1_0= ruleLEXICAL_SEARCH_TYPE ) ) this_COLON_2= RULE_COLON )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA32_0==Exact||(LA32_0>=Match && LA32_0<=Regex)||LA32_0==Wild) ) {
-                alt32=1;
+            if ( (LA33_0==Exact||(LA33_0>=Match && LA33_0<=Regex)||LA33_0==Wild) ) {
+                alt33=1;
             }
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
                     // InternalEclParser.g:3042:4: ( (lv_lexicalSearchType_1_0= ruleLEXICAL_SEARCH_TYPE ) ) this_COLON_2= RULE_COLON
                     {
@@ -9201,17 +9212,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3145:3: ( (lv_terms_3_0= ruleTypedTermFilter ) )*
-            loop33:
+            loop34:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( ((LA33_0>=RULE_EQUAL && LA33_0<=RULE_NOT_EQUAL)) ) {
-                    alt33=1;
+                if ( ((LA34_0>=RULE_EQUAL && LA34_0<=RULE_NOT_EQUAL)) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt34) {
             	case 1 :
             	    // InternalEclParser.g:3146:4: (lv_terms_3_0= ruleTypedTermFilter )
             	    {
@@ -9249,7 +9260,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop33;
+            	    break loop34;
                 }
             } while (true);
 
@@ -9405,23 +9416,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3216:3: ( ( (lv_languageCodes_2_0= ruleAlphabetical ) ) | (this_ROUND_OPEN_3= RULE_ROUND_OPEN ( (lv_languageCodes_4_0= ruleAlphabetical ) ) ( (lv_languageCodes_5_0= ruleAlphabetical ) )* this_ROUND_CLOSE_6= RULE_ROUND_CLOSE ) )
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA35_0==RULE_ALPHA) ) {
-                alt35=1;
+            if ( (LA36_0==RULE_ALPHA) ) {
+                alt36=1;
             }
-            else if ( (LA35_0==RULE_ROUND_OPEN) ) {
-                alt35=2;
+            else if ( (LA36_0==RULE_ROUND_OPEN) ) {
+                alt36=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
+                    new NoViableAltException("", 36, 0, input);
 
                 throw nvae;
             }
-            switch (alt35) {
+            switch (alt36) {
                 case 1 :
                     // InternalEclParser.g:3217:4: ( (lv_languageCodes_2_0= ruleAlphabetical ) )
                     {
@@ -9511,17 +9522,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalEclParser.g:3261:5: ( (lv_languageCodes_5_0= ruleAlphabetical ) )*
-                    loop34:
+                    loop35:
                     do {
-                        int alt34=2;
-                        int LA34_0 = input.LA(1);
+                        int alt35=2;
+                        int LA35_0 = input.LA(1);
 
-                        if ( (LA34_0==RULE_ALPHA) ) {
-                            alt34=1;
+                        if ( (LA35_0==RULE_ALPHA) ) {
+                            alt35=1;
                         }
 
 
-                        switch (alt34) {
+                        switch (alt35) {
                     	case 1 :
                     	    // InternalEclParser.g:3262:6: (lv_languageCodes_5_0= ruleAlphabetical )
                     	    {
@@ -9559,7 +9570,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop34;
+                    	    break loop35;
                         }
                     } while (true);
 
@@ -9660,23 +9671,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:3304:2: (this_TypeIdFilter_0= ruleTypeIdFilter | this_TypeTokenFilter_1= ruleTypeTokenFilter )
             {
             // InternalEclParser.g:3304:2: (this_TypeIdFilter_0= ruleTypeIdFilter | this_TypeTokenFilter_1= ruleTypeTokenFilter )
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA36_0==TypeId) ) {
-                alt36=1;
+            if ( (LA37_0==TypeId) ) {
+                alt37=1;
             }
-            else if ( (LA36_0==Type) ) {
-                alt36=2;
+            else if ( (LA37_0==Type) ) {
+                alt37=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 36, 0, input);
+                    new NoViableAltException("", 37, 0, input);
 
                 throw nvae;
             }
-            switch (alt36) {
+            switch (alt37) {
                 case 1 :
                     // InternalEclParser.g:3305:3: this_TypeIdFilter_0= ruleTypeIdFilter
                     {
@@ -9879,23 +9890,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:3378:5: (lv_type_2_1= ruleEclConceptReference | lv_type_2_2= ruleEclConceptReferenceSet )
             {
             // InternalEclParser.g:3378:5: (lv_type_2_1= ruleEclConceptReference | lv_type_2_2= ruleEclConceptReferenceSet )
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA37_0==RULE_DIGIT_NONZERO) ) {
-                alt37=1;
+            if ( (LA38_0==RULE_DIGIT_NONZERO) ) {
+                alt38=1;
             }
-            else if ( (LA37_0==RULE_ROUND_OPEN) ) {
-                alt37=2;
+            else if ( (LA38_0==RULE_ROUND_OPEN) ) {
+                alt38=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 37, 0, input);
+                    new NoViableAltException("", 38, 0, input);
 
                 throw nvae;
             }
-            switch (alt37) {
+            switch (alt38) {
                 case 1 :
                     // InternalEclParser.g:3379:6: lv_type_2_1= ruleEclConceptReference
                     {
@@ -10109,23 +10120,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3461:3: ( ( (lv_tokens_2_0= ruleAlphabetical ) ) | (this_ROUND_OPEN_3= RULE_ROUND_OPEN ( (lv_tokens_4_0= ruleAlphabetical ) ) ( (lv_tokens_5_0= ruleAlphabetical ) )* this_ROUND_CLOSE_6= RULE_ROUND_CLOSE ) )
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA39_0==RULE_ALPHA) ) {
-                alt39=1;
+            if ( (LA40_0==RULE_ALPHA) ) {
+                alt40=1;
             }
-            else if ( (LA39_0==RULE_ROUND_OPEN) ) {
-                alt39=2;
+            else if ( (LA40_0==RULE_ROUND_OPEN) ) {
+                alt40=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 40, 0, input);
 
                 throw nvae;
             }
-            switch (alt39) {
+            switch (alt40) {
                 case 1 :
                     // InternalEclParser.g:3462:4: ( (lv_tokens_2_0= ruleAlphabetical ) )
                     {
@@ -10215,17 +10226,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalEclParser.g:3506:5: ( (lv_tokens_5_0= ruleAlphabetical ) )*
-                    loop38:
+                    loop39:
                     do {
-                        int alt38=2;
-                        int LA38_0 = input.LA(1);
+                        int alt39=2;
+                        int LA39_0 = input.LA(1);
 
-                        if ( (LA38_0==RULE_ALPHA) ) {
-                            alt38=1;
+                        if ( (LA39_0==RULE_ALPHA) ) {
+                            alt39=1;
                         }
 
 
-                        switch (alt38) {
+                        switch (alt39) {
                     	case 1 :
                     	    // InternalEclParser.g:3507:6: (lv_tokens_5_0= ruleAlphabetical )
                     	    {
@@ -10263,7 +10274,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop38;
+                    	    break loop39;
                         }
                     } while (true);
 
@@ -10364,23 +10375,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:3549:2: (this_DialectIdFilter_0= ruleDialectIdFilter | this_DialectAliasFilter_1= ruleDialectAliasFilter )
             {
             // InternalEclParser.g:3549:2: (this_DialectIdFilter_0= ruleDialectIdFilter | this_DialectAliasFilter_1= ruleDialectAliasFilter )
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA40_0==DialectId) ) {
-                alt40=1;
+            if ( (LA41_0==DialectId) ) {
+                alt41=1;
             }
-            else if ( (LA40_0==Dialect) ) {
-                alt40=2;
+            else if ( (LA41_0==Dialect) ) {
+                alt41=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 40, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
                     // InternalEclParser.g:3550:3: this_DialectIdFilter_0= ruleDialectIdFilter
                     {
@@ -10581,23 +10592,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3621:3: ( ( (lv_dialects_2_0= ruleDialect ) ) | (this_ROUND_OPEN_3= RULE_ROUND_OPEN ( (lv_dialects_4_0= ruleDialect ) ) ( (lv_dialects_5_0= ruleDialect ) )* this_ROUND_CLOSE_6= RULE_ROUND_CLOSE ) )
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            int alt43=2;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA42_0==RULE_DIGIT_NONZERO) ) {
-                alt42=1;
+            if ( (LA43_0==RULE_DIGIT_NONZERO) ) {
+                alt43=1;
             }
-            else if ( (LA42_0==RULE_ROUND_OPEN) ) {
-                alt42=2;
+            else if ( (LA43_0==RULE_ROUND_OPEN) ) {
+                alt43=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 42, 0, input);
+                    new NoViableAltException("", 43, 0, input);
 
                 throw nvae;
             }
-            switch (alt42) {
+            switch (alt43) {
                 case 1 :
                     // InternalEclParser.g:3622:4: ( (lv_dialects_2_0= ruleDialect ) )
                     {
@@ -10687,17 +10698,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalEclParser.g:3666:5: ( (lv_dialects_5_0= ruleDialect ) )*
-                    loop41:
+                    loop42:
                     do {
-                        int alt41=2;
-                        int LA41_0 = input.LA(1);
+                        int alt42=2;
+                        int LA42_0 = input.LA(1);
 
-                        if ( (LA41_0==RULE_DIGIT_NONZERO) ) {
-                            alt41=1;
+                        if ( (LA42_0==RULE_DIGIT_NONZERO) ) {
+                            alt42=1;
                         }
 
 
-                        switch (alt41) {
+                        switch (alt42) {
                     	case 1 :
                     	    // InternalEclParser.g:3667:6: (lv_dialects_5_0= ruleDialect )
                     	    {
@@ -10735,7 +10746,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop41;
+                    	    break loop42;
                         }
                     } while (true);
 
@@ -10900,23 +10911,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3739:3: ( ( (lv_dialects_2_0= ruleDialectAlias ) ) | (this_ROUND_OPEN_3= RULE_ROUND_OPEN ( (lv_dialects_4_0= ruleDialectAlias ) ) ( (lv_dialects_5_0= ruleDialectAlias ) )* this_ROUND_CLOSE_6= RULE_ROUND_CLOSE ) )
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA44_0==RULE_ALPHA) ) {
-                alt44=1;
+            if ( (LA45_0==RULE_ALPHA) ) {
+                alt45=1;
             }
-            else if ( (LA44_0==RULE_ROUND_OPEN) ) {
-                alt44=2;
+            else if ( (LA45_0==RULE_ROUND_OPEN) ) {
+                alt45=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 44, 0, input);
+                    new NoViableAltException("", 45, 0, input);
 
                 throw nvae;
             }
-            switch (alt44) {
+            switch (alt45) {
                 case 1 :
                     // InternalEclParser.g:3740:4: ( (lv_dialects_2_0= ruleDialectAlias ) )
                     {
@@ -11006,17 +11017,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalEclParser.g:3784:5: ( (lv_dialects_5_0= ruleDialectAlias ) )*
-                    loop43:
+                    loop44:
                     do {
-                        int alt43=2;
-                        int LA43_0 = input.LA(1);
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA43_0==RULE_ALPHA) ) {
-                            alt43=1;
+                        if ( (LA44_0==RULE_ALPHA) ) {
+                            alt44=1;
                         }
 
 
-                        switch (alt43) {
+                        switch (alt44) {
                     	case 1 :
                     	    // InternalEclParser.g:3785:6: (lv_dialects_5_0= ruleDialectAlias )
                     	    {
@@ -11054,7 +11065,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop43;
+                    	    break loop44;
                         }
                     } while (true);
 
@@ -11193,13 +11204,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3847:3: ( (lv_acceptability_1_0= ruleAcceptability ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA45_0==RULE_ROUND_OPEN) ) {
-                alt45=1;
+            if ( (LA46_0==RULE_ROUND_OPEN) ) {
+                alt46=1;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
                     // InternalEclParser.g:3848:4: (lv_acceptability_1_0= ruleAcceptability )
                     {
@@ -11358,13 +11369,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:3904:3: ( (lv_acceptability_1_0= ruleAcceptability ) )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA46_0==RULE_ROUND_OPEN) ) {
-                alt46=1;
+            if ( (LA47_0==RULE_ROUND_OPEN) ) {
+                alt47=1;
             }
-            switch (alt46) {
+            switch (alt47) {
                 case 1 :
                     // InternalEclParser.g:3905:4: (lv_acceptability_1_0= ruleAcceptability )
                     {
@@ -11485,22 +11496,22 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:3941:2: (this_AcceptabilityIdSet_0= ruleAcceptabilityIdSet | this_AcceptabilityTokenSet_1= ruleAcceptabilityTokenSet )
             {
             // InternalEclParser.g:3941:2: (this_AcceptabilityIdSet_0= ruleAcceptabilityIdSet | this_AcceptabilityTokenSet_1= ruleAcceptabilityTokenSet )
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA47_0==RULE_ROUND_OPEN) ) {
-                int LA47_1 = input.LA(2);
+            if ( (LA48_0==RULE_ROUND_OPEN) ) {
+                int LA48_1 = input.LA(2);
 
-                if ( (LA47_1==RULE_ALPHA) ) {
-                    alt47=2;
+                if ( (LA48_1==RULE_ALPHA) ) {
+                    alt48=2;
                 }
-                else if ( (LA47_1==RULE_DIGIT_NONZERO) ) {
-                    alt47=1;
+                else if ( (LA48_1==RULE_DIGIT_NONZERO) ) {
+                    alt48=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 47, 1, input);
+                        new NoViableAltException("", 48, 1, input);
 
                     throw nvae;
                 }
@@ -11508,11 +11519,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 47, 0, input);
+                    new NoViableAltException("", 48, 0, input);
 
                 throw nvae;
             }
-            switch (alt47) {
+            switch (alt48) {
                 case 1 :
                     // InternalEclParser.g:3942:3: this_AcceptabilityIdSet_0= ruleAcceptabilityIdSet
                     {
@@ -11806,17 +11817,17 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:4043:3: ( (lv_acceptabilities_2_0= ruleAlphabetical ) )*
-            loop48:
+            loop49:
             do {
-                int alt48=2;
-                int LA48_0 = input.LA(1);
+                int alt49=2;
+                int LA49_0 = input.LA(1);
 
-                if ( (LA48_0==RULE_ALPHA) ) {
-                    alt48=1;
+                if ( (LA49_0==RULE_ALPHA) ) {
+                    alt49=1;
                 }
 
 
-                switch (alt48) {
+                switch (alt49) {
             	case 1 :
             	    // InternalEclParser.g:4044:4: (lv_acceptabilities_2_0= ruleAlphabetical )
             	    {
@@ -11854,7 +11865,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop48;
+            	    break loop49;
                 }
             } while (true);
 
@@ -11951,13 +11962,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4085:3: ( ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT )? ruleACTIVE_KEYWORD this_EQUAL_3= RULE_EQUAL ( (lv_active_4_0= ruleBoolean ) )
             {
             // InternalEclParser.g:4085:3: ( ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA49_0==Description||LA49_0==Concept) ) {
-                alt49=1;
+            if ( (LA50_0==Description||LA50_0==Concept) ) {
+                alt50=1;
             }
-            switch (alt49) {
+            switch (alt50) {
                 case 1 :
                     // InternalEclParser.g:4086:4: ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT
                     {
@@ -12156,13 +12167,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4162:3: ( ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT )? ruleMODULEID_KEYWORD this_EQUAL_3= RULE_EQUAL ( (lv_moduleId_4_0= ruleExpressionConstraint ) )
             {
             // InternalEclParser.g:4162:3: ( ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA50_0==Description||LA50_0==Concept) ) {
-                alt50=1;
+            if ( (LA51_0==Description||LA51_0==Concept) ) {
+                alt51=1;
             }
-            switch (alt50) {
+            switch (alt51) {
                 case 1 :
                     // InternalEclParser.g:4163:4: ( (lv_domain_0_0= ruleDOMAIN ) ) this_DOT_1= RULE_DOT
                     {
@@ -12960,23 +12971,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:4460:3: (this_DIGIT_NONZERO_1= RULE_DIGIT_NONZERO | this_ZERO_2= RULE_ZERO )
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA51_0==RULE_DIGIT_NONZERO) ) {
-                alt51=1;
+            if ( (LA52_0==RULE_DIGIT_NONZERO) ) {
+                alt52=1;
             }
-            else if ( (LA51_0==RULE_ZERO) ) {
-                alt51=2;
+            else if ( (LA52_0==RULE_ZERO) ) {
+                alt52=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 51, 0, input);
+                    new NoViableAltException("", 52, 0, input);
 
                 throw nvae;
             }
-            switch (alt51) {
+            switch (alt52) {
                 case 1 :
                     // InternalEclParser.g:4461:4: this_DIGIT_NONZERO_1= RULE_DIGIT_NONZERO
                     {
@@ -13015,23 +13026,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:4477:3: (this_DIGIT_NONZERO_3= RULE_DIGIT_NONZERO | this_ZERO_4= RULE_ZERO )
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA52_0==RULE_DIGIT_NONZERO) ) {
-                alt52=1;
+            if ( (LA53_0==RULE_DIGIT_NONZERO) ) {
+                alt53=1;
             }
-            else if ( (LA52_0==RULE_ZERO) ) {
-                alt52=2;
+            else if ( (LA53_0==RULE_ZERO) ) {
+                alt53=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 52, 0, input);
+                    new NoViableAltException("", 53, 0, input);
 
                 throw nvae;
             }
-            switch (alt52) {
+            switch (alt53) {
                 case 1 :
                     // InternalEclParser.g:4478:4: this_DIGIT_NONZERO_3= RULE_DIGIT_NONZERO
                     {
@@ -13070,23 +13081,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:4494:3: (this_DIGIT_NONZERO_5= RULE_DIGIT_NONZERO | this_ZERO_6= RULE_ZERO )
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA53_0==RULE_DIGIT_NONZERO) ) {
-                alt53=1;
+            if ( (LA54_0==RULE_DIGIT_NONZERO) ) {
+                alt54=1;
             }
-            else if ( (LA53_0==RULE_ZERO) ) {
-                alt53=2;
+            else if ( (LA54_0==RULE_ZERO) ) {
+                alt54=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 53, 0, input);
+                    new NoViableAltException("", 54, 0, input);
 
                 throw nvae;
             }
-            switch (alt53) {
+            switch (alt54) {
                 case 1 :
                     // InternalEclParser.g:4495:4: this_DIGIT_NONZERO_5= RULE_DIGIT_NONZERO
                     {
@@ -13125,23 +13136,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:4511:3: (this_DIGIT_NONZERO_7= RULE_DIGIT_NONZERO | this_ZERO_8= RULE_ZERO )
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA54_0==RULE_DIGIT_NONZERO) ) {
-                alt54=1;
+            if ( (LA55_0==RULE_DIGIT_NONZERO) ) {
+                alt55=1;
             }
-            else if ( (LA54_0==RULE_ZERO) ) {
-                alt54=2;
+            else if ( (LA55_0==RULE_ZERO) ) {
+                alt55=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 54, 0, input);
+                    new NoViableAltException("", 55, 0, input);
 
                 throw nvae;
             }
-            switch (alt54) {
+            switch (alt55) {
                 case 1 :
                     // InternalEclParser.g:4512:4: this_DIGIT_NONZERO_7= RULE_DIGIT_NONZERO
                     {
@@ -13180,20 +13191,20 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             }
 
             // InternalEclParser.g:4528:3: (this_DIGIT_NONZERO_9= RULE_DIGIT_NONZERO | this_ZERO_10= RULE_ZERO )+
-            int cnt55=0;
-            loop55:
+            int cnt56=0;
+            loop56:
             do {
-                int alt55=3;
-                int LA55_0 = input.LA(1);
+                int alt56=3;
+                int LA56_0 = input.LA(1);
 
-                if ( (LA55_0==RULE_DIGIT_NONZERO) ) {
-                	alt55=1;
+                if ( (LA56_0==RULE_DIGIT_NONZERO) ) {
+                	alt56=1;
                 }
-                else if ( (LA55_0==RULE_ZERO) ) {
-                	alt55=2;
+                else if ( (LA56_0==RULE_ZERO) ) {
+                	alt56=2;
                 }
                 
-                switch (alt55) {
+                switch (alt56) {
             	case 1 :
             	    // InternalEclParser.g:4529:4: this_DIGIT_NONZERO_9= RULE_DIGIT_NONZERO
             	    {
@@ -13230,13 +13241,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt55 >= 1 ) break loop55;
+            	    if ( cnt56 >= 1 ) break loop56;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(55, input);
+                            new EarlyExitException(56, input);
                         throw eee;
                 }
-                cnt55++;
+                cnt56++;
             } while (true);
 
 
@@ -13331,23 +13342,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4572:2: (this_ZERO_0= RULE_ZERO | (this_DIGIT_NONZERO_1= RULE_DIGIT_NONZERO (this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO | this_ZERO_3= RULE_ZERO )* ) )
             {
             // InternalEclParser.g:4572:2: (this_ZERO_0= RULE_ZERO | (this_DIGIT_NONZERO_1= RULE_DIGIT_NONZERO (this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO | this_ZERO_3= RULE_ZERO )* ) )
-            int alt57=2;
-            int LA57_0 = input.LA(1);
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            if ( (LA57_0==RULE_ZERO) ) {
-                alt57=1;
+            if ( (LA58_0==RULE_ZERO) ) {
+                alt58=1;
             }
-            else if ( (LA57_0==RULE_DIGIT_NONZERO) ) {
-                alt57=2;
+            else if ( (LA58_0==RULE_DIGIT_NONZERO) ) {
+                alt58=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 57, 0, input);
+                    new NoViableAltException("", 58, 0, input);
 
                 throw nvae;
             }
-            switch (alt57) {
+            switch (alt58) {
                 case 1 :
                     // InternalEclParser.g:4573:3: this_ZERO_0= RULE_ZERO
                     {
@@ -13383,20 +13394,20 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                       			
                     }
                     // InternalEclParser.g:4589:4: (this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO | this_ZERO_3= RULE_ZERO )*
-                    loop56:
+                    loop57:
                     do {
-                        int alt56=3;
-                        int LA56_0 = input.LA(1);
+                        int alt57=3;
+                        int LA57_0 = input.LA(1);
 
-                        if ( (LA56_0==RULE_DIGIT_NONZERO) ) {
-                            alt56=1;
+                        if ( (LA57_0==RULE_DIGIT_NONZERO) ) {
+                            alt57=1;
                         }
-                        else if ( (LA56_0==RULE_ZERO) ) {
-                            alt56=2;
+                        else if ( (LA57_0==RULE_ZERO) ) {
+                            alt57=2;
                         }
 
 
-                        switch (alt56) {
+                        switch (alt57) {
                     	case 1 :
                     	    // InternalEclParser.g:4590:5: this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO
                     	    {
@@ -13433,7 +13444,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop56;
+                    	    break loop57;
                         }
                     } while (true);
 
@@ -13534,23 +13545,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4634:2: (this_NonNegativeInteger_0= ruleNonNegativeInteger | this_WILDCARD_1= RULE_WILDCARD )
             {
             // InternalEclParser.g:4634:2: (this_NonNegativeInteger_0= ruleNonNegativeInteger | this_WILDCARD_1= RULE_WILDCARD )
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( ((LA58_0>=RULE_ZERO && LA58_0<=RULE_DIGIT_NONZERO)) ) {
-                alt58=1;
+            if ( ((LA59_0>=RULE_ZERO && LA59_0<=RULE_DIGIT_NONZERO)) ) {
+                alt59=1;
             }
-            else if ( (LA58_0==RULE_WILDCARD) ) {
-                alt58=2;
+            else if ( (LA59_0==RULE_WILDCARD) ) {
+                alt59=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 58, 0, input);
+                    new NoViableAltException("", 59, 0, input);
 
                 throw nvae;
             }
-            switch (alt58) {
+            switch (alt59) {
                 case 1 :
                     // InternalEclParser.g:4635:3: this_NonNegativeInteger_0= ruleNonNegativeInteger
                     {
@@ -13689,16 +13700,16 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4681:3: (this_PLUS_0= RULE_PLUS | this_DASH_1= RULE_DASH )? this_NonNegativeInteger_2= ruleNonNegativeInteger
             {
             // InternalEclParser.g:4681:3: (this_PLUS_0= RULE_PLUS | this_DASH_1= RULE_DASH )?
-            int alt59=3;
-            int LA59_0 = input.LA(1);
+            int alt60=3;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA59_0==RULE_PLUS) ) {
-                alt59=1;
+            if ( (LA60_0==RULE_PLUS) ) {
+                alt60=1;
             }
-            else if ( (LA59_0==RULE_DASH) ) {
-                alt59=2;
+            else if ( (LA60_0==RULE_DASH) ) {
+                alt60=2;
             }
-            switch (alt59) {
+            switch (alt60) {
                 case 1 :
                     // InternalEclParser.g:4682:4: this_PLUS_0= RULE_PLUS
                     {
@@ -13851,16 +13862,16 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4736:3: (this_PLUS_0= RULE_PLUS | this_DASH_1= RULE_DASH )? this_NonNegativeDecimal_2= ruleNonNegativeDecimal
             {
             // InternalEclParser.g:4736:3: (this_PLUS_0= RULE_PLUS | this_DASH_1= RULE_DASH )?
-            int alt60=3;
-            int LA60_0 = input.LA(1);
+            int alt61=3;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA60_0==RULE_PLUS) ) {
-                alt60=1;
+            if ( (LA61_0==RULE_PLUS) ) {
+                alt61=1;
             }
-            else if ( (LA60_0==RULE_DASH) ) {
-                alt60=2;
+            else if ( (LA61_0==RULE_DASH) ) {
+                alt61=2;
             }
-            switch (alt60) {
+            switch (alt61) {
                 case 1 :
                     // InternalEclParser.g:4737:4: this_PLUS_0= RULE_PLUS
                     {
@@ -14045,20 +14056,20 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:4808:3: (this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO | this_ZERO_3= RULE_ZERO )*
-            loop61:
+            loop62:
             do {
-                int alt61=3;
-                int LA61_0 = input.LA(1);
+                int alt62=3;
+                int LA62_0 = input.LA(1);
 
-                if ( (LA61_0==RULE_DIGIT_NONZERO) ) {
-                    alt61=1;
+                if ( (LA62_0==RULE_DIGIT_NONZERO) ) {
+                    alt62=1;
                 }
-                else if ( (LA61_0==RULE_ZERO) ) {
-                    alt61=2;
+                else if ( (LA62_0==RULE_ZERO) ) {
+                    alt62=2;
                 }
 
 
-                switch (alt61) {
+                switch (alt62) {
             	case 1 :
             	    // InternalEclParser.g:4809:4: this_DIGIT_NONZERO_2= RULE_DIGIT_NONZERO
             	    {
@@ -14095,7 +14106,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop61;
+            	    break loop62;
                 }
             } while (true);
 
@@ -14188,23 +14199,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4852:2: (kw= True | kw= False )
             {
             // InternalEclParser.g:4852:2: (kw= True | kw= False )
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA62_0==True) ) {
-                alt62=1;
+            if ( (LA63_0==True) ) {
+                alt63=1;
             }
-            else if ( (LA62_0==False) ) {
-                alt62=2;
+            else if ( (LA63_0==False) ) {
+                alt63=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 62, 0, input);
+                    new NoViableAltException("", 63, 0, input);
 
                 throw nvae;
             }
-            switch (alt62) {
+            switch (alt63) {
                 case 1 :
                     // InternalEclParser.g:4853:3: kw= True
                     {
@@ -14338,16 +14349,16 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
               		
             }
             // InternalEclParser.g:4899:3: (this_DASH_1= RULE_DASH | this_ALPHA_2= RULE_ALPHA | this_ZERO_3= RULE_ZERO | this_DIGIT_NONZERO_4= RULE_DIGIT_NONZERO )*
-            loop63:
+            loop64:
             do {
-                int alt63=5;
+                int alt64=5;
                 switch ( input.LA(1) ) {
                 case RULE_ALPHA:
                     {
-                    int LA63_2 = input.LA(2);
+                    int LA64_2 = input.LA(2);
 
-                    if ( (synpred92_InternalEclParser()) ) {
-                        alt63=2;
+                    if ( (synpred93_InternalEclParser()) ) {
+                        alt64=2;
                     }
 
 
@@ -14355,23 +14366,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
                     break;
                 case RULE_DASH:
                     {
-                    alt63=1;
+                    alt64=1;
                     }
                     break;
                 case RULE_ZERO:
                     {
-                    alt63=3;
+                    alt64=3;
                     }
                     break;
                 case RULE_DIGIT_NONZERO:
                     {
-                    alt63=4;
+                    alt64=4;
                     }
                     break;
 
                 }
 
-                switch (alt63) {
+                switch (alt64) {
             	case 1 :
             	    // InternalEclParser.g:4900:4: this_DASH_1= RULE_DASH
             	    {
@@ -14442,7 +14453,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop63;
+            	    break loop64;
                 }
             } while (true);
 
@@ -14535,24 +14546,24 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:4959:2: (this_ALPHA_0= RULE_ALPHA )+
             {
             // InternalEclParser.g:4959:2: (this_ALPHA_0= RULE_ALPHA )+
-            int cnt64=0;
-            loop64:
+            int cnt65=0;
+            loop65:
             do {
-                int alt64=2;
-                int LA64_0 = input.LA(1);
+                int alt65=2;
+                int LA65_0 = input.LA(1);
 
-                if ( (LA64_0==RULE_ALPHA) ) {
-                    int LA64_2 = input.LA(2);
+                if ( (LA65_0==RULE_ALPHA) ) {
+                    int LA65_2 = input.LA(2);
 
-                    if ( (synpred95_InternalEclParser()) ) {
-                        alt64=1;
+                    if ( (synpred96_InternalEclParser()) ) {
+                        alt65=1;
                     }
 
 
                 }
 
 
-                switch (alt64) {
+                switch (alt65) {
             	case 1 :
             	    // InternalEclParser.g:4960:3: this_ALPHA_0= RULE_ALPHA
             	    {
@@ -14572,13 +14583,13 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt64 >= 1 ) break loop64;
+            	    if ( cnt65 >= 1 ) break loop65;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(64, input);
+                            new EarlyExitException(65, input);
                         throw eee;
                 }
-                cnt64++;
+                cnt65++;
             } while (true);
 
 
@@ -15890,37 +15901,37 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:5318:2: (kw= Match | kw= Wild | kw= Regex | kw= Exact )
             {
             // InternalEclParser.g:5318:2: (kw= Match | kw= Wild | kw= Regex | kw= Exact )
-            int alt65=4;
+            int alt66=4;
             switch ( input.LA(1) ) {
             case Match:
                 {
-                alt65=1;
+                alt66=1;
                 }
                 break;
             case Wild:
                 {
-                alt65=2;
+                alt66=2;
                 }
                 break;
             case Regex:
                 {
-                alt65=3;
+                alt66=3;
                 }
                 break;
             case Exact:
                 {
-                alt65=4;
+                alt66=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 65, 0, input);
+                    new NoViableAltException("", 66, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt65) {
+            switch (alt66) {
                 case 1 :
                     // InternalEclParser.g:5319:3: kw= Match
                     {
@@ -16052,23 +16063,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:5360:2: (kw= Concept | kw= Description )
             {
             // InternalEclParser.g:5360:2: (kw= Concept | kw= Description )
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            int alt67=2;
+            int LA67_0 = input.LA(1);
 
-            if ( (LA66_0==Concept) ) {
-                alt66=1;
+            if ( (LA67_0==Concept) ) {
+                alt67=1;
             }
-            else if ( (LA66_0==Description) ) {
-                alt66=2;
+            else if ( (LA67_0==Description) ) {
+                alt67=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 66, 0, input);
+                    new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
             }
-            switch (alt66) {
+            switch (alt67) {
                 case 1 :
                     // InternalEclParser.g:5361:3: kw= Concept
                     {
@@ -16175,23 +16186,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:5390:2: (this_EQUAL_0= RULE_EQUAL | this_NOT_EQUAL_1= RULE_NOT_EQUAL )
             {
             // InternalEclParser.g:5390:2: (this_EQUAL_0= RULE_EQUAL | this_NOT_EQUAL_1= RULE_NOT_EQUAL )
-            int alt67=2;
-            int LA67_0 = input.LA(1);
+            int alt68=2;
+            int LA68_0 = input.LA(1);
 
-            if ( (LA67_0==RULE_EQUAL) ) {
-                alt67=1;
+            if ( (LA68_0==RULE_EQUAL) ) {
+                alt68=1;
             }
-            else if ( (LA67_0==RULE_NOT_EQUAL) ) {
-                alt67=2;
+            else if ( (LA68_0==RULE_NOT_EQUAL) ) {
+                alt68=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 67, 0, input);
+                    new NoViableAltException("", 68, 0, input);
 
                 throw nvae;
             }
-            switch (alt67) {
+            switch (alt68) {
                 case 1 :
                     // InternalEclParser.g:5391:3: this_EQUAL_0= RULE_EQUAL
                     {
@@ -16310,47 +16321,47 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
             // InternalEclParser.g:5424:2: (this_EQUAL_0= RULE_EQUAL | this_NOT_EQUAL_1= RULE_NOT_EQUAL | this_GT_2= RULE_GT | this_LT_3= RULE_LT | this_GTE_4= RULE_GTE | this_LTE_5= RULE_LTE )
             {
             // InternalEclParser.g:5424:2: (this_EQUAL_0= RULE_EQUAL | this_NOT_EQUAL_1= RULE_NOT_EQUAL | this_GT_2= RULE_GT | this_LT_3= RULE_LT | this_GTE_4= RULE_GTE | this_LTE_5= RULE_LTE )
-            int alt68=6;
+            int alt69=6;
             switch ( input.LA(1) ) {
             case RULE_EQUAL:
                 {
-                alt68=1;
+                alt69=1;
                 }
                 break;
             case RULE_NOT_EQUAL:
                 {
-                alt68=2;
+                alt69=2;
                 }
                 break;
             case RULE_GT:
                 {
-                alt68=3;
+                alt69=3;
                 }
                 break;
             case RULE_LT:
                 {
-                alt68=4;
+                alt69=4;
                 }
                 break;
             case RULE_GTE:
                 {
-                alt68=5;
+                alt69=5;
                 }
                 break;
             case RULE_LTE:
                 {
-                alt68=6;
+                alt69=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 68, 0, input);
+                    new NoViableAltException("", 69, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt68) {
+            switch (alt69) {
                 case 1 :
                     // InternalEclParser.g:5425:3: this_EQUAL_0= RULE_EQUAL
                     {
@@ -16548,23 +16559,23 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         }
 
         // InternalEclParser.g:259:4: ( ruleCONJUNCTION | this_COMMA_3= RULE_COMMA )
-        int alt69=2;
-        int LA69_0 = input.LA(1);
+        int alt70=2;
+        int LA70_0 = input.LA(1);
 
-        if ( (LA69_0==AND) ) {
-            alt69=1;
+        if ( (LA70_0==AND) ) {
+            alt70=1;
         }
-        else if ( (LA69_0==RULE_COMMA) ) {
-            alt69=2;
+        else if ( (LA70_0==RULE_COMMA) ) {
+            alt70=2;
         }
         else {
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 69, 0, input);
+                new NoViableAltException("", 70, 0, input);
 
             throw nvae;
         }
-        switch (alt69) {
+        switch (alt70) {
             case 1 :
                 // InternalEclParser.g:260:5: ruleCONJUNCTION
                 {
@@ -16713,8 +16724,8 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred34_InternalEclParser
 
-    // $ANTLR start synpred78_InternalEclParser
-    public final void synpred78_InternalEclParser_fragment() throws RecognitionException {   
+    // $ANTLR start synpred79_InternalEclParser
+    public final void synpred79_InternalEclParser_fragment() throws RecognitionException {   
         Token this_DIGIT_NONZERO_9=null;
 
         // InternalEclParser.g:4529:4: (this_DIGIT_NONZERO_9= RULE_DIGIT_NONZERO )
@@ -16724,10 +16735,10 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred78_InternalEclParser
+    // $ANTLR end synpred79_InternalEclParser
 
-    // $ANTLR start synpred92_InternalEclParser
-    public final void synpred92_InternalEclParser_fragment() throws RecognitionException {   
+    // $ANTLR start synpred93_InternalEclParser
+    public final void synpred93_InternalEclParser_fragment() throws RecognitionException {   
         Token this_ALPHA_2=null;
 
         // InternalEclParser.g:4908:4: (this_ALPHA_2= RULE_ALPHA )
@@ -16737,10 +16748,10 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred92_InternalEclParser
+    // $ANTLR end synpred93_InternalEclParser
 
-    // $ANTLR start synpred95_InternalEclParser
-    public final void synpred95_InternalEclParser_fragment() throws RecognitionException {   
+    // $ANTLR start synpred96_InternalEclParser
+    public final void synpred96_InternalEclParser_fragment() throws RecognitionException {   
         Token this_ALPHA_0=null;
 
         // InternalEclParser.g:4960:3: (this_ALPHA_0= RULE_ALPHA )
@@ -16750,24 +16761,10 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred95_InternalEclParser
+    // $ANTLR end synpred96_InternalEclParser
 
     // Delegated rules
 
-    public final boolean synpred78_InternalEclParser() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred78_InternalEclParser_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred34_InternalEclParser() {
         state.backtracking++;
         int start = input.mark();
@@ -16787,20 +16784,6 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         int start = input.mark();
         try {
             synpred28_InternalEclParser_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred92_InternalEclParser() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred92_InternalEclParser_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -16852,11 +16835,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred95_InternalEclParser() {
+    public final boolean synpred79_InternalEclParser() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred95_InternalEclParser_fragment(); // can never throw exception
+            synpred79_InternalEclParser_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -16880,6 +16863,20 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
+    public final boolean synpred96_InternalEclParser() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred96_InternalEclParser_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred4_InternalEclParser() {
         state.backtracking++;
         int start = input.mark();
@@ -16894,13 +16891,27 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
+    public final boolean synpred93_InternalEclParser() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred93_InternalEclParser_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
     protected DFA17 dfa17 = new DFA17(this);
     protected DFA22 dfa22 = new DFA22(this);
-    protected DFA26 dfa26 = new DFA26(this);
-    protected DFA30 dfa30 = new DFA30(this);
-    protected DFA55 dfa55 = new DFA55(this);
+    protected DFA27 dfa27 = new DFA27(this);
+    protected DFA31 dfa31 = new DFA31(this);
+    protected DFA56 dfa56 = new DFA56(this);
     static final String dfa_1s = "\21\uffff";
     static final String dfa_2s = "\1\34\1\0\14\uffff\1\0\2\uffff";
     static final String dfa_3s = "\1\66\1\0\14\uffff\1\0\2\uffff";
@@ -17067,20 +17078,20 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     }
     static final String dfa_13s = "\22\uffff";
     static final String dfa_14s = "\14\uffff\2\16\2\uffff\2\16";
-    static final String dfa_15s = "\1\55\2\22\4\71\1\37\2\uffff\2\37\2\20\2\uffff\2\20";
-    static final String dfa_16s = "\1\70\2\100\4\71\1\51\2\uffff\2\40\2\73\2\uffff\2\73";
-    static final String dfa_17s = "\10\uffff\1\1\1\2\4\uffff\1\3\1\4\2\uffff";
+    static final String dfa_15s = "\1\55\2\22\4\71\1\uffff\1\37\1\uffff\2\37\2\20\2\uffff\2\20";
+    static final String dfa_16s = "\1\70\2\100\4\71\1\uffff\1\51\1\uffff\2\40\2\73\2\uffff\2\73";
+    static final String dfa_17s = "\7\uffff\1\2\1\uffff\1\1\4\uffff\1\3\1\4\2\uffff";
     static final String dfa_18s = "\22\uffff}>";
     static final String[] dfa_19s = {
             "\1\1\1\2\1\4\1\3\6\uffff\1\5\1\6",
-            "\1\10\3\uffff\1\10\42\uffff\1\7\6\uffff\1\11",
-            "\1\10\3\uffff\1\10\42\uffff\1\7\6\uffff\1\11",
-            "\1\7",
-            "\1\7",
-            "\1\7",
-            "\1\7",
-            "\1\14\1\15\7\uffff\1\12\1\13",
+            "\1\11\3\uffff\1\11\42\uffff\1\10\6\uffff\1\7",
+            "\1\11\3\uffff\1\11\42\uffff\1\10\6\uffff\1\7",
+            "\1\10",
+            "\1\10",
+            "\1\10",
+            "\1\10",
             "",
+            "\1\14\1\15\7\uffff\1\12\1\13",
             "",
             "\1\14\1\15",
             "\1\14\1\15",
@@ -17100,11 +17111,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     static final short[] dfa_18 = DFA.unpackEncodedString(dfa_18s);
     static final short[][] dfa_19 = unpackEncodedStringArray(dfa_19s);
 
-    class DFA26 extends DFA {
+    class DFA27 extends DFA {
 
-        public DFA26(BaseRecognizer recognizer) {
+        public DFA27(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 26;
+            this.decisionNumber = 27;
             this.eot = dfa_13;
             this.eof = dfa_14;
             this.min = dfa_15;
@@ -17147,11 +17158,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     static final short[] dfa_24 = DFA.unpackEncodedString(dfa_24s);
     static final short[][] dfa_25 = unpackEncodedStringArray(dfa_25s);
 
-    class DFA30 extends DFA {
+    class DFA31 extends DFA {
 
-        public DFA30(BaseRecognizer recognizer) {
+        public DFA31(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 30;
+            this.decisionNumber = 31;
             this.eot = dfa_20;
             this.eof = dfa_20;
             this.min = dfa_21;
@@ -17169,7 +17180,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     static final String dfa_28s = "\1\20\1\uffff\1\20\1\uffff\2\20\1\uffff\14\20\20\0";
     static final String dfa_29s = "\1\73\1\uffff\1\73\1\uffff\2\73\1\uffff\14\73\20\0";
     static final String dfa_30s = "\1\uffff\1\3\1\uffff\1\2\2\uffff\1\1\34\uffff";
-    static final String dfa_31s = "\23\uffff\1\1\1\2\1\16\1\11\1\13\1\5\1\7\1\14\1\10\1\0\1\3\1\6\1\17\1\4\1\15\1\12}>";
+    static final String dfa_31s = "\23\uffff\1\3\1\11\1\7\1\12\1\1\1\5\1\13\1\6\1\16\1\0\1\10\1\2\1\4\1\15\1\14\1\17}>";
     static final String[] dfa_32s = {
             "\1\1\10\uffff\3\1\2\uffff\1\1\1\3\1\2\1\1\1\uffff\3\1\5\uffff\1\1\1\uffff\4\1\6\uffff\2\1\1\uffff\2\1",
             "",
@@ -17216,11 +17227,11 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
     static final short[] dfa_31 = DFA.unpackEncodedString(dfa_31s);
     static final short[][] dfa_32 = unpackEncodedStringArray(dfa_32s);
 
-    class DFA55 extends DFA {
+    class DFA56 extends DFA {
 
-        public DFA55(BaseRecognizer recognizer) {
+        public DFA56(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 55;
+            this.decisionNumber = 56;
             this.eot = dfa_26;
             this.eof = dfa_27;
             this.min = dfa_28;
@@ -17237,249 +17248,249 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA55_28 = input.LA(1);
+                        int LA56_28 = input.LA(1);
 
                          
-                        int index55_28 = input.index();
+                        int index56_28 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_28);
+                        input.seek(index56_28);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA55_19 = input.LA(1);
+                        int LA56_23 = input.LA(1);
 
                          
-                        int index55_19 = input.index();
+                        int index56_23 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_19);
+                        input.seek(index56_23);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA55_20 = input.LA(1);
+                        int LA56_30 = input.LA(1);
 
                          
-                        int index55_20 = input.index();
+                        int index56_30 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_20);
+                        input.seek(index56_30);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA55_29 = input.LA(1);
+                        int LA56_19 = input.LA(1);
 
                          
-                        int index55_29 = input.index();
+                        int index56_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_29);
+                        input.seek(index56_19);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA55_32 = input.LA(1);
+                        int LA56_31 = input.LA(1);
 
                          
-                        int index55_32 = input.index();
+                        int index56_31 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_32);
+                        input.seek(index56_31);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA55_24 = input.LA(1);
+                        int LA56_24 = input.LA(1);
 
                          
-                        int index55_24 = input.index();
+                        int index56_24 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_24);
+                        input.seek(index56_24);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA55_30 = input.LA(1);
+                        int LA56_26 = input.LA(1);
 
                          
-                        int index55_30 = input.index();
+                        int index56_26 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_30);
+                        input.seek(index56_26);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA55_25 = input.LA(1);
+                        int LA56_21 = input.LA(1);
 
                          
-                        int index55_25 = input.index();
+                        int index56_21 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_25);
+                        input.seek(index56_21);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA55_27 = input.LA(1);
+                        int LA56_29 = input.LA(1);
 
                          
-                        int index55_27 = input.index();
+                        int index56_29 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_27);
+                        input.seek(index56_29);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA55_22 = input.LA(1);
+                        int LA56_20 = input.LA(1);
 
                          
-                        int index55_22 = input.index();
+                        int index56_20 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_22);
+                        input.seek(index56_20);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA55_34 = input.LA(1);
+                        int LA56_22 = input.LA(1);
 
                          
-                        int index55_34 = input.index();
+                        int index56_22 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_34);
+                        input.seek(index56_22);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA55_23 = input.LA(1);
+                        int LA56_25 = input.LA(1);
 
                          
-                        int index55_23 = input.index();
+                        int index56_25 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_23);
+                        input.seek(index56_25);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA55_26 = input.LA(1);
+                        int LA56_33 = input.LA(1);
 
                          
-                        int index55_26 = input.index();
+                        int index56_33 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_26);
+                        input.seek(index56_33);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA55_33 = input.LA(1);
+                        int LA56_32 = input.LA(1);
 
                          
-                        int index55_33 = input.index();
+                        int index56_32 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_33);
+                        input.seek(index56_32);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA55_21 = input.LA(1);
+                        int LA56_27 = input.LA(1);
 
                          
-                        int index55_21 = input.index();
+                        int index56_27 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_21);
+                        input.seek(index56_27);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA55_31 = input.LA(1);
+                        int LA56_34 = input.LA(1);
 
                          
-                        int index55_31 = input.index();
+                        int index56_34 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred78_InternalEclParser()) ) {s = 6;}
+                        if ( (synpred79_InternalEclParser()) ) {s = 6;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index55_31);
+                        input.seek(index56_34);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 55, _s, input);
+                new NoViableAltException(getDescription(), 56, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -17506,7 +17517,7 @@ public class InternalEclParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x007F945110000000L});
         public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000800000000L});
         public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x007F941110000000L});
-        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0181E00000000000L});
+        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0181E00000000002L});
         public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000180000000L});
         public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000000L});
         public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000100180000000L});

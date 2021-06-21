@@ -993,10 +993,10 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cComparisonComparisonParserRuleCall_3_0 = (RuleCall)cComparisonAssignment_3.eContents().get(0);
 		
 		//AttributeConstraint:
-		//	cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison;
+		//	cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison
+		//cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison?
 		public Group getGroup() { return cGroup; }
 		
 		//cardinality=Cardinality?
@@ -1017,7 +1017,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FilteredExpressionConstraint
 		public RuleCall getAttributeFilteredExpressionConstraintParserRuleCall_2_0() { return cAttributeFilteredExpressionConstraintParserRuleCall_2_0; }
 		
-		//comparison=Comparison
+		//comparison=Comparison?
 		public Assignment getComparisonAssignment_3() { return cComparisonAssignment_3; }
 		
 		//Comparison
@@ -3454,7 +3454,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//AttributeConstraint:
-	//	cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison;
+	//	cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison?;
 	public AttributeConstraintElements getAttributeConstraintAccess() {
 		return pAttributeConstraint;
 	}

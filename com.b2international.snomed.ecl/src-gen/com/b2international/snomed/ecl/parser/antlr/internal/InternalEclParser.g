@@ -2019,7 +2019,7 @@ ruleAttributeConstraint returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 	)
 ;
 
