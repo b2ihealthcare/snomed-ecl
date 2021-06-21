@@ -118,7 +118,7 @@ NestedAttributeSet returns NestedRefinement:
 	ROUND_OPEN nested=EclAttributeSet ROUND_CLOSE;
 
 AttributeConstraint:
-	(cardinality=Cardinality)? (reversed?=REVERSED)? attribute=FilteredExpressionConstraint comparison=Comparison;
+	(cardinality=Cardinality)? (reversed?=REVERSED)? attribute=FilteredExpressionConstraint (comparison=Comparison)?;
 
 Cardinality:
 	SQUARE_OPEN min=NonNegativeInteger TO max=MaxValue SQUARE_CLOSE;

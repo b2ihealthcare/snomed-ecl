@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
 import com.b2international.snomed.ecl.Ecl;
@@ -35,8 +36,8 @@ import com.google.common.collect.Sets;
  */
 public class EclValidator extends AbstractEclValidator {
 	
-	private static final String AMBIGUOUS_MESSAGE = "Ambiguous binary operator, use parenthesis to disambiguate the meaning of the expression";
-	private static final String AMBIGUOUS_CODE = "binaryoperator.ambiguous";
+	private static final String AMBIGUOUS_PRECEDENCE_MESSAGE = "Ambiguous binary operator, use parenthesis to disambiguate the meaning of the expression";
+	private static final String AMBIGUOUS_PRECEDENCE_CODE = "binaryoperator.ambiguous.precedence";
 	
 	private static final String CARDINALITY_RANGE_ERROR_MESSAGE = "Cardinality minimum value should not be greater than maximum value";
 	private static final String CARDINALITY_RANGE_ERROR_CODE = "cardinality.range.error";
@@ -49,6 +50,12 @@ public class EclValidator extends AbstractEclValidator {
 	
 	private static final String LANGUAGE_CODE_NONEXISITING_MESSAGE = "Non-existent ISO-639 language code present in filter";
 	private static final String LANGUAGE_CODE_NONEXISITING_CODE = "languagecode.nonexisting";
+
+	private static final String AMBIGUOUS_TYPE_MESSAGE = "Ambiguous binary operator, use parenthesis to separate constraints from refinements";
+	private static final String AMBIGUOUS_TYPE_CODE = "binaryoperator.ambiguous.type";
+	
+	private static final String CONSTRAINT_REQUIRES_COMPARISON = "A comparison is required for the attribute constraint";
+	private static final String CONSTRAINT_REQUIRES_COMPARISON_CODE = "constraint.comparison.missing";
 
 	// TODO: Make supported description type tokens configurable
 	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
@@ -76,45 +83,45 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkAmbiguity(AndExpressionConstraint it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.AND_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.AND_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.AND_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.AND_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 	}
 
 	@Check
 	public void checkAmbiguity(OrExpressionConstraint it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.OR_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.OR_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.OR_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.OR_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 	}
 
 	@Check
 	public void checkAmbiguity(ExclusionExpressionConstraint it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.EXCLUSION_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.EXCLUSION_EXPRESSION_CONSTRAINT__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.EXCLUSION_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.EXCLUSION_EXPRESSION_CONSTRAINT__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 	}
 
 	@Check
 	public void checkAmbiguity(OrRefinement it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.OR_REFINEMENT__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.OR_REFINEMENT__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.OR_REFINEMENT__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.OR_REFINEMENT__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 	}
 
 	@Check
 	public void checkAmbiguity(AndRefinement it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.AND_REFINEMENT__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.AND_REFINEMENT__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.AND_REFINEMENT__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.AND_REFINEMENT__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 	}
 
@@ -147,9 +154,9 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkDisjunctionFilter(DisjunctionFilter it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.DISJUNCTION_FILTER__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 		
 		Domain leftDomain = Ecl.getDomain(it.getLeft());
@@ -164,9 +171,9 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkConjunction(ConjunctionFilter it) {
 		if (isAmbiguous(it, it.getLeft())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__LEFT, AMBIGUOUS_PRECEDENCE_CODE);
 		} else if (isAmbiguous(it, it.getRight())) {
-			error(AMBIGUOUS_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_CODE);
+			error(AMBIGUOUS_PRECEDENCE_MESSAGE, it, EclPackage.Literals.CONJUNCTION_FILTER__RIGHT, AMBIGUOUS_PRECEDENCE_CODE);
 		}
 		
 		Domain leftDomain = Ecl.getDomain(it.getLeft());
@@ -181,6 +188,26 @@ public class EclValidator extends AbstractEclValidator {
 	public void checkTypedTermFilter(TypedTermFilter it) {
 		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
 			error(String.format("At least %d characters are required for typed term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER__TERM);
+		}
+	}
+	
+	@Check
+	public void checkAttributeConstraint(AttributeConstraint it) {
+		if (it.getComparison() != null) {
+			return;
+		}
+		
+		EObject child = it;
+		EObject parent = it.eContainer();
+		while (parent instanceof NestedRefinement) {
+			child = parent;
+			parent = parent.eContainer();
+		}
+		
+		if (parent instanceof AndRefinement || parent instanceof OrRefinement) {
+			error(AMBIGUOUS_TYPE_MESSAGE, parent, child.eContainingFeature(), AMBIGUOUS_TYPE_CODE);
+		} else {
+			error(CONSTRAINT_REQUIRES_COMPARISON, it, EclPackage.Literals.ATTRIBUTE_CONSTRAINT__COMPARISON, CONSTRAINT_REQUIRES_COMPARISON_CODE);
 		}
 	}
 	
