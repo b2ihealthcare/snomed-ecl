@@ -125,6 +125,8 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.ACCEPTABILITY_TOKEN_SET: return createAcceptabilityTokenSet();
       case EclPackage.ACTIVE_FILTER: return createActiveFilter();
       case EclPackage.MODULE_FILTER: return createModuleFilter();
+      case EclPackage.SEMANTIC_TAG_FILTER: return createSemanticTagFilter();
+      case EclPackage.EFFECTIVE_TIME_FILTER: return createEffectiveTimeFilter();
       case EclPackage.PREFERRED_IN_FILTER: return createPreferredInFilter();
       case EclPackage.ACCEPTABLE_IN_FILTER: return createAcceptableInFilter();
       case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
@@ -718,6 +720,30 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     ModuleFilterImpl moduleFilter = new ModuleFilterImpl();
     return moduleFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SemanticTagFilter createSemanticTagFilter()
+  {
+    SemanticTagFilterImpl semanticTagFilter = new SemanticTagFilterImpl();
+    return semanticTagFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EffectiveTimeFilter createEffectiveTimeFilter()
+  {
+    EffectiveTimeFilterImpl effectiveTimeFilter = new EffectiveTimeFilterImpl();
+    return effectiveTimeFilter;
   }
 
   /**

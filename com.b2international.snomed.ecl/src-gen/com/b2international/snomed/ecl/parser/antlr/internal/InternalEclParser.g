@@ -2927,11 +2927,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_9());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_9());
 		}
-		this_CaseSignificanceFilter_9=ruleCaseSignificanceFilter
+		this_SemanticTagFilter_9=ruleSemanticTagFilter
 		{
-			$current = $this_CaseSignificanceFilter_9.current;
+			$current = $this_SemanticTagFilter_9.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -2939,11 +2939,35 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getNestedFilterParserRuleCall_10());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_10());
 		}
-		this_NestedFilter_10=ruleNestedFilter
+		this_EffectiveTimeFilter_10=ruleEffectiveTimeFilter
 		{
-			$current = $this_NestedFilter_10.current;
+			$current = $this_EffectiveTimeFilter_10.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_11());
+		}
+		this_CaseSignificanceFilter_11=ruleCaseSignificanceFilter
+		{
+			$current = $this_CaseSignificanceFilter_11.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getNestedFilterParserRuleCall_12());
+		}
+		this_NestedFilter_12=ruleNestedFilter
+		{
+			$current = $this_NestedFilter_12.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -4220,6 +4244,188 @@ ruleModuleFilter returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSemanticTagFilter
+entryRuleSemanticTagFilter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSemanticTagFilterRule()); }
+	iv_ruleSemanticTagFilter=ruleSemanticTagFilter
+	{ $current=$iv_ruleSemanticTagFilter.current; }
+	EOF;
+
+// Rule SemanticTagFilter
+ruleSemanticTagFilter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSemanticTagFilterAccess().getDomainDOMAINParserRuleCall_0_0_0());
+					}
+					lv_domain_0_0=ruleDOMAIN
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSemanticTagFilterRule());
+						}
+						set(
+							$current,
+							"domain",
+							lv_domain_0_0,
+							"com.b2international.snomed.ecl.Ecl.DOMAIN");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_DOT_1=RULE_DOT
+			{
+				newLeafNode(this_DOT_1, grammarAccess.getSemanticTagFilterAccess().getDOTTerminalRuleCall_0_1());
+			}
+		)?
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getSemanticTagFilterAccess().getSEMANTIC_TAG_KEYWORDParserRuleCall_1());
+		}
+		ruleSEMANTIC_TAG_KEYWORD
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSemanticTagFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_2_0());
+				}
+				lv_op_3_0=ruleNON_NUMERIC_OPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSemanticTagFilterRule());
+					}
+					set(
+						$current,
+						"op",
+						lv_op_3_0,
+						"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_semanticTag_4_0=RULE_STRING
+				{
+					newLeafNode(lv_semanticTag_4_0, grammarAccess.getSemanticTagFilterAccess().getSemanticTagSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSemanticTagFilterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"semanticTag",
+						lv_semanticTag_4_0,
+						"com.b2international.snomed.ecl.Ecl.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEffectiveTimeFilter
+entryRuleEffectiveTimeFilter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEffectiveTimeFilterRule()); }
+	iv_ruleEffectiveTimeFilter=ruleEffectiveTimeFilter
+	{ $current=$iv_ruleEffectiveTimeFilter.current; }
+	EOF;
+
+// Rule EffectiveTimeFilter
+ruleEffectiveTimeFilter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEffectiveTimeFilterAccess().getDomainDOMAINParserRuleCall_0_0_0());
+					}
+					lv_domain_0_0=ruleDOMAIN
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEffectiveTimeFilterRule());
+						}
+						set(
+							$current,
+							"domain",
+							lv_domain_0_0,
+							"com.b2international.snomed.ecl.Ecl.DOMAIN");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_DOT_1=RULE_DOT
+			{
+				newLeafNode(this_DOT_1, grammarAccess.getEffectiveTimeFilterAccess().getDOTTerminalRuleCall_0_1());
+			}
+		)?
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getEffectiveTimeFilterAccess().getEFFECTIVE_TIME_KEYWORDParserRuleCall_1());
+		}
+		ruleEFFECTIVE_TIME_KEYWORD
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEffectiveTimeFilterAccess().getOpNUMERIC_OPERATORParserRuleCall_2_0());
+				}
+				lv_op_3_0=ruleNUMERIC_OPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEffectiveTimeFilterRule());
+					}
+					set(
+						$current,
+						"op",
+						lv_op_3_0,
+						"com.b2international.snomed.ecl.Ecl.NUMERIC_OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_effectiveTime_4_0=RULE_STRING
+				{
+					newLeafNode(lv_effectiveTime_4_0, grammarAccess.getEffectiveTimeFilterAccess().getEffectiveTimeSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEffectiveTimeFilterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"effectiveTime",
+						lv_effectiveTime_4_0,
+						"com.b2international.snomed.ecl.Ecl.STRING");
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRulePreferredInFilter
 entryRulePreferredInFilter returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getPreferredInFilterRule()); }
@@ -4457,92 +4663,15 @@ ruleSnomedIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 		{
 			newLeafNode(this_DIGIT_NONZERO_0, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_0());
 		}
-		(
-			this_DIGIT_NONZERO_1=RULE_DIGIT_NONZERO
-			{
-				$current.merge(this_DIGIT_NONZERO_1);
-			}
-			{
-				newLeafNode(this_DIGIT_NONZERO_1, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_1_0());
-			}
-			    |
-			this_ZERO_2=RULE_ZERO
-			{
-				$current.merge(this_ZERO_2);
-			}
-			{
-				newLeafNode(this_ZERO_2, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_1_1());
-			}
-		)
-		(
-			this_DIGIT_NONZERO_3=RULE_DIGIT_NONZERO
-			{
-				$current.merge(this_DIGIT_NONZERO_3);
-			}
-			{
-				newLeafNode(this_DIGIT_NONZERO_3, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_2_0());
-			}
-			    |
-			this_ZERO_4=RULE_ZERO
-			{
-				$current.merge(this_ZERO_4);
-			}
-			{
-				newLeafNode(this_ZERO_4, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_2_1());
-			}
-		)
-		(
-			this_DIGIT_NONZERO_5=RULE_DIGIT_NONZERO
-			{
-				$current.merge(this_DIGIT_NONZERO_5);
-			}
-			{
-				newLeafNode(this_DIGIT_NONZERO_5, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_3_0());
-			}
-			    |
-			this_ZERO_6=RULE_ZERO
-			{
-				$current.merge(this_ZERO_6);
-			}
-			{
-				newLeafNode(this_ZERO_6, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_3_1());
-			}
-		)
-		(
-			this_DIGIT_NONZERO_7=RULE_DIGIT_NONZERO
-			{
-				$current.merge(this_DIGIT_NONZERO_7);
-			}
-			{
-				newLeafNode(this_DIGIT_NONZERO_7, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_4_0());
-			}
-			    |
-			this_ZERO_8=RULE_ZERO
-			{
-				$current.merge(this_ZERO_8);
-			}
-			{
-				newLeafNode(this_ZERO_8, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_4_1());
-			}
-		)
-		(
-			this_DIGIT_NONZERO_9=RULE_DIGIT_NONZERO
-			{
-				$current.merge(this_DIGIT_NONZERO_9);
-			}
-			{
-				newLeafNode(this_DIGIT_NONZERO_9, grammarAccess.getSnomedIdentifierAccess().getDIGIT_NONZEROTerminalRuleCall_5_0());
-			}
-			    |
-			this_ZERO_10=RULE_ZERO
-			{
-				$current.merge(this_ZERO_10);
-			}
-			{
-				newLeafNode(this_ZERO_10, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_5_1());
-			}
-		)+
-	)
+		    |
+		this_ZERO_1=RULE_ZERO
+		{
+			$current.merge(this_ZERO_1);
+		}
+		{
+			newLeafNode(this_ZERO_1, grammarAccess.getSnomedIdentifierAccess().getZEROTerminalRuleCall_1());
+		}
+	)+
 ;
 finally {
 	myHiddenTokenState.restore();
@@ -5209,6 +5338,50 @@ ruleMODULEID_KEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 	{
 		$current.merge(kw);
 		newLeafNode(kw, grammarAccess.getMODULEID_KEYWORDAccess().getModuleIdKeyword());
+	}
+;
+
+// Entry rule entryRuleSEMANTIC_TAG_KEYWORD
+entryRuleSEMANTIC_TAG_KEYWORD returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getSEMANTIC_TAG_KEYWORDRule()); }
+	iv_ruleSEMANTIC_TAG_KEYWORD=ruleSEMANTIC_TAG_KEYWORD
+	{ $current=$iv_ruleSEMANTIC_TAG_KEYWORD.current.getText(); }
+	EOF;
+
+// Rule SEMANTIC_TAG_KEYWORD
+ruleSEMANTIC_TAG_KEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw=SemanticTag
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getSEMANTIC_TAG_KEYWORDAccess().getSemanticTagKeyword());
+	}
+;
+
+// Entry rule entryRuleEFFECTIVE_TIME_KEYWORD
+entryRuleEFFECTIVE_TIME_KEYWORD returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEFFECTIVE_TIME_KEYWORDRule()); }
+	iv_ruleEFFECTIVE_TIME_KEYWORD=ruleEFFECTIVE_TIME_KEYWORD
+	{ $current=$iv_ruleEFFECTIVE_TIME_KEYWORD.current.getText(); }
+	EOF;
+
+// Rule EFFECTIVE_TIME_KEYWORD
+ruleEFFECTIVE_TIME_KEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw=EffectiveTime
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getEFFECTIVE_TIME_KEYWORDAccess().getEffectiveTimeKeyword());
 	}
 ;
 

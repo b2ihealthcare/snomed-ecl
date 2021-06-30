@@ -496,6 +496,26 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.SEMANTIC_TAG_FILTER:
+      {
+        SemanticTagFilter semanticTagFilter = (SemanticTagFilter)theEObject;
+        T result = caseSemanticTagFilter(semanticTagFilter);
+        if (result == null) result = casePropertyFilter(semanticTagFilter);
+        if (result == null) result = caseFilter(semanticTagFilter);
+        if (result == null) result = caseFilterConstraint(semanticTagFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.EFFECTIVE_TIME_FILTER:
+      {
+        EffectiveTimeFilter effectiveTimeFilter = (EffectiveTimeFilter)theEObject;
+        T result = caseEffectiveTimeFilter(effectiveTimeFilter);
+        if (result == null) result = casePropertyFilter(effectiveTimeFilter);
+        if (result == null) result = caseFilter(effectiveTimeFilter);
+        if (result == null) result = caseFilterConstraint(effectiveTimeFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.PREFERRED_IN_FILTER:
       {
         PreferredInFilter preferredInFilter = (PreferredInFilter)theEObject;
@@ -1386,6 +1406,38 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModuleFilter(ModuleFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Semantic Tag Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Semantic Tag Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSemanticTagFilter(SemanticTagFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Effective Time Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Effective Time Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEffectiveTimeFilter(EffectiveTimeFilter object)
   {
     return null;
   }

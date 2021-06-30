@@ -45,6 +45,7 @@ import com.b2international.snomed.ecl.ecl.EclAttributeGroup;
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
 import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclPackage;
+import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
@@ -62,6 +63,7 @@ import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
 import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
+import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
@@ -196,6 +198,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.ECL_CONCEPT_REFERENCE_SET:
 				sequence_EclConceptReferenceSet(context, (EclConceptReferenceSet) semanticObject); 
 				return; 
+			case EclPackage.EFFECTIVE_TIME_FILTER:
+				sequence_EffectiveTimeFilter(context, (EffectiveTimeFilter) semanticObject); 
+				return; 
 			case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT:
 				sequence_ExclusionExpressionConstraint(context, (ExclusionExpressionConstraint) semanticObject); 
 				return; 
@@ -276,6 +281,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.SCRIPT:
 				sequence_Script(context, (Script) semanticObject); 
+				return; 
+			case EclPackage.SEMANTIC_TAG_FILTER:
+				sequence_SemanticTagFilter(context, (SemanticTagFilter) semanticObject); 
 				return; 
 			case EclPackage.STRING_VALUE_COMPARISON:
 				sequence_StringValueComparison(context, (StringValueComparison) semanticObject); 
@@ -1009,6 +1017,25 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     FilterConstraint returns EffectiveTimeFilter
+	 *     Filter returns EffectiveTimeFilter
+	 *     DisjunctionFilter returns EffectiveTimeFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns EffectiveTimeFilter
+	 *     ConjunctionFilter returns EffectiveTimeFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns EffectiveTimeFilter
+	 *     PropertyFilter returns EffectiveTimeFilter
+	 *     EffectiveTimeFilter returns EffectiveTimeFilter
+	 *
+	 * Constraint:
+	 *     (domain=DOMAIN? op=NUMERIC_OPERATOR effectiveTime=STRING)
+	 */
+	protected void sequence_EffectiveTimeFilter(ISerializationContext context, EffectiveTimeFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ExpressionConstraint returns ExclusionExpressionConstraint
 	 *     OrExpressionConstraint returns ExclusionExpressionConstraint
 	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ExclusionExpressionConstraint
@@ -1479,6 +1506,25 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     constraint=ExpressionConstraint?
 	 */
 	protected void sequence_Script(ISerializationContext context, Script semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FilterConstraint returns SemanticTagFilter
+	 *     Filter returns SemanticTagFilter
+	 *     DisjunctionFilter returns SemanticTagFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns SemanticTagFilter
+	 *     ConjunctionFilter returns SemanticTagFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns SemanticTagFilter
+	 *     PropertyFilter returns SemanticTagFilter
+	 *     SemanticTagFilter returns SemanticTagFilter
+	 *
+	 * Constraint:
+	 *     (domain=DOMAIN? op=NON_NUMERIC_OPERATOR semanticTag=STRING)
+	 */
+	protected void sequence_SemanticTagFilter(ISerializationContext context, SemanticTagFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

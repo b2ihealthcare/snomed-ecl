@@ -468,6 +468,24 @@ public interface EclFactory extends EFactory
   ModuleFilter createModuleFilter();
 
   /**
+   * Returns a new object of class '<em>Semantic Tag Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Semantic Tag Filter</em>'.
+   * @generated
+   */
+  SemanticTagFilter createSemanticTagFilter();
+
+  /**
+   * Returns a new object of class '<em>Effective Time Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Effective Time Filter</em>'.
+   * @generated
+   */
+  EffectiveTimeFilter createEffectiveTimeFilter();
+
+  /**
    * Returns a new object of class '<em>Preferred In Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

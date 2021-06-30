@@ -87,6 +87,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getDOUBLE_CURLY_CLOSEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDOUBLE_CURLY_OPENRule())
 			return getDOUBLE_CURLY_OPENToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getEFFECTIVE_TIME_KEYWORDRule())
+			return getEFFECTIVE_TIME_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEQUALRule())
 			return getEQUALToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEXCLUSIONRule())
@@ -115,6 +117,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getROUND_CLOSEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getROUND_OPENRule())
 			return getROUND_OPENToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSEMANTIC_TAG_KEYWORDRule())
+			return getSEMANTIC_TAG_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSQUARE_CLOSERule())
 			return getSQUARE_CLOSEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSQUARE_OPENRule())
@@ -323,6 +327,16 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * EFFECTIVE_TIME_KEYWORD:
+	 * 	'effectiveTime';
+	 */
+	protected String getEFFECTIVE_TIME_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "effectiveTime";
+	}
+	
+	/**
 	 * terminal EQUAL:
 	 * 	'=';
 	 */
@@ -460,6 +474,16 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "(";
+	}
+	
+	/**
+	 * SEMANTIC_TAG_KEYWORD:
+	 * 	'semanticTag';
+	 */
+	protected String getSEMANTIC_TAG_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "semanticTag";
 	}
 	
 	/**

@@ -51,6 +51,7 @@ import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclFactory;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.EclRefinement;
+import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Filter;
@@ -72,6 +73,7 @@ import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.PropertyFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
+import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 import com.b2international.snomed.ecl.ecl.TermFilter;
 import com.b2international.snomed.ecl.ecl.TypeFilter;
@@ -430,6 +432,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass moduleFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass semanticTagFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass effectiveTimeFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1698,6 +1714,94 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getSemanticTagFilter()
+  {
+    return semanticTagFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_Domain()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_Op()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_SemanticTag()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEffectiveTimeFilter()
+  {
+    return effectiveTimeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_Domain()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_Op()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_EffectiveTime()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getPreferredInFilter()
   {
     return preferredInFilterEClass;
@@ -2289,6 +2393,16 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(moduleFilterEClass, MODULE_FILTER__DOMAIN);
     createEReference(moduleFilterEClass, MODULE_FILTER__MODULE_ID);
 
+    semanticTagFilterEClass = createEClass(SEMANTIC_TAG_FILTER);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__DOMAIN);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__OP);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__SEMANTIC_TAG);
+
+    effectiveTimeFilterEClass = createEClass(EFFECTIVE_TIME_FILTER);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__DOMAIN);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__OP);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME);
+
     preferredInFilterEClass = createEClass(PREFERRED_IN_FILTER);
     createEReference(preferredInFilterEClass, PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID);
 
@@ -2409,6 +2523,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     acceptabilityTokenSetEClass.getESuperTypes().add(this.getAcceptability());
     activeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     moduleFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    semanticTagFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    effectiveTimeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     preferredInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     acceptableInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     languageRefSetFilterEClass.getESuperTypes().add(this.getPropertyFilter());
@@ -2572,6 +2688,16 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(moduleFilterEClass, ModuleFilter.class, "ModuleFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModuleFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModuleFilter_ModuleId(), this.getExpressionConstraint(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(semanticTagFilterEClass, SemanticTagFilter.class, "SemanticTagFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSemanticTagFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSemanticTagFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSemanticTagFilter_SemanticTag(), ecorePackage.getEString(), "semanticTag", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(effectiveTimeFilterEClass, EffectiveTimeFilter.class, "EffectiveTimeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEffectiveTimeFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEffectiveTimeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEffectiveTimeFilter_EffectiveTime(), ecorePackage.getEString(), "effectiveTime", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(preferredInFilterEClass, PreferredInFilter.class, "PreferredInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreferredInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, PreferredInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

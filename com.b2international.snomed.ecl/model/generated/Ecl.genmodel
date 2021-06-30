@@ -146,6 +146,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ModuleFilter/domain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ModuleFilter/moduleId"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//SemanticTagFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/domain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/semanticTag"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//EffectiveTimeFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/domain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/effectiveTime"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//PreferredInFilter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//PreferredInFilter/languageRefSetId"/>
     </genClasses>
