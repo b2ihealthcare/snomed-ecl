@@ -181,6 +181,8 @@ PropertyFilter:
 	| AcceptableInFilter
 	| LanguageRefSetFilter
 	| ModuleFilter
+	| SemanticTagFilter
+	| EffectiveTimeFilter
 	| CaseSignificanceFilter 
 	// Allows grouping filters for boolean operators
 	| NestedFilter;
@@ -238,6 +240,12 @@ ActiveFilter:
 ModuleFilter:
 	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
 
+SemanticTagFilter:
+	(domain=DOMAIN DOT)? SEMANTIC_TAG_KEYWORD op=NON_NUMERIC_OPERATOR semanticTag=STRING;
+
+EffectiveTimeFilter:
+	(domain=DOMAIN DOT)? EFFECTIVE_TIME_KEYWORD op=NUMERIC_OPERATOR effectiveTime=STRING;
+
 PreferredInFilter:
 	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
 
@@ -252,7 +260,7 @@ CaseSignificanceFilter:
 
 // hidden grammar rules
 SnomedIdentifier hidden():
-	DIGIT_NONZERO (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO) (DIGIT_NONZERO | ZERO)+;
+	(DIGIT_NONZERO | ZERO)+;
 
 NonNegativeInteger returns ecore::EInt hidden():
 	ZERO | DIGIT_NONZERO (DIGIT_NONZERO | ZERO)*;
@@ -410,6 +418,12 @@ ACTIVE_KEYWORD:
 MODULEID_KEYWORD:
 	'moduleId';
 
+SEMANTIC_TAG_KEYWORD:
+	'semanticTag';
+
+EFFECTIVE_TIME_KEYWORD:
+	'effectiveTime';
+	
 PREFERRED_IN_KEYWORD:
 	'preferredIn';
 
