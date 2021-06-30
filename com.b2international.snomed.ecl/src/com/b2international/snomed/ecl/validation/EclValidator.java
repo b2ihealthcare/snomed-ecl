@@ -15,6 +15,9 @@
  */
 package com.b2international.snomed.ecl.validation;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -57,10 +60,20 @@ public class EclValidator extends AbstractEclValidator {
 	private static final String CONSTRAINT_REQUIRES_COMPARISON = "A comparison is required for the attribute constraint";
 	private static final String CONSTRAINT_REQUIRES_COMPARISON_CODE = "constraint.comparison.missing";
 
+	private static final String EFFECTIVE_TIME_ERROR = "Effective time could not be parsed to the expected yyyyMMdd format";
+	public static final String EFFECTIVE_TIME_ERROR_CODE = "effective.time.error";
+	
+	public static final String SCTID_ERROR_CODE = "sctid.error";
+	
 	// TODO: Make supported description type tokens configurable
 	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
 	private static final Supplier<Set<String>> SUPPORTED_LANGUAGE_CODES = Suppliers.memoize(() -> toCaseInsensitiveSet(List.of(Locale.getISOLanguages())));
 	private static final int SUPPORTED_MIN_TERM_LENGTH = 2;
+	
+	// Copied from EffectiveTimes
+	private static final String UNSET_EFFECTIVE_TIME_LABEL = "Unpublished";
+	// Copied from DateFormats
+	private static final String EFFECTIVE_DATE_FORMAT = "yyyyMMdd";
 	
 	private static final Set<String> toCaseInsensitiveSet(final Iterable<String> iterable) {
 		return FluentIterable.from(iterable)
@@ -213,5 +226,28 @@ public class EclValidator extends AbstractEclValidator {
 	
 	private boolean isAmbiguous(Filter parent, Filter child) {
 		return parent.getClass() != child.getClass() && (child instanceof DisjunctionFilter || child instanceof ConjunctionFilter);
+	}
+	
+	@Check
+	public void checkEffectiveTimeFilter(EffectiveTimeFilter it) {
+		final String effectiveTime = it.getEffectiveTime();
+		if (UNSET_EFFECTIVE_TIME_LABEL.equals(effectiveTime)) {
+			return;
+		}
+		
+		try {
+			LocalDate.parse(effectiveTime, DateTimeFormatter.ofPattern(EFFECTIVE_DATE_FORMAT));
+		} catch (DateTimeParseException e) {
+			error(EFFECTIVE_TIME_ERROR, it, EclPackage.Literals.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME, EFFECTIVE_TIME_ERROR_CODE);
+		}
+	}
+	
+	@Check
+	public void checkSctid(EclConceptReference it) {
+		try {
+			SnomedIdentifiers.validate(it.getId());
+		} catch (IllegalArgumentException e) {
+			error(e.getMessage(), it, EclPackage.Literals.ECL_CONCEPT_REFERENCE__ID, SCTID_ERROR_CODE);
+		}
 	}
 }

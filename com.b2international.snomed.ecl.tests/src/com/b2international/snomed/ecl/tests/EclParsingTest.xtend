@@ -26,6 +26,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
+import com.b2international.snomed.ecl.ecl.EclPackage
+import com.b2international.snomed.ecl.validation.EclValidator
 
 /**
  * Parsing test for the SNOMED CT ECL grammar and associated extensions.
@@ -141,6 +143,55 @@ class EclParsingTest {
 		'* {{ caseSignificanceId = 900000000000448009 }}'.assertNoErrors;
 	}
 
+	@Test
+	def void test_semanticTag_filter_eq() {
+		'* {{ semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_semanticTag_filter_ne() {
+		'* {{ semanticTag != "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_semanticTag_filter_domain() {
+		'* {{ Description.semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_eq() {
+		'* {{ effectiveTime = "20020131" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_effectiveTime_filter_unpublished() {
+		'* {{ effectiveTime = "Unpublished" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_gt() {
+		'* {{ effectiveTime > "20210731" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_domain() {
+		'* {{ Description.effectiveTime = "20210630" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_effectiveTime_filter_invalid_format() {
+		'* {{ Description.effectiveTime = "yesterday" }}'
+			.parse
+			.assertError(EclPackage.Literals.EFFECTIVE_TIME_FILTER, EclValidator.EFFECTIVE_TIME_ERROR_CODE);
+	}
+	
+	@Test
+	def void test_invalid_sctid() {
+		'<< 123'
+			.parse
+			.assertError(EclPackage.Literals.ECL_CONCEPT_REFERENCE, EclValidator.SCTID_ERROR_CODE, "SCTID length must be between 6-18 characters.")
+	}
+	
 	@Test
 	def void test_5_4_1_UnaryOperators_1() {
 		'''
@@ -738,7 +789,7 @@ class EclParsingTest {
 	def void test_6_6_6_NestedAttributeName_1() {
 		'''
 			<<  125605004 |Fracture of bone|  :
-			[0..0] ((<<  410662002 |Concept model attribute|  MINUS  363698007 |Finding site| ) MINUS  16676008 |Associated morphology|  ) = *
+			[0..0] ((<<  410662002 |Concept model attribute|  MINUS  363698007 |Finding site| ) MINUS  116676008 |Associated morphology|  ) = *
 		'''.assertNoErrors
 	}
 
