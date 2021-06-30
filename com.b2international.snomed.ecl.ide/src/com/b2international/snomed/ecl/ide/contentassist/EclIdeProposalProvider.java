@@ -104,6 +104,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		Map.entry("DIALECT_KEYWORD",              "Description dialect tag filter"),
 		Map.entry("ACTIVE_KEYWORD",               "Component status filter"),
 		Map.entry("MODULEID_KEYWORD",             "Component module filter"),
+		Map.entry("SEMANTIC_TAG_KEYWORD",         "Component semantic tag filter"),
+		Map.entry("EFFECTIVE_TIME_KEYWORD",       "Component effective time filter"),
 		Map.entry("PREFERRED_IN_KEYWORD",         "Description acceptability filter"),
 		Map.entry("ACCEPTABLE_IN_KEYWORD",        "Description acceptability filter"),
 		Map.entry("LANGUAGE_REFSET_ID_KEYWORD",   "Description acceptability filter"),
