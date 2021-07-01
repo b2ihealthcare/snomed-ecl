@@ -17,7 +17,7 @@ package com.b2international.snomed.ecl.ui;
 
 import com.b2international.snomed.ecl.ide.contentassist.antlr.EclParser;
 import com.b2international.snomed.ecl.ide.contentassist.antlr.PartialEclContentAssistParser;
-import com.b2international.snomed.ecl.ide.contentassist.antlr.lexer.InternalEclLexer;
+import com.b2international.snomed.ecl.ide.contentassist.antlr.internal.InternalEclLexer;
 import com.b2international.snomed.ecl.ui.contentassist.EclProposalProvider;
 import com.b2international.snomed.ecl.ui.labeling.EclDescriptionLabelProvider;
 import com.b2international.snomed.ecl.ui.labeling.EclLabelProvider;
@@ -122,7 +122,7 @@ public abstract class AbstractEclUiModule extends DefaultUiModule {
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(com.b2international.snomed.ecl.parser.antlr.lexer.InternalEclLexer.class);
+			.to(com.b2international.snomed.ecl.parser.antlr.internal.InternalEclLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2

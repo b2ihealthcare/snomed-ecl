@@ -330,7 +330,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AcceptabilityTokenSet returns AcceptabilityTokenSet
 	 *
 	 * Constraint:
-	 *     (acceptabilities+=Alphabetical acceptabilities+=Alphabetical*)
+	 *     acceptabilities+=UnquotedString+
 	 */
 	protected void sequence_AcceptabilityTokenSet(ISerializationContext context, AcceptabilityTokenSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -852,7 +852,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DialectAliasFilter returns DialectAliasFilter
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | (dialects+=DialectAlias dialects+=DialectAlias*)))
+	 *     (op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | dialects+=DialectAlias+))
 	 */
 	protected void sequence_DialectAliasFilter(ISerializationContext context, DialectAliasFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -884,7 +884,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DialectIdFilter returns DialectIdFilter
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (dialects+=Dialect | (dialects+=Dialect dialects+=Dialect*)))
+	 *     (op=NON_NUMERIC_OPERATOR (dialects+=Dialect | dialects+=Dialect+))
 	 */
 	protected void sequence_DialectIdFilter(ISerializationContext context, DialectIdFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -981,7 +981,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EclConceptReferenceSet returns EclConceptReferenceSet
 	 *
 	 * Constraint:
-	 *     (concepts+=EclConceptReference concepts+=EclConceptReference*)
+	 *     concepts+=EclConceptReference+
 	 */
 	protected void sequence_EclConceptReferenceSet(ISerializationContext context, EclConceptReferenceSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1008,7 +1008,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EclConceptReference returns EclConceptReference
 	 *
 	 * Constraint:
-	 *     (id=SnomedIdentifier term=TERM_STRING?)
+	 *     (id=SnomedIdentifier term=PIPE_DELIMITED_STRING?)
 	 */
 	protected void sequence_EclConceptReference(ISerializationContext context, EclConceptReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1128,7 +1128,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LanguageFilter returns LanguageFilter
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | (languageCodes+=Alphabetical languageCodes+=Alphabetical*)))
+	 *     (op=NON_NUMERIC_OPERATOR (languageCodes+=UnquotedString | languageCodes+=UnquotedString+))
 	 */
 	protected void sequence_LanguageFilter(ISerializationContext context, LanguageFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1585,7 +1585,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TypeTokenFilter returns TypeTokenFilter
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | (tokens+=Alphabetical tokens+=Alphabetical*)))
+	 *     (op=NON_NUMERIC_OPERATOR (tokens+=UnquotedString | tokens+=UnquotedString+))
 	 */
 	protected void sequence_TypeTokenFilter(ISerializationContext context, TypeTokenFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1605,7 +1605,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TypedTermFilterSet returns TypedTermFilterSet
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR terms+=TypedTermFilter terms+=TypedTermFilter*)
+	 *     (op=NON_NUMERIC_OPERATOR terms+=TypedTermFilter+)
 	 */
 	protected void sequence_TypedTermFilterSet(ISerializationContext context, TypedTermFilterSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
