@@ -71,7 +71,6 @@ Workflow {
             parserGenerator = org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2 auto-inject {
               options = {
                   backtrack = true
-                  ignoreCase = true
                   classSplitting = true
               }
             }

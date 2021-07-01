@@ -25,13 +25,13 @@ ExpressionConstraint:
 	OrExpressionConstraint;
 
 OrExpressionConstraint returns ExpressionConstraint:
-	AndExpressionConstraint ({OrExpressionConstraint.left=current} DISJUNCTION right=AndExpressionConstraint)*;
+	AndExpressionConstraint ({OrExpressionConstraint.left=current} DISJUNCTION_KEYWORD right=AndExpressionConstraint)*;
 
 AndExpressionConstraint returns ExpressionConstraint:
-	ExclusionExpressionConstraint ({AndExpressionConstraint.left=current} (CONJUNCTION | COMMA) right=ExclusionExpressionConstraint)*;
+	ExclusionExpressionConstraint ({AndExpressionConstraint.left=current} (CONJUNCTION_KEYWORD | COMMA) right=ExclusionExpressionConstraint)*;
 
 ExclusionExpressionConstraint returns ExpressionConstraint:
-	RefinedExpressionConstraint ({ExclusionExpressionConstraint.left=current} EXCLUSION right=RefinedExpressionConstraint)?;
+	RefinedExpressionConstraint ({ExclusionExpressionConstraint.left=current} EXCLUSION_KEYWORD right=RefinedExpressionConstraint)?;
 
 RefinedExpressionConstraint returns ExpressionConstraint:
 	DottedExpressionConstraint ({RefinedExpressionConstraint.constraint=current} COLON refinement=EclRefinement)?;
@@ -76,10 +76,10 @@ MemberOf:
 	CARET constraint=(EclConceptReference | Any | NestedExpression);
 
 EclConceptReference:
-	id=SnomedIdentifier (term=TERM_STRING)?;
+	id=SnomedIdentifier (term=PIPE_DELIMITED_STRING)?;
 
 EclConceptReferenceSet:
-	ROUND_OPEN concepts+=EclConceptReference ( concepts+=EclConceptReference)* ROUND_CLOSE; 
+	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE; 
 
 Any:
 	WILDCARD {Any};
@@ -88,10 +88,10 @@ EclRefinement:
 	OrRefinement;
 
 OrRefinement returns EclRefinement:
-	AndRefinement -> ({OrRefinement.left=current} DISJUNCTION right=AndRefinement)*;
+	AndRefinement -> ({OrRefinement.left=current} DISJUNCTION_KEYWORD right=AndRefinement)*;
 
 AndRefinement returns EclRefinement:
-	SubRefinement -> ({AndRefinement.left=current} (CONJUNCTION | COMMA) right=SubRefinement)*;
+	SubRefinement -> ({AndRefinement.left=current} (CONJUNCTION_KEYWORD | COMMA) right=SubRefinement)*;
 
 SubRefinement returns EclRefinement:
 	AttributeConstraint | EclAttributeGroup | NestedRefinement;
@@ -106,10 +106,10 @@ EclAttributeSet returns EclRefinement:
 	OrAttributeSet;
 
 OrAttributeSet returns EclRefinement:
-	AndAttributeSet ({OrRefinement.left=current} DISJUNCTION right=AndAttributeSet)*;
+	AndAttributeSet ({OrRefinement.left=current} DISJUNCTION_KEYWORD right=AndAttributeSet)*;
 
 AndAttributeSet returns EclRefinement:
-	SubAttributeSet ({AndRefinement.left=current} (CONJUNCTION | COMMA) right=SubAttributeSet)*;
+	SubAttributeSet ({AndRefinement.left=current} (CONJUNCTION_KEYWORD | COMMA) right=SubAttributeSet)*;
 
 SubAttributeSet returns EclRefinement:
 	AttributeConstraint | NestedAttributeSet;
@@ -160,11 +160,11 @@ Filter:
 
 // Conjunction (OR) of filters is an extension to ECL 1.5
 DisjunctionFilter returns Filter:
-	ConjunctionFilter ({DisjunctionFilter.left=current} DISJUNCTION right=ConjunctionFilter)*;
+	ConjunctionFilter ({DisjunctionFilter.left=current} DISJUNCTION_KEYWORD right=ConjunctionFilter)*;
 
 // Using the "AND" keyword for disjunctions is an extension to ECL 1.5
 ConjunctionFilter returns Filter:
-	PropertyFilter ({ConjunctionFilter.left=current} (CONJUNCTION | COMMA) right=PropertyFilter)*;
+	PropertyFilter ({ConjunctionFilter.left=current} (CONJUNCTION_KEYWORD | COMMA) right=PropertyFilter)*;
 
 NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
@@ -195,10 +195,10 @@ TypedTermFilter:
 	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
 
 TypedTermFilterSet:
-	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter (terms+=TypedTermFilter)* ROUND_CLOSE;
+	op=NON_NUMERIC_OPERATOR ROUND_OPEN (terms+=TypedTermFilter)+ ROUND_CLOSE;
 
 LanguageFilter:
-	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=Alphabetical | ROUND_OPEN languageCodes+=Alphabetical (languageCodes+=Alphabetical)* ROUND_CLOSE);
+	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=UnquotedString | ROUND_OPEN (languageCodes+=UnquotedString)+ ROUND_CLOSE);
 
 TypeFilter:
 	TypeIdFilter | TypeTokenFilter;
@@ -206,24 +206,25 @@ TypeFilter:
 TypeIdFilter:
 	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet);
 
-// allowing any STRING to be represented as type token here, validator will restrict it to the available set
+// Any unquoted string is allowed as a type token here, validator will restrict it to the available set
 TypeTokenFilter:
-	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=Alphabetical | ROUND_OPEN tokens+=Alphabetical (tokens+=Alphabetical)* ROUND_CLOSE);
+	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=UnquotedString | ROUND_OPEN (tokens+=UnquotedString)+ ROUND_CLOSE);
 
 DialectFilter:
  	DialectIdFilter | DialectAliasFilter;
 
 DialectIdFilter:
-	DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN dialects+=Dialect (dialects+=Dialect)* ROUND_CLOSE);
+	DIALECTID_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=Dialect | ROUND_OPEN (dialects+=Dialect)+ ROUND_CLOSE);
 
 DialectAliasFilter:
-	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN dialects+=DialectAlias (dialects+=DialectAlias)* ROUND_CLOSE);
+	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN (dialects+=DialectAlias)+ ROUND_CLOSE);
 
 Dialect:
 	languageRefSetId=EclConceptReference (acceptability=Acceptability)?;
-	
-DialectAlias:
-	alias=DialectAliasValue (acceptability=Acceptability)?;
+
+// Whitespace is significant (indicates an unquoted string boundary) in this rule, so WS tokens can not be hidden
+DialectAlias hidden():
+	alias=DialectAliasValue WS* (acceptability=Acceptability)?;
 
 Acceptability:
 	AcceptabilityIdSet | AcceptabilityTokenSet;
@@ -232,7 +233,7 @@ AcceptabilityIdSet:
 	acceptabilities=EclConceptReferenceSet;
 
 AcceptabilityTokenSet:
-	ROUND_OPEN acceptabilities+=Alphabetical (acceptabilities+=Alphabetical)* ROUND_CLOSE;
+	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
 
 ActiveFilter:
 	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean;
@@ -258,12 +259,17 @@ LanguageRefSetFilter:
 CaseSignificanceFilter:
 	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint;
 
-// hidden grammar rules
+/*
+ * Datatype rules
+ */
 SnomedIdentifier hidden():
-	(DIGIT_NONZERO | ZERO)+;
+	(DIGIT_NONZERO | DIGIT_ZERO)+;
 
 NonNegativeInteger returns ecore::EInt hidden():
-	ZERO | DIGIT_NONZERO (DIGIT_NONZERO | ZERO)*;
+	(DIGIT_NONZERO | DIGIT_ZERO)+;
+
+NonNegativeDecimal returns ecore::EBigDecimal hidden():
+	NonNegativeInteger DOT (DIGIT_NONZERO | DIGIT_ZERO)*;
 
 MaxValue returns ecore::EInt hidden():
 	NonNegativeInteger | WILDCARD;
@@ -273,24 +279,190 @@ Integer returns ecore::EInt hidden():
 
 Decimal returns ecore::EBigDecimal hidden():
 	(PLUS | DASH)? NonNegativeDecimal;
-
-NonNegativeDecimal returns ecore::EBigDecimal hidden():
-	NonNegativeInteger DOT (DIGIT_NONZERO | ZERO)*;
 	
 Boolean returns ecore::EBoolean hidden(): 
-	'true'|'false';
+	TRUE_KEYWORD | FALSE_KEYWORD;
 
-DialectAliasValue returns ecore::EString hidden():
-	ALPHA (DASH | ALPHA | ZERO | DIGIT_NONZERO)*;
+// Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
+UnquotedString
+	: CASE_SIGNIFICANCE_ID_KEYWORD 
+	| LANGUAGE_REFSET_ID_KEYWORD 
+	| EFFECTIVE_TIME_KEYWORD 
+	| ACCEPTABLE_IN_KEYWORD 
+	| DESCRIPTION_KEYWORD 
+	| PREFERRED_IN_KEYWORD 
+	| SEMANTIC_TAG_KEYWORD 
+	| DIALECTID_KEYWORD 
+	| LANGUAGE_KEYWORD 
+	| MODULEID_KEYWORD 
+	| CONCEPT_KEYWORD 
+	| DIALECT_KEYWORD 
+	| ACTIVE_KEYWORD 
+	| TYPEID_KEYWORD
+	| EXCLUSION_KEYWORD
+	| EXACT_KEYWORD 
+	| FALSE_KEYWORD 
+	| MATCH_KEYWORD 
+	| REGEX_KEYWORD 
+	| TERM_KEYWORD 
+	| TRUE_KEYWORD 
+	| TYPE_KEYWORD
+	| WILD_KEYWORD 
+	| CONJUNCTION_KEYWORD 
+	| DISJUNCTION_KEYWORD 
+	| REVERSED
+	| KEYWORD;
 
-Alphabetical returns ecore::EString hidden():
-	(ALPHA)+;
+DialectAliasValue hidden():
+	(DASH | UnquotedString | DIGIT_ZERO | DIGIT_NONZERO)+;
 
-terminal TERM_STRING:
-	"|" (!("|"))* "|";
+LEXICAL_SEARCH_TYPE
+	// Lexical search types supported in ECL 1.5 
+	: MATCH_KEYWORD 
+	| WILD_KEYWORD
+	// Lexical search type extensions
+	| REGEX_KEYWORD
+	| EXACT_KEYWORD
+	;
+
+DOMAIN
+	: CONCEPT_KEYWORD 
+	| DESCRIPTION_KEYWORD
+	; 
+
+NON_NUMERIC_OPERATOR:
+	EQUAL | NOT_EQUAL;
+
+NUMERIC_OPERATOR:
+	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
+
+/* 
+ * Terminal rules (note that the order of definition matters when an 
+ * ambiguity is encountered during lexical analysis)
+ * 
+ * Each rule includes a recommended form that is used for content assist 
+ * purposes. ANTLR warnings saying that the case-insensitive alternative
+ * can also match the same input are to be expected.
+ */ 
+ 
+terminal CASE_SIGNIFICANCE_ID_KEYWORD: 
+	'caseSignificanceId' | ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s')('I'|'i')('G'|'g')('N'|'n')('I'|'i')('F'|'f')('I'|'i')('C'|'c')('A'|'a')('N'|'n')('C'|'c')('E'|'e')('I'|'i')('D'|'d');
+
+terminal LANGUAGE_REFSET_ID_KEYWORD: 
+	'languageRefsetId' | ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e')('R'|'r')('E'|'e')('F'|'f')('S'|'s')('E'|'e')('T'|'t')('I'|'i')('D'|'d');
+
+terminal EFFECTIVE_TIME_KEYWORD: 
+	'effectiveTime' | ('E'|'e')('F'|'f')('F'|'f')('E'|'e')('C'|'c')('T'|'t')('I'|'i')('V'|'v')('E'|'e')('T'|'t')('I'|'i')('M'|'m')('E'|'e');
+
+terminal ACCEPTABLE_IN_KEYWORD: 
+	'acceptableIn' | ('A'|'a')('C'|'c')('C'|'c')('E'|'e')('P'|'p')('T'|'t')('A'|'a')('B'|'b')('L'|'l')('E'|'e')('I'|'i')('N'|'n');
+
+terminal DESCRIPTION_KEYWORD: 
+	'Description' | ('D'|'d')('E'|'e')('S'|'s')('C'|'c')('R'|'r')('I'|'i')('P'|'p')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
+
+terminal PREFERRED_IN_KEYWORD: 
+	'preferredIn' | ('P'|'p')('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('R'|'r')('E'|'e')('D'|'d')('I'|'i')('N'|'n');
+
+terminal SEMANTIC_TAG_KEYWORD: 
+	'semanticTag' | ('S'|'s')('E'|'e')('M'|'m')('A'|'a')('N'|'n')('T'|'t')('I'|'i')('C'|'c')('T'|'t')('A'|'a')('G'|'g');
+
+terminal DIALECTID_KEYWORD: 
+	'dialectId' | ('D'|'d')('I'|'i')('A'|'a')('L'|'l')('E'|'e')('C'|'c')('T'|'t')('I'|'i')('D'|'d');
+
+terminal LANGUAGE_KEYWORD: 
+	'language' | ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e');
+
+terminal MODULEID_KEYWORD: 
+	'moduleId' | ('M'|'m')('O'|'o')('D'|'d')('U'|'u')('L'|'l')('E'|'e')('I'|'i')('D'|'d');
+
+terminal CONCEPT_KEYWORD: 
+	'Concept' | ('C'|'c')('O'|'o')('N'|'n')('C'|'c')('E'|'e')('P'|'p')('T'|'t');
+
+terminal DIALECT_KEYWORD: 
+	'dialect' | ('D'|'d')('I'|'i')('A'|'a')('L'|'l')('E'|'e')('C'|'c')('T'|'t');
+
+terminal ACTIVE_KEYWORD: 
+	'active' | ('A'|'a')('C'|'c')('T'|'t')('I'|'i')('V'|'v')('E'|'e');
+
+terminal TYPEID_KEYWORD:
+	'typeId' | ('T'|'t')('Y'|'y')('P'|'p')('E'|'e')('I'|'i')('D'|'d');
+
+terminal EXCLUSION_KEYWORD:
+	'MINUS' | ('M'|'m')('I'|'i')('N'|'n')('U'|'u')('S'|'s');
+
+terminal EXACT_KEYWORD: 
+	'exact' | ('E'|'e')('X'|'x')('A'|'a')('C'|'c')('T'|'t');
+
+terminal FALSE_KEYWORD: 
+	'false' | ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
+
+terminal MATCH_KEYWORD: 
+	'match' | ('M'|'m')('A'|'a')('T'|'t')('C'|'c')('H'|'h');
+
+terminal REGEX_KEYWORD: 
+	'regex' | ('R'|'r')('E'|'e')('G'|'g')('E'|'e')('X'|'x');
+
+terminal TERM_KEYWORD: 
+	'term' | ('T'|'t')('E'|'e')('R'|'r')('M'|'m');
+
+terminal TRUE_KEYWORD: 
+	'true' | ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
+
+terminal TYPE_KEYWORD:
+	'type' | ('T'|'t')('Y'|'y')('P'|'p')('E'|'e');
+
+terminal WILD_KEYWORD: 
+	'wild' | ('W'|'w')('I'|'i')('L'|'l')('D'|'d');
+
+terminal CONJUNCTION_KEYWORD: 
+	'AND' | ('A'|'a')('N'|'n')('D'|'d');
+
+terminal DISJUNCTION_KEYWORD: 
+	'OR' | ('O'|'o')('R'|'r');
 
 terminal REVERSED:
 	'R';
+
+terminal KEYWORD:
+	('a'..'z' | 'A'..'Z')+;
+ 
+terminal DBL_LT_EM:
+	'<<!';
+	
+terminal DBL_GT_EM:
+	'>>!';
+
+terminal DBL_LT:
+	'<<';
+
+terminal DBL_GT:
+	'>>';
+
+terminal LT_EM:
+	'<!';
+
+terminal GT_EM:
+	'>!';
+
+terminal GTE:
+	'>=';
+
+terminal LTE:
+	'<=';
+
+terminal DOUBLE_CURLY_OPEN:
+	'{{';
+
+terminal DOUBLE_CURLY_CLOSE:
+	'}}';
+	
+terminal PIPE_DELIMITED_STRING:
+	"|" -> "|";
+
+// XXX: Rule name needs to be STRING so that the default Xtext conversion service can remove quotes
+terminal STRING:
+	'"' ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | '"'))* '"' |
+	"'" ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | "'"))* "'"; 
 
 terminal TO:
 	'..';
@@ -298,16 +470,7 @@ terminal TO:
 terminal COMMA:
 	',';
 	
-CONJUNCTION:
-	'AND';
-
-DISJUNCTION:
-	'OR';
-
-EXCLUSION:
-	'MINUS';
-	
-terminal ZERO:
+terminal DIGIT_ZERO:
 	'0';
 
 terminal DIGIT_NONZERO:
@@ -361,111 +524,14 @@ terminal LT:
 terminal GT:
 	'>';
 
-terminal DBL_LT:
-	'<<';
-
-terminal DBL_GT:
-	'>>';
-
-terminal LT_EM:
-	'<!';
-
-terminal DBL_LT_EM:
-	'<<!';
-	
-terminal GT_EM:
-	'>!';
-
-terminal DBL_GT_EM:
-	'>>!';
-
-terminal GTE:
-	'>=';
-
-terminal LTE:
-	'<=';
-
 terminal HASH:
 	'#';
 
-terminal DOUBLE_CURLY_OPEN:
-	'{{';
-
-terminal DOUBLE_CURLY_CLOSE:
-	'}}';
-
-TERM_KEYWORD:
-	'term';
-
-LANGUAGE_KEYWORD:
-	'language';
-
-TYPEID_KEYWORD:
-	'typeId';
-
-TYPE_KEYWORD:
-	'type';
-
-DIALECTID_KEYWORD:
-	'dialectId';
-
-DIALECT_KEYWORD:
-	'dialect';
-
-ACTIVE_KEYWORD:
-	'active';
-
-MODULEID_KEYWORD:
-	'moduleId';
-
-SEMANTIC_TAG_KEYWORD:
-	'semanticTag';
-
-EFFECTIVE_TIME_KEYWORD:
-	'effectiveTime';
-	
-PREFERRED_IN_KEYWORD:
-	'preferredIn';
-
-ACCEPTABLE_IN_KEYWORD:
-	'acceptableIn';
-
-LANGUAGE_REFSET_ID_KEYWORD:
-	'languageRefSetId';
-
-CASE_SIGNIFICANCE_ID_KEYWORD:
-	'caseSignificanceId';
-
-LEXICAL_SEARCH_TYPE:
-	// Lexical search types supported in ECL 1.5 
-	'match' 
-	| 'wild'
-	// Lexical search type extensions
-	| 'regex' 
-	| 'exact';
-
-DOMAIN:
-	'Concept' | 'Description'; 
-
-NON_NUMERIC_OPERATOR:
-	EQUAL | NOT_EQUAL;
-
-NUMERIC_OPERATOR:
-	EQUAL | NOT_EQUAL | GT | LT | GTE | LTE;
-
-terminal ALPHA:
-	'a'..'z' | 'A'..'Z';
-
-// comment terminals
 terminal WS:
 	(' ' | '\t' | '\n' | '\r');
 
 terminal ML_COMMENT:
-	'/*'->'*/';
+	'/*' -> '*/';
 
 terminal SL_COMMENT:
 	'//' !('\n' | '\r')* ('\r'? '\n')?;
-
-terminal STRING:
-	'"' ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | '"'))* '"' |
-	"'" ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | "'"))* "'"; 
