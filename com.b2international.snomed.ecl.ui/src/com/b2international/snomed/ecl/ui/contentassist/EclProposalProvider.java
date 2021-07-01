@@ -27,6 +27,7 @@ import org.eclipse.text.edits.InsertEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.xtext.AbstractRule;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -36,6 +37,7 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
+import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.b2international.snomed.ecl.ui.SnomedConceptProvider;
 import com.b2international.snomed.ecl.ui.SnomedConceptProvider.Concept;
 import com.b2international.snomed.ecl.ui.internal.EclActivator;
@@ -62,58 +64,67 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 	@Inject
 	private SnomedConceptProvider termProvider;
 	
-	private static final Map<String, String> KEYWORD_DESCRIPTIONS = Map.ofEntries(
-		Map.entry("CONJUNCTION",                  "Conjunction"),
-		Map.entry("COMMA",                        "Conjunction"),
-		Map.entry("DISJUNCTION",                  "Disjunction"),
-		Map.entry("EXCLUSION",                    "Exclusion"),
-		Map.entry("COLON",                        "Refinement"),
-		Map.entry("CURLY_OPEN",                   "Opening attribute group"),
-		Map.entry("CURLY_CLOSE",                  "Closing attribute group"),
-		Map.entry("SQUARE_OPEN",                  "Opening cardinality"),
-		Map.entry("SQUARE_CLOSE",                 "Closing cardinality"),
-		Map.entry("TO",                           "Cardinality range"),
-		Map.entry("PLUS",                         "Numeric value"),
-		Map.entry("DASH",                         "Numeric value"),
-		Map.entry("CARET",                        "Member of"),
-		Map.entry("DOMAIN",                       "Filter attribute prefix"),
-		Map.entry("WILDCARD",                     "Any"),
-		Map.entry("EQUAL",                        "Equals"),
-		Map.entry("NOT_EQUAL",                    "Not equals"),
-		Map.entry("LT",                           "Descendant of"),
-		Map.entry("GT",                           "Ancestor of"),
-		Map.entry("DBL_LT",                       "Descendant or self of"),
-		Map.entry("DBL_GT",                       "Ancestor or self of"),
-		Map.entry("LT_EM",                        "Child of"),
-		Map.entry("GT_EM",                        "Parent of"),
-		Map.entry("DBL_LT_EM",                    "Child or self of"),
-		Map.entry("DBL_GT_EM",                    "Parent or self of"),
-		Map.entry("GTE",                          "Greater than or equals"),
-		Map.entry("LTE",                          "Less than or equals"),
-		Map.entry("REVERSED",                     "Reverse attribute"),
-		Map.entry("ROUND_CLOSE",                  "Closing nested expression"),
-		Map.entry("ROUND_OPEN",                   "Opening nested expression"),
-		Map.entry("DOUBLE_CURLY_OPEN",            "Opening filter constraint"),
-		Map.entry("DOUBLE_CURLY_CLOSE",           "Closing filter constraint"),
-		Map.entry("TERM_KEYWORD",                 "Description term filter"),
-		Map.entry("LANGUAGE_KEYWORD",             "Description language filter"),
-		Map.entry("TYPEID_KEYWORD",               "Description type ID filter"),
-		Map.entry("TYPE_KEYWORD",                 "Description type tag filter"),
-		Map.entry("DIALECTID_KEYWORD",            "Description dialect ID filter"),
-		Map.entry("DIALECT_KEYWORD",              "Description dialect tag filter"),
-		Map.entry("ACTIVE_KEYWORD",               "Component status filter"),
-		Map.entry("MODULEID_KEYWORD",             "Component module filter"),
-		Map.entry("SEMANTIC_TAG_KEYWORD",         "Component semantic tag filter"),
-		Map.entry("EFFECTIVE_TIME_KEYWORD",       "Component effective time filter"),
-		Map.entry("PREFERRED_IN_KEYWORD",         "Description acceptability filter"),
-		Map.entry("ACCEPTABLE_IN_KEYWORD",        "Description acceptability filter"),
-		Map.entry("LANGUAGE_REFSET_ID_KEYWORD",   "Description acceptability filter"),
-		Map.entry("CASE_SIGNIFICANCE_ID_KEYWORD", "Description case significance filter"),
-		Map.entry("TERM_STRING",                  "Concept term")
-	);
+	@Inject
+	private EclGrammarAccess ga;
+	
+	private Map<AbstractRule, String> ruleDescriptions;
+	
+	@Inject
+	private void initializeDescriptions() {
+		 ruleDescriptions = Map.ofEntries(
+			Map.entry(ga.getCONJUNCTION_KEYWORDRule(),          "Conjunction"),
+			Map.entry(ga.getCOMMARule(),                        "Conjunction"),
+			Map.entry(ga.getDISJUNCTION_KEYWORDRule(),          "Disjunction"),
+			Map.entry(ga.getEXCLUSION_KEYWORDRule(),            "Exclusion"),
+			Map.entry(ga.getCOLONRule(),                        "Refinement"),
+			Map.entry(ga.getDOTRule(),                          "Dotted attribute"),
+			Map.entry(ga.getCURLY_OPENRule(),                   "Opening attribute group"),
+			Map.entry(ga.getCURLY_CLOSERule(),                  "Closing attribute group"),
+			Map.entry(ga.getSQUARE_OPENRule(),                  "Opening cardinality"),
+			Map.entry(ga.getSQUARE_CLOSERule(),                 "Closing cardinality"),
+			Map.entry(ga.getTORule(),                           "Cardinality range"),
+			Map.entry(ga.getPLUSRule(),                         "Numeric value"),
+			Map.entry(ga.getDASHRule(),                         "Numeric value"),
+			Map.entry(ga.getCARETRule(),                        "Member of"),
+			Map.entry(ga.getDOMAINRule(),                       "Filter attribute prefix"),
+			Map.entry(ga.getWILDCARDRule(),                     "Any"),
+			Map.entry(ga.getEQUALRule(),                        "Equals"),
+			Map.entry(ga.getNOT_EQUALRule(),                    "Not equals"),
+			Map.entry(ga.getLTRule(),                           "Descendant of"),
+			Map.entry(ga.getGTRule(),                           "Ancestor of"),
+			Map.entry(ga.getDBL_LTRule(),                       "Descendant or self of"),
+			Map.entry(ga.getDBL_GTRule(),                       "Ancestor or self of"),
+			Map.entry(ga.getLT_EMRule(),                        "Child of"),
+			Map.entry(ga.getGT_EMRule(),                        "Parent of"),
+			Map.entry(ga.getDBL_LT_EMRule(),                    "Child or self of"),
+			Map.entry(ga.getDBL_GT_EMRule(),                    "Parent or self of"),
+			Map.entry(ga.getGTERule(),                          "Greater than or equals"),
+			Map.entry(ga.getLTERule(),                          "Less than or equals"),
+			Map.entry(ga.getREVERSEDRule(),                     "Reverse attribute"),
+			Map.entry(ga.getROUND_CLOSERule(),                  "Closing nested expression"),
+			Map.entry(ga.getROUND_OPENRule(),                   "Opening nested expression"),
+			Map.entry(ga.getDOUBLE_CURLY_OPENRule(),            "Opening filter constraint"),
+			Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),           "Closing filter constraint"),
+			Map.entry(ga.getTERM_KEYWORDRule(),                 "Description term filter"),
+			Map.entry(ga.getLANGUAGE_KEYWORDRule(),             "Description language filter"),
+			Map.entry(ga.getTYPEID_KEYWORDRule(),               "Description type ID filter"),
+			Map.entry(ga.getTYPE_KEYWORDRule(),                 "Description type tag filter"),
+			Map.entry(ga.getDIALECTID_KEYWORDRule(),            "Description dialect ID filter"),
+			Map.entry(ga.getDIALECT_KEYWORDRule(),              "Description dialect tag filter"),
+			Map.entry(ga.getACTIVE_KEYWORDRule(),               "Component status filter"),
+			Map.entry(ga.getMODULEID_KEYWORDRule(),             "Component module filter"),
+			Map.entry(ga.getSEMANTIC_TAG_KEYWORDRule(),         "Component semantic tag filter"),
+			Map.entry(ga.getEFFECTIVE_TIME_KEYWORDRule(),       "Component effective time filter"),
+			Map.entry(ga.getPREFERRED_IN_KEYWORDRule(),         "Description acceptability filter"),
+			Map.entry(ga.getACCEPTABLE_IN_KEYWORDRule(),        "Description acceptability filter"),
+			Map.entry(ga.getLANGUAGE_REFSET_ID_KEYWORDRule(),   "Description acceptability filter"),
+			Map.entry(ga.getCASE_SIGNIFICANCE_ID_KEYWORDRule(), "Description case significance filter"),
+			Map.entry(ga.getPIPE_DELIMITED_STRINGRule(),        "Concept term")
+		);
+	}
 
 	@Override
-	public void complete_TERM_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void complete_PIPE_DELIMITED_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (model instanceof EclConceptReference) {
 			EclConceptReference conceptRef = (EclConceptReference) model;
 
@@ -172,6 +183,6 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 	}
 	
 	protected String getKeywordDescription(String keyword) {
-		return KEYWORD_DESCRIPTIONS.getOrDefault(keyword, "");
+		return ruleDescriptions.getOrDefault(keyword, "");
 	}
 }

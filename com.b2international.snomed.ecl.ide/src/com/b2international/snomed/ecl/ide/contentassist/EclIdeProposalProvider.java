@@ -30,9 +30,11 @@ import org.eclipse.xtext.ide.editor.contentassist.ContentAssistEntry;
 import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor;
 import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 
+import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.inject.Inject;
 
 public class EclIdeProposalProvider extends IdeContentProposalProvider {
 	
@@ -63,55 +65,65 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			}
 		}));
 	
-	private static final Map<String, String> RULE_DESCRIPTIONS = Map.ofEntries(
-		Map.entry("CONJUNCTION",                  "Conjunction"),
-		Map.entry("COMMA",                        "Conjunction"),
-		Map.entry("DISJUNCTION",                  "Disjunction"),
-		Map.entry("EXCLUSION",                    "Exclusion"),
-		Map.entry("COLON",                        "Refinement"),
-		Map.entry("CURLY_OPEN",                   "Opening attribute group"),
-		Map.entry("CURLY_CLOSE",                  "Closing attribute group"),
-		Map.entry("SQUARE_OPEN",                  "Opening cardinality"),
-		Map.entry("SQUARE_CLOSE",                 "Closing cardinality"),
-		Map.entry("TO",                           "Cardinality range"),
-		Map.entry("PLUS",                         "Numeric value"),
-		Map.entry("DASH",                         "Numeric value"),
-		Map.entry("CARET",                        "Member of"),
-		Map.entry("DOMAIN",                       "Filter attribute prefix"),
-		Map.entry("WILDCARD",                     "Any"),
-		Map.entry("EQUAL",                        "Equals"),
-		Map.entry("NOT_EQUAL",                    "Not equals"),
-		Map.entry("LT",                           "Descendant of"),
-		Map.entry("GT",                           "Ancestor of"),
-		Map.entry("DBL_LT",                       "Descendant or self of"),
-		Map.entry("DBL_GT",                       "Ancestor or self of"),
-		Map.entry("LT_EM",                        "Child of"),
-		Map.entry("GT_EM",                        "Parent of"),
-		Map.entry("DBL_LT_EM",                    "Child or self of"),
-		Map.entry("DBL_GT_EM",                    "Parent or self of"),
-		Map.entry("GTE",                          "Greater than or equals"),
-		Map.entry("LTE",                          "Less than or equals"),
-		Map.entry("REVERSED",                     "Reverse attribute"),
-		Map.entry("ROUND_CLOSE",                  "Closing nested expression"),
-		Map.entry("ROUND_OPEN",                   "Opening nested expression"),
-		Map.entry("DOUBLE_CURLY_OPEN",            "Opening filter constraint"),
-		Map.entry("DOUBLE_CURLY_CLOSE",           "Closing filter constraint"),
-		Map.entry("TERM_KEYWORD",                 "Description term filter"),
-		Map.entry("LANGUAGE_KEYWORD",             "Description language filter"),
-		Map.entry("TYPEID_KEYWORD",               "Description type ID filter"),
-		Map.entry("TYPE_KEYWORD",                 "Description type tag filter"),
-		Map.entry("DIALECTID_KEYWORD",            "Description dialect ID filter"),
-		Map.entry("DIALECT_KEYWORD",              "Description dialect tag filter"),
-		Map.entry("ACTIVE_KEYWORD",               "Component status filter"),
-		Map.entry("MODULEID_KEYWORD",             "Component module filter"),
-		Map.entry("SEMANTIC_TAG_KEYWORD",         "Component semantic tag filter"),
-		Map.entry("EFFECTIVE_TIME_KEYWORD",       "Component effective time filter"),
-		Map.entry("PREFERRED_IN_KEYWORD",         "Description acceptability filter"),
-		Map.entry("ACCEPTABLE_IN_KEYWORD",        "Description acceptability filter"),
-		Map.entry("LANGUAGE_REFSET_ID_KEYWORD",   "Description acceptability filter"),
-		Map.entry("CASE_SIGNIFICANCE_ID_KEYWORD", "Description case significance filter"),
-		Map.entry("TERM_STRING",                  "Concept term")
-	);
+	
+	@Inject
+	private EclGrammarAccess ga;
+	
+	private Map<AbstractRule, String> ruleDescriptions;
+	
+	@Inject
+	private void initializeDescriptions() {
+		 ruleDescriptions = Map.ofEntries(
+			Map.entry(ga.getCONJUNCTION_KEYWORDRule(),          "Conjunction"),
+			Map.entry(ga.getCOMMARule(),                        "Conjunction"),
+			Map.entry(ga.getDISJUNCTION_KEYWORDRule(),          "Disjunction"),
+			Map.entry(ga.getEXCLUSION_KEYWORDRule(),            "Exclusion"),
+			Map.entry(ga.getCOLONRule(),                        "Refinement"),
+			Map.entry(ga.getDOTRule(),                          "Dotted attribute"),
+			Map.entry(ga.getCURLY_OPENRule(),                   "Opening attribute group"),
+			Map.entry(ga.getCURLY_CLOSERule(),                  "Closing attribute group"),
+			Map.entry(ga.getSQUARE_OPENRule(),                  "Opening cardinality"),
+			Map.entry(ga.getSQUARE_CLOSERule(),                 "Closing cardinality"),
+			Map.entry(ga.getTORule(),                           "Cardinality range"),
+			Map.entry(ga.getPLUSRule(),                         "Numeric value"),
+			Map.entry(ga.getDASHRule(),                         "Numeric value"),
+			Map.entry(ga.getCARETRule(),                        "Member of"),
+			Map.entry(ga.getDOMAINRule(),                       "Filter attribute prefix"),
+			Map.entry(ga.getWILDCARDRule(),                     "Any"),
+			Map.entry(ga.getEQUALRule(),                        "Equals"),
+			Map.entry(ga.getNOT_EQUALRule(),                    "Not equals"),
+			Map.entry(ga.getLTRule(),                           "Descendant of"),
+			Map.entry(ga.getGTRule(),                           "Ancestor of"),
+			Map.entry(ga.getDBL_LTRule(),                       "Descendant or self of"),
+			Map.entry(ga.getDBL_GTRule(),                       "Ancestor or self of"),
+			Map.entry(ga.getLT_EMRule(),                        "Child of"),
+			Map.entry(ga.getGT_EMRule(),                        "Parent of"),
+			Map.entry(ga.getDBL_LT_EMRule(),                    "Child or self of"),
+			Map.entry(ga.getDBL_GT_EMRule(),                    "Parent or self of"),
+			Map.entry(ga.getGTERule(),                          "Greater than or equals"),
+			Map.entry(ga.getLTERule(),                          "Less than or equals"),
+			Map.entry(ga.getREVERSEDRule(),                     "Reverse attribute"),
+			Map.entry(ga.getROUND_CLOSERule(),                  "Closing nested expression"),
+			Map.entry(ga.getROUND_OPENRule(),                   "Opening nested expression"),
+			Map.entry(ga.getDOUBLE_CURLY_OPENRule(),            "Opening filter constraint"),
+			Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),           "Closing filter constraint"),
+			Map.entry(ga.getTERM_KEYWORDRule(),                 "Description term filter"),
+			Map.entry(ga.getLANGUAGE_KEYWORDRule(),             "Description language filter"),
+			Map.entry(ga.getTYPEID_KEYWORDRule(),               "Description type ID filter"),
+			Map.entry(ga.getTYPE_KEYWORDRule(),                 "Description type tag filter"),
+			Map.entry(ga.getDIALECTID_KEYWORDRule(),            "Description dialect ID filter"),
+			Map.entry(ga.getDIALECT_KEYWORDRule(),              "Description dialect tag filter"),
+			Map.entry(ga.getACTIVE_KEYWORDRule(),               "Component status filter"),
+			Map.entry(ga.getMODULEID_KEYWORDRule(),             "Component module filter"),
+			Map.entry(ga.getSEMANTIC_TAG_KEYWORDRule(),         "Component semantic tag filter"),
+			Map.entry(ga.getEFFECTIVE_TIME_KEYWORDRule(),       "Component effective time filter"),
+			Map.entry(ga.getPREFERRED_IN_KEYWORDRule(),         "Description acceptability filter"),
+			Map.entry(ga.getACCEPTABLE_IN_KEYWORDRule(),        "Description acceptability filter"),
+			Map.entry(ga.getLANGUAGE_REFSET_ID_KEYWORDRule(),   "Description acceptability filter"),
+			Map.entry(ga.getCASE_SIGNIFICANCE_ID_KEYWORDRule(), "Description case significance filter"),
+			Map.entry(ga.getPIPE_DELIMITED_STRINGRule(),        "Concept term")
+		);
+	}
 	
 	@Override
 	protected void _createProposals(final AbstractElement element, final ContentAssistContext context, 
@@ -161,8 +173,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			} catch (IllegalAccessException | InvocationTargetException e) {
 				throw new RuntimeException(e);
 			}
-		} else if (RULE_DESCRIPTIONS.containsKey(name)) {
-			createKeywordProposal(ruleCall, context, acceptor, RULE_DESCRIPTIONS.get(name));
+		} else if (ruleDescriptions.containsKey(rule)) {
+			createKeywordProposal(ruleCall, context, acceptor, ruleDescriptions.get(rule));
 		} else {
 			// Default implementation: create keyword without description from alternatives
 			createKeywordProposal(ruleCall, context, acceptor);
@@ -178,7 +190,7 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		}
 	}
 
-	public void complete_TERM_STRING(final RuleCall ruleCall, final ContentAssistContext context, 
+	public void complete_PIPE_DELIMITED_STRING(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
 		
 		String prefix = context.getPrefix().trim();
@@ -189,13 +201,40 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		 */
 		if (prefix.isEmpty()) {
 			prefix = "|term|";
+		} else if (!prefix.startsWith("|")) {
+			/*
+			 * XXX: Suggestions that do not start with the currently entered text are not
+			 * accepted by the editor, so we can not "inject" or wrap pipe characters around
+			 * a string to make it a concept term.
+			 */
+			return;
 		} else if (!prefix.endsWith("|")) {
+			// It is possible to add the pipe as a suffix, however.
 			prefix = prefix + "|";
 		}
 		
 		final AbstractRule rule = ruleCall.getRule();
-		final String ruleName = rule.getName();
-		createKeywordProposal(prefix, context, acceptor, RULE_DESCRIPTIONS.get(ruleName));
+		createKeywordProposal(prefix, context, acceptor, ruleDescriptions.get(rule));
+	}
+
+	public void complete_WS(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		// Do not suggest various alternatives for whitespace
+	}
+	
+	public void complete_DialectAliasValue(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		// TODO: add suggestions for known dialect aliases (not part of the grammar)
+	}
+	
+	public void complete_UnquotedString(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		// TODO: separate unquoted string usage based on the context (or rule), add suggestions for known valid values (not part of the grammar)
+	}
+	
+	public void complete_SnomedIdentifier(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		// No suggestions should be offered for SCTIDs ("raw numbers")
 	}
 
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context,
