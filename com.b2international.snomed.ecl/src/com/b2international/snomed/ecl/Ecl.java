@@ -109,6 +109,10 @@ public final class Ecl {
 			return getDomain(((ActiveFilter) filter).getDomain());
 		} else if (filter instanceof ModuleFilter) {
 			return getDomain(((ModuleFilter) filter).getDomain());
+		} else if (filter instanceof SemanticTagFilter) {
+			return getDomain(((SemanticTagFilter) filter).getDomain());
+		} else if (filter instanceof EffectiveTimeFilter) {
+			return getDomain(((EffectiveTimeFilter) filter).getDomain());
 		} else if (filter instanceof TypeFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof TermFilter) {
