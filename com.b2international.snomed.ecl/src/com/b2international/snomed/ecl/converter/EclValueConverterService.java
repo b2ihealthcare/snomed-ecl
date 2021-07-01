@@ -37,7 +37,7 @@ public class EclValueConverterService extends DefaultTerminalConverters {
 		return maxValueConverter;
 	}
 	
-	@ValueConverter(rule = "TERM_STRING")
+	@ValueConverter(rule = "PIPE_DELIMITED_STRING")
 	public IValueConverter<String> TermString() {
 		return termStringConverter;
 	}
