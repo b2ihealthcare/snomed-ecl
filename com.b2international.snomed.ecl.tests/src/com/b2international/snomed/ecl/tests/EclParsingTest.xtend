@@ -137,6 +137,15 @@ class EclParsingTest {
 	def void test_language_filter() {
 		'* {{ language = en }}'.assertNoErrors;
 	}
+
+	@Test
+	def void test_language_filter_keyword_prefix() {
+		/*
+		 * The language code is a valid ISO 639-2 code, but is also a prefix of a keyword,
+		 * which sometimes confuses the lexical analysis step.
+		 */
+		'* {{ language = de }}'.assertNoErrors;
+	}
 	
 	@Test
 	def void test_caseSignificance_filter() {
