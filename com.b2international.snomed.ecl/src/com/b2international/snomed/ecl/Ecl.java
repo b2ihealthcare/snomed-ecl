@@ -104,28 +104,31 @@ public final class Ecl {
 				throw new IllegalStateException("Disjunction filter has inconsistent left and right domains.");
 			}
 			return leftDomain;
+		} else if (filter instanceof AcceptableInFilter) {
+			return Domain.DESCRIPTION;
 		} else if (filter instanceof ActiveFilter) {
 			// XXX: case-insensitive enum literals are not supported by Xtext, so we convert allowed values here
 			return getDomain(((ActiveFilter) filter).getDomain());
-		} else if (filter instanceof ModuleFilter) {
-			return getDomain(((ModuleFilter) filter).getDomain());
+		} else if (filter instanceof CaseSignificanceFilter) {
+			return Domain.DESCRIPTION;
+		} else if (filter instanceof DialectFilter) {
+			// Covers both DialectIdFilter and DialectAliasFilter
+			return Domain.DESCRIPTION;
 		} else if (filter instanceof EffectiveTimeFilter) {
 			return getDomain(((EffectiveTimeFilter) filter).getDomain());
-		} else if (filter instanceof SemanticTagFilter) {
-			return Domain.DESCRIPTION;
-		} else if (filter instanceof TypeFilter) {
-			return Domain.DESCRIPTION;
-		} else if (filter instanceof TermFilter) {
-			return Domain.DESCRIPTION;
-		} else if (filter instanceof PreferredInFilter) {
-			return Domain.DESCRIPTION;
-		} else if (filter instanceof AcceptableInFilter) {
+		} else if (filter instanceof LanguageFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageRefSetFilter) {
 			return Domain.DESCRIPTION;
-		} else if (filter instanceof LanguageFilter) {
+		} else if (filter instanceof ModuleFilter) {
+			return getDomain(((ModuleFilter) filter).getDomain());
+		} else if (filter instanceof PreferredInFilter) {
 			return Domain.DESCRIPTION;
-		} else if (filter instanceof CaseSignificanceFilter) {
+		} else if (filter instanceof SemanticTagFilter) {
+			return Domain.DESCRIPTION;
+		} else if (filter instanceof TermFilter) {
+			return Domain.DESCRIPTION;
+		} else if (filter instanceof TypeFilter) {
 			return Domain.DESCRIPTION;
 		} else {
 			throw new UnsupportedOperationException("Not implemented case: " + filter);
