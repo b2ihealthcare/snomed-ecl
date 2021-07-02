@@ -73,7 +73,7 @@ public class EclValidator extends AbstractEclValidator {
 	// Copied from EffectiveTimes
 	private static final String UNSET_EFFECTIVE_TIME_LABEL = "Unpublished";
 	// Copied from DateFormats
-	private static final String EFFECTIVE_DATE_FORMAT = "yyyyMMdd";
+	private static final String SHORT_DATE_FORMAT = "yyyyMMdd";
 	
 	private static final Set<String> toCaseInsensitiveSet(final Iterable<String> iterable) {
 		return FluentIterable.from(iterable)
@@ -236,7 +236,7 @@ public class EclValidator extends AbstractEclValidator {
 		}
 		
 		try {
-			LocalDate.parse(effectiveTime, DateTimeFormatter.ofPattern(EFFECTIVE_DATE_FORMAT));
+			LocalDate.parse(effectiveTime, DateTimeFormatter.ofPattern(SHORT_DATE_FORMAT));
 		} catch (DateTimeParseException e) {
 			error(EFFECTIVE_TIME_ERROR, it, EclPackage.Literals.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME, EFFECTIVE_TIME_ERROR_CODE);
 		}
