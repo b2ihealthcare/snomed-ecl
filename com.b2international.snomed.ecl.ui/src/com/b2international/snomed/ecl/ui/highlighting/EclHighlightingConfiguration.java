@@ -20,40 +20,39 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
-import com.b2international.snomed.ecl.ui.EclHighlightingRuleIDs;
-
+import com.b2international.snomed.ecl.ide.highlighting.EclHighlightingRuleIDs;
 
 /**
  * Class for setting up the styling rules for the editor.
- *
  */
 public class EclHighlightingConfiguration implements IHighlightingConfiguration {
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.RED_TOKENS_RULE_ID, "Grammar constructs", redStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.PURPLE_TOKENS_RULE_ID, "Strings", purpleStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.GREEN_TOKENS_RULE_ID, "Comments", greenStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.BLUE_TOKENS_RULE_ID, "Booleans", blueStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.SNOMED_IDENTIFIER, "Snomed identifiers", snomedIdentifierStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.TERM_STRING, "Term strings", termStyle());
-		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.PIPE, "Pipes", pipeStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.KEYWORD_OPERATOR_RULE_ID, "Grammar constructs", operatorStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.KEYWORD_OTHER_RULE_ID, "Pipes", pipeStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.STRING_QUOTED_RULE_ID, "Strings", stringStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.STRING_QUOTED_OTHER_RULE_ID, "Term strings", termStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.COMMENT_RULE_ID, "Comments", commentStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_LANGUAGE_RULE_ID, "Boolean constants", constantStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_ID, "Integer constants", constantStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_OTHER_ID, "SNOMED CT identifiers", snomedIdentifierStyle());
 	}
 
-	private TextStyle redStyle() {
+	private TextStyle operatorStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(160, 0, 0));
 		return textStyle;
 	}
 	
-	private TextStyle purpleStyle() {
+	private TextStyle stringStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(148, 40, 255));
 		return textStyle;
 	}
 	
-	private TextStyle greenStyle() {
+	private TextStyle commentStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(63, 127, 95));
@@ -81,7 +80,7 @@ public class EclHighlightingConfiguration implements IHighlightingConfiguration 
 		return textStyle;
 	}
 	
-	private TextStyle blueStyle() {
+	private TextStyle constantStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(0, 0, 170));
