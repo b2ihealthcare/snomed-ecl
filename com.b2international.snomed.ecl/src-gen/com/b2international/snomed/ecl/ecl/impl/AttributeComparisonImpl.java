@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.AttributeComparisonImpl#getConstraint <em>Constraint</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.AttributeComparisonImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class AttributeComparisonImpl extends ComparisonImpl implements AttributeComparison
 {
   /**
-   * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' containment reference.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstraint()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected ExpressionConstraint constraint;
+  protected ExpressionConstraint value;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,9 +79,9 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
    * @generated
    */
   @Override
-  public ExpressionConstraint getConstraint()
+  public ExpressionConstraint getValue()
   {
-    return constraint;
+    return value;
   }
 
   /**
@@ -89,13 +89,13 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConstraint(ExpressionConstraint newConstraint, NotificationChain msgs)
+  public NotificationChain basicSetValue(ExpressionConstraint newValue, NotificationChain msgs)
   {
-    ExpressionConstraint oldConstraint = constraint;
-    constraint = newConstraint;
+    ExpressionConstraint oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT, oldConstraint, newConstraint);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.ATTRIBUTE_COMPARISON__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
    * @generated
    */
   @Override
-  public void setConstraint(ExpressionConstraint newConstraint)
+  public void setValue(ExpressionConstraint newValue)
   {
-    if (newConstraint != constraint)
+    if (newValue != value)
     {
       NotificationChain msgs = null;
-      if (constraint != null)
-        msgs = ((InternalEObject)constraint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT, null, msgs);
-      if (newConstraint != null)
-        msgs = ((InternalEObject)newConstraint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT, null, msgs);
-      msgs = basicSetConstraint(newConstraint, msgs);
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.ATTRIBUTE_COMPARISON__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.ATTRIBUTE_COMPARISON__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT, newConstraint, newConstraint));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ATTRIBUTE_COMPARISON__VALUE, newValue, newValue));
   }
 
   /**
@@ -133,8 +133,8 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
   {
     switch (featureID)
     {
-      case EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT:
-        return basicSetConstraint(null, msgs);
+      case EclPackage.ATTRIBUTE_COMPARISON__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -149,8 +149,8 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
   {
     switch (featureID)
     {
-      case EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT:
-        return getConstraint();
+      case EclPackage.ATTRIBUTE_COMPARISON__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,8 +165,8 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
   {
     switch (featureID)
     {
-      case EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT:
-        setConstraint((ExpressionConstraint)newValue);
+      case EclPackage.ATTRIBUTE_COMPARISON__VALUE:
+        setValue((ExpressionConstraint)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,8 +182,8 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
   {
     switch (featureID)
     {
-      case EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT:
-        setConstraint((ExpressionConstraint)null);
+      case EclPackage.ATTRIBUTE_COMPARISON__VALUE:
+        setValue((ExpressionConstraint)null);
         return;
     }
     super.eUnset(featureID);
@@ -199,8 +199,8 @@ public class AttributeComparisonImpl extends ComparisonImpl implements Attribute
   {
     switch (featureID)
     {
-      case EclPackage.ATTRIBUTE_COMPARISON__CONSTRAINT:
-        return constraint != null;
+      case EclPackage.ATTRIBUTE_COMPARISON__VALUE:
+        return value != null;
     }
     return super.eIsSet(featureID);
   }

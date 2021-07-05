@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2017 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2011-2021 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,13 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
+import com.b2international.snomed.ecl.ecl.EclPackage
+import com.b2international.snomed.ecl.validation.EclValidator
 
 /**
- * Parsing test for the SNOMED CT ECL.
+ * Parsing test for the SNOMED CT ECL grammar and associated extensions.
+ * 
+ * @since 1.4
  */
 @InjectWith(EclInjectorProvider)
 @RunWith(XtextRunner)
@@ -42,7 +46,161 @@ class EclParsingTest {
 	def void test_empty() {
 		''.assertNoErrors;
 	}
+	
+	@Test
+	def void test_whitespace() {
+		' \n \t'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_only() {
+		'* {{ active=true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_inactive_only() {
+		'* {{ active=false }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_module() {
+		'* {{ moduleId= 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_term_filter() {
+		'* {{ term = "Clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_and_module() {
+		'* {{ active=true, moduleId = 900000000000207008 }}'.assertNoErrors;
+		'* {{ active=true AND moduleId = 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_or_module() {
+		'* {{ active=true OR moduleId = 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_type_filter() {
+		'* {{ typeId = 900000000000550004 }}'.assertNoErrors;
+	}
 
+	@Test
+	def void test_multi_domain_query_and() {
+		'* {{ active=false }} AND * {{ term="clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_multi_domain_query_or() {
+		'* {{ active=false }} OR * {{ term="clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_multi_domain_query_minus() {
+		'* {{ active=false }} MINUS * {{ term="clin find" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_query_conjuction() {
+		'* {{ active = false }} AND * {{ Description.active = true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_query_disjunction() {
+		'* {{ active = false }} OR * {{ Description.active = true }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_query_disjunction_w_parenthesis() {
+		'* {{ active = false }} OR (* {{ Description.active = true }})'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_preferredIn_filter() {
+		'* {{ preferredIn = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_acceptableIn_filter() {
+		'* {{ acceptableIn = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_languageRefset_filter() {
+		'* {{ languageRefSetId = 900000000000550004 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_language_filter() {
+		'* {{ language = en }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_language_filter_keyword_prefix() {
+		/*
+		 * The language code is a valid ISO 639-2 code, but is also a prefix of a keyword,
+		 * which sometimes confuses the lexical analysis step.
+		 */
+		'* {{ language = de }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_caseSignificance_filter() {
+		'* {{ caseSignificanceId = 900000000000448009 }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_semanticTag_filter_eq() {
+		'* {{ semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_semanticTag_filter_ne() {
+		'* {{ semanticTag != "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_semanticTag_filter_domain() {
+		'* {{ Description.semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_eq() {
+		'* {{ effectiveTime = "20020131" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_effectiveTime_filter_unpublished() {
+		'* {{ effectiveTime = "Unpublished" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_gt() {
+		'* {{ effectiveTime > "20210731" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_effectiveTime_filter_domain() {
+		'* {{ Description.effectiveTime = "20210630" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_effectiveTime_filter_invalid_format() {
+		'* {{ Description.effectiveTime = "yesterday" }}'
+			.parse
+			.assertError(EclPackage.Literals.EFFECTIVE_TIME_FILTER, EclValidator.EFFECTIVE_TIME_ERROR_CODE);
+	}
+	
+	@Test
+	def void test_invalid_sctid() {
+		'<< 123'
+			.parse
+			.assertError(EclPackage.Literals.ECL_CONCEPT_REFERENCE, EclValidator.SCTID_ERROR_CODE, "SCTID length must be between 6-18 characters.")
+	}
+	
 	@Test
 	def void test_5_4_1_UnaryOperators_1() {
 		'''
@@ -640,7 +798,7 @@ class EclParsingTest {
 	def void test_6_6_6_NestedAttributeName_1() {
 		'''
 			<<  125605004 |Fracture of bone|  :
-			[0..0] ((<<  410662002 |Concept model attribute|  MINUS  363698007 |Finding site| ) MINUS  16676008 |Associated morphology|  ) = *
+			[0..0] ((<<  410662002 |Concept model attribute|  MINUS  363698007 |Finding site| ) MINUS  116676008 |Associated morphology|  ) = *
 		'''.assertNoErrors
 	}
 

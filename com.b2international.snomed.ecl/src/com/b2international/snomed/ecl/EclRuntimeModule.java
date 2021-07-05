@@ -28,5 +28,4 @@ public class EclRuntimeModule extends AbstractEclRuntimeModule {
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return EclValueConverterService.class;
 	}
-	
 }

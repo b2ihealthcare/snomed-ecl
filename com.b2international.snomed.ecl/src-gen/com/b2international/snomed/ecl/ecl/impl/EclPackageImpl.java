@@ -15,6 +15,11 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
+import com.b2international.snomed.ecl.ecl.Acceptability;
+import com.b2international.snomed.ecl.ecl.AcceptabilityIdSet;
+import com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet;
+import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
+import com.b2international.snomed.ecl.ecl.ActiveFilter;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
 import com.b2international.snomed.ecl.ecl.AncestorOrSelfOf;
 import com.b2international.snomed.ecl.ecl.AndExpressionConstraint;
@@ -22,48 +27,60 @@ import com.b2international.snomed.ecl.ecl.AndRefinement;
 import com.b2international.snomed.ecl.ecl.Any;
 import com.b2international.snomed.ecl.ecl.AttributeComparison;
 import com.b2international.snomed.ecl.ecl.AttributeConstraint;
-import com.b2international.snomed.ecl.ecl.AttributeValueEquals;
-import com.b2international.snomed.ecl.ecl.AttributeValueNotEquals;
-import com.b2international.snomed.ecl.ecl.BooleanValueEquals;
-import com.b2international.snomed.ecl.ecl.BooleanValueNotEquals;
+import com.b2international.snomed.ecl.ecl.BooleanValueComparison;
 import com.b2international.snomed.ecl.ecl.Cardinality;
+import com.b2international.snomed.ecl.ecl.CaseSignificanceFilter;
 import com.b2international.snomed.ecl.ecl.ChildOf;
 import com.b2international.snomed.ecl.ecl.ChildOrSelfOf;
 import com.b2international.snomed.ecl.ecl.Comparison;
+import com.b2international.snomed.ecl.ecl.ConjunctionFilter;
 import com.b2international.snomed.ecl.ecl.DataTypeComparison;
-import com.b2international.snomed.ecl.ecl.DecimalValueEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThan;
-import com.b2international.snomed.ecl.ecl.DecimalValueGreaterThanEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueLessThan;
-import com.b2international.snomed.ecl.ecl.DecimalValueLessThanEquals;
-import com.b2international.snomed.ecl.ecl.DecimalValueNotEquals;
+import com.b2international.snomed.ecl.ecl.DecimalValueComparison;
 import com.b2international.snomed.ecl.ecl.DescendantOf;
 import com.b2international.snomed.ecl.ecl.DescendantOrSelfOf;
+import com.b2international.snomed.ecl.ecl.Dialect;
+import com.b2international.snomed.ecl.ecl.DialectAlias;
+import com.b2international.snomed.ecl.ecl.DialectAliasFilter;
+import com.b2international.snomed.ecl.ecl.DialectFilter;
+import com.b2international.snomed.ecl.ecl.DialectIdFilter;
+import com.b2international.snomed.ecl.ecl.DisjunctionFilter;
 import com.b2international.snomed.ecl.ecl.DottedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.EclAttributeGroup;
 import com.b2international.snomed.ecl.ecl.EclConceptReference;
+import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclFactory;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.EclRefinement;
+import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
-import com.b2international.snomed.ecl.ecl.IntegerValueEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueGreaterThan;
-import com.b2international.snomed.ecl.ecl.IntegerValueGreaterThanEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueLessThan;
-import com.b2international.snomed.ecl.ecl.IntegerValueLessThanEquals;
-import com.b2international.snomed.ecl.ecl.IntegerValueNotEquals;
+import com.b2international.snomed.ecl.ecl.Filter;
+import com.b2international.snomed.ecl.ecl.FilterConstraint;
+import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
+import com.b2international.snomed.ecl.ecl.LanguageFilter;
+import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
+import com.b2international.snomed.ecl.ecl.ModuleFilter;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
+import com.b2international.snomed.ecl.ecl.NestedFilter;
 import com.b2international.snomed.ecl.ecl.NestedRefinement;
 import com.b2international.snomed.ecl.ecl.OrExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.OrRefinement;
 import com.b2international.snomed.ecl.ecl.ParentOf;
 import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
+import com.b2international.snomed.ecl.ecl.PreferredInFilter;
+import com.b2international.snomed.ecl.ecl.PropertyFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
-import com.b2international.snomed.ecl.ecl.StringValueEquals;
-import com.b2international.snomed.ecl.ecl.StringValueNotEquals;
+import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
+import com.b2international.snomed.ecl.ecl.StringValueComparison;
+import com.b2international.snomed.ecl.ecl.TermFilter;
+import com.b2international.snomed.ecl.ecl.TypeFilter;
+import com.b2international.snomed.ecl.ecl.TypeIdFilter;
+import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -169,6 +186,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass eclConceptReferenceSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass anyEClass = null;
 
   /**
@@ -232,126 +256,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass attributeValueEqualsEClass = null;
+  private EClass booleanValueComparisonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass attributeValueNotEqualsEClass = null;
+  private EClass stringValueComparisonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass booleanValueEqualsEClass = null;
+  private EClass integerValueComparisonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass booleanValueNotEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass stringValueEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass stringValueNotEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueNotEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueGreaterThanEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueLessThanEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueGreaterThanEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integerValueLessThanEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueNotEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueGreaterThanEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueLessThanEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueGreaterThanEqualsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass decimalValueLessThanEqualsEClass = null;
+  private EClass decimalValueComparisonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -359,6 +285,195 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass nestedExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass filterConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass filterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nestedFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass propertyFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass termFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typedTermFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typedTermFilterSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeIdFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeTokenFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dialectFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dialectIdFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dialectAliasFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dialectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dialectAliasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass acceptabilityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass acceptabilityIdSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass acceptabilityTokenSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass activeFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass moduleFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass semanticTagFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass effectiveTimeFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preferredInFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass acceptableInFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageRefSetFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass caseSignificanceFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -400,6 +515,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass filteredExpressionConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass orRefinementEClass = null;
 
   /**
@@ -408,6 +530,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass andRefinementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass disjunctionFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conjunctionFilterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -742,6 +878,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getEclConceptReferenceSet()
+  {
+    return eclConceptReferenceSetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEclConceptReferenceSet_Concepts()
+  {
+    return (EReference)eclConceptReferenceSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getAny()
   {
     return anyEClass;
@@ -918,6 +1076,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EAttribute getComparison_Op()
+  {
+    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getAttributeComparison()
   {
     return attributeComparisonEClass;
@@ -929,7 +1098,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EReference getAttributeComparison_Constraint()
+  public EReference getAttributeComparison_Value()
   {
     return (EReference)attributeComparisonEClass.getEStructuralFeatures().get(0);
   }
@@ -951,9 +1120,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getAttributeValueEquals()
+  public EClass getBooleanValueComparison()
   {
-    return attributeValueEqualsEClass;
+    return booleanValueComparisonEClass;
   }
 
   /**
@@ -962,9 +1131,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getAttributeValueNotEquals()
+  public EAttribute getBooleanValueComparison_Value()
   {
-    return attributeValueNotEqualsEClass;
+    return (EAttribute)booleanValueComparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -973,9 +1142,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getBooleanValueEquals()
+  public EClass getStringValueComparison()
   {
-    return booleanValueEqualsEClass;
+    return stringValueComparisonEClass;
   }
 
   /**
@@ -984,9 +1153,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getBooleanValueEquals_Value()
+  public EAttribute getStringValueComparison_Value()
   {
-    return (EAttribute)booleanValueEqualsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)stringValueComparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -995,9 +1164,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getBooleanValueNotEquals()
+  public EClass getIntegerValueComparison()
   {
-    return booleanValueNotEqualsEClass;
+    return integerValueComparisonEClass;
   }
 
   /**
@@ -1006,9 +1175,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getBooleanValueNotEquals_Value()
+  public EAttribute getIntegerValueComparison_Value()
   {
-    return (EAttribute)booleanValueNotEqualsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)integerValueComparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1017,9 +1186,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getStringValueEquals()
+  public EClass getDecimalValueComparison()
   {
-    return stringValueEqualsEClass;
+    return decimalValueComparisonEClass;
   }
 
   /**
@@ -1028,295 +1197,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getStringValueEquals_Value()
+  public EAttribute getDecimalValueComparison_Value()
   {
-    return (EAttribute)stringValueEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getStringValueNotEquals()
-  {
-    return stringValueNotEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getStringValueNotEquals_Value()
-  {
-    return (EAttribute)stringValueNotEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueEquals()
-  {
-    return integerValueEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueEquals_Value()
-  {
-    return (EAttribute)integerValueEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueNotEquals()
-  {
-    return integerValueNotEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueNotEquals_Value()
-  {
-    return (EAttribute)integerValueNotEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueGreaterThan()
-  {
-    return integerValueGreaterThanEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueGreaterThan_Value()
-  {
-    return (EAttribute)integerValueGreaterThanEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueLessThan()
-  {
-    return integerValueLessThanEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueLessThan_Value()
-  {
-    return (EAttribute)integerValueLessThanEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueGreaterThanEquals()
-  {
-    return integerValueGreaterThanEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueGreaterThanEquals_Value()
-  {
-    return (EAttribute)integerValueGreaterThanEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntegerValueLessThanEquals()
-  {
-    return integerValueLessThanEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntegerValueLessThanEquals_Value()
-  {
-    return (EAttribute)integerValueLessThanEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueEquals()
-  {
-    return decimalValueEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueEquals_Value()
-  {
-    return (EAttribute)decimalValueEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueNotEquals()
-  {
-    return decimalValueNotEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueNotEquals_Value()
-  {
-    return (EAttribute)decimalValueNotEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueGreaterThan()
-  {
-    return decimalValueGreaterThanEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueGreaterThan_Value()
-  {
-    return (EAttribute)decimalValueGreaterThanEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueLessThan()
-  {
-    return decimalValueLessThanEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueLessThan_Value()
-  {
-    return (EAttribute)decimalValueLessThanEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueGreaterThanEquals()
-  {
-    return decimalValueGreaterThanEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueGreaterThanEquals_Value()
-  {
-    return (EAttribute)decimalValueGreaterThanEqualsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDecimalValueLessThanEquals()
-  {
-    return decimalValueLessThanEqualsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDecimalValueLessThanEquals_Value()
-  {
-    return (EAttribute)decimalValueLessThanEqualsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)decimalValueComparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1339,6 +1222,666 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EReference getNestedExpression_Nested()
   {
     return (EReference)nestedExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFilterConstraint()
+  {
+    return filterConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFilter()
+  {
+    return filterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNestedFilter()
+  {
+    return nestedFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedFilter_Nested()
+  {
+    return (EReference)nestedFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPropertyFilter()
+  {
+    return propertyFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTermFilter()
+  {
+    return termFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTermFilter_Op()
+  {
+    return (EAttribute)termFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypedTermFilter()
+  {
+    return typedTermFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypedTermFilter_LexicalSearchType()
+  {
+    return (EAttribute)typedTermFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypedTermFilter_Term()
+  {
+    return (EAttribute)typedTermFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypedTermFilterSet()
+  {
+    return typedTermFilterSetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTypedTermFilterSet_Terms()
+  {
+    return (EReference)typedTermFilterSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLanguageFilter()
+  {
+    return languageFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLanguageFilter_Op()
+  {
+    return (EAttribute)languageFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLanguageFilter_LanguageCodes()
+  {
+    return (EAttribute)languageFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypeFilter()
+  {
+    return typeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypeFilter_Op()
+  {
+    return (EAttribute)typeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypeIdFilter()
+  {
+    return typeIdFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTypeIdFilter_Type()
+  {
+    return (EReference)typeIdFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypeTokenFilter()
+  {
+    return typeTokenFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypeTokenFilter_Tokens()
+  {
+    return (EAttribute)typeTokenFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDialectFilter()
+  {
+    return dialectFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDialectFilter_Op()
+  {
+    return (EAttribute)dialectFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDialectIdFilter()
+  {
+    return dialectIdFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDialectIdFilter_Dialects()
+  {
+    return (EReference)dialectIdFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDialectAliasFilter()
+  {
+    return dialectAliasFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDialectAliasFilter_Dialects()
+  {
+    return (EReference)dialectAliasFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDialect()
+  {
+    return dialectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDialect_LanguageRefSetId()
+  {
+    return (EReference)dialectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDialect_Acceptability()
+  {
+    return (EReference)dialectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDialectAlias()
+  {
+    return dialectAliasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDialectAlias_Alias()
+  {
+    return (EAttribute)dialectAliasEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDialectAlias_Acceptability()
+  {
+    return (EReference)dialectAliasEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAcceptability()
+  {
+    return acceptabilityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAcceptabilityIdSet()
+  {
+    return acceptabilityIdSetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAcceptabilityIdSet_Acceptabilities()
+  {
+    return (EReference)acceptabilityIdSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAcceptabilityTokenSet()
+  {
+    return acceptabilityTokenSetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAcceptabilityTokenSet_Acceptabilities()
+  {
+    return (EAttribute)acceptabilityTokenSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getActiveFilter()
+  {
+    return activeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Domain()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Active()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getModuleFilter()
+  {
+    return moduleFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getModuleFilter_Domain()
+  {
+    return (EAttribute)moduleFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModuleFilter_ModuleId()
+  {
+    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSemanticTagFilter()
+  {
+    return semanticTagFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_Domain()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_Op()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_SemanticTag()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEffectiveTimeFilter()
+  {
+    return effectiveTimeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_Domain()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_Op()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEffectiveTimeFilter_EffectiveTime()
+  {
+    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPreferredInFilter()
+  {
+    return preferredInFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPreferredInFilter_LanguageRefSetId()
+  {
+    return (EReference)preferredInFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAcceptableInFilter()
+  {
+    return acceptableInFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAcceptableInFilter_LanguageRefSetId()
+  {
+    return (EReference)acceptableInFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLanguageRefSetFilter()
+  {
+    return languageRefSetFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLanguageRefSetFilter_LanguageRefSetId()
+  {
+    return (EReference)languageRefSetFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCaseSignificanceFilter()
+  {
+    return caseSignificanceFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseSignificanceFilter_CaseSignificanceId()
+  {
+    return (EReference)caseSignificanceFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1512,6 +2055,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getFilteredExpressionConstraint()
+  {
+    return filteredExpressionConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilteredExpressionConstraint_Constraint()
+  {
+    return (EReference)filteredExpressionConstraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilteredExpressionConstraint_Filter()
+  {
+    return (EReference)filteredExpressionConstraintEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOrRefinement()
   {
     return orRefinementEClass;
@@ -1570,6 +2146,72 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EReference getAndRefinement_Right()
   {
     return (EReference)andRefinementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDisjunctionFilter()
+  {
+    return disjunctionFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDisjunctionFilter_Left()
+  {
+    return (EReference)disjunctionFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDisjunctionFilter_Right()
+  {
+    return (EReference)disjunctionFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConjunctionFilter()
+  {
+    return conjunctionFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConjunctionFilter_Left()
+  {
+    return (EReference)conjunctionFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConjunctionFilter_Right()
+  {
+    return (EReference)conjunctionFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1639,6 +2281,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(eclConceptReferenceEClass, ECL_CONCEPT_REFERENCE__ID);
     createEAttribute(eclConceptReferenceEClass, ECL_CONCEPT_REFERENCE__TERM);
 
+    eclConceptReferenceSetEClass = createEClass(ECL_CONCEPT_REFERENCE_SET);
+    createEReference(eclConceptReferenceSetEClass, ECL_CONCEPT_REFERENCE_SET__CONCEPTS);
+
     anyEClass = createEClass(ANY);
 
     eclRefinementEClass = createEClass(ECL_REFINEMENT);
@@ -1661,66 +2306,114 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(cardinalityEClass, CARDINALITY__MAX);
 
     comparisonEClass = createEClass(COMPARISON);
+    createEAttribute(comparisonEClass, COMPARISON__OP);
 
     attributeComparisonEClass = createEClass(ATTRIBUTE_COMPARISON);
-    createEReference(attributeComparisonEClass, ATTRIBUTE_COMPARISON__CONSTRAINT);
+    createEReference(attributeComparisonEClass, ATTRIBUTE_COMPARISON__VALUE);
 
     dataTypeComparisonEClass = createEClass(DATA_TYPE_COMPARISON);
 
-    attributeValueEqualsEClass = createEClass(ATTRIBUTE_VALUE_EQUALS);
+    booleanValueComparisonEClass = createEClass(BOOLEAN_VALUE_COMPARISON);
+    createEAttribute(booleanValueComparisonEClass, BOOLEAN_VALUE_COMPARISON__VALUE);
 
-    attributeValueNotEqualsEClass = createEClass(ATTRIBUTE_VALUE_NOT_EQUALS);
+    stringValueComparisonEClass = createEClass(STRING_VALUE_COMPARISON);
+    createEAttribute(stringValueComparisonEClass, STRING_VALUE_COMPARISON__VALUE);
 
-    booleanValueEqualsEClass = createEClass(BOOLEAN_VALUE_EQUALS);
-    createEAttribute(booleanValueEqualsEClass, BOOLEAN_VALUE_EQUALS__VALUE);
+    integerValueComparisonEClass = createEClass(INTEGER_VALUE_COMPARISON);
+    createEAttribute(integerValueComparisonEClass, INTEGER_VALUE_COMPARISON__VALUE);
 
-    booleanValueNotEqualsEClass = createEClass(BOOLEAN_VALUE_NOT_EQUALS);
-    createEAttribute(booleanValueNotEqualsEClass, BOOLEAN_VALUE_NOT_EQUALS__VALUE);
-
-    stringValueEqualsEClass = createEClass(STRING_VALUE_EQUALS);
-    createEAttribute(stringValueEqualsEClass, STRING_VALUE_EQUALS__VALUE);
-
-    stringValueNotEqualsEClass = createEClass(STRING_VALUE_NOT_EQUALS);
-    createEAttribute(stringValueNotEqualsEClass, STRING_VALUE_NOT_EQUALS__VALUE);
-
-    integerValueEqualsEClass = createEClass(INTEGER_VALUE_EQUALS);
-    createEAttribute(integerValueEqualsEClass, INTEGER_VALUE_EQUALS__VALUE);
-
-    integerValueNotEqualsEClass = createEClass(INTEGER_VALUE_NOT_EQUALS);
-    createEAttribute(integerValueNotEqualsEClass, INTEGER_VALUE_NOT_EQUALS__VALUE);
-
-    integerValueGreaterThanEClass = createEClass(INTEGER_VALUE_GREATER_THAN);
-    createEAttribute(integerValueGreaterThanEClass, INTEGER_VALUE_GREATER_THAN__VALUE);
-
-    integerValueLessThanEClass = createEClass(INTEGER_VALUE_LESS_THAN);
-    createEAttribute(integerValueLessThanEClass, INTEGER_VALUE_LESS_THAN__VALUE);
-
-    integerValueGreaterThanEqualsEClass = createEClass(INTEGER_VALUE_GREATER_THAN_EQUALS);
-    createEAttribute(integerValueGreaterThanEqualsEClass, INTEGER_VALUE_GREATER_THAN_EQUALS__VALUE);
-
-    integerValueLessThanEqualsEClass = createEClass(INTEGER_VALUE_LESS_THAN_EQUALS);
-    createEAttribute(integerValueLessThanEqualsEClass, INTEGER_VALUE_LESS_THAN_EQUALS__VALUE);
-
-    decimalValueEqualsEClass = createEClass(DECIMAL_VALUE_EQUALS);
-    createEAttribute(decimalValueEqualsEClass, DECIMAL_VALUE_EQUALS__VALUE);
-
-    decimalValueNotEqualsEClass = createEClass(DECIMAL_VALUE_NOT_EQUALS);
-    createEAttribute(decimalValueNotEqualsEClass, DECIMAL_VALUE_NOT_EQUALS__VALUE);
-
-    decimalValueGreaterThanEClass = createEClass(DECIMAL_VALUE_GREATER_THAN);
-    createEAttribute(decimalValueGreaterThanEClass, DECIMAL_VALUE_GREATER_THAN__VALUE);
-
-    decimalValueLessThanEClass = createEClass(DECIMAL_VALUE_LESS_THAN);
-    createEAttribute(decimalValueLessThanEClass, DECIMAL_VALUE_LESS_THAN__VALUE);
-
-    decimalValueGreaterThanEqualsEClass = createEClass(DECIMAL_VALUE_GREATER_THAN_EQUALS);
-    createEAttribute(decimalValueGreaterThanEqualsEClass, DECIMAL_VALUE_GREATER_THAN_EQUALS__VALUE);
-
-    decimalValueLessThanEqualsEClass = createEClass(DECIMAL_VALUE_LESS_THAN_EQUALS);
-    createEAttribute(decimalValueLessThanEqualsEClass, DECIMAL_VALUE_LESS_THAN_EQUALS__VALUE);
+    decimalValueComparisonEClass = createEClass(DECIMAL_VALUE_COMPARISON);
+    createEAttribute(decimalValueComparisonEClass, DECIMAL_VALUE_COMPARISON__VALUE);
 
     nestedExpressionEClass = createEClass(NESTED_EXPRESSION);
     createEReference(nestedExpressionEClass, NESTED_EXPRESSION__NESTED);
+
+    filterConstraintEClass = createEClass(FILTER_CONSTRAINT);
+
+    filterEClass = createEClass(FILTER);
+
+    nestedFilterEClass = createEClass(NESTED_FILTER);
+    createEReference(nestedFilterEClass, NESTED_FILTER__NESTED);
+
+    propertyFilterEClass = createEClass(PROPERTY_FILTER);
+
+    termFilterEClass = createEClass(TERM_FILTER);
+    createEAttribute(termFilterEClass, TERM_FILTER__OP);
+
+    typedTermFilterEClass = createEClass(TYPED_TERM_FILTER);
+    createEAttribute(typedTermFilterEClass, TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE);
+    createEAttribute(typedTermFilterEClass, TYPED_TERM_FILTER__TERM);
+
+    typedTermFilterSetEClass = createEClass(TYPED_TERM_FILTER_SET);
+    createEReference(typedTermFilterSetEClass, TYPED_TERM_FILTER_SET__TERMS);
+
+    languageFilterEClass = createEClass(LANGUAGE_FILTER);
+    createEAttribute(languageFilterEClass, LANGUAGE_FILTER__OP);
+    createEAttribute(languageFilterEClass, LANGUAGE_FILTER__LANGUAGE_CODES);
+
+    typeFilterEClass = createEClass(TYPE_FILTER);
+    createEAttribute(typeFilterEClass, TYPE_FILTER__OP);
+
+    typeIdFilterEClass = createEClass(TYPE_ID_FILTER);
+    createEReference(typeIdFilterEClass, TYPE_ID_FILTER__TYPE);
+
+    typeTokenFilterEClass = createEClass(TYPE_TOKEN_FILTER);
+    createEAttribute(typeTokenFilterEClass, TYPE_TOKEN_FILTER__TOKENS);
+
+    dialectFilterEClass = createEClass(DIALECT_FILTER);
+    createEAttribute(dialectFilterEClass, DIALECT_FILTER__OP);
+
+    dialectIdFilterEClass = createEClass(DIALECT_ID_FILTER);
+    createEReference(dialectIdFilterEClass, DIALECT_ID_FILTER__DIALECTS);
+
+    dialectAliasFilterEClass = createEClass(DIALECT_ALIAS_FILTER);
+    createEReference(dialectAliasFilterEClass, DIALECT_ALIAS_FILTER__DIALECTS);
+
+    dialectEClass = createEClass(DIALECT);
+    createEReference(dialectEClass, DIALECT__LANGUAGE_REF_SET_ID);
+    createEReference(dialectEClass, DIALECT__ACCEPTABILITY);
+
+    dialectAliasEClass = createEClass(DIALECT_ALIAS);
+    createEAttribute(dialectAliasEClass, DIALECT_ALIAS__ALIAS);
+    createEReference(dialectAliasEClass, DIALECT_ALIAS__ACCEPTABILITY);
+
+    acceptabilityEClass = createEClass(ACCEPTABILITY);
+
+    acceptabilityIdSetEClass = createEClass(ACCEPTABILITY_ID_SET);
+    createEReference(acceptabilityIdSetEClass, ACCEPTABILITY_ID_SET__ACCEPTABILITIES);
+
+    acceptabilityTokenSetEClass = createEClass(ACCEPTABILITY_TOKEN_SET);
+    createEAttribute(acceptabilityTokenSetEClass, ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES);
+
+    activeFilterEClass = createEClass(ACTIVE_FILTER);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__DOMAIN);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__ACTIVE);
+
+    moduleFilterEClass = createEClass(MODULE_FILTER);
+    createEAttribute(moduleFilterEClass, MODULE_FILTER__DOMAIN);
+    createEReference(moduleFilterEClass, MODULE_FILTER__MODULE_ID);
+
+    semanticTagFilterEClass = createEClass(SEMANTIC_TAG_FILTER);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__DOMAIN);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__OP);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__SEMANTIC_TAG);
+
+    effectiveTimeFilterEClass = createEClass(EFFECTIVE_TIME_FILTER);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__DOMAIN);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__OP);
+    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME);
+
+    preferredInFilterEClass = createEClass(PREFERRED_IN_FILTER);
+    createEReference(preferredInFilterEClass, PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID);
+
+    acceptableInFilterEClass = createEClass(ACCEPTABLE_IN_FILTER);
+    createEReference(acceptableInFilterEClass, ACCEPTABLE_IN_FILTER__LANGUAGE_REF_SET_ID);
+
+    languageRefSetFilterEClass = createEClass(LANGUAGE_REF_SET_FILTER);
+    createEReference(languageRefSetFilterEClass, LANGUAGE_REF_SET_FILTER__LANGUAGE_REF_SET_ID);
+
+    caseSignificanceFilterEClass = createEClass(CASE_SIGNIFICANCE_FILTER);
+    createEReference(caseSignificanceFilterEClass, CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID);
 
     orExpressionConstraintEClass = createEClass(OR_EXPRESSION_CONSTRAINT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__LEFT);
@@ -1742,6 +2435,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(dottedExpressionConstraintEClass, DOTTED_EXPRESSION_CONSTRAINT__CONSTRAINT);
     createEReference(dottedExpressionConstraintEClass, DOTTED_EXPRESSION_CONSTRAINT__ATTRIBUTE);
 
+    filteredExpressionConstraintEClass = createEClass(FILTERED_EXPRESSION_CONSTRAINT);
+    createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT);
+    createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__FILTER);
+
     orRefinementEClass = createEClass(OR_REFINEMENT);
     createEReference(orRefinementEClass, OR_REFINEMENT__LEFT);
     createEReference(orRefinementEClass, OR_REFINEMENT__RIGHT);
@@ -1749,6 +2446,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     andRefinementEClass = createEClass(AND_REFINEMENT);
     createEReference(andRefinementEClass, AND_REFINEMENT__LEFT);
     createEReference(andRefinementEClass, AND_REFINEMENT__RIGHT);
+
+    disjunctionFilterEClass = createEClass(DISJUNCTION_FILTER);
+    createEReference(disjunctionFilterEClass, DISJUNCTION_FILTER__LEFT);
+    createEReference(disjunctionFilterEClass, DISJUNCTION_FILTER__RIGHT);
+
+    conjunctionFilterEClass = createEClass(CONJUNCTION_FILTER);
+    createEReference(conjunctionFilterEClass, CONJUNCTION_FILTER__LEFT);
+    createEReference(conjunctionFilterEClass, CONJUNCTION_FILTER__RIGHT);
   }
 
   /**
@@ -1796,32 +2501,44 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     attributeConstraintEClass.getESuperTypes().add(this.getEclRefinement());
     attributeComparisonEClass.getESuperTypes().add(this.getComparison());
     dataTypeComparisonEClass.getESuperTypes().add(this.getComparison());
-    attributeValueEqualsEClass.getESuperTypes().add(this.getAttributeComparison());
-    attributeValueNotEqualsEClass.getESuperTypes().add(this.getAttributeComparison());
-    booleanValueEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    booleanValueNotEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    stringValueEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    stringValueNotEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueNotEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueGreaterThanEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueLessThanEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueGreaterThanEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    integerValueLessThanEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueNotEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueGreaterThanEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueLessThanEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueGreaterThanEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
-    decimalValueLessThanEqualsEClass.getESuperTypes().add(this.getDataTypeComparison());
+    booleanValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
+    stringValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
+    integerValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
+    decimalValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
     nestedExpressionEClass.getESuperTypes().add(this.getExpressionConstraint());
+    filterEClass.getESuperTypes().add(this.getFilterConstraint());
+    nestedFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    propertyFilterEClass.getESuperTypes().add(this.getFilter());
+    termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    typedTermFilterEClass.getESuperTypes().add(this.getTermFilter());
+    typedTermFilterSetEClass.getESuperTypes().add(this.getTermFilter());
+    languageFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    typeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    typeIdFilterEClass.getESuperTypes().add(this.getTypeFilter());
+    typeTokenFilterEClass.getESuperTypes().add(this.getTypeFilter());
+    dialectFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    dialectIdFilterEClass.getESuperTypes().add(this.getDialectFilter());
+    dialectAliasFilterEClass.getESuperTypes().add(this.getDialectFilter());
+    acceptabilityIdSetEClass.getESuperTypes().add(this.getAcceptability());
+    acceptabilityTokenSetEClass.getESuperTypes().add(this.getAcceptability());
+    activeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    moduleFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    semanticTagFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    effectiveTimeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    preferredInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    acceptableInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    languageRefSetFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    caseSignificanceFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     orExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     andExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     exclusionExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     refinedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     dottedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
+    filteredExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     orRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     andRefinementEClass.getESuperTypes().add(this.getEclRefinement());
+    disjunctionFilterEClass.getESuperTypes().add(this.getFilter());
+    conjunctionFilterEClass.getESuperTypes().add(this.getFilter());
 
     // Initialize classes and features; add operations and parameters
     initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1860,6 +2577,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getEclConceptReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, EclConceptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEclConceptReference_Term(), ecorePackage.getEString(), "term", null, 0, 1, EclConceptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(eclConceptReferenceSetEClass, EclConceptReferenceSet.class, "EclConceptReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEclConceptReferenceSet_Concepts(), this.getEclConceptReference(), null, "concepts", null, 0, -1, EclConceptReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(anyEClass, Any.class, "Any", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(eclRefinementEClass, EclRefinement.class, "EclRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1882,66 +2602,114 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getCardinality_Max(), ecorePackage.getEInt(), "max", null, 0, 1, Cardinality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComparison_Op(), ecorePackage.getEString(), "op", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeComparisonEClass, AttributeComparison.class, "AttributeComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAttributeComparison_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, AttributeComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttributeComparison_Value(), this.getExpressionConstraint(), null, "value", null, 0, 1, AttributeComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTypeComparisonEClass, DataTypeComparison.class, "DataTypeComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(attributeValueEqualsEClass, AttributeValueEquals.class, "AttributeValueEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(booleanValueComparisonEClass, BooleanValueComparison.class, "BooleanValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanValueComparison_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(attributeValueNotEqualsEClass, AttributeValueNotEquals.class, "AttributeValueNotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(stringValueComparisonEClass, StringValueComparison.class, "StringValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringValueComparison_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(booleanValueEqualsEClass, BooleanValueEquals.class, "BooleanValueEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBooleanValueEquals_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValueEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(integerValueComparisonEClass, IntegerValueComparison.class, "IntegerValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntegerValueComparison_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(booleanValueNotEqualsEClass, BooleanValueNotEquals.class, "BooleanValueNotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBooleanValueNotEquals_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValueNotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(stringValueEqualsEClass, StringValueEquals.class, "StringValueEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringValueEquals_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValueEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(stringValueNotEqualsEClass, StringValueNotEquals.class, "StringValueNotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringValueNotEquals_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValueNotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueEqualsEClass, IntegerValueEquals.class, "IntegerValueEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueEquals_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueNotEqualsEClass, IntegerValueNotEquals.class, "IntegerValueNotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueNotEquals_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueNotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueGreaterThanEClass, IntegerValueGreaterThan.class, "IntegerValueGreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueGreaterThan_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueGreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueLessThanEClass, IntegerValueLessThan.class, "IntegerValueLessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueLessThan_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueLessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueGreaterThanEqualsEClass, IntegerValueGreaterThanEquals.class, "IntegerValueGreaterThanEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueGreaterThanEquals_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueGreaterThanEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integerValueLessThanEqualsEClass, IntegerValueLessThanEquals.class, "IntegerValueLessThanEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerValueLessThanEquals_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueLessThanEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueEqualsEClass, DecimalValueEquals.class, "DecimalValueEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueEquals_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueNotEqualsEClass, DecimalValueNotEquals.class, "DecimalValueNotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueNotEquals_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueNotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueGreaterThanEClass, DecimalValueGreaterThan.class, "DecimalValueGreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueGreaterThan_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueGreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueLessThanEClass, DecimalValueLessThan.class, "DecimalValueLessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueLessThan_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueLessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueGreaterThanEqualsEClass, DecimalValueGreaterThanEquals.class, "DecimalValueGreaterThanEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueGreaterThanEquals_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueGreaterThanEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(decimalValueLessThanEqualsEClass, DecimalValueLessThanEquals.class, "DecimalValueLessThanEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecimalValueLessThanEquals_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueLessThanEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(decimalValueComparisonEClass, DecimalValueComparison.class, "DecimalValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDecimalValueComparison_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, DecimalValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nestedExpressionEClass, NestedExpression.class, "NestedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNestedExpression_Nested(), this.getExpressionConstraint(), null, "nested", null, 0, 1, NestedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(filterConstraintEClass, FilterConstraint.class, "FilterConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(nestedFilterEClass, NestedFilter.class, "NestedFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNestedFilter_Nested(), this.getFilter(), null, "nested", null, 0, 1, NestedFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(propertyFilterEClass, PropertyFilter.class, "PropertyFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(termFilterEClass, TermFilter.class, "TermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typedTermFilterEClass, TypedTermFilter.class, "TypedTermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypedTermFilter_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypedTermFilter_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typedTermFilterSetEClass, TypedTermFilterSet.class, "TypedTermFilterSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypedTermFilterSet_Terms(), this.getTypedTermFilter(), null, "terms", null, 0, -1, TypedTermFilterSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageFilterEClass, LanguageFilter.class, "LanguageFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLanguageFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLanguageFilter_LanguageCodes(), ecorePackage.getEString(), "languageCodes", null, 0, -1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeFilterEClass, TypeFilter.class, "TypeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TypeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeIdFilterEClass, TypeIdFilter.class, "TypeIdFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeIdFilter_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, TypeIdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeTokenFilterEClass, TypeTokenFilter.class, "TypeTokenFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypeTokenFilter_Tokens(), ecorePackage.getEString(), "tokens", null, 0, -1, TypeTokenFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dialectFilterEClass, DialectFilter.class, "DialectFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDialectFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, DialectFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dialectIdFilterEClass, DialectIdFilter.class, "DialectIdFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDialectIdFilter_Dialects(), this.getDialect(), null, "dialects", null, 0, -1, DialectIdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dialectAliasFilterEClass, DialectAliasFilter.class, "DialectAliasFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDialectAliasFilter_Dialects(), this.getDialectAlias(), null, "dialects", null, 0, -1, DialectAliasFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dialectEClass, Dialect.class, "Dialect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDialect_LanguageRefSetId(), this.getEclConceptReference(), null, "languageRefSetId", null, 0, 1, Dialect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDialect_Acceptability(), this.getAcceptability(), null, "acceptability", null, 0, 1, Dialect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dialectAliasEClass, DialectAlias.class, "DialectAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDialectAlias_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, DialectAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDialectAlias_Acceptability(), this.getAcceptability(), null, "acceptability", null, 0, 1, DialectAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(acceptabilityEClass, Acceptability.class, "Acceptability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(acceptabilityIdSetEClass, AcceptabilityIdSet.class, "AcceptabilityIdSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAcceptabilityIdSet_Acceptabilities(), this.getEclConceptReferenceSet(), null, "acceptabilities", null, 0, 1, AcceptabilityIdSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(acceptabilityTokenSetEClass, AcceptabilityTokenSet.class, "AcceptabilityTokenSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAcceptabilityTokenSet_Acceptabilities(), ecorePackage.getEString(), "acceptabilities", null, 0, -1, AcceptabilityTokenSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(activeFilterEClass, ActiveFilter.class, "ActiveFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActiveFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActiveFilter_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(moduleFilterEClass, ModuleFilter.class, "ModuleFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModuleFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleFilter_ModuleId(), this.getExpressionConstraint(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(semanticTagFilterEClass, SemanticTagFilter.class, "SemanticTagFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSemanticTagFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSemanticTagFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSemanticTagFilter_SemanticTag(), ecorePackage.getEString(), "semanticTag", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(effectiveTimeFilterEClass, EffectiveTimeFilter.class, "EffectiveTimeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEffectiveTimeFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEffectiveTimeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEffectiveTimeFilter_EffectiveTime(), ecorePackage.getEString(), "effectiveTime", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preferredInFilterEClass, PreferredInFilter.class, "PreferredInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreferredInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, PreferredInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(acceptableInFilterEClass, AcceptableInFilter.class, "AcceptableInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAcceptableInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, AcceptableInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageRefSetFilterEClass, LanguageRefSetFilter.class, "LanguageRefSetFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLanguageRefSetFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, LanguageRefSetFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(caseSignificanceFilterEClass, CaseSignificanceFilter.class, "CaseSignificanceFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCaseSignificanceFilter_CaseSignificanceId(), this.getExpressionConstraint(), null, "caseSignificanceId", null, 0, 1, CaseSignificanceFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orExpressionConstraintEClass, OrExpressionConstraint.class, "OrExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrExpressionConstraint_Left(), this.getExpressionConstraint(), null, "left", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1963,6 +2731,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getDottedExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, DottedExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDottedExpressionConstraint_Attribute(), this.getExpressionConstraint(), null, "attribute", null, 0, 1, DottedExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(filteredExpressionConstraintEClass, FilteredExpressionConstraint.class, "FilteredExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFilteredExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFilteredExpressionConstraint_Filter(), this.getFilterConstraint(), null, "filter", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(orRefinementEClass, OrRefinement.class, "OrRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrRefinement_Left(), this.getEclRefinement(), null, "left", null, 0, 1, OrRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOrRefinement_Right(), this.getEclRefinement(), null, "right", null, 0, 1, OrRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1970,6 +2742,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(andRefinementEClass, AndRefinement.class, "AndRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAndRefinement_Left(), this.getEclRefinement(), null, "left", null, 0, 1, AndRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAndRefinement_Right(), this.getEclRefinement(), null, "right", null, 0, 1, AndRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(disjunctionFilterEClass, DisjunctionFilter.class, "DisjunctionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDisjunctionFilter_Left(), this.getFilter(), null, "left", null, 0, 1, DisjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDisjunctionFilter_Right(), this.getFilter(), null, "right", null, 0, 1, DisjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conjunctionFilterEClass, ConjunctionFilter.class, "ConjunctionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConjunctionFilter_Left(), this.getFilter(), null, "left", null, 0, 1, ConjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConjunctionFilter_Right(), this.getPropertyFilter(), null, "right", null, 0, 1, ConjunctionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
