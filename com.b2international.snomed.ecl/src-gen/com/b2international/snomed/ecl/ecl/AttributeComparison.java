@@ -25,7 +25,7 @@ package com.b2international.snomed.ecl.ecl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.AttributeComparison#getConstraint <em>Constraint</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.AttributeComparison#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getAttributeComparison()
@@ -35,25 +35,25 @@ package com.b2international.snomed.ecl.ecl;
 public interface AttributeComparison extends Comparison
 {
   /**
-   * Returns the value of the '<em><b>Constraint</b></em>' containment reference.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Constraint</em>' containment reference.
-   * @see #setConstraint(ExpressionConstraint)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getAttributeComparison_Constraint()
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(ExpressionConstraint)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getAttributeComparison_Value()
    * @model containment="true"
    * @generated
    */
-  ExpressionConstraint getConstraint();
+  ExpressionConstraint getValue();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.AttributeComparison#getConstraint <em>Constraint</em>}' containment reference.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.AttributeComparison#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Constraint</em>' containment reference.
-   * @see #getConstraint()
+   * @param value the new value of the '<em>Value</em>' containment reference.
+   * @see #getValue()
    * @generated
    */
-  void setConstraint(ExpressionConstraint value);
+  void setValue(ExpressionConstraint value);
 
 } // AttributeComparison

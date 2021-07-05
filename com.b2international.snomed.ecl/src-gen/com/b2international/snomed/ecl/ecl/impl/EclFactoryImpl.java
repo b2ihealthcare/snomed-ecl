@@ -89,6 +89,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.ANCESTOR_OR_SELF_OF: return createAncestorOrSelfOf();
       case EclPackage.MEMBER_OF: return createMemberOf();
       case EclPackage.ECL_CONCEPT_REFERENCE: return createEclConceptReference();
+      case EclPackage.ECL_CONCEPT_REFERENCE_SET: return createEclConceptReferenceSet();
       case EclPackage.ANY: return createAny();
       case EclPackage.ECL_REFINEMENT: return createEclRefinement();
       case EclPackage.NESTED_REFINEMENT: return createNestedRefinement();
@@ -98,32 +99,48 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.COMPARISON: return createComparison();
       case EclPackage.ATTRIBUTE_COMPARISON: return createAttributeComparison();
       case EclPackage.DATA_TYPE_COMPARISON: return createDataTypeComparison();
-      case EclPackage.ATTRIBUTE_VALUE_EQUALS: return createAttributeValueEquals();
-      case EclPackage.ATTRIBUTE_VALUE_NOT_EQUALS: return createAttributeValueNotEquals();
-      case EclPackage.BOOLEAN_VALUE_EQUALS: return createBooleanValueEquals();
-      case EclPackage.BOOLEAN_VALUE_NOT_EQUALS: return createBooleanValueNotEquals();
-      case EclPackage.STRING_VALUE_EQUALS: return createStringValueEquals();
-      case EclPackage.STRING_VALUE_NOT_EQUALS: return createStringValueNotEquals();
-      case EclPackage.INTEGER_VALUE_EQUALS: return createIntegerValueEquals();
-      case EclPackage.INTEGER_VALUE_NOT_EQUALS: return createIntegerValueNotEquals();
-      case EclPackage.INTEGER_VALUE_GREATER_THAN: return createIntegerValueGreaterThan();
-      case EclPackage.INTEGER_VALUE_LESS_THAN: return createIntegerValueLessThan();
-      case EclPackage.INTEGER_VALUE_GREATER_THAN_EQUALS: return createIntegerValueGreaterThanEquals();
-      case EclPackage.INTEGER_VALUE_LESS_THAN_EQUALS: return createIntegerValueLessThanEquals();
-      case EclPackage.DECIMAL_VALUE_EQUALS: return createDecimalValueEquals();
-      case EclPackage.DECIMAL_VALUE_NOT_EQUALS: return createDecimalValueNotEquals();
-      case EclPackage.DECIMAL_VALUE_GREATER_THAN: return createDecimalValueGreaterThan();
-      case EclPackage.DECIMAL_VALUE_LESS_THAN: return createDecimalValueLessThan();
-      case EclPackage.DECIMAL_VALUE_GREATER_THAN_EQUALS: return createDecimalValueGreaterThanEquals();
-      case EclPackage.DECIMAL_VALUE_LESS_THAN_EQUALS: return createDecimalValueLessThanEquals();
+      case EclPackage.BOOLEAN_VALUE_COMPARISON: return createBooleanValueComparison();
+      case EclPackage.STRING_VALUE_COMPARISON: return createStringValueComparison();
+      case EclPackage.INTEGER_VALUE_COMPARISON: return createIntegerValueComparison();
+      case EclPackage.DECIMAL_VALUE_COMPARISON: return createDecimalValueComparison();
       case EclPackage.NESTED_EXPRESSION: return createNestedExpression();
+      case EclPackage.FILTER_CONSTRAINT: return createFilterConstraint();
+      case EclPackage.FILTER: return createFilter();
+      case EclPackage.NESTED_FILTER: return createNestedFilter();
+      case EclPackage.PROPERTY_FILTER: return createPropertyFilter();
+      case EclPackage.TERM_FILTER: return createTermFilter();
+      case EclPackage.TYPED_TERM_FILTER: return createTypedTermFilter();
+      case EclPackage.TYPED_TERM_FILTER_SET: return createTypedTermFilterSet();
+      case EclPackage.LANGUAGE_FILTER: return createLanguageFilter();
+      case EclPackage.TYPE_FILTER: return createTypeFilter();
+      case EclPackage.TYPE_ID_FILTER: return createTypeIdFilter();
+      case EclPackage.TYPE_TOKEN_FILTER: return createTypeTokenFilter();
+      case EclPackage.DIALECT_FILTER: return createDialectFilter();
+      case EclPackage.DIALECT_ID_FILTER: return createDialectIdFilter();
+      case EclPackage.DIALECT_ALIAS_FILTER: return createDialectAliasFilter();
+      case EclPackage.DIALECT: return createDialect();
+      case EclPackage.DIALECT_ALIAS: return createDialectAlias();
+      case EclPackage.ACCEPTABILITY: return createAcceptability();
+      case EclPackage.ACCEPTABILITY_ID_SET: return createAcceptabilityIdSet();
+      case EclPackage.ACCEPTABILITY_TOKEN_SET: return createAcceptabilityTokenSet();
+      case EclPackage.ACTIVE_FILTER: return createActiveFilter();
+      case EclPackage.MODULE_FILTER: return createModuleFilter();
+      case EclPackage.SEMANTIC_TAG_FILTER: return createSemanticTagFilter();
+      case EclPackage.EFFECTIVE_TIME_FILTER: return createEffectiveTimeFilter();
+      case EclPackage.PREFERRED_IN_FILTER: return createPreferredInFilter();
+      case EclPackage.ACCEPTABLE_IN_FILTER: return createAcceptableInFilter();
+      case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
+      case EclPackage.CASE_SIGNIFICANCE_FILTER: return createCaseSignificanceFilter();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
       case EclPackage.REFINED_EXPRESSION_CONSTRAINT: return createRefinedExpressionConstraint();
       case EclPackage.DOTTED_EXPRESSION_CONSTRAINT: return createDottedExpressionConstraint();
+      case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
       case EclPackage.OR_REFINEMENT: return createOrRefinement();
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
+      case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
+      case EclPackage.CONJUNCTION_FILTER: return createConjunctionFilter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -279,6 +296,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public EclConceptReferenceSet createEclConceptReferenceSet()
+  {
+    EclConceptReferenceSetImpl eclConceptReferenceSet = new EclConceptReferenceSetImpl();
+    return eclConceptReferenceSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Any createAny()
   {
     AnyImpl any = new AnyImpl();
@@ -387,10 +416,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public AttributeValueEquals createAttributeValueEquals()
+  public BooleanValueComparison createBooleanValueComparison()
   {
-    AttributeValueEqualsImpl attributeValueEquals = new AttributeValueEqualsImpl();
-    return attributeValueEquals;
+    BooleanValueComparisonImpl booleanValueComparison = new BooleanValueComparisonImpl();
+    return booleanValueComparison;
   }
 
   /**
@@ -399,10 +428,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public AttributeValueNotEquals createAttributeValueNotEquals()
+  public StringValueComparison createStringValueComparison()
   {
-    AttributeValueNotEqualsImpl attributeValueNotEquals = new AttributeValueNotEqualsImpl();
-    return attributeValueNotEquals;
+    StringValueComparisonImpl stringValueComparison = new StringValueComparisonImpl();
+    return stringValueComparison;
   }
 
   /**
@@ -411,10 +440,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public BooleanValueEquals createBooleanValueEquals()
+  public IntegerValueComparison createIntegerValueComparison()
   {
-    BooleanValueEqualsImpl booleanValueEquals = new BooleanValueEqualsImpl();
-    return booleanValueEquals;
+    IntegerValueComparisonImpl integerValueComparison = new IntegerValueComparisonImpl();
+    return integerValueComparison;
   }
 
   /**
@@ -423,178 +452,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public BooleanValueNotEquals createBooleanValueNotEquals()
+  public DecimalValueComparison createDecimalValueComparison()
   {
-    BooleanValueNotEqualsImpl booleanValueNotEquals = new BooleanValueNotEqualsImpl();
-    return booleanValueNotEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public StringValueEquals createStringValueEquals()
-  {
-    StringValueEqualsImpl stringValueEquals = new StringValueEqualsImpl();
-    return stringValueEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public StringValueNotEquals createStringValueNotEquals()
-  {
-    StringValueNotEqualsImpl stringValueNotEquals = new StringValueNotEqualsImpl();
-    return stringValueNotEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueEquals createIntegerValueEquals()
-  {
-    IntegerValueEqualsImpl integerValueEquals = new IntegerValueEqualsImpl();
-    return integerValueEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueNotEquals createIntegerValueNotEquals()
-  {
-    IntegerValueNotEqualsImpl integerValueNotEquals = new IntegerValueNotEqualsImpl();
-    return integerValueNotEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueGreaterThan createIntegerValueGreaterThan()
-  {
-    IntegerValueGreaterThanImpl integerValueGreaterThan = new IntegerValueGreaterThanImpl();
-    return integerValueGreaterThan;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueLessThan createIntegerValueLessThan()
-  {
-    IntegerValueLessThanImpl integerValueLessThan = new IntegerValueLessThanImpl();
-    return integerValueLessThan;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueGreaterThanEquals createIntegerValueGreaterThanEquals()
-  {
-    IntegerValueGreaterThanEqualsImpl integerValueGreaterThanEquals = new IntegerValueGreaterThanEqualsImpl();
-    return integerValueGreaterThanEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntegerValueLessThanEquals createIntegerValueLessThanEquals()
-  {
-    IntegerValueLessThanEqualsImpl integerValueLessThanEquals = new IntegerValueLessThanEqualsImpl();
-    return integerValueLessThanEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueEquals createDecimalValueEquals()
-  {
-    DecimalValueEqualsImpl decimalValueEquals = new DecimalValueEqualsImpl();
-    return decimalValueEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueNotEquals createDecimalValueNotEquals()
-  {
-    DecimalValueNotEqualsImpl decimalValueNotEquals = new DecimalValueNotEqualsImpl();
-    return decimalValueNotEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueGreaterThan createDecimalValueGreaterThan()
-  {
-    DecimalValueGreaterThanImpl decimalValueGreaterThan = new DecimalValueGreaterThanImpl();
-    return decimalValueGreaterThan;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueLessThan createDecimalValueLessThan()
-  {
-    DecimalValueLessThanImpl decimalValueLessThan = new DecimalValueLessThanImpl();
-    return decimalValueLessThan;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueGreaterThanEquals createDecimalValueGreaterThanEquals()
-  {
-    DecimalValueGreaterThanEqualsImpl decimalValueGreaterThanEquals = new DecimalValueGreaterThanEqualsImpl();
-    return decimalValueGreaterThanEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DecimalValueLessThanEquals createDecimalValueLessThanEquals()
-  {
-    DecimalValueLessThanEqualsImpl decimalValueLessThanEquals = new DecimalValueLessThanEqualsImpl();
-    return decimalValueLessThanEquals;
+    DecimalValueComparisonImpl decimalValueComparison = new DecimalValueComparisonImpl();
+    return decimalValueComparison;
   }
 
   /**
@@ -607,6 +468,330 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     NestedExpressionImpl nestedExpression = new NestedExpressionImpl();
     return nestedExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FilterConstraint createFilterConstraint()
+  {
+    FilterConstraintImpl filterConstraint = new FilterConstraintImpl();
+    return filterConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Filter createFilter()
+  {
+    FilterImpl filter = new FilterImpl();
+    return filter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NestedFilter createNestedFilter()
+  {
+    NestedFilterImpl nestedFilter = new NestedFilterImpl();
+    return nestedFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PropertyFilter createPropertyFilter()
+  {
+    PropertyFilterImpl propertyFilter = new PropertyFilterImpl();
+    return propertyFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TermFilter createTermFilter()
+  {
+    TermFilterImpl termFilter = new TermFilterImpl();
+    return termFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypedTermFilter createTypedTermFilter()
+  {
+    TypedTermFilterImpl typedTermFilter = new TypedTermFilterImpl();
+    return typedTermFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypedTermFilterSet createTypedTermFilterSet()
+  {
+    TypedTermFilterSetImpl typedTermFilterSet = new TypedTermFilterSetImpl();
+    return typedTermFilterSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LanguageFilter createLanguageFilter()
+  {
+    LanguageFilterImpl languageFilter = new LanguageFilterImpl();
+    return languageFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeFilter createTypeFilter()
+  {
+    TypeFilterImpl typeFilter = new TypeFilterImpl();
+    return typeFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeIdFilter createTypeIdFilter()
+  {
+    TypeIdFilterImpl typeIdFilter = new TypeIdFilterImpl();
+    return typeIdFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeTokenFilter createTypeTokenFilter()
+  {
+    TypeTokenFilterImpl typeTokenFilter = new TypeTokenFilterImpl();
+    return typeTokenFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DialectFilter createDialectFilter()
+  {
+    DialectFilterImpl dialectFilter = new DialectFilterImpl();
+    return dialectFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DialectIdFilter createDialectIdFilter()
+  {
+    DialectIdFilterImpl dialectIdFilter = new DialectIdFilterImpl();
+    return dialectIdFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DialectAliasFilter createDialectAliasFilter()
+  {
+    DialectAliasFilterImpl dialectAliasFilter = new DialectAliasFilterImpl();
+    return dialectAliasFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Dialect createDialect()
+  {
+    DialectImpl dialect = new DialectImpl();
+    return dialect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DialectAlias createDialectAlias()
+  {
+    DialectAliasImpl dialectAlias = new DialectAliasImpl();
+    return dialectAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Acceptability createAcceptability()
+  {
+    AcceptabilityImpl acceptability = new AcceptabilityImpl();
+    return acceptability;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AcceptabilityIdSet createAcceptabilityIdSet()
+  {
+    AcceptabilityIdSetImpl acceptabilityIdSet = new AcceptabilityIdSetImpl();
+    return acceptabilityIdSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AcceptabilityTokenSet createAcceptabilityTokenSet()
+  {
+    AcceptabilityTokenSetImpl acceptabilityTokenSet = new AcceptabilityTokenSetImpl();
+    return acceptabilityTokenSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ActiveFilter createActiveFilter()
+  {
+    ActiveFilterImpl activeFilter = new ActiveFilterImpl();
+    return activeFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ModuleFilter createModuleFilter()
+  {
+    ModuleFilterImpl moduleFilter = new ModuleFilterImpl();
+    return moduleFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SemanticTagFilter createSemanticTagFilter()
+  {
+    SemanticTagFilterImpl semanticTagFilter = new SemanticTagFilterImpl();
+    return semanticTagFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EffectiveTimeFilter createEffectiveTimeFilter()
+  {
+    EffectiveTimeFilterImpl effectiveTimeFilter = new EffectiveTimeFilterImpl();
+    return effectiveTimeFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PreferredInFilter createPreferredInFilter()
+  {
+    PreferredInFilterImpl preferredInFilter = new PreferredInFilterImpl();
+    return preferredInFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AcceptableInFilter createAcceptableInFilter()
+  {
+    AcceptableInFilterImpl acceptableInFilter = new AcceptableInFilterImpl();
+    return acceptableInFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LanguageRefSetFilter createLanguageRefSetFilter()
+  {
+    LanguageRefSetFilterImpl languageRefSetFilter = new LanguageRefSetFilterImpl();
+    return languageRefSetFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CaseSignificanceFilter createCaseSignificanceFilter()
+  {
+    CaseSignificanceFilterImpl caseSignificanceFilter = new CaseSignificanceFilterImpl();
+    return caseSignificanceFilter;
   }
 
   /**
@@ -675,6 +860,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public FilteredExpressionConstraint createFilteredExpressionConstraint()
+  {
+    FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
+    return filteredExpressionConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrRefinement createOrRefinement()
   {
     OrRefinementImpl orRefinement = new OrRefinementImpl();
@@ -691,6 +888,30 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     AndRefinementImpl andRefinement = new AndRefinementImpl();
     return andRefinement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DisjunctionFilter createDisjunctionFilter()
+  {
+    DisjunctionFilterImpl disjunctionFilter = new DisjunctionFilterImpl();
+    return disjunctionFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConjunctionFilter createConjunctionFilter()
+  {
+    ConjunctionFilterImpl conjunctionFilter = new ConjunctionFilterImpl();
+    return conjunctionFilter;
   }
 
   /**

@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ide;
 
 import com.b2international.snomed.ecl.ide.contentassist.antlr.EclParser;
-import com.b2international.snomed.ecl.ide.contentassist.antlr.lexer.InternalEclLexer;
+import com.b2international.snomed.ecl.ide.contentassist.antlr.internal.InternalEclLexer;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import org.eclipse.xtext.ide.DefaultIdeModule;

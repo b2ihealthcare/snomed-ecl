@@ -17,6 +17,7 @@ package com.b2international.snomed.ecl.ide.contentassist;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.AbstractRule;
@@ -29,9 +30,11 @@ import org.eclipse.xtext.ide.editor.contentassist.ContentAssistEntry;
 import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor;
 import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 
+import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.inject.Inject;
 
 public class EclIdeProposalProvider extends IdeContentProposalProvider {
 	
@@ -61,6 +64,66 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 				return FALLBACK_METHOD;
 			}
 		}));
+	
+	
+	@Inject
+	private EclGrammarAccess ga;
+	
+	private Map<AbstractRule, String> ruleDescriptions;
+	
+	@Inject
+	private void initializeDescriptions() {
+		 ruleDescriptions = Map.ofEntries(
+			Map.entry(ga.getCONJUNCTION_KEYWORDRule(),          "Conjunction"),
+			Map.entry(ga.getCOMMARule(),                        "Conjunction"),
+			Map.entry(ga.getDISJUNCTION_KEYWORDRule(),          "Disjunction"),
+			Map.entry(ga.getEXCLUSION_KEYWORDRule(),            "Exclusion"),
+			Map.entry(ga.getCOLONRule(),                        "Refinement"),
+			Map.entry(ga.getDOTRule(),                          "Dotted attribute"),
+			Map.entry(ga.getCURLY_OPENRule(),                   "Opening attribute group"),
+			Map.entry(ga.getCURLY_CLOSERule(),                  "Closing attribute group"),
+			Map.entry(ga.getSQUARE_OPENRule(),                  "Opening cardinality"),
+			Map.entry(ga.getSQUARE_CLOSERule(),                 "Closing cardinality"),
+			Map.entry(ga.getTORule(),                           "Cardinality range"),
+			Map.entry(ga.getPLUSRule(),                         "Numeric value"),
+			Map.entry(ga.getDASHRule(),                         "Numeric value"),
+			Map.entry(ga.getCARETRule(),                        "Member of"),
+			Map.entry(ga.getDOMAINRule(),                       "Filter attribute prefix"),
+			Map.entry(ga.getWILDCARDRule(),                     "Any"),
+			Map.entry(ga.getEQUALRule(),                        "Equals"),
+			Map.entry(ga.getNOT_EQUALRule(),                    "Not equals"),
+			Map.entry(ga.getLTRule(),                           "Descendant of"),
+			Map.entry(ga.getGTRule(),                           "Ancestor of"),
+			Map.entry(ga.getDBL_LTRule(),                       "Descendant or self of"),
+			Map.entry(ga.getDBL_GTRule(),                       "Ancestor or self of"),
+			Map.entry(ga.getLT_EMRule(),                        "Child of"),
+			Map.entry(ga.getGT_EMRule(),                        "Parent of"),
+			Map.entry(ga.getDBL_LT_EMRule(),                    "Child or self of"),
+			Map.entry(ga.getDBL_GT_EMRule(),                    "Parent or self of"),
+			Map.entry(ga.getGTERule(),                          "Greater than or equals"),
+			Map.entry(ga.getLTERule(),                          "Less than or equals"),
+			Map.entry(ga.getREVERSEDRule(),                     "Reverse attribute"),
+			Map.entry(ga.getROUND_CLOSERule(),                  "Closing nested expression"),
+			Map.entry(ga.getROUND_OPENRule(),                   "Opening nested expression"),
+			Map.entry(ga.getDOUBLE_CURLY_OPENRule(),            "Opening filter constraint"),
+			Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),           "Closing filter constraint"),
+			Map.entry(ga.getTERM_KEYWORDRule(),                 "Description term filter"),
+			Map.entry(ga.getLANGUAGE_KEYWORDRule(),             "Description language filter"),
+			Map.entry(ga.getTYPEID_KEYWORDRule(),               "Description type ID filter"),
+			Map.entry(ga.getTYPE_KEYWORDRule(),                 "Description type tag filter"),
+			Map.entry(ga.getDIALECTID_KEYWORDRule(),            "Description dialect ID filter"),
+			Map.entry(ga.getDIALECT_KEYWORDRule(),              "Description dialect tag filter"),
+			Map.entry(ga.getACTIVE_KEYWORDRule(),               "Component status filter"),
+			Map.entry(ga.getMODULEID_KEYWORDRule(),             "Component module filter"),
+			Map.entry(ga.getSEMANTIC_TAG_KEYWORDRule(),         "Component semantic tag filter"),
+			Map.entry(ga.getEFFECTIVE_TIME_KEYWORDRule(),       "Component effective time filter"),
+			Map.entry(ga.getPREFERRED_IN_KEYWORDRule(),         "Description acceptability filter"),
+			Map.entry(ga.getACCEPTABLE_IN_KEYWORDRule(),        "Description acceptability filter"),
+			Map.entry(ga.getLANGUAGE_REFSET_ID_KEYWORDRule(),   "Description acceptability filter"),
+			Map.entry(ga.getCASE_SIGNIFICANCE_ID_KEYWORDRule(), "Description case significance filter"),
+			Map.entry(ga.getPIPE_DELIMITED_STRINGRule(),        "Concept term")
+		);
+	}
 	
 	@Override
 	protected void _createProposals(final AbstractElement element, final ContentAssistContext context, 
@@ -94,7 +157,6 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			// The implementation in the superclass handles cross-references, which we don't have
 			// super._createProposals(assignment, context, acceptor);
 		}
-		
 	}
 
 	@Override
@@ -102,7 +164,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			final IIdeContentProposalAcceptor acceptor) {
 		
 		final AbstractRule rule = ruleCall.getRule();
-		final Method completeMethod = completeMethods.getUnchecked(rule.getName());
+		final String name = rule.getName();
+		final Method completeMethod = completeMethods.getUnchecked(name);
 		
 		if (completeMethod != FALLBACK_METHOD) {
 			try {
@@ -110,6 +173,8 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			} catch (IllegalAccessException | InvocationTargetException e) {
 				throw new RuntimeException(e);
 			}
+		} else if (ruleDescriptions.containsKey(rule)) {
+			createKeywordProposal(ruleCall, context, acceptor, ruleDescriptions.get(rule));
 		} else {
 			// Default implementation: create keyword without description from alternatives
 			createKeywordProposal(ruleCall, context, acceptor);
@@ -125,137 +190,51 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		}
 	}
 
-	public void complete_TERM_STRING(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		final ContentAssistEntry entry = getProposalCreator().createProposal("|term|", context, ContentAssistEntry.KIND_KEYWORD, 
-			e -> e.setDescription("Concept term"));
-		acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-	}
-
-	public void complete_CONJUNCTION(final RuleCall ruleCall, final ContentAssistContext context,
+	public void complete_PIPE_DELIMITED_STRING(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("AND", context, acceptor, "Conjunction");
+		
+		String prefix = context.getPrefix().trim();
+		
+		/*
+		 * If the prefix is not empty, it must have at least one leading pipe character.
+		 * Add one to the end as the suggestion, if required.
+		 */
+		if (prefix.isEmpty()) {
+			prefix = "|term|";
+		} else if (!prefix.startsWith("|")) {
+			/*
+			 * XXX: Suggestions that do not start with the currently entered text are not
+			 * accepted by the editor, so we can not "inject" or wrap pipe characters around
+			 * a string to make it a concept term.
+			 */
+			return;
+		} else if (!prefix.endsWith("|")) {
+			// It is possible to add the pipe as a suffix, however.
+			prefix = prefix + "|";
+		}
+		
+		final AbstractRule rule = ruleCall.getRule();
+		createKeywordProposal(prefix, context, acceptor, ruleDescriptions.get(rule));
 	}
 
-	public void complete_DISJUNCTION(final RuleCall ruleCall, final ContentAssistContext context,
+	public void complete_WS(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("OR", context, acceptor, "Disjunction");
+		// Do not suggest various alternatives for whitespace
 	}
-
-	public void complete_EXCLUSION(final RuleCall ruleCall, final ContentAssistContext context,
+	
+	public void complete_DialectAliasValue(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal("MINUS", context, acceptor, "Exclusion");
+		// TODO: add suggestions for known dialect aliases (not part of the grammar)
 	}
-
-	public void complete_COLON(final RuleCall ruleCall, final ContentAssistContext context,
+	
+	public void complete_UnquotedString(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Refined expression constraint");
+		// TODO: separate unquoted string usage based on the context (or rule), add suggestions for known valid values (not part of the grammar)
 	}
-
-	public void complete_CURLY_OPEN(final RuleCall ruleCall, final ContentAssistContext context,
+	
+	public void complete_SnomedIdentifier(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor,"Opening attribute group");
-	}
-
-	public void complete_CURLY_CLOSE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Closing attribute group");
-	}
-
-	public void complete_SQUARE_OPEN(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Cardinality");
-	}
-
-	public void complete_SQUARE_CLOSE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Cardinality");
-	}
-
-	public void complete_PLUS(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Numeric value");
-	}
-
-	public void complete_DASH(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Numeric value");
-	}
-
-	public void complete_CARET(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor , "Member of");
-	}
-
-	public void complete_DOT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Decimal");
-	}
-
-	public void complete_WILDCARD(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Any");
-	}
-
-	public void complete_EQUAL(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Equals");
-	}
-
-	public void complete_NOT_EQUAL(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Not equals");
-	}
-
-	public void complete_LT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Descendant of");
-	}
-
-	public void complete_GT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Ancestor of");
-	}
-
-	public void complete_DBL_LT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Descendant or self of");
-	}
-
-	public void complete_DBL_GT(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Ancestor or self of");
-	}
-
-	public void complete_LT_EM(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Child of");
-	}
-
-	public void complete_GT_EM(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Parent of");
-	}
-
-	public void complete_GTE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Greater than or equals");
-	}
-
-	public void complete_LTE(final RuleCall ruleCall, final ContentAssistContext context,
-			final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Less than or equals");
-	}
-
-	public void complete_REVERSED(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Reverse attribute");
-	}
-
-	public void complete_ROUND_CLOSE(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Closing nested expression");
-	}
-
-	public void complete_ROUND_OPEN(final RuleCall ruleCall, final ContentAssistContext context, final IIdeContentProposalAcceptor acceptor) {
-		createKeywordProposal(ruleCall, context, acceptor, "Opening nested expression");
+		// No suggestions should be offered for SCTIDs ("raw numbers")
 	}
 
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context,
@@ -275,7 +254,7 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		} else if (element instanceof Alternatives) {
 			final Alternatives alternatives = (Alternatives) element;
 			for (final AbstractElement e : alternatives.getElements()) {
-				createKeywordProposal(e, context, acceptor);
+				createKeywordProposal(e, context, acceptor, description);
 			}
 		} 
 	}
