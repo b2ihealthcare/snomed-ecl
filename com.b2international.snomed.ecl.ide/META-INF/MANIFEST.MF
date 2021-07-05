@@ -13,4 +13,5 @@ Require-Bundle: com.b2international.snomed.ecl;visibility:=reexport,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: com.b2international.snomed.ecl.ide.contentassist.antlr,
- com.b2international.snomed.ecl.ide.contentassist.antlr.internal
+ com.b2international.snomed.ecl.ide.contentassist.antlr.internal,
+ com.b2international.snomed.ecl.ide.highlighting

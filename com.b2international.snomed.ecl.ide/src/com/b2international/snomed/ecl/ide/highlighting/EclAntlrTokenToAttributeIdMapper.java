@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl.ui.highlighting;
+package com.b2international.snomed.ecl.ide.highlighting;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,85 +21,92 @@ import java.util.Set;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 
 import com.b2international.snomed.ecl.ide.contentassist.antlr.internal.InternalEclParser;
-import com.b2international.snomed.ecl.ui.EclHighlightingRuleIDs;
-
 
 /**
- * The "high-level" token mapper. Available tokens are stored in the EclTokens class.
- *
+ * The "high-level" token mapper. Token identifiers can be found in InternalEclParser constants.
+ * 
+ * Highlighting rule IDs correspond to TextMate scopes: https://macromates.com/manual/en/language_grammars
  */
 public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttributeIdMapper {
 
-	private static final String[] tokenNames = InternalEclParser.tokenNames;
+	private static final Set<Integer> KEYWORD_OPERATOR_TOKENS = buildKeywordOperatorTokens();
+	private static final Set<Integer> STRING_QUOTED_TOKENS = buildStringQuotedTokens();
+	private static final Set<Integer> COMMENT_TOKENS = buildCommentTokens();
+	private static final Set<Integer> CONSTANT_LANGUAGE_TOKENS = buildConstantLanguageTokens();
+	private static final Set<Integer> CONSTANT_NUMERIC_INTEGER_TOKENS = buildConstantNumericIntegerTokens();
 	
-	private static final Set<String> RED_TOKENS = buildRedTokens();
-	private static final Set<String> PURPLE_TOKENS = buildPurpleTokens();
-	private static final Set<String> GREEN_TOKENS = buildGreenTokens();
-	private static final Set<String> BLUE_TOKENS = buildBlueTokens();
-	
-	
-	private static Set<String> buildRedTokens() {
-		final Set<String> redtokens = new HashSet<String>();
-		redtokens.add(tokenNames[InternalEclParser.RULE_COLON]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_PLUS]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_CURLY_OPEN]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_CURLY_CLOSE]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_EQUAL]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_CONJUNCTION]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DISJUNCTION]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_ROUND_OPEN]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_ROUND_CLOSE]);
+	// "keyword.operator" tokens
+	private static Set<Integer> buildKeywordOperatorTokens() {
+		final Set<Integer> tokens = new HashSet<Integer>();
+		tokens.add(InternalEclParser.RULE_COLON);
+		tokens.add(InternalEclParser.RULE_PLUS);
+		tokens.add(InternalEclParser.RULE_CURLY_OPEN);
+		tokens.add(InternalEclParser.RULE_CURLY_CLOSE);
+		tokens.add(InternalEclParser.RULE_EQUAL);
+		tokens.add(InternalEclParser.RULE_CONJUNCTION_KEYWORD);
+		tokens.add(InternalEclParser.RULE_DISJUNCTION_KEYWORD);
+		tokens.add(InternalEclParser.RULE_ROUND_OPEN);
+		tokens.add(InternalEclParser.RULE_ROUND_CLOSE);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_COMMA]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_CARET]);
+		tokens.add(InternalEclParser.RULE_COMMA);
+		tokens.add(InternalEclParser.RULE_CARET);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_GT]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_GTE]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_LT]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_LTE]);
+		tokens.add(InternalEclParser.RULE_GT);
+		tokens.add(InternalEclParser.RULE_GTE);
+		tokens.add(InternalEclParser.RULE_LT);
+		tokens.add(InternalEclParser.RULE_LTE);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_NOT_EQUAL]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_TO]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_HASH]);
+		tokens.add(InternalEclParser.RULE_NOT_EQUAL);
+		tokens.add(InternalEclParser.RULE_TO);
+		tokens.add(InternalEclParser.RULE_HASH);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_EXCLUSION]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_REVERSED]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_LT]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_GT]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_LT_EM]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_GT_EM]);
+		tokens.add(InternalEclParser.RULE_EXCLUSION_KEYWORD);
+		tokens.add(InternalEclParser.RULE_REVERSED);
+		tokens.add(InternalEclParser.RULE_DBL_LT);
+		tokens.add(InternalEclParser.RULE_DBL_GT);
+		tokens.add(InternalEclParser.RULE_LT_EM);
+		tokens.add(InternalEclParser.RULE_GT_EM);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_SQUARE_OPEN]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_SQUARE_CLOSE]);
+		tokens.add(InternalEclParser.RULE_SQUARE_OPEN);
+		tokens.add(InternalEclParser.RULE_SQUARE_CLOSE);
 		
-		redtokens.add(tokenNames[InternalEclParser.RULE_ZERO]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DIGIT_NONZERO]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_WILDCARD]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DASH]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DOT]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_GT_EM]);
-		redtokens.add(tokenNames[InternalEclParser.RULE_DBL_LT_EM]);
-		return redtokens;
+		tokens.add(InternalEclParser.RULE_WILDCARD);
+		tokens.add(InternalEclParser.RULE_DASH);
+		tokens.add(InternalEclParser.RULE_DOT);
+		tokens.add(InternalEclParser.RULE_DBL_GT_EM);
+		tokens.add(InternalEclParser.RULE_DBL_LT_EM);
+		return tokens;
 	}
 	
-	private static Set<String> buildPurpleTokens() {
-		final Set<String> purpletokens = new HashSet<String>();
-		purpletokens.add(tokenNames[InternalEclParser.RULE_STRING]);
-		return purpletokens;
+	// "string.quoted"
+	private static Set<Integer> buildStringQuotedTokens() {
+		final Set<Integer> tokens = new HashSet<Integer>();
+		tokens.add(InternalEclParser.RULE_STRING);
+		return tokens;
 	}
 	
-	private static Set<String> buildGreenTokens() {
-		final Set<String> greentokens = new HashSet<String>();
-		greentokens.add(tokenNames[InternalEclParser.RULE_SL_COMMENT]);
-		greentokens.add(tokenNames[InternalEclParser.RULE_ML_COMMENT]);
-		return greentokens;
+	// "comment"
+	private static Set<Integer> buildCommentTokens() {
+		final Set<Integer> tokens = new HashSet<Integer>();
+		tokens.add(InternalEclParser.RULE_SL_COMMENT);
+		tokens.add(InternalEclParser.RULE_ML_COMMENT);
+		return tokens;
 	}
 	
-	private static Set<String> buildBlueTokens() {
-		final Set<String> bluetokens = new HashSet<String>();
-		bluetokens.add(tokenNames[InternalEclParser.True]);
-		bluetokens.add(tokenNames[InternalEclParser.False]);
-		return bluetokens;
+	// "constant.language"
+	private static Set<Integer> buildConstantLanguageTokens() {
+		final Set<Integer> tokens = new HashSet<Integer>();
+		tokens.add(InternalEclParser.RULE_TRUE_KEYWORD);
+		tokens.add(InternalEclParser.RULE_FALSE_KEYWORD);
+		return tokens;
+	}
+	
+	// "constant.numeric.integer"
+	private static Set<Integer> buildConstantNumericIntegerTokens() {
+		final Set<Integer> tokens = new HashSet<Integer>();
+		tokens.add(InternalEclParser.RULE_DIGIT_ZERO);
+		tokens.add(InternalEclParser.RULE_DIGIT_NONZERO);
+		return tokens;
 	}
 	
 	/*
@@ -109,20 +116,24 @@ public class EclAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttrib
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
 
-		if (RED_TOKENS.contains(tokenName)) {
-			return EclHighlightingRuleIDs.RED_TOKENS_RULE_ID;
+		if (KEYWORD_OPERATOR_TOKENS.contains(tokenType)) {
+			return EclHighlightingRuleIDs.KEYWORD_OPERATOR_RULE_ID;
 		}
 		
-		if (PURPLE_TOKENS.contains(tokenName)) {
-			return EclHighlightingRuleIDs.PURPLE_TOKENS_RULE_ID;
+		if (STRING_QUOTED_TOKENS.contains(tokenType)) {
+			return EclHighlightingRuleIDs.STRING_QUOTED_RULE_ID;
 		}
 		
-		if (GREEN_TOKENS.contains(tokenName)) {
-			return EclHighlightingRuleIDs.GREEN_TOKENS_RULE_ID;
+		if (COMMENT_TOKENS.contains(tokenType)) {
+			return EclHighlightingRuleIDs.COMMENT_RULE_ID;
 		}
 
-		if(BLUE_TOKENS.contains(tokenName)) {
-			return EclHighlightingRuleIDs.BLUE_TOKENS_RULE_ID;
+		if (CONSTANT_LANGUAGE_TOKENS.contains(tokenType)) {
+			return EclHighlightingRuleIDs.CONSTANT_LANGUAGE_RULE_ID;
+		}
+		
+		if (CONSTANT_NUMERIC_INTEGER_TOKENS.contains(tokenType)) {
+			return EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_ID;
 		}
 		
 		return tokenName;

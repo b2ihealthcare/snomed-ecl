@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl.ui.highlighting;
+package com.b2international.snomed.ecl.ide.highlighting;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.AbstractRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -22,45 +24,45 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.CancelIndicator;
 
-import com.b2international.snomed.ecl.ui.EclHighlightingRuleIDs;
+import com.b2international.snomed.ecl.services.EclGrammarAccess;
+import com.google.inject.Inject;
 
 /**
- * Class for ECL Semantic highlighting.
- * This class should recognize all the semantical part of the grammar.
+ * Class for ECL semantic highlighting. This class can augment highlighting
+ * information (mostly based on lexical analysis) with knowledge that can be
+ * more easily gathered from the resulting object model/parse tree.
  */
 public class EclSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
 
+	@Inject
+	private EclGrammarAccess ga;
+	
 	@Override
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor, CancelIndicator cancelIndicator) {
-		if (resource == null)
+		if (resource == null) {
 			return;
+		}
 
-		Iterable<INode> allNodes = resource.getParseResult().getRootNode().getAsTreeIterable();
+		final Iterable<INode> allNodes = resource.getParseResult()
+			.getRootNode()
+			.getAsTreeIterable();
 
 		for (INode abstractNode : allNodes) {
-			if (abstractNode.getGrammarElement() instanceof RuleCall) {
-				RuleCall rule = (RuleCall) abstractNode.getGrammarElement();
-				final String ruleName = rule.getRule().getName();
+			final EObject grammarElement = abstractNode.getGrammarElement();
+			if (grammarElement instanceof RuleCall) {
+				final RuleCall ruleCall = (RuleCall) grammarElement;
+				final AbstractRule rule = ruleCall.getRule();
 				
-				switch (ruleName) {
-
-				case EclHighlightingRuleIDs.SNOMED_IDENTIFIER:
-					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclHighlightingRuleIDs.SNOMED_IDENTIFIER);
-					break;
-					
-				case EclHighlightingRuleIDs.TERM_STRING:
+				if (rule == ga.getSnomedIdentifierRule()) {
+					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_OTHER_ID);
+				} else if (rule == ga.getPIPE_DELIMITED_STRINGRule()) {					
 					// pipes
-					acceptor.addPosition(abstractNode.getOffset(), 1, EclHighlightingRuleIDs.PIPE);
-					acceptor.addPosition(abstractNode.getOffset() + abstractNode.getLength() - 1, 1, EclHighlightingRuleIDs.PIPE);
+					acceptor.addPosition(abstractNode.getOffset(), 1, EclHighlightingRuleIDs.KEYWORD_OTHER_RULE_ID);
+					acceptor.addPosition(abstractNode.getOffset() + abstractNode.getLength() - 1, 1, EclHighlightingRuleIDs.KEYWORD_OTHER_RULE_ID);
 					// middle part (example: "Clinical Finding")
-					acceptor.addPosition(abstractNode.getOffset() + 1, abstractNode.getLength() - 2, EclHighlightingRuleIDs.TERM_STRING);
-					break;
-					
-				default:
-					break;
+					acceptor.addPosition(abstractNode.getOffset() + 1, abstractNode.getLength() - 2, EclHighlightingRuleIDs.STRING_QUOTED_OTHER_RULE_ID);
 				}
 			}
 		}
 	}
-
 }

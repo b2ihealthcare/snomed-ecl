@@ -16,16 +16,12 @@
 package com.b2international.snomed.ecl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
-import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.ui.editor.contentassist.ITemplateProposalProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
 import com.b2international.snomed.ecl.ui.contentassist.SnomedConceptTemplateProposalProvider;
-import com.b2international.snomed.ecl.ui.highlighting.EclAntlrTokenToAttributeIdMapper;
 import com.b2international.snomed.ecl.ui.highlighting.EclHighlightingConfiguration;
-import com.b2international.snomed.ecl.ui.highlighting.EclSemanticHighlightingCalculator;
 import com.b2international.snomed.ecl.validation.EclValidator;
 
 /**
@@ -56,12 +52,4 @@ public class EclUiModule extends AbstractEclUiModule {
 	public Class<? extends EclValidator> bindEclValidator() {
 		return EclUiValidator.class;
 	}
-	
-	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
-		return EclAntlrTokenToAttributeIdMapper.class ;
-	}
-	
-	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
-		return EclSemanticHighlightingCalculator.class;
-	}	
 }

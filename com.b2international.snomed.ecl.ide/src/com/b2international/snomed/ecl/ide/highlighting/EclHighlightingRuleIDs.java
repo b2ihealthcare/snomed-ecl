@@ -13,20 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.b2international.snomed.ecl.ui;
+package com.b2international.snomed.ecl.ide.highlighting;
 
 /**
+ * Highlighting rule IDs correspond to TextMate scopes: https://macromates.com/manual/en/language_grammars
+ * 
  * @since 1.3.0
  */
 public class EclHighlightingRuleIDs {
-
-	public static final String SNOMED_IDENTIFIER = "SnomedIdentifier";
-	public static final String PIPE = "PIPE";
-	public static final String TERM_STRING = "TERM_STRING";
 	
-	public final static String RED_TOKENS_RULE_ID = "RED_TOKENS";
-	public static final String PURPLE_TOKENS_RULE_ID = "PURPLE_TOKENS";
-	public static final String GREEN_TOKENS_RULE_ID = "GREEN_TOKENS";
-	public static final String BLUE_TOKENS_RULE_ID = "BLUE_TOKENS";
-
+	public static final String KEYWORD_OPERATOR_RULE_ID = "keyword.operator";
+	public static final String KEYWORD_OTHER_RULE_ID = "keyword.other";
+	public static final String STRING_QUOTED_RULE_ID = "string.quoted";
+	public static final String STRING_QUOTED_OTHER_RULE_ID = "string.quoted.other";
+	public static final String COMMENT_RULE_ID = "comment";
+	public static final String CONSTANT_LANGUAGE_RULE_ID = "constant.language";
+	public static final String CONSTANT_NUMERIC_INTEGER_ID = "constant.numeric.integer";
+	public static final String CONSTANT_NUMERIC_INTEGER_OTHER_ID = "constant.numeric.integer.other";
 }
