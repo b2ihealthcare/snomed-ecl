@@ -20,7 +20,7 @@ import java.util.Set;
 
 import org.eclipse.xtext.ide.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 
-import com.b2international.snomed.ecl.ide.contentassist.antlr.internal.InternalEclLexer;
+import com.b2international.snomed.ecl.parser.antlr.internal.InternalEclLexer;
 
 /**
  * The "high-level" token mapper. Token identifiers can be found in InternalEclParser constants.
