@@ -20,57 +20,70 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
-import com.b2international.snomed.ecl.ui.EclTokens;
-
+import com.b2international.snomed.ecl.ide.highlighting.EclHighlightingRuleIDs;
 
 /**
  * Class for setting up the styling rules for the editor.
- *
  */
 public class EclHighlightingConfiguration implements IHighlightingConfiguration {
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
-		acceptor.acceptDefaultHighlighting(EclTokens.PIPE, "Pipe", pipeStyle());
-		acceptor.acceptDefaultHighlighting(EclAntlrTokenToAttributeIdMapper.RED_TOKENS, "Grammar constructs", redStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.TERM, "Term", termStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.CONCEPTID, "Concept ID", conceptIdStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.SL_COMMENT, "Single-line comment", commentStyle());
-		acceptor.acceptDefaultHighlighting(EclTokens.ML_COMMENT, "Multi-line comment", commentStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.KEYWORD_OPERATOR_RULE_ID, "Grammar constructs", operatorStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.KEYWORD_OTHER_RULE_ID, "Pipes", pipeStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.STRING_QUOTED_RULE_ID, "Strings", stringStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.STRING_QUOTED_OTHER_RULE_ID, "Term strings", termStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.COMMENT_RULE_ID, "Comments", commentStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_LANGUAGE_RULE_ID, "Boolean constants", constantStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_ID, "Integer constants", constantStyle());
+		acceptor.acceptDefaultHighlighting(EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_OTHER_ID, "SNOMED CT identifiers", snomedIdentifierStyle());
 	}
 
-	private TextStyle pipeStyle() {
+	private TextStyle operatorStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(60, 230, 65));
+		textStyle.setColor(new RGB(160, 0, 0));
 		return textStyle;
 	}
-
-	private TextStyle redStyle() {
+	
+	private TextStyle stringStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(232, 114, 149));
+		textStyle.setColor(new RGB(148, 40, 255));
 		return textStyle;
 	}
-
-	private TextStyle termStyle() {
-		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(83, 132, 245));
-		return textStyle;
-	}
-
-	private TextStyle conceptIdStyle() {
-		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(0, 0, 0));
-		return textStyle;
-	}
-
+	
 	private TextStyle commentStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(63, 127, 95));
 		return textStyle;
 	}
+	
+	private TextStyle snomedIdentifierStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(96, 96, 96));
+		return textStyle;
+	}
 
+	private TextStyle pipeStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(83, 132, 245));
+		return textStyle;
+	}
+	
+	private TextStyle termStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(30, 3, 0));
+		return textStyle;
+	}
+	
+	private TextStyle constantStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(0, 0, 170));
+		return textStyle;
+	}
 }

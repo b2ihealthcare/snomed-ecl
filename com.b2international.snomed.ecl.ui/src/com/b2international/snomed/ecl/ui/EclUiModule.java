@@ -22,10 +22,10 @@ import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.ui.editor.contentassist.ITemplateProposalProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
+import com.b2international.snomed.ecl.ide.highlighting.EclAntlrTokenToAttributeIdMapper;
+import com.b2international.snomed.ecl.ide.highlighting.EclSemanticHighlightingCalculator;
 import com.b2international.snomed.ecl.ui.contentassist.SnomedConceptTemplateProposalProvider;
-import com.b2international.snomed.ecl.ui.highlighting.EclAntlrTokenToAttributeIdMapper;
 import com.b2international.snomed.ecl.ui.highlighting.EclHighlightingConfiguration;
-import com.b2international.snomed.ecl.ui.highlighting.EclSemanticHighlightingCalculator;
 import com.b2international.snomed.ecl.validation.EclValidator;
 
 /**
@@ -37,6 +37,14 @@ public class EclUiModule extends AbstractEclUiModule {
 		super(plugin);
 	}
 	
+	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
+		return EclAntlrTokenToAttributeIdMapper.class;
+	}
+	
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
+		return EclSemanticHighlightingCalculator.class;
+	}
+
 	/**
 	 * Manually added to register the template proposal provider.
 	 */
@@ -52,17 +60,8 @@ public class EclUiModule extends AbstractEclUiModule {
 		return EclHighlightingConfiguration.class;
 	}
 	
-	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
-		return EclAntlrTokenToAttributeIdMapper.class;
-	}
-	
-	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
-		return EclSemanticHighlightingCalculator.class;
-	}
-	
 	@SingletonBinding(eager = true)
 	public Class<? extends EclValidator> bindEclValidator() {
 		return EclUiValidator.class;
 	}
-	
 }
