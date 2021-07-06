@@ -77,7 +77,7 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 			Map.entry(ga.getDISJUNCTION_KEYWORDRule(),          "Disjunction"),
 			Map.entry(ga.getEXCLUSION_KEYWORDRule(),            "Exclusion"),
 			Map.entry(ga.getCOLONRule(),                        "Refinement"),
-			Map.entry(ga.getDOTRule(),                          "Dotted attribute"),
+			Map.entry(ga.getDOTRule(),                          "Dotted attribute or domain"),
 			Map.entry(ga.getCURLY_OPENRule(),                   "Opening attribute group"),
 			Map.entry(ga.getCURLY_CLOSERule(),                  "Closing attribute group"),
 			Map.entry(ga.getSQUARE_OPENRule(),                  "Opening cardinality"),
