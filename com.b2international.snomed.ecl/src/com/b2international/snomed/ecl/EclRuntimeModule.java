@@ -16,6 +16,7 @@
 package com.b2international.snomed.ecl;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
 
 import com.b2international.snomed.ecl.converter.EclValueConverterService;
 
@@ -27,5 +28,9 @@ public class EclRuntimeModule extends AbstractEclRuntimeModule {
 	@Override
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return EclValueConverterService.class;
+	}
+	
+	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
+		return EclSyntaxErrorMessageProvider.class;
 	}
 }
