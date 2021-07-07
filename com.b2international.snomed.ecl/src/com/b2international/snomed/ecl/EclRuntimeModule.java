@@ -19,6 +19,7 @@ import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
 
 import com.b2international.snomed.ecl.converter.EclValueConverterService;
+import com.b2international.snomed.ecl.validation.EclSyntaxErrorMessageProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.

@@ -1,4 +1,4 @@
-package com.b2international.snomed.ecl;
+package com.b2international.snomed.ecl.validation;
 
 import static org.eclipse.xtext.diagnostics.Diagnostic.SYNTAX_DIAGNOSTIC;
 
