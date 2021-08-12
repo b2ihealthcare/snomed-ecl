@@ -198,9 +198,9 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkTypedTermFilter(TypedTermFilter it) {
+	public void checkTypedTermFilterClause(TypedTermFilterClause it) {
 		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
-			error(String.format("At least %d characters are required for typed term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER__TERM);
+			error(String.format("At least %d characters are required for term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER_CLAUSE__TERM);
 		}
 	}
 	
