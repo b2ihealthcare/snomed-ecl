@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet#getTerms <em>Terms</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterSet()
@@ -36,15 +36,15 @@ import org.eclipse.emf.common.util.EList;
 public interface TypedTermFilterSet extends TermFilter
 {
   /**
-   * Returns the value of the '<em><b>Terms</b></em>' containment reference list.
-   * The list contents are of type {@link com.b2international.snomed.ecl.ecl.TypedTermFilter}.
+   * Returns the value of the '<em><b>Clauses</b></em>' containment reference list.
+   * The list contents are of type {@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Terms</em>' containment reference list.
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterSet_Terms()
+   * @return the value of the '<em>Clauses</em>' containment reference list.
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterSet_Clauses()
    * @model containment="true"
    * @generated
    */
-  EList<TypedTermFilter> getTerms();
+  EList<TypedTermFilterClause> getClauses();
 
 } // TypedTermFilterSet

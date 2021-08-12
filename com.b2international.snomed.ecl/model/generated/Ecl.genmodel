@@ -95,11 +95,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TypedTermFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilter/lexicalSearchType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilter/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilter/clause"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterSet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilterSet/terms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilterSet/clauses"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilterClause/lexicalSearchType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilterClause/term"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//LanguageFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageFilter/op"/>

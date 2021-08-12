@@ -80,6 +80,7 @@ import com.b2international.snomed.ecl.ecl.TypeFilter;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
 import com.b2international.snomed.ecl.ecl.TypedTermFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
 import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -334,6 +335,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass typedTermFilterSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typedTermFilterClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1318,20 +1326,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getTypedTermFilter_LexicalSearchType()
+  public EReference getTypedTermFilter_Clause()
   {
-    return (EAttribute)typedTermFilterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getTypedTermFilter_Term()
-  {
-    return (EAttribute)typedTermFilterEClass.getEStructuralFeatures().get(1);
+    return (EReference)typedTermFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1351,9 +1348,42 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EReference getTypedTermFilterSet_Terms()
+  public EReference getTypedTermFilterSet_Clauses()
   {
     return (EReference)typedTermFilterSetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypedTermFilterClause()
+  {
+    return typedTermFilterClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypedTermFilterClause_LexicalSearchType()
+  {
+    return (EAttribute)typedTermFilterClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypedTermFilterClause_Term()
+  {
+    return (EAttribute)typedTermFilterClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2341,11 +2371,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(termFilterEClass, TERM_FILTER__OP);
 
     typedTermFilterEClass = createEClass(TYPED_TERM_FILTER);
-    createEAttribute(typedTermFilterEClass, TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE);
-    createEAttribute(typedTermFilterEClass, TYPED_TERM_FILTER__TERM);
+    createEReference(typedTermFilterEClass, TYPED_TERM_FILTER__CLAUSE);
 
     typedTermFilterSetEClass = createEClass(TYPED_TERM_FILTER_SET);
-    createEReference(typedTermFilterSetEClass, TYPED_TERM_FILTER_SET__TERMS);
+    createEReference(typedTermFilterSetEClass, TYPED_TERM_FILTER_SET__CLAUSES);
+
+    typedTermFilterClauseEClass = createEClass(TYPED_TERM_FILTER_CLAUSE);
+    createEAttribute(typedTermFilterClauseEClass, TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE);
+    createEAttribute(typedTermFilterClauseEClass, TYPED_TERM_FILTER_CLAUSE__TERM);
 
     languageFilterEClass = createEClass(LANGUAGE_FILTER);
     createEAttribute(languageFilterEClass, LANGUAGE_FILTER__OP);
@@ -2637,11 +2670,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedTermFilterEClass, TypedTermFilter.class, "TypedTermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypedTermFilter_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypedTermFilter_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypedTermFilter_Clause(), this.getTypedTermFilterClause(), null, "clause", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedTermFilterSetEClass, TypedTermFilterSet.class, "TypedTermFilterSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypedTermFilterSet_Terms(), this.getTypedTermFilter(), null, "terms", null, 0, -1, TypedTermFilterSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypedTermFilterSet_Clauses(), this.getTypedTermFilterClause(), null, "clauses", null, 0, -1, TypedTermFilterSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typedTermFilterClauseEClass, TypedTermFilterClause.class, "TypedTermFilterClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypedTermFilterClause_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedTermFilterClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypedTermFilterClause_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedTermFilterClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(languageFilterEClass, LanguageFilter.class, "LanguageFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLanguageFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

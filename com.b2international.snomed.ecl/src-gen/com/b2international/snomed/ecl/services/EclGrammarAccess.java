@@ -1529,19 +1529,15 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cLexicalSearchTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_1_0_0 = (RuleCall)cLexicalSearchTypeAssignment_1_0.eContents().get(0);
-		private final RuleCall cCOLONTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cTermAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTermSTRINGTerminalRuleCall_2_0 = (RuleCall)cTermAssignment_2.eContents().get(0);
+		private final Assignment cClauseAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cClauseTypedTermFilterClauseParserRuleCall_1_0 = (RuleCall)cClauseAssignment_1.eContents().get(0);
 		
 		//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 		//TypedTermFilter:
-		//	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+		//	op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
+		//op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause
 		public Group getGroup() { return cGroup; }
 		
 		//op=NON_NUMERIC_OPERATOR
@@ -1550,23 +1546,11 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NON_NUMERIC_OPERATOR
 		public RuleCall getOpNON_NUMERIC_OPERATORParserRuleCall_0_0() { return cOpNON_NUMERIC_OPERATORParserRuleCall_0_0; }
 		
-		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)?
-		public Group getGroup_1() { return cGroup_1; }
+		//clause=TypedTermFilterClause
+		public Assignment getClauseAssignment_1() { return cClauseAssignment_1; }
 		
-		//lexicalSearchType=LEXICAL_SEARCH_TYPE
-		public Assignment getLexicalSearchTypeAssignment_1_0() { return cLexicalSearchTypeAssignment_1_0; }
-		
-		//LEXICAL_SEARCH_TYPE
-		public RuleCall getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_1_0_0() { return cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_1_0_0; }
-		
-		//COLON
-		public RuleCall getCOLONTerminalRuleCall_1_1() { return cCOLONTerminalRuleCall_1_1; }
-		
-		//term=STRING
-		public Assignment getTermAssignment_2() { return cTermAssignment_2; }
-		
-		//STRING
-		public RuleCall getTermSTRINGTerminalRuleCall_2_0() { return cTermSTRINGTerminalRuleCall_2_0; }
+		//TypedTermFilterClause
+		public RuleCall getClauseTypedTermFilterClauseParserRuleCall_1_0() { return cClauseTypedTermFilterClauseParserRuleCall_1_0; }
 	}
 	public class TypedTermFilterSetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TypedTermFilterSet");
@@ -1574,15 +1558,15 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
 		private final RuleCall cROUND_OPENTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cTermsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTermsTypedTermFilterParserRuleCall_2_0 = (RuleCall)cTermsAssignment_2.eContents().get(0);
+		private final Assignment cClausesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cClausesTypedTermFilterClauseParserRuleCall_2_0 = (RuleCall)cClausesAssignment_2.eContents().get(0);
 		private final RuleCall cROUND_CLOSETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//TypedTermFilterSet:
-		//	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter+ ROUND_CLOSE;
+		//	op=NON_NUMERIC_OPERATOR ROUND_OPEN clauses+=TypedTermFilterClause+ ROUND_CLOSE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter+ ROUND_CLOSE
+		//op=NON_NUMERIC_OPERATOR ROUND_OPEN clauses+=TypedTermFilterClause+ ROUND_CLOSE
 		public Group getGroup() { return cGroup; }
 		
 		//op=NON_NUMERIC_OPERATOR
@@ -1594,14 +1578,49 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ROUND_OPEN
 		public RuleCall getROUND_OPENTerminalRuleCall_1() { return cROUND_OPENTerminalRuleCall_1; }
 		
-		//terms+=TypedTermFilter+
-		public Assignment getTermsAssignment_2() { return cTermsAssignment_2; }
+		//clauses+=TypedTermFilterClause+
+		public Assignment getClausesAssignment_2() { return cClausesAssignment_2; }
 		
-		//TypedTermFilter
-		public RuleCall getTermsTypedTermFilterParserRuleCall_2_0() { return cTermsTypedTermFilterParserRuleCall_2_0; }
+		//TypedTermFilterClause
+		public RuleCall getClausesTypedTermFilterClauseParserRuleCall_2_0() { return cClausesTypedTermFilterClauseParserRuleCall_2_0; }
 		
 		//ROUND_CLOSE
 		public RuleCall getROUND_CLOSETerminalRuleCall_3() { return cROUND_CLOSETerminalRuleCall_3; }
+	}
+	public class TypedTermFilterClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TypedTermFilterClause");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cLexicalSearchTypeAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0 = (RuleCall)cLexicalSearchTypeAssignment_0_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Assignment cTermAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTermSTRINGTerminalRuleCall_1_0 = (RuleCall)cTermAssignment_1.eContents().get(0);
+		
+		//TypedTermFilterClause:
+		//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//lexicalSearchType=LEXICAL_SEARCH_TYPE
+		public Assignment getLexicalSearchTypeAssignment_0_0() { return cLexicalSearchTypeAssignment_0_0; }
+		
+		//LEXICAL_SEARCH_TYPE
+		public RuleCall getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0() { return cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_0_1() { return cCOLONTerminalRuleCall_0_1; }
+		
+		//term=STRING
+		public Assignment getTermAssignment_1() { return cTermAssignment_1; }
+		
+		//STRING
+		public RuleCall getTermSTRINGTerminalRuleCall_1_0() { return cTermSTRINGTerminalRuleCall_1_0; }
 	}
 	public class LanguageFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LanguageFilter");
@@ -2812,6 +2831,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TermFilterElements pTermFilter;
 	private final TypedTermFilterElements pTypedTermFilter;
 	private final TypedTermFilterSetElements pTypedTermFilterSet;
+	private final TypedTermFilterClauseElements pTypedTermFilterClause;
 	private final LanguageFilterElements pLanguageFilter;
 	private final TypeFilterElements pTypeFilter;
 	private final TypeIdFilterElements pTypeIdFilter;
@@ -2966,6 +2986,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pTermFilter = new TermFilterElements();
 		this.pTypedTermFilter = new TypedTermFilterElements();
 		this.pTypedTermFilterSet = new TypedTermFilterSetElements();
+		this.pTypedTermFilterClause = new TypedTermFilterClauseElements();
 		this.pLanguageFilter = new LanguageFilterElements();
 		this.pTypeFilter = new TypeFilterElements();
 		this.pTypeIdFilter = new TypeIdFilterElements();
@@ -3613,7 +3634,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//// no special treatment for the term filter STRING, we allow everything for any lexical search type
 	//TypedTermFilter:
-	//	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+	//	op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause;
 	public TypedTermFilterElements getTypedTermFilterAccess() {
 		return pTypedTermFilter;
 	}
@@ -3623,13 +3644,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//TypedTermFilterSet:
-	//	op=NON_NUMERIC_OPERATOR ROUND_OPEN terms+=TypedTermFilter+ ROUND_CLOSE;
+	//	op=NON_NUMERIC_OPERATOR ROUND_OPEN clauses+=TypedTermFilterClause+ ROUND_CLOSE;
 	public TypedTermFilterSetElements getTypedTermFilterSetAccess() {
 		return pTypedTermFilterSet;
 	}
 	
 	public ParserRule getTypedTermFilterSetRule() {
 		return getTypedTermFilterSetAccess().getRule();
+	}
+	
+	//TypedTermFilterClause:
+	//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+	public TypedTermFilterClauseElements getTypedTermFilterClauseAccess() {
+		return pTypedTermFilterClause;
+	}
+	
+	public ParserRule getTypedTermFilterClauseRule() {
+		return getTypedTermFilterClauseAccess().getRule();
 	}
 	
 	//LanguageFilter:

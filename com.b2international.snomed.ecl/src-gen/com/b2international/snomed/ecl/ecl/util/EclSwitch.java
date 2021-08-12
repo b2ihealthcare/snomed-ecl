@@ -365,6 +365,13 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.TYPED_TERM_FILTER_CLAUSE:
+      {
+        TypedTermFilterClause typedTermFilterClause = (TypedTermFilterClause)theEObject;
+        T result = caseTypedTermFilterClause(typedTermFilterClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.LANGUAGE_FILTER:
       {
         LanguageFilter languageFilter = (LanguageFilter)theEObject;
@@ -1182,6 +1189,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypedTermFilterSet(TypedTermFilterSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypedTermFilterClause(TypedTermFilterClause object)
   {
     return null;
   }

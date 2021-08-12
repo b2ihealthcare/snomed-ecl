@@ -258,6 +258,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createTypedTermFilterSetAdapter();
       }
       @Override
+      public Adapter caseTypedTermFilterClause(TypedTermFilterClause object)
+      {
+        return createTypedTermFilterClauseAdapter();
+      }
+      @Override
       public Adapter caseLanguageFilter(LanguageFilter object)
       {
         return createLanguageFilterAdapter();
@@ -935,6 +940,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypedTermFilterSetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause <em>Typed Term Filter Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterClause
+   * @generated
+   */
+  public Adapter createTypedTermFilterClauseAdapter()
   {
     return null;
   }

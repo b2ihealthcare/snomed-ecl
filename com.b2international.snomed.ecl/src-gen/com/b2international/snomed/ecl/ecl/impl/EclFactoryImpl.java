@@ -111,6 +111,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.TERM_FILTER: return createTermFilter();
       case EclPackage.TYPED_TERM_FILTER: return createTypedTermFilter();
       case EclPackage.TYPED_TERM_FILTER_SET: return createTypedTermFilterSet();
+      case EclPackage.TYPED_TERM_FILTER_CLAUSE: return createTypedTermFilterClause();
       case EclPackage.LANGUAGE_FILTER: return createLanguageFilter();
       case EclPackage.TYPE_FILTER: return createTypeFilter();
       case EclPackage.TYPE_ID_FILTER: return createTypeIdFilter();
@@ -552,6 +553,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     TypedTermFilterSetImpl typedTermFilterSet = new TypedTermFilterSetImpl();
     return typedTermFilterSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypedTermFilterClause createTypedTermFilterClause()
+  {
+    TypedTermFilterClauseImpl typedTermFilterClause = new TypedTermFilterClauseImpl();
+    return typedTermFilterClause;
   }
 
   /**

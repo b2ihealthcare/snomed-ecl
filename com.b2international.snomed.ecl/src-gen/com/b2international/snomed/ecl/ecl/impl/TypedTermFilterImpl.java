@@ -17,10 +17,13 @@ package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.TypedTermFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -32,8 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getLexicalSearchType <em>Lexical Search Type</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getTerm <em>Term</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getClause <em>Clause</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,44 +43,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilter
 {
   /**
-   * The default value of the '{@link #getLexicalSearchType() <em>Lexical Search Type</em>}' attribute.
+   * The cached value of the '{@link #getClause() <em>Clause</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLexicalSearchType()
+   * @see #getClause()
    * @generated
    * @ordered
    */
-  protected static final String LEXICAL_SEARCH_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLexicalSearchType() <em>Lexical Search Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLexicalSearchType()
-   * @generated
-   * @ordered
-   */
-  protected String lexicalSearchType = LEXICAL_SEARCH_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTerm() <em>Term</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTerm()
-   * @generated
-   * @ordered
-   */
-  protected static final String TERM_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTerm() <em>Term</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTerm()
-   * @generated
-   * @ordered
-   */
-  protected String term = TERM_EDEFAULT;
+  protected TypedTermFilterClause clause;
 
   /**
    * <!-- begin-user-doc -->
@@ -107,9 +79,9 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public String getLexicalSearchType()
+  public TypedTermFilterClause getClause()
   {
-    return lexicalSearchType;
+    return clause;
   }
 
   /**
@@ -117,13 +89,16 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setLexicalSearchType(String newLexicalSearchType)
+  public NotificationChain basicSetClause(TypedTermFilterClause newClause, NotificationChain msgs)
   {
-    String oldLexicalSearchType = lexicalSearchType;
-    lexicalSearchType = newLexicalSearchType;
+    TypedTermFilterClause oldClause = clause;
+    clause = newClause;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE, oldLexicalSearchType, lexicalSearchType));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__CLAUSE, oldClause, newClause);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -132,9 +107,20 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public String getTerm()
+  public void setClause(TypedTermFilterClause newClause)
   {
-    return term;
+    if (newClause != clause)
+    {
+      NotificationChain msgs = null;
+      if (clause != null)
+        msgs = ((InternalEObject)clause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_TERM_FILTER__CLAUSE, null, msgs);
+      if (newClause != null)
+        msgs = ((InternalEObject)newClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_TERM_FILTER__CLAUSE, null, msgs);
+      msgs = basicSetClause(newClause, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__CLAUSE, newClause, newClause));
   }
 
   /**
@@ -143,12 +129,14 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public void setTerm(String newTerm)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldTerm = term;
-    term = newTerm;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__TERM, oldTerm, term));
+    switch (featureID)
+    {
+      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+        return basicSetClause(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -161,10 +149,8 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        return getLexicalSearchType();
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        return getTerm();
+      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+        return getClause();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -179,11 +165,8 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        setLexicalSearchType((String)newValue);
-        return;
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        setTerm((String)newValue);
+      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+        setClause((TypedTermFilterClause)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,11 +182,8 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        setLexicalSearchType(LEXICAL_SEARCH_TYPE_EDEFAULT);
-        return;
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        setTerm(TERM_EDEFAULT);
+      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+        setClause((TypedTermFilterClause)null);
         return;
     }
     super.eUnset(featureID);
@@ -219,31 +199,10 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__LEXICAL_SEARCH_TYPE:
-        return LEXICAL_SEARCH_TYPE_EDEFAULT == null ? lexicalSearchType != null : !LEXICAL_SEARCH_TYPE_EDEFAULT.equals(lexicalSearchType);
-      case EclPackage.TYPED_TERM_FILTER__TERM:
-        return TERM_EDEFAULT == null ? term != null : !TERM_EDEFAULT.equals(term);
+      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+        return clause != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (lexicalSearchType: ");
-    result.append(lexicalSearchType);
-    result.append(", term: ");
-    result.append(term);
-    result.append(')');
-    return result.toString();
   }
 
 } //TypedTermFilterImpl

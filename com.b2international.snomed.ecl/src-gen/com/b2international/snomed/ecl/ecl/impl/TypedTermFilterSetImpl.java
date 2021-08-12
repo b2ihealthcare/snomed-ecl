@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.TypedTermFilter;
+import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
 import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
 
 import java.util.Collection;
@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl#getTerms <em>Terms</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +47,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermFilterSet
 {
   /**
-   * The cached value of the '{@link #getTerms() <em>Terms</em>}' containment reference list.
+   * The cached value of the '{@link #getClauses() <em>Clauses</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTerms()
+   * @see #getClauses()
    * @generated
    * @ordered
    */
-  protected EList<TypedTermFilter> terms;
+  protected EList<TypedTermFilterClause> clauses;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,13 +83,13 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
    * @generated
    */
   @Override
-  public EList<TypedTermFilter> getTerms()
+  public EList<TypedTermFilterClause> getClauses()
   {
-    if (terms == null)
+    if (clauses == null)
     {
-      terms = new EObjectContainmentEList<TypedTermFilter>(TypedTermFilter.class, this, EclPackage.TYPED_TERM_FILTER_SET__TERMS);
+      clauses = new EObjectContainmentEList<TypedTermFilterClause>(TypedTermFilterClause.class, this, EclPackage.TYPED_TERM_FILTER_SET__CLAUSES);
     }
-    return terms;
+    return clauses;
   }
 
   /**
@@ -102,8 +102,8 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__TERMS:
-        return ((InternalEList<?>)getTerms()).basicRemove(otherEnd, msgs);
+      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+        return ((InternalEList<?>)getClauses()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -118,8 +118,8 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__TERMS:
-        return getTerms();
+      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+        return getClauses();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -135,9 +135,9 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__TERMS:
-        getTerms().clear();
-        getTerms().addAll((Collection<? extends TypedTermFilter>)newValue);
+      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+        getClauses().clear();
+        getClauses().addAll((Collection<? extends TypedTermFilterClause>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -153,8 +153,8 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__TERMS:
-        getTerms().clear();
+      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+        getClauses().clear();
         return;
     }
     super.eUnset(featureID);
@@ -170,8 +170,8 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__TERMS:
-        return terms != null && !terms.isEmpty();
+      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+        return clauses != null && !clauses.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -25,8 +25,7 @@ package com.b2international.snomed.ecl.ecl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getLexicalSearchType <em>Lexical Search Type</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getTerm <em>Term</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause <em>Clause</em>}</li>
  * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter()
@@ -36,47 +35,25 @@ package com.b2international.snomed.ecl.ecl;
 public interface TypedTermFilter extends TermFilter
 {
   /**
-   * Returns the value of the '<em><b>Lexical Search Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Clause</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lexical Search Type</em>' attribute.
-   * @see #setLexicalSearchType(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter_LexicalSearchType()
-   * @model
+   * @return the value of the '<em>Clause</em>' containment reference.
+   * @see #setClause(TypedTermFilterClause)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter_Clause()
+   * @model containment="true"
    * @generated
    */
-  String getLexicalSearchType();
+  TypedTermFilterClause getClause();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getLexicalSearchType <em>Lexical Search Type</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause <em>Clause</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lexical Search Type</em>' attribute.
-   * @see #getLexicalSearchType()
+   * @param value the new value of the '<em>Clause</em>' containment reference.
+   * @see #getClause()
    * @generated
    */
-  void setLexicalSearchType(String value);
-
-  /**
-   * Returns the value of the '<em><b>Term</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Term</em>' attribute.
-   * @see #setTerm(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter_Term()
-   * @model
-   * @generated
-   */
-  String getTerm();
-
-  /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getTerm <em>Term</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Term</em>' attribute.
-   * @see #getTerm()
-   * @generated
-   */
-  void setTerm(String value);
+  void setClause(TypedTermFilterClause value);
 
 } // TypedTermFilter

@@ -2992,44 +2992,20 @@ ruleTypedTermFilter returns [EObject current=null]
 		)
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTypedTermFilterAccess().getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_1_0_0());
-					}
-					lv_lexicalSearchType_1_0=ruleLEXICAL_SEARCH_TYPE
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTypedTermFilterRule());
-						}
-						set(
-							$current,
-							"lexicalSearchType",
-							lv_lexicalSearchType_1_0,
-							"com.b2international.snomed.ecl.Ecl.LEXICAL_SEARCH_TYPE");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			this_COLON_2=RULE_COLON
-			{
-				newLeafNode(this_COLON_2, grammarAccess.getTypedTermFilterAccess().getCOLONTerminalRuleCall_1_1());
-			}
-		)?
-		(
-			(
-				lv_term_3_0=RULE_STRING
 				{
-					newLeafNode(lv_term_3_0, grammarAccess.getTypedTermFilterAccess().getTermSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTypedTermFilterAccess().getClauseTypedTermFilterClauseParserRuleCall_1_0());
 				}
+				lv_clause_1_0=ruleTypedTermFilterClause
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTypedTermFilterRule());
+						$current = createModelElementForParent(grammarAccess.getTypedTermFilterRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"term",
-						lv_term_3_0,
-						"com.b2international.snomed.ecl.Ecl.STRING");
+						"clause",
+						lv_clause_1_0,
+						"com.b2international.snomed.ecl.Ecl.TypedTermFilterClause");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -3078,18 +3054,18 @@ ruleTypedTermFilterSet returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTypedTermFilterSetAccess().getTermsTypedTermFilterParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTypedTermFilterSetAccess().getClausesTypedTermFilterClauseParserRuleCall_2_0());
 				}
-				lv_terms_2_0=ruleTypedTermFilter
+				lv_clauses_2_0=ruleTypedTermFilterClause
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTypedTermFilterSetRule());
 					}
 					add(
 						$current,
-						"terms",
-						lv_terms_2_0,
-						"com.b2international.snomed.ecl.Ecl.TypedTermFilter");
+						"clauses",
+						lv_clauses_2_0,
+						"com.b2international.snomed.ecl.Ecl.TypedTermFilterClause");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3098,6 +3074,68 @@ ruleTypedTermFilterSet returns [EObject current=null]
 		{
 			newLeafNode(this_ROUND_CLOSE_3, grammarAccess.getTypedTermFilterSetAccess().getROUND_CLOSETerminalRuleCall_3());
 		}
+	)
+;
+
+// Entry rule entryRuleTypedTermFilterClause
+entryRuleTypedTermFilterClause returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTypedTermFilterClauseRule()); }
+	iv_ruleTypedTermFilterClause=ruleTypedTermFilterClause
+	{ $current=$iv_ruleTypedTermFilterClause.current; }
+	EOF;
+
+// Rule TypedTermFilterClause
+ruleTypedTermFilterClause returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0());
+					}
+					lv_lexicalSearchType_0_0=ruleLEXICAL_SEARCH_TYPE
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTypedTermFilterClauseRule());
+						}
+						set(
+							$current,
+							"lexicalSearchType",
+							lv_lexicalSearchType_0_0,
+							"com.b2international.snomed.ecl.Ecl.LEXICAL_SEARCH_TYPE");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_COLON_1=RULE_COLON
+			{
+				newLeafNode(this_COLON_1, grammarAccess.getTypedTermFilterClauseAccess().getCOLONTerminalRuleCall_0_1());
+			}
+		)?
+		(
+			(
+				lv_term_2_0=RULE_STRING
+				{
+					newLeafNode(lv_term_2_0, grammarAccess.getTypedTermFilterClauseAccess().getTermSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTypedTermFilterClauseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"term",
+						lv_term_2_0,
+						"com.b2international.snomed.ecl.Ecl.STRING");
+				}
+			)
+		)
 	)
 ;
 

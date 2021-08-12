@@ -342,6 +342,15 @@ public interface EclFactory extends EFactory
   TypedTermFilterSet createTypedTermFilterSet();
 
   /**
+   * Returns a new object of class '<em>Typed Term Filter Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Term Filter Clause</em>'.
+   * @generated
+   */
+  TypedTermFilterClause createTypedTermFilterClause();
+
+  /**
    * Returns a new object of class '<em>Language Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
