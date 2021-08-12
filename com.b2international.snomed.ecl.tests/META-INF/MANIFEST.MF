@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SNOMED CT Expression Constraint Language Tests
 Bundle-SymbolicName: com.b2international.snomed.ecl.tests
-Bundle-Version: 1.5.1
+Bundle-Version: 1.5.2.qualifier
 Bundle-Vendor: B2i Healthcare
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
