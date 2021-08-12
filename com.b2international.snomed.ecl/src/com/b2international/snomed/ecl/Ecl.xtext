@@ -192,10 +192,13 @@ TermFilter:
 
 // no special treatment for the term filter STRING, we allow everything for any lexical search type
 TypedTermFilter:
-	op=NON_NUMERIC_OPERATOR (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+	op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause;
 
 TypedTermFilterSet:
-	op=NON_NUMERIC_OPERATOR ROUND_OPEN (terms+=TypedTermFilter)+ ROUND_CLOSE;
+	op=NON_NUMERIC_OPERATOR ROUND_OPEN (clauses+=TypedTermFilterClause)+ ROUND_CLOSE;
+
+TypedTermFilterClause:
+	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
 
 LanguageFilter:
 	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=UnquotedString | ROUND_OPEN (languageCodes+=UnquotedString)+ ROUND_CLOSE);
