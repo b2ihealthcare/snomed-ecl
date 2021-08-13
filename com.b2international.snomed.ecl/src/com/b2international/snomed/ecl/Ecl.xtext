@@ -197,8 +197,14 @@ TypedTermFilter:
 TypedTermFilterSet:
 	op=NON_NUMERIC_OPERATOR ROUND_OPEN (clauses+=TypedTermFilterClause)+ ROUND_CLOSE;
 
-TypedTermFilterClause:
-	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+TypedTermFilterClause
+	: (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
+	| lexicalSearchType=REGEX_KEYWORD COLON term=RegularExpression
+	;
+
+// Regular expression syntax checking is left to the value converter implementation
+RegularExpression:
+	STRING; 
 
 LanguageFilter:
 	LANGUAGE_KEYWORD op=NON_NUMERIC_OPERATOR (languageCodes+=UnquotedString | ROUND_OPEN (languageCodes+=UnquotedString)+ ROUND_CLOSE);
@@ -323,8 +329,8 @@ LEXICAL_SEARCH_TYPE
 	// Lexical search types supported in ECL 1.5 
 	: MATCH_KEYWORD 
 	| WILD_KEYWORD
-	// Lexical search type extensions
-	| REGEX_KEYWORD
+	// Lexical search type extensions 
+	// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
 	| EXACT_KEYWORD
 	;
 
