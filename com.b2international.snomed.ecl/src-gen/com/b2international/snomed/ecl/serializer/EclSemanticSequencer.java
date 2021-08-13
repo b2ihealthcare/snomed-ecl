@@ -1601,7 +1601,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TypedTermFilterClause returns TypedTermFilterClause
 	 *
 	 * Constraint:
-	 *     (lexicalSearchType=LEXICAL_SEARCH_TYPE? term=STRING)
+	 *     ((lexicalSearchType=LEXICAL_SEARCH_TYPE? term=STRING) | (lexicalSearchType=REGEX_KEYWORD term=RegularExpression))
 	 */
 	protected void sequence_TypedTermFilterClause(ISerializationContext context, TypedTermFilterClause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

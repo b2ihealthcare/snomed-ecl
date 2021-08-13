@@ -56,6 +56,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConjunctionFilterAccess().getAlternatives_1_1(), "rule__ConjunctionFilter__Alternatives_1_1");
 			builder.put(grammarAccess.getPropertyFilterAccess().getAlternatives(), "rule__PropertyFilter__Alternatives");
 			builder.put(grammarAccess.getTermFilterAccess().getAlternatives_1(), "rule__TermFilter__Alternatives_1");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getAlternatives(), "rule__TypedTermFilterClause__Alternatives");
 			builder.put(grammarAccess.getLanguageFilterAccess().getAlternatives_2(), "rule__LanguageFilter__Alternatives_2");
 			builder.put(grammarAccess.getTypeFilterAccess().getAlternatives(), "rule__TypeFilter__Alternatives");
 			builder.put(grammarAccess.getTypeIdFilterAccess().getTypeAlternatives_2_0(), "rule__TypeIdFilter__TypeAlternatives_2_0");
@@ -132,8 +133,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTermFilterAccess().getGroup(), "rule__TermFilter__Group__0");
 			builder.put(grammarAccess.getTypedTermFilterAccess().getGroup(), "rule__TypedTermFilter__Group__0");
 			builder.put(grammarAccess.getTypedTermFilterSetAccess().getGroup(), "rule__TypedTermFilterSet__Group__0");
-			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getGroup(), "rule__TypedTermFilterClause__Group__0");
 			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getGroup_0(), "rule__TypedTermFilterClause__Group_0__0");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getGroup_0_0(), "rule__TypedTermFilterClause__Group_0_0__0");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getGroup_1(), "rule__TypedTermFilterClause__Group_1__0");
 			builder.put(grammarAccess.getLanguageFilterAccess().getGroup(), "rule__LanguageFilter__Group__0");
 			builder.put(grammarAccess.getLanguageFilterAccess().getGroup_2_1(), "rule__LanguageFilter__Group_2_1__0");
 			builder.put(grammarAccess.getTypeIdFilterAccess().getGroup(), "rule__TypeIdFilter__Group__0");
@@ -212,8 +214,10 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypedTermFilterAccess().getClauseAssignment_1(), "rule__TypedTermFilter__ClauseAssignment_1");
 			builder.put(grammarAccess.getTypedTermFilterSetAccess().getOpAssignment_0(), "rule__TypedTermFilterSet__OpAssignment_0");
 			builder.put(grammarAccess.getTypedTermFilterSetAccess().getClausesAssignment_2(), "rule__TypedTermFilterSet__ClausesAssignment_2");
-			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeAssignment_0_0(), "rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0");
-			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getTermAssignment_1(), "rule__TypedTermFilterClause__TermAssignment_1");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeAssignment_0_0_0(), "rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0_0");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getTermAssignment_0_1(), "rule__TypedTermFilterClause__TermAssignment_0_1");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeAssignment_1_0(), "rule__TypedTermFilterClause__LexicalSearchTypeAssignment_1_0");
+			builder.put(grammarAccess.getTypedTermFilterClauseAccess().getTermAssignment_1_2(), "rule__TypedTermFilterClause__TermAssignment_1_2");
 			builder.put(grammarAccess.getLanguageFilterAccess().getOpAssignment_1(), "rule__LanguageFilter__OpAssignment_1");
 			builder.put(grammarAccess.getLanguageFilterAccess().getLanguageCodesAssignment_2_0(), "rule__LanguageFilter__LanguageCodesAssignment_2_0");
 			builder.put(grammarAccess.getLanguageFilterAccess().getLanguageCodesAssignment_2_1_1(), "rule__LanguageFilter__LanguageCodesAssignment_2_1_1");

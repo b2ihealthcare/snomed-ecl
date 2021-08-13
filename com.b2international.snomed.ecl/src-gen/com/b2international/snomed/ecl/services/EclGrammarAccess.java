@@ -1589,38 +1589,80 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class TypedTermFilterClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TypedTermFilterClause");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cLexicalSearchTypeAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0 = (RuleCall)cLexicalSearchTypeAssignment_0_0.eContents().get(0);
-		private final RuleCall cCOLONTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Assignment cTermAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTermSTRINGTerminalRuleCall_1_0 = (RuleCall)cTermAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cGroup_0.eContents().get(0);
+		private final Assignment cLexicalSearchTypeAssignment_0_0_0 = (Assignment)cGroup_0_0.eContents().get(0);
+		private final RuleCall cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0_0 = (RuleCall)cLexicalSearchTypeAssignment_0_0_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_0_0_1 = (RuleCall)cGroup_0_0.eContents().get(1);
+		private final Assignment cTermAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cTermSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cTermAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cLexicalSearchTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cLexicalSearchTypeREGEX_KEYWORDTerminalRuleCall_1_0_0 = (RuleCall)cLexicalSearchTypeAssignment_1_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cTermAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cTermRegularExpressionParserRuleCall_1_2_0 = (RuleCall)cTermAssignment_1_2.eContents().get(0);
 		
 		//TypedTermFilterClause:
-		//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+		//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
+		//	| lexicalSearchType=REGEX_KEYWORD COLON term=RegularExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
-		public Group getGroup() { return cGroup; }
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING | lexicalSearchType=REGEX_KEYWORD COLON
+		//term=RegularExpression
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)?
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)?
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
 		//lexicalSearchType=LEXICAL_SEARCH_TYPE
-		public Assignment getLexicalSearchTypeAssignment_0_0() { return cLexicalSearchTypeAssignment_0_0; }
+		public Assignment getLexicalSearchTypeAssignment_0_0_0() { return cLexicalSearchTypeAssignment_0_0_0; }
 		
 		//LEXICAL_SEARCH_TYPE
-		public RuleCall getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0() { return cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0; }
+		public RuleCall getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0_0() { return cLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0_0; }
 		
 		//COLON
-		public RuleCall getCOLONTerminalRuleCall_0_1() { return cCOLONTerminalRuleCall_0_1; }
+		public RuleCall getCOLONTerminalRuleCall_0_0_1() { return cCOLONTerminalRuleCall_0_0_1; }
 		
 		//term=STRING
-		public Assignment getTermAssignment_1() { return cTermAssignment_1; }
+		public Assignment getTermAssignment_0_1() { return cTermAssignment_0_1; }
 		
 		//STRING
-		public RuleCall getTermSTRINGTerminalRuleCall_1_0() { return cTermSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getTermSTRINGTerminalRuleCall_0_1_0() { return cTermSTRINGTerminalRuleCall_0_1_0; }
+		
+		//lexicalSearchType=REGEX_KEYWORD COLON term=RegularExpression
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//lexicalSearchType=REGEX_KEYWORD
+		public Assignment getLexicalSearchTypeAssignment_1_0() { return cLexicalSearchTypeAssignment_1_0; }
+		
+		//REGEX_KEYWORD
+		public RuleCall getLexicalSearchTypeREGEX_KEYWORDTerminalRuleCall_1_0_0() { return cLexicalSearchTypeREGEX_KEYWORDTerminalRuleCall_1_0_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1_1() { return cCOLONTerminalRuleCall_1_1; }
+		
+		//term=RegularExpression
+		public Assignment getTermAssignment_1_2() { return cTermAssignment_1_2; }
+		
+		//RegularExpression
+		public RuleCall getTermRegularExpressionParserRuleCall_1_2_0() { return cTermRegularExpressionParserRuleCall_1_2_0; }
+	}
+	public class RegularExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.RegularExpression");
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//// The intricacies of regular expression parsing is left to the value converter implementation
+		//RegularExpression:
+		//	STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
 	}
 	public class LanguageFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LanguageFilter");
@@ -2675,20 +2717,20 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMATCH_KEYWORDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cWILD_KEYWORDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cREGEX_KEYWORDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cEXACT_KEYWORDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cEXACT_KEYWORDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//LEXICAL_SEARCH_TYPE // Lexical search types supported in ECL 1.5 
 		//:
 		//	MATCH_KEYWORD
 		//	| WILD_KEYWORD
-		//	// Lexical search type extensions
-		//	| REGEX_KEYWORD
+		//	// Lexical search type extensions 
+		//	// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
 		//	| EXACT_KEYWORD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MATCH_KEYWORD | WILD_KEYWORD // Lexical search type extensions
-		//| REGEX_KEYWORD | EXACT_KEYWORD
+		//MATCH_KEYWORD | WILD_KEYWORD // Lexical search type extensions 
+		//// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
+		//| EXACT_KEYWORD
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MATCH_KEYWORD
@@ -2697,11 +2739,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//WILD_KEYWORD
 		public RuleCall getWILD_KEYWORDTerminalRuleCall_1() { return cWILD_KEYWORDTerminalRuleCall_1; }
 		
-		//REGEX_KEYWORD
-		public RuleCall getREGEX_KEYWORDTerminalRuleCall_2() { return cREGEX_KEYWORDTerminalRuleCall_2; }
-		
 		//EXACT_KEYWORD
-		public RuleCall getEXACT_KEYWORDTerminalRuleCall_3() { return cEXACT_KEYWORDTerminalRuleCall_3; }
+		public RuleCall getEXACT_KEYWORDTerminalRuleCall_2() { return cEXACT_KEYWORDTerminalRuleCall_2; }
 	}
 	public class DOMAINElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DOMAIN");
@@ -2832,6 +2871,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TypedTermFilterElements pTypedTermFilter;
 	private final TypedTermFilterSetElements pTypedTermFilterSet;
 	private final TypedTermFilterClauseElements pTypedTermFilterClause;
+	private final RegularExpressionElements pRegularExpression;
 	private final LanguageFilterElements pLanguageFilter;
 	private final TypeFilterElements pTypeFilter;
 	private final TypeIdFilterElements pTypeIdFilter;
@@ -2987,6 +3027,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pTypedTermFilter = new TypedTermFilterElements();
 		this.pTypedTermFilterSet = new TypedTermFilterSetElements();
 		this.pTypedTermFilterClause = new TypedTermFilterClauseElements();
+		this.pRegularExpression = new RegularExpressionElements();
 		this.pLanguageFilter = new LanguageFilterElements();
 		this.pTypeFilter = new TypeFilterElements();
 		this.pTypeIdFilter = new TypeIdFilterElements();
@@ -3654,13 +3695,25 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//TypedTermFilterClause:
-	//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING;
+	//	(lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
+	//	| lexicalSearchType=REGEX_KEYWORD COLON term=RegularExpression;
 	public TypedTermFilterClauseElements getTypedTermFilterClauseAccess() {
 		return pTypedTermFilterClause;
 	}
 	
 	public ParserRule getTypedTermFilterClauseRule() {
 		return getTypedTermFilterClauseAccess().getRule();
+	}
+	
+	//// The intricacies of regular expression parsing is left to the value converter implementation
+	//RegularExpression:
+	//	STRING;
+	public RegularExpressionElements getRegularExpressionAccess() {
+		return pRegularExpression;
+	}
+	
+	public ParserRule getRegularExpressionRule() {
+		return getRegularExpressionAccess().getRule();
 	}
 	
 	//LanguageFilter:
@@ -3989,8 +4042,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//:
 	//	MATCH_KEYWORD
 	//	| WILD_KEYWORD
-	//	// Lexical search type extensions
-	//	| REGEX_KEYWORD
+	//	// Lexical search type extensions 
+	//	// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
 	//	| EXACT_KEYWORD;
 	public LEXICAL_SEARCH_TYPEElements getLEXICAL_SEARCH_TYPEAccess() {
 		return pLEXICAL_SEARCH_TYPE;
