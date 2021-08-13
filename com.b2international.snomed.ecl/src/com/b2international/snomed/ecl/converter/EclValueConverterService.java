@@ -32,6 +32,9 @@ public class EclValueConverterService extends DefaultTerminalConverters {
 	@Inject
 	private TermStringConverter termStringConverter;
 
+	@Inject
+	private RegularExpressionConverter regularExpressionConverter;
+	
 	@ValueConverter(rule = "MaxValue")
 	public IValueConverter<Integer> MaxValue() {
 		return maxValueConverter;
@@ -41,5 +44,9 @@ public class EclValueConverterService extends DefaultTerminalConverters {
 	public IValueConverter<String> TermString() {
 		return termStringConverter;
 	}
-
+	
+	@ValueConverter(rule = "RegularExpression")
+	public IValueConverter<String> RegularExpression() {
+		return regularExpressionConverter;
+	}
 }
