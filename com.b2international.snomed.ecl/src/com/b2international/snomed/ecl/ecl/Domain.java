@@ -15,12 +15,38 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import java.util.Arrays;
+
+import com.google.common.base.Strings;
+
 /**
  * Enumerates the "subject" of the filter expression it operates on.
  * 
  * @since 1.5
  */
 public enum Domain {
-	CONCEPT,
-	DESCRIPTION;
+	CONCEPT("C"),
+	DESCRIPTION("D");
+
+	private final String symbol;
+
+	private Domain(final String symbol) {
+		this.symbol = symbol;
+	}
+
+	public static Domain fromString(final String value) {
+		if (Strings.isNullOrEmpty(value)) {
+			return null;
+		}
+
+		return Arrays.stream(values())
+			.filter(d -> d.symbol.equalsIgnoreCase(value))
+			.findFirst()
+			.orElse(null);
+	}
+
+	@Override
+	public String toString() {
+		return symbol;
+	}
 }
