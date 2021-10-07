@@ -15,17 +15,18 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Expression Constraint</b></em>'.
+ * A representation of the model object '<em><b>Filter Value</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getExpressionConstraint()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getFilterValue()
  * @model
  * @generated
  */
-public interface ExpressionConstraint extends FilterValue
+public interface FilterValue extends EObject
 {
-} // ExpressionConstraint
+} // FilterValue

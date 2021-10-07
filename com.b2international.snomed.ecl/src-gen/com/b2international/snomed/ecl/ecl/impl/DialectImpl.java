@@ -17,8 +17,8 @@ package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.Acceptability;
 import com.b2international.snomed.ecl.ecl.Dialect;
-import com.b2international.snomed.ecl.ecl.EclConceptReference;
 import com.b2international.snomed.ecl.ecl.EclPackage;
+import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -53,7 +53,7 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
    * @generated
    * @ordered
    */
-  protected EclConceptReference languageRefSetId;
+  protected ExpressionConstraint languageRefSetId;
 
   /**
    * The cached value of the '{@link #getAcceptability() <em>Acceptability</em>}' containment reference.
@@ -92,7 +92,7 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
    * @generated
    */
   @Override
-  public EclConceptReference getLanguageRefSetId()
+  public ExpressionConstraint getLanguageRefSetId()
   {
     return languageRefSetId;
   }
@@ -102,9 +102,9 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLanguageRefSetId(EclConceptReference newLanguageRefSetId, NotificationChain msgs)
+  public NotificationChain basicSetLanguageRefSetId(ExpressionConstraint newLanguageRefSetId, NotificationChain msgs)
   {
-    EclConceptReference oldLanguageRefSetId = languageRefSetId;
+    ExpressionConstraint oldLanguageRefSetId = languageRefSetId;
     languageRefSetId = newLanguageRefSetId;
     if (eNotificationRequired())
     {
@@ -120,7 +120,7 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
    * @generated
    */
   @Override
-  public void setLanguageRefSetId(EclConceptReference newLanguageRefSetId)
+  public void setLanguageRefSetId(ExpressionConstraint newLanguageRefSetId)
   {
     if (newLanguageRefSetId != languageRefSetId)
     {
@@ -233,7 +233,7 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
     switch (featureID)
     {
       case EclPackage.DIALECT__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((EclConceptReference)newValue);
+        setLanguageRefSetId((ExpressionConstraint)newValue);
         return;
       case EclPackage.DIALECT__ACCEPTABILITY:
         setAcceptability((Acceptability)newValue);
@@ -253,7 +253,7 @@ public class DialectImpl extends MinimalEObjectImpl.Container implements Dialect
     switch (featureID)
     {
       case EclPackage.DIALECT__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((EclConceptReference)null);
+        setLanguageRefSetId((ExpressionConstraint)null);
         return;
       case EclPackage.DIALECT__ACCEPTABILITY:
         setAcceptability((Acceptability)null);

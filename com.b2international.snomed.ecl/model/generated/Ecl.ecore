@@ -5,7 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionConstraint" eSuperTypes="#//FilterValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChildOf" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
         containment="true"/>
@@ -46,7 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EclConceptReferenceSet">
+  <eClassifiers xsi:type="ecore:EClass" name="EclConceptReferenceSet" eSuperTypes="#//FilterValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
         eType="#//EclConceptReference" containment="true"/>
   </eClassifiers>
@@ -99,8 +99,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//ExpressionConstraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilterConstraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//FilterConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Filter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter"/>
   <eClassifiers xsi:type="ecore:EClass" name="NestedFilter" eSuperTypes="#//PropertyFilter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//Filter"
         containment="true"/>
@@ -130,7 +134,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeIdFilter" eSuperTypes="#//TypeFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeTokenFilter" eSuperTypes="#//TypeFilter">
@@ -149,7 +153,7 @@
         eType="#//DialectAlias" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dialect">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//EclConceptReference"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="acceptability" eType="#//Acceptability"
         containment="true"/>
@@ -168,41 +172,49 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceptabilities" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActiveFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatusFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModuleFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="moduleId" eType="#//ExpressionConstraint"
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatusIdFilter" eSuperTypes="#//DefinitionStatusFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitionStatus" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SemanticTagFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatusTokenFilter" eSuperTypes="#//DefinitionStatusFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionStatusTokens"
+        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="moduleId" eType="#//FilterValue"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectiveTimeFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effectiveTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActiveFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticTagFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreferredInFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AcceptableInFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LanguageRefSetFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageRefSetId" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CaseSignificanceFilter" eSuperTypes="#//PropertyFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="caseSignificanceId" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caseSignificanceId" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="OrExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ExpressionConstraint"
         containment="true"/>

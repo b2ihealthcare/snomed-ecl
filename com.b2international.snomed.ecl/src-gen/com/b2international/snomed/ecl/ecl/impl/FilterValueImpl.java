@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.Filter;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Filter</b></em>'.
+ * An implementation of the model object '<em><b>Filter Value</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
+public class FilterValueImpl extends MinimalEObjectImpl.Container implements FilterValue
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FilterImpl()
+  protected FilterValueImpl()
   {
     super();
   }
@@ -49,7 +49,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.FILTER;
+    return EclPackage.Literals.FILTER_VALUE;
   }
 
-} //FilterImpl
+} //FilterValueImpl

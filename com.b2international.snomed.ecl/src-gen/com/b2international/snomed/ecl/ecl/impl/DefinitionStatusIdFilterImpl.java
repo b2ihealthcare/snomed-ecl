@@ -15,9 +15,9 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
+import com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.FilterValue;
-import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,35 +29,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Preferred In Filter</b></em>'.
+ * An implementation of the model object '<em><b>Definition Status Id Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.PreferredInFilterImpl#getLanguageRefSetId <em>Language Ref Set Id</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusIdFilterImpl#getDefinitionStatus <em>Definition Status</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PreferredInFilterImpl extends PropertyFilterImpl implements PreferredInFilter
+public class DefinitionStatusIdFilterImpl extends DefinitionStatusFilterImpl implements DefinitionStatusIdFilter
 {
   /**
-   * The cached value of the '{@link #getLanguageRefSetId() <em>Language Ref Set Id</em>}' containment reference.
+   * The cached value of the '{@link #getDefinitionStatus() <em>Definition Status</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLanguageRefSetId()
+   * @see #getDefinitionStatus()
    * @generated
    * @ordered
    */
-  protected FilterValue languageRefSetId;
+  protected FilterValue definitionStatus;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PreferredInFilterImpl()
+  protected DefinitionStatusIdFilterImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.PREFERRED_IN_FILTER;
+    return EclPackage.Literals.DEFINITION_STATUS_ID_FILTER;
   }
 
   /**
@@ -79,9 +79,9 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
    * @generated
    */
   @Override
-  public FilterValue getLanguageRefSetId()
+  public FilterValue getDefinitionStatus()
   {
-    return languageRefSetId;
+    return definitionStatus;
   }
 
   /**
@@ -89,13 +89,13 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLanguageRefSetId(FilterValue newLanguageRefSetId, NotificationChain msgs)
+  public NotificationChain basicSetDefinitionStatus(FilterValue newDefinitionStatus, NotificationChain msgs)
   {
-    FilterValue oldLanguageRefSetId = languageRefSetId;
-    languageRefSetId = newLanguageRefSetId;
+    FilterValue oldDefinitionStatus = definitionStatus;
+    definitionStatus = newDefinitionStatus;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID, oldLanguageRefSetId, newLanguageRefSetId);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS, oldDefinitionStatus, newDefinitionStatus);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
    * @generated
    */
   @Override
-  public void setLanguageRefSetId(FilterValue newLanguageRefSetId)
+  public void setDefinitionStatus(FilterValue newDefinitionStatus)
   {
-    if (newLanguageRefSetId != languageRefSetId)
+    if (newDefinitionStatus != definitionStatus)
     {
       NotificationChain msgs = null;
-      if (languageRefSetId != null)
-        msgs = ((InternalEObject)languageRefSetId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID, null, msgs);
-      if (newLanguageRefSetId != null)
-        msgs = ((InternalEObject)newLanguageRefSetId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID, null, msgs);
-      msgs = basicSetLanguageRefSetId(newLanguageRefSetId, msgs);
+      if (definitionStatus != null)
+        msgs = ((InternalEObject)definitionStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS, null, msgs);
+      if (newDefinitionStatus != null)
+        msgs = ((InternalEObject)newDefinitionStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS, null, msgs);
+      msgs = basicSetDefinitionStatus(newDefinitionStatus, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID, newLanguageRefSetId, newLanguageRefSetId));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS, newDefinitionStatus, newDefinitionStatus));
   }
 
   /**
@@ -133,8 +133,8 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   {
     switch (featureID)
     {
-      case EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID:
-        return basicSetLanguageRefSetId(null, msgs);
+      case EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS:
+        return basicSetDefinitionStatus(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -149,8 +149,8 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   {
     switch (featureID)
     {
-      case EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID:
-        return getLanguageRefSetId();
+      case EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS:
+        return getDefinitionStatus();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,8 +165,8 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   {
     switch (featureID)
     {
-      case EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((FilterValue)newValue);
+      case EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS:
+        setDefinitionStatus((FilterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,8 +182,8 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   {
     switch (featureID)
     {
-      case EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((FilterValue)null);
+      case EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS:
+        setDefinitionStatus((FilterValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -199,10 +199,10 @@ public class PreferredInFilterImpl extends PropertyFilterImpl implements Preferr
   {
     switch (featureID)
     {
-      case EclPackage.PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID:
-        return languageRefSetId != null;
+      case EclPackage.DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS:
+        return definitionStatus != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //PreferredInFilterImpl
+} //DefinitionStatusIdFilterImpl

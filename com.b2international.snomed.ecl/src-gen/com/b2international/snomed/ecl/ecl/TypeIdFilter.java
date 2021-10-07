@@ -15,7 +15,6 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +39,12 @@ public interface TypeIdFilter extends TypeFilter
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(EObject)
+   * @see #setType(FilterValue)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypeIdFilter_Type()
    * @model containment="true"
    * @generated
    */
-  EObject getType();
+  FilterValue getType();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypeIdFilter#getType <em>Type</em>}' containment reference.
@@ -55,6 +54,6 @@ public interface TypeIdFilter extends TypeFilter
    * @see #getType()
    * @generated
    */
-  void setType(EObject value);
+  void setType(FilterValue value);
 
 } // TypeIdFilter

@@ -18,42 +18,42 @@ package com.b2international.snomed.ecl.ecl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Module Filter</b></em>'.
+ * A representation of the model object '<em><b>Definition Status Filter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getModuleId <em>Module Id</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter#getOp <em>Op</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getModuleFilter()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getDefinitionStatusFilter()
  * @model
  * @generated
  */
-public interface ModuleFilter extends PropertyFilter
+public interface DefinitionStatusFilter extends PropertyFilter
 {
   /**
-   * Returns the value of the '<em><b>Module Id</b></em>' containment reference.
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Module Id</em>' containment reference.
-   * @see #setModuleId(FilterValue)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getModuleFilter_ModuleId()
-   * @model containment="true"
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getDefinitionStatusFilter_Op()
+   * @model
    * @generated
    */
-  FilterValue getModuleId();
+  String getOp();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getModuleId <em>Module Id</em>}' containment reference.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Module Id</em>' containment reference.
-   * @see #getModuleId()
+   * @param value the new value of the '<em>Op</em>' attribute.
+   * @see #getOp()
    * @generated
    */
-  void setModuleId(FilterValue value);
+  void setOp(String value);
 
-} // ModuleFilter
+} // DefinitionStatusFilter

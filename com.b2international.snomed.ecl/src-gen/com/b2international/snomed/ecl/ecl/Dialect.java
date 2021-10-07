@@ -41,12 +41,12 @@ public interface Dialect extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Language Ref Set Id</em>' containment reference.
-   * @see #setLanguageRefSetId(EclConceptReference)
+   * @see #setLanguageRefSetId(ExpressionConstraint)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getDialect_LanguageRefSetId()
    * @model containment="true"
    * @generated
    */
-  EclConceptReference getLanguageRefSetId();
+  ExpressionConstraint getLanguageRefSetId();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.Dialect#getLanguageRefSetId <em>Language Ref Set Id</em>}' containment reference.
@@ -56,7 +56,7 @@ public interface Dialect extends EObject
    * @see #getLanguageRefSetId()
    * @generated
    */
-  void setLanguageRefSetId(EclConceptReference value);
+  void setLanguageRefSetId(ExpressionConstraint value);
 
   /**
    * Returns the value of the '<em><b>Acceptability</b></em>' containment reference.

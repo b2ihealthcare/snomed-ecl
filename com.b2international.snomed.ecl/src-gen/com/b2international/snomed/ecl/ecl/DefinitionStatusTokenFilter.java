@@ -15,45 +15,36 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Active Filter</b></em>'.
+ * A representation of the model object '<em><b>Definition Status Token Filter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.ActiveFilter#isActive <em>Active</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter#getDefinitionStatusTokens <em>Definition Status Tokens</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getActiveFilter()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getDefinitionStatusTokenFilter()
  * @model
  * @generated
  */
-public interface ActiveFilter extends PropertyFilter
+public interface DefinitionStatusTokenFilter extends DefinitionStatusFilter
 {
   /**
-   * Returns the value of the '<em><b>Active</b></em>' attribute.
+   * Returns the value of the '<em><b>Definition Status Tokens</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Active</em>' attribute.
-   * @see #setActive(boolean)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getActiveFilter_Active()
-   * @model
+   * @return the value of the '<em>Definition Status Tokens</em>' attribute list.
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getDefinitionStatusTokenFilter_DefinitionStatusTokens()
+   * @model unique="false"
    * @generated
    */
-  boolean isActive();
+  EList<String> getDefinitionStatusTokens();
 
-  /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#isActive <em>Active</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Active</em>' attribute.
-   * @see #isActive()
-   * @generated
-   */
-  void setActive(boolean value);
-
-} // ActiveFilter
+} // DefinitionStatusTokenFilter

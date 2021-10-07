@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -50,7 +50,7 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
    * @generated
    * @ordered
    */
-  protected ExpressionConstraint languageRefSetId;
+  protected FilterValue languageRefSetId;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
    * @generated
    */
   @Override
-  public ExpressionConstraint getLanguageRefSetId()
+  public FilterValue getLanguageRefSetId()
   {
     return languageRefSetId;
   }
@@ -89,9 +89,9 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLanguageRefSetId(ExpressionConstraint newLanguageRefSetId, NotificationChain msgs)
+  public NotificationChain basicSetLanguageRefSetId(FilterValue newLanguageRefSetId, NotificationChain msgs)
   {
-    ExpressionConstraint oldLanguageRefSetId = languageRefSetId;
+    FilterValue oldLanguageRefSetId = languageRefSetId;
     languageRefSetId = newLanguageRefSetId;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
    * @generated
    */
   @Override
-  public void setLanguageRefSetId(ExpressionConstraint newLanguageRefSetId)
+  public void setLanguageRefSetId(FilterValue newLanguageRefSetId)
   {
     if (newLanguageRefSetId != languageRefSetId)
     {
@@ -166,7 +166,7 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
     switch (featureID)
     {
       case EclPackage.LANGUAGE_REF_SET_FILTER__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((ExpressionConstraint)newValue);
+        setLanguageRefSetId((FilterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,7 +183,7 @@ public class LanguageRefSetFilterImpl extends PropertyFilterImpl implements Lang
     switch (featureID)
     {
       case EclPackage.LANGUAGE_REF_SET_FILTER__LANGUAGE_REF_SET_ID:
-        setLanguageRefSetId((ExpressionConstraint)null);
+        setLanguageRefSetId((FilterValue)null);
         return;
     }
     super.eUnset(featureID);

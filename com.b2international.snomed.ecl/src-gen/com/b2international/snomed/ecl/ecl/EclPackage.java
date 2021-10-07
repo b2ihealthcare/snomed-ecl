@@ -98,6 +98,25 @@ public interface EclPackage extends EPackage
   int SCRIPT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.FilterValueImpl <em>Filter Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.FilterValueImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilterValue()
+   * @generated
+   */
+  int FILTER_VALUE = 58;
+
+  /**
+   * The number of structural features of the '<em>Filter Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_VALUE_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ExpressionConstraintImpl <em>Expression Constraint</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,7 +133,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = 0;
+  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = FILTER_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOfImpl <em>Child Of</em>}' class.
@@ -422,7 +441,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECL_CONCEPT_REFERENCE_SET__CONCEPTS = 0;
+  int ECL_CONCEPT_REFERENCE_SET__CONCEPTS = FILTER_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Concept Reference Set</em>' class.
@@ -431,7 +450,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ECL_CONCEPT_REFERENCE_SET_FEATURE_COUNT = 1;
+  int ECL_CONCEPT_REFERENCE_SET_FEATURE_COUNT = FILTER_VALUE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.AnyImpl <em>Any</em>}' class.
@@ -908,13 +927,31 @@ public interface EclPackage extends EPackage
   int FILTER_CONSTRAINT = 27;
 
   /**
+   * The feature id for the '<em><b>Domain</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_CONSTRAINT__DOMAIN = 0;
+
+  /**
+   * The feature id for the '<em><b>Filter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_CONSTRAINT__FILTER = 1;
+
+  /**
    * The number of structural features of the '<em>Filter Constraint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILTER_CONSTRAINT_FEATURE_COUNT = 0;
+  int FILTER_CONSTRAINT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.FilterImpl <em>Filter</em>}' class.
@@ -933,7 +970,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILTER_FEATURE_COUNT = FILTER_CONSTRAINT_FEATURE_COUNT + 0;
+  int FILTER_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.PropertyFilterImpl <em>Property Filter</em>}' class.
@@ -1512,41 +1549,106 @@ public interface EclPackage extends EPackage
   int ACCEPTABILITY_TOKEN_SET_FEATURE_COUNT = ACCEPTABILITY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl <em>Active Filter</em>}' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl <em>Definition Status Filter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
+   * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusFilter()
    * @generated
    */
-  int ACTIVE_FILTER = 47;
+  int DEFINITION_STATUS_FILTER = 47;
 
   /**
-   * The feature id for the '<em><b>Domain</b></em>' attribute.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVE_FILTER__DOMAIN = PROPERTY_FILTER_FEATURE_COUNT + 0;
+  int DEFINITION_STATUS_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Active</b></em>' attribute.
+   * The number of structural features of the '<em>Definition Status Filter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVE_FILTER__ACTIVE = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int DEFINITION_STATUS_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Active Filter</em>' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusIdFilterImpl <em>Definition Status Id Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusIdFilterImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusIdFilter()
+   * @generated
+   */
+  int DEFINITION_STATUS_ID_FILTER = 48;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
+  int DEFINITION_STATUS_ID_FILTER__OP = DEFINITION_STATUS_FILTER__OP;
+
+  /**
+   * The feature id for the '<em><b>Definition Status</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS = DEFINITION_STATUS_FILTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Definition Status Id Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_STATUS_ID_FILTER_FEATURE_COUNT = DEFINITION_STATUS_FILTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusTokenFilterImpl <em>Definition Status Token Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusTokenFilterImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusTokenFilter()
+   * @generated
+   */
+  int DEFINITION_STATUS_TOKEN_FILTER = 49;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_STATUS_TOKEN_FILTER__OP = DEFINITION_STATUS_FILTER__OP;
+
+  /**
+   * The feature id for the '<em><b>Definition Status Tokens</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS = DEFINITION_STATUS_FILTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Definition Status Token Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_STATUS_TOKEN_FILTER_FEATURE_COUNT = DEFINITION_STATUS_FILTER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl <em>Module Filter</em>}' class.
@@ -1556,16 +1658,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getModuleFilter()
    * @generated
    */
-  int MODULE_FILTER = 48;
-
-  /**
-   * The feature id for the '<em><b>Domain</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODULE_FILTER__DOMAIN = PROPERTY_FILTER_FEATURE_COUNT + 0;
+  int MODULE_FILTER = 50;
 
   /**
    * The feature id for the '<em><b>Module Id</b></em>' containment reference.
@@ -1574,7 +1667,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FILTER__MODULE_ID = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int MODULE_FILTER__MODULE_ID = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Module Filter</em>' class.
@@ -1583,53 +1676,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl <em>Semantic Tag Filter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
-   * @generated
-   */
-  int SEMANTIC_TAG_FILTER = 49;
-
-  /**
-   * The feature id for the '<em><b>Domain</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC_TAG_FILTER__DOMAIN = PROPERTY_FILTER_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC_TAG_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Semantic Tag</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC_TAG_FILTER__SEMANTIC_TAG = PROPERTY_FILTER_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Semantic Tag Filter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC_TAG_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 3;
+  int MODULE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.EffectiveTimeFilterImpl <em>Effective Time Filter</em>}' class.
@@ -1639,16 +1686,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEffectiveTimeFilter()
    * @generated
    */
-  int EFFECTIVE_TIME_FILTER = 50;
-
-  /**
-   * The feature id for the '<em><b>Domain</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFFECTIVE_TIME_FILTER__DOMAIN = PROPERTY_FILTER_FEATURE_COUNT + 0;
+  int EFFECTIVE_TIME_FILTER = 51;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1657,7 +1695,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EFFECTIVE_TIME_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int EFFECTIVE_TIME_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Effective Time</b></em>' attribute.
@@ -1666,7 +1704,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME = PROPERTY_FILTER_FEATURE_COUNT + 2;
+  int EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME = PROPERTY_FILTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Effective Time Filter</em>' class.
@@ -1675,7 +1713,72 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EFFECTIVE_TIME_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 3;
+  int EFFECTIVE_TIME_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl <em>Active Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
+   * @generated
+   */
+  int ACTIVE_FILTER = 52;
+
+  /**
+   * The feature id for the '<em><b>Active</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVE_FILTER__ACTIVE = PROPERTY_FILTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Active Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl <em>Semantic Tag Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
+   * @generated
+   */
+  int SEMANTIC_TAG_FILTER = 53;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEMANTIC_TAG_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Semantic Tag</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEMANTIC_TAG_FILTER__SEMANTIC_TAG = PROPERTY_FILTER_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Semantic Tag Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEMANTIC_TAG_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.PreferredInFilterImpl <em>Preferred In Filter</em>}' class.
@@ -1685,7 +1788,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getPreferredInFilter()
    * @generated
    */
-  int PREFERRED_IN_FILTER = 51;
+  int PREFERRED_IN_FILTER = 54;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1713,7 +1816,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptableInFilter()
    * @generated
    */
-  int ACCEPTABLE_IN_FILTER = 52;
+  int ACCEPTABLE_IN_FILTER = 55;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1741,7 +1844,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getLanguageRefSetFilter()
    * @generated
    */
-  int LANGUAGE_REF_SET_FILTER = 53;
+  int LANGUAGE_REF_SET_FILTER = 56;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1769,7 +1872,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getCaseSignificanceFilter()
    * @generated
    */
-  int CASE_SIGNIFICANCE_FILTER = 54;
+  int CASE_SIGNIFICANCE_FILTER = 57;
 
   /**
    * The feature id for the '<em><b>Case Significance Id</b></em>' containment reference.
@@ -1797,7 +1900,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
    * @generated
    */
-  int OR_EXPRESSION_CONSTRAINT = 55;
+  int OR_EXPRESSION_CONSTRAINT = 59;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1834,7 +1937,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndExpressionConstraint()
    * @generated
    */
-  int AND_EXPRESSION_CONSTRAINT = 56;
+  int AND_EXPRESSION_CONSTRAINT = 60;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1871,7 +1974,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getExclusionExpressionConstraint()
    * @generated
    */
-  int EXCLUSION_EXPRESSION_CONSTRAINT = 57;
+  int EXCLUSION_EXPRESSION_CONSTRAINT = 61;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1908,7 +2011,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getRefinedExpressionConstraint()
    * @generated
    */
-  int REFINED_EXPRESSION_CONSTRAINT = 58;
+  int REFINED_EXPRESSION_CONSTRAINT = 62;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -1945,7 +2048,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDottedExpressionConstraint()
    * @generated
    */
-  int DOTTED_EXPRESSION_CONSTRAINT = 59;
+  int DOTTED_EXPRESSION_CONSTRAINT = 63;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -1982,7 +2085,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
    * @generated
    */
-  int FILTERED_EXPRESSION_CONSTRAINT = 60;
+  int FILTERED_EXPRESSION_CONSTRAINT = 64;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2019,7 +2122,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 61;
+  int OR_REFINEMENT = 65;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2056,7 +2159,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 62;
+  int AND_REFINEMENT = 66;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2093,7 +2196,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDisjunctionFilter()
    * @generated
    */
-  int DISJUNCTION_FILTER = 63;
+  int DISJUNCTION_FILTER = 67;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2130,7 +2233,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getConjunctionFilter()
    * @generated
    */
-  int CONJUNCTION_FILTER = 64;
+  int CONJUNCTION_FILTER = 68;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2760,6 +2863,28 @@ public interface EclPackage extends EPackage
   EClass getFilterConstraint();
 
   /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.FilterConstraint#getDomain <em>Domain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Domain</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilterConstraint#getDomain()
+   * @see #getFilterConstraint()
+   * @generated
+   */
+  EAttribute getFilterConstraint_Domain();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilterConstraint#getFilter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilterConstraint#getFilter()
+   * @see #getFilterConstraint()
+   * @generated
+   */
+  EReference getFilterConstraint_Filter();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.Filter <em>Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3170,36 +3295,67 @@ public interface EclPackage extends EPackage
   EAttribute getAcceptabilityTokenSet_Acceptabilities();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ActiveFilter <em>Active Filter</em>}'.
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter <em>Definition Status Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Active Filter</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ActiveFilter
+   * @return the meta object for class '<em>Definition Status Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusFilter
    * @generated
    */
-  EClass getActiveFilter();
+  EClass getDefinitionStatusFilter();
 
   /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#getDomain <em>Domain</em>}'.
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Domain</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ActiveFilter#getDomain()
-   * @see #getActiveFilter()
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusFilter#getOp()
+   * @see #getDefinitionStatusFilter()
    * @generated
    */
-  EAttribute getActiveFilter_Domain();
+  EAttribute getDefinitionStatusFilter_Op();
 
   /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#isActive <em>Active</em>}'.
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter <em>Definition Status Id Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Active</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ActiveFilter#isActive()
-   * @see #getActiveFilter()
+   * @return the meta object for class '<em>Definition Status Id Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter
    * @generated
    */
-  EAttribute getActiveFilter_Active();
+  EClass getDefinitionStatusIdFilter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter#getDefinitionStatus <em>Definition Status</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Definition Status</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter#getDefinitionStatus()
+   * @see #getDefinitionStatusIdFilter()
+   * @generated
+   */
+  EReference getDefinitionStatusIdFilter_DefinitionStatus();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter <em>Definition Status Token Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Definition Status Token Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter
+   * @generated
+   */
+  EClass getDefinitionStatusTokenFilter();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter#getDefinitionStatusTokens <em>Definition Status Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Definition Status Tokens</em>'.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter#getDefinitionStatusTokens()
+   * @see #getDefinitionStatusTokenFilter()
+   * @generated
+   */
+  EAttribute getDefinitionStatusTokenFilter_DefinitionStatusTokens();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ModuleFilter <em>Module Filter</em>}'.
@@ -3210,17 +3366,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EClass getModuleFilter();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getDomain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Domain</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ModuleFilter#getDomain()
-   * @see #getModuleFilter()
-   * @generated
-   */
-  EAttribute getModuleFilter_Domain();
 
   /**
    * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getModuleId <em>Module Id</em>}'.
@@ -3234,49 +3379,6 @@ public interface EclPackage extends EPackage
   EReference getModuleFilter_ModuleId();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter <em>Semantic Tag Filter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Semantic Tag Filter</em>'.
-   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter
-   * @generated
-   */
-  EClass getSemanticTagFilter();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter#getDomain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Domain</em>'.
-   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter#getDomain()
-   * @see #getSemanticTagFilter()
-   * @generated
-   */
-  EAttribute getSemanticTagFilter_Domain();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter#getOp()
-   * @see #getSemanticTagFilter()
-   * @generated
-   */
-  EAttribute getSemanticTagFilter_Op();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter#getSemanticTag <em>Semantic Tag</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semantic Tag</em>'.
-   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter#getSemanticTag()
-   * @see #getSemanticTagFilter()
-   * @generated
-   */
-  EAttribute getSemanticTagFilter_SemanticTag();
-
-  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter <em>Effective Time Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3285,17 +3387,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EClass getEffectiveTimeFilter();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getDomain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Domain</em>'.
-   * @see com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getDomain()
-   * @see #getEffectiveTimeFilter()
-   * @generated
-   */
-  EAttribute getEffectiveTimeFilter_Domain();
 
   /**
    * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getOp <em>Op</em>}'.
@@ -3318,6 +3409,59 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EAttribute getEffectiveTimeFilter_EffectiveTime();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ActiveFilter <em>Active Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Active Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ActiveFilter
+   * @generated
+   */
+  EClass getActiveFilter();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#isActive <em>Active</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Active</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ActiveFilter#isActive()
+   * @see #getActiveFilter()
+   * @generated
+   */
+  EAttribute getActiveFilter_Active();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter <em>Semantic Tag Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Semantic Tag Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter
+   * @generated
+   */
+  EClass getSemanticTagFilter();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter#getOp()
+   * @see #getSemanticTagFilter()
+   * @generated
+   */
+  EAttribute getSemanticTagFilter_Op();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter#getSemanticTag <em>Semantic Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semantic Tag</em>'.
+   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter#getSemanticTag()
+   * @see #getSemanticTagFilter()
+   * @generated
+   */
+  EAttribute getSemanticTagFilter_SemanticTag();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.PreferredInFilter <em>Preferred In Filter</em>}'.
@@ -3402,6 +3546,16 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EReference getCaseSignificanceFilter_CaseSignificanceId();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.FilterValue <em>Filter Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filter Value</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilterValue
+   * @generated
+   */
+  EClass getFilterValue();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.OrExpressionConstraint <em>Or Expression Constraint</em>}'.
@@ -4259,6 +4413,22 @@ public interface EclPackage extends EPackage
     EClass FILTER_CONSTRAINT = eINSTANCE.getFilterConstraint();
 
     /**
+     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_CONSTRAINT__DOMAIN = eINSTANCE.getFilterConstraint_Domain();
+
+    /**
+     * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTER_CONSTRAINT__FILTER = eINSTANCE.getFilterConstraint_Filter();
+
+    /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.FilterImpl <em>Filter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4609,30 +4779,58 @@ public interface EclPackage extends EPackage
     EAttribute ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES = eINSTANCE.getAcceptabilityTokenSet_Acceptabilities();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl <em>Active Filter</em>}' class.
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl <em>Definition Status Filter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
+     * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusFilter()
      * @generated
      */
-    EClass ACTIVE_FILTER = eINSTANCE.getActiveFilter();
+    EClass DEFINITION_STATUS_FILTER = eINSTANCE.getDefinitionStatusFilter();
 
     /**
-     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTIVE_FILTER__DOMAIN = eINSTANCE.getActiveFilter_Domain();
+    EAttribute DEFINITION_STATUS_FILTER__OP = eINSTANCE.getDefinitionStatusFilter_Op();
 
     /**
-     * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusIdFilterImpl <em>Definition Status Id Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusIdFilterImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusIdFilter()
+     * @generated
+     */
+    EClass DEFINITION_STATUS_ID_FILTER = eINSTANCE.getDefinitionStatusIdFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Definition Status</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTIVE_FILTER__ACTIVE = eINSTANCE.getActiveFilter_Active();
+    EReference DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS = eINSTANCE.getDefinitionStatusIdFilter_DefinitionStatus();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusTokenFilterImpl <em>Definition Status Token Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.DefinitionStatusTokenFilterImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusTokenFilter()
+     * @generated
+     */
+    EClass DEFINITION_STATUS_TOKEN_FILTER = eINSTANCE.getDefinitionStatusTokenFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Definition Status Tokens</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS = eINSTANCE.getDefinitionStatusTokenFilter_DefinitionStatusTokens();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl <em>Module Filter</em>}' class.
@@ -4645,54 +4843,12 @@ public interface EclPackage extends EPackage
     EClass MODULE_FILTER = eINSTANCE.getModuleFilter();
 
     /**
-     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODULE_FILTER__DOMAIN = eINSTANCE.getModuleFilter_Domain();
-
-    /**
      * The meta object literal for the '<em><b>Module Id</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODULE_FILTER__MODULE_ID = eINSTANCE.getModuleFilter_ModuleId();
-
-    /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl <em>Semantic Tag Filter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
-     * @generated
-     */
-    EClass SEMANTIC_TAG_FILTER = eINSTANCE.getSemanticTagFilter();
-
-    /**
-     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SEMANTIC_TAG_FILTER__DOMAIN = eINSTANCE.getSemanticTagFilter_Domain();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SEMANTIC_TAG_FILTER__OP = eINSTANCE.getSemanticTagFilter_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Semantic Tag</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SEMANTIC_TAG_FILTER__SEMANTIC_TAG = eINSTANCE.getSemanticTagFilter_SemanticTag();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.EffectiveTimeFilterImpl <em>Effective Time Filter</em>}' class.
@@ -4703,14 +4859,6 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EClass EFFECTIVE_TIME_FILTER = eINSTANCE.getEffectiveTimeFilter();
-
-    /**
-     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EFFECTIVE_TIME_FILTER__DOMAIN = eINSTANCE.getEffectiveTimeFilter_Domain();
 
     /**
      * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
@@ -4727,6 +4875,50 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EAttribute EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME = eINSTANCE.getEffectiveTimeFilter_EffectiveTime();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl <em>Active Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
+     * @generated
+     */
+    EClass ACTIVE_FILTER = eINSTANCE.getActiveFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVE_FILTER__ACTIVE = eINSTANCE.getActiveFilter_Active();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl <em>Semantic Tag Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
+     * @generated
+     */
+    EClass SEMANTIC_TAG_FILTER = eINSTANCE.getSemanticTagFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEMANTIC_TAG_FILTER__OP = eINSTANCE.getSemanticTagFilter_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Semantic Tag</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEMANTIC_TAG_FILTER__SEMANTIC_TAG = eINSTANCE.getSemanticTagFilter_SemanticTag();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.PreferredInFilterImpl <em>Preferred In Filter</em>}' class.
@@ -4799,6 +4991,16 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EReference CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID = eINSTANCE.getCaseSignificanceFilter_CaseSignificanceId();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.FilterValueImpl <em>Filter Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.FilterValueImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilterValue()
+     * @generated
+     */
+    EClass FILTER_VALUE = eINSTANCE.getFilterValue();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl <em>Or Expression Constraint</em>}' class.

@@ -15,8 +15,8 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
+import com.b2international.snomed.ecl.ecl.DefinitionStatusFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -26,19 +26,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Effective Time Filter</b></em>'.
+ * An implementation of the model object '<em><b>Definition Status Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.EffectiveTimeFilterImpl#getOp <em>Op</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.EffectiveTimeFilterImpl#getEffectiveTime <em>Effective Time</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl#getOp <em>Op</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements EffectiveTimeFilter
+public class DefinitionStatusFilterImpl extends PropertyFilterImpl implements DefinitionStatusFilter
 {
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -61,31 +60,11 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   protected String op = OP_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getEffectiveTime() <em>Effective Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEffectiveTime()
-   * @generated
-   * @ordered
-   */
-  protected static final String EFFECTIVE_TIME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEffectiveTime() <em>Effective Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEffectiveTime()
-   * @generated
-   * @ordered
-   */
-  protected String effectiveTime = EFFECTIVE_TIME_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EffectiveTimeFilterImpl()
+  protected DefinitionStatusFilterImpl()
   {
     super();
   }
@@ -98,7 +77,7 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.EFFECTIVE_TIME_FILTER;
+    return EclPackage.Literals.DEFINITION_STATUS_FILTER;
   }
 
   /**
@@ -123,32 +102,7 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
     String oldOp = op;
     op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.EFFECTIVE_TIME_FILTER__OP, oldOp, op));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getEffectiveTime()
-  {
-    return effectiveTime;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setEffectiveTime(String newEffectiveTime)
-  {
-    String oldEffectiveTime = effectiveTime;
-    effectiveTime = newEffectiveTime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME, oldEffectiveTime, effectiveTime));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.DEFINITION_STATUS_FILTER__OP, oldOp, op));
   }
 
   /**
@@ -161,10 +115,8 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   {
     switch (featureID)
     {
-      case EclPackage.EFFECTIVE_TIME_FILTER__OP:
+      case EclPackage.DEFINITION_STATUS_FILTER__OP:
         return getOp();
-      case EclPackage.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME:
-        return getEffectiveTime();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -179,11 +131,8 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   {
     switch (featureID)
     {
-      case EclPackage.EFFECTIVE_TIME_FILTER__OP:
+      case EclPackage.DEFINITION_STATUS_FILTER__OP:
         setOp((String)newValue);
-        return;
-      case EclPackage.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME:
-        setEffectiveTime((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,11 +148,8 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   {
     switch (featureID)
     {
-      case EclPackage.EFFECTIVE_TIME_FILTER__OP:
+      case EclPackage.DEFINITION_STATUS_FILTER__OP:
         setOp(OP_EDEFAULT);
-        return;
-      case EclPackage.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME:
-        setEffectiveTime(EFFECTIVE_TIME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -219,10 +165,8 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
   {
     switch (featureID)
     {
-      case EclPackage.EFFECTIVE_TIME_FILTER__OP:
+      case EclPackage.DEFINITION_STATUS_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case EclPackage.EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME:
-        return EFFECTIVE_TIME_EDEFAULT == null ? effectiveTime != null : !EFFECTIVE_TIME_EDEFAULT.equals(effectiveTime);
     }
     return super.eIsSet(featureID);
   }
@@ -240,10 +184,8 @@ public class EffectiveTimeFilterImpl extends PropertyFilterImpl implements Effec
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (op: ");
     result.append(op);
-    result.append(", effectiveTime: ");
-    result.append(effectiveTime);
     result.append(')');
     return result.toString();
   }
 
-} //EffectiveTimeFilterImpl
+} //DefinitionStatusFilterImpl

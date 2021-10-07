@@ -16,13 +16,13 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -50,7 +50,7 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
    * @generated
    * @ordered
    */
-  protected EObject type;
+  protected FilterValue type;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
    * @generated
    */
   @Override
-  public EObject getType()
+  public FilterValue getType()
   {
     return type;
   }
@@ -89,9 +89,9 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(EObject newType, NotificationChain msgs)
+  public NotificationChain basicSetType(FilterValue newType, NotificationChain msgs)
   {
-    EObject oldType = type;
+    FilterValue oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
    * @generated
    */
   @Override
-  public void setType(EObject newType)
+  public void setType(FilterValue newType)
   {
     if (newType != type)
     {
@@ -166,7 +166,7 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
     switch (featureID)
     {
       case EclPackage.TYPE_ID_FILTER__TYPE:
-        setType((EObject)newValue);
+        setType((FilterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,7 +183,7 @@ public class TypeIdFilterImpl extends TypeFilterImpl implements TypeIdFilter
     switch (featureID)
     {
       case EclPackage.TYPE_ID_FILTER__TYPE:
-        setType((EObject)null);
+        setType((FilterValue)null);
         return;
     }
     super.eUnset(featureID);

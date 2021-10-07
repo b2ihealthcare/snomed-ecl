@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getModuleId <em>Module Id</em>}</li>
  * </ul>
  *
@@ -44,26 +43,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
 {
   /**
-   * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected static final String DOMAIN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected String domain = DOMAIN_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getModuleId() <em>Module Id</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -71,7 +50,7 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    * @ordered
    */
-  protected ExpressionConstraint moduleId;
+  protected FilterValue moduleId;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,32 +79,7 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public String getDomain()
-  {
-    return domain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDomain(String newDomain)
-  {
-    String oldDomain = domain;
-    domain = newDomain;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MODULE_FILTER__DOMAIN, oldDomain, domain));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ExpressionConstraint getModuleId()
+  public FilterValue getModuleId()
   {
     return moduleId;
   }
@@ -135,9 +89,9 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetModuleId(ExpressionConstraint newModuleId, NotificationChain msgs)
+  public NotificationChain basicSetModuleId(FilterValue newModuleId, NotificationChain msgs)
   {
-    ExpressionConstraint oldModuleId = moduleId;
+    FilterValue oldModuleId = moduleId;
     moduleId = newModuleId;
     if (eNotificationRequired())
     {
@@ -153,7 +107,7 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public void setModuleId(ExpressionConstraint newModuleId)
+  public void setModuleId(FilterValue newModuleId)
   {
     if (newModuleId != moduleId)
     {
@@ -195,8 +149,6 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__DOMAIN:
-        return getDomain();
       case EclPackage.MODULE_FILTER__MODULE_ID:
         return getModuleId();
     }
@@ -213,11 +165,8 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__DOMAIN:
-        setDomain((String)newValue);
-        return;
       case EclPackage.MODULE_FILTER__MODULE_ID:
-        setModuleId((ExpressionConstraint)newValue);
+        setModuleId((FilterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,11 +182,8 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__DOMAIN:
-        setDomain(DOMAIN_EDEFAULT);
-        return;
       case EclPackage.MODULE_FILTER__MODULE_ID:
-        setModuleId((ExpressionConstraint)null);
+        setModuleId((FilterValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -253,29 +199,10 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__DOMAIN:
-        return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
       case EclPackage.MODULE_FILTER__MODULE_ID:
         return moduleId != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (domain: ");
-    result.append(domain);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModuleFilterImpl

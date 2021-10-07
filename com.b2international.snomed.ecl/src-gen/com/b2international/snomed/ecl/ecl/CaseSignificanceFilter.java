@@ -39,12 +39,12 @@ public interface CaseSignificanceFilter extends PropertyFilter
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Case Significance Id</em>' containment reference.
-   * @see #setCaseSignificanceId(ExpressionConstraint)
+   * @see #setCaseSignificanceId(FilterValue)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getCaseSignificanceFilter_CaseSignificanceId()
    * @model containment="true"
    * @generated
    */
-  ExpressionConstraint getCaseSignificanceId();
+  FilterValue getCaseSignificanceId();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.CaseSignificanceFilter#getCaseSignificanceId <em>Case Significance Id</em>}' containment reference.
@@ -54,6 +54,6 @@ public interface CaseSignificanceFilter extends PropertyFilter
    * @see #getCaseSignificanceId()
    * @generated
    */
-  void setCaseSignificanceId(ExpressionConstraint value);
+  void setCaseSignificanceId(FilterValue value);
 
 } // CaseSignificanceFilter
