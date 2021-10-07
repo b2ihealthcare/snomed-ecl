@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.xtext.conversion.ValueConverterException;
-import org.eclipse.xtext.conversion.ValueConverterWithValueException;
 import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
 import org.eclipse.xtext.nodemodel.INode;
 
@@ -40,7 +39,7 @@ public class RegularExpressionConverter extends AbstractNullSafeConverter<String
 		try {
 			Pattern.compile(unquotedString);
 		} catch (final PatternSyntaxException syntaxException) {
-			throw new ValueConverterWithValueException(syntaxException.getMessage(), node, string, syntaxException);
+			throw new ValueConverterException(syntaxException.getMessage(), node, syntaxException);
 		}
 		
 		return unquotedString;
