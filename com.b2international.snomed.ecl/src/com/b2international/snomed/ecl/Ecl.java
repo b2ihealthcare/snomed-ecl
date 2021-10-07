@@ -16,7 +16,8 @@
 package com.b2international.snomed.ecl;
 
 import java.util.Collection;
-import java.util.Locale;
+
+import org.eclipse.xtext.EcoreUtil2;
 
 import com.b2international.snomed.ecl.ecl.*;
 import com.google.common.base.Joiner;
@@ -29,10 +30,10 @@ public final class Ecl {
 
 	public static final String ANY = "*";
 	public static final int MAX_CARDINALITY = -1;
-	
+
 	private static final Joiner OR_JOINER = Joiner.on(") OR (");
 	private static final Joiner AND_JOINER = Joiner.on(") AND (");
-	
+
 	private Ecl() {}
 
 	public static String or(String... eclExpressions) {
@@ -42,7 +43,7 @@ public final class Ecl {
 		builder.append(')');
 		return builder.toString();
 	}
-	
+
 	public static String or(Collection<String> eclExpressions) {
 		final StringBuilder builder = new StringBuilder();
 		builder.append('(');
@@ -50,7 +51,7 @@ public final class Ecl {
 		builder.append(')');
 		return builder.toString();
 	}
-	
+
 	public static String and(String... eclExpressions) {
 		final StringBuilder builder = new StringBuilder();
 		builder.append('(');
@@ -58,7 +59,7 @@ public final class Ecl {
 		builder.append(')');
 		return builder.toString();
 	}
-	
+
 	public static String and(Collection<String> eclExpressions) {
 		final StringBuilder builder = new StringBuilder();
 		builder.append('(');
@@ -78,6 +79,21 @@ public final class Ecl {
 	}
 
 	/**
+	 * Returns the domain of the specified filter constraint (new in ECL 1.6).
+	 * <p>
+	 * By default, filter constraints operate on descriptions, but a specifying a
+	 * single-letter qualifier can change filters to work with concepts instead.
+	 * Some filters have an implicit domain which must be consistent with the domain
+	 * set on the constraint.
+	 * 
+	 * @param filter
+	 * @return
+	 */
+	public static Domain getDomain(final FilterConstraint filter) {
+		return getDomain(filter.getDomain());
+	}
+
+	/**
 	 * Returns the domain of the specified filter.
 	 * <p>
 	 * Some filters have an implicit domain, while others allow the user to decide
@@ -87,19 +103,22 @@ public final class Ecl {
 	 * @param filter
 	 * @return
 	 */
-	public static Domain getDomain(final FilterConstraint filter) {
+	public static Domain getDomain(final Filter filter) {
 		if (filter instanceof NestedFilter) {
-			return getDomain(((NestedFilter) filter).getNested());
+			final NestedFilter nestedFilter = (NestedFilter) filter;
+			return getDomain(nestedFilter.getNested());
 		} else if (filter instanceof ConjunctionFilter) {
-			final Domain leftDomain = getDomain(((ConjunctionFilter) filter).getLeft());
-			final Domain rightDomain = getDomain(((ConjunctionFilter) filter).getRight());
+			final ConjunctionFilter conjunctionFilter = (ConjunctionFilter) filter;
+			final Domain leftDomain = getDomain(conjunctionFilter.getLeft());
+			final Domain rightDomain = getDomain(conjunctionFilter.getRight());
 			if (leftDomain != rightDomain) {
 				throw new IllegalStateException("Conjunction filter has inconsistent left and right domains.");
 			}
 			return leftDomain;
 		} else if (filter instanceof DisjunctionFilter) {
-			final Domain leftDomain = getDomain(((DisjunctionFilter) filter).getLeft());
-			final Domain rightDomain = getDomain(((DisjunctionFilter) filter).getRight());
+			final DisjunctionFilter disjunctionFilter = (DisjunctionFilter) filter;
+			final Domain leftDomain = getDomain(disjunctionFilter.getLeft());
+			final Domain rightDomain = getDomain(disjunctionFilter.getRight());
 			if (leftDomain != rightDomain) {
 				throw new IllegalStateException("Disjunction filter has inconsistent left and right domains.");
 			}
@@ -107,25 +126,25 @@ public final class Ecl {
 		} else if (filter instanceof AcceptableInFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof ActiveFilter) {
-			// XXX: case-insensitive enum literals are not supported by Xtext, so we convert allowed values here
-			return getDomain(((ActiveFilter) filter).getDomain());
+			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof CaseSignificanceFilter) {
 			return Domain.DESCRIPTION;
+		} else if (filter instanceof DefinitionStatusFilter) {
+			return Domain.CONCEPT;
 		} else if (filter instanceof DialectFilter) {
-			// Covers both DialectIdFilter and DialectAliasFilter
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof EffectiveTimeFilter) {
-			return getDomain(((EffectiveTimeFilter) filter).getDomain());
+			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof LanguageFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageRefSetFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof ModuleFilter) {
-			return getDomain(((ModuleFilter) filter).getDomain());
+			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof PreferredInFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof SemanticTagFilter) {
-			return Domain.DESCRIPTION;
+			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof TermFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof TypeFilter) {
@@ -135,16 +154,21 @@ public final class Ecl {
 		}
 	}
 
+	private static FilterConstraint getParentConstraint(final Filter filter) {
+		return EcoreUtil2.getContainerOfType(filter, FilterConstraint.class);
+	}
+
 	private static Domain getDomain(final String domainAsString) {
+		// The default domain is "description" for ECL 1.6
 		if (Strings.isNullOrEmpty(domainAsString)) {
-			return Domain.CONCEPT;
+			return Domain.DESCRIPTION;
 		}
-		
-		final Domain domain = Domain.valueOf(domainAsString.toUpperCase(Locale.ENGLISH));
+
+		final Domain domain = Domain.fromString(domainAsString);
 		if (domain == null) {
-			return Domain.CONCEPT;
+			throw new IllegalStateException("Unexpected domain value '" + domainAsString + "'.");
 		}
-		
+
 		return domain;
 	}
 }
