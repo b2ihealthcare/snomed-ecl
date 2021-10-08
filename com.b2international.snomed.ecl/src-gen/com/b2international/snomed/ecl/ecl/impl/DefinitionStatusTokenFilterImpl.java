@@ -15,53 +15,48 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
-import com.b2international.snomed.ecl.ecl.EclConceptReference;
-import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
+import com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Concept Reference Set</b></em>'.
+ * An implementation of the model object '<em><b>Definition Status Token Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.EclConceptReferenceSetImpl#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusTokenFilterImpl#getDefinitionStatusTokens <em>Definition Status Tokens</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclConceptReferenceSet
+public class DefinitionStatusTokenFilterImpl extends DefinitionStatusFilterImpl implements DefinitionStatusTokenFilter
 {
   /**
-   * The cached value of the '{@link #getConcepts() <em>Concepts</em>}' containment reference list.
+   * The cached value of the '{@link #getDefinitionStatusTokens() <em>Definition Status Tokens</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConcepts()
+   * @see #getDefinitionStatusTokens()
    * @generated
    * @ordered
    */
-  protected EList<EclConceptReference> concepts;
+  protected EList<String> definitionStatusTokens;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EclConceptReferenceSetImpl()
+  protected DefinitionStatusTokenFilterImpl()
   {
     super();
   }
@@ -74,7 +69,7 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.ECL_CONCEPT_REFERENCE_SET;
+    return EclPackage.Literals.DEFINITION_STATUS_TOKEN_FILTER;
   }
 
   /**
@@ -83,29 +78,13 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
    * @generated
    */
   @Override
-  public EList<EclConceptReference> getConcepts()
+  public EList<String> getDefinitionStatusTokens()
   {
-    if (concepts == null)
+    if (definitionStatusTokens == null)
     {
-      concepts = new EObjectContainmentEList<EclConceptReference>(EclConceptReference.class, this, EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS);
+      definitionStatusTokens = new EDataTypeEList<String>(String.class, this, EclPackage.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS);
     }
-    return concepts;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS:
-        return ((InternalEList<?>)getConcepts()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return definitionStatusTokens;
   }
 
   /**
@@ -118,8 +97,8 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
   {
     switch (featureID)
     {
-      case EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS:
-        return getConcepts();
+      case EclPackage.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS:
+        return getDefinitionStatusTokens();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -135,9 +114,9 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
   {
     switch (featureID)
     {
-      case EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS:
-        getConcepts().clear();
-        getConcepts().addAll((Collection<? extends EclConceptReference>)newValue);
+      case EclPackage.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS:
+        getDefinitionStatusTokens().clear();
+        getDefinitionStatusTokens().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -153,8 +132,8 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
   {
     switch (featureID)
     {
-      case EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS:
-        getConcepts().clear();
+      case EclPackage.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS:
+        getDefinitionStatusTokens().clear();
         return;
     }
     super.eUnset(featureID);
@@ -170,10 +149,27 @@ public class EclConceptReferenceSetImpl extends FilterValueImpl implements EclCo
   {
     switch (featureID)
     {
-      case EclPackage.ECL_CONCEPT_REFERENCE_SET__CONCEPTS:
-        return concepts != null && !concepts.isEmpty();
+      case EclPackage.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS:
+        return definitionStatusTokens != null && !definitionStatusTokens.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //EclConceptReferenceSetImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (definitionStatusTokens: ");
+    result.append(definitionStatusTokens);
+    result.append(')');
+    return result.toString();
+  }
+
+} //DefinitionStatusTokenFilterImpl

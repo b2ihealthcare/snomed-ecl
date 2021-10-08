@@ -39,12 +39,12 @@ public interface PreferredInFilter extends PropertyFilter
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Language Ref Set Id</em>' containment reference.
-   * @see #setLanguageRefSetId(ExpressionConstraint)
+   * @see #setLanguageRefSetId(FilterValue)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getPreferredInFilter_LanguageRefSetId()
    * @model containment="true"
    * @generated
    */
-  ExpressionConstraint getLanguageRefSetId();
+  FilterValue getLanguageRefSetId();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.PreferredInFilter#getLanguageRefSetId <em>Language Ref Set Id</em>}' containment reference.
@@ -54,6 +54,6 @@ public interface PreferredInFilter extends PropertyFilter
    * @see #getLanguageRefSetId()
    * @generated
    */
-  void setLanguageRefSetId(ExpressionConstraint value);
+  void setLanguageRefSetId(FilterValue value);
 
 } // PreferredInFilter

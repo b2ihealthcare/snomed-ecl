@@ -35,6 +35,9 @@ public class EclValueConverterService extends DefaultTerminalConverters {
 	@Inject
 	private RegularExpressionConverter regularExpressionConverter;
 	
+	@Inject
+	private ActiveBooleanConverter activeBooleanConverter;
+	
 	@ValueConverter(rule = "MaxValue")
 	public IValueConverter<Integer> MaxValue() {
 		return maxValueConverter;
@@ -48,5 +51,10 @@ public class EclValueConverterService extends DefaultTerminalConverters {
 	@ValueConverter(rule = "RegularExpression")
 	public IValueConverter<String> RegularExpression() {
 		return regularExpressionConverter;
+	}
+	
+	@ValueConverter(rule = "ActiveBoolean")
+	public IValueConverter<Boolean> ActiveBoolean() {
+		return activeBooleanConverter;
 	}
 }

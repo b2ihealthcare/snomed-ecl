@@ -17,36 +17,36 @@ package com.b2international.snomed.ecl.ecl;
 
 import java.util.Arrays;
 
-import com.google.common.base.Strings;
-
 /**
- * Enumerates the "subject" of the filter expression it operates on.
+ * Enumerates supported definition status tokens.
  * 
- * @since 1.5
+ * @since ECL 1.6
  */
-public enum Domain {
-	CONCEPT("C"),
-	DESCRIPTION("D");
+public enum DefinitionStatusToken {
+	PRIMITIVE("primitive", "900000000000074008"),
+	FULLY_DEFINED("defined", "900000000000073002");
 
-	private final String symbol;
+	private final String token;
+	private final String conceptId;
 
-	private Domain(final String symbol) {
-		this.symbol = symbol;
+	private DefinitionStatusToken(final String token, final String conceptId) {
+		this.token = token;
+		this.conceptId = conceptId;
 	}
 
-	public static Domain fromString(final String value) {
-		if (Strings.isNullOrEmpty(value)) {
-			return null;
-		}
-
-		return Arrays.stream(values())
-			.filter(d -> d.symbol.equalsIgnoreCase(value))
-			.findFirst()
-			.orElse(null);
+	public String getConceptId() {
+		return conceptId;
 	}
 
 	@Override
 	public String toString() {
-		return symbol;
+		return token;
+	}
+
+	public static DefinitionStatusToken fromString(final String token) {
+		return Arrays.stream(DefinitionStatusToken.values())
+			.filter(candidate -> candidate.token.equalsIgnoreCase(token))
+			.findFirst()
+			.orElse(null);
 	}
 }

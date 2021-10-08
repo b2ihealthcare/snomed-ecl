@@ -17,8 +17,6 @@ package com.b2international.snomed.ecl.ecl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Concept Reference Set</b></em>'.
@@ -35,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EclConceptReferenceSet extends EObject
+public interface EclConceptReferenceSet extends FilterValue
 {
   /**
    * Returns the value of the '<em><b>Concepts</b></em>' containment reference list.

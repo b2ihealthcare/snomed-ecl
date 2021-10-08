@@ -16,6 +16,7 @@
 grammar com.b2international.snomed.ecl.Ecl hidden(WS, ML_COMMENT, SL_COMMENT)
 
 generate ecl "http://www.b2international.com/snomed/Ecl"
+
 import 'http://www.eclipse.org/emf/2002/Ecore' as ecore
 
 Script:
@@ -152,17 +153,18 @@ NestedExpression:
 
 // filters
 
+// Single-letter filter domains are new in ECL 1.6
 FilterConstraint:
-	DOUBLE_CURLY_OPEN Filter DOUBLE_CURLY_CLOSE;
+	DOUBLE_CURLY_OPEN (domain=SHORT_DOMAIN)? filter=Filter DOUBLE_CURLY_CLOSE;
 
 Filter:
 	DisjunctionFilter;
 
-// Conjunction (OR) of filters is an extension to ECL 1.5
+// Conjunction (OR) of filters is an extension to ECL 1.6
 DisjunctionFilter returns Filter:
 	ConjunctionFilter ({DisjunctionFilter.left=current} DISJUNCTION_KEYWORD right=ConjunctionFilter)*;
 
-// Using the "AND" keyword for disjunctions is an extension to ECL 1.5
+// Using the "AND" keyword for filter disjunction is an extension to ECL 1.6
 ConjunctionFilter returns Filter:
 	PropertyFilter ({ConjunctionFilter.left=current} (CONJUNCTION_KEYWORD | COMMA) right=PropertyFilter)*;
 
@@ -170,19 +172,23 @@ NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
-	// ECL 1.5 filters
+	// Description filters in ECL 1.6
 	TermFilter 
 	| LanguageFilter 
 	| TypeFilter 
 	| DialectFilter 
-	// QL 0.1 filters (ECL extensions)	 
+	// Concept filters in ECL 1.6
+	| DefinitionStatusFilter
+	// Concept filters in ECL 1.6, component filters in QL 0.1 (extension)
+	| ModuleFilter
+	| EffectiveTimeFilter
 	| ActiveFilter 
+	// Component filters in QL 0.1 (extension)
+	| SemanticTagFilter
+	// Description filters in QL 0.1 (extension)
 	| PreferredInFilter
 	| AcceptableInFilter
 	| LanguageRefSetFilter
-	| ModuleFilter
-	| SemanticTagFilter
-	| EffectiveTimeFilter
 	| CaseSignificanceFilter 
 	// Allows grouping filters for boolean operators
 	| NestedFilter;
@@ -213,9 +219,10 @@ TypeFilter:
 	TypeIdFilter | TypeTokenFilter;
 
 TypeIdFilter:
-	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=(EclConceptReference | EclConceptReferenceSet);
+	TYPEID_KEYWORD op=NON_NUMERIC_OPERATOR type=FilterValue;
 
-// Any unquoted string is allowed as a type token here, validator will restrict it to the available set
+// Any unquoted string is allowed as a type token here, validator will restrict it 
+// to the available set ("fsn"/"syn"/"def", case insensitive)
 TypeTokenFilter:
 	TYPE_KEYWORD op=NON_NUMERIC_OPERATOR (tokens+=UnquotedString | ROUND_OPEN (tokens+=UnquotedString)+ ROUND_CLOSE);
 
@@ -228,8 +235,9 @@ DialectIdFilter:
 DialectAliasFilter:
 	DIALECT_KEYWORD op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | ROUND_OPEN (dialects+=DialectAlias)+ ROUND_CLOSE);
 
+// We will allow filtered expressions within the round parentheses, not simple concept references (extension to ECL 1.6)
 Dialect:
-	languageRefSetId=EclConceptReference (acceptability=Acceptability)?;
+	languageRefSetId=FilteredExpressionConstraint (acceptability=Acceptability)?;
 
 // Whitespace is significant (indicates an unquoted string boundary) in this rule, so WS tokens can not be hidden
 DialectAlias hidden():
@@ -241,32 +249,53 @@ Acceptability:
 AcceptabilityIdSet:
 	acceptabilities=EclConceptReferenceSet;
 
+// Any unquoted string is allowed as an acceptability token here, validator will restrict it 
+// to the available set ("accept"/"prefer", case insensitive)
 AcceptabilityTokenSet:
 	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
 
-ActiveFilter:
-	(domain=DOMAIN DOT)? ACTIVE_KEYWORD EQUAL active=Boolean;
+DefinitionStatusFilter:
+	DefinitionStatusIdFilter | DefinitionStatusTokenFilter;
+	
+DefinitionStatusIdFilter:
+	DEFINITION_STATUS_ID_KEYWORD op=NON_NUMERIC_OPERATOR definitionStatus=FilterValue; 
+
+// Any unquoted string is allowed as a definition status token here, validator will restrict it 
+// to the available set ("primitive"/"defined", case insensitive)
+DefinitionStatusTokenFilter:
+	DEFINITION_STATUS_TOKEN_KEYWORD op=NON_NUMERIC_OPERATOR 
+	(definitionStatusTokens+=UnquotedString | ROUND_OPEN (definitionStatusTokens+=UnquotedString)+ ROUND_CLOSE);
 
 ModuleFilter:
-	(domain=DOMAIN DOT)? MODULEID_KEYWORD EQUAL moduleId=ExpressionConstraint;
+	MODULEID_KEYWORD EQUAL moduleId=FilterValue;
+	
+// Any quoted string is allowed as an effective time literal here; accepted values are:
+// - "" (unspecified effective time in ECL 1.6)
+// - "Unspecified" (unspecified in Snow Owl)
+// - "yyyyMMdd" (effective time in short date format)
+EffectiveTimeFilter:
+	EFFECTIVE_TIME_KEYWORD op=NUMERIC_OPERATOR effectiveTime=STRING;
+	
+ActiveFilter:
+	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
 
 SemanticTagFilter:
-	(domain=DOMAIN DOT)? SEMANTIC_TAG_KEYWORD op=NON_NUMERIC_OPERATOR semanticTag=STRING;
-
-EffectiveTimeFilter:
-	(domain=DOMAIN DOT)? EFFECTIVE_TIME_KEYWORD op=NUMERIC_OPERATOR effectiveTime=STRING;
+	SEMANTIC_TAG_KEYWORD op=NON_NUMERIC_OPERATOR semanticTag=STRING;
 
 PreferredInFilter:
-	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	PREFERRED_IN_KEYWORD EQUAL languageRefSetId=FilterValue;
 
 AcceptableInFilter:
-	ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	ACCEPTABLE_IN_KEYWORD EQUAL languageRefSetId=FilterValue;
 
 LanguageRefSetFilter:
-	LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=ExpressionConstraint;
+	LANGUAGE_REFSET_ID_KEYWORD EQUAL languageRefSetId=FilterValue;
 
 CaseSignificanceFilter:
-	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=ExpressionConstraint;
+	CASE_SIGNIFICANCE_ID_KEYWORD EQUAL caseSignificanceId=FilterValue;
+
+FilterValue:
+	FilteredExpressionConstraint | EclConceptReferenceSet;
 
 /*
  * Datatype rules
@@ -292,19 +321,23 @@ Decimal returns ecore::EBigDecimal hidden():
 Boolean returns ecore::EBoolean hidden(): 
 	TRUE_KEYWORD | FALSE_KEYWORD;
 
+// Value converter and validation checks for allowed integers 0 and 1
+ActiveBoolean returns ecore::EBoolean hidden():
+	NonNegativeInteger | Boolean;
+
 // Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 UnquotedString
-	: CASE_SIGNIFICANCE_ID_KEYWORD 
+	: CASE_SIGNIFICANCE_ID_KEYWORD
+	| DEFINITION_STATUS_ID_KEYWORD
+	| DEFINITION_STATUS_TOKEN_KEYWORD 
 	| LANGUAGE_REFSET_ID_KEYWORD 
 	| EFFECTIVE_TIME_KEYWORD 
 	| ACCEPTABLE_IN_KEYWORD 
-	| DESCRIPTION_KEYWORD 
 	| PREFERRED_IN_KEYWORD 
 	| SEMANTIC_TAG_KEYWORD 
 	| DIALECTID_KEYWORD 
 	| LANGUAGE_KEYWORD 
 	| MODULEID_KEYWORD 
-	| CONCEPT_KEYWORD 
 	| DIALECT_KEYWORD 
 	| ACTIVE_KEYWORD 
 	| TYPEID_KEYWORD
@@ -320,6 +353,8 @@ UnquotedString
 	| CONJUNCTION_KEYWORD 
 	| DISJUNCTION_KEYWORD 
 	| REVERSED
+	| DESCRIPTION_SHORT_KEYWORD 
+	| CONCEPT_SHORT_KEYWORD
 	| KEYWORD;
 
 DialectAliasValue hidden():
@@ -334,9 +369,10 @@ LEXICAL_SEARCH_TYPE
 	| EXACT_KEYWORD
 	;
 
-DOMAIN
-	: CONCEPT_KEYWORD 
-	| DESCRIPTION_KEYWORD
+// Single-letter domains for filterConstraints is an ECL 1.6 feature
+SHORT_DOMAIN
+	: CONCEPT_SHORT_KEYWORD 
+	| DESCRIPTION_SHORT_KEYWORD
 	; 
 
 NON_NUMERIC_OPERATOR:
@@ -357,6 +393,12 @@ NUMERIC_OPERATOR:
 terminal CASE_SIGNIFICANCE_ID_KEYWORD: 
 	'caseSignificanceId' | ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s')('I'|'i')('G'|'g')('N'|'n')('I'|'i')('F'|'f')('I'|'i')('C'|'c')('A'|'a')('N'|'n')('C'|'c')('E'|'e')('I'|'i')('D'|'d');
 
+terminal DEFINITION_STATUS_ID_KEYWORD:
+	'definitionStatusId'| ('d'|'D')('e'|'E')('f'|'F')('i'|'I')('n'|'N')('i'|'I')('t'|'T')('i'|'I')('o'|'O')('n'|'N')('s'|'S')('t'|'T')('a'|'A')('t'|'T')('u'|'U')('s'|'S')('i'|'I')('d'|'D');
+
+terminal DEFINITION_STATUS_TOKEN_KEYWORD:
+	'definitionStatus'| ('d'|'D')('e'|'E')('f'|'F')('i'|'I')('n'|'N')('i'|'I')('t'|'T')('i'|'I')('o'|'O')('n'|'N')('s'|'S')('t'|'T')('a'|'A')('t'|'T')('u'|'U')('s'|'S');	
+	
 terminal LANGUAGE_REFSET_ID_KEYWORD: 
 	'languageRefsetId' | ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e')('R'|'r')('E'|'e')('F'|'f')('S'|'s')('E'|'e')('T'|'t')('I'|'i')('D'|'d');
 
@@ -365,9 +407,6 @@ terminal EFFECTIVE_TIME_KEYWORD:
 
 terminal ACCEPTABLE_IN_KEYWORD: 
 	'acceptableIn' | ('A'|'a')('C'|'c')('C'|'c')('E'|'e')('P'|'p')('T'|'t')('A'|'a')('B'|'b')('L'|'l')('E'|'e')('I'|'i')('N'|'n');
-
-terminal DESCRIPTION_KEYWORD: 
-	'Description' | ('D'|'d')('E'|'e')('S'|'s')('C'|'c')('R'|'r')('I'|'i')('P'|'p')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 terminal PREFERRED_IN_KEYWORD: 
 	'preferredIn' | ('P'|'p')('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('R'|'r')('E'|'e')('D'|'d')('I'|'i')('N'|'n');
@@ -383,9 +422,6 @@ terminal LANGUAGE_KEYWORD:
 
 terminal MODULEID_KEYWORD: 
 	'moduleId' | ('M'|'m')('O'|'o')('D'|'d')('U'|'u')('L'|'l')('E'|'e')('I'|'i')('D'|'d');
-
-terminal CONCEPT_KEYWORD: 
-	'Concept' | ('C'|'c')('O'|'o')('N'|'n')('C'|'c')('E'|'e')('P'|'p')('T'|'t');
 
 terminal DIALECT_KEYWORD: 
 	'dialect' | ('D'|'d')('I'|'i')('A'|'a')('L'|'l')('E'|'e')('C'|'c')('T'|'t');
@@ -431,6 +467,12 @@ terminal DISJUNCTION_KEYWORD:
 
 terminal REVERSED:
 	'R';
+
+terminal DESCRIPTION_SHORT_KEYWORD: 
+	'D' | 'd';
+
+terminal CONCEPT_SHORT_KEYWORD: 
+	'C' | 'c';
 
 terminal KEYWORD:
 	('a'..'z' | 'A'..'Z')+;

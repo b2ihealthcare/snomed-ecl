@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl#getSemanticTag <em>Semantic Tag</em>}</li>
  * </ul>
@@ -41,26 +40,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class SemanticTagFilterImpl extends PropertyFilterImpl implements SemanticTagFilter
 {
-  /**
-   * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected static final String DOMAIN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected String domain = DOMAIN_EDEFAULT;
-
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -128,31 +107,6 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
    * @generated
    */
   @Override
-  public String getDomain()
-  {
-    return domain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDomain(String newDomain)
-  {
-    String oldDomain = domain;
-    domain = newDomain;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.SEMANTIC_TAG_FILTER__DOMAIN, oldDomain, domain));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String getOp()
   {
     return op;
@@ -207,8 +161,6 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
   {
     switch (featureID)
     {
-      case EclPackage.SEMANTIC_TAG_FILTER__DOMAIN:
-        return getDomain();
       case EclPackage.SEMANTIC_TAG_FILTER__OP:
         return getOp();
       case EclPackage.SEMANTIC_TAG_FILTER__SEMANTIC_TAG:
@@ -227,9 +179,6 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
   {
     switch (featureID)
     {
-      case EclPackage.SEMANTIC_TAG_FILTER__DOMAIN:
-        setDomain((String)newValue);
-        return;
       case EclPackage.SEMANTIC_TAG_FILTER__OP:
         setOp((String)newValue);
         return;
@@ -250,9 +199,6 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
   {
     switch (featureID)
     {
-      case EclPackage.SEMANTIC_TAG_FILTER__DOMAIN:
-        setDomain(DOMAIN_EDEFAULT);
-        return;
       case EclPackage.SEMANTIC_TAG_FILTER__OP:
         setOp(OP_EDEFAULT);
         return;
@@ -273,8 +219,6 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
   {
     switch (featureID)
     {
-      case EclPackage.SEMANTIC_TAG_FILTER__DOMAIN:
-        return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
       case EclPackage.SEMANTIC_TAG_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case EclPackage.SEMANTIC_TAG_FILTER__SEMANTIC_TAG:
@@ -294,9 +238,7 @@ public class SemanticTagFilterImpl extends PropertyFilterImpl implements Semanti
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (domain: ");
-    result.append(domain);
-    result.append(", op: ");
+    result.append(" (op: ");
     result.append(op);
     result.append(", semanticTag: ");
     result.append(semanticTag);

@@ -28,6 +28,7 @@ import org.junit.runner.RunWith
 import static org.junit.Assert.*
 import com.b2international.snomed.ecl.ecl.EclPackage
 import com.b2international.snomed.ecl.validation.EclValidator
+import org.eclipse.xtext.diagnostics.Diagnostic
 
 /**
  * Parsing test for the SNOMED CT ECL grammar and associated extensions.
@@ -84,6 +85,18 @@ class EclParsingTest {
 	}
 	
 	@Test
+	def void test_active_numeric_status() {
+		'* {{ active=0 OR active = 1 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_active_invalid_value() {
+		'* {{ c active = 200 }}'
+			.parse
+			.assertError(EclPackage.Literals.ACTIVE_FILTER, Diagnostic.SYNTAX_DIAGNOSTIC, "Invalid active boolean value");
+	}
+	
+	@Test
 	def void test_type_filter() {
 		'* {{ typeId = 900000000000550004 }}'.assertNoErrors;
 	}
@@ -105,17 +118,17 @@ class EclParsingTest {
 
 	@Test
 	def void test_query_conjuction() {
-		'* {{ active = false }} AND * {{ Description.active = true }}'.assertNoErrors;
+		'* {{ c active = false }} AND * {{ d active = true }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_query_disjunction() {
-		'* {{ active = false }} OR * {{ Description.active = true }}'.assertNoErrors;
+		'* {{ c active = false }} OR * {{ d active = true }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_query_disjunction_w_parenthesis() {
-		'* {{ active = false }} OR (* {{ Description.active = true }})'.assertNoErrors;
+		'* {{ c active = false }} OR (* {{ d active = true }})'.assertNoErrors;
 	}
 	
 	@Test
@@ -164,7 +177,17 @@ class EclParsingTest {
 
 	@Test
 	def void test_semanticTag_filter_domain() {
-		'* {{ Description.semanticTag = "finding" }}'.assertNoErrors;
+		'* {{ d semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_definitionStatus_filter_eq() {
+		'* {{ c definitionStatus = defined }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_definitionStatus_filter_ne() {
+		'* {{ c definitionStatus != primitive }}'.assertNoErrors;
 	}
 
 	@Test
@@ -174,6 +197,7 @@ class EclParsingTest {
 	
 	@Test
 	def void test_effectiveTime_filter_unpublished() {
+		'* {{ effectiveTime = "" }}'.assertNoErrors;
 		'* {{ effectiveTime = "Unpublished" }}'.assertNoErrors;
 	}
 
@@ -184,12 +208,12 @@ class EclParsingTest {
 
 	@Test
 	def void test_effectiveTime_filter_domain() {
-		'* {{ Description.effectiveTime = "20210630" }}'.assertNoErrors;
+		'* {{ d effectiveTime = "20210630" }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_effectiveTime_filter_invalid_format() {
-		'* {{ Description.effectiveTime = "yesterday" }}'
+		'* {{ c effectiveTime = "yesterday" }}'
 			.parse
 			.assertError(EclPackage.Literals.EFFECTIVE_TIME_FILTER, EclValidator.EFFECTIVE_TIME_ERROR_CODE);
 	}

@@ -15,33 +15,35 @@
  */
 package com.b2international.snomed.ecl.converter;
 
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+import java.util.Locale;
 
 import org.eclipse.xtext.conversion.ValueConverterException;
-import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
+import org.eclipse.xtext.conversion.impl.AbstractValueConverter;
 import org.eclipse.xtext.nodemodel.INode;
 
 /**
- * @since 7.6
+ * @since 1.6
  */
-public class RegularExpressionConverter extends AbstractNullSafeConverter<String> {
+public final class ActiveBooleanConverter extends AbstractValueConverter<Boolean> {
 
 	@Override
-	protected String internalToString(String value) {
-		return "\"" + value + "\"";
-	}
-	
-	@Override
-	protected String internalToValue(String string, INode node) throws ValueConverterException {
-		final String unquotedString = string.substring(1, string.length() - 1);
-		
-		try {
-			Pattern.compile(unquotedString);
-		} catch (final PatternSyntaxException syntaxException) {
-			throw new ValueConverterException(syntaxException.getMessage(), node, syntaxException);
+	public Boolean toValue(String string, INode node) throws ValueConverterException {
+		final String lowerCaseString = string.toLowerCase(Locale.ENGLISH);
+		switch (lowerCaseString) {
+			case "false": //$FALL-THROUGH$
+			case "0": 
+				return false;
+			case "true": //$FALL-THROUGH$
+			case "1": 
+				return true;
+			default: 
+				throw new ValueConverterException("Invalid active boolean value '" + string + "'.", node, null);
 		}
-		
-		return unquotedString;
+	}
+
+	@Override
+	public String toString(Boolean value) throws ValueConverterException {
+		// Always use "true" or "false" literals when converting to String
+		return value.toString();
 	}
 }

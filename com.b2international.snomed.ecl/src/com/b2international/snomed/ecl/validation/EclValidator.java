@@ -48,9 +48,15 @@ public class EclValidator extends AbstractEclValidator {
 	private static final String UNSUPPORTED_TYPE_TOKEN_MESSAGE = "Unsupported type token";
 	private static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
 
-	private static final String DOMAIN_INCONSISTENCY_MESSAGE = "Inconsistent domains on left and right side of a binary operator, specify the domain (Concept, Description) the disambiguate the meaning of the expression";
-	private static final String DOMAIN_INCONSISTENCY_CODE = "binaryoperator.inconsistentdomain";
+	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE = "Unsupported acceptability token";
+	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE = "dialectfilter.tokens.unsupported";
 	
+	private static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_MESSAGE = "Unsupported definition status token";
+	private static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_CODE = "definitionstatusfilter.tokens.unsupported";
+	
+	private static final String DOMAIN_INCONSISTENCY_MESSAGE = "Domain of filter(s) should be consistent with each other and the domain of the filter constraint";
+	private static final String DOMAIN_INCONSISTENCY_CODE = "filter.inconsistentdomain";
+
 	private static final String LANGUAGE_CODE_NONEXISITING_MESSAGE = "Non-existent ISO-639 language code present in filter";
 	private static final String LANGUAGE_CODE_NONEXISITING_CODE = "languagecode.nonexisting";
 
@@ -67,11 +73,16 @@ public class EclValidator extends AbstractEclValidator {
 	
 	// TODO: Make supported description type tokens configurable
 	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
+	private static final Set<String> SUPPORTED_DEFINITION_STATUS_TOKENS = Set.of("primitive", "defined");
+	private static final Set<String> SUPPORTED_ACCEPTABILITY_TOKENS = Set.of("accept", "prefer");
+	
 	private static final Supplier<Set<String>> SUPPORTED_LANGUAGE_CODES = Suppliers.memoize(() -> toCaseInsensitiveSet(List.of(Locale.getISOLanguages())));
 	private static final int SUPPORTED_MIN_TERM_LENGTH = 2;
 	
 	// Copied from EffectiveTimes
-	private static final String UNSET_EFFECTIVE_TIME_LABEL = "Unpublished";
+	private static final String UNPUBLISHED_EFFECTIVE_TIME = "Unpublished";
+	private static final Object EMPTY_EFFECTIVE_TIME = "";
+	
 	// Copied from DateFormats
 	private static final String SHORT_DATE_FORMAT = "yyyyMMdd";
 	
@@ -231,7 +242,9 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkEffectiveTimeFilter(EffectiveTimeFilter it) {
 		final String effectiveTime = it.getEffectiveTime();
-		if (UNSET_EFFECTIVE_TIME_LABEL.equals(effectiveTime)) {
+		
+		// Empty strings for unset effective time is allowed since ECL 1.6
+		if (EMPTY_EFFECTIVE_TIME.equals(effectiveTime) || UNPUBLISHED_EFFECTIVE_TIME.equals(effectiveTime)) {
 			return;
 		}
 		
@@ -242,6 +255,34 @@ public class EclValidator extends AbstractEclValidator {
 		}
 	}
 	
+	@Check
+	public void checkAcceptabilityTokenSet(AcceptabilityTokenSet it) {
+		final Set<String> tokens = toCaseInsensitiveSet(it.getAcceptabilities());
+		final Set<String> unsupportedTokens = Sets.difference(tokens, SUPPORTED_ACCEPTABILITY_TOKENS);
+		if (!unsupportedTokens.isEmpty()) {
+			error(UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE, it, EclPackage.Literals.ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES, UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE);
+		}
+	}
+	
+	@Check
+	public void checkDefinitionStatusTokenFilter(DefinitionStatusTokenFilter it) {
+		final Set<String> tokens = toCaseInsensitiveSet(it.getDefinitionStatusTokens());
+		final Set<String> unsupportedTokens = Sets.difference(tokens, SUPPORTED_DEFINITION_STATUS_TOKENS);
+		if (!unsupportedTokens.isEmpty()) {
+			error(UNSUPPORTED_DEFINITION_STATUS_TOKEN_MESSAGE, it, EclPackage.Literals.DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS, UNSUPPORTED_DEFINITION_STATUS_TOKEN_CODE);
+		}
+	}
+
+	@Check
+	public void checkFilterConstraint(FilterConstraint it) {
+		final Domain constraintDomain = Ecl.getDomain(it);
+		final Domain filterDomain = Ecl.getDomain(it.getFilter());
+		
+		if (constraintDomain != filterDomain) {
+			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.FILTER_CONSTRAINT__FILTER, DOMAIN_INCONSISTENCY_CODE);
+		}
+	}
+
 	@Check
 	public void checkSctid(EclConceptReference it) {
 		try {

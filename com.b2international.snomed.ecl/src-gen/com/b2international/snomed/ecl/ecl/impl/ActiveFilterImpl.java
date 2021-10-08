@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#isActive <em>Active</em>}</li>
  * </ul>
  *
@@ -40,26 +39,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
 {
-  /**
-   * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected static final String DOMAIN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDomain()
-   * @generated
-   * @ordered
-   */
-  protected String domain = DOMAIN_EDEFAULT;
-
   /**
    * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -107,31 +86,6 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
    * @generated
    */
   @Override
-  public String getDomain()
-  {
-    return domain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDomain(String newDomain)
-  {
-    String oldDomain = domain;
-    domain = newDomain;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ACTIVE_FILTER__DOMAIN, oldDomain, domain));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public boolean isActive()
   {
     return active;
@@ -161,8 +115,6 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
-      case EclPackage.ACTIVE_FILTER__DOMAIN:
-        return getDomain();
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         return isActive();
     }
@@ -179,9 +131,6 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
-      case EclPackage.ACTIVE_FILTER__DOMAIN:
-        setDomain((String)newValue);
-        return;
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         setActive((Boolean)newValue);
         return;
@@ -199,9 +148,6 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
-      case EclPackage.ACTIVE_FILTER__DOMAIN:
-        setDomain(DOMAIN_EDEFAULT);
-        return;
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         setActive(ACTIVE_EDEFAULT);
         return;
@@ -219,8 +165,6 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
-      case EclPackage.ACTIVE_FILTER__DOMAIN:
-        return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         return active != ACTIVE_EDEFAULT;
     }
@@ -238,9 +182,7 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (domain: ");
-    result.append(domain);
-    result.append(", active: ");
+    result.append(" (active: ");
     result.append(active);
     result.append(')');
     return result.toString();

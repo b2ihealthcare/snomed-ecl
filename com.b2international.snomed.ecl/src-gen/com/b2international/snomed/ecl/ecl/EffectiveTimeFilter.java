@@ -25,7 +25,6 @@ package com.b2international.snomed.ecl.ecl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getEffectiveTime <em>Effective Time</em>}</li>
  * </ul>
@@ -36,28 +35,6 @@ package com.b2international.snomed.ecl.ecl;
  */
 public interface EffectiveTimeFilter extends PropertyFilter
 {
-  /**
-   * Returns the value of the '<em><b>Domain</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Domain</em>' attribute.
-   * @see #setDomain(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getEffectiveTimeFilter_Domain()
-   * @model
-   * @generated
-   */
-  String getDomain();
-
-  /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter#getDomain <em>Domain</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Domain</em>' attribute.
-   * @see #getDomain()
-   * @generated
-   */
-  void setDomain(String value);
-
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->

@@ -459,13 +459,31 @@ public interface EclFactory extends EFactory
   AcceptabilityTokenSet createAcceptabilityTokenSet();
 
   /**
-   * Returns a new object of class '<em>Active Filter</em>'.
+   * Returns a new object of class '<em>Definition Status Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Active Filter</em>'.
+   * @return a new object of class '<em>Definition Status Filter</em>'.
    * @generated
    */
-  ActiveFilter createActiveFilter();
+  DefinitionStatusFilter createDefinitionStatusFilter();
+
+  /**
+   * Returns a new object of class '<em>Definition Status Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Status Id Filter</em>'.
+   * @generated
+   */
+  DefinitionStatusIdFilter createDefinitionStatusIdFilter();
+
+  /**
+   * Returns a new object of class '<em>Definition Status Token Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Status Token Filter</em>'.
+   * @generated
+   */
+  DefinitionStatusTokenFilter createDefinitionStatusTokenFilter();
 
   /**
    * Returns a new object of class '<em>Module Filter</em>'.
@@ -477,15 +495,6 @@ public interface EclFactory extends EFactory
   ModuleFilter createModuleFilter();
 
   /**
-   * Returns a new object of class '<em>Semantic Tag Filter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Semantic Tag Filter</em>'.
-   * @generated
-   */
-  SemanticTagFilter createSemanticTagFilter();
-
-  /**
    * Returns a new object of class '<em>Effective Time Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -493,6 +502,24 @@ public interface EclFactory extends EFactory
    * @generated
    */
   EffectiveTimeFilter createEffectiveTimeFilter();
+
+  /**
+   * Returns a new object of class '<em>Active Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Active Filter</em>'.
+   * @generated
+   */
+  ActiveFilter createActiveFilter();
+
+  /**
+   * Returns a new object of class '<em>Semantic Tag Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Semantic Tag Filter</em>'.
+   * @generated
+   */
+  SemanticTagFilter createSemanticTagFilter();
 
   /**
    * Returns a new object of class '<em>Preferred In Filter</em>'.
@@ -529,6 +556,15 @@ public interface EclFactory extends EFactory
    * @generated
    */
   CaseSignificanceFilter createCaseSignificanceFilter();
+
+  /**
+   * Returns a new object of class '<em>Filter Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter Value</em>'.
+   * @generated
+   */
+  FilterValue createFilterValue();
 
   /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.

@@ -20,8 +20,6 @@ import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expression Constraint</b></em>'.
@@ -29,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ExpressionConstraintImpl extends MinimalEObjectImpl.Container implements ExpressionConstraint
+public class ExpressionConstraintImpl extends FilterValueImpl implements ExpressionConstraint
 {
   /**
    * <!-- begin-user-doc -->

@@ -85,7 +85,10 @@
     <genClasses ecoreClass="Ecl.ecore#//NestedExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedExpression/nested"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//FilterConstraint"/>
+    <genClasses ecoreClass="Ecl.ecore#//FilterConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//FilterConstraint/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilterConstraint/filter"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//Filter"/>
     <genClasses ecoreClass="Ecl.ecore#//NestedFilter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedFilter/nested"/>
@@ -141,23 +144,28 @@
     <genClasses ecoreClass="Ecl.ecore#//AcceptabilityTokenSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AcceptabilityTokenSet/acceptabilities"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ActiveFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/domain"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/active"/>
+    <genClasses ecoreClass="Ecl.ecore#//DefinitionStatusFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DefinitionStatusFilter/op"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DefinitionStatusIdFilter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DefinitionStatusIdFilter/definitionStatus"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//DefinitionStatusTokenFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DefinitionStatusTokenFilter/definitionStatusTokens"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ModuleFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ModuleFilter/domain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ModuleFilter/moduleId"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//SemanticTagFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/domain"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/op"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/semanticTag"/>
-    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//EffectiveTimeFilter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/domain"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/op"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/effectiveTime"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ActiveFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/active"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//SemanticTagFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//SemanticTagFilter/semanticTag"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//PreferredInFilter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//PreferredInFilter/languageRefSetId"/>
@@ -171,6 +179,7 @@
     <genClasses ecoreClass="Ecl.ecore#//CaseSignificanceFilter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//CaseSignificanceFilter/caseSignificanceId"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//FilterValue"/>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/right"/>

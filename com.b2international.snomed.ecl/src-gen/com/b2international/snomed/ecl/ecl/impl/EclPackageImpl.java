@@ -36,6 +36,9 @@ import com.b2international.snomed.ecl.ecl.Comparison;
 import com.b2international.snomed.ecl.ecl.ConjunctionFilter;
 import com.b2international.snomed.ecl.ecl.DataTypeComparison;
 import com.b2international.snomed.ecl.ecl.DecimalValueComparison;
+import com.b2international.snomed.ecl.ecl.DefinitionStatusFilter;
+import com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter;
+import com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter;
 import com.b2international.snomed.ecl.ecl.DescendantOf;
 import com.b2international.snomed.ecl.ecl.DescendantOrSelfOf;
 import com.b2international.snomed.ecl.ecl.Dialect;
@@ -56,6 +59,7 @@ import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Filter;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
@@ -432,7 +436,21 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass activeFilterEClass = null;
+  private EClass definitionStatusFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionStatusIdFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionStatusTokenFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -446,14 +464,21 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass semanticTagFilterEClass = null;
+  private EClass effectiveTimeFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass effectiveTimeFilterEClass = null;
+  private EClass activeFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass semanticTagFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -482,6 +507,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass caseSignificanceFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass filterValueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1249,6 +1281,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EAttribute getFilterConstraint_Domain()
+  {
+    return (EAttribute)filterConstraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFilterConstraint_Filter()
+  {
+    return (EReference)filterConstraintEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFilter()
   {
     return filterEClass;
@@ -1678,9 +1732,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getActiveFilter()
+  public EClass getDefinitionStatusFilter()
   {
-    return activeFilterEClass;
+    return definitionStatusFilterEClass;
   }
 
   /**
@@ -1689,9 +1743,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getActiveFilter_Domain()
+  public EAttribute getDefinitionStatusFilter_Op()
   {
-    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)definitionStatusFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1700,9 +1754,42 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getActiveFilter_Active()
+  public EClass getDefinitionStatusIdFilter()
   {
-    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(1);
+    return definitionStatusIdFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionStatusIdFilter_DefinitionStatus()
+  {
+    return (EReference)definitionStatusIdFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefinitionStatusTokenFilter()
+  {
+    return definitionStatusTokenFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDefinitionStatusTokenFilter_DefinitionStatusTokens()
+  {
+    return (EAttribute)definitionStatusTokenFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1722,64 +1809,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getModuleFilter_Domain()
-  {
-    return (EAttribute)moduleFilterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getModuleFilter_ModuleId()
   {
-    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSemanticTagFilter()
-  {
-    return semanticTagFilterEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSemanticTagFilter_Domain()
-  {
-    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSemanticTagFilter_Op()
-  {
-    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSemanticTagFilter_SemanticTag()
-  {
-    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(2);
+    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1799,7 +1831,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getEffectiveTimeFilter_Domain()
+  public EAttribute getEffectiveTimeFilter_Op()
   {
     return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(0);
   }
@@ -1810,7 +1842,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getEffectiveTimeFilter_Op()
+  public EAttribute getEffectiveTimeFilter_EffectiveTime()
   {
     return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(1);
   }
@@ -1821,9 +1853,53 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getEffectiveTimeFilter_EffectiveTime()
+  public EClass getActiveFilter()
   {
-    return (EAttribute)effectiveTimeFilterEClass.getEStructuralFeatures().get(2);
+    return activeFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Active()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSemanticTagFilter()
+  {
+    return semanticTagFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_Op()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSemanticTagFilter_SemanticTag()
+  {
+    return (EAttribute)semanticTagFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1912,6 +1988,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EReference getCaseSignificanceFilter_CaseSignificanceId()
   {
     return (EReference)caseSignificanceFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFilterValue()
+  {
+    return filterValueEClass;
   }
 
   /**
@@ -2359,6 +2446,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(nestedExpressionEClass, NESTED_EXPRESSION__NESTED);
 
     filterConstraintEClass = createEClass(FILTER_CONSTRAINT);
+    createEAttribute(filterConstraintEClass, FILTER_CONSTRAINT__DOMAIN);
+    createEReference(filterConstraintEClass, FILTER_CONSTRAINT__FILTER);
 
     filterEClass = createEClass(FILTER);
 
@@ -2418,23 +2507,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     acceptabilityTokenSetEClass = createEClass(ACCEPTABILITY_TOKEN_SET);
     createEAttribute(acceptabilityTokenSetEClass, ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES);
 
-    activeFilterEClass = createEClass(ACTIVE_FILTER);
-    createEAttribute(activeFilterEClass, ACTIVE_FILTER__DOMAIN);
-    createEAttribute(activeFilterEClass, ACTIVE_FILTER__ACTIVE);
+    definitionStatusFilterEClass = createEClass(DEFINITION_STATUS_FILTER);
+    createEAttribute(definitionStatusFilterEClass, DEFINITION_STATUS_FILTER__OP);
+
+    definitionStatusIdFilterEClass = createEClass(DEFINITION_STATUS_ID_FILTER);
+    createEReference(definitionStatusIdFilterEClass, DEFINITION_STATUS_ID_FILTER__DEFINITION_STATUS);
+
+    definitionStatusTokenFilterEClass = createEClass(DEFINITION_STATUS_TOKEN_FILTER);
+    createEAttribute(definitionStatusTokenFilterEClass, DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS);
 
     moduleFilterEClass = createEClass(MODULE_FILTER);
-    createEAttribute(moduleFilterEClass, MODULE_FILTER__DOMAIN);
     createEReference(moduleFilterEClass, MODULE_FILTER__MODULE_ID);
 
-    semanticTagFilterEClass = createEClass(SEMANTIC_TAG_FILTER);
-    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__DOMAIN);
-    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__OP);
-    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__SEMANTIC_TAG);
-
     effectiveTimeFilterEClass = createEClass(EFFECTIVE_TIME_FILTER);
-    createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__DOMAIN);
     createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__OP);
     createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME);
+
+    activeFilterEClass = createEClass(ACTIVE_FILTER);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__ACTIVE);
+
+    semanticTagFilterEClass = createEClass(SEMANTIC_TAG_FILTER);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__OP);
+    createEAttribute(semanticTagFilterEClass, SEMANTIC_TAG_FILTER__SEMANTIC_TAG);
 
     preferredInFilterEClass = createEClass(PREFERRED_IN_FILTER);
     createEReference(preferredInFilterEClass, PREFERRED_IN_FILTER__LANGUAGE_REF_SET_ID);
@@ -2447,6 +2541,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     caseSignificanceFilterEClass = createEClass(CASE_SIGNIFICANCE_FILTER);
     createEReference(caseSignificanceFilterEClass, CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID);
+
+    filterValueEClass = createEClass(FILTER_VALUE);
 
     orExpressionConstraintEClass = createEClass(OR_EXPRESSION_CONSTRAINT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__LEFT);
@@ -2518,6 +2614,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    expressionConstraintEClass.getESuperTypes().add(this.getFilterValue());
     childOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     childOrSelfOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     descendantOfEClass.getESuperTypes().add(this.getExpressionConstraint());
@@ -2528,6 +2625,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     ancestorOrSelfOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     memberOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceEClass.getESuperTypes().add(this.getExpressionConstraint());
+    eclConceptReferenceSetEClass.getESuperTypes().add(this.getFilterValue());
     anyEClass.getESuperTypes().add(this.getExpressionConstraint());
     nestedRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     eclAttributeGroupEClass.getESuperTypes().add(this.getEclRefinement());
@@ -2539,7 +2637,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     integerValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
     decimalValueComparisonEClass.getESuperTypes().add(this.getDataTypeComparison());
     nestedExpressionEClass.getESuperTypes().add(this.getExpressionConstraint());
-    filterEClass.getESuperTypes().add(this.getFilterConstraint());
     nestedFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     propertyFilterEClass.getESuperTypes().add(this.getFilter());
     termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
@@ -2554,10 +2651,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     dialectAliasFilterEClass.getESuperTypes().add(this.getDialectFilter());
     acceptabilityIdSetEClass.getESuperTypes().add(this.getAcceptability());
     acceptabilityTokenSetEClass.getESuperTypes().add(this.getAcceptability());
-    activeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    definitionStatusFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    definitionStatusIdFilterEClass.getESuperTypes().add(this.getDefinitionStatusFilter());
+    definitionStatusTokenFilterEClass.getESuperTypes().add(this.getDefinitionStatusFilter());
     moduleFilterEClass.getESuperTypes().add(this.getPropertyFilter());
-    semanticTagFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     effectiveTimeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    activeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    semanticTagFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     preferredInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     acceptableInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     languageRefSetFilterEClass.getESuperTypes().add(this.getPropertyFilter());
@@ -2658,6 +2758,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getNestedExpression_Nested(), this.getExpressionConstraint(), null, "nested", null, 0, 1, NestedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filterConstraintEClass, FilterConstraint.class, "FilterConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFilterConstraint_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, FilterConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFilterConstraint_Filter(), this.getFilter(), null, "filter", null, 0, 1, FilterConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2687,7 +2789,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getTypeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TypeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeIdFilterEClass, TypeIdFilter.class, "TypeIdFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypeIdFilter_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, TypeIdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeIdFilter_Type(), this.getFilterValue(), null, "type", null, 0, 1, TypeIdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeTokenFilterEClass, TypeTokenFilter.class, "TypeTokenFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeTokenFilter_Tokens(), ecorePackage.getEString(), "tokens", null, 0, -1, TypeTokenFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2702,7 +2804,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getDialectAliasFilter_Dialects(), this.getDialectAlias(), null, "dialects", null, 0, -1, DialectAliasFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dialectEClass, Dialect.class, "Dialect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDialect_LanguageRefSetId(), this.getEclConceptReference(), null, "languageRefSetId", null, 0, 1, Dialect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDialect_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, Dialect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDialect_Acceptability(), this.getAcceptability(), null, "acceptability", null, 0, 1, Dialect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dialectAliasEClass, DialectAlias.class, "DialectAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2717,35 +2819,42 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(acceptabilityTokenSetEClass, AcceptabilityTokenSet.class, "AcceptabilityTokenSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAcceptabilityTokenSet_Acceptabilities(), ecorePackage.getEString(), "acceptabilities", null, 0, -1, AcceptabilityTokenSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(activeFilterEClass, ActiveFilter.class, "ActiveFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getActiveFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getActiveFilter_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(definitionStatusFilterEClass, DefinitionStatusFilter.class, "DefinitionStatusFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefinitionStatusFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, DefinitionStatusFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionStatusIdFilterEClass, DefinitionStatusIdFilter.class, "DefinitionStatusIdFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefinitionStatusIdFilter_DefinitionStatus(), this.getFilterValue(), null, "definitionStatus", null, 0, 1, DefinitionStatusIdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionStatusTokenFilterEClass, DefinitionStatusTokenFilter.class, "DefinitionStatusTokenFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefinitionStatusTokenFilter_DefinitionStatusTokens(), ecorePackage.getEString(), "definitionStatusTokens", null, 0, -1, DefinitionStatusTokenFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleFilterEClass, ModuleFilter.class, "ModuleFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModuleFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModuleFilter_ModuleId(), this.getExpressionConstraint(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(semanticTagFilterEClass, SemanticTagFilter.class, "SemanticTagFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSemanticTagFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSemanticTagFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSemanticTagFilter_SemanticTag(), ecorePackage.getEString(), "semanticTag", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleFilter_ModuleId(), this.getFilterValue(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(effectiveTimeFilterEClass, EffectiveTimeFilter.class, "EffectiveTimeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEffectiveTimeFilter_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEffectiveTimeFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEffectiveTimeFilter_EffectiveTime(), ecorePackage.getEString(), "effectiveTime", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(activeFilterEClass, ActiveFilter.class, "ActiveFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActiveFilter_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(semanticTagFilterEClass, SemanticTagFilter.class, "SemanticTagFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSemanticTagFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSemanticTagFilter_SemanticTag(), ecorePackage.getEString(), "semanticTag", null, 0, 1, SemanticTagFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(preferredInFilterEClass, PreferredInFilter.class, "PreferredInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPreferredInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, PreferredInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPreferredInFilter_LanguageRefSetId(), this.getFilterValue(), null, "languageRefSetId", null, 0, 1, PreferredInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(acceptableInFilterEClass, AcceptableInFilter.class, "AcceptableInFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAcceptableInFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, AcceptableInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAcceptableInFilter_LanguageRefSetId(), this.getFilterValue(), null, "languageRefSetId", null, 0, 1, AcceptableInFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(languageRefSetFilterEClass, LanguageRefSetFilter.class, "LanguageRefSetFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLanguageRefSetFilter_LanguageRefSetId(), this.getExpressionConstraint(), null, "languageRefSetId", null, 0, 1, LanguageRefSetFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLanguageRefSetFilter_LanguageRefSetId(), this.getFilterValue(), null, "languageRefSetId", null, 0, 1, LanguageRefSetFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(caseSignificanceFilterEClass, CaseSignificanceFilter.class, "CaseSignificanceFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCaseSignificanceFilter_CaseSignificanceId(), this.getExpressionConstraint(), null, "caseSignificanceId", null, 0, 1, CaseSignificanceFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseSignificanceFilter_CaseSignificanceId(), this.getFilterValue(), null, "caseSignificanceId", null, 0, 1, CaseSignificanceFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(filterValueEClass, FilterValue.class, "FilterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(orExpressionConstraintEClass, OrExpressionConstraint.class, "OrExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrExpressionConstraint_Left(), this.getExpressionConstraint(), null, "left", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

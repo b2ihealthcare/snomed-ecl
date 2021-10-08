@@ -323,9 +323,19 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createAcceptabilityTokenSetAdapter();
       }
       @Override
-      public Adapter caseActiveFilter(ActiveFilter object)
+      public Adapter caseDefinitionStatusFilter(DefinitionStatusFilter object)
       {
-        return createActiveFilterAdapter();
+        return createDefinitionStatusFilterAdapter();
+      }
+      @Override
+      public Adapter caseDefinitionStatusIdFilter(DefinitionStatusIdFilter object)
+      {
+        return createDefinitionStatusIdFilterAdapter();
+      }
+      @Override
+      public Adapter caseDefinitionStatusTokenFilter(DefinitionStatusTokenFilter object)
+      {
+        return createDefinitionStatusTokenFilterAdapter();
       }
       @Override
       public Adapter caseModuleFilter(ModuleFilter object)
@@ -333,14 +343,19 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createModuleFilterAdapter();
       }
       @Override
-      public Adapter caseSemanticTagFilter(SemanticTagFilter object)
-      {
-        return createSemanticTagFilterAdapter();
-      }
-      @Override
       public Adapter caseEffectiveTimeFilter(EffectiveTimeFilter object)
       {
         return createEffectiveTimeFilterAdapter();
+      }
+      @Override
+      public Adapter caseActiveFilter(ActiveFilter object)
+      {
+        return createActiveFilterAdapter();
+      }
+      @Override
+      public Adapter caseSemanticTagFilter(SemanticTagFilter object)
+      {
+        return createSemanticTagFilterAdapter();
       }
       @Override
       public Adapter casePreferredInFilter(PreferredInFilter object)
@@ -361,6 +376,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCaseSignificanceFilter(CaseSignificanceFilter object)
       {
         return createCaseSignificanceFilterAdapter();
+      }
+      @Override
+      public Adapter caseFilterValue(FilterValue object)
+      {
+        return createFilterValueAdapter();
       }
       @Override
       public Adapter caseOrExpressionConstraint(OrExpressionConstraint object)
@@ -1140,16 +1160,46 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ActiveFilter <em>Active Filter</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter <em>Definition Status Filter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.ActiveFilter
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusFilter
    * @generated
    */
-  public Adapter createActiveFilterAdapter()
+  public Adapter createDefinitionStatusFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter <em>Definition Status Id Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusIdFilter
+   * @generated
+   */
+  public Adapter createDefinitionStatusIdFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter <em>Definition Status Token Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.DefinitionStatusTokenFilter
+   * @generated
+   */
+  public Adapter createDefinitionStatusTokenFilterAdapter()
   {
     return null;
   }
@@ -1170,21 +1220,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter <em>Semantic Tag Filter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter
-   * @generated
-   */
-  public Adapter createSemanticTagFilterAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.EffectiveTimeFilter <em>Effective Time Filter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1195,6 +1230,36 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEffectiveTimeFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ActiveFilter <em>Active Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ActiveFilter
+   * @generated
+   */
+  public Adapter createActiveFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.SemanticTagFilter <em>Semantic Tag Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.SemanticTagFilter
+   * @generated
+   */
+  public Adapter createSemanticTagFilterAdapter()
   {
     return null;
   }
@@ -1255,6 +1320,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCaseSignificanceFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.FilterValue <em>Filter Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.FilterValue
+   * @generated
+   */
+  public Adapter createFilterValueAdapter()
   {
     return null;
   }

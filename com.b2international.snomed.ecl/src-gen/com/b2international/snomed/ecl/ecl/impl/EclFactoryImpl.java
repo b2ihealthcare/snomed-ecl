@@ -124,14 +124,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.ACCEPTABILITY: return createAcceptability();
       case EclPackage.ACCEPTABILITY_ID_SET: return createAcceptabilityIdSet();
       case EclPackage.ACCEPTABILITY_TOKEN_SET: return createAcceptabilityTokenSet();
-      case EclPackage.ACTIVE_FILTER: return createActiveFilter();
+      case EclPackage.DEFINITION_STATUS_FILTER: return createDefinitionStatusFilter();
+      case EclPackage.DEFINITION_STATUS_ID_FILTER: return createDefinitionStatusIdFilter();
+      case EclPackage.DEFINITION_STATUS_TOKEN_FILTER: return createDefinitionStatusTokenFilter();
       case EclPackage.MODULE_FILTER: return createModuleFilter();
-      case EclPackage.SEMANTIC_TAG_FILTER: return createSemanticTagFilter();
       case EclPackage.EFFECTIVE_TIME_FILTER: return createEffectiveTimeFilter();
+      case EclPackage.ACTIVE_FILTER: return createActiveFilter();
+      case EclPackage.SEMANTIC_TAG_FILTER: return createSemanticTagFilter();
       case EclPackage.PREFERRED_IN_FILTER: return createPreferredInFilter();
       case EclPackage.ACCEPTABLE_IN_FILTER: return createAcceptableInFilter();
       case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
       case EclPackage.CASE_SIGNIFICANCE_FILTER: return createCaseSignificanceFilter();
+      case EclPackage.FILTER_VALUE: return createFilterValue();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
@@ -717,10 +721,34 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public ActiveFilter createActiveFilter()
+  public DefinitionStatusFilter createDefinitionStatusFilter()
   {
-    ActiveFilterImpl activeFilter = new ActiveFilterImpl();
-    return activeFilter;
+    DefinitionStatusFilterImpl definitionStatusFilter = new DefinitionStatusFilterImpl();
+    return definitionStatusFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefinitionStatusIdFilter createDefinitionStatusIdFilter()
+  {
+    DefinitionStatusIdFilterImpl definitionStatusIdFilter = new DefinitionStatusIdFilterImpl();
+    return definitionStatusIdFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefinitionStatusTokenFilter createDefinitionStatusTokenFilter()
+  {
+    DefinitionStatusTokenFilterImpl definitionStatusTokenFilter = new DefinitionStatusTokenFilterImpl();
+    return definitionStatusTokenFilter;
   }
 
   /**
@@ -741,10 +769,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public SemanticTagFilter createSemanticTagFilter()
+  public EffectiveTimeFilter createEffectiveTimeFilter()
   {
-    SemanticTagFilterImpl semanticTagFilter = new SemanticTagFilterImpl();
-    return semanticTagFilter;
+    EffectiveTimeFilterImpl effectiveTimeFilter = new EffectiveTimeFilterImpl();
+    return effectiveTimeFilter;
   }
 
   /**
@@ -753,10 +781,22 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public EffectiveTimeFilter createEffectiveTimeFilter()
+  public ActiveFilter createActiveFilter()
   {
-    EffectiveTimeFilterImpl effectiveTimeFilter = new EffectiveTimeFilterImpl();
-    return effectiveTimeFilter;
+    ActiveFilterImpl activeFilter = new ActiveFilterImpl();
+    return activeFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SemanticTagFilter createSemanticTagFilter()
+  {
+    SemanticTagFilterImpl semanticTagFilter = new SemanticTagFilterImpl();
+    return semanticTagFilter;
   }
 
   /**
@@ -805,6 +845,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     CaseSignificanceFilterImpl caseSignificanceFilter = new CaseSignificanceFilterImpl();
     return caseSignificanceFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FilterValue createFilterValue()
+  {
+    FilterValueImpl filterValue = new FilterValueImpl();
+    return filterValue;
   }
 
   /**

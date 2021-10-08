@@ -17,7 +17,7 @@ package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.CaseSignificanceFilter;
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.FilterValue;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -50,7 +50,7 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
    * @generated
    * @ordered
    */
-  protected ExpressionConstraint caseSignificanceId;
+  protected FilterValue caseSignificanceId;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
    * @generated
    */
   @Override
-  public ExpressionConstraint getCaseSignificanceId()
+  public FilterValue getCaseSignificanceId()
   {
     return caseSignificanceId;
   }
@@ -89,9 +89,9 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCaseSignificanceId(ExpressionConstraint newCaseSignificanceId, NotificationChain msgs)
+  public NotificationChain basicSetCaseSignificanceId(FilterValue newCaseSignificanceId, NotificationChain msgs)
   {
-    ExpressionConstraint oldCaseSignificanceId = caseSignificanceId;
+    FilterValue oldCaseSignificanceId = caseSignificanceId;
     caseSignificanceId = newCaseSignificanceId;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
    * @generated
    */
   @Override
-  public void setCaseSignificanceId(ExpressionConstraint newCaseSignificanceId)
+  public void setCaseSignificanceId(FilterValue newCaseSignificanceId)
   {
     if (newCaseSignificanceId != caseSignificanceId)
     {
@@ -166,7 +166,7 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
     switch (featureID)
     {
       case EclPackage.CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID:
-        setCaseSignificanceId((ExpressionConstraint)newValue);
+        setCaseSignificanceId((FilterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,7 +183,7 @@ public class CaseSignificanceFilterImpl extends PropertyFilterImpl implements Ca
     switch (featureID)
     {
       case EclPackage.CASE_SIGNIFICANCE_FILTER__CASE_SIGNIFICANCE_ID:
-        setCaseSignificanceId((ExpressionConstraint)null);
+        setCaseSignificanceId((FilterValue)null);
         return;
     }
     super.eUnset(featureID);

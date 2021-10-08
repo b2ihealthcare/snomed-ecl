@@ -20,33 +20,40 @@ import java.util.Arrays;
 import com.google.common.base.Strings;
 
 /**
- * Enumerates the "subject" of the filter expression it operates on.
+ * Enumerates allowed acceptability keywords used in filters.
  * 
- * @since 1.5
+ * @since 1.6
  */
-public enum Domain {
-	CONCEPT("C"),
-	DESCRIPTION("D");
+public enum AcceptabilityToken {
+	// IDs copied from SnomedConstants
+	ACCEPTABLE("accept", "900000000000549004"),
+	PREFERRED("prefer", "900000000000548007");
 
-	private final String symbol;
+	private final String token;
+	private final String conceptId;
 
-	private Domain(final String symbol) {
-		this.symbol = symbol;
+	private AcceptabilityToken(final String token, final String conceptId) {
+		this.token = token;
+		this.conceptId = conceptId;
 	}
 
-	public static Domain fromString(final String value) {
+	public static AcceptabilityToken fromString(final String value) {
 		if (Strings.isNullOrEmpty(value)) {
 			return null;
 		}
 
 		return Arrays.stream(values())
-			.filter(d -> d.symbol.equalsIgnoreCase(value))
+			.filter(d -> d.token.equalsIgnoreCase(value))
 			.findFirst()
 			.orElse(null);
 	}
 
+	public String getConceptId() {
+		return conceptId;
+	}
+	
 	@Override
 	public String toString() {
-		return symbol;
+		return token;
 	}
 }
