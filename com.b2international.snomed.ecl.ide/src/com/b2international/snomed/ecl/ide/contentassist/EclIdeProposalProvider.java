@@ -88,7 +88,6 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 				Map.entry(ga.getPLUSRule(),                            "Numeric value"),
 				Map.entry(ga.getDASHRule(),                            "Numeric value"),
 				Map.entry(ga.getCARETRule(),                           "Member of"),
-				Map.entry(ga.getSHORT_DOMAINRule(),                    "Filter constraint domain"),
 				Map.entry(ga.getWILDCARDRule(),                        "Any"),
 				Map.entry(ga.getEQUALRule(),                           "Equals"),
 				Map.entry(ga.getNOT_EQUALRule(),                       "Not equals"),
@@ -237,6 +236,20 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 	public void complete_SnomedIdentifier(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
 		// No suggestions should be offered for SCTIDs ("raw numbers")
+	}
+	
+	public void complete_SHORT_DOMAIN(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		
+		String prefix = context.getPrefix().trim();
+		
+		if (prefix.equalsIgnoreCase("C") || prefix.isEmpty()) {
+			createKeywordProposal("c", context, acceptor, "Concept filter constraint");
+		}
+		
+		if (prefix.equalsIgnoreCase("D") || prefix.isEmpty()) {
+			createKeywordProposal("d", context, acceptor, "Description filter constraint");
+		}
 	}
 
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context,

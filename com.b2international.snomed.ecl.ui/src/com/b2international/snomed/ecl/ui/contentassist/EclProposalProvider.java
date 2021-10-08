@@ -86,7 +86,6 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 			Map.entry(ga.getPLUSRule(),                            "Numeric value"),
 			Map.entry(ga.getDASHRule(),                            "Numeric value"),
 			Map.entry(ga.getCARETRule(),                           "Member of"),
-			Map.entry(ga.getSHORT_DOMAINRule(),                    "Filter constraint domain"),
 			Map.entry(ga.getWILDCARDRule(),                        "Any"),
 			Map.entry(ga.getEQUALRule(),                           "Equals"),
 			Map.entry(ga.getNOT_EQUALRule(),                       "Not equals"),
@@ -168,6 +167,21 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 					EclActivator.getInstance().getLog().log(new Status(Status.ERROR, EclActivator.PLUGIN_ID, e.getMessage(), e));
 				}
 			}
+		}
+	}
+
+	@Override
+	public void complete_SHORT_DOMAIN(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		String prefix = context.getPrefix().trim();
+		
+		if (prefix.equalsIgnoreCase("C") || prefix.isEmpty()) {
+			// TODO: get image for keywords
+			acceptor.accept(createCompletionProposal("c", "Concept filter constraint", null, context));
+		}
+		
+		if (prefix.equalsIgnoreCase("D") || prefix.isEmpty()) {
+			// TODO: get image for keywords
+			acceptor.accept(createCompletionProposal("d", "Description filter constraint", null, context));
 		}
 	}
 	
