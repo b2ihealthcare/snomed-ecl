@@ -836,6 +836,13 @@ class EclParsingTest {
 	}
 	
 	@Test
+	def void test_history_supplement_profile_default() {
+		'''
+			* {{ + HISTORY }}
+		'''.assertNoErrors
+	}
+	
+	@Test
 	def void test_history_supplement_profile_min() {
 		'''
 			* {{ + HISTORY-MIN }}

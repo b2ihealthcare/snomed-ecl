@@ -1237,7 +1237,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     HistorySupplement returns HistorySupplement
 	 *
 	 * Constraint:
-	 *     (history=HistoryProfile | history=NestedExpression)
+	 *     (history=HistoryProfile | history=NestedExpression)?
 	 */
 	protected void sequence_HistorySupplement(ISerializationContext context, HistorySupplement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -67,7 +67,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDefinitionStatusFilterAccess().getAlternatives(), "rule__DefinitionStatusFilter__Alternatives");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getAlternatives_2(), "rule__DefinitionStatusTokenFilter__Alternatives_2");
 			builder.put(grammarAccess.getFilterValueAccess().getAlternatives(), "rule__FilterValue__Alternatives");
-			builder.put(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_3_0(), "rule__HistorySupplement__HistoryAlternatives_3_0");
+			builder.put(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_4_0(), "rule__HistorySupplement__HistoryAlternatives_4_0");
 			builder.put(grammarAccess.getHistoryProfileAccess().getAlternatives_0(), "rule__HistoryProfile__Alternatives_0");
 			builder.put(grammarAccess.getSnomedIdentifierAccess().getAlternatives(), "rule__SnomedIdentifier__Alternatives");
 			builder.put(grammarAccess.getNonNegativeIntegerAccess().getAlternatives(), "rule__NonNegativeInteger__Alternatives");
@@ -265,7 +265,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAcceptableInFilterAccess().getLanguageRefSetIdAssignment_2(), "rule__AcceptableInFilter__LanguageRefSetIdAssignment_2");
 			builder.put(grammarAccess.getLanguageRefSetFilterAccess().getLanguageRefSetIdAssignment_2(), "rule__LanguageRefSetFilter__LanguageRefSetIdAssignment_2");
 			builder.put(grammarAccess.getCaseSignificanceFilterAccess().getCaseSignificanceIdAssignment_2(), "rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2");
-			builder.put(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_3(), "rule__HistorySupplement__HistoryAssignment_3");
+			builder.put(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_4(), "rule__HistorySupplement__HistoryAssignment_4");
 			builder.put(grammarAccess.getHistoryProfileAccess().getProfileAssignment_1(), "rule__HistoryProfile__ProfileAssignment_1");
 		}
 	}

@@ -2508,17 +2508,20 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cDOUBLE_CURLY_OPENTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cPLUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cHISTORY_KEYWORDTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cHistoryAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Alternatives cHistoryAlternatives_3_0 = (Alternatives)cHistoryAssignment_3.eContents().get(0);
-		private final RuleCall cHistoryHistoryProfileParserRuleCall_3_0_0 = (RuleCall)cHistoryAlternatives_3_0.eContents().get(0);
-		private final RuleCall cHistoryNestedExpressionParserRuleCall_3_0_1 = (RuleCall)cHistoryAlternatives_3_0.eContents().get(1);
-		private final RuleCall cDOUBLE_CURLY_CLOSETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Action cHistorySupplementAction_3 = (Action)cGroup.eContents().get(3);
+		private final Assignment cHistoryAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final Alternatives cHistoryAlternatives_4_0 = (Alternatives)cHistoryAssignment_4.eContents().get(0);
+		private final RuleCall cHistoryHistoryProfileParserRuleCall_4_0_0 = (RuleCall)cHistoryAlternatives_4_0.eContents().get(0);
+		private final RuleCall cHistoryNestedExpressionParserRuleCall_4_0_1 = (RuleCall)cHistoryAlternatives_4_0.eContents().get(1);
+		private final RuleCall cDOUBLE_CURLY_CLOSETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//HistorySupplement:
-		//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE;
+		//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD {HistorySupplement} history=(HistoryProfile | NestedExpression)?
+		//	DOUBLE_CURLY_CLOSE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE
+		//DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD {HistorySupplement} history=(HistoryProfile | NestedExpression)?
+		//DOUBLE_CURLY_CLOSE
 		public Group getGroup() { return cGroup; }
 		
 		//DOUBLE_CURLY_OPEN
@@ -2530,20 +2533,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//HISTORY_KEYWORD
 		public RuleCall getHISTORY_KEYWORDTerminalRuleCall_2() { return cHISTORY_KEYWORDTerminalRuleCall_2; }
 		
-		//history=(HistoryProfile | NestedExpression)
-		public Assignment getHistoryAssignment_3() { return cHistoryAssignment_3; }
+		//{HistorySupplement}
+		public Action getHistorySupplementAction_3() { return cHistorySupplementAction_3; }
+		
+		//history=(HistoryProfile | NestedExpression)?
+		public Assignment getHistoryAssignment_4() { return cHistoryAssignment_4; }
 		
 		//(HistoryProfile | NestedExpression)
-		public Alternatives getHistoryAlternatives_3_0() { return cHistoryAlternatives_3_0; }
+		public Alternatives getHistoryAlternatives_4_0() { return cHistoryAlternatives_4_0; }
 		
 		//HistoryProfile
-		public RuleCall getHistoryHistoryProfileParserRuleCall_3_0_0() { return cHistoryHistoryProfileParserRuleCall_3_0_0; }
+		public RuleCall getHistoryHistoryProfileParserRuleCall_4_0_0() { return cHistoryHistoryProfileParserRuleCall_4_0_0; }
 		
 		//NestedExpression
-		public RuleCall getHistoryNestedExpressionParserRuleCall_3_0_1() { return cHistoryNestedExpressionParserRuleCall_3_0_1; }
+		public RuleCall getHistoryNestedExpressionParserRuleCall_4_0_1() { return cHistoryNestedExpressionParserRuleCall_4_0_1; }
 		
 		//DOUBLE_CURLY_CLOSE
-		public RuleCall getDOUBLE_CURLY_CLOSETerminalRuleCall_4() { return cDOUBLE_CURLY_CLOSETerminalRuleCall_4; }
+		public RuleCall getDOUBLE_CURLY_CLOSETerminalRuleCall_5() { return cDOUBLE_CURLY_CLOSETerminalRuleCall_5; }
 	}
 	public class HistoryProfileElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HistoryProfile");
@@ -4313,7 +4319,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//HistorySupplement:
-	//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE;
+	//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD {HistorySupplement} history=(HistoryProfile | NestedExpression)?
+	//	DOUBLE_CURLY_CLOSE;
 	public HistorySupplementElements getHistorySupplementAccess() {
 		return pHistorySupplement;
 	}

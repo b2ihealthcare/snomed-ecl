@@ -4770,12 +4770,22 @@ ruleHistorySupplement returns [EObject current=null]
 			newLeafNode(this_HISTORY_KEYWORD_2, grammarAccess.getHistorySupplementAccess().getHISTORY_KEYWORDTerminalRuleCall_2());
 		}
 		(
+			{
+				/* */
+			}
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getHistorySupplementAccess().getHistorySupplementAction_3(),
+					$current);
+			}
+		)
+		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_4_0_0());
 					}
-					lv_history_3_1=ruleHistoryProfile
+					lv_history_4_1=ruleHistoryProfile
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getHistorySupplementRule());
@@ -4783,15 +4793,15 @@ ruleHistorySupplement returns [EObject current=null]
 						set(
 							$current,
 							"history",
-							lv_history_3_1,
+							lv_history_4_1,
 							"com.b2international.snomed.ecl.Ecl.HistoryProfile");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_3_0_1());
+						newCompositeNode(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_4_0_1());
 					}
-					lv_history_3_2=ruleNestedExpression
+					lv_history_4_2=ruleNestedExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getHistorySupplementRule());
@@ -4799,16 +4809,16 @@ ruleHistorySupplement returns [EObject current=null]
 						set(
 							$current,
 							"history",
-							lv_history_3_2,
+							lv_history_4_2,
 							"com.b2international.snomed.ecl.Ecl.NestedExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)
-		this_DOUBLE_CURLY_CLOSE_4=RULE_DOUBLE_CURLY_CLOSE
+		)?
+		this_DOUBLE_CURLY_CLOSE_5=RULE_DOUBLE_CURLY_CLOSE
 		{
-			newLeafNode(this_DOUBLE_CURLY_CLOSE_4, grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_4());
+			newLeafNode(this_DOUBLE_CURLY_CLOSE_5, grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_5());
 		}
 	)
 ;

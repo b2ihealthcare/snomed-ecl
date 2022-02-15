@@ -9554,11 +9554,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                 {
                 int LA12_1 = input.LA(2);
 
-                if ( (LA12_1==RULE_STRING||(LA12_1>=RULE_TRUE_KEYWORD && LA12_1<=RULE_FALSE_KEYWORD)||LA12_1==RULE_HASH) ) {
-                    alt12=2;
-                }
-                else if ( ((LA12_1>=RULE_DIGIT_NONZERO && LA12_1<=RULE_WILDCARD)||(LA12_1>=RULE_GT && LA12_1<=RULE_LT)||(LA12_1>=RULE_LT_EM && LA12_1<=RULE_ROUND_OPEN)) ) {
+                if ( ((LA12_1>=RULE_DIGIT_NONZERO && LA12_1<=RULE_WILDCARD)||(LA12_1>=RULE_GT && LA12_1<=RULE_LT)||(LA12_1>=RULE_LT_EM && LA12_1<=RULE_ROUND_OPEN)) ) {
                     alt12=1;
+                }
+                else if ( (LA12_1==RULE_STRING||(LA12_1>=RULE_TRUE_KEYWORD && LA12_1<=RULE_FALSE_KEYWORD)||LA12_1==RULE_HASH) ) {
+                    alt12=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -10330,11 +10330,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             else if ( (LA16_0==RULE_NOT_EQUAL) ) {
                 int LA16_2 = input.LA(2);
 
-                if ( (LA16_2==RULE_ROUND_OPEN) ) {
-                    alt16=2;
-                }
-                else if ( (LA16_2==RULE_STRING||(LA16_2>=RULE_EXACT_KEYWORD && LA16_2<=RULE_REGEX_KEYWORD)||LA16_2==RULE_WILD_KEYWORD) ) {
+                if ( (LA16_2==RULE_STRING||(LA16_2>=RULE_EXACT_KEYWORD && LA16_2<=RULE_REGEX_KEYWORD)||LA16_2==RULE_WILD_KEYWORD) ) {
                     alt16=1;
+                }
+                else if ( (LA16_2==RULE_ROUND_OPEN) ) {
+                    alt16=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -11438,9 +11438,9 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__FilterValue__Alternatives"
 
 
-    // $ANTLR start "rule__HistorySupplement__HistoryAlternatives_3_0"
-    // InternalEcl.g:3245:1: rule__HistorySupplement__HistoryAlternatives_3_0 : ( ( ruleHistoryProfile ) | ( ruleNestedExpression ) );
-    public final void rule__HistorySupplement__HistoryAlternatives_3_0() throws RecognitionException {
+    // $ANTLR start "rule__HistorySupplement__HistoryAlternatives_4_0"
+    // InternalEcl.g:3245:1: rule__HistorySupplement__HistoryAlternatives_4_0 : ( ( ruleHistoryProfile ) | ( ruleNestedExpression ) );
+    public final void rule__HistorySupplement__HistoryAlternatives_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11470,7 +11470,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     // InternalEcl.g:3251:3: ruleHistoryProfile
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_3_0_0()); 
+                       before(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_4_0_0()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
                     ruleHistoryProfile();
@@ -11478,7 +11478,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_3_0_0()); 
+                       after(grammarAccess.getHistorySupplementAccess().getHistoryHistoryProfileParserRuleCall_4_0_0()); 
                     }
 
                     }
@@ -11493,7 +11493,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     // InternalEcl.g:3257:3: ruleNestedExpression
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_3_0_1()); 
+                       before(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_4_0_1()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
                     ruleNestedExpression();
@@ -11501,7 +11501,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_3_0_1()); 
+                       after(grammarAccess.getHistorySupplementAccess().getHistoryNestedExpressionParserRuleCall_4_0_1()); 
                     }
 
                     }
@@ -11523,7 +11523,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__HistorySupplement__HistoryAlternatives_3_0"
+    // $ANTLR end "rule__HistorySupplement__HistoryAlternatives_4_0"
 
 
     // $ANTLR start "rule__HistoryProfile__Alternatives_0"
@@ -32641,7 +32641,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             // InternalEcl.g:9809:1: ( rule__HistorySupplement__Group__3__Impl rule__HistorySupplement__Group__4 )
             // InternalEcl.g:9810:2: rule__HistorySupplement__Group__3__Impl rule__HistorySupplement__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_32);
+            pushFollow(FollowSets000.FOLLOW_50);
             rule__HistorySupplement__Group__3__Impl();
 
             state._fsp--;
@@ -32670,34 +32670,28 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistorySupplement__Group__3__Impl"
-    // InternalEcl.g:9817:1: rule__HistorySupplement__Group__3__Impl : ( ( rule__HistorySupplement__HistoryAssignment_3 ) ) ;
+    // InternalEcl.g:9817:1: rule__HistorySupplement__Group__3__Impl : ( () ) ;
     public final void rule__HistorySupplement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9821:1: ( ( ( rule__HistorySupplement__HistoryAssignment_3 ) ) )
-            // InternalEcl.g:9822:1: ( ( rule__HistorySupplement__HistoryAssignment_3 ) )
+            // InternalEcl.g:9821:1: ( ( () ) )
+            // InternalEcl.g:9822:1: ( () )
             {
-            // InternalEcl.g:9822:1: ( ( rule__HistorySupplement__HistoryAssignment_3 ) )
-            // InternalEcl.g:9823:2: ( rule__HistorySupplement__HistoryAssignment_3 )
+            // InternalEcl.g:9822:1: ( () )
+            // InternalEcl.g:9823:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_3()); 
+               before(grammarAccess.getHistorySupplementAccess().getHistorySupplementAction_3()); 
             }
-            // InternalEcl.g:9824:2: ( rule__HistorySupplement__HistoryAssignment_3 )
-            // InternalEcl.g:9824:3: rule__HistorySupplement__HistoryAssignment_3
+            // InternalEcl.g:9824:2: ()
+            // InternalEcl.g:9824:3: 
             {
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__HistorySupplement__HistoryAssignment_3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_3()); 
+               after(grammarAccess.getHistorySupplementAccess().getHistorySupplementAction_3()); 
             }
 
             }
@@ -32705,10 +32699,6 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -32721,17 +32711,22 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistorySupplement__Group__4"
-    // InternalEcl.g:9832:1: rule__HistorySupplement__Group__4 : rule__HistorySupplement__Group__4__Impl ;
+    // InternalEcl.g:9832:1: rule__HistorySupplement__Group__4 : rule__HistorySupplement__Group__4__Impl rule__HistorySupplement__Group__5 ;
     public final void rule__HistorySupplement__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9836:1: ( rule__HistorySupplement__Group__4__Impl )
-            // InternalEcl.g:9837:2: rule__HistorySupplement__Group__4__Impl
+            // InternalEcl.g:9836:1: ( rule__HistorySupplement__Group__4__Impl rule__HistorySupplement__Group__5 )
+            // InternalEcl.g:9837:2: rule__HistorySupplement__Group__4__Impl rule__HistorySupplement__Group__5
             {
-            pushFollow(FollowSets000.FOLLOW_2);
+            pushFollow(FollowSets000.FOLLOW_50);
             rule__HistorySupplement__Group__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__HistorySupplement__Group__5();
 
             state._fsp--;
             if (state.failed) return ;
@@ -32754,24 +32749,45 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistorySupplement__Group__4__Impl"
-    // InternalEcl.g:9843:1: rule__HistorySupplement__Group__4__Impl : ( RULE_DOUBLE_CURLY_CLOSE ) ;
+    // InternalEcl.g:9844:1: rule__HistorySupplement__Group__4__Impl : ( ( rule__HistorySupplement__HistoryAssignment_4 )? ) ;
     public final void rule__HistorySupplement__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9847:1: ( ( RULE_DOUBLE_CURLY_CLOSE ) )
-            // InternalEcl.g:9848:1: ( RULE_DOUBLE_CURLY_CLOSE )
+            // InternalEcl.g:9848:1: ( ( ( rule__HistorySupplement__HistoryAssignment_4 )? ) )
+            // InternalEcl.g:9849:1: ( ( rule__HistorySupplement__HistoryAssignment_4 )? )
             {
-            // InternalEcl.g:9848:1: ( RULE_DOUBLE_CURLY_CLOSE )
-            // InternalEcl.g:9849:2: RULE_DOUBLE_CURLY_CLOSE
+            // InternalEcl.g:9849:1: ( ( rule__HistorySupplement__HistoryAssignment_4 )? )
+            // InternalEcl.g:9850:2: ( rule__HistorySupplement__HistoryAssignment_4 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_4()); 
+               before(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_4()); 
             }
-            match(input,RULE_DOUBLE_CURLY_CLOSE,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            // InternalEcl.g:9851:2: ( rule__HistorySupplement__HistoryAssignment_4 )?
+            int alt77=2;
+            int LA77_0 = input.LA(1);
+
+            if ( ((LA77_0>=RULE_DASH && LA77_0<=RULE_UNDERSCORE)||LA77_0==RULE_ROUND_OPEN) ) {
+                alt77=1;
+            }
+            switch (alt77) {
+                case 1 :
+                    // InternalEcl.g:9851:3: rule__HistorySupplement__HistoryAssignment_4
+                    {
+                    pushFollow(FollowSets000.FOLLOW_2);
+                    rule__HistorySupplement__HistoryAssignment_4();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_4()); 
+               after(grammarAccess.getHistorySupplementAccess().getHistoryAssignment_4()); 
             }
 
             }
@@ -32794,15 +32810,89 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__HistorySupplement__Group__4__Impl"
 
 
+    // $ANTLR start "rule__HistorySupplement__Group__5"
+    // InternalEcl.g:9859:1: rule__HistorySupplement__Group__5 : rule__HistorySupplement__Group__5__Impl ;
+    public final void rule__HistorySupplement__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:9863:1: ( rule__HistorySupplement__Group__5__Impl )
+            // InternalEcl.g:9864:2: rule__HistorySupplement__Group__5__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__HistorySupplement__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__HistorySupplement__Group__5"
+
+
+    // $ANTLR start "rule__HistorySupplement__Group__5__Impl"
+    // InternalEcl.g:9870:1: rule__HistorySupplement__Group__5__Impl : ( RULE_DOUBLE_CURLY_CLOSE ) ;
+    public final void rule__HistorySupplement__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:9874:1: ( ( RULE_DOUBLE_CURLY_CLOSE ) )
+            // InternalEcl.g:9875:1: ( RULE_DOUBLE_CURLY_CLOSE )
+            {
+            // InternalEcl.g:9875:1: ( RULE_DOUBLE_CURLY_CLOSE )
+            // InternalEcl.g:9876:2: RULE_DOUBLE_CURLY_CLOSE
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_5()); 
+            }
+            match(input,RULE_DOUBLE_CURLY_CLOSE,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getHistorySupplementAccess().getDOUBLE_CURLY_CLOSETerminalRuleCall_5()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__HistorySupplement__Group__5__Impl"
+
+
     // $ANTLR start "rule__HistoryProfile__Group__0"
-    // InternalEcl.g:9859:1: rule__HistoryProfile__Group__0 : rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1 ;
+    // InternalEcl.g:9886:1: rule__HistoryProfile__Group__0 : rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1 ;
     public final void rule__HistoryProfile__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9863:1: ( rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1 )
-            // InternalEcl.g:9864:2: rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1
+            // InternalEcl.g:9890:1: ( rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1 )
+            // InternalEcl.g:9891:2: rule__HistoryProfile__Group__0__Impl rule__HistoryProfile__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_51);
             rule__HistoryProfile__Group__0__Impl();
@@ -32833,23 +32923,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistoryProfile__Group__0__Impl"
-    // InternalEcl.g:9871:1: rule__HistoryProfile__Group__0__Impl : ( ( rule__HistoryProfile__Alternatives_0 ) ) ;
+    // InternalEcl.g:9898:1: rule__HistoryProfile__Group__0__Impl : ( ( rule__HistoryProfile__Alternatives_0 ) ) ;
     public final void rule__HistoryProfile__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9875:1: ( ( ( rule__HistoryProfile__Alternatives_0 ) ) )
-            // InternalEcl.g:9876:1: ( ( rule__HistoryProfile__Alternatives_0 ) )
+            // InternalEcl.g:9902:1: ( ( ( rule__HistoryProfile__Alternatives_0 ) ) )
+            // InternalEcl.g:9903:1: ( ( rule__HistoryProfile__Alternatives_0 ) )
             {
-            // InternalEcl.g:9876:1: ( ( rule__HistoryProfile__Alternatives_0 ) )
-            // InternalEcl.g:9877:2: ( rule__HistoryProfile__Alternatives_0 )
+            // InternalEcl.g:9903:1: ( ( rule__HistoryProfile__Alternatives_0 ) )
+            // InternalEcl.g:9904:2: ( rule__HistoryProfile__Alternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHistoryProfileAccess().getAlternatives_0()); 
             }
-            // InternalEcl.g:9878:2: ( rule__HistoryProfile__Alternatives_0 )
-            // InternalEcl.g:9878:3: rule__HistoryProfile__Alternatives_0
+            // InternalEcl.g:9905:2: ( rule__HistoryProfile__Alternatives_0 )
+            // InternalEcl.g:9905:3: rule__HistoryProfile__Alternatives_0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__HistoryProfile__Alternatives_0();
@@ -32884,14 +32974,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistoryProfile__Group__1"
-    // InternalEcl.g:9886:1: rule__HistoryProfile__Group__1 : rule__HistoryProfile__Group__1__Impl ;
+    // InternalEcl.g:9913:1: rule__HistoryProfile__Group__1 : rule__HistoryProfile__Group__1__Impl ;
     public final void rule__HistoryProfile__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9890:1: ( rule__HistoryProfile__Group__1__Impl )
-            // InternalEcl.g:9891:2: rule__HistoryProfile__Group__1__Impl
+            // InternalEcl.g:9917:1: ( rule__HistoryProfile__Group__1__Impl )
+            // InternalEcl.g:9918:2: rule__HistoryProfile__Group__1__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__HistoryProfile__Group__1__Impl();
@@ -32917,23 +33007,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__HistoryProfile__Group__1__Impl"
-    // InternalEcl.g:9897:1: rule__HistoryProfile__Group__1__Impl : ( ( rule__HistoryProfile__ProfileAssignment_1 ) ) ;
+    // InternalEcl.g:9924:1: rule__HistoryProfile__Group__1__Impl : ( ( rule__HistoryProfile__ProfileAssignment_1 ) ) ;
     public final void rule__HistoryProfile__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9901:1: ( ( ( rule__HistoryProfile__ProfileAssignment_1 ) ) )
-            // InternalEcl.g:9902:1: ( ( rule__HistoryProfile__ProfileAssignment_1 ) )
+            // InternalEcl.g:9928:1: ( ( ( rule__HistoryProfile__ProfileAssignment_1 ) ) )
+            // InternalEcl.g:9929:1: ( ( rule__HistoryProfile__ProfileAssignment_1 ) )
             {
-            // InternalEcl.g:9902:1: ( ( rule__HistoryProfile__ProfileAssignment_1 ) )
-            // InternalEcl.g:9903:2: ( rule__HistoryProfile__ProfileAssignment_1 )
+            // InternalEcl.g:9929:1: ( ( rule__HistoryProfile__ProfileAssignment_1 ) )
+            // InternalEcl.g:9930:2: ( rule__HistoryProfile__ProfileAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHistoryProfileAccess().getProfileAssignment_1()); 
             }
-            // InternalEcl.g:9904:2: ( rule__HistoryProfile__ProfileAssignment_1 )
-            // InternalEcl.g:9904:3: rule__HistoryProfile__ProfileAssignment_1
+            // InternalEcl.g:9931:2: ( rule__HistoryProfile__ProfileAssignment_1 )
+            // InternalEcl.g:9931:3: rule__HistoryProfile__ProfileAssignment_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__HistoryProfile__ProfileAssignment_1();
@@ -32968,14 +33058,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__0"
-    // InternalEcl.g:9913:1: rule__NonNegativeDecimal__Group__0 : rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1 ;
+    // InternalEcl.g:9940:1: rule__NonNegativeDecimal__Group__0 : rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1 ;
     public final void rule__NonNegativeDecimal__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9917:1: ( rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1 )
-            // InternalEcl.g:9918:2: rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1
+            // InternalEcl.g:9944:1: ( rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1 )
+            // InternalEcl.g:9945:2: rule__NonNegativeDecimal__Group__0__Impl rule__NonNegativeDecimal__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_13);
             rule__NonNegativeDecimal__Group__0__Impl();
@@ -33006,17 +33096,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__0__Impl"
-    // InternalEcl.g:9925:1: rule__NonNegativeDecimal__Group__0__Impl : ( ruleNonNegativeInteger ) ;
+    // InternalEcl.g:9952:1: rule__NonNegativeDecimal__Group__0__Impl : ( ruleNonNegativeInteger ) ;
     public final void rule__NonNegativeDecimal__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9929:1: ( ( ruleNonNegativeInteger ) )
-            // InternalEcl.g:9930:1: ( ruleNonNegativeInteger )
+            // InternalEcl.g:9956:1: ( ( ruleNonNegativeInteger ) )
+            // InternalEcl.g:9957:1: ( ruleNonNegativeInteger )
             {
-            // InternalEcl.g:9930:1: ( ruleNonNegativeInteger )
-            // InternalEcl.g:9931:2: ruleNonNegativeInteger
+            // InternalEcl.g:9957:1: ( ruleNonNegativeInteger )
+            // InternalEcl.g:9958:2: ruleNonNegativeInteger
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNonNegativeDecimalAccess().getNonNegativeIntegerParserRuleCall_0()); 
@@ -33051,14 +33141,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__1"
-    // InternalEcl.g:9940:1: rule__NonNegativeDecimal__Group__1 : rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2 ;
+    // InternalEcl.g:9967:1: rule__NonNegativeDecimal__Group__1 : rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2 ;
     public final void rule__NonNegativeDecimal__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9944:1: ( rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2 )
-            // InternalEcl.g:9945:2: rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2
+            // InternalEcl.g:9971:1: ( rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2 )
+            // InternalEcl.g:9972:2: rule__NonNegativeDecimal__Group__1__Impl rule__NonNegativeDecimal__Group__2
             {
             pushFollow(FollowSets000.FOLLOW_18);
             rule__NonNegativeDecimal__Group__1__Impl();
@@ -33089,17 +33179,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__1__Impl"
-    // InternalEcl.g:9952:1: rule__NonNegativeDecimal__Group__1__Impl : ( RULE_DOT ) ;
+    // InternalEcl.g:9979:1: rule__NonNegativeDecimal__Group__1__Impl : ( RULE_DOT ) ;
     public final void rule__NonNegativeDecimal__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9956:1: ( ( RULE_DOT ) )
-            // InternalEcl.g:9957:1: ( RULE_DOT )
+            // InternalEcl.g:9983:1: ( ( RULE_DOT ) )
+            // InternalEcl.g:9984:1: ( RULE_DOT )
             {
-            // InternalEcl.g:9957:1: ( RULE_DOT )
-            // InternalEcl.g:9958:2: RULE_DOT
+            // InternalEcl.g:9984:1: ( RULE_DOT )
+            // InternalEcl.g:9985:2: RULE_DOT
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNonNegativeDecimalAccess().getDOTTerminalRuleCall_1()); 
@@ -33130,14 +33220,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__2"
-    // InternalEcl.g:9967:1: rule__NonNegativeDecimal__Group__2 : rule__NonNegativeDecimal__Group__2__Impl ;
+    // InternalEcl.g:9994:1: rule__NonNegativeDecimal__Group__2 : rule__NonNegativeDecimal__Group__2__Impl ;
     public final void rule__NonNegativeDecimal__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9971:1: ( rule__NonNegativeDecimal__Group__2__Impl )
-            // InternalEcl.g:9972:2: rule__NonNegativeDecimal__Group__2__Impl
+            // InternalEcl.g:9998:1: ( rule__NonNegativeDecimal__Group__2__Impl )
+            // InternalEcl.g:9999:2: rule__NonNegativeDecimal__Group__2__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__NonNegativeDecimal__Group__2__Impl();
@@ -33163,35 +33253,35 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNegativeDecimal__Group__2__Impl"
-    // InternalEcl.g:9978:1: rule__NonNegativeDecimal__Group__2__Impl : ( ( rule__NonNegativeDecimal__Alternatives_2 )* ) ;
+    // InternalEcl.g:10005:1: rule__NonNegativeDecimal__Group__2__Impl : ( ( rule__NonNegativeDecimal__Alternatives_2 )* ) ;
     public final void rule__NonNegativeDecimal__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9982:1: ( ( ( rule__NonNegativeDecimal__Alternatives_2 )* ) )
-            // InternalEcl.g:9983:1: ( ( rule__NonNegativeDecimal__Alternatives_2 )* )
+            // InternalEcl.g:10009:1: ( ( ( rule__NonNegativeDecimal__Alternatives_2 )* ) )
+            // InternalEcl.g:10010:1: ( ( rule__NonNegativeDecimal__Alternatives_2 )* )
             {
-            // InternalEcl.g:9983:1: ( ( rule__NonNegativeDecimal__Alternatives_2 )* )
-            // InternalEcl.g:9984:2: ( rule__NonNegativeDecimal__Alternatives_2 )*
+            // InternalEcl.g:10010:1: ( ( rule__NonNegativeDecimal__Alternatives_2 )* )
+            // InternalEcl.g:10011:2: ( rule__NonNegativeDecimal__Alternatives_2 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNonNegativeDecimalAccess().getAlternatives_2()); 
             }
-            // InternalEcl.g:9985:2: ( rule__NonNegativeDecimal__Alternatives_2 )*
-            loop77:
+            // InternalEcl.g:10012:2: ( rule__NonNegativeDecimal__Alternatives_2 )*
+            loop78:
             do {
-                int alt77=2;
-                int LA77_0 = input.LA(1);
+                int alt78=2;
+                int LA78_0 = input.LA(1);
 
-                if ( ((LA77_0>=RULE_DIGIT_NONZERO && LA77_0<=RULE_DIGIT_ZERO)) ) {
-                    alt77=1;
+                if ( ((LA78_0>=RULE_DIGIT_NONZERO && LA78_0<=RULE_DIGIT_ZERO)) ) {
+                    alt78=1;
                 }
 
 
-                switch (alt77) {
+                switch (alt78) {
             	case 1 :
-            	    // InternalEcl.g:9985:3: rule__NonNegativeDecimal__Alternatives_2
+            	    // InternalEcl.g:10012:3: rule__NonNegativeDecimal__Alternatives_2
             	    {
             	    pushFollow(FollowSets000.FOLLOW_3);
             	    rule__NonNegativeDecimal__Alternatives_2();
@@ -33203,7 +33293,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop77;
+            	    break loop78;
                 }
             } while (true);
 
@@ -33232,14 +33322,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Integer__Group__0"
-    // InternalEcl.g:9994:1: rule__Integer__Group__0 : rule__Integer__Group__0__Impl rule__Integer__Group__1 ;
+    // InternalEcl.g:10021:1: rule__Integer__Group__0 : rule__Integer__Group__0__Impl rule__Integer__Group__1 ;
     public final void rule__Integer__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:9998:1: ( rule__Integer__Group__0__Impl rule__Integer__Group__1 )
-            // InternalEcl.g:9999:2: rule__Integer__Group__0__Impl rule__Integer__Group__1
+            // InternalEcl.g:10025:1: ( rule__Integer__Group__0__Impl rule__Integer__Group__1 )
+            // InternalEcl.g:10026:2: rule__Integer__Group__0__Impl rule__Integer__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_30);
             rule__Integer__Group__0__Impl();
@@ -33270,31 +33360,31 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Integer__Group__0__Impl"
-    // InternalEcl.g:10006:1: rule__Integer__Group__0__Impl : ( ( rule__Integer__Alternatives_0 )? ) ;
+    // InternalEcl.g:10033:1: rule__Integer__Group__0__Impl : ( ( rule__Integer__Alternatives_0 )? ) ;
     public final void rule__Integer__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10010:1: ( ( ( rule__Integer__Alternatives_0 )? ) )
-            // InternalEcl.g:10011:1: ( ( rule__Integer__Alternatives_0 )? )
+            // InternalEcl.g:10037:1: ( ( ( rule__Integer__Alternatives_0 )? ) )
+            // InternalEcl.g:10038:1: ( ( rule__Integer__Alternatives_0 )? )
             {
-            // InternalEcl.g:10011:1: ( ( rule__Integer__Alternatives_0 )? )
-            // InternalEcl.g:10012:2: ( rule__Integer__Alternatives_0 )?
+            // InternalEcl.g:10038:1: ( ( rule__Integer__Alternatives_0 )? )
+            // InternalEcl.g:10039:2: ( rule__Integer__Alternatives_0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerAccess().getAlternatives_0()); 
             }
-            // InternalEcl.g:10013:2: ( rule__Integer__Alternatives_0 )?
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // InternalEcl.g:10040:2: ( rule__Integer__Alternatives_0 )?
+            int alt79=2;
+            int LA79_0 = input.LA(1);
 
-            if ( (LA78_0==RULE_DASH||LA78_0==RULE_PLUS) ) {
-                alt78=1;
+            if ( (LA79_0==RULE_DASH||LA79_0==RULE_PLUS) ) {
+                alt79=1;
             }
-            switch (alt78) {
+            switch (alt79) {
                 case 1 :
-                    // InternalEcl.g:10013:3: rule__Integer__Alternatives_0
+                    // InternalEcl.g:10040:3: rule__Integer__Alternatives_0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__Integer__Alternatives_0();
@@ -33332,14 +33422,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Integer__Group__1"
-    // InternalEcl.g:10021:1: rule__Integer__Group__1 : rule__Integer__Group__1__Impl ;
+    // InternalEcl.g:10048:1: rule__Integer__Group__1 : rule__Integer__Group__1__Impl ;
     public final void rule__Integer__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10025:1: ( rule__Integer__Group__1__Impl )
-            // InternalEcl.g:10026:2: rule__Integer__Group__1__Impl
+            // InternalEcl.g:10052:1: ( rule__Integer__Group__1__Impl )
+            // InternalEcl.g:10053:2: rule__Integer__Group__1__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Integer__Group__1__Impl();
@@ -33365,17 +33455,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Integer__Group__1__Impl"
-    // InternalEcl.g:10032:1: rule__Integer__Group__1__Impl : ( ruleNonNegativeInteger ) ;
+    // InternalEcl.g:10059:1: rule__Integer__Group__1__Impl : ( ruleNonNegativeInteger ) ;
     public final void rule__Integer__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10036:1: ( ( ruleNonNegativeInteger ) )
-            // InternalEcl.g:10037:1: ( ruleNonNegativeInteger )
+            // InternalEcl.g:10063:1: ( ( ruleNonNegativeInteger ) )
+            // InternalEcl.g:10064:1: ( ruleNonNegativeInteger )
             {
-            // InternalEcl.g:10037:1: ( ruleNonNegativeInteger )
-            // InternalEcl.g:10038:2: ruleNonNegativeInteger
+            // InternalEcl.g:10064:1: ( ruleNonNegativeInteger )
+            // InternalEcl.g:10065:2: ruleNonNegativeInteger
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerAccess().getNonNegativeIntegerParserRuleCall_1()); 
@@ -33410,14 +33500,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Decimal__Group__0"
-    // InternalEcl.g:10048:1: rule__Decimal__Group__0 : rule__Decimal__Group__0__Impl rule__Decimal__Group__1 ;
+    // InternalEcl.g:10075:1: rule__Decimal__Group__0 : rule__Decimal__Group__0__Impl rule__Decimal__Group__1 ;
     public final void rule__Decimal__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10052:1: ( rule__Decimal__Group__0__Impl rule__Decimal__Group__1 )
-            // InternalEcl.g:10053:2: rule__Decimal__Group__0__Impl rule__Decimal__Group__1
+            // InternalEcl.g:10079:1: ( rule__Decimal__Group__0__Impl rule__Decimal__Group__1 )
+            // InternalEcl.g:10080:2: rule__Decimal__Group__0__Impl rule__Decimal__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_30);
             rule__Decimal__Group__0__Impl();
@@ -33448,31 +33538,31 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Decimal__Group__0__Impl"
-    // InternalEcl.g:10060:1: rule__Decimal__Group__0__Impl : ( ( rule__Decimal__Alternatives_0 )? ) ;
+    // InternalEcl.g:10087:1: rule__Decimal__Group__0__Impl : ( ( rule__Decimal__Alternatives_0 )? ) ;
     public final void rule__Decimal__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10064:1: ( ( ( rule__Decimal__Alternatives_0 )? ) )
-            // InternalEcl.g:10065:1: ( ( rule__Decimal__Alternatives_0 )? )
+            // InternalEcl.g:10091:1: ( ( ( rule__Decimal__Alternatives_0 )? ) )
+            // InternalEcl.g:10092:1: ( ( rule__Decimal__Alternatives_0 )? )
             {
-            // InternalEcl.g:10065:1: ( ( rule__Decimal__Alternatives_0 )? )
-            // InternalEcl.g:10066:2: ( rule__Decimal__Alternatives_0 )?
+            // InternalEcl.g:10092:1: ( ( rule__Decimal__Alternatives_0 )? )
+            // InternalEcl.g:10093:2: ( rule__Decimal__Alternatives_0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDecimalAccess().getAlternatives_0()); 
             }
-            // InternalEcl.g:10067:2: ( rule__Decimal__Alternatives_0 )?
-            int alt79=2;
-            int LA79_0 = input.LA(1);
+            // InternalEcl.g:10094:2: ( rule__Decimal__Alternatives_0 )?
+            int alt80=2;
+            int LA80_0 = input.LA(1);
 
-            if ( (LA79_0==RULE_DASH||LA79_0==RULE_PLUS) ) {
-                alt79=1;
+            if ( (LA80_0==RULE_DASH||LA80_0==RULE_PLUS) ) {
+                alt80=1;
             }
-            switch (alt79) {
+            switch (alt80) {
                 case 1 :
-                    // InternalEcl.g:10067:3: rule__Decimal__Alternatives_0
+                    // InternalEcl.g:10094:3: rule__Decimal__Alternatives_0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__Decimal__Alternatives_0();
@@ -33510,14 +33600,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Decimal__Group__1"
-    // InternalEcl.g:10075:1: rule__Decimal__Group__1 : rule__Decimal__Group__1__Impl ;
+    // InternalEcl.g:10102:1: rule__Decimal__Group__1 : rule__Decimal__Group__1__Impl ;
     public final void rule__Decimal__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10079:1: ( rule__Decimal__Group__1__Impl )
-            // InternalEcl.g:10080:2: rule__Decimal__Group__1__Impl
+            // InternalEcl.g:10106:1: ( rule__Decimal__Group__1__Impl )
+            // InternalEcl.g:10107:2: rule__Decimal__Group__1__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Decimal__Group__1__Impl();
@@ -33543,17 +33633,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Decimal__Group__1__Impl"
-    // InternalEcl.g:10086:1: rule__Decimal__Group__1__Impl : ( ruleNonNegativeDecimal ) ;
+    // InternalEcl.g:10113:1: rule__Decimal__Group__1__Impl : ( ruleNonNegativeDecimal ) ;
     public final void rule__Decimal__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10090:1: ( ( ruleNonNegativeDecimal ) )
-            // InternalEcl.g:10091:1: ( ruleNonNegativeDecimal )
+            // InternalEcl.g:10117:1: ( ( ruleNonNegativeDecimal ) )
+            // InternalEcl.g:10118:1: ( ruleNonNegativeDecimal )
             {
-            // InternalEcl.g:10091:1: ( ruleNonNegativeDecimal )
-            // InternalEcl.g:10092:2: ruleNonNegativeDecimal
+            // InternalEcl.g:10118:1: ( ruleNonNegativeDecimal )
+            // InternalEcl.g:10119:2: ruleNonNegativeDecimal
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDecimalAccess().getNonNegativeDecimalParserRuleCall_1()); 
@@ -33588,17 +33678,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Script__ConstraintAssignment_1"
-    // InternalEcl.g:10102:1: rule__Script__ConstraintAssignment_1 : ( ruleExpressionConstraint ) ;
+    // InternalEcl.g:10129:1: rule__Script__ConstraintAssignment_1 : ( ruleExpressionConstraint ) ;
     public final void rule__Script__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10106:1: ( ( ruleExpressionConstraint ) )
-            // InternalEcl.g:10107:2: ( ruleExpressionConstraint )
+            // InternalEcl.g:10133:1: ( ( ruleExpressionConstraint ) )
+            // InternalEcl.g:10134:2: ( ruleExpressionConstraint )
             {
-            // InternalEcl.g:10107:2: ( ruleExpressionConstraint )
-            // InternalEcl.g:10108:3: ruleExpressionConstraint
+            // InternalEcl.g:10134:2: ( ruleExpressionConstraint )
+            // InternalEcl.g:10135:3: ruleExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScriptAccess().getConstraintExpressionConstraintParserRuleCall_1_0()); 
@@ -33633,17 +33723,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrExpressionConstraint__RightAssignment_1_2"
-    // InternalEcl.g:10117:1: rule__OrExpressionConstraint__RightAssignment_1_2 : ( ruleAndExpressionConstraint ) ;
+    // InternalEcl.g:10144:1: rule__OrExpressionConstraint__RightAssignment_1_2 : ( ruleAndExpressionConstraint ) ;
     public final void rule__OrExpressionConstraint__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10121:1: ( ( ruleAndExpressionConstraint ) )
-            // InternalEcl.g:10122:2: ( ruleAndExpressionConstraint )
+            // InternalEcl.g:10148:1: ( ( ruleAndExpressionConstraint ) )
+            // InternalEcl.g:10149:2: ( ruleAndExpressionConstraint )
             {
-            // InternalEcl.g:10122:2: ( ruleAndExpressionConstraint )
-            // InternalEcl.g:10123:3: ruleAndExpressionConstraint
+            // InternalEcl.g:10149:2: ( ruleAndExpressionConstraint )
+            // InternalEcl.g:10150:3: ruleAndExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOrExpressionConstraintAccess().getRightAndExpressionConstraintParserRuleCall_1_2_0()); 
@@ -33678,17 +33768,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AndExpressionConstraint__RightAssignment_1_2"
-    // InternalEcl.g:10132:1: rule__AndExpressionConstraint__RightAssignment_1_2 : ( ruleExclusionExpressionConstraint ) ;
+    // InternalEcl.g:10159:1: rule__AndExpressionConstraint__RightAssignment_1_2 : ( ruleExclusionExpressionConstraint ) ;
     public final void rule__AndExpressionConstraint__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10136:1: ( ( ruleExclusionExpressionConstraint ) )
-            // InternalEcl.g:10137:2: ( ruleExclusionExpressionConstraint )
+            // InternalEcl.g:10163:1: ( ( ruleExclusionExpressionConstraint ) )
+            // InternalEcl.g:10164:2: ( ruleExclusionExpressionConstraint )
             {
-            // InternalEcl.g:10137:2: ( ruleExclusionExpressionConstraint )
-            // InternalEcl.g:10138:3: ruleExclusionExpressionConstraint
+            // InternalEcl.g:10164:2: ( ruleExclusionExpressionConstraint )
+            // InternalEcl.g:10165:3: ruleExclusionExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAndExpressionConstraintAccess().getRightExclusionExpressionConstraintParserRuleCall_1_2_0()); 
@@ -33723,17 +33813,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExclusionExpressionConstraint__RightAssignment_1_2"
-    // InternalEcl.g:10147:1: rule__ExclusionExpressionConstraint__RightAssignment_1_2 : ( ruleRefinedExpressionConstraint ) ;
+    // InternalEcl.g:10174:1: rule__ExclusionExpressionConstraint__RightAssignment_1_2 : ( ruleRefinedExpressionConstraint ) ;
     public final void rule__ExclusionExpressionConstraint__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10151:1: ( ( ruleRefinedExpressionConstraint ) )
-            // InternalEcl.g:10152:2: ( ruleRefinedExpressionConstraint )
+            // InternalEcl.g:10178:1: ( ( ruleRefinedExpressionConstraint ) )
+            // InternalEcl.g:10179:2: ( ruleRefinedExpressionConstraint )
             {
-            // InternalEcl.g:10152:2: ( ruleRefinedExpressionConstraint )
-            // InternalEcl.g:10153:3: ruleRefinedExpressionConstraint
+            // InternalEcl.g:10179:2: ( ruleRefinedExpressionConstraint )
+            // InternalEcl.g:10180:3: ruleRefinedExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getExclusionExpressionConstraintAccess().getRightRefinedExpressionConstraintParserRuleCall_1_2_0()); 
@@ -33768,17 +33858,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RefinedExpressionConstraint__RefinementAssignment_1_2"
-    // InternalEcl.g:10162:1: rule__RefinedExpressionConstraint__RefinementAssignment_1_2 : ( ruleEclRefinement ) ;
+    // InternalEcl.g:10189:1: rule__RefinedExpressionConstraint__RefinementAssignment_1_2 : ( ruleEclRefinement ) ;
     public final void rule__RefinedExpressionConstraint__RefinementAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10166:1: ( ( ruleEclRefinement ) )
-            // InternalEcl.g:10167:2: ( ruleEclRefinement )
+            // InternalEcl.g:10193:1: ( ( ruleEclRefinement ) )
+            // InternalEcl.g:10194:2: ( ruleEclRefinement )
             {
-            // InternalEcl.g:10167:2: ( ruleEclRefinement )
-            // InternalEcl.g:10168:3: ruleEclRefinement
+            // InternalEcl.g:10194:2: ( ruleEclRefinement )
+            // InternalEcl.g:10195:3: ruleEclRefinement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRefinedExpressionConstraintAccess().getRefinementEclRefinementParserRuleCall_1_2_0()); 
@@ -33813,17 +33903,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DottedExpressionConstraint__AttributeAssignment_1_2"
-    // InternalEcl.g:10177:1: rule__DottedExpressionConstraint__AttributeAssignment_1_2 : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:10204:1: rule__DottedExpressionConstraint__AttributeAssignment_1_2 : ( ruleFilteredExpressionConstraint ) ;
     public final void rule__DottedExpressionConstraint__AttributeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10181:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:10182:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10208:1: ( ( ruleFilteredExpressionConstraint ) )
+            // InternalEcl.g:10209:2: ( ruleFilteredExpressionConstraint )
             {
-            // InternalEcl.g:10182:2: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:10183:3: ruleFilteredExpressionConstraint
+            // InternalEcl.g:10209:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10210:3: ruleFilteredExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0()); 
@@ -33858,17 +33948,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FilteredExpressionConstraint__FilterAssignment_1_1"
-    // InternalEcl.g:10192:1: rule__FilteredExpressionConstraint__FilterAssignment_1_1 : ( ruleFilterConstraint ) ;
+    // InternalEcl.g:10219:1: rule__FilteredExpressionConstraint__FilterAssignment_1_1 : ( ruleFilterConstraint ) ;
     public final void rule__FilteredExpressionConstraint__FilterAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10196:1: ( ( ruleFilterConstraint ) )
-            // InternalEcl.g:10197:2: ( ruleFilterConstraint )
+            // InternalEcl.g:10223:1: ( ( ruleFilterConstraint ) )
+            // InternalEcl.g:10224:2: ( ruleFilterConstraint )
             {
-            // InternalEcl.g:10197:2: ( ruleFilterConstraint )
-            // InternalEcl.g:10198:3: ruleFilterConstraint
+            // InternalEcl.g:10224:2: ( ruleFilterConstraint )
+            // InternalEcl.g:10225:3: ruleFilterConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); 
@@ -33903,17 +33993,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__SupplementAssignment_1_1"
-    // InternalEcl.g:10207:1: rule__SupplementExpressionConstraint__SupplementAssignment_1_1 : ( ruleSupplement ) ;
+    // InternalEcl.g:10234:1: rule__SupplementExpressionConstraint__SupplementAssignment_1_1 : ( ruleSupplement ) ;
     public final void rule__SupplementExpressionConstraint__SupplementAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10211:1: ( ( ruleSupplement ) )
-            // InternalEcl.g:10212:2: ( ruleSupplement )
+            // InternalEcl.g:10238:1: ( ( ruleSupplement ) )
+            // InternalEcl.g:10239:2: ( ruleSupplement )
             {
-            // InternalEcl.g:10212:2: ( ruleSupplement )
-            // InternalEcl.g:10213:3: ruleSupplement
+            // InternalEcl.g:10239:2: ( ruleSupplement )
+            // InternalEcl.g:10240:3: ruleSupplement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementSupplementParserRuleCall_1_1_0()); 
@@ -33948,17 +34038,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ChildOf__ConstraintAssignment_1"
-    // InternalEcl.g:10222:1: rule__ChildOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10249:1: rule__ChildOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__ChildOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10226:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10227:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10253:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10254:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10227:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10228:3: ruleEclFocusConcept
+            // InternalEcl.g:10254:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10255:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getChildOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -33993,17 +34083,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ChildOrSelfOf__ConstraintAssignment_1"
-    // InternalEcl.g:10237:1: rule__ChildOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10264:1: rule__ChildOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__ChildOrSelfOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10241:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10242:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10268:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10269:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10242:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10243:3: ruleEclFocusConcept
+            // InternalEcl.g:10269:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10270:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getChildOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34038,17 +34128,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DescendantOf__ConstraintAssignment_1"
-    // InternalEcl.g:10252:1: rule__DescendantOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10279:1: rule__DescendantOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__DescendantOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10256:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10257:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10283:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10284:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10257:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10258:3: ruleEclFocusConcept
+            // InternalEcl.g:10284:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10285:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDescendantOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34083,17 +34173,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DescendantOrSelfOf__ConstraintAssignment_1"
-    // InternalEcl.g:10267:1: rule__DescendantOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10294:1: rule__DescendantOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__DescendantOrSelfOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10271:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10272:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10298:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10299:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10272:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10273:3: ruleEclFocusConcept
+            // InternalEcl.g:10299:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10300:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDescendantOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34128,17 +34218,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParentOf__ConstraintAssignment_1"
-    // InternalEcl.g:10282:1: rule__ParentOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10309:1: rule__ParentOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__ParentOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10286:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10287:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10313:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10314:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10287:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10288:3: ruleEclFocusConcept
+            // InternalEcl.g:10314:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10315:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParentOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34173,17 +34263,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParentOrSelfOf__ConstraintAssignment_1"
-    // InternalEcl.g:10297:1: rule__ParentOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10324:1: rule__ParentOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__ParentOrSelfOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10301:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10302:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10328:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10329:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10302:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10303:3: ruleEclFocusConcept
+            // InternalEcl.g:10329:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10330:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParentOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34218,17 +34308,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AncestorOf__ConstraintAssignment_1"
-    // InternalEcl.g:10312:1: rule__AncestorOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10339:1: rule__AncestorOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__AncestorOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10316:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10317:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10343:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10344:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10317:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10318:3: ruleEclFocusConcept
+            // InternalEcl.g:10344:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10345:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAncestorOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34263,17 +34353,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AncestorOrSelfOf__ConstraintAssignment_1"
-    // InternalEcl.g:10327:1: rule__AncestorOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
+    // InternalEcl.g:10354:1: rule__AncestorOrSelfOf__ConstraintAssignment_1 : ( ruleEclFocusConcept ) ;
     public final void rule__AncestorOrSelfOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10331:1: ( ( ruleEclFocusConcept ) )
-            // InternalEcl.g:10332:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10358:1: ( ( ruleEclFocusConcept ) )
+            // InternalEcl.g:10359:2: ( ruleEclFocusConcept )
             {
-            // InternalEcl.g:10332:2: ( ruleEclFocusConcept )
-            // InternalEcl.g:10333:3: ruleEclFocusConcept
+            // InternalEcl.g:10359:2: ( ruleEclFocusConcept )
+            // InternalEcl.g:10360:3: ruleEclFocusConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAncestorOrSelfOfAccess().getConstraintEclFocusConceptParserRuleCall_1_0()); 
@@ -34308,23 +34398,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MemberOf__ConstraintAssignment_1"
-    // InternalEcl.g:10342:1: rule__MemberOf__ConstraintAssignment_1 : ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) ) ;
+    // InternalEcl.g:10369:1: rule__MemberOf__ConstraintAssignment_1 : ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) ) ;
     public final void rule__MemberOf__ConstraintAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10346:1: ( ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) ) )
-            // InternalEcl.g:10347:2: ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) )
+            // InternalEcl.g:10373:1: ( ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) ) )
+            // InternalEcl.g:10374:2: ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) )
             {
-            // InternalEcl.g:10347:2: ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) )
-            // InternalEcl.g:10348:3: ( rule__MemberOf__ConstraintAlternatives_1_0 )
+            // InternalEcl.g:10374:2: ( ( rule__MemberOf__ConstraintAlternatives_1_0 ) )
+            // InternalEcl.g:10375:3: ( rule__MemberOf__ConstraintAlternatives_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMemberOfAccess().getConstraintAlternatives_1_0()); 
             }
-            // InternalEcl.g:10349:3: ( rule__MemberOf__ConstraintAlternatives_1_0 )
-            // InternalEcl.g:10349:4: rule__MemberOf__ConstraintAlternatives_1_0
+            // InternalEcl.g:10376:3: ( rule__MemberOf__ConstraintAlternatives_1_0 )
+            // InternalEcl.g:10376:4: rule__MemberOf__ConstraintAlternatives_1_0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__MemberOf__ConstraintAlternatives_1_0();
@@ -34359,17 +34449,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EclConceptReference__IdAssignment_0"
-    // InternalEcl.g:10357:1: rule__EclConceptReference__IdAssignment_0 : ( ruleSnomedIdentifier ) ;
+    // InternalEcl.g:10384:1: rule__EclConceptReference__IdAssignment_0 : ( ruleSnomedIdentifier ) ;
     public final void rule__EclConceptReference__IdAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10361:1: ( ( ruleSnomedIdentifier ) )
-            // InternalEcl.g:10362:2: ( ruleSnomedIdentifier )
+            // InternalEcl.g:10388:1: ( ( ruleSnomedIdentifier ) )
+            // InternalEcl.g:10389:2: ( ruleSnomedIdentifier )
             {
-            // InternalEcl.g:10362:2: ( ruleSnomedIdentifier )
-            // InternalEcl.g:10363:3: ruleSnomedIdentifier
+            // InternalEcl.g:10389:2: ( ruleSnomedIdentifier )
+            // InternalEcl.g:10390:3: ruleSnomedIdentifier
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEclConceptReferenceAccess().getIdSnomedIdentifierParserRuleCall_0_0()); 
@@ -34404,17 +34494,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EclConceptReference__TermAssignment_1"
-    // InternalEcl.g:10372:1: rule__EclConceptReference__TermAssignment_1 : ( RULE_PIPE_DELIMITED_STRING ) ;
+    // InternalEcl.g:10399:1: rule__EclConceptReference__TermAssignment_1 : ( RULE_PIPE_DELIMITED_STRING ) ;
     public final void rule__EclConceptReference__TermAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10376:1: ( ( RULE_PIPE_DELIMITED_STRING ) )
-            // InternalEcl.g:10377:2: ( RULE_PIPE_DELIMITED_STRING )
+            // InternalEcl.g:10403:1: ( ( RULE_PIPE_DELIMITED_STRING ) )
+            // InternalEcl.g:10404:2: ( RULE_PIPE_DELIMITED_STRING )
             {
-            // InternalEcl.g:10377:2: ( RULE_PIPE_DELIMITED_STRING )
-            // InternalEcl.g:10378:3: RULE_PIPE_DELIMITED_STRING
+            // InternalEcl.g:10404:2: ( RULE_PIPE_DELIMITED_STRING )
+            // InternalEcl.g:10405:3: RULE_PIPE_DELIMITED_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEclConceptReferenceAccess().getTermPIPE_DELIMITED_STRINGTerminalRuleCall_1_0()); 
@@ -34445,17 +34535,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EclConceptReferenceSet__ConceptsAssignment_1"
-    // InternalEcl.g:10387:1: rule__EclConceptReferenceSet__ConceptsAssignment_1 : ( ruleEclConceptReference ) ;
+    // InternalEcl.g:10414:1: rule__EclConceptReferenceSet__ConceptsAssignment_1 : ( ruleEclConceptReference ) ;
     public final void rule__EclConceptReferenceSet__ConceptsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10391:1: ( ( ruleEclConceptReference ) )
-            // InternalEcl.g:10392:2: ( ruleEclConceptReference )
+            // InternalEcl.g:10418:1: ( ( ruleEclConceptReference ) )
+            // InternalEcl.g:10419:2: ( ruleEclConceptReference )
             {
-            // InternalEcl.g:10392:2: ( ruleEclConceptReference )
-            // InternalEcl.g:10393:3: ruleEclConceptReference
+            // InternalEcl.g:10419:2: ( ruleEclConceptReference )
+            // InternalEcl.g:10420:3: ruleEclConceptReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEclConceptReferenceSetAccess().getConceptsEclConceptReferenceParserRuleCall_1_0()); 
@@ -34490,17 +34580,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrRefinement__RightAssignment_1_0_2"
-    // InternalEcl.g:10402:1: rule__OrRefinement__RightAssignment_1_0_2 : ( ruleAndRefinement ) ;
+    // InternalEcl.g:10429:1: rule__OrRefinement__RightAssignment_1_0_2 : ( ruleAndRefinement ) ;
     public final void rule__OrRefinement__RightAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10406:1: ( ( ruleAndRefinement ) )
-            // InternalEcl.g:10407:2: ( ruleAndRefinement )
+            // InternalEcl.g:10433:1: ( ( ruleAndRefinement ) )
+            // InternalEcl.g:10434:2: ( ruleAndRefinement )
             {
-            // InternalEcl.g:10407:2: ( ruleAndRefinement )
-            // InternalEcl.g:10408:3: ruleAndRefinement
+            // InternalEcl.g:10434:2: ( ruleAndRefinement )
+            // InternalEcl.g:10435:3: ruleAndRefinement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOrRefinementAccess().getRightAndRefinementParserRuleCall_1_0_2_0()); 
@@ -34535,17 +34625,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AndRefinement__RightAssignment_1_0_2"
-    // InternalEcl.g:10417:1: rule__AndRefinement__RightAssignment_1_0_2 : ( ruleSubRefinement ) ;
+    // InternalEcl.g:10444:1: rule__AndRefinement__RightAssignment_1_0_2 : ( ruleSubRefinement ) ;
     public final void rule__AndRefinement__RightAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10421:1: ( ( ruleSubRefinement ) )
-            // InternalEcl.g:10422:2: ( ruleSubRefinement )
+            // InternalEcl.g:10448:1: ( ( ruleSubRefinement ) )
+            // InternalEcl.g:10449:2: ( ruleSubRefinement )
             {
-            // InternalEcl.g:10422:2: ( ruleSubRefinement )
-            // InternalEcl.g:10423:3: ruleSubRefinement
+            // InternalEcl.g:10449:2: ( ruleSubRefinement )
+            // InternalEcl.g:10450:3: ruleSubRefinement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAndRefinementAccess().getRightSubRefinementParserRuleCall_1_0_2_0()); 
@@ -34580,17 +34670,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NestedRefinement__NestedAssignment_1"
-    // InternalEcl.g:10432:1: rule__NestedRefinement__NestedAssignment_1 : ( ruleEclRefinement ) ;
+    // InternalEcl.g:10459:1: rule__NestedRefinement__NestedAssignment_1 : ( ruleEclRefinement ) ;
     public final void rule__NestedRefinement__NestedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10436:1: ( ( ruleEclRefinement ) )
-            // InternalEcl.g:10437:2: ( ruleEclRefinement )
+            // InternalEcl.g:10463:1: ( ( ruleEclRefinement ) )
+            // InternalEcl.g:10464:2: ( ruleEclRefinement )
             {
-            // InternalEcl.g:10437:2: ( ruleEclRefinement )
-            // InternalEcl.g:10438:3: ruleEclRefinement
+            // InternalEcl.g:10464:2: ( ruleEclRefinement )
+            // InternalEcl.g:10465:3: ruleEclRefinement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedRefinementAccess().getNestedEclRefinementParserRuleCall_1_0()); 
@@ -34625,17 +34715,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EclAttributeGroup__CardinalityAssignment_0"
-    // InternalEcl.g:10447:1: rule__EclAttributeGroup__CardinalityAssignment_0 : ( ruleCardinality ) ;
+    // InternalEcl.g:10474:1: rule__EclAttributeGroup__CardinalityAssignment_0 : ( ruleCardinality ) ;
     public final void rule__EclAttributeGroup__CardinalityAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10451:1: ( ( ruleCardinality ) )
-            // InternalEcl.g:10452:2: ( ruleCardinality )
+            // InternalEcl.g:10478:1: ( ( ruleCardinality ) )
+            // InternalEcl.g:10479:2: ( ruleCardinality )
             {
-            // InternalEcl.g:10452:2: ( ruleCardinality )
-            // InternalEcl.g:10453:3: ruleCardinality
+            // InternalEcl.g:10479:2: ( ruleCardinality )
+            // InternalEcl.g:10480:3: ruleCardinality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEclAttributeGroupAccess().getCardinalityCardinalityParserRuleCall_0_0()); 
@@ -34670,17 +34760,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EclAttributeGroup__RefinementAssignment_2"
-    // InternalEcl.g:10462:1: rule__EclAttributeGroup__RefinementAssignment_2 : ( ruleEclAttributeSet ) ;
+    // InternalEcl.g:10489:1: rule__EclAttributeGroup__RefinementAssignment_2 : ( ruleEclAttributeSet ) ;
     public final void rule__EclAttributeGroup__RefinementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10466:1: ( ( ruleEclAttributeSet ) )
-            // InternalEcl.g:10467:2: ( ruleEclAttributeSet )
+            // InternalEcl.g:10493:1: ( ( ruleEclAttributeSet ) )
+            // InternalEcl.g:10494:2: ( ruleEclAttributeSet )
             {
-            // InternalEcl.g:10467:2: ( ruleEclAttributeSet )
-            // InternalEcl.g:10468:3: ruleEclAttributeSet
+            // InternalEcl.g:10494:2: ( ruleEclAttributeSet )
+            // InternalEcl.g:10495:3: ruleEclAttributeSet
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEclAttributeGroupAccess().getRefinementEclAttributeSetParserRuleCall_2_0()); 
@@ -34715,17 +34805,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrAttributeSet__RightAssignment_1_2"
-    // InternalEcl.g:10477:1: rule__OrAttributeSet__RightAssignment_1_2 : ( ruleAndAttributeSet ) ;
+    // InternalEcl.g:10504:1: rule__OrAttributeSet__RightAssignment_1_2 : ( ruleAndAttributeSet ) ;
     public final void rule__OrAttributeSet__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10481:1: ( ( ruleAndAttributeSet ) )
-            // InternalEcl.g:10482:2: ( ruleAndAttributeSet )
+            // InternalEcl.g:10508:1: ( ( ruleAndAttributeSet ) )
+            // InternalEcl.g:10509:2: ( ruleAndAttributeSet )
             {
-            // InternalEcl.g:10482:2: ( ruleAndAttributeSet )
-            // InternalEcl.g:10483:3: ruleAndAttributeSet
+            // InternalEcl.g:10509:2: ( ruleAndAttributeSet )
+            // InternalEcl.g:10510:3: ruleAndAttributeSet
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOrAttributeSetAccess().getRightAndAttributeSetParserRuleCall_1_2_0()); 
@@ -34760,17 +34850,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AndAttributeSet__RightAssignment_1_2"
-    // InternalEcl.g:10492:1: rule__AndAttributeSet__RightAssignment_1_2 : ( ruleSubAttributeSet ) ;
+    // InternalEcl.g:10519:1: rule__AndAttributeSet__RightAssignment_1_2 : ( ruleSubAttributeSet ) ;
     public final void rule__AndAttributeSet__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10496:1: ( ( ruleSubAttributeSet ) )
-            // InternalEcl.g:10497:2: ( ruleSubAttributeSet )
+            // InternalEcl.g:10523:1: ( ( ruleSubAttributeSet ) )
+            // InternalEcl.g:10524:2: ( ruleSubAttributeSet )
             {
-            // InternalEcl.g:10497:2: ( ruleSubAttributeSet )
-            // InternalEcl.g:10498:3: ruleSubAttributeSet
+            // InternalEcl.g:10524:2: ( ruleSubAttributeSet )
+            // InternalEcl.g:10525:3: ruleSubAttributeSet
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAndAttributeSetAccess().getRightSubAttributeSetParserRuleCall_1_2_0()); 
@@ -34805,17 +34895,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NestedAttributeSet__NestedAssignment_1"
-    // InternalEcl.g:10507:1: rule__NestedAttributeSet__NestedAssignment_1 : ( ruleEclAttributeSet ) ;
+    // InternalEcl.g:10534:1: rule__NestedAttributeSet__NestedAssignment_1 : ( ruleEclAttributeSet ) ;
     public final void rule__NestedAttributeSet__NestedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10511:1: ( ( ruleEclAttributeSet ) )
-            // InternalEcl.g:10512:2: ( ruleEclAttributeSet )
+            // InternalEcl.g:10538:1: ( ( ruleEclAttributeSet ) )
+            // InternalEcl.g:10539:2: ( ruleEclAttributeSet )
             {
-            // InternalEcl.g:10512:2: ( ruleEclAttributeSet )
-            // InternalEcl.g:10513:3: ruleEclAttributeSet
+            // InternalEcl.g:10539:2: ( ruleEclAttributeSet )
+            // InternalEcl.g:10540:3: ruleEclAttributeSet
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedAttributeSetAccess().getNestedEclAttributeSetParserRuleCall_1_0()); 
@@ -34850,17 +34940,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeConstraint__CardinalityAssignment_0"
-    // InternalEcl.g:10522:1: rule__AttributeConstraint__CardinalityAssignment_0 : ( ruleCardinality ) ;
+    // InternalEcl.g:10549:1: rule__AttributeConstraint__CardinalityAssignment_0 : ( ruleCardinality ) ;
     public final void rule__AttributeConstraint__CardinalityAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10526:1: ( ( ruleCardinality ) )
-            // InternalEcl.g:10527:2: ( ruleCardinality )
+            // InternalEcl.g:10553:1: ( ( ruleCardinality ) )
+            // InternalEcl.g:10554:2: ( ruleCardinality )
             {
-            // InternalEcl.g:10527:2: ( ruleCardinality )
-            // InternalEcl.g:10528:3: ruleCardinality
+            // InternalEcl.g:10554:2: ( ruleCardinality )
+            // InternalEcl.g:10555:3: ruleCardinality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeConstraintAccess().getCardinalityCardinalityParserRuleCall_0_0()); 
@@ -34895,17 +34985,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeConstraint__ReversedAssignment_1"
-    // InternalEcl.g:10537:1: rule__AttributeConstraint__ReversedAssignment_1 : ( RULE_REVERSED ) ;
+    // InternalEcl.g:10564:1: rule__AttributeConstraint__ReversedAssignment_1 : ( RULE_REVERSED ) ;
     public final void rule__AttributeConstraint__ReversedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10541:1: ( ( RULE_REVERSED ) )
-            // InternalEcl.g:10542:2: ( RULE_REVERSED )
+            // InternalEcl.g:10568:1: ( ( RULE_REVERSED ) )
+            // InternalEcl.g:10569:2: ( RULE_REVERSED )
             {
-            // InternalEcl.g:10542:2: ( RULE_REVERSED )
-            // InternalEcl.g:10543:3: RULE_REVERSED
+            // InternalEcl.g:10569:2: ( RULE_REVERSED )
+            // InternalEcl.g:10570:3: RULE_REVERSED
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeConstraintAccess().getReversedREVERSEDTerminalRuleCall_1_0()); 
@@ -34936,17 +35026,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeConstraint__AttributeAssignment_2"
-    // InternalEcl.g:10552:1: rule__AttributeConstraint__AttributeAssignment_2 : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:10579:1: rule__AttributeConstraint__AttributeAssignment_2 : ( ruleFilteredExpressionConstraint ) ;
     public final void rule__AttributeConstraint__AttributeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10556:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:10557:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10583:1: ( ( ruleFilteredExpressionConstraint ) )
+            // InternalEcl.g:10584:2: ( ruleFilteredExpressionConstraint )
             {
-            // InternalEcl.g:10557:2: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:10558:3: ruleFilteredExpressionConstraint
+            // InternalEcl.g:10584:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10585:3: ruleFilteredExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_2_0()); 
@@ -34981,17 +35071,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeConstraint__ComparisonAssignment_3"
-    // InternalEcl.g:10567:1: rule__AttributeConstraint__ComparisonAssignment_3 : ( ruleComparison ) ;
+    // InternalEcl.g:10594:1: rule__AttributeConstraint__ComparisonAssignment_3 : ( ruleComparison ) ;
     public final void rule__AttributeConstraint__ComparisonAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10571:1: ( ( ruleComparison ) )
-            // InternalEcl.g:10572:2: ( ruleComparison )
+            // InternalEcl.g:10598:1: ( ( ruleComparison ) )
+            // InternalEcl.g:10599:2: ( ruleComparison )
             {
-            // InternalEcl.g:10572:2: ( ruleComparison )
-            // InternalEcl.g:10573:3: ruleComparison
+            // InternalEcl.g:10599:2: ( ruleComparison )
+            // InternalEcl.g:10600:3: ruleComparison
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeConstraintAccess().getComparisonComparisonParserRuleCall_3_0()); 
@@ -35026,17 +35116,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cardinality__MinAssignment_1"
-    // InternalEcl.g:10582:1: rule__Cardinality__MinAssignment_1 : ( ruleNonNegativeInteger ) ;
+    // InternalEcl.g:10609:1: rule__Cardinality__MinAssignment_1 : ( ruleNonNegativeInteger ) ;
     public final void rule__Cardinality__MinAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10586:1: ( ( ruleNonNegativeInteger ) )
-            // InternalEcl.g:10587:2: ( ruleNonNegativeInteger )
+            // InternalEcl.g:10613:1: ( ( ruleNonNegativeInteger ) )
+            // InternalEcl.g:10614:2: ( ruleNonNegativeInteger )
             {
-            // InternalEcl.g:10587:2: ( ruleNonNegativeInteger )
-            // InternalEcl.g:10588:3: ruleNonNegativeInteger
+            // InternalEcl.g:10614:2: ( ruleNonNegativeInteger )
+            // InternalEcl.g:10615:3: ruleNonNegativeInteger
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCardinalityAccess().getMinNonNegativeIntegerParserRuleCall_1_0()); 
@@ -35071,17 +35161,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Cardinality__MaxAssignment_3"
-    // InternalEcl.g:10597:1: rule__Cardinality__MaxAssignment_3 : ( ruleMaxValue ) ;
+    // InternalEcl.g:10624:1: rule__Cardinality__MaxAssignment_3 : ( ruleMaxValue ) ;
     public final void rule__Cardinality__MaxAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10601:1: ( ( ruleMaxValue ) )
-            // InternalEcl.g:10602:2: ( ruleMaxValue )
+            // InternalEcl.g:10628:1: ( ( ruleMaxValue ) )
+            // InternalEcl.g:10629:2: ( ruleMaxValue )
             {
-            // InternalEcl.g:10602:2: ( ruleMaxValue )
-            // InternalEcl.g:10603:3: ruleMaxValue
+            // InternalEcl.g:10629:2: ( ruleMaxValue )
+            // InternalEcl.g:10630:3: ruleMaxValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCardinalityAccess().getMaxMaxValueParserRuleCall_3_0()); 
@@ -35116,17 +35206,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeComparison__OpAssignment_0"
-    // InternalEcl.g:10612:1: rule__AttributeComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10639:1: rule__AttributeComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__AttributeComparison__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10616:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10617:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10643:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:10644:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10617:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10618:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:10644:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10645:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35161,17 +35251,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeComparison__ValueAssignment_1"
-    // InternalEcl.g:10627:1: rule__AttributeComparison__ValueAssignment_1 : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:10654:1: rule__AttributeComparison__ValueAssignment_1 : ( ruleFilteredExpressionConstraint ) ;
     public final void rule__AttributeComparison__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10631:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:10632:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10658:1: ( ( ruleFilteredExpressionConstraint ) )
+            // InternalEcl.g:10659:2: ( ruleFilteredExpressionConstraint )
             {
-            // InternalEcl.g:10632:2: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:10633:3: ruleFilteredExpressionConstraint
+            // InternalEcl.g:10659:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10660:3: ruleFilteredExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeComparisonAccess().getValueFilteredExpressionConstraintParserRuleCall_1_0()); 
@@ -35206,17 +35296,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanValueComparison__OpAssignment_0"
-    // InternalEcl.g:10642:1: rule__BooleanValueComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10669:1: rule__BooleanValueComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__BooleanValueComparison__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10646:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10647:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10673:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:10674:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10647:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10648:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:10674:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10675:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanValueComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35251,17 +35341,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanValueComparison__ValueAssignment_1"
-    // InternalEcl.g:10657:1: rule__BooleanValueComparison__ValueAssignment_1 : ( ruleBoolean ) ;
+    // InternalEcl.g:10684:1: rule__BooleanValueComparison__ValueAssignment_1 : ( ruleBoolean ) ;
     public final void rule__BooleanValueComparison__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10661:1: ( ( ruleBoolean ) )
-            // InternalEcl.g:10662:2: ( ruleBoolean )
+            // InternalEcl.g:10688:1: ( ( ruleBoolean ) )
+            // InternalEcl.g:10689:2: ( ruleBoolean )
             {
-            // InternalEcl.g:10662:2: ( ruleBoolean )
-            // InternalEcl.g:10663:3: ruleBoolean
+            // InternalEcl.g:10689:2: ( ruleBoolean )
+            // InternalEcl.g:10690:3: ruleBoolean
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanValueComparisonAccess().getValueBooleanParserRuleCall_1_0()); 
@@ -35296,17 +35386,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringValueComparison__OpAssignment_0"
-    // InternalEcl.g:10672:1: rule__StringValueComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10699:1: rule__StringValueComparison__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__StringValueComparison__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10676:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10677:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10703:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:10704:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10677:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10678:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:10704:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10705:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStringValueComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35341,17 +35431,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringValueComparison__ValueAssignment_1"
-    // InternalEcl.g:10687:1: rule__StringValueComparison__ValueAssignment_1 : ( RULE_STRING ) ;
+    // InternalEcl.g:10714:1: rule__StringValueComparison__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__StringValueComparison__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10691:1: ( ( RULE_STRING ) )
-            // InternalEcl.g:10692:2: ( RULE_STRING )
+            // InternalEcl.g:10718:1: ( ( RULE_STRING ) )
+            // InternalEcl.g:10719:2: ( RULE_STRING )
             {
-            // InternalEcl.g:10692:2: ( RULE_STRING )
-            // InternalEcl.g:10693:3: RULE_STRING
+            // InternalEcl.g:10719:2: ( RULE_STRING )
+            // InternalEcl.g:10720:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStringValueComparisonAccess().getValueSTRINGTerminalRuleCall_1_0()); 
@@ -35382,17 +35472,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerValueComparison__OpAssignment_0"
-    // InternalEcl.g:10702:1: rule__IntegerValueComparison__OpAssignment_0 : ( ruleNUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10729:1: rule__IntegerValueComparison__OpAssignment_0 : ( ruleNUMERIC_OPERATOR ) ;
     public final void rule__IntegerValueComparison__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10706:1: ( ( ruleNUMERIC_OPERATOR ) )
-            // InternalEcl.g:10707:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:10733:1: ( ( ruleNUMERIC_OPERATOR ) )
+            // InternalEcl.g:10734:2: ( ruleNUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10707:2: ( ruleNUMERIC_OPERATOR )
-            // InternalEcl.g:10708:3: ruleNUMERIC_OPERATOR
+            // InternalEcl.g:10734:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:10735:3: ruleNUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerValueComparisonAccess().getOpNUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35427,17 +35517,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerValueComparison__ValueAssignment_2"
-    // InternalEcl.g:10717:1: rule__IntegerValueComparison__ValueAssignment_2 : ( ruleInteger ) ;
+    // InternalEcl.g:10744:1: rule__IntegerValueComparison__ValueAssignment_2 : ( ruleInteger ) ;
     public final void rule__IntegerValueComparison__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10721:1: ( ( ruleInteger ) )
-            // InternalEcl.g:10722:2: ( ruleInteger )
+            // InternalEcl.g:10748:1: ( ( ruleInteger ) )
+            // InternalEcl.g:10749:2: ( ruleInteger )
             {
-            // InternalEcl.g:10722:2: ( ruleInteger )
-            // InternalEcl.g:10723:3: ruleInteger
+            // InternalEcl.g:10749:2: ( ruleInteger )
+            // InternalEcl.g:10750:3: ruleInteger
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerValueComparisonAccess().getValueIntegerParserRuleCall_2_0()); 
@@ -35472,17 +35562,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DecimalValueComparison__OpAssignment_0"
-    // InternalEcl.g:10732:1: rule__DecimalValueComparison__OpAssignment_0 : ( ruleNUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10759:1: rule__DecimalValueComparison__OpAssignment_0 : ( ruleNUMERIC_OPERATOR ) ;
     public final void rule__DecimalValueComparison__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10736:1: ( ( ruleNUMERIC_OPERATOR ) )
-            // InternalEcl.g:10737:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:10763:1: ( ( ruleNUMERIC_OPERATOR ) )
+            // InternalEcl.g:10764:2: ( ruleNUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10737:2: ( ruleNUMERIC_OPERATOR )
-            // InternalEcl.g:10738:3: ruleNUMERIC_OPERATOR
+            // InternalEcl.g:10764:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:10765:3: ruleNUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDecimalValueComparisonAccess().getOpNUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35517,17 +35607,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DecimalValueComparison__ValueAssignment_2"
-    // InternalEcl.g:10747:1: rule__DecimalValueComparison__ValueAssignment_2 : ( ruleDecimal ) ;
+    // InternalEcl.g:10774:1: rule__DecimalValueComparison__ValueAssignment_2 : ( ruleDecimal ) ;
     public final void rule__DecimalValueComparison__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10751:1: ( ( ruleDecimal ) )
-            // InternalEcl.g:10752:2: ( ruleDecimal )
+            // InternalEcl.g:10778:1: ( ( ruleDecimal ) )
+            // InternalEcl.g:10779:2: ( ruleDecimal )
             {
-            // InternalEcl.g:10752:2: ( ruleDecimal )
-            // InternalEcl.g:10753:3: ruleDecimal
+            // InternalEcl.g:10779:2: ( ruleDecimal )
+            // InternalEcl.g:10780:3: ruleDecimal
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDecimalValueComparisonAccess().getValueDecimalParserRuleCall_2_0()); 
@@ -35562,17 +35652,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NestedExpression__NestedAssignment_1"
-    // InternalEcl.g:10762:1: rule__NestedExpression__NestedAssignment_1 : ( ruleExpressionConstraint ) ;
+    // InternalEcl.g:10789:1: rule__NestedExpression__NestedAssignment_1 : ( ruleExpressionConstraint ) ;
     public final void rule__NestedExpression__NestedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10766:1: ( ( ruleExpressionConstraint ) )
-            // InternalEcl.g:10767:2: ( ruleExpressionConstraint )
+            // InternalEcl.g:10793:1: ( ( ruleExpressionConstraint ) )
+            // InternalEcl.g:10794:2: ( ruleExpressionConstraint )
             {
-            // InternalEcl.g:10767:2: ( ruleExpressionConstraint )
-            // InternalEcl.g:10768:3: ruleExpressionConstraint
+            // InternalEcl.g:10794:2: ( ruleExpressionConstraint )
+            // InternalEcl.g:10795:3: ruleExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedExpressionAccess().getNestedExpressionConstraintParserRuleCall_1_0()); 
@@ -35607,17 +35697,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FilterConstraint__DomainAssignment_1"
-    // InternalEcl.g:10777:1: rule__FilterConstraint__DomainAssignment_1 : ( ruleSHORT_DOMAIN ) ;
+    // InternalEcl.g:10804:1: rule__FilterConstraint__DomainAssignment_1 : ( ruleSHORT_DOMAIN ) ;
     public final void rule__FilterConstraint__DomainAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10781:1: ( ( ruleSHORT_DOMAIN ) )
-            // InternalEcl.g:10782:2: ( ruleSHORT_DOMAIN )
+            // InternalEcl.g:10808:1: ( ( ruleSHORT_DOMAIN ) )
+            // InternalEcl.g:10809:2: ( ruleSHORT_DOMAIN )
             {
-            // InternalEcl.g:10782:2: ( ruleSHORT_DOMAIN )
-            // InternalEcl.g:10783:3: ruleSHORT_DOMAIN
+            // InternalEcl.g:10809:2: ( ruleSHORT_DOMAIN )
+            // InternalEcl.g:10810:3: ruleSHORT_DOMAIN
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFilterConstraintAccess().getDomainSHORT_DOMAINParserRuleCall_1_0()); 
@@ -35652,17 +35742,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FilterConstraint__FilterAssignment_2"
-    // InternalEcl.g:10792:1: rule__FilterConstraint__FilterAssignment_2 : ( ruleFilter ) ;
+    // InternalEcl.g:10819:1: rule__FilterConstraint__FilterAssignment_2 : ( ruleFilter ) ;
     public final void rule__FilterConstraint__FilterAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10796:1: ( ( ruleFilter ) )
-            // InternalEcl.g:10797:2: ( ruleFilter )
+            // InternalEcl.g:10823:1: ( ( ruleFilter ) )
+            // InternalEcl.g:10824:2: ( ruleFilter )
             {
-            // InternalEcl.g:10797:2: ( ruleFilter )
-            // InternalEcl.g:10798:3: ruleFilter
+            // InternalEcl.g:10824:2: ( ruleFilter )
+            // InternalEcl.g:10825:3: ruleFilter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFilterConstraintAccess().getFilterFilterParserRuleCall_2_0()); 
@@ -35697,17 +35787,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DisjunctionFilter__RightAssignment_1_2"
-    // InternalEcl.g:10807:1: rule__DisjunctionFilter__RightAssignment_1_2 : ( ruleConjunctionFilter ) ;
+    // InternalEcl.g:10834:1: rule__DisjunctionFilter__RightAssignment_1_2 : ( ruleConjunctionFilter ) ;
     public final void rule__DisjunctionFilter__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10811:1: ( ( ruleConjunctionFilter ) )
-            // InternalEcl.g:10812:2: ( ruleConjunctionFilter )
+            // InternalEcl.g:10838:1: ( ( ruleConjunctionFilter ) )
+            // InternalEcl.g:10839:2: ( ruleConjunctionFilter )
             {
-            // InternalEcl.g:10812:2: ( ruleConjunctionFilter )
-            // InternalEcl.g:10813:3: ruleConjunctionFilter
+            // InternalEcl.g:10839:2: ( ruleConjunctionFilter )
+            // InternalEcl.g:10840:3: ruleConjunctionFilter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDisjunctionFilterAccess().getRightConjunctionFilterParserRuleCall_1_2_0()); 
@@ -35742,17 +35832,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConjunctionFilter__RightAssignment_1_2"
-    // InternalEcl.g:10822:1: rule__ConjunctionFilter__RightAssignment_1_2 : ( rulePropertyFilter ) ;
+    // InternalEcl.g:10849:1: rule__ConjunctionFilter__RightAssignment_1_2 : ( rulePropertyFilter ) ;
     public final void rule__ConjunctionFilter__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10826:1: ( ( rulePropertyFilter ) )
-            // InternalEcl.g:10827:2: ( rulePropertyFilter )
+            // InternalEcl.g:10853:1: ( ( rulePropertyFilter ) )
+            // InternalEcl.g:10854:2: ( rulePropertyFilter )
             {
-            // InternalEcl.g:10827:2: ( rulePropertyFilter )
-            // InternalEcl.g:10828:3: rulePropertyFilter
+            // InternalEcl.g:10854:2: ( rulePropertyFilter )
+            // InternalEcl.g:10855:3: rulePropertyFilter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConjunctionFilterAccess().getRightPropertyFilterParserRuleCall_1_2_0()); 
@@ -35787,17 +35877,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NestedFilter__NestedAssignment_1"
-    // InternalEcl.g:10837:1: rule__NestedFilter__NestedAssignment_1 : ( ruleFilter ) ;
+    // InternalEcl.g:10864:1: rule__NestedFilter__NestedAssignment_1 : ( ruleFilter ) ;
     public final void rule__NestedFilter__NestedAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10841:1: ( ( ruleFilter ) )
-            // InternalEcl.g:10842:2: ( ruleFilter )
+            // InternalEcl.g:10868:1: ( ( ruleFilter ) )
+            // InternalEcl.g:10869:2: ( ruleFilter )
             {
-            // InternalEcl.g:10842:2: ( ruleFilter )
-            // InternalEcl.g:10843:3: ruleFilter
+            // InternalEcl.g:10869:2: ( ruleFilter )
+            // InternalEcl.g:10870:3: ruleFilter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedFilterAccess().getNestedFilterParserRuleCall_1_0()); 
@@ -35832,17 +35922,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilter__OpAssignment_0"
-    // InternalEcl.g:10852:1: rule__TypedTermFilter__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10879:1: rule__TypedTermFilter__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__TypedTermFilter__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10856:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10857:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10883:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:10884:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10857:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10858:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:10884:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10885:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35877,17 +35967,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilter__ClauseAssignment_1"
-    // InternalEcl.g:10867:1: rule__TypedTermFilter__ClauseAssignment_1 : ( ruleTypedTermFilterClause ) ;
+    // InternalEcl.g:10894:1: rule__TypedTermFilter__ClauseAssignment_1 : ( ruleTypedTermFilterClause ) ;
     public final void rule__TypedTermFilter__ClauseAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10871:1: ( ( ruleTypedTermFilterClause ) )
-            // InternalEcl.g:10872:2: ( ruleTypedTermFilterClause )
+            // InternalEcl.g:10898:1: ( ( ruleTypedTermFilterClause ) )
+            // InternalEcl.g:10899:2: ( ruleTypedTermFilterClause )
             {
-            // InternalEcl.g:10872:2: ( ruleTypedTermFilterClause )
-            // InternalEcl.g:10873:3: ruleTypedTermFilterClause
+            // InternalEcl.g:10899:2: ( ruleTypedTermFilterClause )
+            // InternalEcl.g:10900:3: ruleTypedTermFilterClause
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterAccess().getClauseTypedTermFilterClauseParserRuleCall_1_0()); 
@@ -35922,17 +36012,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterSet__OpAssignment_0"
-    // InternalEcl.g:10882:1: rule__TypedTermFilterSet__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10909:1: rule__TypedTermFilterSet__OpAssignment_0 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__TypedTermFilterSet__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10886:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10887:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10913:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:10914:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10887:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10888:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:10914:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:10915:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterSetAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0()); 
@@ -35967,17 +36057,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterSet__ClausesAssignment_2"
-    // InternalEcl.g:10897:1: rule__TypedTermFilterSet__ClausesAssignment_2 : ( ruleTypedTermFilterClause ) ;
+    // InternalEcl.g:10924:1: rule__TypedTermFilterSet__ClausesAssignment_2 : ( ruleTypedTermFilterClause ) ;
     public final void rule__TypedTermFilterSet__ClausesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10901:1: ( ( ruleTypedTermFilterClause ) )
-            // InternalEcl.g:10902:2: ( ruleTypedTermFilterClause )
+            // InternalEcl.g:10928:1: ( ( ruleTypedTermFilterClause ) )
+            // InternalEcl.g:10929:2: ( ruleTypedTermFilterClause )
             {
-            // InternalEcl.g:10902:2: ( ruleTypedTermFilterClause )
-            // InternalEcl.g:10903:3: ruleTypedTermFilterClause
+            // InternalEcl.g:10929:2: ( ruleTypedTermFilterClause )
+            // InternalEcl.g:10930:3: ruleTypedTermFilterClause
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterSetAccess().getClausesTypedTermFilterClauseParserRuleCall_2_0()); 
@@ -36012,17 +36102,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0_0"
-    // InternalEcl.g:10912:1: rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0_0 : ( ruleLEXICAL_SEARCH_TYPE ) ;
+    // InternalEcl.g:10939:1: rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0_0 : ( ruleLEXICAL_SEARCH_TYPE ) ;
     public final void rule__TypedTermFilterClause__LexicalSearchTypeAssignment_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10916:1: ( ( ruleLEXICAL_SEARCH_TYPE ) )
-            // InternalEcl.g:10917:2: ( ruleLEXICAL_SEARCH_TYPE )
+            // InternalEcl.g:10943:1: ( ( ruleLEXICAL_SEARCH_TYPE ) )
+            // InternalEcl.g:10944:2: ( ruleLEXICAL_SEARCH_TYPE )
             {
-            // InternalEcl.g:10917:2: ( ruleLEXICAL_SEARCH_TYPE )
-            // InternalEcl.g:10918:3: ruleLEXICAL_SEARCH_TYPE
+            // InternalEcl.g:10944:2: ( ruleLEXICAL_SEARCH_TYPE )
+            // InternalEcl.g:10945:3: ruleLEXICAL_SEARCH_TYPE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeLEXICAL_SEARCH_TYPEParserRuleCall_0_0_0_0()); 
@@ -36057,17 +36147,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterClause__TermAssignment_0_1"
-    // InternalEcl.g:10927:1: rule__TypedTermFilterClause__TermAssignment_0_1 : ( RULE_STRING ) ;
+    // InternalEcl.g:10954:1: rule__TypedTermFilterClause__TermAssignment_0_1 : ( RULE_STRING ) ;
     public final void rule__TypedTermFilterClause__TermAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10931:1: ( ( RULE_STRING ) )
-            // InternalEcl.g:10932:2: ( RULE_STRING )
+            // InternalEcl.g:10958:1: ( ( RULE_STRING ) )
+            // InternalEcl.g:10959:2: ( RULE_STRING )
             {
-            // InternalEcl.g:10932:2: ( RULE_STRING )
-            // InternalEcl.g:10933:3: RULE_STRING
+            // InternalEcl.g:10959:2: ( RULE_STRING )
+            // InternalEcl.g:10960:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterClauseAccess().getTermSTRINGTerminalRuleCall_0_1_0()); 
@@ -36098,17 +36188,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterClause__LexicalSearchTypeAssignment_1_0"
-    // InternalEcl.g:10942:1: rule__TypedTermFilterClause__LexicalSearchTypeAssignment_1_0 : ( RULE_REGEX_KEYWORD ) ;
+    // InternalEcl.g:10969:1: rule__TypedTermFilterClause__LexicalSearchTypeAssignment_1_0 : ( RULE_REGEX_KEYWORD ) ;
     public final void rule__TypedTermFilterClause__LexicalSearchTypeAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10946:1: ( ( RULE_REGEX_KEYWORD ) )
-            // InternalEcl.g:10947:2: ( RULE_REGEX_KEYWORD )
+            // InternalEcl.g:10973:1: ( ( RULE_REGEX_KEYWORD ) )
+            // InternalEcl.g:10974:2: ( RULE_REGEX_KEYWORD )
             {
-            // InternalEcl.g:10947:2: ( RULE_REGEX_KEYWORD )
-            // InternalEcl.g:10948:3: RULE_REGEX_KEYWORD
+            // InternalEcl.g:10974:2: ( RULE_REGEX_KEYWORD )
+            // InternalEcl.g:10975:3: RULE_REGEX_KEYWORD
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterClauseAccess().getLexicalSearchTypeREGEX_KEYWORDTerminalRuleCall_1_0_0()); 
@@ -36139,17 +36229,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypedTermFilterClause__TermAssignment_1_2"
-    // InternalEcl.g:10957:1: rule__TypedTermFilterClause__TermAssignment_1_2 : ( ruleRegularExpression ) ;
+    // InternalEcl.g:10984:1: rule__TypedTermFilterClause__TermAssignment_1_2 : ( ruleRegularExpression ) ;
     public final void rule__TypedTermFilterClause__TermAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10961:1: ( ( ruleRegularExpression ) )
-            // InternalEcl.g:10962:2: ( ruleRegularExpression )
+            // InternalEcl.g:10988:1: ( ( ruleRegularExpression ) )
+            // InternalEcl.g:10989:2: ( ruleRegularExpression )
             {
-            // InternalEcl.g:10962:2: ( ruleRegularExpression )
-            // InternalEcl.g:10963:3: ruleRegularExpression
+            // InternalEcl.g:10989:2: ( ruleRegularExpression )
+            // InternalEcl.g:10990:3: ruleRegularExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypedTermFilterClauseAccess().getTermRegularExpressionParserRuleCall_1_2_0()); 
@@ -36184,17 +36274,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LanguageFilter__OpAssignment_1"
-    // InternalEcl.g:10972:1: rule__LanguageFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:10999:1: rule__LanguageFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__LanguageFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10976:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:10977:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11003:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11004:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:10977:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:10978:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11004:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11005:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLanguageFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -36229,17 +36319,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LanguageFilter__LanguageCodesAssignment_2_0"
-    // InternalEcl.g:10987:1: rule__LanguageFilter__LanguageCodesAssignment_2_0 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11014:1: rule__LanguageFilter__LanguageCodesAssignment_2_0 : ( ruleUnquotedString ) ;
     public final void rule__LanguageFilter__LanguageCodesAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10991:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:10992:2: ( ruleUnquotedString )
+            // InternalEcl.g:11018:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11019:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:10992:2: ( ruleUnquotedString )
-            // InternalEcl.g:10993:3: ruleUnquotedString
+            // InternalEcl.g:11019:2: ( ruleUnquotedString )
+            // InternalEcl.g:11020:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLanguageFilterAccess().getLanguageCodesUnquotedStringParserRuleCall_2_0_0()); 
@@ -36274,17 +36364,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LanguageFilter__LanguageCodesAssignment_2_1_1"
-    // InternalEcl.g:11002:1: rule__LanguageFilter__LanguageCodesAssignment_2_1_1 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11029:1: rule__LanguageFilter__LanguageCodesAssignment_2_1_1 : ( ruleUnquotedString ) ;
     public final void rule__LanguageFilter__LanguageCodesAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11006:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11007:2: ( ruleUnquotedString )
+            // InternalEcl.g:11033:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11034:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11007:2: ( ruleUnquotedString )
-            // InternalEcl.g:11008:3: ruleUnquotedString
+            // InternalEcl.g:11034:2: ( ruleUnquotedString )
+            // InternalEcl.g:11035:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLanguageFilterAccess().getLanguageCodesUnquotedStringParserRuleCall_2_1_1_0()); 
@@ -36319,17 +36409,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeIdFilter__OpAssignment_1"
-    // InternalEcl.g:11017:1: rule__TypeIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11044:1: rule__TypeIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__TypeIdFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11021:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11022:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11048:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11049:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11022:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11023:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11049:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11050:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -36364,17 +36454,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeIdFilter__TypeAssignment_2"
-    // InternalEcl.g:11032:1: rule__TypeIdFilter__TypeAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11059:1: rule__TypeIdFilter__TypeAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__TypeIdFilter__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11036:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11037:2: ( ruleFilterValue )
+            // InternalEcl.g:11063:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11064:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11037:2: ( ruleFilterValue )
-            // InternalEcl.g:11038:3: ruleFilterValue
+            // InternalEcl.g:11064:2: ( ruleFilterValue )
+            // InternalEcl.g:11065:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeIdFilterAccess().getTypeFilterValueParserRuleCall_2_0()); 
@@ -36409,17 +36499,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeTokenFilter__OpAssignment_1"
-    // InternalEcl.g:11047:1: rule__TypeTokenFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11074:1: rule__TypeTokenFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__TypeTokenFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11051:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11052:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11078:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11079:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11052:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11053:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11079:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11080:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeTokenFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -36454,17 +36544,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeTokenFilter__TokensAssignment_2_0"
-    // InternalEcl.g:11062:1: rule__TypeTokenFilter__TokensAssignment_2_0 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11089:1: rule__TypeTokenFilter__TokensAssignment_2_0 : ( ruleUnquotedString ) ;
     public final void rule__TypeTokenFilter__TokensAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11066:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11067:2: ( ruleUnquotedString )
+            // InternalEcl.g:11093:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11094:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11067:2: ( ruleUnquotedString )
-            // InternalEcl.g:11068:3: ruleUnquotedString
+            // InternalEcl.g:11094:2: ( ruleUnquotedString )
+            // InternalEcl.g:11095:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeTokenFilterAccess().getTokensUnquotedStringParserRuleCall_2_0_0()); 
@@ -36499,17 +36589,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeTokenFilter__TokensAssignment_2_1_1"
-    // InternalEcl.g:11077:1: rule__TypeTokenFilter__TokensAssignment_2_1_1 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11104:1: rule__TypeTokenFilter__TokensAssignment_2_1_1 : ( ruleUnquotedString ) ;
     public final void rule__TypeTokenFilter__TokensAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11081:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11082:2: ( ruleUnquotedString )
+            // InternalEcl.g:11108:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11109:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11082:2: ( ruleUnquotedString )
-            // InternalEcl.g:11083:3: ruleUnquotedString
+            // InternalEcl.g:11109:2: ( ruleUnquotedString )
+            // InternalEcl.g:11110:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeTokenFilterAccess().getTokensUnquotedStringParserRuleCall_2_1_1_0()); 
@@ -36544,17 +36634,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectIdFilter__OpAssignment_1"
-    // InternalEcl.g:11092:1: rule__DialectIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11119:1: rule__DialectIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__DialectIdFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11096:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11097:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11123:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11124:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11097:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11098:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11124:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11125:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -36589,17 +36679,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectIdFilter__DialectsAssignment_2_0"
-    // InternalEcl.g:11107:1: rule__DialectIdFilter__DialectsAssignment_2_0 : ( ruleDialect ) ;
+    // InternalEcl.g:11134:1: rule__DialectIdFilter__DialectsAssignment_2_0 : ( ruleDialect ) ;
     public final void rule__DialectIdFilter__DialectsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11111:1: ( ( ruleDialect ) )
-            // InternalEcl.g:11112:2: ( ruleDialect )
+            // InternalEcl.g:11138:1: ( ( ruleDialect ) )
+            // InternalEcl.g:11139:2: ( ruleDialect )
             {
-            // InternalEcl.g:11112:2: ( ruleDialect )
-            // InternalEcl.g:11113:3: ruleDialect
+            // InternalEcl.g:11139:2: ( ruleDialect )
+            // InternalEcl.g:11140:3: ruleDialect
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectIdFilterAccess().getDialectsDialectParserRuleCall_2_0_0()); 
@@ -36634,17 +36724,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectIdFilter__DialectsAssignment_2_1_1"
-    // InternalEcl.g:11122:1: rule__DialectIdFilter__DialectsAssignment_2_1_1 : ( ruleDialect ) ;
+    // InternalEcl.g:11149:1: rule__DialectIdFilter__DialectsAssignment_2_1_1 : ( ruleDialect ) ;
     public final void rule__DialectIdFilter__DialectsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11126:1: ( ( ruleDialect ) )
-            // InternalEcl.g:11127:2: ( ruleDialect )
+            // InternalEcl.g:11153:1: ( ( ruleDialect ) )
+            // InternalEcl.g:11154:2: ( ruleDialect )
             {
-            // InternalEcl.g:11127:2: ( ruleDialect )
-            // InternalEcl.g:11128:3: ruleDialect
+            // InternalEcl.g:11154:2: ( ruleDialect )
+            // InternalEcl.g:11155:3: ruleDialect
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectIdFilterAccess().getDialectsDialectParserRuleCall_2_1_1_0()); 
@@ -36679,17 +36769,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectAliasFilter__OpAssignment_1"
-    // InternalEcl.g:11137:1: rule__DialectAliasFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11164:1: rule__DialectAliasFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__DialectAliasFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11141:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11142:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11168:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11169:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11142:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11143:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11169:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11170:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAliasFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -36724,17 +36814,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectAliasFilter__DialectsAssignment_2_0"
-    // InternalEcl.g:11152:1: rule__DialectAliasFilter__DialectsAssignment_2_0 : ( ruleDialectAlias ) ;
+    // InternalEcl.g:11179:1: rule__DialectAliasFilter__DialectsAssignment_2_0 : ( ruleDialectAlias ) ;
     public final void rule__DialectAliasFilter__DialectsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11156:1: ( ( ruleDialectAlias ) )
-            // InternalEcl.g:11157:2: ( ruleDialectAlias )
+            // InternalEcl.g:11183:1: ( ( ruleDialectAlias ) )
+            // InternalEcl.g:11184:2: ( ruleDialectAlias )
             {
-            // InternalEcl.g:11157:2: ( ruleDialectAlias )
-            // InternalEcl.g:11158:3: ruleDialectAlias
+            // InternalEcl.g:11184:2: ( ruleDialectAlias )
+            // InternalEcl.g:11185:3: ruleDialectAlias
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAliasFilterAccess().getDialectsDialectAliasParserRuleCall_2_0_0()); 
@@ -36769,17 +36859,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectAliasFilter__DialectsAssignment_2_1_1"
-    // InternalEcl.g:11167:1: rule__DialectAliasFilter__DialectsAssignment_2_1_1 : ( ruleDialectAlias ) ;
+    // InternalEcl.g:11194:1: rule__DialectAliasFilter__DialectsAssignment_2_1_1 : ( ruleDialectAlias ) ;
     public final void rule__DialectAliasFilter__DialectsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11171:1: ( ( ruleDialectAlias ) )
-            // InternalEcl.g:11172:2: ( ruleDialectAlias )
+            // InternalEcl.g:11198:1: ( ( ruleDialectAlias ) )
+            // InternalEcl.g:11199:2: ( ruleDialectAlias )
             {
-            // InternalEcl.g:11172:2: ( ruleDialectAlias )
-            // InternalEcl.g:11173:3: ruleDialectAlias
+            // InternalEcl.g:11199:2: ( ruleDialectAlias )
+            // InternalEcl.g:11200:3: ruleDialectAlias
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAliasFilterAccess().getDialectsDialectAliasParserRuleCall_2_1_1_0()); 
@@ -36814,17 +36904,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Dialect__LanguageRefSetIdAssignment_0"
-    // InternalEcl.g:11182:1: rule__Dialect__LanguageRefSetIdAssignment_0 : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:11209:1: rule__Dialect__LanguageRefSetIdAssignment_0 : ( ruleFilteredExpressionConstraint ) ;
     public final void rule__Dialect__LanguageRefSetIdAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11186:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:11187:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:11213:1: ( ( ruleFilteredExpressionConstraint ) )
+            // InternalEcl.g:11214:2: ( ruleFilteredExpressionConstraint )
             {
-            // InternalEcl.g:11187:2: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:11188:3: ruleFilteredExpressionConstraint
+            // InternalEcl.g:11214:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:11215:3: ruleFilteredExpressionConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAccess().getLanguageRefSetIdFilteredExpressionConstraintParserRuleCall_0_0()); 
@@ -36859,17 +36949,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Dialect__AcceptabilityAssignment_1"
-    // InternalEcl.g:11197:1: rule__Dialect__AcceptabilityAssignment_1 : ( ruleAcceptability ) ;
+    // InternalEcl.g:11224:1: rule__Dialect__AcceptabilityAssignment_1 : ( ruleAcceptability ) ;
     public final void rule__Dialect__AcceptabilityAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11201:1: ( ( ruleAcceptability ) )
-            // InternalEcl.g:11202:2: ( ruleAcceptability )
+            // InternalEcl.g:11228:1: ( ( ruleAcceptability ) )
+            // InternalEcl.g:11229:2: ( ruleAcceptability )
             {
-            // InternalEcl.g:11202:2: ( ruleAcceptability )
-            // InternalEcl.g:11203:3: ruleAcceptability
+            // InternalEcl.g:11229:2: ( ruleAcceptability )
+            // InternalEcl.g:11230:3: ruleAcceptability
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAccess().getAcceptabilityAcceptabilityParserRuleCall_1_0()); 
@@ -36904,17 +36994,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectAlias__AliasAssignment_0"
-    // InternalEcl.g:11212:1: rule__DialectAlias__AliasAssignment_0 : ( ruleDialectAliasValue ) ;
+    // InternalEcl.g:11239:1: rule__DialectAlias__AliasAssignment_0 : ( ruleDialectAliasValue ) ;
     public final void rule__DialectAlias__AliasAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11216:1: ( ( ruleDialectAliasValue ) )
-            // InternalEcl.g:11217:2: ( ruleDialectAliasValue )
+            // InternalEcl.g:11243:1: ( ( ruleDialectAliasValue ) )
+            // InternalEcl.g:11244:2: ( ruleDialectAliasValue )
             {
-            // InternalEcl.g:11217:2: ( ruleDialectAliasValue )
-            // InternalEcl.g:11218:3: ruleDialectAliasValue
+            // InternalEcl.g:11244:2: ( ruleDialectAliasValue )
+            // InternalEcl.g:11245:3: ruleDialectAliasValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAliasAccess().getAliasDialectAliasValueParserRuleCall_0_0()); 
@@ -36949,17 +37039,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DialectAlias__AcceptabilityAssignment_2"
-    // InternalEcl.g:11227:1: rule__DialectAlias__AcceptabilityAssignment_2 : ( ruleAcceptability ) ;
+    // InternalEcl.g:11254:1: rule__DialectAlias__AcceptabilityAssignment_2 : ( ruleAcceptability ) ;
     public final void rule__DialectAlias__AcceptabilityAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11231:1: ( ( ruleAcceptability ) )
-            // InternalEcl.g:11232:2: ( ruleAcceptability )
+            // InternalEcl.g:11258:1: ( ( ruleAcceptability ) )
+            // InternalEcl.g:11259:2: ( ruleAcceptability )
             {
-            // InternalEcl.g:11232:2: ( ruleAcceptability )
-            // InternalEcl.g:11233:3: ruleAcceptability
+            // InternalEcl.g:11259:2: ( ruleAcceptability )
+            // InternalEcl.g:11260:3: ruleAcceptability
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_2_0()); 
@@ -36994,17 +37084,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AcceptabilityIdSet__AcceptabilitiesAssignment"
-    // InternalEcl.g:11242:1: rule__AcceptabilityIdSet__AcceptabilitiesAssignment : ( ruleEclConceptReferenceSet ) ;
+    // InternalEcl.g:11269:1: rule__AcceptabilityIdSet__AcceptabilitiesAssignment : ( ruleEclConceptReferenceSet ) ;
     public final void rule__AcceptabilityIdSet__AcceptabilitiesAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11246:1: ( ( ruleEclConceptReferenceSet ) )
-            // InternalEcl.g:11247:2: ( ruleEclConceptReferenceSet )
+            // InternalEcl.g:11273:1: ( ( ruleEclConceptReferenceSet ) )
+            // InternalEcl.g:11274:2: ( ruleEclConceptReferenceSet )
             {
-            // InternalEcl.g:11247:2: ( ruleEclConceptReferenceSet )
-            // InternalEcl.g:11248:3: ruleEclConceptReferenceSet
+            // InternalEcl.g:11274:2: ( ruleEclConceptReferenceSet )
+            // InternalEcl.g:11275:3: ruleEclConceptReferenceSet
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0()); 
@@ -37039,17 +37129,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1"
-    // InternalEcl.g:11257:1: rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11284:1: rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1 : ( ruleUnquotedString ) ;
     public final void rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11261:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11262:2: ( ruleUnquotedString )
+            // InternalEcl.g:11288:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11289:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11262:2: ( ruleUnquotedString )
-            // InternalEcl.g:11263:3: ruleUnquotedString
+            // InternalEcl.g:11289:2: ( ruleUnquotedString )
+            // InternalEcl.g:11290:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesUnquotedStringParserRuleCall_1_0()); 
@@ -37084,17 +37174,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DefinitionStatusIdFilter__OpAssignment_1"
-    // InternalEcl.g:11272:1: rule__DefinitionStatusIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11299:1: rule__DefinitionStatusIdFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__DefinitionStatusIdFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11276:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11277:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11303:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11304:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11277:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11278:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11304:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11305:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDefinitionStatusIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -37129,17 +37219,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DefinitionStatusIdFilter__DefinitionStatusAssignment_2"
-    // InternalEcl.g:11287:1: rule__DefinitionStatusIdFilter__DefinitionStatusAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11314:1: rule__DefinitionStatusIdFilter__DefinitionStatusAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__DefinitionStatusIdFilter__DefinitionStatusAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11291:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11292:2: ( ruleFilterValue )
+            // InternalEcl.g:11318:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11319:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11292:2: ( ruleFilterValue )
-            // InternalEcl.g:11293:3: ruleFilterValue
+            // InternalEcl.g:11319:2: ( ruleFilterValue )
+            // InternalEcl.g:11320:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDefinitionStatusIdFilterAccess().getDefinitionStatusFilterValueParserRuleCall_2_0()); 
@@ -37174,17 +37264,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DefinitionStatusTokenFilter__OpAssignment_1"
-    // InternalEcl.g:11302:1: rule__DefinitionStatusTokenFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11329:1: rule__DefinitionStatusTokenFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__DefinitionStatusTokenFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11306:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11307:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11333:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11334:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11307:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11308:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11334:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11335:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDefinitionStatusTokenFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -37219,17 +37309,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_0"
-    // InternalEcl.g:11317:1: rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_0 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11344:1: rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_0 : ( ruleUnquotedString ) ;
     public final void rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11321:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11322:2: ( ruleUnquotedString )
+            // InternalEcl.g:11348:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11349:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11322:2: ( ruleUnquotedString )
-            // InternalEcl.g:11323:3: ruleUnquotedString
+            // InternalEcl.g:11349:2: ( ruleUnquotedString )
+            // InternalEcl.g:11350:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDefinitionStatusTokenFilterAccess().getDefinitionStatusTokensUnquotedStringParserRuleCall_2_0_0()); 
@@ -37264,17 +37354,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_1_1"
-    // InternalEcl.g:11332:1: rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_1_1 : ( ruleUnquotedString ) ;
+    // InternalEcl.g:11359:1: rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_1_1 : ( ruleUnquotedString ) ;
     public final void rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11336:1: ( ( ruleUnquotedString ) )
-            // InternalEcl.g:11337:2: ( ruleUnquotedString )
+            // InternalEcl.g:11363:1: ( ( ruleUnquotedString ) )
+            // InternalEcl.g:11364:2: ( ruleUnquotedString )
             {
-            // InternalEcl.g:11337:2: ( ruleUnquotedString )
-            // InternalEcl.g:11338:3: ruleUnquotedString
+            // InternalEcl.g:11364:2: ( ruleUnquotedString )
+            // InternalEcl.g:11365:3: ruleUnquotedString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDefinitionStatusTokenFilterAccess().getDefinitionStatusTokensUnquotedStringParserRuleCall_2_1_1_0()); 
@@ -37309,17 +37399,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ModuleFilter__ModuleIdAssignment_2"
-    // InternalEcl.g:11347:1: rule__ModuleFilter__ModuleIdAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11374:1: rule__ModuleFilter__ModuleIdAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__ModuleFilter__ModuleIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11351:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11352:2: ( ruleFilterValue )
+            // InternalEcl.g:11378:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11379:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11352:2: ( ruleFilterValue )
-            // InternalEcl.g:11353:3: ruleFilterValue
+            // InternalEcl.g:11379:2: ( ruleFilterValue )
+            // InternalEcl.g:11380:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getModuleFilterAccess().getModuleIdFilterValueParserRuleCall_2_0()); 
@@ -37354,17 +37444,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EffectiveTimeFilter__OpAssignment_1"
-    // InternalEcl.g:11362:1: rule__EffectiveTimeFilter__OpAssignment_1 : ( ruleNUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11389:1: rule__EffectiveTimeFilter__OpAssignment_1 : ( ruleNUMERIC_OPERATOR ) ;
     public final void rule__EffectiveTimeFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11366:1: ( ( ruleNUMERIC_OPERATOR ) )
-            // InternalEcl.g:11367:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:11393:1: ( ( ruleNUMERIC_OPERATOR ) )
+            // InternalEcl.g:11394:2: ( ruleNUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11367:2: ( ruleNUMERIC_OPERATOR )
-            // InternalEcl.g:11368:3: ruleNUMERIC_OPERATOR
+            // InternalEcl.g:11394:2: ( ruleNUMERIC_OPERATOR )
+            // InternalEcl.g:11395:3: ruleNUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEffectiveTimeFilterAccess().getOpNUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -37399,17 +37489,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EffectiveTimeFilter__EffectiveTimeAssignment_2"
-    // InternalEcl.g:11377:1: rule__EffectiveTimeFilter__EffectiveTimeAssignment_2 : ( RULE_STRING ) ;
+    // InternalEcl.g:11404:1: rule__EffectiveTimeFilter__EffectiveTimeAssignment_2 : ( RULE_STRING ) ;
     public final void rule__EffectiveTimeFilter__EffectiveTimeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11381:1: ( ( RULE_STRING ) )
-            // InternalEcl.g:11382:2: ( RULE_STRING )
+            // InternalEcl.g:11408:1: ( ( RULE_STRING ) )
+            // InternalEcl.g:11409:2: ( RULE_STRING )
             {
-            // InternalEcl.g:11382:2: ( RULE_STRING )
-            // InternalEcl.g:11383:3: RULE_STRING
+            // InternalEcl.g:11409:2: ( RULE_STRING )
+            // InternalEcl.g:11410:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEffectiveTimeFilterAccess().getEffectiveTimeSTRINGTerminalRuleCall_2_0()); 
@@ -37440,17 +37530,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ActiveFilter__ActiveAssignment_2"
-    // InternalEcl.g:11392:1: rule__ActiveFilter__ActiveAssignment_2 : ( ruleActiveBoolean ) ;
+    // InternalEcl.g:11419:1: rule__ActiveFilter__ActiveAssignment_2 : ( ruleActiveBoolean ) ;
     public final void rule__ActiveFilter__ActiveAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11396:1: ( ( ruleActiveBoolean ) )
-            // InternalEcl.g:11397:2: ( ruleActiveBoolean )
+            // InternalEcl.g:11423:1: ( ( ruleActiveBoolean ) )
+            // InternalEcl.g:11424:2: ( ruleActiveBoolean )
             {
-            // InternalEcl.g:11397:2: ( ruleActiveBoolean )
-            // InternalEcl.g:11398:3: ruleActiveBoolean
+            // InternalEcl.g:11424:2: ( ruleActiveBoolean )
+            // InternalEcl.g:11425:3: ruleActiveBoolean
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getActiveFilterAccess().getActiveActiveBooleanParserRuleCall_2_0()); 
@@ -37485,17 +37575,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SemanticTagFilter__OpAssignment_1"
-    // InternalEcl.g:11407:1: rule__SemanticTagFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
+    // InternalEcl.g:11434:1: rule__SemanticTagFilter__OpAssignment_1 : ( ruleNON_NUMERIC_OPERATOR ) ;
     public final void rule__SemanticTagFilter__OpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11411:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
-            // InternalEcl.g:11412:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11438:1: ( ( ruleNON_NUMERIC_OPERATOR ) )
+            // InternalEcl.g:11439:2: ( ruleNON_NUMERIC_OPERATOR )
             {
-            // InternalEcl.g:11412:2: ( ruleNON_NUMERIC_OPERATOR )
-            // InternalEcl.g:11413:3: ruleNON_NUMERIC_OPERATOR
+            // InternalEcl.g:11439:2: ( ruleNON_NUMERIC_OPERATOR )
+            // InternalEcl.g:11440:3: ruleNON_NUMERIC_OPERATOR
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSemanticTagFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0()); 
@@ -37530,17 +37620,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SemanticTagFilter__SemanticTagAssignment_2"
-    // InternalEcl.g:11422:1: rule__SemanticTagFilter__SemanticTagAssignment_2 : ( RULE_STRING ) ;
+    // InternalEcl.g:11449:1: rule__SemanticTagFilter__SemanticTagAssignment_2 : ( RULE_STRING ) ;
     public final void rule__SemanticTagFilter__SemanticTagAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11426:1: ( ( RULE_STRING ) )
-            // InternalEcl.g:11427:2: ( RULE_STRING )
+            // InternalEcl.g:11453:1: ( ( RULE_STRING ) )
+            // InternalEcl.g:11454:2: ( RULE_STRING )
             {
-            // InternalEcl.g:11427:2: ( RULE_STRING )
-            // InternalEcl.g:11428:3: RULE_STRING
+            // InternalEcl.g:11454:2: ( RULE_STRING )
+            // InternalEcl.g:11455:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSemanticTagFilterAccess().getSemanticTagSTRINGTerminalRuleCall_2_0()); 
@@ -37571,17 +37661,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PreferredInFilter__LanguageRefSetIdAssignment_2"
-    // InternalEcl.g:11437:1: rule__PreferredInFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11464:1: rule__PreferredInFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__PreferredInFilter__LanguageRefSetIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11441:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11442:2: ( ruleFilterValue )
+            // InternalEcl.g:11468:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11469:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11442:2: ( ruleFilterValue )
-            // InternalEcl.g:11443:3: ruleFilterValue
+            // InternalEcl.g:11469:2: ( ruleFilterValue )
+            // InternalEcl.g:11470:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPreferredInFilterAccess().getLanguageRefSetIdFilterValueParserRuleCall_2_0()); 
@@ -37616,17 +37706,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AcceptableInFilter__LanguageRefSetIdAssignment_2"
-    // InternalEcl.g:11452:1: rule__AcceptableInFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11479:1: rule__AcceptableInFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__AcceptableInFilter__LanguageRefSetIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11456:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11457:2: ( ruleFilterValue )
+            // InternalEcl.g:11483:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11484:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11457:2: ( ruleFilterValue )
-            // InternalEcl.g:11458:3: ruleFilterValue
+            // InternalEcl.g:11484:2: ( ruleFilterValue )
+            // InternalEcl.g:11485:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAcceptableInFilterAccess().getLanguageRefSetIdFilterValueParserRuleCall_2_0()); 
@@ -37661,17 +37751,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LanguageRefSetFilter__LanguageRefSetIdAssignment_2"
-    // InternalEcl.g:11467:1: rule__LanguageRefSetFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11494:1: rule__LanguageRefSetFilter__LanguageRefSetIdAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__LanguageRefSetFilter__LanguageRefSetIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11471:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11472:2: ( ruleFilterValue )
+            // InternalEcl.g:11498:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11499:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11472:2: ( ruleFilterValue )
-            // InternalEcl.g:11473:3: ruleFilterValue
+            // InternalEcl.g:11499:2: ( ruleFilterValue )
+            // InternalEcl.g:11500:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLanguageRefSetFilterAccess().getLanguageRefSetIdFilterValueParserRuleCall_2_0()); 
@@ -37706,17 +37796,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2"
-    // InternalEcl.g:11482:1: rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2 : ( ruleFilterValue ) ;
+    // InternalEcl.g:11509:1: rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2 : ( ruleFilterValue ) ;
     public final void rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11486:1: ( ( ruleFilterValue ) )
-            // InternalEcl.g:11487:2: ( ruleFilterValue )
+            // InternalEcl.g:11513:1: ( ( ruleFilterValue ) )
+            // InternalEcl.g:11514:2: ( ruleFilterValue )
             {
-            // InternalEcl.g:11487:2: ( ruleFilterValue )
-            // InternalEcl.g:11488:3: ruleFilterValue
+            // InternalEcl.g:11514:2: ( ruleFilterValue )
+            // InternalEcl.g:11515:3: ruleFilterValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseSignificanceFilterAccess().getCaseSignificanceIdFilterValueParserRuleCall_2_0()); 
@@ -37750,27 +37840,27 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__CaseSignificanceFilter__CaseSignificanceIdAssignment_2"
 
 
-    // $ANTLR start "rule__HistorySupplement__HistoryAssignment_3"
-    // InternalEcl.g:11497:1: rule__HistorySupplement__HistoryAssignment_3 : ( ( rule__HistorySupplement__HistoryAlternatives_3_0 ) ) ;
-    public final void rule__HistorySupplement__HistoryAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__HistorySupplement__HistoryAssignment_4"
+    // InternalEcl.g:11524:1: rule__HistorySupplement__HistoryAssignment_4 : ( ( rule__HistorySupplement__HistoryAlternatives_4_0 ) ) ;
+    public final void rule__HistorySupplement__HistoryAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11501:1: ( ( ( rule__HistorySupplement__HistoryAlternatives_3_0 ) ) )
-            // InternalEcl.g:11502:2: ( ( rule__HistorySupplement__HistoryAlternatives_3_0 ) )
+            // InternalEcl.g:11528:1: ( ( ( rule__HistorySupplement__HistoryAlternatives_4_0 ) ) )
+            // InternalEcl.g:11529:2: ( ( rule__HistorySupplement__HistoryAlternatives_4_0 ) )
             {
-            // InternalEcl.g:11502:2: ( ( rule__HistorySupplement__HistoryAlternatives_3_0 ) )
-            // InternalEcl.g:11503:3: ( rule__HistorySupplement__HistoryAlternatives_3_0 )
+            // InternalEcl.g:11529:2: ( ( rule__HistorySupplement__HistoryAlternatives_4_0 ) )
+            // InternalEcl.g:11530:3: ( rule__HistorySupplement__HistoryAlternatives_4_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_3_0()); 
+               before(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_4_0()); 
             }
-            // InternalEcl.g:11504:3: ( rule__HistorySupplement__HistoryAlternatives_3_0 )
-            // InternalEcl.g:11504:4: rule__HistorySupplement__HistoryAlternatives_3_0
+            // InternalEcl.g:11531:3: ( rule__HistorySupplement__HistoryAlternatives_4_0 )
+            // InternalEcl.g:11531:4: rule__HistorySupplement__HistoryAlternatives_4_0
             {
             pushFollow(FollowSets000.FOLLOW_2);
-            rule__HistorySupplement__HistoryAlternatives_3_0();
+            rule__HistorySupplement__HistoryAlternatives_4_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -37778,7 +37868,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_3_0()); 
+               after(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_4_0()); 
             }
 
             }
@@ -37798,21 +37888,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__HistorySupplement__HistoryAssignment_3"
+    // $ANTLR end "rule__HistorySupplement__HistoryAssignment_4"
 
 
     // $ANTLR start "rule__HistoryProfile__ProfileAssignment_1"
-    // InternalEcl.g:11512:1: rule__HistoryProfile__ProfileAssignment_1 : ( ruleHISTORY_PROFILE_TYPE ) ;
+    // InternalEcl.g:11539:1: rule__HistoryProfile__ProfileAssignment_1 : ( ruleHISTORY_PROFILE_TYPE ) ;
     public final void rule__HistoryProfile__ProfileAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:11516:1: ( ( ruleHISTORY_PROFILE_TYPE ) )
-            // InternalEcl.g:11517:2: ( ruleHISTORY_PROFILE_TYPE )
+            // InternalEcl.g:11543:1: ( ( ruleHISTORY_PROFILE_TYPE ) )
+            // InternalEcl.g:11544:2: ( ruleHISTORY_PROFILE_TYPE )
             {
-            // InternalEcl.g:11517:2: ( ruleHISTORY_PROFILE_TYPE )
-            // InternalEcl.g:11518:3: ruleHISTORY_PROFILE_TYPE
+            // InternalEcl.g:11544:2: ( ruleHISTORY_PROFILE_TYPE )
+            // InternalEcl.g:11545:3: ruleHISTORY_PROFILE_TYPE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHistoryProfileAccess().getProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0()); 
@@ -38202,7 +38292,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     static final String dfa_3s = "\1\5\1\uffff\44\0\1\uffff";
     static final String dfa_4s = "\1\106\1\uffff\44\0\1\uffff";
     static final String dfa_5s = "\1\uffff\1\2\44\uffff\1\1";
-    static final String dfa_6s = "\2\uffff\1\25\1\30\1\41\1\42\1\20\1\2\1\26\1\6\1\32\1\12\1\37\1\16\1\0\1\23\1\5\1\31\1\10\1\34\1\14\1\43\1\21\1\3\1\27\1\7\1\33\1\13\1\40\1\17\1\1\1\24\1\11\1\35\1\15\1\36\1\4\1\22\1\uffff}>";
+    static final String dfa_6s = "\2\uffff\1\40\1\25\1\34\1\26\1\6\1\32\1\12\1\36\1\16\1\0\1\23\1\4\1\30\1\10\1\35\1\14\1\41\1\20\1\2\1\27\1\7\1\33\1\13\1\37\1\17\1\1\1\24\1\5\1\31\1\11\1\42\1\21\1\3\1\22\1\43\1\15\1\uffff}>";
     static final String[] dfa_7s = {
             "\1\2\1\1\1\4\1\uffff\1\45\1\44\2\uffff\1\32\1\26\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\1\3\1\40\1\41\1\42\1\43\17\uffff\2\1\7\uffff\2\1",
             "",
@@ -38274,156 +38364,6 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA3_14 = input.LA(1);
-
-                         
-                        int index3_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA3_30 = input.LA(1);
-
-                         
-                        int index3_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA3_7 = input.LA(1);
-
-                         
-                        int index3_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA3_23 = input.LA(1);
-
-                         
-                        int index3_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA3_36 = input.LA(1);
-
-                         
-                        int index3_36 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_36);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA3_16 = input.LA(1);
-
-                         
-                        int index3_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA3_9 = input.LA(1);
-
-                         
-                        int index3_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA3_25 = input.LA(1);
-
-                         
-                        int index3_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA3_18 = input.LA(1);
-
-                         
-                        int index3_18 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_18);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA3_32 = input.LA(1);
-
-                         
-                        int index3_32 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_32);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
                         int LA3_11 = input.LA(1);
 
                          
@@ -38438,7 +38378,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_11);
                         if ( s>=0 ) return s;
                         break;
-                    case 11 : 
+                    case 1 : 
                         int LA3_27 = input.LA(1);
 
                          
@@ -38453,7 +38393,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_27);
                         if ( s>=0 ) return s;
                         break;
-                    case 12 : 
+                    case 2 : 
                         int LA3_20 = input.LA(1);
 
                          
@@ -38468,7 +38408,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_20);
                         if ( s>=0 ) return s;
                         break;
-                    case 13 : 
+                    case 3 : 
                         int LA3_34 = input.LA(1);
 
                          
@@ -38483,7 +38423,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_34);
                         if ( s>=0 ) return s;
                         break;
-                    case 14 : 
+                    case 4 : 
                         int LA3_13 = input.LA(1);
 
                          
@@ -38498,7 +38438,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_13);
                         if ( s>=0 ) return s;
                         break;
-                    case 15 : 
+                    case 5 : 
                         int LA3_29 = input.LA(1);
 
                          
@@ -38513,7 +38453,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_29);
                         if ( s>=0 ) return s;
                         break;
-                    case 16 : 
+                    case 6 : 
                         int LA3_6 = input.LA(1);
 
                          
@@ -38528,7 +38468,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_6);
                         if ( s>=0 ) return s;
                         break;
-                    case 17 : 
+                    case 7 : 
                         int LA3_22 = input.LA(1);
 
                          
@@ -38543,22 +38483,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_22);
                         if ( s>=0 ) return s;
                         break;
-                    case 18 : 
-                        int LA3_37 = input.LA(1);
-
-                         
-                        int index3_37 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_37);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
+                    case 8 : 
                         int LA3_15 = input.LA(1);
 
                          
@@ -38573,7 +38498,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_15);
                         if ( s>=0 ) return s;
                         break;
-                    case 20 : 
+                    case 9 : 
                         int LA3_31 = input.LA(1);
 
                          
@@ -38588,22 +38513,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_31);
                         if ( s>=0 ) return s;
                         break;
-                    case 21 : 
-                        int LA3_2 = input.LA(1);
-
-                         
-                        int index3_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
+                    case 10 : 
                         int LA3_8 = input.LA(1);
 
                          
@@ -38618,7 +38528,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 23 : 
+                    case 11 : 
                         int LA3_24 = input.LA(1);
 
                          
@@ -38633,22 +38543,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_24);
                         if ( s>=0 ) return s;
                         break;
-                    case 24 : 
-                        int LA3_3 = input.LA(1);
-
-                         
-                        int index3_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 38;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
+                    case 12 : 
                         int LA3_17 = input.LA(1);
 
                          
@@ -38663,7 +38558,22 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_17);
                         if ( s>=0 ) return s;
                         break;
-                    case 26 : 
+                    case 13 : 
+                        int LA3_37 = input.LA(1);
+
+                         
+                        int index3_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
                         int LA3_10 = input.LA(1);
 
                          
@@ -38678,7 +38588,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_10);
                         if ( s>=0 ) return s;
                         break;
-                    case 27 : 
+                    case 15 : 
                         int LA3_26 = input.LA(1);
 
                          
@@ -38693,7 +38603,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_26);
                         if ( s>=0 ) return s;
                         break;
-                    case 28 : 
+                    case 16 : 
                         int LA3_19 = input.LA(1);
 
                          
@@ -38708,7 +38618,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_19);
                         if ( s>=0 ) return s;
                         break;
-                    case 29 : 
+                    case 17 : 
                         int LA3_33 = input.LA(1);
 
                          
@@ -38723,7 +38633,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_33);
                         if ( s>=0 ) return s;
                         break;
-                    case 30 : 
+                    case 18 : 
                         int LA3_35 = input.LA(1);
 
                          
@@ -38738,7 +38648,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_35);
                         if ( s>=0 ) return s;
                         break;
-                    case 31 : 
+                    case 19 : 
                         int LA3_12 = input.LA(1);
 
                          
@@ -38753,7 +38663,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_12);
                         if ( s>=0 ) return s;
                         break;
-                    case 32 : 
+                    case 20 : 
                         int LA3_28 = input.LA(1);
 
                          
@@ -38768,11 +38678,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_28);
                         if ( s>=0 ) return s;
                         break;
-                    case 33 : 
-                        int LA3_4 = input.LA(1);
+                    case 21 : 
+                        int LA3_3 = input.LA(1);
 
                          
-                        int index3_4 = input.index();
+                        int index3_3 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred3_InternalEcl()) ) {s = 38;}
@@ -38780,10 +38690,10 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index3_4);
+                        input.seek(index3_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 34 : 
+                    case 22 : 
                         int LA3_5 = input.LA(1);
 
                          
@@ -38798,7 +38708,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 35 : 
+                    case 23 : 
                         int LA3_21 = input.LA(1);
 
                          
@@ -38811,6 +38721,186 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
                          
                         input.seek(index3_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA3_14 = input.LA(1);
+
+                         
+                        int index3_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA3_30 = input.LA(1);
+
+                         
+                        int index3_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA3_7 = input.LA(1);
+
+                         
+                        int index3_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA3_23 = input.LA(1);
+
+                         
+                        int index3_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA3_4 = input.LA(1);
+
+                         
+                        int index3_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA3_16 = input.LA(1);
+
+                         
+                        int index3_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA3_9 = input.LA(1);
+
+                         
+                        int index3_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA3_25 = input.LA(1);
+
+                         
+                        int index3_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 32 : 
+                        int LA3_2 = input.LA(1);
+
+                         
+                        int index3_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 33 : 
+                        int LA3_18 = input.LA(1);
+
+                         
+                        int index3_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 34 : 
+                        int LA3_32 = input.LA(1);
+
+                         
+                        int index3_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_32);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 35 : 
+                        int LA3_36 = input.LA(1);
+
+                         
+                        int index3_36 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 38;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_36);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -38987,10 +39077,10 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_20s = "\14\uffff\4\20\2\uffff";
+    static final String dfa_20s = "\14\uffff\4\21\2\uffff";
     static final String dfa_21s = "\1\55\2\4\4\103\2\uffff\1\7\2\11\4\5\2\uffff";
     static final String dfa_22s = "\1\62\6\103\2\uffff\1\14\2\12\4\77\2\uffff";
-    static final String dfa_23s = "\7\uffff\1\1\1\2\7\uffff\1\3\1\4";
+    static final String dfa_23s = "\7\uffff\1\1\1\2\7\uffff\1\4\1\3";
     static final String dfa_24s = "\22\uffff}>";
     static final String[] dfa_25s = {
             "\1\1\1\2\1\3\1\4\1\5\1\6",
@@ -39005,10 +39095,10 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             "\1\13\1\uffff\1\14\1\15\1\uffff\1\12",
             "\1\14\1\15",
             "\1\14\1\15",
-            "\2\20\2\uffff\1\16\1\17\23\uffff\1\20\11\uffff\1\20\13\uffff\1\21\10\uffff\1\20\1\uffff\1\20",
-            "\2\20\2\uffff\1\16\1\17\23\uffff\1\20\11\uffff\1\20\13\uffff\1\21\10\uffff\1\20\1\uffff\1\20",
-            "\2\20\2\uffff\1\16\1\17\23\uffff\1\20\11\uffff\1\20\13\uffff\1\21\10\uffff\1\20\1\uffff\1\20",
-            "\2\20\2\uffff\1\16\1\17\23\uffff\1\20\11\uffff\1\20\13\uffff\1\21\10\uffff\1\20\1\uffff\1\20",
+            "\2\21\2\uffff\1\16\1\17\23\uffff\1\21\11\uffff\1\21\13\uffff\1\20\10\uffff\1\21\1\uffff\1\21",
+            "\2\21\2\uffff\1\16\1\17\23\uffff\1\21\11\uffff\1\21\13\uffff\1\20\10\uffff\1\21\1\uffff\1\21",
+            "\2\21\2\uffff\1\16\1\17\23\uffff\1\21\11\uffff\1\21\13\uffff\1\20\10\uffff\1\21\1\uffff\1\21",
+            "\2\21\2\uffff\1\16\1\17\23\uffff\1\21\11\uffff\1\21\13\uffff\1\20\10\uffff\1\21\1\uffff\1\21",
             "",
             ""
     };
@@ -39303,7 +39393,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000006600L});
         public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000001000L});
         public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x1FE1800000000F80L});
+        public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x1FE1800000000F80L,0x0000000000000020L});
         public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x000000E000000000L});
     }
 
