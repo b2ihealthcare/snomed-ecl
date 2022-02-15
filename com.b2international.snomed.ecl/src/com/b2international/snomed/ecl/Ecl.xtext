@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,10 @@ DottedExpressionConstraint returns ExpressionConstraint:
 	FilteredExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=FilteredExpressionConstraint)*;
 
 FilteredExpressionConstraint returns ExpressionConstraint:
-	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
+	SupplementExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
+
+SupplementExpressionConstraint returns ExpressionConstraint:
+	SubExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*;
 	
 SubExpressionConstraint returns ExpressionConstraint:
 	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
@@ -297,6 +300,16 @@ CaseSignificanceFilter:
 FilterValue:
 	FilteredExpressionConstraint | EclConceptReferenceSet;
 
+// History Supplement from ECL 2.0
+Supplement:
+	HistorySupplement;
+
+HistorySupplement:
+	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE;
+
+HistoryProfile returns ExpressionConstraint:
+	(DASH | UNDERSCORE) profile = HISTORY_PROFILE_TYPE;
+	
 /*
  * Datatype rules
  */
@@ -327,7 +340,8 @@ ActiveBoolean returns ecore::EBoolean hidden():
 
 // Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 UnquotedString
-	: CASE_SIGNIFICANCE_ID_KEYWORD
+	: HISTORY_KEYWORD
+	| CASE_SIGNIFICANCE_ID_KEYWORD
 	| DEFINITION_STATUS_ID_KEYWORD
 	| DEFINITION_STATUS_TOKEN_KEYWORD 
 	| LANGUAGE_REFSET_ID_KEYWORD 
@@ -350,6 +364,9 @@ UnquotedString
 	| TRUE_KEYWORD 
 	| TYPE_KEYWORD
 	| WILD_KEYWORD 
+	| MIN_KEYWORD
+	| MOD_KEYWORD
+	| MAX_KEYWORD
 	| CONJUNCTION_KEYWORD 
 	| DISJUNCTION_KEYWORD 
 	| REVERSED
@@ -367,6 +384,13 @@ LEXICAL_SEARCH_TYPE
 	// Lexical search type extensions 
 	// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
 	| EXACT_KEYWORD
+	;
+
+// History Supplement Profile Suffix from ECL 2.0 
+HISTORY_PROFILE_TYPE
+	: MIN_KEYWORD 
+	| MOD_KEYWORD 
+	| MAX_KEYWORD
 	;
 
 // Single-letter domains for filterConstraints is an ECL 1.6 feature
@@ -389,7 +413,10 @@ NUMERIC_OPERATOR:
  * purposes. ANTLR warnings saying that the case-insensitive alternative
  * can also match the same input are to be expected.
  */ 
- 
+
+terminal HISTORY_KEYWORD:
+	'HISTORY' | ('h'|'H')('i'|'I')('s'|'S')('t'|'T')('o'|'O')('r'|'R')('y'|'Y');
+
 terminal CASE_SIGNIFICANCE_ID_KEYWORD: 
 	'caseSignificanceId' | ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s')('I'|'i')('G'|'g')('N'|'n')('I'|'i')('F'|'f')('I'|'i')('C'|'c')('A'|'a')('N'|'n')('C'|'c')('E'|'e')('I'|'i')('D'|'d');
 
@@ -458,6 +485,15 @@ terminal TYPE_KEYWORD:
 
 terminal WILD_KEYWORD: 
 	'wild' | ('W'|'w')('I'|'i')('L'|'l')('D'|'d');
+
+terminal MIN_KEYWORD:
+	'MIN' | ('M'|'m')('I'|'i')('N'|'n');
+	
+terminal MOD_KEYWORD:
+	'MOD' | ('M'|'m')('O'|'o')('D'|'d');
+	
+terminal MAX_KEYWORD:
+	'MAX' | ('M'|'m')('A'|'a')('X'|'x');
 
 terminal CONJUNCTION_KEYWORD: 
 	'AND' | ('A'|'a')('N'|'n')('D'|'d');
@@ -553,6 +589,9 @@ terminal PLUS:
 
 terminal DASH:
 	'-';
+	
+terminal UNDERSCORE:
+	'_';
 
 terminal CARET:
 	'^';

@@ -259,21 +259,21 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class FilteredExpressionConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.FilteredExpressionConstraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSubExpressionConstraintParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cSupplementExpressionConstraintParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cFilteredExpressionConstraintConstraintAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cFilterAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cFilterFilterConstraintParserRuleCall_1_1_0 = (RuleCall)cFilterAssignment_1_1.eContents().get(0);
 		
 		//FilteredExpressionConstraint ExpressionConstraint:
-		//	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
+		//	SupplementExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*
+		//SupplementExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*
 		public Group getGroup() { return cGroup; }
 		
-		//SubExpressionConstraint
-		public RuleCall getSubExpressionConstraintParserRuleCall_0() { return cSubExpressionConstraintParserRuleCall_0; }
+		//SupplementExpressionConstraint
+		public RuleCall getSupplementExpressionConstraintParserRuleCall_0() { return cSupplementExpressionConstraintParserRuleCall_0; }
 		
 		//({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*
 		public Group getGroup_1() { return cGroup_1; }
@@ -286,6 +286,37 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//FilterConstraint
 		public RuleCall getFilterFilterConstraintParserRuleCall_1_1_0() { return cFilterFilterConstraintParserRuleCall_1_1_0; }
+	}
+	public class SupplementExpressionConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SupplementExpressionConstraint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cSubExpressionConstraintParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cSupplementExpressionConstraintConstraintAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cSupplementAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSupplementSupplementParserRuleCall_1_1_0 = (RuleCall)cSupplementAssignment_1_1.eContents().get(0);
+		
+		//SupplementExpressionConstraint ExpressionConstraint:
+		//	SubExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SubExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*
+		public Group getGroup() { return cGroup; }
+		
+		//SubExpressionConstraint
+		public RuleCall getSubExpressionConstraintParserRuleCall_0() { return cSubExpressionConstraintParserRuleCall_0; }
+		
+		//({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{SupplementExpressionConstraint.constraint=current}
+		public Action getSupplementExpressionConstraintConstraintAction_1_0() { return cSupplementExpressionConstraintConstraintAction_1_0; }
+		
+		//supplement=Supplement
+		public Assignment getSupplementAssignment_1_1() { return cSupplementAssignment_1_1; }
+		
+		//Supplement
+		public RuleCall getSupplementSupplementParserRuleCall_1_1_0() { return cSupplementSupplementParserRuleCall_1_1_0; }
 	}
 	public class SubExpressionConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SubExpressionConstraint");
@@ -2459,6 +2490,92 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//EclConceptReferenceSet
 		public RuleCall getEclConceptReferenceSetParserRuleCall_1() { return cEclConceptReferenceSetParserRuleCall_1; }
 	}
+	public class SupplementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.Supplement");
+		private final RuleCall cHistorySupplementParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//// History Supplement from ECL 2.0
+		//Supplement:
+		//	HistorySupplement;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//HistorySupplement
+		public RuleCall getHistorySupplementParserRuleCall() { return cHistorySupplementParserRuleCall; }
+	}
+	public class HistorySupplementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HistorySupplement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cDOUBLE_CURLY_OPENTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cPLUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cHISTORY_KEYWORDTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cHistoryAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Alternatives cHistoryAlternatives_3_0 = (Alternatives)cHistoryAssignment_3.eContents().get(0);
+		private final RuleCall cHistoryHistoryProfileParserRuleCall_3_0_0 = (RuleCall)cHistoryAlternatives_3_0.eContents().get(0);
+		private final RuleCall cHistoryNestedExpressionParserRuleCall_3_0_1 = (RuleCall)cHistoryAlternatives_3_0.eContents().get(1);
+		private final RuleCall cDOUBLE_CURLY_CLOSETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		
+		//HistorySupplement:
+		//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE
+		public Group getGroup() { return cGroup; }
+		
+		//DOUBLE_CURLY_OPEN
+		public RuleCall getDOUBLE_CURLY_OPENTerminalRuleCall_0() { return cDOUBLE_CURLY_OPENTerminalRuleCall_0; }
+		
+		//PLUS
+		public RuleCall getPLUSTerminalRuleCall_1() { return cPLUSTerminalRuleCall_1; }
+		
+		//HISTORY_KEYWORD
+		public RuleCall getHISTORY_KEYWORDTerminalRuleCall_2() { return cHISTORY_KEYWORDTerminalRuleCall_2; }
+		
+		//history=(HistoryProfile | NestedExpression)
+		public Assignment getHistoryAssignment_3() { return cHistoryAssignment_3; }
+		
+		//(HistoryProfile | NestedExpression)
+		public Alternatives getHistoryAlternatives_3_0() { return cHistoryAlternatives_3_0; }
+		
+		//HistoryProfile
+		public RuleCall getHistoryHistoryProfileParserRuleCall_3_0_0() { return cHistoryHistoryProfileParserRuleCall_3_0_0; }
+		
+		//NestedExpression
+		public RuleCall getHistoryNestedExpressionParserRuleCall_3_0_1() { return cHistoryNestedExpressionParserRuleCall_3_0_1; }
+		
+		//DOUBLE_CURLY_CLOSE
+		public RuleCall getDOUBLE_CURLY_CLOSETerminalRuleCall_4() { return cDOUBLE_CURLY_CLOSETerminalRuleCall_4; }
+	}
+	public class HistoryProfileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HistoryProfile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final RuleCall cDASHTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cUNDERSCORETerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final Assignment cProfileAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0 = (RuleCall)cProfileAssignment_1.eContents().get(0);
+		
+		//HistoryProfile ExpressionConstraint:
+		//	(DASH | UNDERSCORE) profile=HISTORY_PROFILE_TYPE;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(DASH | UNDERSCORE) profile=HISTORY_PROFILE_TYPE
+		public Group getGroup() { return cGroup; }
+		
+		//(DASH | UNDERSCORE)
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//DASH
+		public RuleCall getDASHTerminalRuleCall_0_0() { return cDASHTerminalRuleCall_0_0; }
+		
+		//UNDERSCORE
+		public RuleCall getUNDERSCORETerminalRuleCall_0_1() { return cUNDERSCORETerminalRuleCall_0_1; }
+		
+		//profile=HISTORY_PROFILE_TYPE
+		public Assignment getProfileAssignment_1() { return cProfileAssignment_1; }
+		
+		//HISTORY_PROFILE_TYPE
+		public RuleCall getProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0() { return cProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0; }
+	}
 	public class SnomedIdentifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SnomedIdentifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2645,39 +2762,44 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class UnquotedStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.UnquotedString");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cEFFECTIVE_TIME_KEYWORDTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cACCEPTABLE_IN_KEYWORDTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cPREFERRED_IN_KEYWORDTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cSEMANTIC_TAG_KEYWORDTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cDIALECTID_KEYWORDTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cLANGUAGE_KEYWORDTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cMODULEID_KEYWORDTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cDIALECT_KEYWORDTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cACTIVE_KEYWORDTerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cTYPEID_KEYWORDTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
-		private final RuleCall cEXCLUSION_KEYWORDTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cEXACT_KEYWORDTerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cFALSE_KEYWORDTerminalRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
-		private final RuleCall cMATCH_KEYWORDTerminalRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
-		private final RuleCall cREGEX_KEYWORDTerminalRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
-		private final RuleCall cTERM_KEYWORDTerminalRuleCall_19 = (RuleCall)cAlternatives.eContents().get(19);
-		private final RuleCall cTRUE_KEYWORDTerminalRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
-		private final RuleCall cTYPE_KEYWORDTerminalRuleCall_21 = (RuleCall)cAlternatives.eContents().get(21);
-		private final RuleCall cWILD_KEYWORDTerminalRuleCall_22 = (RuleCall)cAlternatives.eContents().get(22);
-		private final RuleCall cCONJUNCTION_KEYWORDTerminalRuleCall_23 = (RuleCall)cAlternatives.eContents().get(23);
-		private final RuleCall cDISJUNCTION_KEYWORDTerminalRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
-		private final RuleCall cREVERSEDTerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
-		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
-		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
-		private final RuleCall cKEYWORDTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
+		private final RuleCall cHISTORY_KEYWORDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cEFFECTIVE_TIME_KEYWORDTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cACCEPTABLE_IN_KEYWORDTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cPREFERRED_IN_KEYWORDTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cSEMANTIC_TAG_KEYWORDTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cDIALECTID_KEYWORDTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cLANGUAGE_KEYWORDTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cMODULEID_KEYWORDTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cDIALECT_KEYWORDTerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cACTIVE_KEYWORDTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cTYPEID_KEYWORDTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cEXCLUSION_KEYWORDTerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cEXACT_KEYWORDTerminalRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cFALSE_KEYWORDTerminalRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
+		private final RuleCall cMATCH_KEYWORDTerminalRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
+		private final RuleCall cREGEX_KEYWORDTerminalRuleCall_19 = (RuleCall)cAlternatives.eContents().get(19);
+		private final RuleCall cTERM_KEYWORDTerminalRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
+		private final RuleCall cTRUE_KEYWORDTerminalRuleCall_21 = (RuleCall)cAlternatives.eContents().get(21);
+		private final RuleCall cTYPE_KEYWORDTerminalRuleCall_22 = (RuleCall)cAlternatives.eContents().get(22);
+		private final RuleCall cWILD_KEYWORDTerminalRuleCall_23 = (RuleCall)cAlternatives.eContents().get(23);
+		private final RuleCall cMIN_KEYWORDTerminalRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
+		private final RuleCall cMOD_KEYWORDTerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
+		private final RuleCall cMAX_KEYWORDTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
+		private final RuleCall cCONJUNCTION_KEYWORDTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
+		private final RuleCall cDISJUNCTION_KEYWORDTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
+		private final RuleCall cREVERSEDTerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
+		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
+		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
+		private final RuleCall cKEYWORDTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
 		
 		//// Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 		//UnquotedString:
-		//	CASE_SIGNIFICANCE_ID_KEYWORD
+		//	HISTORY_KEYWORD
+		//	| CASE_SIGNIFICANCE_ID_KEYWORD
 		//	| DEFINITION_STATUS_ID_KEYWORD
 		//	| DEFINITION_STATUS_TOKEN_KEYWORD
 		//	| LANGUAGE_REFSET_ID_KEYWORD
@@ -2700,6 +2822,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| TRUE_KEYWORD
 		//	| TYPE_KEYWORD
 		//	| WILD_KEYWORD
+		//	| MIN_KEYWORD
+		//	| MOD_KEYWORD
+		//	| MAX_KEYWORD
 		//	| CONJUNCTION_KEYWORD
 		//	| DISJUNCTION_KEYWORD
 		//	| REVERSED
@@ -2708,100 +2833,112 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| KEYWORD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CASE_SIGNIFICANCE_ID_KEYWORD | DEFINITION_STATUS_ID_KEYWORD | DEFINITION_STATUS_TOKEN_KEYWORD |
+		//HISTORY_KEYWORD | CASE_SIGNIFICANCE_ID_KEYWORD | DEFINITION_STATUS_ID_KEYWORD | DEFINITION_STATUS_TOKEN_KEYWORD |
 		//LANGUAGE_REFSET_ID_KEYWORD | EFFECTIVE_TIME_KEYWORD | ACCEPTABLE_IN_KEYWORD | PREFERRED_IN_KEYWORD |
 		//SEMANTIC_TAG_KEYWORD | DIALECTID_KEYWORD | LANGUAGE_KEYWORD | MODULEID_KEYWORD | DIALECT_KEYWORD | ACTIVE_KEYWORD |
 		//TYPEID_KEYWORD | EXCLUSION_KEYWORD | EXACT_KEYWORD | FALSE_KEYWORD | MATCH_KEYWORD | REGEX_KEYWORD | TERM_KEYWORD |
-		//TRUE_KEYWORD | TYPE_KEYWORD | WILD_KEYWORD | CONJUNCTION_KEYWORD | DISJUNCTION_KEYWORD | REVERSED |
-		//DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD | KEYWORD
+		//TRUE_KEYWORD | TYPE_KEYWORD | WILD_KEYWORD | MIN_KEYWORD | MOD_KEYWORD | MAX_KEYWORD | CONJUNCTION_KEYWORD |
+		//DISJUNCTION_KEYWORD | REVERSED | DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD | KEYWORD
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//HISTORY_KEYWORD
+		public RuleCall getHISTORY_KEYWORDTerminalRuleCall_0() { return cHISTORY_KEYWORDTerminalRuleCall_0; }
+		
 		//CASE_SIGNIFICANCE_ID_KEYWORD
-		public RuleCall getCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0() { return cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_0; }
+		public RuleCall getCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_1() { return cCASE_SIGNIFICANCE_ID_KEYWORDTerminalRuleCall_1; }
 		
 		//DEFINITION_STATUS_ID_KEYWORD
-		public RuleCall getDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_1() { return cDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_1; }
+		public RuleCall getDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_2() { return cDEFINITION_STATUS_ID_KEYWORDTerminalRuleCall_2; }
 		
 		//DEFINITION_STATUS_TOKEN_KEYWORD
-		public RuleCall getDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_2() { return cDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_2; }
+		public RuleCall getDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_3() { return cDEFINITION_STATUS_TOKEN_KEYWORDTerminalRuleCall_3; }
 		
 		//LANGUAGE_REFSET_ID_KEYWORD
-		public RuleCall getLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_3() { return cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_3; }
+		public RuleCall getLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_4() { return cLANGUAGE_REFSET_ID_KEYWORDTerminalRuleCall_4; }
 		
 		//EFFECTIVE_TIME_KEYWORD
-		public RuleCall getEFFECTIVE_TIME_KEYWORDTerminalRuleCall_4() { return cEFFECTIVE_TIME_KEYWORDTerminalRuleCall_4; }
+		public RuleCall getEFFECTIVE_TIME_KEYWORDTerminalRuleCall_5() { return cEFFECTIVE_TIME_KEYWORDTerminalRuleCall_5; }
 		
 		//ACCEPTABLE_IN_KEYWORD
-		public RuleCall getACCEPTABLE_IN_KEYWORDTerminalRuleCall_5() { return cACCEPTABLE_IN_KEYWORDTerminalRuleCall_5; }
+		public RuleCall getACCEPTABLE_IN_KEYWORDTerminalRuleCall_6() { return cACCEPTABLE_IN_KEYWORDTerminalRuleCall_6; }
 		
 		//PREFERRED_IN_KEYWORD
-		public RuleCall getPREFERRED_IN_KEYWORDTerminalRuleCall_6() { return cPREFERRED_IN_KEYWORDTerminalRuleCall_6; }
+		public RuleCall getPREFERRED_IN_KEYWORDTerminalRuleCall_7() { return cPREFERRED_IN_KEYWORDTerminalRuleCall_7; }
 		
 		//SEMANTIC_TAG_KEYWORD
-		public RuleCall getSEMANTIC_TAG_KEYWORDTerminalRuleCall_7() { return cSEMANTIC_TAG_KEYWORDTerminalRuleCall_7; }
+		public RuleCall getSEMANTIC_TAG_KEYWORDTerminalRuleCall_8() { return cSEMANTIC_TAG_KEYWORDTerminalRuleCall_8; }
 		
 		//DIALECTID_KEYWORD
-		public RuleCall getDIALECTID_KEYWORDTerminalRuleCall_8() { return cDIALECTID_KEYWORDTerminalRuleCall_8; }
+		public RuleCall getDIALECTID_KEYWORDTerminalRuleCall_9() { return cDIALECTID_KEYWORDTerminalRuleCall_9; }
 		
 		//LANGUAGE_KEYWORD
-		public RuleCall getLANGUAGE_KEYWORDTerminalRuleCall_9() { return cLANGUAGE_KEYWORDTerminalRuleCall_9; }
+		public RuleCall getLANGUAGE_KEYWORDTerminalRuleCall_10() { return cLANGUAGE_KEYWORDTerminalRuleCall_10; }
 		
 		//MODULEID_KEYWORD
-		public RuleCall getMODULEID_KEYWORDTerminalRuleCall_10() { return cMODULEID_KEYWORDTerminalRuleCall_10; }
+		public RuleCall getMODULEID_KEYWORDTerminalRuleCall_11() { return cMODULEID_KEYWORDTerminalRuleCall_11; }
 		
 		//DIALECT_KEYWORD
-		public RuleCall getDIALECT_KEYWORDTerminalRuleCall_11() { return cDIALECT_KEYWORDTerminalRuleCall_11; }
+		public RuleCall getDIALECT_KEYWORDTerminalRuleCall_12() { return cDIALECT_KEYWORDTerminalRuleCall_12; }
 		
 		//ACTIVE_KEYWORD
-		public RuleCall getACTIVE_KEYWORDTerminalRuleCall_12() { return cACTIVE_KEYWORDTerminalRuleCall_12; }
+		public RuleCall getACTIVE_KEYWORDTerminalRuleCall_13() { return cACTIVE_KEYWORDTerminalRuleCall_13; }
 		
 		//TYPEID_KEYWORD
-		public RuleCall getTYPEID_KEYWORDTerminalRuleCall_13() { return cTYPEID_KEYWORDTerminalRuleCall_13; }
+		public RuleCall getTYPEID_KEYWORDTerminalRuleCall_14() { return cTYPEID_KEYWORDTerminalRuleCall_14; }
 		
 		//EXCLUSION_KEYWORD
-		public RuleCall getEXCLUSION_KEYWORDTerminalRuleCall_14() { return cEXCLUSION_KEYWORDTerminalRuleCall_14; }
+		public RuleCall getEXCLUSION_KEYWORDTerminalRuleCall_15() { return cEXCLUSION_KEYWORDTerminalRuleCall_15; }
 		
 		//EXACT_KEYWORD
-		public RuleCall getEXACT_KEYWORDTerminalRuleCall_15() { return cEXACT_KEYWORDTerminalRuleCall_15; }
+		public RuleCall getEXACT_KEYWORDTerminalRuleCall_16() { return cEXACT_KEYWORDTerminalRuleCall_16; }
 		
 		//FALSE_KEYWORD
-		public RuleCall getFALSE_KEYWORDTerminalRuleCall_16() { return cFALSE_KEYWORDTerminalRuleCall_16; }
+		public RuleCall getFALSE_KEYWORDTerminalRuleCall_17() { return cFALSE_KEYWORDTerminalRuleCall_17; }
 		
 		//MATCH_KEYWORD
-		public RuleCall getMATCH_KEYWORDTerminalRuleCall_17() { return cMATCH_KEYWORDTerminalRuleCall_17; }
+		public RuleCall getMATCH_KEYWORDTerminalRuleCall_18() { return cMATCH_KEYWORDTerminalRuleCall_18; }
 		
 		//REGEX_KEYWORD
-		public RuleCall getREGEX_KEYWORDTerminalRuleCall_18() { return cREGEX_KEYWORDTerminalRuleCall_18; }
+		public RuleCall getREGEX_KEYWORDTerminalRuleCall_19() { return cREGEX_KEYWORDTerminalRuleCall_19; }
 		
 		//TERM_KEYWORD
-		public RuleCall getTERM_KEYWORDTerminalRuleCall_19() { return cTERM_KEYWORDTerminalRuleCall_19; }
+		public RuleCall getTERM_KEYWORDTerminalRuleCall_20() { return cTERM_KEYWORDTerminalRuleCall_20; }
 		
 		//TRUE_KEYWORD
-		public RuleCall getTRUE_KEYWORDTerminalRuleCall_20() { return cTRUE_KEYWORDTerminalRuleCall_20; }
+		public RuleCall getTRUE_KEYWORDTerminalRuleCall_21() { return cTRUE_KEYWORDTerminalRuleCall_21; }
 		
 		//TYPE_KEYWORD
-		public RuleCall getTYPE_KEYWORDTerminalRuleCall_21() { return cTYPE_KEYWORDTerminalRuleCall_21; }
+		public RuleCall getTYPE_KEYWORDTerminalRuleCall_22() { return cTYPE_KEYWORDTerminalRuleCall_22; }
 		
 		//WILD_KEYWORD
-		public RuleCall getWILD_KEYWORDTerminalRuleCall_22() { return cWILD_KEYWORDTerminalRuleCall_22; }
+		public RuleCall getWILD_KEYWORDTerminalRuleCall_23() { return cWILD_KEYWORDTerminalRuleCall_23; }
+		
+		//MIN_KEYWORD
+		public RuleCall getMIN_KEYWORDTerminalRuleCall_24() { return cMIN_KEYWORDTerminalRuleCall_24; }
+		
+		//MOD_KEYWORD
+		public RuleCall getMOD_KEYWORDTerminalRuleCall_25() { return cMOD_KEYWORDTerminalRuleCall_25; }
+		
+		//MAX_KEYWORD
+		public RuleCall getMAX_KEYWORDTerminalRuleCall_26() { return cMAX_KEYWORDTerminalRuleCall_26; }
 		
 		//CONJUNCTION_KEYWORD
-		public RuleCall getCONJUNCTION_KEYWORDTerminalRuleCall_23() { return cCONJUNCTION_KEYWORDTerminalRuleCall_23; }
+		public RuleCall getCONJUNCTION_KEYWORDTerminalRuleCall_27() { return cCONJUNCTION_KEYWORDTerminalRuleCall_27; }
 		
 		//DISJUNCTION_KEYWORD
-		public RuleCall getDISJUNCTION_KEYWORDTerminalRuleCall_24() { return cDISJUNCTION_KEYWORDTerminalRuleCall_24; }
+		public RuleCall getDISJUNCTION_KEYWORDTerminalRuleCall_28() { return cDISJUNCTION_KEYWORDTerminalRuleCall_28; }
 		
 		//REVERSED
-		public RuleCall getREVERSEDTerminalRuleCall_25() { return cREVERSEDTerminalRuleCall_25; }
+		public RuleCall getREVERSEDTerminalRuleCall_29() { return cREVERSEDTerminalRuleCall_29; }
 		
 		//DESCRIPTION_SHORT_KEYWORD
-		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_26() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_26; }
+		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_30() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_30; }
 		
 		//CONCEPT_SHORT_KEYWORD
-		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_27() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_27; }
+		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_31() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_31; }
 		
 		//KEYWORD
-		public RuleCall getKEYWORDTerminalRuleCall_28() { return cKEYWORDTerminalRuleCall_28; }
+		public RuleCall getKEYWORDTerminalRuleCall_32() { return cKEYWORDTerminalRuleCall_32; }
 	}
 	public class DialectAliasValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DialectAliasValue");
@@ -2859,6 +2996,32 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//EXACT_KEYWORD
 		public RuleCall getEXACT_KEYWORDTerminalRuleCall_2() { return cEXACT_KEYWORDTerminalRuleCall_2; }
+	}
+	public class HISTORY_PROFILE_TYPEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HISTORY_PROFILE_TYPE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMIN_KEYWORDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMOD_KEYWORDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMAX_KEYWORDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//// History Supplement Profile Suffix from ECL 2.0 
+		//HISTORY_PROFILE_TYPE:
+		//	MIN_KEYWORD
+		//	| MOD_KEYWORD
+		//	| MAX_KEYWORD;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MIN_KEYWORD | MOD_KEYWORD | MAX_KEYWORD
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MIN_KEYWORD
+		public RuleCall getMIN_KEYWORDTerminalRuleCall_0() { return cMIN_KEYWORDTerminalRuleCall_0; }
+		
+		//MOD_KEYWORD
+		public RuleCall getMOD_KEYWORDTerminalRuleCall_1() { return cMOD_KEYWORDTerminalRuleCall_1; }
+		
+		//MAX_KEYWORD
+		public RuleCall getMAX_KEYWORDTerminalRuleCall_2() { return cMAX_KEYWORDTerminalRuleCall_2; }
 	}
 	public class SHORT_DOMAINElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SHORT_DOMAIN");
@@ -2945,6 +3108,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final RefinedExpressionConstraintElements pRefinedExpressionConstraint;
 	private final DottedExpressionConstraintElements pDottedExpressionConstraint;
 	private final FilteredExpressionConstraintElements pFilteredExpressionConstraint;
+	private final SupplementExpressionConstraintElements pSupplementExpressionConstraint;
 	private final SubExpressionConstraintElements pSubExpressionConstraint;
 	private final EclFocusConceptElements pEclFocusConcept;
 	private final ChildOfElements pChildOf;
@@ -3015,6 +3179,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final LanguageRefSetFilterElements pLanguageRefSetFilter;
 	private final CaseSignificanceFilterElements pCaseSignificanceFilter;
 	private final FilterValueElements pFilterValue;
+	private final SupplementElements pSupplement;
+	private final HistorySupplementElements pHistorySupplement;
+	private final HistoryProfileElements pHistoryProfile;
 	private final SnomedIdentifierElements pSnomedIdentifier;
 	private final NonNegativeIntegerElements pNonNegativeInteger;
 	private final NonNegativeDecimalElements pNonNegativeDecimal;
@@ -3026,9 +3193,11 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final UnquotedStringElements pUnquotedString;
 	private final DialectAliasValueElements pDialectAliasValue;
 	private final LEXICAL_SEARCH_TYPEElements pLEXICAL_SEARCH_TYPE;
+	private final HISTORY_PROFILE_TYPEElements pHISTORY_PROFILE_TYPE;
 	private final SHORT_DOMAINElements pSHORT_DOMAIN;
 	private final NON_NUMERIC_OPERATORElements pNON_NUMERIC_OPERATOR;
 	private final NUMERIC_OPERATORElements pNUMERIC_OPERATOR;
+	private final TerminalRule tHISTORY_KEYWORD;
 	private final TerminalRule tCASE_SIGNIFICANCE_ID_KEYWORD;
 	private final TerminalRule tDEFINITION_STATUS_ID_KEYWORD;
 	private final TerminalRule tDEFINITION_STATUS_TOKEN_KEYWORD;
@@ -3052,6 +3221,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tTRUE_KEYWORD;
 	private final TerminalRule tTYPE_KEYWORD;
 	private final TerminalRule tWILD_KEYWORD;
+	private final TerminalRule tMIN_KEYWORD;
+	private final TerminalRule tMOD_KEYWORD;
+	private final TerminalRule tMAX_KEYWORD;
 	private final TerminalRule tCONJUNCTION_KEYWORD;
 	private final TerminalRule tDISJUNCTION_KEYWORD;
 	private final TerminalRule tREVERSED;
@@ -3083,6 +3255,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tSQUARE_CLOSE;
 	private final TerminalRule tPLUS;
 	private final TerminalRule tDASH;
+	private final TerminalRule tUNDERSCORE;
 	private final TerminalRule tCARET;
 	private final TerminalRule tDOT;
 	private final TerminalRule tWILDCARD;
@@ -3108,6 +3281,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pRefinedExpressionConstraint = new RefinedExpressionConstraintElements();
 		this.pDottedExpressionConstraint = new DottedExpressionConstraintElements();
 		this.pFilteredExpressionConstraint = new FilteredExpressionConstraintElements();
+		this.pSupplementExpressionConstraint = new SupplementExpressionConstraintElements();
 		this.pSubExpressionConstraint = new SubExpressionConstraintElements();
 		this.pEclFocusConcept = new EclFocusConceptElements();
 		this.pChildOf = new ChildOfElements();
@@ -3178,6 +3352,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pLanguageRefSetFilter = new LanguageRefSetFilterElements();
 		this.pCaseSignificanceFilter = new CaseSignificanceFilterElements();
 		this.pFilterValue = new FilterValueElements();
+		this.pSupplement = new SupplementElements();
+		this.pHistorySupplement = new HistorySupplementElements();
+		this.pHistoryProfile = new HistoryProfileElements();
 		this.pSnomedIdentifier = new SnomedIdentifierElements();
 		this.pNonNegativeInteger = new NonNegativeIntegerElements();
 		this.pNonNegativeDecimal = new NonNegativeDecimalElements();
@@ -3189,9 +3366,11 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pUnquotedString = new UnquotedStringElements();
 		this.pDialectAliasValue = new DialectAliasValueElements();
 		this.pLEXICAL_SEARCH_TYPE = new LEXICAL_SEARCH_TYPEElements();
+		this.pHISTORY_PROFILE_TYPE = new HISTORY_PROFILE_TYPEElements();
 		this.pSHORT_DOMAIN = new SHORT_DOMAINElements();
 		this.pNON_NUMERIC_OPERATOR = new NON_NUMERIC_OPERATORElements();
 		this.pNUMERIC_OPERATOR = new NUMERIC_OPERATORElements();
+		this.tHISTORY_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.HISTORY_KEYWORD");
 		this.tCASE_SIGNIFICANCE_ID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CASE_SIGNIFICANCE_ID_KEYWORD");
 		this.tDEFINITION_STATUS_ID_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DEFINITION_STATUS_ID_KEYWORD");
 		this.tDEFINITION_STATUS_TOKEN_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DEFINITION_STATUS_TOKEN_KEYWORD");
@@ -3215,6 +3394,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tTRUE_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TRUE_KEYWORD");
 		this.tTYPE_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TYPE_KEYWORD");
 		this.tWILD_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.WILD_KEYWORD");
+		this.tMIN_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MIN_KEYWORD");
+		this.tMOD_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MOD_KEYWORD");
+		this.tMAX_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MAX_KEYWORD");
 		this.tCONJUNCTION_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CONJUNCTION_KEYWORD");
 		this.tDISJUNCTION_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DISJUNCTION_KEYWORD");
 		this.tREVERSED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.REVERSED");
@@ -3246,6 +3428,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tSQUARE_CLOSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SQUARE_CLOSE");
 		this.tPLUS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.PLUS");
 		this.tDASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DASH");
+		this.tUNDERSCORE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.UNDERSCORE");
 		this.tCARET = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CARET");
 		this.tDOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DOT");
 		this.tWILDCARD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.WILDCARD");
@@ -3356,13 +3539,23 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//FilteredExpressionConstraint ExpressionConstraint:
-	//	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
+	//	SupplementExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 	public FilteredExpressionConstraintElements getFilteredExpressionConstraintAccess() {
 		return pFilteredExpressionConstraint;
 	}
 	
 	public ParserRule getFilteredExpressionConstraintRule() {
 		return getFilteredExpressionConstraintAccess().getRule();
+	}
+	
+	//SupplementExpressionConstraint ExpressionConstraint:
+	//	SubExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*;
+	public SupplementExpressionConstraintElements getSupplementExpressionConstraintAccess() {
+		return pSupplementExpressionConstraint;
+	}
+	
+	public ParserRule getSupplementExpressionConstraintRule() {
+		return getSupplementExpressionConstraintAccess().getRule();
 	}
 	
 	//SubExpressionConstraint ExpressionConstraint:
@@ -4108,6 +4301,37 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getFilterValueAccess().getRule();
 	}
 	
+	//// History Supplement from ECL 2.0
+	//Supplement:
+	//	HistorySupplement;
+	public SupplementElements getSupplementAccess() {
+		return pSupplement;
+	}
+	
+	public ParserRule getSupplementRule() {
+		return getSupplementAccess().getRule();
+	}
+	
+	//HistorySupplement:
+	//	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD history=(HistoryProfile | NestedExpression) DOUBLE_CURLY_CLOSE;
+	public HistorySupplementElements getHistorySupplementAccess() {
+		return pHistorySupplement;
+	}
+	
+	public ParserRule getHistorySupplementRule() {
+		return getHistorySupplementAccess().getRule();
+	}
+	
+	//HistoryProfile ExpressionConstraint:
+	//	(DASH | UNDERSCORE) profile=HISTORY_PROFILE_TYPE;
+	public HistoryProfileElements getHistoryProfileAccess() {
+		return pHistoryProfile;
+	}
+	
+	public ParserRule getHistoryProfileRule() {
+		return getHistoryProfileAccess().getRule();
+	}
+	
 	///*
 	// * Datatype rules
 	// */ SnomedIdentifier hidden():
@@ -4193,7 +4417,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//// Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 	//UnquotedString:
-	//	CASE_SIGNIFICANCE_ID_KEYWORD
+	//	HISTORY_KEYWORD
+	//	| CASE_SIGNIFICANCE_ID_KEYWORD
 	//	| DEFINITION_STATUS_ID_KEYWORD
 	//	| DEFINITION_STATUS_TOKEN_KEYWORD
 	//	| LANGUAGE_REFSET_ID_KEYWORD
@@ -4216,6 +4441,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	| TRUE_KEYWORD
 	//	| TYPE_KEYWORD
 	//	| WILD_KEYWORD
+	//	| MIN_KEYWORD
+	//	| MOD_KEYWORD
+	//	| MAX_KEYWORD
 	//	| CONJUNCTION_KEYWORD
 	//	| DISJUNCTION_KEYWORD
 	//	| REVERSED
@@ -4255,6 +4483,19 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getLEXICAL_SEARCH_TYPEAccess().getRule();
 	}
 	
+	//// History Supplement Profile Suffix from ECL 2.0 
+	//HISTORY_PROFILE_TYPE:
+	//	MIN_KEYWORD
+	//	| MOD_KEYWORD
+	//	| MAX_KEYWORD;
+	public HISTORY_PROFILE_TYPEElements getHISTORY_PROFILE_TYPEAccess() {
+		return pHISTORY_PROFILE_TYPE;
+	}
+	
+	public ParserRule getHISTORY_PROFILE_TYPERule() {
+		return getHISTORY_PROFILE_TYPEAccess().getRule();
+	}
+	
 	//// Single-letter domains for filterConstraints is an ECL 1.6 feature
 	//SHORT_DOMAIN:
 	//	CONCEPT_SHORT_KEYWORD
@@ -4285,6 +4526,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getNUMERIC_OPERATORRule() {
 		return getNUMERIC_OPERATORAccess().getRule();
+	}
+	
+	//terminal HISTORY_KEYWORD:
+	//	'HISTORY' | ('h' | 'H') ('i' | 'I') ('s' | 'S') ('t' | 'T') ('o' | 'O') ('r' | 'R') ('y' | 'Y');
+	public TerminalRule getHISTORY_KEYWORDRule() {
+		return tHISTORY_KEYWORD;
 	}
 	
 	//terminal CASE_SIGNIFICANCE_ID_KEYWORD:
@@ -4434,6 +4681,24 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	'wild' | ('W' | 'w') ('I' | 'i') ('L' | 'l') ('D' | 'd');
 	public TerminalRule getWILD_KEYWORDRule() {
 		return tWILD_KEYWORD;
+	}
+	
+	//terminal MIN_KEYWORD:
+	//	'MIN' | ('M' | 'm') ('I' | 'i') ('N' | 'n');
+	public TerminalRule getMIN_KEYWORDRule() {
+		return tMIN_KEYWORD;
+	}
+	
+	//terminal MOD_KEYWORD:
+	//	'MOD' | ('M' | 'm') ('O' | 'o') ('D' | 'd');
+	public TerminalRule getMOD_KEYWORDRule() {
+		return tMOD_KEYWORD;
+	}
+	
+	//terminal MAX_KEYWORD:
+	//	'MAX' | ('M' | 'm') ('A' | 'a') ('X' | 'x');
+	public TerminalRule getMAX_KEYWORDRule() {
+		return tMAX_KEYWORD;
 	}
 	
 	//terminal CONJUNCTION_KEYWORD:
@@ -4621,6 +4886,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	'-';
 	public TerminalRule getDASHRule() {
 		return tDASH;
+	}
+	
+	//terminal UNDERSCORE:
+	//	'_';
+	public TerminalRule getUNDERSCORERule() {
+		return tUNDERSCORE;
 	}
 	
 	//terminal CARET:

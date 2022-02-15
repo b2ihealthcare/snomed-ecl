@@ -9,7 +9,9 @@
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint"/>
+    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ExpressionConstraint/profile"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ChildOf">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ChildOf/constraint"/>
     </genClasses>
@@ -180,6 +182,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//CaseSignificanceFilter/caseSignificanceId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//FilterValue"/>
+    <genClasses ecoreClass="Ecl.ecore#//Supplement"/>
+    <genClasses ecoreClass="Ecl.ecore#//HistorySupplement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//HistorySupplement/history"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/right"/>
@@ -203,6 +209,10 @@
     <genClasses ecoreClass="Ecl.ecore#//FilteredExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/constraint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/filter"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//SupplementExpressionConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/supplement"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrRefinement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrRefinement/left"/>

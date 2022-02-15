@@ -136,12 +136,15 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
       case EclPackage.CASE_SIGNIFICANCE_FILTER: return createCaseSignificanceFilter();
       case EclPackage.FILTER_VALUE: return createFilterValue();
+      case EclPackage.SUPPLEMENT: return createSupplement();
+      case EclPackage.HISTORY_SUPPLEMENT: return createHistorySupplement();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
       case EclPackage.REFINED_EXPRESSION_CONSTRAINT: return createRefinedExpressionConstraint();
       case EclPackage.DOTTED_EXPRESSION_CONSTRAINT: return createDottedExpressionConstraint();
       case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
+      case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT: return createSupplementExpressionConstraint();
       case EclPackage.OR_REFINEMENT: return createOrRefinement();
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
       case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
@@ -865,6 +868,30 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public Supplement createSupplement()
+  {
+    SupplementImpl supplement = new SupplementImpl();
+    return supplement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HistorySupplement createHistorySupplement()
+  {
+    HistorySupplementImpl historySupplement = new HistorySupplementImpl();
+    return historySupplement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrExpressionConstraint createOrExpressionConstraint()
   {
     OrExpressionConstraintImpl orExpressionConstraint = new OrExpressionConstraintImpl();
@@ -929,6 +956,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
     return filteredExpressionConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SupplementExpressionConstraint createSupplementExpressionConstraint()
+  {
+    SupplementExpressionConstraintImpl supplementExpressionConstraint = new SupplementExpressionConstraintImpl();
+    return supplementExpressionConstraint;
   }
 
   /**

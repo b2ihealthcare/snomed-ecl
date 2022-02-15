@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2011-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -832,6 +832,35 @@ class EclParsingTest {
 			<  404684003 |Clinical finding|  :
 			 47429007 |Associated with|  = (<  404684003 |Clinical finding|  : 
 			 116676008 |Associated morphology|  = <<  55641003 |Infarct|  )
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_profile_min() {
+		'''
+			* {{ + HISTORY-MIN }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_profile_mod() {
+		'''
+			* {{ + HISTORY-MOD }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_profile_max() {
+		'''
+			* {{ + HISTORY-MAX }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_custom_expression() {
+		// TODO add {{ M targetComponentId = << 195967001 |Asthma| }} as refinement for consistency with the official examples (once we have member filters)
+		'''
+			* {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| ) }}
 		'''.assertNoErrors
 	}
 

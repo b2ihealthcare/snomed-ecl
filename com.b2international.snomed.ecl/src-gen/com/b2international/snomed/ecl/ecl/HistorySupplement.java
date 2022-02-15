@@ -18,42 +18,42 @@ package com.b2international.snomed.ecl.ecl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Expression Constraint</b></em>'.
+ * A representation of the model object '<em><b>History Supplement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile <em>Profile</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.HistorySupplement#getHistory <em>History</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getExpressionConstraint()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistorySupplement()
  * @model
  * @generated
  */
-public interface ExpressionConstraint extends FilterValue
+public interface HistorySupplement extends Supplement
 {
   /**
-   * Returns the value of the '<em><b>Profile</b></em>' attribute.
+   * Returns the value of the '<em><b>History</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Profile</em>' attribute.
-   * @see #setProfile(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getExpressionConstraint_Profile()
-   * @model
+   * @return the value of the '<em>History</em>' containment reference.
+   * @see #setHistory(ExpressionConstraint)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistorySupplement_History()
+   * @model containment="true"
    * @generated
    */
-  String getProfile();
+  ExpressionConstraint getHistory();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile <em>Profile</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.HistorySupplement#getHistory <em>History</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Profile</em>' attribute.
-   * @see #getProfile()
+   * @param value the new value of the '<em>History</em>' containment reference.
+   * @see #getHistory()
    * @generated
    */
-  void setProfile(String value);
+  void setHistory(ExpressionConstraint value);
 
-} // ExpressionConstraint
+} // HistorySupplement

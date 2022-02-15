@@ -383,6 +383,16 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createFilterValueAdapter();
       }
       @Override
+      public Adapter caseSupplement(Supplement object)
+      {
+        return createSupplementAdapter();
+      }
+      @Override
+      public Adapter caseHistorySupplement(HistorySupplement object)
+      {
+        return createHistorySupplementAdapter();
+      }
+      @Override
       public Adapter caseOrExpressionConstraint(OrExpressionConstraint object)
       {
         return createOrExpressionConstraintAdapter();
@@ -411,6 +421,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
       {
         return createFilteredExpressionConstraintAdapter();
+      }
+      @Override
+      public Adapter caseSupplementExpressionConstraint(SupplementExpressionConstraint object)
+      {
+        return createSupplementExpressionConstraintAdapter();
       }
       @Override
       public Adapter caseOrRefinement(OrRefinement object)
@@ -1340,6 +1355,36 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Supplement <em>Supplement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Supplement
+   * @generated
+   */
+  public Adapter createSupplementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.HistorySupplement <em>History Supplement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.HistorySupplement
+   * @generated
+   */
+  public Adapter createHistorySupplementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.OrExpressionConstraint <em>Or Expression Constraint</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1425,6 +1470,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFilteredExpressionConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint <em>Supplement Expression Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint
+   * @generated
+   */
+  public Adapter createSupplementExpressionConstraintAdapter()
   {
     return null;
   }

@@ -592,6 +592,21 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.SUPPLEMENT:
+      {
+        Supplement supplement = (Supplement)theEObject;
+        T result = caseSupplement(supplement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.HISTORY_SUPPLEMENT:
+      {
+        HistorySupplement historySupplement = (HistorySupplement)theEObject;
+        T result = caseHistorySupplement(historySupplement);
+        if (result == null) result = caseSupplement(historySupplement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.OR_EXPRESSION_CONSTRAINT:
       {
         OrExpressionConstraint orExpressionConstraint = (OrExpressionConstraint)theEObject;
@@ -643,6 +658,15 @@ public class EclSwitch<T> extends Switch<T>
         T result = caseFilteredExpressionConstraint(filteredExpressionConstraint);
         if (result == null) result = caseExpressionConstraint(filteredExpressionConstraint);
         if (result == null) result = caseFilterValue(filteredExpressionConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT:
+      {
+        SupplementExpressionConstraint supplementExpressionConstraint = (SupplementExpressionConstraint)theEObject;
+        T result = caseSupplementExpressionConstraint(supplementExpressionConstraint);
+        if (result == null) result = caseExpressionConstraint(supplementExpressionConstraint);
+        if (result == null) result = caseFilterValue(supplementExpressionConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1627,6 +1651,38 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Supplement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSupplement(Supplement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>History Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>History Supplement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHistorySupplement(HistorySupplement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1718,6 +1774,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Supplement Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Supplement Expression Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSupplementExpressionConstraint(SupplementExpressionConstraint object)
   {
     return null;
   }

@@ -61,6 +61,7 @@ import com.b2international.snomed.ecl.ecl.Filter;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.FilterValue;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.HistorySupplement;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
@@ -79,6 +80,8 @@ import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
 import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
+import com.b2international.snomed.ecl.ecl.Supplement;
+import com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.TermFilter;
 import com.b2international.snomed.ecl.ecl.TypeFilter;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
@@ -520,6 +523,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass supplementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass historySupplementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass orExpressionConstraintEClass = null;
 
   /**
@@ -556,6 +573,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass filteredExpressionConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass supplementExpressionConstraintEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -679,6 +703,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EClass getExpressionConstraint()
   {
     return expressionConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExpressionConstraint_Profile()
+  {
+    return (EAttribute)expressionConstraintEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2007,6 +2042,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getSupplement()
+  {
+    return supplementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getHistorySupplement()
+  {
+    return historySupplementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHistorySupplement_History()
+  {
+    return (EReference)historySupplementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOrExpressionConstraint()
   {
     return orExpressionConstraintEClass;
@@ -2205,6 +2273,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getSupplementExpressionConstraint()
+  {
+    return supplementExpressionConstraintEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSupplementExpressionConstraint_Constraint()
+  {
+    return (EReference)supplementExpressionConstraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSupplementExpressionConstraint_Supplement()
+  {
+    return (EReference)supplementExpressionConstraintEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOrRefinement()
   {
     return orRefinementEClass;
@@ -2366,6 +2467,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(scriptEClass, SCRIPT__CONSTRAINT);
 
     expressionConstraintEClass = createEClass(EXPRESSION_CONSTRAINT);
+    createEAttribute(expressionConstraintEClass, EXPRESSION_CONSTRAINT__PROFILE);
 
     childOfEClass = createEClass(CHILD_OF);
     createEReference(childOfEClass, CHILD_OF__CONSTRAINT);
@@ -2544,6 +2646,11 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     filterValueEClass = createEClass(FILTER_VALUE);
 
+    supplementEClass = createEClass(SUPPLEMENT);
+
+    historySupplementEClass = createEClass(HISTORY_SUPPLEMENT);
+    createEReference(historySupplementEClass, HISTORY_SUPPLEMENT__HISTORY);
+
     orExpressionConstraintEClass = createEClass(OR_EXPRESSION_CONSTRAINT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__LEFT);
     createEReference(orExpressionConstraintEClass, OR_EXPRESSION_CONSTRAINT__RIGHT);
@@ -2567,6 +2674,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     filteredExpressionConstraintEClass = createEClass(FILTERED_EXPRESSION_CONSTRAINT);
     createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT);
     createEReference(filteredExpressionConstraintEClass, FILTERED_EXPRESSION_CONSTRAINT__FILTER);
+
+    supplementExpressionConstraintEClass = createEClass(SUPPLEMENT_EXPRESSION_CONSTRAINT);
+    createEReference(supplementExpressionConstraintEClass, SUPPLEMENT_EXPRESSION_CONSTRAINT__CONSTRAINT);
+    createEReference(supplementExpressionConstraintEClass, SUPPLEMENT_EXPRESSION_CONSTRAINT__SUPPLEMENT);
 
     orRefinementEClass = createEClass(OR_REFINEMENT);
     createEReference(orRefinementEClass, OR_REFINEMENT__LEFT);
@@ -2662,12 +2773,14 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     acceptableInFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     languageRefSetFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     caseSignificanceFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    historySupplementEClass.getESuperTypes().add(this.getSupplement());
     orExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     andExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     exclusionExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     refinedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     dottedExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     filteredExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
+    supplementExpressionConstraintEClass.getESuperTypes().add(this.getExpressionConstraint());
     orRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     andRefinementEClass.getESuperTypes().add(this.getEclRefinement());
     disjunctionFilterEClass.getESuperTypes().add(this.getFilter());
@@ -2678,6 +2791,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getScript_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionConstraintEClass, ExpressionConstraint.class, "ExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpressionConstraint_Profile(), ecorePackage.getEString(), "profile", null, 0, 1, ExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(childOfEClass, ChildOf.class, "ChildOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChildOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, ChildOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2856,6 +2970,11 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(filterValueEClass, FilterValue.class, "FilterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(supplementEClass, Supplement.class, "Supplement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(historySupplementEClass, HistorySupplement.class, "HistorySupplement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHistorySupplement_History(), this.getExpressionConstraint(), null, "history", null, 0, 1, HistorySupplement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(orExpressionConstraintEClass, OrExpressionConstraint.class, "OrExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrExpressionConstraint_Left(), this.getExpressionConstraint(), null, "left", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOrExpressionConstraint_Right(), this.getExpressionConstraint(), null, "right", null, 0, 1, OrExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2879,6 +2998,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(filteredExpressionConstraintEClass, FilteredExpressionConstraint.class, "FilteredExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFilteredExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFilteredExpressionConstraint_Filter(), this.getFilterConstraint(), null, "filter", null, 0, 1, FilteredExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(supplementExpressionConstraintEClass, SupplementExpressionConstraint.class, "SupplementExpressionConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSupplementExpressionConstraint_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, SupplementExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSupplementExpressionConstraint_Supplement(), this.getSupplement(), null, "supplement", null, 0, 1, SupplementExpressionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orRefinementEClass, OrRefinement.class, "OrRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrRefinement_Left(), this.getEclRefinement(), null, "left", null, 0, 1, OrRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

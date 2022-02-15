@@ -567,6 +567,24 @@ public interface EclFactory extends EFactory
   FilterValue createFilterValue();
 
   /**
+   * Returns a new object of class '<em>Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Supplement</em>'.
+   * @generated
+   */
+  Supplement createSupplement();
+
+  /**
+   * Returns a new object of class '<em>History Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>History Supplement</em>'.
+   * @generated
+   */
+  HistorySupplement createHistorySupplement();
+
+  /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -619,6 +637,15 @@ public interface EclFactory extends EFactory
    * @generated
    */
   FilteredExpressionConstraint createFilteredExpressionConstraint();
+
+  /**
+   * Returns a new object of class '<em>Supplement Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Supplement Expression Constraint</em>'.
+   * @generated
+   */
+  SupplementExpressionConstraint createSupplementExpressionConstraint();
 
   /**
    * Returns a new object of class '<em>Or Refinement</em>'.
