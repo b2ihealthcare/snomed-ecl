@@ -175,10 +175,8 @@ NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
-	// Member filters in ECL 2.0
-	MemberFieldFilter
 	// Description filters in ECL 1.6
-	| TermFilter 
+	TermFilter 
 	| LanguageFilter 
 	| TypeFilter 
 	| DialectFilter 
@@ -194,7 +192,10 @@ PropertyFilter:
 	| PreferredInFilter
 	| AcceptableInFilter
 	| LanguageRefSetFilter
-	| CaseSignificanceFilter 
+	| CaseSignificanceFilter
+	// Member filters in ECL 2.0
+	// XXX this should be the last filter due to the UnquotedString refsetFieldName rule
+	| MemberFieldFilter
 	// Allows grouping filters for boolean operators
 	| NestedFilter;
 

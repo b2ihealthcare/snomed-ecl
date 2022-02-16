@@ -1169,6 +1169,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueBooleanParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
+		//// TODO date
 		//BooleanValueComparison:
 		//	op=NON_NUMERIC_OPERATOR value=Boolean;
 		@Override public ParserRule getRule() { return rule; }
@@ -1440,6 +1441,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cNestedFilterParserRuleCall_1_0 = (RuleCall)cNestedAssignment_1.eContents().get(0);
 		private final RuleCall cROUND_CLOSETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
+		//// {{ C active = true OR C definitionStatusId = 123123123 }}
+		//// {{ M active = true, isVaccine = false }}
+		//// filterConstraint = descriptionFilterConstraint / conceptFilterConstraint / memberFilterConstraint
+		//// descriptionFilterConstraint = "{{" ws [ "d" / "D" ] ws descriptionFilter *(ws "," ws descriptionFilter) ws "}}"
+		//// conceptFilterConstraint = "{{" ws ("c" / "C") ws conceptFilter *(ws "," ws conceptFilter) ws "}}"
+		//// memberFilterConstraint = "{{" ws ("m" / "M") ws memberFilter *(ws "," ws memberFilter) ws "}}"
 		//NestedFilter:
 		//	ROUND_OPEN nested=Filter ROUND_CLOSE;
 		@Override public ParserRule getRule() { return rule; }
@@ -1462,26 +1469,24 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class PropertyFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.PropertyFilter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMemberFieldFilterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTermFilterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cLanguageFilterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTypeFilterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDialectFilterParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cDefinitionStatusFilterParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cModuleFilterParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cEffectiveTimeFilterParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cActiveFilterParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cSemanticTagFilterParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cPreferredInFilterParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cAcceptableInFilterParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cLanguageRefSetFilterParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cCaseSignificanceFilterParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cTermFilterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLanguageFilterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTypeFilterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDialectFilterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDefinitionStatusFilterParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cModuleFilterParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cEffectiveTimeFilterParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cActiveFilterParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cSemanticTagFilterParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cPreferredInFilterParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cAcceptableInFilterParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cLanguageRefSetFilterParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cCaseSignificanceFilterParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cMemberFieldFilterParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cNestedFilterParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
 		
 		//PropertyFilter:
-		//	MemberFieldFilter
-		//	// Description filters in ECL 1.6
-		//	| TermFilter
+		//	TermFilter
 		//	| LanguageFilter
 		//	| TypeFilter
 		//	| DialectFilter
@@ -1498,62 +1503,64 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| AcceptableInFilter
 		//	| LanguageRefSetFilter
 		//	| CaseSignificanceFilter
+		//	// Member filters in ECL 2.0
+		//	| MemberFieldFilter
 		//	// Allows grouping filters for boolean operators
 		//	| NestedFilter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//// Member filters in ECL 2.0
-		//MemberFieldFilter // Description filters in ECL 1.6
-		//| TermFilter | LanguageFilter | TypeFilter | DialectFilter // Concept filters in ECL 1.6
+		//// Description filters in ECL 1.6
+		//TermFilter | LanguageFilter | TypeFilter | DialectFilter // Concept filters in ECL 1.6
 		//| DefinitionStatusFilter // Concept (Description and Member) filters in ECL 1.6, component filters in QL 0.1 (extension)
 		//| ModuleFilter | EffectiveTimeFilter | ActiveFilter // Component filters in QL 0.1 (extension)
 		//| SemanticTagFilter // Description filters in QL 0.1 (extension)
-		//| PreferredInFilter | AcceptableInFilter | LanguageRefSetFilter | CaseSignificanceFilter // Allows grouping filters for boolean operators
+		//| PreferredInFilter | AcceptableInFilter | LanguageRefSetFilter | CaseSignificanceFilter // Member filters in ECL 2.0
+		//| MemberFieldFilter // Allows grouping filters for boolean operators
 		//| NestedFilter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//// Member filters in ECL 2.0
-		//MemberFieldFilter
-		public RuleCall getMemberFieldFilterParserRuleCall_0() { return cMemberFieldFilterParserRuleCall_0; }
-		
+		//// Description filters in ECL 1.6
 		//TermFilter
-		public RuleCall getTermFilterParserRuleCall_1() { return cTermFilterParserRuleCall_1; }
+		public RuleCall getTermFilterParserRuleCall_0() { return cTermFilterParserRuleCall_0; }
 		
 		//LanguageFilter
-		public RuleCall getLanguageFilterParserRuleCall_2() { return cLanguageFilterParserRuleCall_2; }
+		public RuleCall getLanguageFilterParserRuleCall_1() { return cLanguageFilterParserRuleCall_1; }
 		
 		//TypeFilter
-		public RuleCall getTypeFilterParserRuleCall_3() { return cTypeFilterParserRuleCall_3; }
+		public RuleCall getTypeFilterParserRuleCall_2() { return cTypeFilterParserRuleCall_2; }
 		
 		//DialectFilter
-		public RuleCall getDialectFilterParserRuleCall_4() { return cDialectFilterParserRuleCall_4; }
+		public RuleCall getDialectFilterParserRuleCall_3() { return cDialectFilterParserRuleCall_3; }
 		
 		//DefinitionStatusFilter
-		public RuleCall getDefinitionStatusFilterParserRuleCall_5() { return cDefinitionStatusFilterParserRuleCall_5; }
+		public RuleCall getDefinitionStatusFilterParserRuleCall_4() { return cDefinitionStatusFilterParserRuleCall_4; }
 		
 		//ModuleFilter
-		public RuleCall getModuleFilterParserRuleCall_6() { return cModuleFilterParserRuleCall_6; }
+		public RuleCall getModuleFilterParserRuleCall_5() { return cModuleFilterParserRuleCall_5; }
 		
 		//EffectiveTimeFilter
-		public RuleCall getEffectiveTimeFilterParserRuleCall_7() { return cEffectiveTimeFilterParserRuleCall_7; }
+		public RuleCall getEffectiveTimeFilterParserRuleCall_6() { return cEffectiveTimeFilterParserRuleCall_6; }
 		
 		//ActiveFilter
-		public RuleCall getActiveFilterParserRuleCall_8() { return cActiveFilterParserRuleCall_8; }
+		public RuleCall getActiveFilterParserRuleCall_7() { return cActiveFilterParserRuleCall_7; }
 		
 		//SemanticTagFilter
-		public RuleCall getSemanticTagFilterParserRuleCall_9() { return cSemanticTagFilterParserRuleCall_9; }
+		public RuleCall getSemanticTagFilterParserRuleCall_8() { return cSemanticTagFilterParserRuleCall_8; }
 		
 		//PreferredInFilter
-		public RuleCall getPreferredInFilterParserRuleCall_10() { return cPreferredInFilterParserRuleCall_10; }
+		public RuleCall getPreferredInFilterParserRuleCall_9() { return cPreferredInFilterParserRuleCall_9; }
 		
 		//AcceptableInFilter
-		public RuleCall getAcceptableInFilterParserRuleCall_11() { return cAcceptableInFilterParserRuleCall_11; }
+		public RuleCall getAcceptableInFilterParserRuleCall_10() { return cAcceptableInFilterParserRuleCall_10; }
 		
 		//LanguageRefSetFilter
-		public RuleCall getLanguageRefSetFilterParserRuleCall_12() { return cLanguageRefSetFilterParserRuleCall_12; }
+		public RuleCall getLanguageRefSetFilterParserRuleCall_11() { return cLanguageRefSetFilterParserRuleCall_11; }
 		
 		//CaseSignificanceFilter
-		public RuleCall getCaseSignificanceFilterParserRuleCall_13() { return cCaseSignificanceFilterParserRuleCall_13; }
+		public RuleCall getCaseSignificanceFilterParserRuleCall_12() { return cCaseSignificanceFilterParserRuleCall_12; }
+		
+		//MemberFieldFilter
+		public RuleCall getMemberFieldFilterParserRuleCall_13() { return cMemberFieldFilterParserRuleCall_13; }
 		
 		//NestedFilter
 		public RuleCall getNestedFilterParserRuleCall_14() { return cNestedFilterParserRuleCall_14; }
@@ -2347,6 +2354,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cActiveAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cActiveActiveBooleanParserRuleCall_2_0 = (RuleCall)cActiveAssignment_2.eContents().get(0);
 		
+		////timeValue = QM [ year month day ] QM
+		////timeValueSet = "(" ws timeValue *(mws timeValue) ws ")"
+		////year = digitNonZero digit digit digit
+		////month = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12"
+		////day = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12" / "13" / "14" / "15" / "16" / "17" /
+		////"18" / "19" / "20" / "21" / "22" / "23" / "24" / "25" / "26" / "27" / "28" / "29" / "30" / "31"
 		//ActiveFilter:
 		//	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
 		@Override public ParserRule getRule() { return rule; }
@@ -3917,6 +3930,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getDataTypeComparisonAccess().getRule();
 	}
 	
+	//// TODO date
 	//BooleanValueComparison:
 	//	op=NON_NUMERIC_OPERATOR value=Boolean;
 	public BooleanValueComparisonElements getBooleanValueComparisonAccess() {
@@ -4011,6 +4025,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getConjunctionFilterAccess().getRule();
 	}
 	
+	//// {{ C active = true OR C definitionStatusId = 123123123 }}
+	//// {{ M active = true, isVaccine = false }}
+	//// filterConstraint = descriptionFilterConstraint / conceptFilterConstraint / memberFilterConstraint
+	//// descriptionFilterConstraint = "{{" ws [ "d" / "D" ] ws descriptionFilter *(ws "," ws descriptionFilter) ws "}}"
+	//// conceptFilterConstraint = "{{" ws ("c" / "C") ws conceptFilter *(ws "," ws conceptFilter) ws "}}"
+	//// memberFilterConstraint = "{{" ws ("m" / "M") ws memberFilter *(ws "," ws memberFilter) ws "}}"
 	//NestedFilter:
 	//	ROUND_OPEN nested=Filter ROUND_CLOSE;
 	public NestedFilterElements getNestedFilterAccess() {
@@ -4022,9 +4042,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//PropertyFilter:
-	//	MemberFieldFilter
-	//	// Description filters in ECL 1.6
-	//	| TermFilter
+	//	TermFilter
 	//	| LanguageFilter
 	//	| TypeFilter
 	//	| DialectFilter
@@ -4041,6 +4059,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	| AcceptableInFilter
 	//	| LanguageRefSetFilter
 	//	| CaseSignificanceFilter
+	//	// Member filters in ECL 2.0
+	//	| MemberFieldFilter
 	//	// Allows grouping filters for boolean operators
 	//	| NestedFilter;
 	public PropertyFilterElements getPropertyFilterAccess() {
@@ -4298,6 +4318,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getEffectiveTimeFilterAccess().getRule();
 	}
 	
+	////timeValue = QM [ year month day ] QM
+	////timeValueSet = "(" ws timeValue *(mws timeValue) ws ")"
+	////year = digitNonZero digit digit digit
+	////month = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12"
+	////day = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12" / "13" / "14" / "15" / "16" / "17" /
+	////"18" / "19" / "20" / "21" / "22" / "23" / "24" / "25" / "26" / "27" / "28" / "29" / "30" / "31"
 	//ActiveFilter:
 	//	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
 	public ActiveFilterElements getActiveFilterAccess() {

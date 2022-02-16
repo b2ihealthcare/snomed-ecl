@@ -15,8 +15,12 @@
  */
 package com.b2international.snomed.ecl.tests
 
+import com.b2international.snomed.ecl.ecl.EclPackage
 import com.b2international.snomed.ecl.ecl.Script
+import com.b2international.snomed.ecl.validation.EclValidator
 import com.google.inject.Inject
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -26,9 +30,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
-import com.b2international.snomed.ecl.ecl.EclPackage
-import com.b2international.snomed.ecl.validation.EclValidator
-import org.eclipse.xtext.diagnostics.Diagnostic
 
 /**
  * Parsing test for the SNOMED CT ECL grammar and associated extensions.
@@ -178,6 +179,11 @@ class EclParsingTest {
 	@Test
 	def void test_semanticTag_filter_domain() {
 		'* {{ d semanticTag = "finding" }}'.assertNoErrors;
+	}
+
+	@Test
+	def void test_definitionStatus_filter_no_domain() {
+		'* {{ definitionStatus = defined }}'.assertError(EclPackage.eINSTANCE.filterConstraint, EclValidator.DOMAIN_INCONSISTENCY_CODE);
 	}
 
 	@Test
@@ -900,13 +906,28 @@ class EclParsingTest {
 	
 	@Test
 	def void test_member_filter_time_field() {
-		
+		'''
+			* {{ M dateTime = "20020101" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_no_domain() {
+		'''
+			* {{ tradeName = "PANADOL" }}
+		'''.assertError(EclPackage.eINSTANCE.filterConstraint, EclValidator.DOMAIN_INCONSISTENCY_CODE)
 	}
 
 	private def void assertNoErrors(CharSequence it) throws Exception {
 		val script = parse;
 		assertNotNull('''Cannot parse expression: «it».''', script);
 		script.assertNoErrors;
+	}
+	
+	private def void assertError(CharSequence it, EClass target, String issueCode) throws Exception {
+		val script = parse;
+		assertNotNull('''Cannot parse expression: «it».''', script);
+		script.assertError(target, issueCode);
 	}
 
 }

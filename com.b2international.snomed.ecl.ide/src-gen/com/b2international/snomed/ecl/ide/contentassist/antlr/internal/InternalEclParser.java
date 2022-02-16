@@ -9955,32 +9955,32 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyFilter__Alternatives"
-    // InternalEcl.g:2925:1: rule__PropertyFilter__Alternatives : ( ( ruleMemberFieldFilter ) | ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleNestedFilter ) );
+    // InternalEcl.g:2925:1: rule__PropertyFilter__Alternatives : ( ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleMemberFieldFilter ) | ( ruleNestedFilter ) );
     public final void rule__PropertyFilter__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:2929:1: ( ( ruleMemberFieldFilter ) | ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleNestedFilter ) )
+            // InternalEcl.g:2929:1: ( ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleMemberFieldFilter ) | ( ruleNestedFilter ) )
             int alt15=15;
             alt15 = dfa15.predict(input);
             switch (alt15) {
                 case 1 :
-                    // InternalEcl.g:2930:2: ( ruleMemberFieldFilter )
+                    // InternalEcl.g:2930:2: ( ruleTermFilter )
                     {
-                    // InternalEcl.g:2930:2: ( ruleMemberFieldFilter )
-                    // InternalEcl.g:2931:3: ruleMemberFieldFilter
+                    // InternalEcl.g:2930:2: ( ruleTermFilter )
+                    // InternalEcl.g:2931:3: ruleTermFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_0()); 
+                       before(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_0()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleMemberFieldFilter();
+                    ruleTermFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_0()); 
+                       after(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_0()); 
                     }
 
                     }
@@ -9989,21 +9989,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalEcl.g:2936:2: ( ruleTermFilter )
+                    // InternalEcl.g:2936:2: ( ruleLanguageFilter )
                     {
-                    // InternalEcl.g:2936:2: ( ruleTermFilter )
-                    // InternalEcl.g:2937:3: ruleTermFilter
+                    // InternalEcl.g:2936:2: ( ruleLanguageFilter )
+                    // InternalEcl.g:2937:3: ruleLanguageFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_1()); 
+                       before(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_1()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleTermFilter();
+                    ruleLanguageFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_1()); 
+                       after(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_1()); 
                     }
 
                     }
@@ -10012,21 +10012,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalEcl.g:2942:2: ( ruleLanguageFilter )
+                    // InternalEcl.g:2942:2: ( ruleTypeFilter )
                     {
-                    // InternalEcl.g:2942:2: ( ruleLanguageFilter )
-                    // InternalEcl.g:2943:3: ruleLanguageFilter
+                    // InternalEcl.g:2942:2: ( ruleTypeFilter )
+                    // InternalEcl.g:2943:3: ruleTypeFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_2()); 
+                       before(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_2()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleLanguageFilter();
+                    ruleTypeFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_2()); 
+                       after(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_2()); 
                     }
 
                     }
@@ -10035,21 +10035,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalEcl.g:2948:2: ( ruleTypeFilter )
+                    // InternalEcl.g:2948:2: ( ruleDialectFilter )
                     {
-                    // InternalEcl.g:2948:2: ( ruleTypeFilter )
-                    // InternalEcl.g:2949:3: ruleTypeFilter
+                    // InternalEcl.g:2948:2: ( ruleDialectFilter )
+                    // InternalEcl.g:2949:3: ruleDialectFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_3()); 
+                       before(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_3()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleTypeFilter();
+                    ruleDialectFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_3()); 
+                       after(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_3()); 
                     }
 
                     }
@@ -10058,21 +10058,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalEcl.g:2954:2: ( ruleDialectFilter )
+                    // InternalEcl.g:2954:2: ( ruleDefinitionStatusFilter )
                     {
-                    // InternalEcl.g:2954:2: ( ruleDialectFilter )
-                    // InternalEcl.g:2955:3: ruleDialectFilter
+                    // InternalEcl.g:2954:2: ( ruleDefinitionStatusFilter )
+                    // InternalEcl.g:2955:3: ruleDefinitionStatusFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_4()); 
+                       before(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_4()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleDialectFilter();
+                    ruleDefinitionStatusFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_4()); 
+                       after(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_4()); 
                     }
 
                     }
@@ -10081,21 +10081,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalEcl.g:2960:2: ( ruleDefinitionStatusFilter )
+                    // InternalEcl.g:2960:2: ( ruleModuleFilter )
                     {
-                    // InternalEcl.g:2960:2: ( ruleDefinitionStatusFilter )
-                    // InternalEcl.g:2961:3: ruleDefinitionStatusFilter
+                    // InternalEcl.g:2960:2: ( ruleModuleFilter )
+                    // InternalEcl.g:2961:3: ruleModuleFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_5()); 
+                       before(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_5()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleDefinitionStatusFilter();
+                    ruleModuleFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_5()); 
+                       after(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_5()); 
                     }
 
                     }
@@ -10104,21 +10104,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalEcl.g:2966:2: ( ruleModuleFilter )
+                    // InternalEcl.g:2966:2: ( ruleEffectiveTimeFilter )
                     {
-                    // InternalEcl.g:2966:2: ( ruleModuleFilter )
-                    // InternalEcl.g:2967:3: ruleModuleFilter
+                    // InternalEcl.g:2966:2: ( ruleEffectiveTimeFilter )
+                    // InternalEcl.g:2967:3: ruleEffectiveTimeFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_6()); 
+                       before(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_6()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleModuleFilter();
+                    ruleEffectiveTimeFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_6()); 
+                       after(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_6()); 
                     }
 
                     }
@@ -10127,21 +10127,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalEcl.g:2972:2: ( ruleEffectiveTimeFilter )
+                    // InternalEcl.g:2972:2: ( ruleActiveFilter )
                     {
-                    // InternalEcl.g:2972:2: ( ruleEffectiveTimeFilter )
-                    // InternalEcl.g:2973:3: ruleEffectiveTimeFilter
+                    // InternalEcl.g:2972:2: ( ruleActiveFilter )
+                    // InternalEcl.g:2973:3: ruleActiveFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_7()); 
+                       before(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_7()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleEffectiveTimeFilter();
+                    ruleActiveFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_7()); 
+                       after(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_7()); 
                     }
 
                     }
@@ -10150,21 +10150,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalEcl.g:2978:2: ( ruleActiveFilter )
+                    // InternalEcl.g:2978:2: ( ruleSemanticTagFilter )
                     {
-                    // InternalEcl.g:2978:2: ( ruleActiveFilter )
-                    // InternalEcl.g:2979:3: ruleActiveFilter
+                    // InternalEcl.g:2978:2: ( ruleSemanticTagFilter )
+                    // InternalEcl.g:2979:3: ruleSemanticTagFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_8()); 
+                       before(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_8()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleActiveFilter();
+                    ruleSemanticTagFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_8()); 
+                       after(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_8()); 
                     }
 
                     }
@@ -10173,21 +10173,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalEcl.g:2984:2: ( ruleSemanticTagFilter )
+                    // InternalEcl.g:2984:2: ( rulePreferredInFilter )
                     {
-                    // InternalEcl.g:2984:2: ( ruleSemanticTagFilter )
-                    // InternalEcl.g:2985:3: ruleSemanticTagFilter
+                    // InternalEcl.g:2984:2: ( rulePreferredInFilter )
+                    // InternalEcl.g:2985:3: rulePreferredInFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_9()); 
+                       before(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_9()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleSemanticTagFilter();
+                    rulePreferredInFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_9()); 
+                       after(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_9()); 
                     }
 
                     }
@@ -10196,21 +10196,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalEcl.g:2990:2: ( rulePreferredInFilter )
+                    // InternalEcl.g:2990:2: ( ruleAcceptableInFilter )
                     {
-                    // InternalEcl.g:2990:2: ( rulePreferredInFilter )
-                    // InternalEcl.g:2991:3: rulePreferredInFilter
+                    // InternalEcl.g:2990:2: ( ruleAcceptableInFilter )
+                    // InternalEcl.g:2991:3: ruleAcceptableInFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_10()); 
+                       before(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_10()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    rulePreferredInFilter();
+                    ruleAcceptableInFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_10()); 
+                       after(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_10()); 
                     }
 
                     }
@@ -10219,21 +10219,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalEcl.g:2996:2: ( ruleAcceptableInFilter )
+                    // InternalEcl.g:2996:2: ( ruleLanguageRefSetFilter )
                     {
-                    // InternalEcl.g:2996:2: ( ruleAcceptableInFilter )
-                    // InternalEcl.g:2997:3: ruleAcceptableInFilter
+                    // InternalEcl.g:2996:2: ( ruleLanguageRefSetFilter )
+                    // InternalEcl.g:2997:3: ruleLanguageRefSetFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_11()); 
+                       before(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_11()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleAcceptableInFilter();
+                    ruleLanguageRefSetFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_11()); 
+                       after(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_11()); 
                     }
 
                     }
@@ -10242,21 +10242,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalEcl.g:3002:2: ( ruleLanguageRefSetFilter )
+                    // InternalEcl.g:3002:2: ( ruleCaseSignificanceFilter )
                     {
-                    // InternalEcl.g:3002:2: ( ruleLanguageRefSetFilter )
-                    // InternalEcl.g:3003:3: ruleLanguageRefSetFilter
+                    // InternalEcl.g:3002:2: ( ruleCaseSignificanceFilter )
+                    // InternalEcl.g:3003:3: ruleCaseSignificanceFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_12()); 
+                       before(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_12()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleLanguageRefSetFilter();
+                    ruleCaseSignificanceFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_12()); 
+                       after(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_12()); 
                     }
 
                     }
@@ -10265,21 +10265,21 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalEcl.g:3008:2: ( ruleCaseSignificanceFilter )
+                    // InternalEcl.g:3008:2: ( ruleMemberFieldFilter )
                     {
-                    // InternalEcl.g:3008:2: ( ruleCaseSignificanceFilter )
-                    // InternalEcl.g:3009:3: ruleCaseSignificanceFilter
+                    // InternalEcl.g:3008:2: ( ruleMemberFieldFilter )
+                    // InternalEcl.g:3009:3: ruleMemberFieldFilter
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_13()); 
+                       before(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_13()); 
                     }
                     pushFollow(FollowSets000.FOLLOW_2);
-                    ruleCaseSignificanceFilter();
+                    ruleMemberFieldFilter();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_13()); 
+                       after(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_13()); 
                     }
 
                     }
@@ -38408,17 +38408,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred28_InternalEcl
     public final void synpred28_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2930:2: ( ( ruleMemberFieldFilter ) )
-        // InternalEcl.g:2930:2: ( ruleMemberFieldFilter )
+        // InternalEcl.g:2930:2: ( ( ruleTermFilter ) )
+        // InternalEcl.g:2930:2: ( ruleTermFilter )
         {
-        // InternalEcl.g:2930:2: ( ruleMemberFieldFilter )
-        // InternalEcl.g:2931:3: ruleMemberFieldFilter
+        // InternalEcl.g:2930:2: ( ruleTermFilter )
+        // InternalEcl.g:2931:3: ruleTermFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_0()); 
+           before(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_0()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleMemberFieldFilter();
+        ruleTermFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38432,17 +38432,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred29_InternalEcl
     public final void synpred29_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2936:2: ( ( ruleTermFilter ) )
-        // InternalEcl.g:2936:2: ( ruleTermFilter )
+        // InternalEcl.g:2936:2: ( ( ruleLanguageFilter ) )
+        // InternalEcl.g:2936:2: ( ruleLanguageFilter )
         {
-        // InternalEcl.g:2936:2: ( ruleTermFilter )
-        // InternalEcl.g:2937:3: ruleTermFilter
+        // InternalEcl.g:2936:2: ( ruleLanguageFilter )
+        // InternalEcl.g:2937:3: ruleLanguageFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getTermFilterParserRuleCall_1()); 
+           before(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_1()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleTermFilter();
+        ruleLanguageFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38456,17 +38456,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred30_InternalEcl
     public final void synpred30_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2942:2: ( ( ruleLanguageFilter ) )
-        // InternalEcl.g:2942:2: ( ruleLanguageFilter )
+        // InternalEcl.g:2942:2: ( ( ruleTypeFilter ) )
+        // InternalEcl.g:2942:2: ( ruleTypeFilter )
         {
-        // InternalEcl.g:2942:2: ( ruleLanguageFilter )
-        // InternalEcl.g:2943:3: ruleLanguageFilter
+        // InternalEcl.g:2942:2: ( ruleTypeFilter )
+        // InternalEcl.g:2943:3: ruleTypeFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getLanguageFilterParserRuleCall_2()); 
+           before(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_2()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleLanguageFilter();
+        ruleTypeFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38480,17 +38480,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred31_InternalEcl
     public final void synpred31_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2948:2: ( ( ruleTypeFilter ) )
-        // InternalEcl.g:2948:2: ( ruleTypeFilter )
+        // InternalEcl.g:2948:2: ( ( ruleDialectFilter ) )
+        // InternalEcl.g:2948:2: ( ruleDialectFilter )
         {
-        // InternalEcl.g:2948:2: ( ruleTypeFilter )
-        // InternalEcl.g:2949:3: ruleTypeFilter
+        // InternalEcl.g:2948:2: ( ruleDialectFilter )
+        // InternalEcl.g:2949:3: ruleDialectFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getTypeFilterParserRuleCall_3()); 
+           before(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_3()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleTypeFilter();
+        ruleDialectFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38504,17 +38504,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred32_InternalEcl
     public final void synpred32_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2954:2: ( ( ruleDialectFilter ) )
-        // InternalEcl.g:2954:2: ( ruleDialectFilter )
+        // InternalEcl.g:2954:2: ( ( ruleDefinitionStatusFilter ) )
+        // InternalEcl.g:2954:2: ( ruleDefinitionStatusFilter )
         {
-        // InternalEcl.g:2954:2: ( ruleDialectFilter )
-        // InternalEcl.g:2955:3: ruleDialectFilter
+        // InternalEcl.g:2954:2: ( ruleDefinitionStatusFilter )
+        // InternalEcl.g:2955:3: ruleDefinitionStatusFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getDialectFilterParserRuleCall_4()); 
+           before(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_4()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleDialectFilter();
+        ruleDefinitionStatusFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38528,17 +38528,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred33_InternalEcl
     public final void synpred33_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2960:2: ( ( ruleDefinitionStatusFilter ) )
-        // InternalEcl.g:2960:2: ( ruleDefinitionStatusFilter )
+        // InternalEcl.g:2960:2: ( ( ruleModuleFilter ) )
+        // InternalEcl.g:2960:2: ( ruleModuleFilter )
         {
-        // InternalEcl.g:2960:2: ( ruleDefinitionStatusFilter )
-        // InternalEcl.g:2961:3: ruleDefinitionStatusFilter
+        // InternalEcl.g:2960:2: ( ruleModuleFilter )
+        // InternalEcl.g:2961:3: ruleModuleFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_5()); 
+           before(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_5()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleDefinitionStatusFilter();
+        ruleModuleFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38552,17 +38552,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred34_InternalEcl
     public final void synpred34_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2966:2: ( ( ruleModuleFilter ) )
-        // InternalEcl.g:2966:2: ( ruleModuleFilter )
+        // InternalEcl.g:2966:2: ( ( ruleEffectiveTimeFilter ) )
+        // InternalEcl.g:2966:2: ( ruleEffectiveTimeFilter )
         {
-        // InternalEcl.g:2966:2: ( ruleModuleFilter )
-        // InternalEcl.g:2967:3: ruleModuleFilter
+        // InternalEcl.g:2966:2: ( ruleEffectiveTimeFilter )
+        // InternalEcl.g:2967:3: ruleEffectiveTimeFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_6()); 
+           before(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_6()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleModuleFilter();
+        ruleEffectiveTimeFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38576,17 +38576,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred35_InternalEcl
     public final void synpred35_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2972:2: ( ( ruleEffectiveTimeFilter ) )
-        // InternalEcl.g:2972:2: ( ruleEffectiveTimeFilter )
+        // InternalEcl.g:2972:2: ( ( ruleActiveFilter ) )
+        // InternalEcl.g:2972:2: ( ruleActiveFilter )
         {
-        // InternalEcl.g:2972:2: ( ruleEffectiveTimeFilter )
-        // InternalEcl.g:2973:3: ruleEffectiveTimeFilter
+        // InternalEcl.g:2972:2: ( ruleActiveFilter )
+        // InternalEcl.g:2973:3: ruleActiveFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_7()); 
+           before(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_7()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleEffectiveTimeFilter();
+        ruleActiveFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38600,17 +38600,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred36_InternalEcl
     public final void synpred36_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2978:2: ( ( ruleActiveFilter ) )
-        // InternalEcl.g:2978:2: ( ruleActiveFilter )
+        // InternalEcl.g:2978:2: ( ( ruleSemanticTagFilter ) )
+        // InternalEcl.g:2978:2: ( ruleSemanticTagFilter )
         {
-        // InternalEcl.g:2978:2: ( ruleActiveFilter )
-        // InternalEcl.g:2979:3: ruleActiveFilter
+        // InternalEcl.g:2978:2: ( ruleSemanticTagFilter )
+        // InternalEcl.g:2979:3: ruleSemanticTagFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_8()); 
+           before(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_8()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleActiveFilter();
+        ruleSemanticTagFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38624,17 +38624,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred37_InternalEcl
     public final void synpred37_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2984:2: ( ( ruleSemanticTagFilter ) )
-        // InternalEcl.g:2984:2: ( ruleSemanticTagFilter )
+        // InternalEcl.g:2984:2: ( ( rulePreferredInFilter ) )
+        // InternalEcl.g:2984:2: ( rulePreferredInFilter )
         {
-        // InternalEcl.g:2984:2: ( ruleSemanticTagFilter )
-        // InternalEcl.g:2985:3: ruleSemanticTagFilter
+        // InternalEcl.g:2984:2: ( rulePreferredInFilter )
+        // InternalEcl.g:2985:3: rulePreferredInFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_9()); 
+           before(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_9()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleSemanticTagFilter();
+        rulePreferredInFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38648,17 +38648,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred38_InternalEcl
     public final void synpred38_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2990:2: ( ( rulePreferredInFilter ) )
-        // InternalEcl.g:2990:2: ( rulePreferredInFilter )
+        // InternalEcl.g:2990:2: ( ( ruleAcceptableInFilter ) )
+        // InternalEcl.g:2990:2: ( ruleAcceptableInFilter )
         {
-        // InternalEcl.g:2990:2: ( rulePreferredInFilter )
-        // InternalEcl.g:2991:3: rulePreferredInFilter
+        // InternalEcl.g:2990:2: ( ruleAcceptableInFilter )
+        // InternalEcl.g:2991:3: ruleAcceptableInFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_10()); 
+           before(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_10()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        rulePreferredInFilter();
+        ruleAcceptableInFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38672,17 +38672,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred39_InternalEcl
     public final void synpred39_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:2996:2: ( ( ruleAcceptableInFilter ) )
-        // InternalEcl.g:2996:2: ( ruleAcceptableInFilter )
+        // InternalEcl.g:2996:2: ( ( ruleLanguageRefSetFilter ) )
+        // InternalEcl.g:2996:2: ( ruleLanguageRefSetFilter )
         {
-        // InternalEcl.g:2996:2: ( ruleAcceptableInFilter )
-        // InternalEcl.g:2997:3: ruleAcceptableInFilter
+        // InternalEcl.g:2996:2: ( ruleLanguageRefSetFilter )
+        // InternalEcl.g:2997:3: ruleLanguageRefSetFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_11()); 
+           before(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_11()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleAcceptableInFilter();
+        ruleLanguageRefSetFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38696,17 +38696,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred40_InternalEcl
     public final void synpred40_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:3002:2: ( ( ruleLanguageRefSetFilter ) )
-        // InternalEcl.g:3002:2: ( ruleLanguageRefSetFilter )
+        // InternalEcl.g:3002:2: ( ( ruleCaseSignificanceFilter ) )
+        // InternalEcl.g:3002:2: ( ruleCaseSignificanceFilter )
         {
-        // InternalEcl.g:3002:2: ( ruleLanguageRefSetFilter )
-        // InternalEcl.g:3003:3: ruleLanguageRefSetFilter
+        // InternalEcl.g:3002:2: ( ruleCaseSignificanceFilter )
+        // InternalEcl.g:3003:3: ruleCaseSignificanceFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_12()); 
+           before(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_12()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleLanguageRefSetFilter();
+        ruleCaseSignificanceFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38720,17 +38720,17 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred41_InternalEcl
     public final void synpred41_InternalEcl_fragment() throws RecognitionException {   
-        // InternalEcl.g:3008:2: ( ( ruleCaseSignificanceFilter ) )
-        // InternalEcl.g:3008:2: ( ruleCaseSignificanceFilter )
+        // InternalEcl.g:3008:2: ( ( ruleMemberFieldFilter ) )
+        // InternalEcl.g:3008:2: ( ruleMemberFieldFilter )
         {
-        // InternalEcl.g:3008:2: ( ruleCaseSignificanceFilter )
-        // InternalEcl.g:3009:3: ruleCaseSignificanceFilter
+        // InternalEcl.g:3008:2: ( ruleMemberFieldFilter )
+        // InternalEcl.g:3009:3: ruleMemberFieldFilter
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_13()); 
+           before(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_13()); 
         }
         pushFollow(FollowSets000.FOLLOW_2);
-        ruleCaseSignificanceFilter();
+        ruleMemberFieldFilter();
 
         state._fsp--;
         if (state.failed) return ;
@@ -38913,11 +38913,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred38_InternalEcl() {
+    public final boolean synpred30_InternalEcl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred38_InternalEcl_fragment(); // can never throw exception
+            synpred30_InternalEcl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -38927,11 +38927,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred30_InternalEcl() {
+    public final boolean synpred38_InternalEcl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred30_InternalEcl_fragment(); // can never throw exception
+            synpred38_InternalEcl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -38955,11 +38955,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred39_InternalEcl() {
+    public final boolean synpred31_InternalEcl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred39_InternalEcl_fragment(); // can never throw exception
+            synpred31_InternalEcl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -38969,11 +38969,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred31_InternalEcl() {
+    public final boolean synpred39_InternalEcl() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred31_InternalEcl_fragment(); // can never throw exception
+            synpred39_InternalEcl_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -39194,7 +39194,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     static final String dfa_3s = "\1\5\1\uffff\45\0\1\uffff";
     static final String dfa_4s = "\1\107\1\uffff\45\0\1\uffff";
     static final String dfa_5s = "\1\uffff\1\2\45\uffff\1\1";
-    static final String dfa_6s = "\2\uffff\1\33\1\12\1\34\1\23\1\0\1\27\1\4\1\35\1\10\1\43\1\14\1\2\1\21\1\6\1\26\1\13\1\31\1\17\1\40\1\24\1\1\1\30\1\5\1\36\1\11\1\44\1\15\1\3\1\22\1\7\1\32\1\20\1\41\1\25\1\42\1\37\1\16\1\uffff}>";
+    static final String dfa_6s = "\2\uffff\1\23\1\26\1\4\1\37\1\13\1\43\1\17\1\2\1\24\1\11\1\30\1\15\1\35\1\21\1\42\1\27\1\0\1\32\1\5\1\40\1\14\1\44\1\20\1\3\1\25\1\12\1\31\1\16\1\36\1\22\1\1\1\33\1\6\1\41\1\7\1\10\1\34\1\uffff}>";
     static final String[] dfa_7s = {
             "\1\2\1\1\1\4\1\uffff\1\46\1\45\2\uffff\1\32\1\26\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\1\3\1\40\1\41\1\42\1\43\1\44\17\uffff\2\1\7\uffff\2\1",
             "",
@@ -39267,381 +39267,6 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA3_6 = input.LA(1);
-
-                         
-                        int index3_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA3_22 = input.LA(1);
-
-                         
-                        int index3_22 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_22);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA3_13 = input.LA(1);
-
-                         
-                        int index3_13 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_13);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA3_29 = input.LA(1);
-
-                         
-                        int index3_29 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_29);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA3_8 = input.LA(1);
-
-                         
-                        int index3_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA3_24 = input.LA(1);
-
-                         
-                        int index3_24 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_24);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA3_15 = input.LA(1);
-
-                         
-                        int index3_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA3_31 = input.LA(1);
-
-                         
-                        int index3_31 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_31);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA3_10 = input.LA(1);
-
-                         
-                        int index3_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA3_26 = input.LA(1);
-
-                         
-                        int index3_26 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_26);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA3_3 = input.LA(1);
-
-                         
-                        int index3_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA3_17 = input.LA(1);
-
-                         
-                        int index3_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA3_12 = input.LA(1);
-
-                         
-                        int index3_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
-                        int LA3_28 = input.LA(1);
-
-                         
-                        int index3_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA3_38 = input.LA(1);
-
-                         
-                        int index3_38 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_38);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA3_19 = input.LA(1);
-
-                         
-                        int index3_19 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_19);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA3_33 = input.LA(1);
-
-                         
-                        int index3_33 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_33);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA3_14 = input.LA(1);
-
-                         
-                        int index3_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA3_30 = input.LA(1);
-
-                         
-                        int index3_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA3_5 = input.LA(1);
-
-                         
-                        int index3_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA3_21 = input.LA(1);
-
-                         
-                        int index3_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA3_35 = input.LA(1);
-
-                         
-                        int index3_35 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_35);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA3_16 = input.LA(1);
-
-                         
-                        int index3_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA3_7 = input.LA(1);
-
-                         
-                        int index3_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 24 : 
-                        int LA3_23 = input.LA(1);
-
-                         
-                        int index3_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
                         int LA3_18 = input.LA(1);
 
                          
@@ -39656,7 +39281,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_18);
                         if ( s>=0 ) return s;
                         break;
-                    case 26 : 
+                    case 1 : 
                         int LA3_32 = input.LA(1);
 
                          
@@ -39671,37 +39296,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_32);
                         if ( s>=0 ) return s;
                         break;
-                    case 27 : 
-                        int LA3_2 = input.LA(1);
-
-                         
-                        int index3_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
-                        int LA3_4 = input.LA(1);
-
-                         
-                        int index3_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 29 : 
+                    case 2 : 
                         int LA3_9 = input.LA(1);
 
                          
@@ -39716,7 +39311,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_9);
                         if ( s>=0 ) return s;
                         break;
-                    case 30 : 
+                    case 3 : 
                         int LA3_25 = input.LA(1);
 
                          
@@ -39731,11 +39326,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_25);
                         if ( s>=0 ) return s;
                         break;
-                    case 31 : 
-                        int LA3_37 = input.LA(1);
+                    case 4 : 
+                        int LA3_4 = input.LA(1);
 
                          
-                        int index3_37 = input.index();
+                        int index3_4 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred3_InternalEcl()) ) {s = 39;}
@@ -39743,10 +39338,10 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index3_37);
+                        input.seek(index3_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 32 : 
+                    case 5 : 
                         int LA3_20 = input.LA(1);
 
                          
@@ -39761,7 +39356,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_20);
                         if ( s>=0 ) return s;
                         break;
-                    case 33 : 
+                    case 6 : 
                         int LA3_34 = input.LA(1);
 
                          
@@ -39776,7 +39371,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_34);
                         if ( s>=0 ) return s;
                         break;
-                    case 34 : 
+                    case 7 : 
                         int LA3_36 = input.LA(1);
 
                          
@@ -39791,7 +39386,22 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_36);
                         if ( s>=0 ) return s;
                         break;
-                    case 35 : 
+                    case 8 : 
+                        int LA3_37 = input.LA(1);
+
+                         
+                        int index3_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
                         int LA3_11 = input.LA(1);
 
                          
@@ -39806,7 +39416,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_11);
                         if ( s>=0 ) return s;
                         break;
-                    case 36 : 
+                    case 10 : 
                         int LA3_27 = input.LA(1);
 
                          
@@ -39819,6 +39429,396 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
                          
                         input.seek(index3_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA3_6 = input.LA(1);
+
+                         
+                        int index3_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA3_22 = input.LA(1);
+
+                         
+                        int index3_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA3_13 = input.LA(1);
+
+                         
+                        int index3_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA3_29 = input.LA(1);
+
+                         
+                        int index3_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA3_8 = input.LA(1);
+
+                         
+                        int index3_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA3_24 = input.LA(1);
+
+                         
+                        int index3_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA3_15 = input.LA(1);
+
+                         
+                        int index3_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA3_31 = input.LA(1);
+
+                         
+                        int index3_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA3_2 = input.LA(1);
+
+                         
+                        int index3_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA3_10 = input.LA(1);
+
+                         
+                        int index3_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA3_26 = input.LA(1);
+
+                         
+                        int index3_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA3_3 = input.LA(1);
+
+                         
+                        int index3_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA3_17 = input.LA(1);
+
+                         
+                        int index3_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA3_12 = input.LA(1);
+
+                         
+                        int index3_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA3_28 = input.LA(1);
+
+                         
+                        int index3_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA3_19 = input.LA(1);
+
+                         
+                        int index3_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA3_33 = input.LA(1);
+
+                         
+                        int index3_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA3_38 = input.LA(1);
+
+                         
+                        int index3_38 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_38);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA3_14 = input.LA(1);
+
+                         
+                        int index3_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA3_30 = input.LA(1);
+
+                         
+                        int index3_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA3_5 = input.LA(1);
+
+                         
+                        int index3_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 32 : 
+                        int LA3_21 = input.LA(1);
+
+                         
+                        int index3_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 33 : 
+                        int LA3_35 = input.LA(1);
+
+                         
+                        int index3_35 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_35);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 34 : 
+                        int LA3_16 = input.LA(1);
+
+                         
+                        int index3_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 35 : 
+                        int LA3_7 = input.LA(1);
+
+                         
+                        int index3_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 36 : 
+                        int LA3_23 = input.LA(1);
+
+                         
+                        int index3_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_23);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -40045,13 +40045,12 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_26s = "\61\uffff";
-    static final String dfa_27s = "\1\5\1\uffff\16\0\5\uffff\1\0\1\uffff\1\0\31\uffff";
-    static final String dfa_28s = "\1\75\1\uffff\16\0\5\uffff\1\0\1\uffff\1\0\31\uffff";
-    static final String dfa_29s = "\1\uffff\1\1\41\uffff\1\17\1\16\1\6\1\15\1\10\1\14\1\13\1\12\1\5\1\3\1\7\1\11\1\4\1\2";
-    static final String dfa_30s = "\2\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\5\uffff\1\16\1\uffff\1\17\31\uffff}>";
+    static final String dfa_27s = "\1\5\20\0\40\uffff";
+    static final String dfa_28s = "\1\75\20\0\40\uffff";
+    static final String dfa_29s = "\21\uffff\1\16\21\uffff\1\17\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15";
+    static final String dfa_30s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\40\uffff}>";
     static final String[] dfa_31s = {
-            "\1\1\7\uffff\3\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\4\1\1\25\1\27\12\1\17\uffff\1\43",
-            "",
+            "\1\21\7\uffff\3\21\1\20\1\7\1\10\1\17\1\12\1\16\1\15\1\14\1\5\1\2\1\11\1\6\1\13\1\3\4\21\1\1\1\4\12\21\17\uffff\1\43",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -40066,14 +40065,15 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
-            "",
-            "",
-            "",
+            "\1\uffff",
+            "\1\uffff",
             "",
             "",
-            "\1\uffff",
             "",
-            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -40122,250 +40122,250 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_31;
         }
         public String getDescription() {
-            return "2925:1: rule__PropertyFilter__Alternatives : ( ( ruleMemberFieldFilter ) | ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleNestedFilter ) );";
+            return "2925:1: rule__PropertyFilter__Alternatives : ( ( ruleTermFilter ) | ( ruleLanguageFilter ) | ( ruleTypeFilter ) | ( ruleDialectFilter ) | ( ruleDefinitionStatusFilter ) | ( ruleModuleFilter ) | ( ruleEffectiveTimeFilter ) | ( ruleActiveFilter ) | ( ruleSemanticTagFilter ) | ( rulePreferredInFilter ) | ( ruleAcceptableInFilter ) | ( ruleLanguageRefSetFilter ) | ( ruleCaseSignificanceFilter ) | ( ruleMemberFieldFilter ) | ( ruleNestedFilter ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA15_1 = input.LA(1);
+
+                         
+                        int index15_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred28_InternalEcl()) ) {s = 36;}
+
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
+
+                         
+                        input.seek(index15_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA15_2 = input.LA(1);
 
                          
                         int index15_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred29_InternalEcl()) ) {s = 37;}
 
-                        else if ( (synpred41_InternalEcl()) ) {s = 36;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_2);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
+                    case 2 : 
                         int LA15_3 = input.LA(1);
 
                          
                         int index15_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred30_InternalEcl()) ) {s = 38;}
 
-                        else if ( (synpred33_InternalEcl()) ) {s = 37;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
+                    case 3 : 
                         int LA15_4 = input.LA(1);
 
                          
                         int index15_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred30_InternalEcl()) ) {s = 38;}
 
-                        else if ( (synpred33_InternalEcl()) ) {s = 37;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 4 : 
                         int LA15_5 = input.LA(1);
 
                          
                         int index15_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred31_InternalEcl()) ) {s = 39;}
 
-                        else if ( (synpred40_InternalEcl()) ) {s = 38;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 5 : 
                         int LA15_6 = input.LA(1);
 
                          
                         int index15_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred31_InternalEcl()) ) {s = 39;}
 
-                        else if ( (synpred35_InternalEcl()) ) {s = 39;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_6);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
+                    case 6 : 
                         int LA15_7 = input.LA(1);
 
                          
                         int index15_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred32_InternalEcl()) ) {s = 40;}
 
-                        else if ( (synpred39_InternalEcl()) ) {s = 40;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
+                    case 7 : 
                         int LA15_8 = input.LA(1);
 
                          
                         int index15_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred32_InternalEcl()) ) {s = 40;}
 
-                        else if ( (synpred38_InternalEcl()) ) {s = 41;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 8 : 
                         int LA15_9 = input.LA(1);
 
                          
                         int index15_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred33_InternalEcl()) ) {s = 41;}
 
-                        else if ( (synpred37_InternalEcl()) ) {s = 42;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_9);
                         if ( s>=0 ) return s;
                         break;
-                    case 8 : 
+                    case 9 : 
                         int LA15_10 = input.LA(1);
 
                          
                         int index15_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred34_InternalEcl()) ) {s = 42;}
 
-                        else if ( (synpred32_InternalEcl()) ) {s = 43;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_10);
                         if ( s>=0 ) return s;
                         break;
-                    case 9 : 
+                    case 10 : 
                         int LA15_11 = input.LA(1);
 
                          
                         int index15_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred35_InternalEcl()) ) {s = 43;}
 
-                        else if ( (synpred30_InternalEcl()) ) {s = 44;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_11);
                         if ( s>=0 ) return s;
                         break;
-                    case 10 : 
+                    case 11 : 
                         int LA15_12 = input.LA(1);
 
                          
                         int index15_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred36_InternalEcl()) ) {s = 44;}
 
-                        else if ( (synpred34_InternalEcl()) ) {s = 45;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_12);
                         if ( s>=0 ) return s;
                         break;
-                    case 11 : 
+                    case 12 : 
                         int LA15_13 = input.LA(1);
 
                          
                         int index15_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred37_InternalEcl()) ) {s = 45;}
 
-                        else if ( (synpred32_InternalEcl()) ) {s = 43;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_13);
                         if ( s>=0 ) return s;
                         break;
-                    case 12 : 
+                    case 13 : 
                         int LA15_14 = input.LA(1);
 
                          
                         int index15_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred38_InternalEcl()) ) {s = 46;}
 
-                        else if ( (synpred36_InternalEcl()) ) {s = 46;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_14);
                         if ( s>=0 ) return s;
                         break;
-                    case 13 : 
+                    case 14 : 
                         int LA15_15 = input.LA(1);
 
                          
                         int index15_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred39_InternalEcl()) ) {s = 47;}
 
-                        else if ( (synpred31_InternalEcl()) ) {s = 47;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
                         input.seek(index15_15);
                         if ( s>=0 ) return s;
                         break;
-                    case 14 : 
-                        int LA15_21 = input.LA(1);
-
-                         
-                        int index15_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
-
-                        else if ( (synpred29_InternalEcl()) ) {s = 48;}
-
-                         
-                        input.seek(index15_21);
-                        if ( s>=0 ) return s;
-                        break;
                     case 15 : 
-                        int LA15_23 = input.LA(1);
+                        int LA15_16 = input.LA(1);
 
                          
-                        int index15_23 = input.index();
+                        int index15_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28_InternalEcl()) ) {s = 1;}
+                        if ( (synpred40_InternalEcl()) ) {s = 48;}
 
-                        else if ( (synpred31_InternalEcl()) ) {s = 47;}
+                        else if ( (synpred41_InternalEcl()) ) {s = 17;}
 
                          
-                        input.seek(index15_23);
+                        input.seek(index15_16);
                         if ( s>=0 ) return s;
                         break;
             }
