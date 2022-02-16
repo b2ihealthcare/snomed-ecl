@@ -15,7 +15,6 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +39,12 @@ public interface StringValueComparison extends DataTypeComparison
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(EObject)
+   * @see #setValue(SearchTerm)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getStringValueComparison_Value()
    * @model containment="true"
    * @generated
    */
-  EObject getValue();
+  SearchTerm getValue();
 
   /**
    * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.StringValueComparison#getValue <em>Value</em>}' containment reference.
@@ -55,6 +54,6 @@ public interface StringValueComparison extends DataTypeComparison
    * @see #getValue()
    * @generated
    */
-  void setValue(EObject value);
+  void setValue(SearchTerm value);
 
 } // StringValueComparison

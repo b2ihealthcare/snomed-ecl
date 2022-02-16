@@ -16,13 +16,13 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
+import com.b2international.snomed.ecl.ecl.SearchTerm;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -50,7 +50,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    * @ordered
    */
-  protected EObject value;
+  protected SearchTerm value;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    */
   @Override
-  public EObject getValue()
+  public SearchTerm getValue()
   {
     return value;
   }
@@ -89,9 +89,9 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(EObject newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(SearchTerm newValue, NotificationChain msgs)
   {
-    EObject oldValue = value;
+    SearchTerm oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    */
   @Override
-  public void setValue(EObject newValue)
+  public void setValue(SearchTerm newValue)
   {
     if (newValue != value)
     {
@@ -166,7 +166,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
     switch (featureID)
     {
       case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue((EObject)newValue);
+        setValue((SearchTerm)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,7 +183,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
     switch (featureID)
     {
       case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue((EObject)null);
+        setValue((SearchTerm)null);
         return;
     }
     super.eUnset(featureID);

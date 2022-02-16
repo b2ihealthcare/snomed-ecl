@@ -15,7 +15,6 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TypedSearchTerm extends EObject
+public interface TypedSearchTerm extends SearchTerm
 {
   /**
    * Returns the value of the '<em><b>Clause</b></em>' containment reference.

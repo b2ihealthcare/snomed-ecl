@@ -199,26 +199,46 @@ class EclParsingFilterConstraintTest {
 	}
 
 	@Test
+	def void test_filter_description_active_false() {
+		'* {{ d active = false }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_active_ne() {
+		'* {{ d active != false }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_module_eq() {
+		'* {{ d moduleId = 900000000000207008 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_module_ne() {
+		'* {{ d moduleId != 900000000000207008 }}'.assertNoErrors;
+	}
+
+	@Test
 	def void test_filter_description_effectiveTime_eq() {
-		'* {{ effectiveTime = "20020131" }}'.assertNoErrors;
+		'* {{ d effectiveTime = "20020131" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_effectiveTime_ne() {
+		'* {{ d effectiveTime != "20020131" }}'.assertNoErrors;
 	}
 	
 	@Test
 	def void test_filter_description_effectiveTime_unpublished() {
-		'* {{ effectiveTime = "" }}'.assertNoErrors;
-		'* {{ effectiveTime = "Unpublished" }}'.assertNoErrors;
+		'* {{ d effectiveTime = "" }}'.assertNoErrors;
+		'* {{ d effectiveTime = "Unpublished" }}'.assertNoErrors;
 	}
 
 	@Test
 	def void test_filter_description_effectiveTime_gt() {
-		'* {{ effectiveTime > "20210731" }}'.assertNoErrors;
+		'* {{ d effectiveTime > "20210731" }}'.assertNoErrors;
 	}
 
-	@Test
-	def void test_filter_description_effectiveTime_w_domain() {
-		'* {{ d effectiveTime = "20210630" }}'.assertNoErrors;
-	}
-	
 	@Test
 	def void test_filter_description_effectiveTime_invalid_format() {
 		'* {{ c effectiveTime = "yesterday" }}'

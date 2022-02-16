@@ -91,7 +91,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringValueComparison" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SearchTerm"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValueComparison" eSuperTypes="#//DataTypeComparison">
@@ -122,14 +122,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TermFilter" eSuperTypes="#//PropertyFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="searchTerm" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchTerm" eType="#//SearchTerm"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTerm">
+  <eClassifiers xsi:type="ecore:EClass" name="SearchTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTerm" eSuperTypes="#//SearchTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clause" eType="#//TypedSearchTermClause"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTermSet">
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTermSet" eSuperTypes="#//SearchTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
         eType="#//TypedSearchTermClause" containment="true"/>
   </eClassifiers>
@@ -196,6 +197,7 @@
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModuleFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="moduleId" eType="#//FilterValue"
         containment="true"/>
   </eClassifiers>
@@ -204,6 +206,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effectiveTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActiveFilter" eSuperTypes="#//PropertyFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SemanticTagFilter" eSuperTypes="#//PropertyFilter">

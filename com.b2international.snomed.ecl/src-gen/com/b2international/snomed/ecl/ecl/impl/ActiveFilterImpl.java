@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ActiveFilterImpl#isActive <em>Active</em>}</li>
  * </ul>
  *
@@ -39,6 +40,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
 {
+  /**
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
+
   /**
    * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -86,6 +107,31 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
    * @generated
    */
   @Override
+  public String getOp()
+  {
+    return op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOp(String newOp)
+  {
+    String oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ACTIVE_FILTER__OP, oldOp, op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public boolean isActive()
   {
     return active;
@@ -115,6 +161,8 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
+      case EclPackage.ACTIVE_FILTER__OP:
+        return getOp();
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         return isActive();
     }
@@ -131,6 +179,9 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
+      case EclPackage.ACTIVE_FILTER__OP:
+        setOp((String)newValue);
+        return;
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         setActive((Boolean)newValue);
         return;
@@ -148,6 +199,9 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
+      case EclPackage.ACTIVE_FILTER__OP:
+        setOp(OP_EDEFAULT);
+        return;
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         setActive(ACTIVE_EDEFAULT);
         return;
@@ -165,6 +219,8 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
   {
     switch (featureID)
     {
+      case EclPackage.ACTIVE_FILTER__OP:
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case EclPackage.ACTIVE_FILTER__ACTIVE:
         return active != ACTIVE_EDEFAULT;
     }
@@ -182,7 +238,9 @@ public class ActiveFilterImpl extends PropertyFilterImpl implements ActiveFilter
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (active: ");
+    result.append(" (op: ");
+    result.append(op);
+    result.append(", active: ");
     result.append(active);
     result.append(')');
     return result.toString();

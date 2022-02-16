@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getModuleId <em>Module Id</em>}</li>
  * </ul>
  *
@@ -42,6 +43,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
 {
+  /**
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getModuleId() <em>Module Id</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +92,31 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   protected EClass eStaticClass()
   {
     return EclPackage.Literals.MODULE_FILTER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getOp()
+  {
+    return op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOp(String newOp)
+  {
+    String oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MODULE_FILTER__OP, oldOp, op));
   }
 
   /**
@@ -149,6 +195,8 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
+      case EclPackage.MODULE_FILTER__OP:
+        return getOp();
       case EclPackage.MODULE_FILTER__MODULE_ID:
         return getModuleId();
     }
@@ -165,6 +213,9 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
+      case EclPackage.MODULE_FILTER__OP:
+        setOp((String)newValue);
+        return;
       case EclPackage.MODULE_FILTER__MODULE_ID:
         setModuleId((FilterValue)newValue);
         return;
@@ -182,6 +233,9 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
+      case EclPackage.MODULE_FILTER__OP:
+        setOp(OP_EDEFAULT);
+        return;
       case EclPackage.MODULE_FILTER__MODULE_ID:
         setModuleId((FilterValue)null);
         return;
@@ -199,10 +253,29 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
+      case EclPackage.MODULE_FILTER__OP:
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case EclPackage.MODULE_FILTER__MODULE_ID:
         return moduleId != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (op: ");
+    result.append(op);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModuleFilterImpl

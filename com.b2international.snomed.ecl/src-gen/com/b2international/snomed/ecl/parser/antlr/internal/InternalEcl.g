@@ -2421,39 +2421,21 @@ ruleStringValueComparison returns [EObject current=null]
 		)
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getStringValueComparisonAccess().getValueTypedSearchTermParserRuleCall_1_0_0());
+				{
+					newCompositeNode(grammarAccess.getStringValueComparisonAccess().getValueSearchTermParserRuleCall_1_0());
+				}
+				lv_value_1_0=ruleSearchTerm
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStringValueComparisonRule());
 					}
-					lv_value_1_1=ruleTypedSearchTerm
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStringValueComparisonRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_1_1,
-							"com.b2international.snomed.ecl.Ecl.TypedSearchTerm");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getStringValueComparisonAccess().getValueTypedSearchTermSetParserRuleCall_1_0_1());
-					}
-					lv_value_1_2=ruleTypedSearchTermSet
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStringValueComparisonRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_1_2,
-							"com.b2international.snomed.ecl.Ecl.TypedSearchTermSet");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"value",
+						lv_value_1_0,
+						"com.b2international.snomed.ecl.Ecl.SearchTerm");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 	)
@@ -3199,41 +3181,65 @@ ruleTermFilter returns [EObject current=null]
 		)
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTermFilterAccess().getSearchTermTypedSearchTermParserRuleCall_2_0_0());
+				{
+					newCompositeNode(grammarAccess.getTermFilterAccess().getSearchTermSearchTermParserRuleCall_2_0());
+				}
+				lv_searchTerm_2_0=ruleSearchTerm
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTermFilterRule());
 					}
-					lv_searchTerm_2_1=ruleTypedSearchTerm
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTermFilterRule());
-						}
-						set(
-							$current,
-							"searchTerm",
-							lv_searchTerm_2_1,
-							"com.b2international.snomed.ecl.Ecl.TypedSearchTerm");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getTermFilterAccess().getSearchTermTypedSearchTermSetParserRuleCall_2_0_1());
-					}
-					lv_searchTerm_2_2=ruleTypedSearchTermSet
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTermFilterRule());
-						}
-						set(
-							$current,
-							"searchTerm",
-							lv_searchTerm_2_2,
-							"com.b2international.snomed.ecl.Ecl.TypedSearchTermSet");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"searchTerm",
+						lv_searchTerm_2_0,
+						"com.b2international.snomed.ecl.Ecl.SearchTerm");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleSearchTerm
+entryRuleSearchTerm returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSearchTermRule()); }
+	iv_ruleSearchTerm=ruleSearchTerm
+	{ $current=$iv_ruleSearchTerm.current; }
+	EOF;
+
+// Rule SearchTerm
+ruleSearchTerm returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getSearchTermAccess().getTypedSearchTermParserRuleCall_0());
+		}
+		this_TypedSearchTerm_0=ruleTypedSearchTerm
+		{
+			$current = $this_TypedSearchTerm_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getSearchTermAccess().getTypedSearchTermSetParserRuleCall_1());
+		}
+		this_TypedSearchTermSet_1=ruleTypedSearchTermSet
+		{
+			$current = $this_TypedSearchTermSet_1.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -4437,10 +4443,25 @@ ruleModuleFilter returns [EObject current=null]
 		{
 			newLeafNode(this_MODULEID_KEYWORD_0, grammarAccess.getModuleFilterAccess().getMODULEID_KEYWORDTerminalRuleCall_0());
 		}
-		this_EQUAL_1=RULE_EQUAL
-		{
-			newLeafNode(this_EQUAL_1, grammarAccess.getModuleFilterAccess().getEQUALTerminalRuleCall_1());
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModuleFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0());
+				}
+				lv_op_1_0=ruleNON_NUMERIC_OPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModuleFilterRule());
+					}
+					set(
+						$current,
+						"op",
+						lv_op_1_0,
+						"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				{
@@ -4543,10 +4564,25 @@ ruleActiveFilter returns [EObject current=null]
 		{
 			newLeafNode(this_ACTIVE_KEYWORD_0, grammarAccess.getActiveFilterAccess().getACTIVE_KEYWORDTerminalRuleCall_0());
 		}
-		this_EQUAL_1=RULE_EQUAL
-		{
-			newLeafNode(this_EQUAL_1, grammarAccess.getActiveFilterAccess().getEQUALTerminalRuleCall_1());
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActiveFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0());
+				}
+				lv_op_1_0=ruleNON_NUMERIC_OPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActiveFilterRule());
+					}
+					set(
+						$current,
+						"op",
+						lv_op_1_0,
+						"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				{

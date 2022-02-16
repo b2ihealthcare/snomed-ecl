@@ -25,6 +25,7 @@ package com.b2international.snomed.ecl.ecl;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getModuleId <em>Module Id</em>}</li>
  * </ul>
  *
@@ -34,6 +35,28 @@ package com.b2international.snomed.ecl.ecl;
  */
 public interface ModuleFilter extends PropertyFilter
 {
+  /**
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getModuleFilter_Op()
+   * @model
+   * @generated
+   */
+  String getOp();
+
+  /**
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getOp <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Op</em>' attribute.
+   * @see #getOp()
+   * @generated
+   */
+  void setOp(String value);
+
   /**
    * Returns the value of the '<em><b>Module Id</b></em>' containment reference.
    * <!-- begin-user-doc -->

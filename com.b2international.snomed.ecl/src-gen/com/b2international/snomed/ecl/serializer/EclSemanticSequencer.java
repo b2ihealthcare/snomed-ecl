@@ -408,14 +408,17 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ActiveFilter returns ActiveFilter
 	 *
 	 * Constraint:
-	 *     active=ActiveBoolean
+	 *     (op=NON_NUMERIC_OPERATOR active=ActiveBoolean)
 	 */
 	protected void sequence_ActiveFilter(ISerializationContext context, ActiveFilter semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACTIVE_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACTIVE_FILTER__OP));
 			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACTIVE_FILTER__ACTIVE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACTIVE_FILTER__ACTIVE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getActiveFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getActiveFilterAccess().getActiveActiveBooleanParserRuleCall_2_0(), semanticObject.isActive());
 		feeder.finish();
 	}
@@ -1385,14 +1388,17 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ModuleFilter returns ModuleFilter
 	 *
 	 * Constraint:
-	 *     moduleId=FilterValue
+	 *     (op=NON_NUMERIC_OPERATOR moduleId=FilterValue)
 	 */
 	protected void sequence_ModuleFilter(ISerializationContext context, ModuleFilter semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MODULE_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MODULE_FILTER__OP));
 			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MODULE_FILTER__MODULE_ID) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MODULE_FILTER__MODULE_ID));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModuleFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getModuleFilterAccess().getModuleIdFilterValueParserRuleCall_2_0(), semanticObject.getModuleId());
 		feeder.finish();
 	}
@@ -1743,10 +1749,19 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     StringValueComparison returns StringValueComparison
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (value=TypedSearchTerm | value=TypedSearchTermSet))
+	 *     (op=NON_NUMERIC_OPERATOR value=SearchTerm)
 	 */
 	protected void sequence_StringValueComparison(ISerializationContext context, StringValueComparison semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.COMPARISON__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.COMPARISON__OP));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.STRING_VALUE_COMPARISON__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.STRING_VALUE_COMPARISON__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringValueComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getStringValueComparisonAccess().getValueSearchTermParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -1797,10 +1812,19 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TermFilter returns TermFilter
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR (searchTerm=TypedSearchTerm | searchTerm=TypedSearchTermSet))
+	 *     (op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm)
 	 */
 	protected void sequence_TermFilter(ISerializationContext context, TermFilter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TERM_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TERM_FILTER__OP));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TERM_FILTER__SEARCH_TERM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TERM_FILTER__SEARCH_TERM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTermFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getTermFilterAccess().getSearchTermSearchTermParserRuleCall_2_0(), semanticObject.getSearchTerm());
+		feeder.finish();
 	}
 	
 	
@@ -1865,6 +1889,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SearchTerm returns TypedSearchTermSet
 	 *     TypedSearchTermSet returns TypedSearchTermSet
 	 *
 	 * Constraint:
@@ -1877,6 +1902,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SearchTerm returns TypedSearchTerm
 	 *     TypedSearchTerm returns TypedSearchTerm
 	 *
 	 * Constraint:

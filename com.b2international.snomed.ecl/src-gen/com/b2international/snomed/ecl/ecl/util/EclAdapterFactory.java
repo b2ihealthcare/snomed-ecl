@@ -253,6 +253,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createTermFilterAdapter();
       }
       @Override
+      public Adapter caseSearchTerm(SearchTerm object)
+      {
+        return createSearchTermAdapter();
+      }
+      @Override
       public Adapter caseTypedSearchTerm(TypedSearchTerm object)
       {
         return createTypedSearchTermAdapter();
@@ -965,6 +970,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTermFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.SearchTerm <em>Search Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.SearchTerm
+   * @generated
+   */
+  public Adapter createSearchTermAdapter()
   {
     return null;
   }

@@ -54,10 +54,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubAttributeSetAccess().getAlternatives(), "rule__SubAttributeSet__Alternatives");
 			builder.put(grammarAccess.getComparisonAccess().getAlternatives(), "rule__Comparison__Alternatives");
 			builder.put(grammarAccess.getDataTypeComparisonAccess().getAlternatives(), "rule__DataTypeComparison__Alternatives");
-			builder.put(grammarAccess.getStringValueComparisonAccess().getValueAlternatives_1_0(), "rule__StringValueComparison__ValueAlternatives_1_0");
 			builder.put(grammarAccess.getConjunctionFilterAccess().getAlternatives_1_1(), "rule__ConjunctionFilter__Alternatives_1_1");
 			builder.put(grammarAccess.getPropertyFilterAccess().getAlternatives(), "rule__PropertyFilter__Alternatives");
-			builder.put(grammarAccess.getTermFilterAccess().getSearchTermAlternatives_2_0(), "rule__TermFilter__SearchTermAlternatives_2_0");
+			builder.put(grammarAccess.getSearchTermAccess().getAlternatives(), "rule__SearchTerm__Alternatives");
 			builder.put(grammarAccess.getTypedSearchTermClauseAccess().getAlternatives(), "rule__TypedSearchTermClause__Alternatives");
 			builder.put(grammarAccess.getLanguageFilterAccess().getAlternatives_2(), "rule__LanguageFilter__Alternatives_2");
 			builder.put(grammarAccess.getTypeFilterAccess().getAlternatives(), "rule__TypeFilter__Alternatives");
@@ -264,9 +263,11 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getOpAssignment_1(), "rule__DefinitionStatusTokenFilter__OpAssignment_1");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getDefinitionStatusTokensAssignment_2_0(), "rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_0");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getDefinitionStatusTokensAssignment_2_1_1(), "rule__DefinitionStatusTokenFilter__DefinitionStatusTokensAssignment_2_1_1");
+			builder.put(grammarAccess.getModuleFilterAccess().getOpAssignment_1(), "rule__ModuleFilter__OpAssignment_1");
 			builder.put(grammarAccess.getModuleFilterAccess().getModuleIdAssignment_2(), "rule__ModuleFilter__ModuleIdAssignment_2");
 			builder.put(grammarAccess.getEffectiveTimeFilterAccess().getOpAssignment_1(), "rule__EffectiveTimeFilter__OpAssignment_1");
 			builder.put(grammarAccess.getEffectiveTimeFilterAccess().getEffectiveTimeAssignment_2(), "rule__EffectiveTimeFilter__EffectiveTimeAssignment_2");
+			builder.put(grammarAccess.getActiveFilterAccess().getOpAssignment_1(), "rule__ActiveFilter__OpAssignment_1");
 			builder.put(grammarAccess.getActiveFilterAccess().getActiveAssignment_2(), "rule__ActiveFilter__ActiveAssignment_2");
 			builder.put(grammarAccess.getSemanticTagFilterAccess().getOpAssignment_1(), "rule__SemanticTagFilter__OpAssignment_1");
 			builder.put(grammarAccess.getSemanticTagFilterAccess().getSemanticTagAssignment_2(), "rule__SemanticTagFilter__SemanticTagAssignment_2");

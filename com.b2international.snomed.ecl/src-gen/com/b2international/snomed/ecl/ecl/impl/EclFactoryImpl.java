@@ -110,6 +110,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.PROPERTY_FILTER: return createPropertyFilter();
       case EclPackage.MEMBER_FIELD_FILTER: return createMemberFieldFilter();
       case EclPackage.TERM_FILTER: return createTermFilter();
+      case EclPackage.SEARCH_TERM: return createSearchTerm();
       case EclPackage.TYPED_SEARCH_TERM: return createTypedSearchTerm();
       case EclPackage.TYPED_SEARCH_TERM_SET: return createTypedSearchTermSet();
       case EclPackage.TYPED_SEARCH_TERM_CLAUSE: return createTypedSearchTermClause();
@@ -549,6 +550,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     TermFilterImpl termFilter = new TermFilterImpl();
     return termFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SearchTerm createSearchTerm()
+  {
+    SearchTermImpl searchTerm = new SearchTermImpl();
+    return searchTerm;
   }
 
   /**

@@ -79,6 +79,7 @@ import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.PropertyFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
+import com.b2international.snomed.ecl.ecl.SearchTerm;
 import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 import com.b2international.snomed.ecl.ecl.Supplement;
@@ -336,6 +337,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass termFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass searchTermEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1467,6 +1475,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EClass getSearchTerm()
+  {
+    return searchTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTypedSearchTerm()
   {
     return typedSearchTermEClass;
@@ -1907,9 +1926,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EAttribute getModuleFilter_Op()
+  {
+    return (EAttribute)moduleFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getModuleFilter_ModuleId()
   {
-    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(0);
+    return (EReference)moduleFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1962,9 +1992,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getActiveFilter_Active()
+  public EAttribute getActiveFilter_Op()
   {
     return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActiveFilter_Active()
+  {
+    return (EAttribute)activeFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2630,6 +2671,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(termFilterEClass, TERM_FILTER__OP);
     createEReference(termFilterEClass, TERM_FILTER__SEARCH_TERM);
 
+    searchTermEClass = createEClass(SEARCH_TERM);
+
     typedSearchTermEClass = createEClass(TYPED_SEARCH_TERM);
     createEReference(typedSearchTermEClass, TYPED_SEARCH_TERM__CLAUSE);
 
@@ -2688,6 +2731,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(definitionStatusTokenFilterEClass, DEFINITION_STATUS_TOKEN_FILTER__DEFINITION_STATUS_TOKENS);
 
     moduleFilterEClass = createEClass(MODULE_FILTER);
+    createEAttribute(moduleFilterEClass, MODULE_FILTER__OP);
     createEReference(moduleFilterEClass, MODULE_FILTER__MODULE_ID);
 
     effectiveTimeFilterEClass = createEClass(EFFECTIVE_TIME_FILTER);
@@ -2695,6 +2739,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(effectiveTimeFilterEClass, EFFECTIVE_TIME_FILTER__EFFECTIVE_TIME);
 
     activeFilterEClass = createEClass(ACTIVE_FILTER);
+    createEAttribute(activeFilterEClass, ACTIVE_FILTER__OP);
     createEAttribute(activeFilterEClass, ACTIVE_FILTER__ACTIVE);
 
     semanticTagFilterEClass = createEClass(SEMANTIC_TAG_FILTER);
@@ -2821,6 +2866,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     propertyFilterEClass.getESuperTypes().add(this.getFilter());
     memberFieldFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
+    typedSearchTermEClass.getESuperTypes().add(this.getSearchTerm());
+    typedSearchTermSetEClass.getESuperTypes().add(this.getSearchTerm());
     languageFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeIdFilterEClass.getESuperTypes().add(this.getTypeFilter());
@@ -2929,7 +2976,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getBooleanValueComparison_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringValueComparisonEClass, StringValueComparison.class, "StringValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStringValueComparison_Value(), ecorePackage.getEObject(), null, "value", null, 0, 1, StringValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStringValueComparison_Value(), this.getSearchTerm(), null, "value", null, 0, 1, StringValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(integerValueComparisonEClass, IntegerValueComparison.class, "IntegerValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntegerValueComparison_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2957,7 +3004,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(termFilterEClass, TermFilter.class, "TermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTermFilter_SearchTerm(), ecorePackage.getEObject(), null, "searchTerm", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTermFilter_SearchTerm(), this.getSearchTerm(), null, "searchTerm", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(searchTermEClass, SearchTerm.class, "SearchTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typedSearchTermEClass, TypedSearchTerm.class, "TypedSearchTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypedSearchTerm_Clause(), this.getTypedSearchTermClause(), null, "clause", null, 0, 1, TypedSearchTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3017,6 +3066,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getDefinitionStatusTokenFilter_DefinitionStatusTokens(), ecorePackage.getEString(), "definitionStatusTokens", null, 0, -1, DefinitionStatusTokenFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleFilterEClass, ModuleFilter.class, "ModuleFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModuleFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModuleFilter_ModuleId(), this.getFilterValue(), null, "moduleId", null, 0, 1, ModuleFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(effectiveTimeFilterEClass, EffectiveTimeFilter.class, "EffectiveTimeFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3024,6 +3074,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getEffectiveTimeFilter_EffectiveTime(), ecorePackage.getEString(), "effectiveTime", null, 0, 1, EffectiveTimeFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(activeFilterEClass, ActiveFilter.class, "ActiveFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActiveFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActiveFilter_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ActiveFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(semanticTagFilterEClass, SemanticTagFilter.class, "SemanticTagFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

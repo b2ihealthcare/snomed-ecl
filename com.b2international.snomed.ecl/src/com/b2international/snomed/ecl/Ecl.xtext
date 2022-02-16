@@ -143,7 +143,7 @@ BooleanValueComparison:
 	op=NON_NUMERIC_OPERATOR value=Boolean;
 
 StringValueComparison:
-	op=NON_NUMERIC_OPERATOR value=(TypedSearchTerm | TypedSearchTermSet);
+	op=NON_NUMERIC_OPERATOR value=SearchTerm;
 
 IntegerValueComparison:
 	op=NUMERIC_OPERATOR HASH value=Integer;
@@ -203,9 +203,12 @@ MemberFieldFilter:
 	refsetFieldName=UnquotedString comparison=Comparison;
 
 TermFilter:
-	TERM_KEYWORD op=NON_NUMERIC_OPERATOR searchTerm=(TypedSearchTerm | TypedSearchTermSet);
+	TERM_KEYWORD op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm;
 
 // no special treatment for the term filter STRING, we allow everything for any lexical search type
+SearchTerm: 
+	TypedSearchTerm | TypedSearchTermSet;
+	
 TypedSearchTerm:
 	clause=TypedSearchTermClause;
 
@@ -276,7 +279,7 @@ DefinitionStatusTokenFilter:
 	(definitionStatusTokens+=UnquotedString | ROUND_OPEN (definitionStatusTokens+=UnquotedString)+ ROUND_CLOSE);
 
 ModuleFilter:
-	MODULEID_KEYWORD EQUAL moduleId=FilterValue;
+	MODULEID_KEYWORD op=NON_NUMERIC_OPERATOR moduleId=FilterValue;
 	
 // Any quoted string is allowed as an effective time literal here; accepted values are:
 // - "" (unspecified effective time in ECL 1.6)
@@ -286,7 +289,7 @@ EffectiveTimeFilter:
 	EFFECTIVE_TIME_KEYWORD op=NUMERIC_OPERATOR effectiveTime=STRING;
 	
 ActiveFilter:
-	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
+	ACTIVE_KEYWORD op=NON_NUMERIC_OPERATOR active=ActiveBoolean;
 
 SemanticTagFilter:
 	SEMANTIC_TAG_KEYWORD op=NON_NUMERIC_OPERATOR semanticTag=STRING;

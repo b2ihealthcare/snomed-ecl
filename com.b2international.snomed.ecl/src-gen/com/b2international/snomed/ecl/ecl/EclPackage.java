@@ -105,7 +105,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilterValue()
    * @generated
    */
-  int FILTER_VALUE = 59;
+  int FILTER_VALUE = 60;
 
   /**
    * The number of structural features of the '<em>Filter Value</em>' class.
@@ -1220,6 +1220,25 @@ public interface EclPackage extends EPackage
   int TERM_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.SearchTermImpl <em>Search Term</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.SearchTermImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSearchTerm()
+   * @generated
+   */
+  int SEARCH_TERM = 33;
+
+  /**
+   * The number of structural features of the '<em>Search Term</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_TERM_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl <em>Typed Search Term</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1227,7 +1246,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTerm()
    * @generated
    */
-  int TYPED_SEARCH_TERM = 33;
+  int TYPED_SEARCH_TERM = 34;
 
   /**
    * The feature id for the '<em><b>Clause</b></em>' containment reference.
@@ -1236,7 +1255,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_SEARCH_TERM__CLAUSE = 0;
+  int TYPED_SEARCH_TERM__CLAUSE = SEARCH_TERM_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Typed Search Term</em>' class.
@@ -1245,7 +1264,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_SEARCH_TERM_FEATURE_COUNT = 1;
+  int TYPED_SEARCH_TERM_FEATURE_COUNT = SEARCH_TERM_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl <em>Typed Search Term Set</em>}' class.
@@ -1255,7 +1274,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermSet()
    * @generated
    */
-  int TYPED_SEARCH_TERM_SET = 34;
+  int TYPED_SEARCH_TERM_SET = 35;
 
   /**
    * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
@@ -1264,7 +1283,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_SEARCH_TERM_SET__CLAUSES = 0;
+  int TYPED_SEARCH_TERM_SET__CLAUSES = SEARCH_TERM_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Typed Search Term Set</em>' class.
@@ -1273,7 +1292,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_SEARCH_TERM_SET_FEATURE_COUNT = 1;
+  int TYPED_SEARCH_TERM_SET_FEATURE_COUNT = SEARCH_TERM_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl <em>Typed Search Term Clause</em>}' class.
@@ -1283,7 +1302,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermClause()
    * @generated
    */
-  int TYPED_SEARCH_TERM_CLAUSE = 35;
+  int TYPED_SEARCH_TERM_CLAUSE = 36;
 
   /**
    * The feature id for the '<em><b>Lexical Search Type</b></em>' attribute.
@@ -1320,7 +1339,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getLanguageFilter()
    * @generated
    */
-  int LANGUAGE_FILTER = 36;
+  int LANGUAGE_FILTER = 37;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1357,7 +1376,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypeFilter()
    * @generated
    */
-  int TYPE_FILTER = 37;
+  int TYPE_FILTER = 38;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1385,7 +1404,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypeIdFilter()
    * @generated
    */
-  int TYPE_ID_FILTER = 38;
+  int TYPE_ID_FILTER = 39;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1422,7 +1441,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypeTokenFilter()
    * @generated
    */
-  int TYPE_TOKEN_FILTER = 39;
+  int TYPE_TOKEN_FILTER = 40;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1459,7 +1478,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDialectFilter()
    * @generated
    */
-  int DIALECT_FILTER = 40;
+  int DIALECT_FILTER = 41;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1487,7 +1506,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDialectIdFilter()
    * @generated
    */
-  int DIALECT_ID_FILTER = 41;
+  int DIALECT_ID_FILTER = 42;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1524,7 +1543,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDialectAliasFilter()
    * @generated
    */
-  int DIALECT_ALIAS_FILTER = 42;
+  int DIALECT_ALIAS_FILTER = 43;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1561,7 +1580,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDialect()
    * @generated
    */
-  int DIALECT = 43;
+  int DIALECT = 44;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1598,7 +1617,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDialectAlias()
    * @generated
    */
-  int DIALECT_ALIAS = 44;
+  int DIALECT_ALIAS = 45;
 
   /**
    * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -1635,7 +1654,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptability()
    * @generated
    */
-  int ACCEPTABILITY = 45;
+  int ACCEPTABILITY = 46;
 
   /**
    * The number of structural features of the '<em>Acceptability</em>' class.
@@ -1654,7 +1673,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityIdSet()
    * @generated
    */
-  int ACCEPTABILITY_ID_SET = 46;
+  int ACCEPTABILITY_ID_SET = 47;
 
   /**
    * The feature id for the '<em><b>Acceptabilities</b></em>' containment reference.
@@ -1682,7 +1701,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityTokenSet()
    * @generated
    */
-  int ACCEPTABILITY_TOKEN_SET = 47;
+  int ACCEPTABILITY_TOKEN_SET = 48;
 
   /**
    * The feature id for the '<em><b>Acceptabilities</b></em>' attribute list.
@@ -1710,7 +1729,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusFilter()
    * @generated
    */
-  int DEFINITION_STATUS_FILTER = 48;
+  int DEFINITION_STATUS_FILTER = 49;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1738,7 +1757,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusIdFilter()
    * @generated
    */
-  int DEFINITION_STATUS_ID_FILTER = 49;
+  int DEFINITION_STATUS_ID_FILTER = 50;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1775,7 +1794,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusTokenFilter()
    * @generated
    */
-  int DEFINITION_STATUS_TOKEN_FILTER = 50;
+  int DEFINITION_STATUS_TOKEN_FILTER = 51;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1812,7 +1831,16 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getModuleFilter()
    * @generated
    */
-  int MODULE_FILTER = 51;
+  int MODULE_FILTER = 52;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Module Id</b></em>' containment reference.
@@ -1821,7 +1849,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FILTER__MODULE_ID = PROPERTY_FILTER_FEATURE_COUNT + 0;
+  int MODULE_FILTER__MODULE_ID = PROPERTY_FILTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Module Filter</em>' class.
@@ -1830,7 +1858,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int MODULE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.EffectiveTimeFilterImpl <em>Effective Time Filter</em>}' class.
@@ -1840,7 +1868,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEffectiveTimeFilter()
    * @generated
    */
-  int EFFECTIVE_TIME_FILTER = 52;
+  int EFFECTIVE_TIME_FILTER = 53;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1877,7 +1905,16 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
    * @generated
    */
-  int ACTIVE_FILTER = 53;
+  int ACTIVE_FILTER = 54;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVE_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1886,7 +1923,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVE_FILTER__ACTIVE = PROPERTY_FILTER_FEATURE_COUNT + 0;
+  int ACTIVE_FILTER__ACTIVE = PROPERTY_FILTER_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Active Filter</em>' class.
@@ -1895,7 +1932,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int ACTIVE_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.SemanticTagFilterImpl <em>Semantic Tag Filter</em>}' class.
@@ -1905,7 +1942,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
    * @generated
    */
-  int SEMANTIC_TAG_FILTER = 54;
+  int SEMANTIC_TAG_FILTER = 55;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1942,7 +1979,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getPreferredInFilter()
    * @generated
    */
-  int PREFERRED_IN_FILTER = 55;
+  int PREFERRED_IN_FILTER = 56;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1970,7 +2007,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptableInFilter()
    * @generated
    */
-  int ACCEPTABLE_IN_FILTER = 56;
+  int ACCEPTABLE_IN_FILTER = 57;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1998,7 +2035,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getLanguageRefSetFilter()
    * @generated
    */
-  int LANGUAGE_REF_SET_FILTER = 57;
+  int LANGUAGE_REF_SET_FILTER = 58;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -2026,7 +2063,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getCaseSignificanceFilter()
    * @generated
    */
-  int CASE_SIGNIFICANCE_FILTER = 58;
+  int CASE_SIGNIFICANCE_FILTER = 59;
 
   /**
    * The feature id for the '<em><b>Case Significance Id</b></em>' containment reference.
@@ -2054,7 +2091,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplement()
    * @generated
    */
-  int SUPPLEMENT = 60;
+  int SUPPLEMENT = 61;
 
   /**
    * The number of structural features of the '<em>Supplement</em>' class.
@@ -2073,7 +2110,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getHistorySupplement()
    * @generated
    */
-  int HISTORY_SUPPLEMENT = 61;
+  int HISTORY_SUPPLEMENT = 62;
 
   /**
    * The feature id for the '<em><b>History</b></em>' containment reference.
@@ -2101,7 +2138,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
    * @generated
    */
-  int OR_EXPRESSION_CONSTRAINT = 62;
+  int OR_EXPRESSION_CONSTRAINT = 63;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2147,7 +2184,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndExpressionConstraint()
    * @generated
    */
-  int AND_EXPRESSION_CONSTRAINT = 63;
+  int AND_EXPRESSION_CONSTRAINT = 64;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2193,7 +2230,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getExclusionExpressionConstraint()
    * @generated
    */
-  int EXCLUSION_EXPRESSION_CONSTRAINT = 64;
+  int EXCLUSION_EXPRESSION_CONSTRAINT = 65;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2239,7 +2276,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getRefinedExpressionConstraint()
    * @generated
    */
-  int REFINED_EXPRESSION_CONSTRAINT = 65;
+  int REFINED_EXPRESSION_CONSTRAINT = 66;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2285,7 +2322,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDottedExpressionConstraint()
    * @generated
    */
-  int DOTTED_EXPRESSION_CONSTRAINT = 66;
+  int DOTTED_EXPRESSION_CONSTRAINT = 67;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2331,7 +2368,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
    * @generated
    */
-  int FILTERED_EXPRESSION_CONSTRAINT = 67;
+  int FILTERED_EXPRESSION_CONSTRAINT = 68;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2377,7 +2414,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplementExpressionConstraint()
    * @generated
    */
-  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 68;
+  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 69;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2423,7 +2460,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 69;
+  int OR_REFINEMENT = 70;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2460,7 +2497,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 70;
+  int AND_REFINEMENT = 71;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2497,7 +2534,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDisjunctionFilter()
    * @generated
    */
-  int DISJUNCTION_FILTER = 71;
+  int DISJUNCTION_FILTER = 72;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2534,7 +2571,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getConjunctionFilter()
    * @generated
    */
-  int CONJUNCTION_FILTER = 72;
+  int CONJUNCTION_FILTER = 73;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3313,6 +3350,16 @@ public interface EclPackage extends EPackage
   EReference getTermFilter_SearchTerm();
 
   /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.SearchTerm <em>Search Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Search Term</em>'.
+   * @see com.b2international.snomed.ecl.ecl.SearchTerm
+   * @generated
+   */
+  EClass getSearchTerm();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm <em>Typed Search Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3734,6 +3781,17 @@ public interface EclPackage extends EPackage
   EClass getModuleFilter();
 
   /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ModuleFilter#getOp()
+   * @see #getModuleFilter()
+   * @generated
+   */
+  EAttribute getModuleFilter_Op();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.ModuleFilter#getModuleId <em>Module Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3785,6 +3843,17 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EClass getActiveFilter();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see com.b2international.snomed.ecl.ecl.ActiveFilter#getOp()
+   * @see #getActiveFilter()
+   * @generated
+   */
+  EAttribute getActiveFilter_Op();
 
   /**
    * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ActiveFilter#isActive <em>Active</em>}'.
@@ -4964,6 +5033,16 @@ public interface EclPackage extends EPackage
     EReference TERM_FILTER__SEARCH_TERM = eINSTANCE.getTermFilter_SearchTerm();
 
     /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.SearchTermImpl <em>Search Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.SearchTermImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSearchTerm()
+     * @generated
+     */
+    EClass SEARCH_TERM = eINSTANCE.getSearchTerm();
+
+    /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl <em>Typed Search Term</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5322,6 +5401,14 @@ public interface EclPackage extends EPackage
     EClass MODULE_FILTER = eINSTANCE.getModuleFilter();
 
     /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODULE_FILTER__OP = eINSTANCE.getModuleFilter_Op();
+
+    /**
      * The meta object literal for the '<em><b>Module Id</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5364,6 +5451,14 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EClass ACTIVE_FILTER = eINSTANCE.getActiveFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVE_FILTER__OP = eINSTANCE.getActiveFilter_Op();
 
     /**
      * The meta object literal for the '<em><b>Active</b></em>' attribute feature.

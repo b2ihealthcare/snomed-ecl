@@ -105,6 +105,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TermFilter/searchTerm"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//SearchTerm"/>
     <genClasses ecoreClass="Ecl.ecore#//TypedSearchTerm">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedSearchTerm/clause"/>
     </genClasses>
@@ -162,6 +163,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DefinitionStatusTokenFilter/definitionStatusTokens"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ModuleFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ModuleFilter/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ModuleFilter/moduleId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//EffectiveTimeFilter">
@@ -169,6 +171,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/effectiveTime"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ActiveFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/op"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/active"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//SemanticTagFilter">

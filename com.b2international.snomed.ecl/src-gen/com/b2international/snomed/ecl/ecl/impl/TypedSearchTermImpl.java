@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class TypedSearchTermImpl extends MinimalEObjectImpl.Container implements TypedSearchTerm
+public class TypedSearchTermImpl extends SearchTermImpl implements TypedSearchTerm
 {
   /**
    * The cached value of the '{@link #getClause() <em>Clause</em>}' containment reference.

@@ -333,6 +333,15 @@ public interface EclFactory extends EFactory
   TermFilter createTermFilter();
 
   /**
+   * Returns a new object of class '<em>Search Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search Term</em>'.
+   * @generated
+   */
+  SearchTerm createSearchTerm();
+
+  /**
    * Returns a new object of class '<em>Typed Search Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
