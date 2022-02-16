@@ -582,36 +582,86 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MemberOf");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cCARETTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cConstraintAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cConstraintAlternatives_1_0 = (Alternatives)cConstraintAssignment_1.eContents().get(0);
-		private final RuleCall cConstraintEclConceptReferenceParserRuleCall_1_0_0 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(0);
-		private final RuleCall cConstraintAnyParserRuleCall_1_0_1 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(1);
-		private final RuleCall cConstraintNestedExpressionParserRuleCall_1_0_2 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(2);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cSQUARE_OPENTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final Assignment cRefsetFieldsAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
+		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0 = (RuleCall)cRefsetFieldsAssignment_1_1_0_0.eContents().get(0);
+		private final Group cGroup_1_1_0_1 = (Group)cGroup_1_1_0.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_1_1_0_1_0 = (RuleCall)cGroup_1_1_0_1.eContents().get(0);
+		private final Assignment cRefsetFieldsAssignment_1_1_0_1_1 = (Assignment)cGroup_1_1_0_1.eContents().get(1);
+		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0 = (RuleCall)cRefsetFieldsAssignment_1_1_0_1_1.eContents().get(0);
+		private final RuleCall cWILDCARDTerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cSQUARE_CLOSETerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cConstraintAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cConstraintAlternatives_2_0 = (Alternatives)cConstraintAssignment_2.eContents().get(0);
+		private final RuleCall cConstraintEclConceptReferenceParserRuleCall_2_0_0 = (RuleCall)cConstraintAlternatives_2_0.eContents().get(0);
+		private final RuleCall cConstraintAnyParserRuleCall_2_0_1 = (RuleCall)cConstraintAlternatives_2_0.eContents().get(1);
+		private final RuleCall cConstraintNestedExpressionParserRuleCall_2_0_2 = (RuleCall)cConstraintAlternatives_2_0.eContents().get(2);
 		
 		//MemberOf:
-		//	CARET constraint=(EclConceptReference | Any | NestedExpression);
+		//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		//	constraint=(EclConceptReference | Any | NestedExpression);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CARET constraint=(EclConceptReference | Any | NestedExpression)
+		//CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		//constraint=(EclConceptReference | Any | NestedExpression)
 		public Group getGroup() { return cGroup; }
 		
 		//CARET
 		public RuleCall getCARETTerminalRuleCall_0() { return cCARETTerminalRuleCall_0; }
 		
+		//(SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//SQUARE_OPEN
+		public RuleCall getSQUARE_OPENTerminalRuleCall_1_0() { return cSQUARE_OPENTerminalRuleCall_1_0; }
+		
+		//(refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD)
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		
+		//refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		
+		//refsetFields+=UnquotedString
+		public Assignment getRefsetFieldsAssignment_1_1_0_0() { return cRefsetFieldsAssignment_1_1_0_0; }
+		
+		//UnquotedString
+		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0; }
+		
+		//(COMMA refsetFields+=UnquotedString)*
+		public Group getGroup_1_1_0_1() { return cGroup_1_1_0_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_1_1_0_1_0() { return cCOMMATerminalRuleCall_1_1_0_1_0; }
+		
+		//refsetFields+=UnquotedString
+		public Assignment getRefsetFieldsAssignment_1_1_0_1_1() { return cRefsetFieldsAssignment_1_1_0_1_1; }
+		
+		//UnquotedString
+		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0; }
+		
+		//WILDCARD
+		public RuleCall getWILDCARDTerminalRuleCall_1_1_1() { return cWILDCARDTerminalRuleCall_1_1_1; }
+		
+		//SQUARE_CLOSE
+		public RuleCall getSQUARE_CLOSETerminalRuleCall_1_2() { return cSQUARE_CLOSETerminalRuleCall_1_2; }
+		
 		//constraint=(EclConceptReference | Any | NestedExpression)
-		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
+		public Assignment getConstraintAssignment_2() { return cConstraintAssignment_2; }
 		
 		//(EclConceptReference | Any | NestedExpression)
-		public Alternatives getConstraintAlternatives_1_0() { return cConstraintAlternatives_1_0; }
+		public Alternatives getConstraintAlternatives_2_0() { return cConstraintAlternatives_2_0; }
 		
 		//EclConceptReference
-		public RuleCall getConstraintEclConceptReferenceParserRuleCall_1_0_0() { return cConstraintEclConceptReferenceParserRuleCall_1_0_0; }
+		public RuleCall getConstraintEclConceptReferenceParserRuleCall_2_0_0() { return cConstraintEclConceptReferenceParserRuleCall_2_0_0; }
 		
 		//Any
-		public RuleCall getConstraintAnyParserRuleCall_1_0_1() { return cConstraintAnyParserRuleCall_1_0_1; }
+		public RuleCall getConstraintAnyParserRuleCall_2_0_1() { return cConstraintAnyParserRuleCall_2_0_1; }
 		
 		//NestedExpression
-		public RuleCall getConstraintNestedExpressionParserRuleCall_1_0_2() { return cConstraintNestedExpressionParserRuleCall_1_0_2; }
+		public RuleCall getConstraintNestedExpressionParserRuleCall_2_0_2() { return cConstraintNestedExpressionParserRuleCall_2_0_2; }
 	}
 	public class EclConceptReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EclConceptReference");
@@ -1169,7 +1219,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueBooleanParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
-		//// TODO date
 		//BooleanValueComparison:
 		//	op=NON_NUMERIC_OPERATOR value=Boolean;
 		@Override public ParserRule getRule() { return rule; }
@@ -1441,12 +1490,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cNestedFilterParserRuleCall_1_0 = (RuleCall)cNestedAssignment_1.eContents().get(0);
 		private final RuleCall cROUND_CLOSETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//// {{ C active = true OR C definitionStatusId = 123123123 }}
-		//// {{ M active = true, isVaccine = false }}
-		//// filterConstraint = descriptionFilterConstraint / conceptFilterConstraint / memberFilterConstraint
-		//// descriptionFilterConstraint = "{{" ws [ "d" / "D" ] ws descriptionFilter *(ws "," ws descriptionFilter) ws "}}"
-		//// conceptFilterConstraint = "{{" ws ("c" / "C") ws conceptFilter *(ws "," ws conceptFilter) ws "}}"
-		//// memberFilterConstraint = "{{" ws ("m" / "M") ws memberFilter *(ws "," ws memberFilter) ws "}}"
 		//NestedFilter:
 		//	ROUND_OPEN nested=Filter ROUND_CLOSE;
 		@Override public ParserRule getRule() { return rule; }
@@ -1504,6 +1547,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| LanguageRefSetFilter
 		//	| CaseSignificanceFilter
 		//	// Member filters in ECL 2.0
+		//	// XXX this should be the last filter due to the UnquotedString refsetFieldName rule
 		//	| MemberFieldFilter
 		//	// Allows grouping filters for boolean operators
 		//	| NestedFilter;
@@ -1515,6 +1559,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//| ModuleFilter | EffectiveTimeFilter | ActiveFilter // Component filters in QL 0.1 (extension)
 		//| SemanticTagFilter // Description filters in QL 0.1 (extension)
 		//| PreferredInFilter | AcceptableInFilter | LanguageRefSetFilter | CaseSignificanceFilter // Member filters in ECL 2.0
+		//// XXX this should be the last filter due to the UnquotedString refsetFieldName rule
 		//| MemberFieldFilter // Allows grouping filters for boolean operators
 		//| NestedFilter
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -2354,12 +2399,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cActiveAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cActiveActiveBooleanParserRuleCall_2_0 = (RuleCall)cActiveAssignment_2.eContents().get(0);
 		
-		////timeValue = QM [ year month day ] QM
-		////timeValueSet = "(" ws timeValue *(mws timeValue) ws ")"
-		////year = digitNonZero digit digit digit
-		////month = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12"
-		////day = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12" / "13" / "14" / "15" / "16" / "17" /
-		////"18" / "19" / "20" / "21" / "22" / "23" / "24" / "25" / "26" / "27" / "28" / "29" / "30" / "31"
 		//ActiveFilter:
 		//	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
 		@Override public ParserRule getRule() { return rule; }
@@ -3728,7 +3767,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//MemberOf:
-	//	CARET constraint=(EclConceptReference | Any | NestedExpression);
+	//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+	//	constraint=(EclConceptReference | Any | NestedExpression);
 	public MemberOfElements getMemberOfAccess() {
 		return pMemberOf;
 	}
@@ -3930,7 +3970,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getDataTypeComparisonAccess().getRule();
 	}
 	
-	//// TODO date
 	//BooleanValueComparison:
 	//	op=NON_NUMERIC_OPERATOR value=Boolean;
 	public BooleanValueComparisonElements getBooleanValueComparisonAccess() {
@@ -4025,12 +4064,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getConjunctionFilterAccess().getRule();
 	}
 	
-	//// {{ C active = true OR C definitionStatusId = 123123123 }}
-	//// {{ M active = true, isVaccine = false }}
-	//// filterConstraint = descriptionFilterConstraint / conceptFilterConstraint / memberFilterConstraint
-	//// descriptionFilterConstraint = "{{" ws [ "d" / "D" ] ws descriptionFilter *(ws "," ws descriptionFilter) ws "}}"
-	//// conceptFilterConstraint = "{{" ws ("c" / "C") ws conceptFilter *(ws "," ws conceptFilter) ws "}}"
-	//// memberFilterConstraint = "{{" ws ("m" / "M") ws memberFilter *(ws "," ws memberFilter) ws "}}"
 	//NestedFilter:
 	//	ROUND_OPEN nested=Filter ROUND_CLOSE;
 	public NestedFilterElements getNestedFilterAccess() {
@@ -4060,6 +4093,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	| LanguageRefSetFilter
 	//	| CaseSignificanceFilter
 	//	// Member filters in ECL 2.0
+	//	// XXX this should be the last filter due to the UnquotedString refsetFieldName rule
 	//	| MemberFieldFilter
 	//	// Allows grouping filters for boolean operators
 	//	| NestedFilter;
@@ -4318,12 +4352,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getEffectiveTimeFilterAccess().getRule();
 	}
 	
-	////timeValue = QM [ year month day ] QM
-	////timeValueSet = "(" ws timeValue *(mws timeValue) ws ")"
-	////year = digitNonZero digit digit digit
-	////month = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12"
-	////day = "01" / "02" / "03" / "04" / "05" / "06" / "07" / "08" / "09" / "10" / "11" / "12" / "13" / "14" / "15" / "16" / "17" /
-	////"18" / "19" / "20" / "21" / "22" / "23" / "24" / "25" / "26" / "27" / "28" / "29" / "30" / "31"
 	//ActiveFilter:
 	//	ACTIVE_KEYWORD EQUAL active=ActiveBoolean;
 	public ActiveFilterElements getActiveFilterAccess() {

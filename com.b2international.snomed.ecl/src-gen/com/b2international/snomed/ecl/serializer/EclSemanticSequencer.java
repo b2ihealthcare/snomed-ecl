@@ -1363,7 +1363,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FilterValue returns MemberOf
 	 *
 	 * Constraint:
-	 *     (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression)
+	 *     ((refsetFields+=UnquotedString refsetFields+=UnquotedString*)? (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression))
 	 */
 	protected void sequence_MemberOf(ISerializationContext context, MemberOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

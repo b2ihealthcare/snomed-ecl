@@ -460,13 +460,22 @@ public interface EclPackage extends EPackage
   int MEMBER_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
+   * The feature id for the '<em><b>Refset Fields</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_OF__REFSET_FIELDS = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_OF__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+  int MEMBER_OF__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Member Of</em>' class.
@@ -475,7 +484,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
+  int MEMBER_OF_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.EclConceptReferenceImpl <em>Concept Reference</em>}' class.
@@ -2785,6 +2794,17 @@ public interface EclPackage extends EPackage
   EClass getMemberOf();
 
   /**
+   * Returns the meta object for the attribute list '{@link com.b2international.snomed.ecl.ecl.MemberOf#getRefsetFields <em>Refset Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Refset Fields</em>'.
+   * @see com.b2international.snomed.ecl.ecl.MemberOf#getRefsetFields()
+   * @see #getMemberOf()
+   * @generated
+   */
+  EAttribute getMemberOf_RefsetFields();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.MemberOf#getConstraint <em>Constraint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4496,6 +4516,14 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EClass MEMBER_OF = eINSTANCE.getMemberOf();
+
+    /**
+     * The meta object literal for the '<em><b>Refset Fields</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEMBER_OF__REFSET_FIELDS = eINSTANCE.getMemberOf_RefsetFields();
 
     /**
      * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.

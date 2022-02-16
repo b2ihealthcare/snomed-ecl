@@ -1157,12 +1157,75 @@ ruleMemberOf returns [EObject current=null]
 			newLeafNode(this_CARET_0, grammarAccess.getMemberOfAccess().getCARETTerminalRuleCall_0());
 		}
 		(
+			this_SQUARE_OPEN_1=RULE_SQUARE_OPEN
+			{
+				newLeafNode(this_SQUARE_OPEN_1, grammarAccess.getMemberOfAccess().getSQUARE_OPENTerminalRuleCall_1_0());
+			}
+			(
+				(
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0());
+							}
+							lv_refsetFields_2_0=ruleUnquotedString
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getMemberOfRule());
+								}
+								add(
+									$current,
+									"refsetFields",
+									lv_refsetFields_2_0,
+									"com.b2international.snomed.ecl.Ecl.UnquotedString");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+					(
+						this_COMMA_3=RULE_COMMA
+						{
+							newLeafNode(this_COMMA_3, grammarAccess.getMemberOfAccess().getCOMMATerminalRuleCall_1_1_0_1_0());
+						}
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0());
+								}
+								lv_refsetFields_4_0=ruleUnquotedString
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getMemberOfRule());
+									}
+									add(
+										$current,
+										"refsetFields",
+										lv_refsetFields_4_0,
+										"com.b2international.snomed.ecl.Ecl.UnquotedString");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)*
+				)
+				    |
+				this_WILDCARD_5=RULE_WILDCARD
+				{
+					newLeafNode(this_WILDCARD_5, grammarAccess.getMemberOfAccess().getWILDCARDTerminalRuleCall_1_1_1());
+				}
+			)
+			this_SQUARE_CLOSE_6=RULE_SQUARE_CLOSE
+			{
+				newLeafNode(this_SQUARE_CLOSE_6, grammarAccess.getMemberOfAccess().getSQUARE_CLOSETerminalRuleCall_1_2());
+			}
+		)?
+		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintEclConceptReferenceParserRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintEclConceptReferenceParserRuleCall_2_0_0());
 					}
-					lv_constraint_1_1=ruleEclConceptReference
+					lv_constraint_7_1=ruleEclConceptReference
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1170,15 +1233,15 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_1_1,
+							lv_constraint_7_1,
 							"com.b2international.snomed.ecl.Ecl.EclConceptReference");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintAnyParserRuleCall_1_0_1());
+						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintAnyParserRuleCall_2_0_1());
 					}
-					lv_constraint_1_2=ruleAny
+					lv_constraint_7_2=ruleAny
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1186,15 +1249,15 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_1_2,
+							lv_constraint_7_2,
 							"com.b2international.snomed.ecl.Ecl.Any");
 						afterParserOrEnumRuleCall();
 					}
 					    |
 					{
-						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintNestedExpressionParserRuleCall_1_0_2());
+						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintNestedExpressionParserRuleCall_2_0_2());
 					}
-					lv_constraint_1_3=ruleNestedExpression
+					lv_constraint_7_3=ruleNestedExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1202,7 +1265,7 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_1_3,
+							lv_constraint_7_3,
 							"com.b2international.snomed.ecl.Ecl.NestedExpression");
 						afterParserOrEnumRuleCall();
 					}

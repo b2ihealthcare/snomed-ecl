@@ -662,4 +662,32 @@ class EclParsingTest {
 		'''.assertNoErrors
 	}
 	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_single() {
+		'''
+			^ [moduleId] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_multiple() {
+		'''
+			^ [moduleId, someotherRefsetField] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_all() {
+		'''
+			^ [*] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_default() {
+		'''
+			^ 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
 }

@@ -19,13 +19,19 @@ import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.MemberOfImpl#getRefsetFields <em>Refset Fields</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.MemberOfImpl#getConstraint <em>Constraint</em>}</li>
  * </ul>
  *
@@ -42,6 +49,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
 {
+  /**
+   * The cached value of the '{@link #getRefsetFields() <em>Refset Fields</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRefsetFields()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> refsetFields;
+
   /**
    * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +88,21 @@ public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
   protected EClass eStaticClass()
   {
     return EclPackage.Literals.MEMBER_OF;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getRefsetFields()
+  {
+    if (refsetFields == null)
+    {
+      refsetFields = new EDataTypeEList<String>(String.class, this, EclPackage.MEMBER_OF__REFSET_FIELDS);
+    }
+    return refsetFields;
   }
 
   /**
@@ -149,6 +181,8 @@ public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
   {
     switch (featureID)
     {
+      case EclPackage.MEMBER_OF__REFSET_FIELDS:
+        return getRefsetFields();
       case EclPackage.MEMBER_OF__CONSTRAINT:
         return getConstraint();
     }
@@ -160,11 +194,16 @@ public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case EclPackage.MEMBER_OF__REFSET_FIELDS:
+        getRefsetFields().clear();
+        getRefsetFields().addAll((Collection<? extends String>)newValue);
+        return;
       case EclPackage.MEMBER_OF__CONSTRAINT:
         setConstraint((ExpressionConstraint)newValue);
         return;
@@ -182,6 +221,9 @@ public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
   {
     switch (featureID)
     {
+      case EclPackage.MEMBER_OF__REFSET_FIELDS:
+        getRefsetFields().clear();
+        return;
       case EclPackage.MEMBER_OF__CONSTRAINT:
         setConstraint((ExpressionConstraint)null);
         return;
@@ -199,10 +241,29 @@ public class MemberOfImpl extends ExpressionConstraintImpl implements MemberOf
   {
     switch (featureID)
     {
+      case EclPackage.MEMBER_OF__REFSET_FIELDS:
+        return refsetFields != null && !refsetFields.isEmpty();
       case EclPackage.MEMBER_OF__CONSTRAINT:
         return constraint != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (refsetFields: ");
+    result.append(refsetFields);
+    result.append(')');
+    return result.toString();
   }
 
 } //MemberOfImpl

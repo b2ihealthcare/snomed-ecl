@@ -24,6 +24,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -39,6 +40,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0;
 	protected AbstractElementAlias match_DialectAlias_WSTerminalRuleCall_1_a;
 	protected AbstractElementAlias match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1;
+	protected AbstractElementAlias match_MemberOf___SQUARE_OPENTerminalRuleCall_1_0_WILDCARDTerminalRuleCall_1_1_1_SQUARE_CLOSETerminalRuleCall_1_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -49,6 +51,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConjunctionFilterAccess().getCOMMATerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getConjunctionFilterAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_1_0()));
 		match_DialectAlias_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getDialectAliasAccess().getWSTerminalRuleCall_1());
 		match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHistoryProfileAccess().getDASHTerminalRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getHistoryProfileAccess().getUNDERSCORETerminalRuleCall_0_1()));
+		match_MemberOf___SQUARE_OPENTerminalRuleCall_1_0_WILDCARDTerminalRuleCall_1_1_1_SQUARE_CLOSETerminalRuleCall_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMemberOfAccess().getSQUARE_OPENTerminalRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getMemberOfAccess().getWILDCARDTerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getMemberOfAccess().getSQUARE_CLOSETerminalRuleCall_1_2()));
 	}
 	
 	@Override
@@ -662,6 +665,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DialectAlias_WSTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1.equals(syntax))
 				emit_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MemberOf___SQUARE_OPENTerminalRuleCall_1_0_WILDCARDTerminalRuleCall_1_1_1_SQUARE_CLOSETerminalRuleCall_1_2__q.equals(syntax))
+				emit_MemberOf___SQUARE_OPENTerminalRuleCall_1_0_WILDCARDTerminalRuleCall_1_1_1_SQUARE_CLOSETerminalRuleCall_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -730,6 +735,19 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) profile=HISTORY_PROFILE_TYPE
 	 */
 	protected void emit_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (SQUARE_OPEN WILDCARD SQUARE_CLOSE)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) CARET (ambiguity) constraint=Any
+	 *     (rule start) CARET (ambiguity) constraint=EclConceptReference
+	 *     (rule start) CARET (ambiguity) constraint=NestedExpression
+	 */
+	protected void emit_MemberOf___SQUARE_OPENTerminalRuleCall_1_0_WILDCARDTerminalRuleCall_1_1_1_SQUARE_CLOSETerminalRuleCall_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

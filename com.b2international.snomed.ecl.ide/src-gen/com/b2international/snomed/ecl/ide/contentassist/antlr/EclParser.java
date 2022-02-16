@@ -46,7 +46,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAndExpressionConstraintAccess().getAlternatives_1_1(), "rule__AndExpressionConstraint__Alternatives_1_1");
 			builder.put(grammarAccess.getSubExpressionConstraintAccess().getAlternatives(), "rule__SubExpressionConstraint__Alternatives");
 			builder.put(grammarAccess.getEclFocusConceptAccess().getAlternatives(), "rule__EclFocusConcept__Alternatives");
-			builder.put(grammarAccess.getMemberOfAccess().getConstraintAlternatives_1_0(), "rule__MemberOf__ConstraintAlternatives_1_0");
+			builder.put(grammarAccess.getMemberOfAccess().getAlternatives_1_1(), "rule__MemberOf__Alternatives_1_1");
+			builder.put(grammarAccess.getMemberOfAccess().getConstraintAlternatives_2_0(), "rule__MemberOf__ConstraintAlternatives_2_0");
 			builder.put(grammarAccess.getAndRefinementAccess().getAlternatives_1_0_1(), "rule__AndRefinement__Alternatives_1_0_1");
 			builder.put(grammarAccess.getSubRefinementAccess().getAlternatives(), "rule__SubRefinement__Alternatives");
 			builder.put(grammarAccess.getAndAttributeSetAccess().getAlternatives_1_1(), "rule__AndAttributeSet__Alternatives_1_1");
@@ -108,6 +109,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAncestorOfAccess().getGroup(), "rule__AncestorOf__Group__0");
 			builder.put(grammarAccess.getAncestorOrSelfOfAccess().getGroup(), "rule__AncestorOrSelfOf__Group__0");
 			builder.put(grammarAccess.getMemberOfAccess().getGroup(), "rule__MemberOf__Group__0");
+			builder.put(grammarAccess.getMemberOfAccess().getGroup_1(), "rule__MemberOf__Group_1__0");
+			builder.put(grammarAccess.getMemberOfAccess().getGroup_1_1_0(), "rule__MemberOf__Group_1_1_0__0");
+			builder.put(grammarAccess.getMemberOfAccess().getGroup_1_1_0_1(), "rule__MemberOf__Group_1_1_0_1__0");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getGroup(), "rule__EclConceptReference__Group__0");
 			builder.put(grammarAccess.getEclConceptReferenceSetAccess().getGroup(), "rule__EclConceptReferenceSet__Group__0");
 			builder.put(grammarAccess.getAnyAccess().getGroup(), "rule__Any__Group__0");
@@ -189,7 +193,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getParentOrSelfOfAccess().getConstraintAssignment_1(), "rule__ParentOrSelfOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getAncestorOfAccess().getConstraintAssignment_1(), "rule__AncestorOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getAncestorOrSelfOfAccess().getConstraintAssignment_1(), "rule__AncestorOrSelfOf__ConstraintAssignment_1");
-			builder.put(grammarAccess.getMemberOfAccess().getConstraintAssignment_1(), "rule__MemberOf__ConstraintAssignment_1");
+			builder.put(grammarAccess.getMemberOfAccess().getRefsetFieldsAssignment_1_1_0_0(), "rule__MemberOf__RefsetFieldsAssignment_1_1_0_0");
+			builder.put(grammarAccess.getMemberOfAccess().getRefsetFieldsAssignment_1_1_0_1_1(), "rule__MemberOf__RefsetFieldsAssignment_1_1_0_1_1");
+			builder.put(grammarAccess.getMemberOfAccess().getConstraintAssignment_2(), "rule__MemberOf__ConstraintAssignment_2");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getIdAssignment_0(), "rule__EclConceptReference__IdAssignment_0");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getTermAssignment_1(), "rule__EclConceptReference__TermAssignment_1");
 			builder.put(grammarAccess.getEclConceptReferenceSetAccess().getConceptsAssignment_1(), "rule__EclConceptReferenceSet__ConceptsAssignment_1");

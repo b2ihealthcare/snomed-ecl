@@ -917,9 +917,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EAttribute getMemberOf_RefsetFields()
+  {
+    return (EAttribute)memberOfEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getMemberOf_Constraint()
   {
-    return (EReference)memberOfEClass.getEStructuralFeatures().get(0);
+    return (EReference)memberOfEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2535,6 +2546,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(ancestorOrSelfOfEClass, ANCESTOR_OR_SELF_OF__CONSTRAINT);
 
     memberOfEClass = createEClass(MEMBER_OF);
+    createEAttribute(memberOfEClass, MEMBER_OF__REFSET_FIELDS);
     createEReference(memberOfEClass, MEMBER_OF__CONSTRAINT);
 
     eclConceptReferenceEClass = createEClass(ECL_CONCEPT_REFERENCE);
@@ -2864,6 +2876,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getAncestorOrSelfOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, AncestorOrSelfOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberOfEClass, MemberOf.class, "MemberOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMemberOf_RefsetFields(), ecorePackage.getEString(), "refsetFields", null, 0, -1, MemberOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMemberOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, MemberOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eclConceptReferenceEClass, EclConceptReference.class, "EclConceptReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
