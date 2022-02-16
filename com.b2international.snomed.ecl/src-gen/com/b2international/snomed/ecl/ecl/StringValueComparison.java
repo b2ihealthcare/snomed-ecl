@@ -15,6 +15,7 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,25 +36,25 @@ package com.b2international.snomed.ecl.ecl;
 public interface StringValueComparison extends DataTypeComparison
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(EObject)
    * @see com.b2international.snomed.ecl.ecl.EclPackage#getStringValueComparison_Value()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getValue();
+  EObject getValue();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.StringValueComparison#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.StringValueComparison#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
+   * @param value the new value of the '<em>Value</em>' containment reference.
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(EObject value);
 
 } // StringValueComparison

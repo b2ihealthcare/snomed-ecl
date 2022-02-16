@@ -19,8 +19,11 @@ import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -40,24 +43,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class StringValueComparisonImpl extends DataTypeComparisonImpl implements StringValueComparison
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected EObject value;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,7 +79,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    */
   @Override
-  public String getValue()
+  public EObject getValue()
   {
     return value;
   }
@@ -96,13 +89,54 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setValue(String newValue)
+  public NotificationChain basicSetValue(EObject newValue, NotificationChain msgs)
   {
-    String oldValue = value;
+    EObject oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.STRING_VALUE_COMPARISON__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.STRING_VALUE_COMPARISON__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(EObject newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.STRING_VALUE_COMPARISON__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.STRING_VALUE_COMPARISON__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.STRING_VALUE_COMPARISON__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
+        return basicSetValue(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -132,7 +166,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
     switch (featureID)
     {
       case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue((String)newValue);
+        setValue((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,7 +183,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
     switch (featureID)
     {
       case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -166,26 +200,9 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
     switch (featureID)
     {
       case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //StringValueComparisonImpl

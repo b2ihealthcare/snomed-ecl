@@ -333,31 +333,31 @@ public interface EclFactory extends EFactory
   TermFilter createTermFilter();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter</em>'.
+   * Returns a new object of class '<em>Typed Search Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter</em>'.
+   * @return a new object of class '<em>Typed Search Term</em>'.
    * @generated
    */
-  TypedTermFilter createTypedTermFilter();
+  TypedSearchTerm createTypedSearchTerm();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter Set</em>'.
+   * Returns a new object of class '<em>Typed Search Term Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter Set</em>'.
+   * @return a new object of class '<em>Typed Search Term Set</em>'.
    * @generated
    */
-  TypedTermFilterSet createTypedTermFilterSet();
+  TypedSearchTermSet createTypedSearchTermSet();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter Clause</em>'.
+   * Returns a new object of class '<em>Typed Search Term Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter Clause</em>'.
+   * @return a new object of class '<em>Typed Search Term Clause</em>'.
    * @generated
    */
-  TypedTermFilterClause createTypedTermFilterClause();
+  TypedSearchTermClause createTypedSearchTermClause();
 
   /**
    * Returns a new object of class '<em>Language Filter</em>'.

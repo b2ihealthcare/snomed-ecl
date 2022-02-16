@@ -143,7 +143,7 @@ BooleanValueComparison:
 	op=NON_NUMERIC_OPERATOR value=Boolean;
 
 StringValueComparison:
-	op=NON_NUMERIC_OPERATOR value=STRING;
+	op=NON_NUMERIC_OPERATOR value=(TypedSearchTerm | TypedSearchTermSet);
 
 IntegerValueComparison:
 	op=NUMERIC_OPERATOR HASH value=Integer;
@@ -203,16 +203,16 @@ MemberFieldFilter:
 	refsetFieldName=UnquotedString comparison=Comparison;
 
 TermFilter:
-	TERM_KEYWORD (TypedTermFilter | TypedTermFilterSet);
+	TERM_KEYWORD op=NON_NUMERIC_OPERATOR searchTerm=(TypedSearchTerm | TypedSearchTermSet);
 
 // no special treatment for the term filter STRING, we allow everything for any lexical search type
-TypedTermFilter:
-	op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause;
+TypedSearchTerm:
+	clause=TypedSearchTermClause;
 
-TypedTermFilterSet:
-	op=NON_NUMERIC_OPERATOR ROUND_OPEN (clauses+=TypedTermFilterClause)+ ROUND_CLOSE;
+TypedSearchTermSet:
+	ROUND_OPEN (clauses+=TypedSearchTermClause)+ ROUND_CLOSE;
 
-TypedTermFilterClause
+TypedSearchTermClause
 	: (lexicalSearchType=LEXICAL_SEARCH_TYPE COLON)? term=STRING
 	| lexicalSearchType=REGEX_KEYWORD COLON term=RegularExpression
 	;

@@ -115,6 +115,26 @@ class EclParsingFilterConstraintTest {
 	}
 	
 	@Test
+	def void test_filter_description_term_match() {
+		'* {{ d term = match:"clin find" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_term_wild() {
+		'* {{ d term = wild:"clin*" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_term_regex() {
+		'* {{ d term = regex:".+paracetamol.*" }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_term_exact() {
+		'* {{ d term = exact:"Clinical finding" }}'.assertNoErrors;
+	}
+	
+	@Test
 	def void test_filter_description_preferredIn() {
 		'* {{ preferredIn = 900000000000550004 }}'.assertNoErrors;
 	}
@@ -227,9 +247,37 @@ class EclParsingFilterConstraintTest {
 	}
 	
 	@Test
-	def void test_filter_member_string_field() {
+	def void test_filter_member_string_field_default() {
 		'''
 			* {{ M tradeName = "PANADOL" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_member_string_field_wild() {
+		'''
+			* {{ M tradeName = wild:"PAN*" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_member_string_field_regex() {
+		'''
+			* {{ M tradeName = regex:"PAN.*" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_member_string_field_exact() {
+		'''
+			* {{ M tradeName = exact:"PANADOL" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_member_string_field_match() {
+		'''
+			* {{ M tradeName = match:"PAN" }}
 		'''.assertNoErrors
 	}
 	

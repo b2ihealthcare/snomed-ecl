@@ -110,9 +110,9 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.PROPERTY_FILTER: return createPropertyFilter();
       case EclPackage.MEMBER_FIELD_FILTER: return createMemberFieldFilter();
       case EclPackage.TERM_FILTER: return createTermFilter();
-      case EclPackage.TYPED_TERM_FILTER: return createTypedTermFilter();
-      case EclPackage.TYPED_TERM_FILTER_SET: return createTypedTermFilterSet();
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE: return createTypedTermFilterClause();
+      case EclPackage.TYPED_SEARCH_TERM: return createTypedSearchTerm();
+      case EclPackage.TYPED_SEARCH_TERM_SET: return createTypedSearchTermSet();
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE: return createTypedSearchTermClause();
       case EclPackage.LANGUAGE_FILTER: return createLanguageFilter();
       case EclPackage.TYPE_FILTER: return createTypeFilter();
       case EclPackage.TYPE_ID_FILTER: return createTypeIdFilter();
@@ -557,10 +557,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilter createTypedTermFilter()
+  public TypedSearchTerm createTypedSearchTerm()
   {
-    TypedTermFilterImpl typedTermFilter = new TypedTermFilterImpl();
-    return typedTermFilter;
+    TypedSearchTermImpl typedSearchTerm = new TypedSearchTermImpl();
+    return typedSearchTerm;
   }
 
   /**
@@ -569,10 +569,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilterSet createTypedTermFilterSet()
+  public TypedSearchTermSet createTypedSearchTermSet()
   {
-    TypedTermFilterSetImpl typedTermFilterSet = new TypedTermFilterSetImpl();
-    return typedTermFilterSet;
+    TypedSearchTermSetImpl typedSearchTermSet = new TypedSearchTermSetImpl();
+    return typedSearchTermSet;
   }
 
   /**
@@ -581,10 +581,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilterClause createTypedTermFilterClause()
+  public TypedSearchTermClause createTypedSearchTermClause()
   {
-    TypedTermFilterClauseImpl typedTermFilterClause = new TypedTermFilterClauseImpl();
-    return typedTermFilterClause;
+    TypedSearchTermClauseImpl typedSearchTermClause = new TypedSearchTermClauseImpl();
+    return typedSearchTermClause;
   }
 
   /**

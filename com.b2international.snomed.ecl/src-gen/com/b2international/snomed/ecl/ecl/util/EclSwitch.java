@@ -362,30 +362,24 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER:
+      case EclPackage.TYPED_SEARCH_TERM:
       {
-        TypedTermFilter typedTermFilter = (TypedTermFilter)theEObject;
-        T result = caseTypedTermFilter(typedTermFilter);
-        if (result == null) result = caseTermFilter(typedTermFilter);
-        if (result == null) result = casePropertyFilter(typedTermFilter);
-        if (result == null) result = caseFilter(typedTermFilter);
+        TypedSearchTerm typedSearchTerm = (TypedSearchTerm)theEObject;
+        T result = caseTypedSearchTerm(typedSearchTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER_SET:
+      case EclPackage.TYPED_SEARCH_TERM_SET:
       {
-        TypedTermFilterSet typedTermFilterSet = (TypedTermFilterSet)theEObject;
-        T result = caseTypedTermFilterSet(typedTermFilterSet);
-        if (result == null) result = caseTermFilter(typedTermFilterSet);
-        if (result == null) result = casePropertyFilter(typedTermFilterSet);
-        if (result == null) result = caseFilter(typedTermFilterSet);
+        TypedSearchTermSet typedSearchTermSet = (TypedSearchTermSet)theEObject;
+        T result = caseTypedSearchTermSet(typedSearchTermSet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE:
       {
-        TypedTermFilterClause typedTermFilterClause = (TypedTermFilterClause)theEObject;
-        T result = caseTypedTermFilterClause(typedTermFilterClause);
+        TypedSearchTermClause typedSearchTermClause = (TypedSearchTermClause)theEObject;
+        T result = caseTypedSearchTermClause(typedSearchTermClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1244,49 +1238,49 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilter(TypedTermFilter object)
+  public T caseTypedSearchTerm(TypedSearchTerm object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term Set</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term Set</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilterSet(TypedTermFilterSet object)
+  public T caseTypedSearchTermSet(TypedSearchTermSet object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term Clause</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term Clause</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilterClause(TypedTermFilterClause object)
+  public T caseTypedSearchTermClause(TypedSearchTermClause object)
   {
     return null;
   }

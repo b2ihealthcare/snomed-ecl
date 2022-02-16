@@ -253,19 +253,19 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createTermFilterAdapter();
       }
       @Override
-      public Adapter caseTypedTermFilter(TypedTermFilter object)
+      public Adapter caseTypedSearchTerm(TypedSearchTerm object)
       {
-        return createTypedTermFilterAdapter();
+        return createTypedSearchTermAdapter();
       }
       @Override
-      public Adapter caseTypedTermFilterSet(TypedTermFilterSet object)
+      public Adapter caseTypedSearchTermSet(TypedSearchTermSet object)
       {
-        return createTypedTermFilterSetAdapter();
+        return createTypedSearchTermSetAdapter();
       }
       @Override
-      public Adapter caseTypedTermFilterClause(TypedTermFilterClause object)
+      public Adapter caseTypedSearchTermClause(TypedSearchTermClause object)
       {
-        return createTypedTermFilterClauseAdapter();
+        return createTypedSearchTermClauseAdapter();
       }
       @Override
       public Adapter caseLanguageFilter(LanguageFilter object)
@@ -970,46 +970,46 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter <em>Typed Term Filter</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm <em>Typed Search Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilter
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTerm
    * @generated
    */
-  public Adapter createTypedTermFilterAdapter()
+  public Adapter createTypedSearchTermAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet <em>Typed Term Filter Set</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermSet <em>Typed Search Term Set</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterSet
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermSet
    * @generated
    */
-  public Adapter createTypedTermFilterSetAdapter()
+  public Adapter createTypedSearchTermSetAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause <em>Typed Term Filter Clause</em>}'.
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause <em>Typed Search Term Clause</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterClause
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermClause
    * @generated
    */
-  public Adapter createTypedTermFilterClauseAdapter()
+  public Adapter createTypedSearchTermClauseAdapter()
   {
     return null;
   }

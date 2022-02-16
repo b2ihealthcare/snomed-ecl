@@ -91,7 +91,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringValueComparison" eSuperTypes="#//DataTypeComparison">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValueComparison" eSuperTypes="#//DataTypeComparison">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -121,16 +122,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TermFilter" eSuperTypes="#//PropertyFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilter" eSuperTypes="#//TermFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clause" eType="#//TypedTermFilterClause"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchTerm" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilterSet" eSuperTypes="#//TermFilter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
-        eType="#//TypedTermFilterClause" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause" eType="#//TypedSearchTermClause"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedTermFilterClause">
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTermSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
+        eType="#//TypedSearchTermClause" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSearchTermClause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lexicalSearchType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

@@ -16,8 +16,8 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.TypedTermFilter;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
+import com.b2international.snomed.ecl.ecl.TypedSearchTerm;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermClause;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,21 +26,22 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Typed Term Filter</b></em>'.
+ * An implementation of the model object '<em><b>Typed Search Term</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl#getClause <em>Clause</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl#getClause <em>Clause</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilter
+public class TypedSearchTermImpl extends MinimalEObjectImpl.Container implements TypedSearchTerm
 {
   /**
    * The cached value of the '{@link #getClause() <em>Clause</em>}' containment reference.
@@ -50,14 +51,14 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    * @ordered
    */
-  protected TypedTermFilterClause clause;
+  protected TypedSearchTermClause clause;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypedTermFilterImpl()
+  protected TypedSearchTermImpl()
   {
     super();
   }
@@ -70,7 +71,7 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.TYPED_TERM_FILTER;
+    return EclPackage.Literals.TYPED_SEARCH_TERM;
   }
 
   /**
@@ -79,7 +80,7 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public TypedTermFilterClause getClause()
+  public TypedSearchTermClause getClause()
   {
     return clause;
   }
@@ -89,13 +90,13 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetClause(TypedTermFilterClause newClause, NotificationChain msgs)
+  public NotificationChain basicSetClause(TypedSearchTermClause newClause, NotificationChain msgs)
   {
-    TypedTermFilterClause oldClause = clause;
+    TypedSearchTermClause oldClause = clause;
     clause = newClause;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__CLAUSE, oldClause, newClause);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_SEARCH_TERM__CLAUSE, oldClause, newClause);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +108,20 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
    * @generated
    */
   @Override
-  public void setClause(TypedTermFilterClause newClause)
+  public void setClause(TypedSearchTermClause newClause)
   {
     if (newClause != clause)
     {
       NotificationChain msgs = null;
       if (clause != null)
-        msgs = ((InternalEObject)clause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_TERM_FILTER__CLAUSE, null, msgs);
+        msgs = ((InternalEObject)clause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_SEARCH_TERM__CLAUSE, null, msgs);
       if (newClause != null)
-        msgs = ((InternalEObject)newClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_TERM_FILTER__CLAUSE, null, msgs);
+        msgs = ((InternalEObject)newClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.TYPED_SEARCH_TERM__CLAUSE, null, msgs);
       msgs = basicSetClause(newClause, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER__CLAUSE, newClause, newClause));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_SEARCH_TERM__CLAUSE, newClause, newClause));
   }
 
   /**
@@ -133,7 +134,7 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+      case EclPackage.TYPED_SEARCH_TERM__CLAUSE:
         return basicSetClause(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -149,7 +150,7 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+      case EclPackage.TYPED_SEARCH_TERM__CLAUSE:
         return getClause();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -165,8 +166,8 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
-        setClause((TypedTermFilterClause)newValue);
+      case EclPackage.TYPED_SEARCH_TERM__CLAUSE:
+        setClause((TypedSearchTermClause)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,8 +183,8 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
-        setClause((TypedTermFilterClause)null);
+      case EclPackage.TYPED_SEARCH_TERM__CLAUSE:
+        setClause((TypedSearchTermClause)null);
         return;
     }
     super.eUnset(featureID);
@@ -199,10 +200,10 @@ public class TypedTermFilterImpl extends TermFilterImpl implements TypedTermFilt
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER__CLAUSE:
+      case EclPackage.TYPED_SEARCH_TERM__CLAUSE:
         return clause != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //TypedTermFilterImpl
+} //TypedSearchTermImpl

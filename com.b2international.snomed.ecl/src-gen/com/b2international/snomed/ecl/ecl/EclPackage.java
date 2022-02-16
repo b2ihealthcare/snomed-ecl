@@ -914,7 +914,7 @@ public interface EclPackage extends EPackage
   int STRING_VALUE_COMPARISON__OP = DATA_TYPE_COMPARISON__OP;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1202,32 +1202,32 @@ public interface EclPackage extends EPackage
   int TERM_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Search Term</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TERM_FILTER__SEARCH_TERM = PROPERTY_FILTER_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Term Filter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TERM_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 1;
+  int TERM_FILTER_FEATURE_COUNT = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl <em>Typed Term Filter</em>}' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl <em>Typed Search Term</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilter()
+   * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTerm()
    * @generated
    */
-  int TYPED_TERM_FILTER = 33;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPED_TERM_FILTER__OP = TERM_FILTER__OP;
+  int TYPED_SEARCH_TERM = 33;
 
   /**
    * The feature id for the '<em><b>Clause</b></em>' containment reference.
@@ -1236,35 +1236,26 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER__CLAUSE = TERM_FILTER_FEATURE_COUNT + 0;
+  int TYPED_SEARCH_TERM__CLAUSE = 0;
 
   /**
-   * The number of structural features of the '<em>Typed Term Filter</em>' class.
+   * The number of structural features of the '<em>Typed Search Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_FEATURE_COUNT = TERM_FILTER_FEATURE_COUNT + 1;
+  int TYPED_SEARCH_TERM_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl <em>Typed Term Filter Set</em>}' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl <em>Typed Search Term Set</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilterSet()
+   * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermSet()
    * @generated
    */
-  int TYPED_TERM_FILTER_SET = 34;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPED_TERM_FILTER_SET__OP = TERM_FILTER__OP;
+  int TYPED_SEARCH_TERM_SET = 34;
 
   /**
    * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
@@ -1273,26 +1264,26 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_SET__CLAUSES = TERM_FILTER_FEATURE_COUNT + 0;
+  int TYPED_SEARCH_TERM_SET__CLAUSES = 0;
 
   /**
-   * The number of structural features of the '<em>Typed Term Filter Set</em>' class.
+   * The number of structural features of the '<em>Typed Search Term Set</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_SET_FEATURE_COUNT = TERM_FILTER_FEATURE_COUNT + 1;
+  int TYPED_SEARCH_TERM_SET_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl <em>Typed Term Filter Clause</em>}' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl <em>Typed Search Term Clause</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilterClause()
+   * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermClause()
    * @generated
    */
-  int TYPED_TERM_FILTER_CLAUSE = 35;
+  int TYPED_SEARCH_TERM_CLAUSE = 35;
 
   /**
    * The feature id for the '<em><b>Lexical Search Type</b></em>' attribute.
@@ -1301,7 +1292,7 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE = 0;
+  int TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Term</b></em>' attribute.
@@ -1310,16 +1301,16 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_CLAUSE__TERM = 1;
+  int TYPED_SEARCH_TERM_CLAUSE__TERM = 1;
 
   /**
-   * The number of structural features of the '<em>Typed Term Filter Clause</em>' class.
+   * The number of structural features of the '<em>Typed Search Term Clause</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPED_TERM_FILTER_CLAUSE_FEATURE_COUNT = 2;
+  int TYPED_SEARCH_TERM_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.LanguageFilterImpl <em>Language Filter</em>}' class.
@@ -3111,15 +3102,15 @@ public interface EclPackage extends EPackage
   EClass getStringValueComparison();
 
   /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.StringValueComparison#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.StringValueComparison#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see com.b2international.snomed.ecl.ecl.StringValueComparison#getValue()
    * @see #getStringValueComparison()
    * @generated
    */
-  EAttribute getStringValueComparison_Value();
+  EReference getStringValueComparison_Value();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.IntegerValueComparison <em>Integer Value Comparison</em>}'.
@@ -3311,78 +3302,89 @@ public interface EclPackage extends EPackage
   EAttribute getTermFilter_Op();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter <em>Typed Term Filter</em>}'.
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.TermFilter#getSearchTerm <em>Search Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Typed Term Filter</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilter
+   * @return the meta object for the containment reference '<em>Search Term</em>'.
+   * @see com.b2international.snomed.ecl.ecl.TermFilter#getSearchTerm()
+   * @see #getTermFilter()
    * @generated
    */
-  EClass getTypedTermFilter();
+  EReference getTermFilter_SearchTerm();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause <em>Clause</em>}'.
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm <em>Typed Search Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Typed Search Term</em>'.
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTerm
+   * @generated
+   */
+  EClass getTypedSearchTerm();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm#getClause <em>Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Clause</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause()
-   * @see #getTypedTermFilter()
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTerm#getClause()
+   * @see #getTypedSearchTerm()
    * @generated
    */
-  EReference getTypedTermFilter_Clause();
+  EReference getTypedSearchTerm_Clause();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet <em>Typed Term Filter Set</em>}'.
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermSet <em>Typed Search Term Set</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Typed Term Filter Set</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterSet
+   * @return the meta object for class '<em>Typed Search Term Set</em>'.
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermSet
    * @generated
    */
-  EClass getTypedTermFilterSet();
+  EClass getTypedSearchTermSet();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet#getClauses <em>Clauses</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermSet#getClauses <em>Clauses</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Clauses</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterSet#getClauses()
-   * @see #getTypedTermFilterSet()
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermSet#getClauses()
+   * @see #getTypedSearchTermSet()
    * @generated
    */
-  EReference getTypedTermFilterSet_Clauses();
+  EReference getTypedSearchTermSet_Clauses();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause <em>Typed Term Filter Clause</em>}'.
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause <em>Typed Search Term Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Typed Term Filter Clause</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterClause
+   * @return the meta object for class '<em>Typed Search Term Clause</em>'.
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermClause
    * @generated
    */
-  EClass getTypedTermFilterClause();
+  EClass getTypedSearchTermClause();
 
   /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getLexicalSearchType <em>Lexical Search Type</em>}'.
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getLexicalSearchType <em>Lexical Search Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Lexical Search Type</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getLexicalSearchType()
-   * @see #getTypedTermFilterClause()
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getLexicalSearchType()
+   * @see #getTypedSearchTermClause()
    * @generated
    */
-  EAttribute getTypedTermFilterClause_LexicalSearchType();
+  EAttribute getTypedSearchTermClause_LexicalSearchType();
 
   /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getTerm <em>Term</em>}'.
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getTerm <em>Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Term</em>'.
-   * @see com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getTerm()
-   * @see #getTypedTermFilterClause()
+   * @see com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getTerm()
+   * @see #getTypedSearchTermClause()
    * @generated
    */
-  EAttribute getTypedTermFilterClause_Term();
+  EAttribute getTypedSearchTermClause_Term();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.LanguageFilter <em>Language Filter</em>}'.
@@ -4784,12 +4786,12 @@ public interface EclPackage extends EPackage
     EClass STRING_VALUE_COMPARISON = eINSTANCE.getStringValueComparison();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_VALUE_COMPARISON__VALUE = eINSTANCE.getStringValueComparison_Value();
+    EReference STRING_VALUE_COMPARISON__VALUE = eINSTANCE.getStringValueComparison_Value();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.IntegerValueComparisonImpl <em>Integer Value Comparison</em>}' class.
@@ -4954,14 +4956,22 @@ public interface EclPackage extends EPackage
     EAttribute TERM_FILTER__OP = eINSTANCE.getTermFilter_Op();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl <em>Typed Term Filter</em>}' class.
+     * The meta object literal for the '<em><b>Search Term</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilter()
      * @generated
      */
-    EClass TYPED_TERM_FILTER = eINSTANCE.getTypedTermFilter();
+    EReference TERM_FILTER__SEARCH_TERM = eINSTANCE.getTermFilter_SearchTerm();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl <em>Typed Search Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTerm()
+     * @generated
+     */
+    EClass TYPED_SEARCH_TERM = eINSTANCE.getTypedSearchTerm();
 
     /**
      * The meta object literal for the '<em><b>Clause</b></em>' containment reference feature.
@@ -4969,17 +4979,17 @@ public interface EclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPED_TERM_FILTER__CLAUSE = eINSTANCE.getTypedTermFilter_Clause();
+    EReference TYPED_SEARCH_TERM__CLAUSE = eINSTANCE.getTypedSearchTerm_Clause();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl <em>Typed Term Filter Set</em>}' class.
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl <em>Typed Search Term Set</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilterSet()
+     * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermSet()
      * @generated
      */
-    EClass TYPED_TERM_FILTER_SET = eINSTANCE.getTypedTermFilterSet();
+    EClass TYPED_SEARCH_TERM_SET = eINSTANCE.getTypedSearchTermSet();
 
     /**
      * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
@@ -4987,17 +4997,17 @@ public interface EclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPED_TERM_FILTER_SET__CLAUSES = eINSTANCE.getTypedTermFilterSet_Clauses();
+    EReference TYPED_SEARCH_TERM_SET__CLAUSES = eINSTANCE.getTypedSearchTermSet_Clauses();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl <em>Typed Term Filter Clause</em>}' class.
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl <em>Typed Search Term Clause</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedTermFilterClause()
+     * @see com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getTypedSearchTermClause()
      * @generated
      */
-    EClass TYPED_TERM_FILTER_CLAUSE = eINSTANCE.getTypedTermFilterClause();
+    EClass TYPED_SEARCH_TERM_CLAUSE = eINSTANCE.getTypedSearchTermClause();
 
     /**
      * The meta object literal for the '<em><b>Lexical Search Type</b></em>' attribute feature.
@@ -5005,7 +5015,7 @@ public interface EclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE = eINSTANCE.getTypedTermFilterClause_LexicalSearchType();
+    EAttribute TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE = eINSTANCE.getTypedSearchTermClause_LexicalSearchType();
 
     /**
      * The meta object literal for the '<em><b>Term</b></em>' attribute feature.
@@ -5013,7 +5023,7 @@ public interface EclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPED_TERM_FILTER_CLAUSE__TERM = eINSTANCE.getTypedTermFilterClause_Term();
+    EAttribute TYPED_SEARCH_TERM_CLAUSE__TERM = eINSTANCE.getTypedSearchTermClause_Term();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.LanguageFilterImpl <em>Language Filter</em>}' class.

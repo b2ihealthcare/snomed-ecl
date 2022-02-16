@@ -16,7 +16,7 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermClause;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -27,19 +27,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Typed Term Filter Clause</b></em>'.
+ * An implementation of the model object '<em><b>Typed Search Term Clause</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl#getLexicalSearchType <em>Lexical Search Type</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterClauseImpl#getTerm <em>Term</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl#getLexicalSearchType <em>Lexical Search Type</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermClauseImpl#getTerm <em>Term</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container implements TypedTermFilterClause
+public class TypedSearchTermClauseImpl extends MinimalEObjectImpl.Container implements TypedSearchTermClause
 {
   /**
    * The default value of the '{@link #getLexicalSearchType() <em>Lexical Search Type</em>}' attribute.
@@ -86,7 +86,7 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypedTermFilterClauseImpl()
+  protected TypedSearchTermClauseImpl()
   {
     super();
   }
@@ -99,7 +99,7 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.TYPED_TERM_FILTER_CLAUSE;
+    return EclPackage.Literals.TYPED_SEARCH_TERM_CLAUSE;
   }
 
   /**
@@ -124,7 +124,7 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
     String oldLexicalSearchType = lexicalSearchType;
     lexicalSearchType = newLexicalSearchType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE, oldLexicalSearchType, lexicalSearchType));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE, oldLexicalSearchType, lexicalSearchType));
   }
 
   /**
@@ -149,7 +149,7 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
     String oldTerm = term;
     term = newTerm;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_TERM_FILTER_CLAUSE__TERM, oldTerm, term));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TYPED_SEARCH_TERM_CLAUSE__TERM, oldTerm, term));
   }
 
   /**
@@ -162,9 +162,9 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE:
         return getLexicalSearchType();
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__TERM:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__TERM:
         return getTerm();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -180,10 +180,10 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE:
         setLexicalSearchType((String)newValue);
         return;
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__TERM:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__TERM:
         setTerm((String)newValue);
         return;
     }
@@ -200,10 +200,10 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE:
         setLexicalSearchType(LEXICAL_SEARCH_TYPE_EDEFAULT);
         return;
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__TERM:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__TERM:
         setTerm(TERM_EDEFAULT);
         return;
     }
@@ -220,9 +220,9 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE:
         return LEXICAL_SEARCH_TYPE_EDEFAULT == null ? lexicalSearchType != null : !LEXICAL_SEARCH_TYPE_EDEFAULT.equals(lexicalSearchType);
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE__TERM:
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE__TERM:
         return TERM_EDEFAULT == null ? term != null : !TERM_EDEFAULT.equals(term);
     }
     return super.eIsSet(featureID);
@@ -247,4 +247,4 @@ public class TypedTermFilterClauseImpl extends MinimalEObjectImpl.Container impl
     return result.toString();
   }
 
-} //TypedTermFilterClauseImpl
+} //TypedSearchTermClauseImpl

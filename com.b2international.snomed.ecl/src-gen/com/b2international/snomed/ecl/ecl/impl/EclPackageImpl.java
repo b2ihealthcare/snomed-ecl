@@ -87,9 +87,9 @@ import com.b2international.snomed.ecl.ecl.TermFilter;
 import com.b2international.snomed.ecl.ecl.TypeFilter;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
-import com.b2international.snomed.ecl.ecl.TypedTermFilter;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
+import com.b2international.snomed.ecl.ecl.TypedSearchTerm;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermClause;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermSet;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -342,21 +342,21 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typedTermFilterEClass = null;
+  private EClass typedSearchTermEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typedTermFilterSetEClass = null;
+  private EClass typedSearchTermSetEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typedTermFilterClauseEClass = null;
+  private EClass typedSearchTermClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1247,9 +1247,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getStringValueComparison_Value()
+  public EReference getStringValueComparison_Value()
   {
-    return (EAttribute)stringValueComparisonEClass.getEStructuralFeatures().get(0);
+    return (EReference)stringValueComparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1456,9 +1456,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getTypedTermFilter()
+  public EReference getTermFilter_SearchTerm()
   {
-    return typedTermFilterEClass;
+    return (EReference)termFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1467,9 +1467,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EReference getTypedTermFilter_Clause()
+  public EClass getTypedSearchTerm()
   {
-    return (EReference)typedTermFilterEClass.getEStructuralFeatures().get(0);
+    return typedSearchTermEClass;
   }
 
   /**
@@ -1478,9 +1478,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getTypedTermFilterSet()
+  public EReference getTypedSearchTerm_Clause()
   {
-    return typedTermFilterSetEClass;
+    return (EReference)typedSearchTermEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1489,9 +1489,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EReference getTypedTermFilterSet_Clauses()
+  public EClass getTypedSearchTermSet()
   {
-    return (EReference)typedTermFilterSetEClass.getEStructuralFeatures().get(0);
+    return typedSearchTermSetEClass;
   }
 
   /**
@@ -1500,9 +1500,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getTypedTermFilterClause()
+  public EReference getTypedSearchTermSet_Clauses()
   {
-    return typedTermFilterClauseEClass;
+    return (EReference)typedSearchTermSetEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1511,9 +1511,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getTypedTermFilterClause_LexicalSearchType()
+  public EClass getTypedSearchTermClause()
   {
-    return (EAttribute)typedTermFilterClauseEClass.getEStructuralFeatures().get(0);
+    return typedSearchTermClauseEClass;
   }
 
   /**
@@ -1522,9 +1522,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getTypedTermFilterClause_Term()
+  public EAttribute getTypedSearchTermClause_LexicalSearchType()
   {
-    return (EAttribute)typedTermFilterClauseEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)typedSearchTermClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTypedSearchTermClause_Term()
+  {
+    return (EAttribute)typedSearchTermClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2589,7 +2600,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(booleanValueComparisonEClass, BOOLEAN_VALUE_COMPARISON__VALUE);
 
     stringValueComparisonEClass = createEClass(STRING_VALUE_COMPARISON);
-    createEAttribute(stringValueComparisonEClass, STRING_VALUE_COMPARISON__VALUE);
+    createEReference(stringValueComparisonEClass, STRING_VALUE_COMPARISON__VALUE);
 
     integerValueComparisonEClass = createEClass(INTEGER_VALUE_COMPARISON);
     createEAttribute(integerValueComparisonEClass, INTEGER_VALUE_COMPARISON__VALUE);
@@ -2617,16 +2628,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     termFilterEClass = createEClass(TERM_FILTER);
     createEAttribute(termFilterEClass, TERM_FILTER__OP);
+    createEReference(termFilterEClass, TERM_FILTER__SEARCH_TERM);
 
-    typedTermFilterEClass = createEClass(TYPED_TERM_FILTER);
-    createEReference(typedTermFilterEClass, TYPED_TERM_FILTER__CLAUSE);
+    typedSearchTermEClass = createEClass(TYPED_SEARCH_TERM);
+    createEReference(typedSearchTermEClass, TYPED_SEARCH_TERM__CLAUSE);
 
-    typedTermFilterSetEClass = createEClass(TYPED_TERM_FILTER_SET);
-    createEReference(typedTermFilterSetEClass, TYPED_TERM_FILTER_SET__CLAUSES);
+    typedSearchTermSetEClass = createEClass(TYPED_SEARCH_TERM_SET);
+    createEReference(typedSearchTermSetEClass, TYPED_SEARCH_TERM_SET__CLAUSES);
 
-    typedTermFilterClauseEClass = createEClass(TYPED_TERM_FILTER_CLAUSE);
-    createEAttribute(typedTermFilterClauseEClass, TYPED_TERM_FILTER_CLAUSE__LEXICAL_SEARCH_TYPE);
-    createEAttribute(typedTermFilterClauseEClass, TYPED_TERM_FILTER_CLAUSE__TERM);
+    typedSearchTermClauseEClass = createEClass(TYPED_SEARCH_TERM_CLAUSE);
+    createEAttribute(typedSearchTermClauseEClass, TYPED_SEARCH_TERM_CLAUSE__LEXICAL_SEARCH_TYPE);
+    createEAttribute(typedSearchTermClauseEClass, TYPED_SEARCH_TERM_CLAUSE__TERM);
 
     languageFilterEClass = createEClass(LANGUAGE_FILTER);
     createEAttribute(languageFilterEClass, LANGUAGE_FILTER__OP);
@@ -2809,8 +2821,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     propertyFilterEClass.getESuperTypes().add(this.getFilter());
     memberFieldFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
-    typedTermFilterEClass.getESuperTypes().add(this.getTermFilter());
-    typedTermFilterSetEClass.getESuperTypes().add(this.getTermFilter());
     languageFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typeIdFilterEClass.getESuperTypes().add(this.getTypeFilter());
@@ -2919,7 +2929,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEAttribute(getBooleanValueComparison_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringValueComparisonEClass, StringValueComparison.class, "StringValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringValueComparison_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStringValueComparison_Value(), ecorePackage.getEObject(), null, "value", null, 0, 1, StringValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(integerValueComparisonEClass, IntegerValueComparison.class, "IntegerValueComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntegerValueComparison_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValueComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2947,16 +2957,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(termFilterEClass, TermFilter.class, "TermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTermFilter_SearchTerm(), ecorePackage.getEObject(), null, "searchTerm", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typedTermFilterEClass, TypedTermFilter.class, "TypedTermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypedTermFilter_Clause(), this.getTypedTermFilterClause(), null, "clause", null, 0, 1, TypedTermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(typedSearchTermEClass, TypedSearchTerm.class, "TypedSearchTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypedSearchTerm_Clause(), this.getTypedSearchTermClause(), null, "clause", null, 0, 1, TypedSearchTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typedTermFilterSetEClass, TypedTermFilterSet.class, "TypedTermFilterSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypedTermFilterSet_Clauses(), this.getTypedTermFilterClause(), null, "clauses", null, 0, -1, TypedTermFilterSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(typedSearchTermSetEClass, TypedSearchTermSet.class, "TypedSearchTermSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypedSearchTermSet_Clauses(), this.getTypedSearchTermClause(), null, "clauses", null, 0, -1, TypedSearchTermSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typedTermFilterClauseEClass, TypedTermFilterClause.class, "TypedTermFilterClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypedTermFilterClause_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedTermFilterClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypedTermFilterClause_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedTermFilterClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(typedSearchTermClauseEClass, TypedSearchTermClause.class, "TypedSearchTermClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypedSearchTermClause_LexicalSearchType(), ecorePackage.getEString(), "lexicalSearchType", null, 0, 1, TypedSearchTermClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypedSearchTermClause_Term(), ecorePackage.getEString(), "term", null, 0, 1, TypedSearchTermClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(languageFilterEClass, LanguageFilter.class, "LanguageFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLanguageFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, LanguageFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
