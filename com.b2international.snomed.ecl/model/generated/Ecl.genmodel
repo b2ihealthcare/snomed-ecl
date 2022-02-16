@@ -9,7 +9,9 @@
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint"/>
+    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ExpressionConstraint/profile"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ChildOf">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ChildOf/constraint"/>
     </genClasses>
@@ -35,6 +37,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AncestorOrSelfOf/constraint"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//MemberOf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//MemberOf/refsetFields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//MemberOf/constraint"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//EclConceptReference">
@@ -74,7 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//BooleanValueComparison/value"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//StringValueComparison">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//StringValueComparison/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//StringValueComparison/value"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//IntegerValueComparison">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IntegerValueComparison/value"/>
@@ -94,18 +97,24 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedFilter/nested"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//PropertyFilter"/>
+    <genClasses ecoreClass="Ecl.ecore#//MemberFieldFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//MemberFieldFilter/refsetFieldName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//MemberFieldFilter/comparison"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TermFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TermFilter/searchTerm"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilter/clause"/>
+    <genClasses ecoreClass="Ecl.ecore#//SearchTerm"/>
+    <genClasses ecoreClass="Ecl.ecore#//TypedSearchTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedSearchTerm/clause"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterSet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedTermFilterSet/clauses"/>
+    <genClasses ecoreClass="Ecl.ecore#//TypedSearchTermSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TypedSearchTermSet/clauses"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//TypedTermFilterClause">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilterClause/lexicalSearchType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedTermFilterClause/term"/>
+    <genClasses ecoreClass="Ecl.ecore#//TypedSearchTermClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedSearchTermClause/lexicalSearchType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TypedSearchTermClause/term"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//LanguageFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//LanguageFilter/op"/>
@@ -154,6 +163,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DefinitionStatusTokenFilter/definitionStatusTokens"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ModuleFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ModuleFilter/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ModuleFilter/moduleId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//EffectiveTimeFilter">
@@ -161,6 +171,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EffectiveTimeFilter/effectiveTime"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//ActiveFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/op"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ActiveFilter/active"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//SemanticTagFilter">
@@ -180,6 +191,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//CaseSignificanceFilter/caseSignificanceId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//FilterValue"/>
+    <genClasses ecoreClass="Ecl.ecore#//Supplement"/>
+    <genClasses ecoreClass="Ecl.ecore#//HistorySupplement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//HistorySupplement/history"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/right"/>
@@ -203,6 +218,10 @@
     <genClasses ecoreClass="Ecl.ecore#//FilteredExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/constraint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/filter"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//SupplementExpressionConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/supplement"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrRefinement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrRefinement/left"/>

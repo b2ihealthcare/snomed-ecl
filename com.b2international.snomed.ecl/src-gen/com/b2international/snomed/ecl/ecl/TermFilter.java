@@ -26,6 +26,7 @@ package com.b2international.snomed.ecl.ecl;
  * </p>
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.TermFilter#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TermFilter#getSearchTerm <em>Search Term</em>}</li>
  * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getTermFilter()
@@ -55,5 +56,27 @@ public interface TermFilter extends PropertyFilter
    * @generated
    */
   void setOp(String value);
+
+  /**
+   * Returns the value of the '<em><b>Search Term</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Search Term</em>' containment reference.
+   * @see #setSearchTerm(SearchTerm)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTermFilter_SearchTerm()
+   * @model containment="true"
+   * @generated
+   */
+  SearchTerm getSearchTerm();
+
+  /**
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TermFilter#getSearchTerm <em>Search Term</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Search Term</em>' containment reference.
+   * @see #getSearchTerm()
+   * @generated
+   */
+  void setSearchTerm(SearchTerm value);
 
 } // TermFilter

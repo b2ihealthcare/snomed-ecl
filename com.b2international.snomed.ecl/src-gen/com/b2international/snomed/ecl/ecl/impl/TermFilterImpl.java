@@ -16,11 +16,14 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
+import com.b2international.snomed.ecl.ecl.SearchTerm;
 import com.b2international.snomed.ecl.ecl.TermFilter;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -33,6 +36,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TermFilterImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TermFilterImpl#getSearchTerm <em>Search Term</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +62,16 @@ public class TermFilterImpl extends PropertyFilterImpl implements TermFilter
    * @ordered
    */
   protected String op = OP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSearchTerm() <em>Search Term</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSearchTerm()
+   * @generated
+   * @ordered
+   */
+  protected SearchTerm searchTerm;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,12 +125,80 @@ public class TermFilterImpl extends PropertyFilterImpl implements TermFilter
    * @generated
    */
   @Override
+  public SearchTerm getSearchTerm()
+  {
+    return searchTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSearchTerm(SearchTerm newSearchTerm, NotificationChain msgs)
+  {
+    SearchTerm oldSearchTerm = searchTerm;
+    searchTerm = newSearchTerm;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.TERM_FILTER__SEARCH_TERM, oldSearchTerm, newSearchTerm);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSearchTerm(SearchTerm newSearchTerm)
+  {
+    if (newSearchTerm != searchTerm)
+    {
+      NotificationChain msgs = null;
+      if (searchTerm != null)
+        msgs = ((InternalEObject)searchTerm).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.TERM_FILTER__SEARCH_TERM, null, msgs);
+      if (newSearchTerm != null)
+        msgs = ((InternalEObject)newSearchTerm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.TERM_FILTER__SEARCH_TERM, null, msgs);
+      msgs = basicSetSearchTerm(newSearchTerm, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.TERM_FILTER__SEARCH_TERM, newSearchTerm, newSearchTerm));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclPackage.TERM_FILTER__SEARCH_TERM:
+        return basicSetSearchTerm(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case EclPackage.TERM_FILTER__OP:
         return getOp();
+      case EclPackage.TERM_FILTER__SEARCH_TERM:
+        return getSearchTerm();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -133,6 +215,9 @@ public class TermFilterImpl extends PropertyFilterImpl implements TermFilter
     {
       case EclPackage.TERM_FILTER__OP:
         setOp((String)newValue);
+        return;
+      case EclPackage.TERM_FILTER__SEARCH_TERM:
+        setSearchTerm((SearchTerm)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -151,6 +236,9 @@ public class TermFilterImpl extends PropertyFilterImpl implements TermFilter
       case EclPackage.TERM_FILTER__OP:
         setOp(OP_EDEFAULT);
         return;
+      case EclPackage.TERM_FILTER__SEARCH_TERM:
+        setSearchTerm((SearchTerm)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -167,6 +255,8 @@ public class TermFilterImpl extends PropertyFilterImpl implements TermFilter
     {
       case EclPackage.TERM_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+      case EclPackage.TERM_FILTER__SEARCH_TERM:
+        return searchTerm != null;
     }
     return super.eIsSet(featureID);
   }

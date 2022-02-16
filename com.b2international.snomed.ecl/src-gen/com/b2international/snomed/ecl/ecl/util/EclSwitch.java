@@ -344,6 +344,15 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.MEMBER_FIELD_FILTER:
+      {
+        MemberFieldFilter memberFieldFilter = (MemberFieldFilter)theEObject;
+        T result = caseMemberFieldFilter(memberFieldFilter);
+        if (result == null) result = casePropertyFilter(memberFieldFilter);
+        if (result == null) result = caseFilter(memberFieldFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.TERM_FILTER:
       {
         TermFilter termFilter = (TermFilter)theEObject;
@@ -353,30 +362,33 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER:
+      case EclPackage.SEARCH_TERM:
       {
-        TypedTermFilter typedTermFilter = (TypedTermFilter)theEObject;
-        T result = caseTypedTermFilter(typedTermFilter);
-        if (result == null) result = caseTermFilter(typedTermFilter);
-        if (result == null) result = casePropertyFilter(typedTermFilter);
-        if (result == null) result = caseFilter(typedTermFilter);
+        SearchTerm searchTerm = (SearchTerm)theEObject;
+        T result = caseSearchTerm(searchTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER_SET:
+      case EclPackage.TYPED_SEARCH_TERM:
       {
-        TypedTermFilterSet typedTermFilterSet = (TypedTermFilterSet)theEObject;
-        T result = caseTypedTermFilterSet(typedTermFilterSet);
-        if (result == null) result = caseTermFilter(typedTermFilterSet);
-        if (result == null) result = casePropertyFilter(typedTermFilterSet);
-        if (result == null) result = caseFilter(typedTermFilterSet);
+        TypedSearchTerm typedSearchTerm = (TypedSearchTerm)theEObject;
+        T result = caseTypedSearchTerm(typedSearchTerm);
+        if (result == null) result = caseSearchTerm(typedSearchTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE:
+      case EclPackage.TYPED_SEARCH_TERM_SET:
       {
-        TypedTermFilterClause typedTermFilterClause = (TypedTermFilterClause)theEObject;
-        T result = caseTypedTermFilterClause(typedTermFilterClause);
+        TypedSearchTermSet typedSearchTermSet = (TypedSearchTermSet)theEObject;
+        T result = caseTypedSearchTermSet(typedSearchTermSet);
+        if (result == null) result = caseSearchTerm(typedSearchTermSet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE:
+      {
+        TypedSearchTermClause typedSearchTermClause = (TypedSearchTermClause)theEObject;
+        T result = caseTypedSearchTermClause(typedSearchTermClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -592,6 +604,21 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.SUPPLEMENT:
+      {
+        Supplement supplement = (Supplement)theEObject;
+        T result = caseSupplement(supplement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.HISTORY_SUPPLEMENT:
+      {
+        HistorySupplement historySupplement = (HistorySupplement)theEObject;
+        T result = caseHistorySupplement(historySupplement);
+        if (result == null) result = caseSupplement(historySupplement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.OR_EXPRESSION_CONSTRAINT:
       {
         OrExpressionConstraint orExpressionConstraint = (OrExpressionConstraint)theEObject;
@@ -643,6 +670,15 @@ public class EclSwitch<T> extends Switch<T>
         T result = caseFilteredExpressionConstraint(filteredExpressionConstraint);
         if (result == null) result = caseExpressionConstraint(filteredExpressionConstraint);
         if (result == null) result = caseFilterValue(filteredExpressionConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT:
+      {
+        SupplementExpressionConstraint supplementExpressionConstraint = (SupplementExpressionConstraint)theEObject;
+        T result = caseSupplementExpressionConstraint(supplementExpressionConstraint);
+        if (result == null) result = caseExpressionConstraint(supplementExpressionConstraint);
+        if (result == null) result = caseFilterValue(supplementExpressionConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1179,6 +1215,22 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Member Field Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Member Field Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMemberFieldFilter(MemberFieldFilter object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Term Filter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1195,49 +1247,65 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Search Term</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Search Term</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilter(TypedTermFilter object)
+  public T caseSearchTerm(SearchTerm object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Set</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilterSet(TypedTermFilterSet object)
+  public T caseTypedSearchTerm(TypedSearchTerm object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term Set</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Typed Term Filter Clause</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term Set</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypedTermFilterClause(TypedTermFilterClause object)
+  public T caseTypedSearchTermSet(TypedSearchTermSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Typed Search Term Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Typed Search Term Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypedSearchTermClause(TypedSearchTermClause object)
   {
     return null;
   }
@@ -1627,6 +1695,38 @@ public class EclSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Supplement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSupplement(Supplement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>History Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>History Supplement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHistorySupplement(HistorySupplement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1718,6 +1818,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Supplement Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Supplement Expression Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSupplementExpressionConstraint(SupplementExpressionConstraint object)
   {
     return null;
   }

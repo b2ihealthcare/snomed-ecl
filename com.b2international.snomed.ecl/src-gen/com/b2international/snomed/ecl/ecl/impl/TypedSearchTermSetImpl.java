@@ -16,8 +16,8 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermClause;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermSet;
 
 import java.util.Collection;
 
@@ -33,18 +33,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Typed Term Filter Set</b></em>'.
+ * An implementation of the model object '<em><b>Typed Search Term Set</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedTermFilterSetImpl#getClauses <em>Clauses</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.TypedSearchTermSetImpl#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermFilterSet
+public class TypedSearchTermSetImpl extends SearchTermImpl implements TypedSearchTermSet
 {
   /**
    * The cached value of the '{@link #getClauses() <em>Clauses</em>}' containment reference list.
@@ -54,14 +54,14 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
    * @generated
    * @ordered
    */
-  protected EList<TypedTermFilterClause> clauses;
+  protected EList<TypedSearchTermClause> clauses;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypedTermFilterSetImpl()
+  protected TypedSearchTermSetImpl()
   {
     super();
   }
@@ -74,7 +74,7 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.TYPED_TERM_FILTER_SET;
+    return EclPackage.Literals.TYPED_SEARCH_TERM_SET;
   }
 
   /**
@@ -83,11 +83,11 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
    * @generated
    */
   @Override
-  public EList<TypedTermFilterClause> getClauses()
+  public EList<TypedSearchTermClause> getClauses()
   {
     if (clauses == null)
     {
-      clauses = new EObjectContainmentEList<TypedTermFilterClause>(TypedTermFilterClause.class, this, EclPackage.TYPED_TERM_FILTER_SET__CLAUSES);
+      clauses = new EObjectContainmentEList<TypedSearchTermClause>(TypedSearchTermClause.class, this, EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES);
     }
     return clauses;
   }
@@ -102,7 +102,7 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+      case EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES:
         return ((InternalEList<?>)getClauses()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -118,7 +118,7 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+      case EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES:
         return getClauses();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -135,9 +135,9 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+      case EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES:
         getClauses().clear();
-        getClauses().addAll((Collection<? extends TypedTermFilterClause>)newValue);
+        getClauses().addAll((Collection<? extends TypedSearchTermClause>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -153,7 +153,7 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+      case EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES:
         getClauses().clear();
         return;
     }
@@ -170,10 +170,10 @@ public class TypedTermFilterSetImpl extends TermFilterImpl implements TypedTermF
   {
     switch (featureID)
     {
-      case EclPackage.TYPED_TERM_FILTER_SET__CLAUSES:
+      case EclPackage.TYPED_SEARCH_TERM_SET__CLAUSES:
         return clauses != null && !clauses.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //TypedTermFilterSetImpl
+} //TypedSearchTermSetImpl

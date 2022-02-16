@@ -18,42 +18,42 @@ package com.b2international.snomed.ecl.ecl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Typed Term Filter</b></em>'.
+ * A representation of the model object '<em><b>Typed Search Term</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause <em>Clause</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm#getClause <em>Clause</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTerm()
  * @model
  * @generated
  */
-public interface TypedTermFilter extends TermFilter
+public interface TypedSearchTerm extends SearchTerm
 {
   /**
    * Returns the value of the '<em><b>Clause</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Clause</em>' containment reference.
-   * @see #setClause(TypedTermFilterClause)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilter_Clause()
+   * @see #setClause(TypedSearchTermClause)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTerm_Clause()
    * @model containment="true"
    * @generated
    */
-  TypedTermFilterClause getClause();
+  TypedSearchTermClause getClause();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilter#getClause <em>Clause</em>}' containment reference.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedSearchTerm#getClause <em>Clause</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Clause</em>' containment reference.
    * @see #getClause()
    * @generated
    */
-  void setClause(TypedTermFilterClause value);
+  void setClause(TypedSearchTermClause value);
 
-} // TypedTermFilter
+} // TypedSearchTerm

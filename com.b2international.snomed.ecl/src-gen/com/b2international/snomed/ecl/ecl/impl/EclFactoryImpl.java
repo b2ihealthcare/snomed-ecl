@@ -108,10 +108,12 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.FILTER: return createFilter();
       case EclPackage.NESTED_FILTER: return createNestedFilter();
       case EclPackage.PROPERTY_FILTER: return createPropertyFilter();
+      case EclPackage.MEMBER_FIELD_FILTER: return createMemberFieldFilter();
       case EclPackage.TERM_FILTER: return createTermFilter();
-      case EclPackage.TYPED_TERM_FILTER: return createTypedTermFilter();
-      case EclPackage.TYPED_TERM_FILTER_SET: return createTypedTermFilterSet();
-      case EclPackage.TYPED_TERM_FILTER_CLAUSE: return createTypedTermFilterClause();
+      case EclPackage.SEARCH_TERM: return createSearchTerm();
+      case EclPackage.TYPED_SEARCH_TERM: return createTypedSearchTerm();
+      case EclPackage.TYPED_SEARCH_TERM_SET: return createTypedSearchTermSet();
+      case EclPackage.TYPED_SEARCH_TERM_CLAUSE: return createTypedSearchTermClause();
       case EclPackage.LANGUAGE_FILTER: return createLanguageFilter();
       case EclPackage.TYPE_FILTER: return createTypeFilter();
       case EclPackage.TYPE_ID_FILTER: return createTypeIdFilter();
@@ -136,12 +138,15 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.LANGUAGE_REF_SET_FILTER: return createLanguageRefSetFilter();
       case EclPackage.CASE_SIGNIFICANCE_FILTER: return createCaseSignificanceFilter();
       case EclPackage.FILTER_VALUE: return createFilterValue();
+      case EclPackage.SUPPLEMENT: return createSupplement();
+      case EclPackage.HISTORY_SUPPLEMENT: return createHistorySupplement();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
       case EclPackage.REFINED_EXPRESSION_CONSTRAINT: return createRefinedExpressionConstraint();
       case EclPackage.DOTTED_EXPRESSION_CONSTRAINT: return createDottedExpressionConstraint();
       case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
+      case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT: return createSupplementExpressionConstraint();
       case EclPackage.OR_REFINEMENT: return createOrRefinement();
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
       case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
@@ -529,6 +534,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public MemberFieldFilter createMemberFieldFilter()
+  {
+    MemberFieldFilterImpl memberFieldFilter = new MemberFieldFilterImpl();
+    return memberFieldFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public TermFilter createTermFilter()
   {
     TermFilterImpl termFilter = new TermFilterImpl();
@@ -541,10 +558,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilter createTypedTermFilter()
+  public SearchTerm createSearchTerm()
   {
-    TypedTermFilterImpl typedTermFilter = new TypedTermFilterImpl();
-    return typedTermFilter;
+    SearchTermImpl searchTerm = new SearchTermImpl();
+    return searchTerm;
   }
 
   /**
@@ -553,10 +570,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilterSet createTypedTermFilterSet()
+  public TypedSearchTerm createTypedSearchTerm()
   {
-    TypedTermFilterSetImpl typedTermFilterSet = new TypedTermFilterSetImpl();
-    return typedTermFilterSet;
+    TypedSearchTermImpl typedSearchTerm = new TypedSearchTermImpl();
+    return typedSearchTerm;
   }
 
   /**
@@ -565,10 +582,22 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public TypedTermFilterClause createTypedTermFilterClause()
+  public TypedSearchTermSet createTypedSearchTermSet()
   {
-    TypedTermFilterClauseImpl typedTermFilterClause = new TypedTermFilterClauseImpl();
-    return typedTermFilterClause;
+    TypedSearchTermSetImpl typedSearchTermSet = new TypedSearchTermSetImpl();
+    return typedSearchTermSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypedSearchTermClause createTypedSearchTermClause()
+  {
+    TypedSearchTermClauseImpl typedSearchTermClause = new TypedSearchTermClauseImpl();
+    return typedSearchTermClause;
   }
 
   /**
@@ -865,6 +894,30 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
+  public Supplement createSupplement()
+  {
+    SupplementImpl supplement = new SupplementImpl();
+    return supplement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HistorySupplement createHistorySupplement()
+  {
+    HistorySupplementImpl historySupplement = new HistorySupplementImpl();
+    return historySupplement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrExpressionConstraint createOrExpressionConstraint()
   {
     OrExpressionConstraintImpl orExpressionConstraint = new OrExpressionConstraintImpl();
@@ -929,6 +982,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
     return filteredExpressionConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SupplementExpressionConstraint createSupplementExpressionConstraint()
+  {
+    SupplementExpressionConstraintImpl supplementExpressionConstraint = new SupplementExpressionConstraintImpl();
+    return supplementExpressionConstraint;
   }
 
   /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2011-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,14 @@
  */
 package com.b2international.snomed.ecl.tests
 
-import com.b2international.snomed.ecl.ecl.Script
+import com.b2international.snomed.ecl.ecl.EclPackage
+import com.b2international.snomed.ecl.validation.EclValidator
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
-import org.eclipse.xtext.testing.util.ParseHelper
-import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import static org.junit.Assert.*
-import com.b2international.snomed.ecl.ecl.EclPackage
-import com.b2international.snomed.ecl.validation.EclValidator
-import org.eclipse.xtext.diagnostics.Diagnostic
 
 /**
  * Parsing test for the SNOMED CT ECL grammar and associated extensions.
@@ -40,8 +34,7 @@ import org.eclipse.xtext.diagnostics.Diagnostic
 @FixMethodOrder(NAME_ASCENDING)
 class EclParsingTest {
 
-	@Inject extension ParseHelper<Script>
-	@Inject extension ValidationTestHelper
+	@Inject extension EclTestHelper
 
 	@Test
 	def void test_empty() {
@@ -54,174 +47,8 @@ class EclParsingTest {
 	}
 	
 	@Test
-	def void test_active_only() {
-		'* {{ active=true }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_inactive_only() {
-		'* {{ active=false }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_module() {
-		'* {{ moduleId= 900000000000207008 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_term_filter() {
-		'* {{ term = "Clin find" }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_active_and_module() {
-		'* {{ active=true, moduleId = 900000000000207008 }}'.assertNoErrors;
-		'* {{ active=true AND moduleId = 900000000000207008 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_active_or_module() {
-		'* {{ active=true OR moduleId = 900000000000207008 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_active_numeric_status() {
-		'* {{ active=0 OR active = 1 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_active_invalid_value() {
-		'* {{ c active = 200 }}'
-			.parse
-			.assertError(EclPackage.Literals.ACTIVE_FILTER, Diagnostic.SYNTAX_DIAGNOSTIC, "Invalid active boolean value");
-	}
-	
-	@Test
-	def void test_type_filter() {
-		'* {{ typeId = 900000000000550004 }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_multi_domain_query_and() {
-		'* {{ active=false }} AND * {{ term="clin find" }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_multi_domain_query_or() {
-		'* {{ active=false }} OR * {{ term="clin find" }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_multi_domain_query_minus() {
-		'* {{ active=false }} MINUS * {{ term="clin find" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_query_conjuction() {
-		'* {{ c active = false }} AND * {{ d active = true }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_query_disjunction() {
-		'* {{ c active = false }} OR * {{ d active = true }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_query_disjunction_w_parenthesis() {
-		'* {{ c active = false }} OR (* {{ d active = true }})'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_preferredIn_filter() {
-		'* {{ preferredIn = 900000000000550004 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_acceptableIn_filter() {
-		'* {{ acceptableIn = 900000000000550004 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_languageRefset_filter() {
-		'* {{ languageRefSetId = 900000000000550004 }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_language_filter() {
-		'* {{ language = en }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_language_filter_keyword_prefix() {
-		/*
-		 * The language code is a valid ISO 639-2 code, but is also a prefix of a keyword,
-		 * which sometimes confuses the lexical analysis step.
-		 */
-		'* {{ language = de }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_caseSignificance_filter() {
-		'* {{ caseSignificanceId = 900000000000448009 }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_semanticTag_filter_eq() {
-		'* {{ semanticTag = "finding" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_semanticTag_filter_ne() {
-		'* {{ semanticTag != "finding" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_semanticTag_filter_domain() {
-		'* {{ d semanticTag = "finding" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_definitionStatus_filter_eq() {
-		'* {{ c definitionStatus = defined }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_definitionStatus_filter_ne() {
-		'* {{ c definitionStatus != primitive }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_effectiveTime_filter_eq() {
-		'* {{ effectiveTime = "20020131" }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_effectiveTime_filter_unpublished() {
-		'* {{ effectiveTime = "" }}'.assertNoErrors;
-		'* {{ effectiveTime = "Unpublished" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_effectiveTime_filter_gt() {
-		'* {{ effectiveTime > "20210731" }}'.assertNoErrors;
-	}
-
-	@Test
-	def void test_effectiveTime_filter_domain() {
-		'* {{ d effectiveTime = "20210630" }}'.assertNoErrors;
-	}
-	
-	@Test
-	def void test_effectiveTime_filter_invalid_format() {
-		'* {{ c effectiveTime = "yesterday" }}'
-			.parse
-			.assertError(EclPackage.Literals.EFFECTIVE_TIME_FILTER, EclValidator.EFFECTIVE_TIME_ERROR_CODE);
-	}
-	
-	@Test
 	def void test_invalid_sctid() {
 		'<< 123'
-			.parse
 			.assertError(EclPackage.Literals.ECL_CONCEPT_REFERENCE, EclValidator.SCTID_ERROR_CODE, "SCTID length must be between 6-18 characters.")
 	}
 	
@@ -834,11 +661,33 @@ class EclParsingTest {
 			 116676008 |Associated morphology|  = <<  55641003 |Infarct|  )
 		'''.assertNoErrors
 	}
-
-	private def void assertNoErrors(CharSequence it) throws Exception {
-		val script = parse;
-		assertNotNull('''Cannot parse expression: «it».''', script);
-		script.assertNoErrors;
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_single() {
+		'''
+			^ [moduleId] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
 	}
-
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_multiple() {
+		'''
+			^ [moduleId, someotherRefsetField] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_all() {
+		'''
+			^ [*] 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_memberOf_refsetFieldName_selection_default() {
+		'''
+			^ 700043003 |example problem list concepts reference set |
+		'''.assertNoErrors
+	}
+	
 }

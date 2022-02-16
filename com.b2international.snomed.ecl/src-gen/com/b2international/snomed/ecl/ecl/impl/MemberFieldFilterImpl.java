@@ -15,9 +15,9 @@
  */
 package com.b2international.snomed.ecl.ecl.impl;
 
+import com.b2international.snomed.ecl.ecl.Comparison;
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.FilterValue;
-import com.b2international.snomed.ecl.ecl.ModuleFilter;
+import com.b2international.snomed.ecl.ecl.MemberFieldFilter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,56 +29,56 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Module Filter</b></em>'.
+ * An implementation of the model object '<em><b>Member Field Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getOp <em>Op</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ModuleFilterImpl#getModuleId <em>Module Id</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.MemberFieldFilterImpl#getRefsetFieldName <em>Refset Field Name</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.MemberFieldFilterImpl#getComparison <em>Comparison</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
+public class MemberFieldFilterImpl extends PropertyFilterImpl implements MemberFieldFilter
 {
   /**
-   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * The default value of the '{@link #getRefsetFieldName() <em>Refset Field Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOp()
+   * @see #getRefsetFieldName()
    * @generated
    * @ordered
    */
-  protected static final String OP_EDEFAULT = null;
+  protected static final String REFSET_FIELD_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * The cached value of the '{@link #getRefsetFieldName() <em>Refset Field Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOp()
+   * @see #getRefsetFieldName()
    * @generated
    * @ordered
    */
-  protected String op = OP_EDEFAULT;
+  protected String refsetFieldName = REFSET_FIELD_NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getModuleId() <em>Module Id</em>}' containment reference.
+   * The cached value of the '{@link #getComparison() <em>Comparison</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModuleId()
+   * @see #getComparison()
    * @generated
    * @ordered
    */
-  protected FilterValue moduleId;
+  protected Comparison comparison;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModuleFilterImpl()
+  protected MemberFieldFilterImpl()
   {
     super();
   }
@@ -91,7 +91,7 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.MODULE_FILTER;
+    return EclPackage.Literals.MEMBER_FIELD_FILTER;
   }
 
   /**
@@ -100,9 +100,9 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public String getOp()
+  public String getRefsetFieldName()
   {
-    return op;
+    return refsetFieldName;
   }
 
   /**
@@ -111,12 +111,12 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public void setOp(String newOp)
+  public void setRefsetFieldName(String newRefsetFieldName)
   {
-    String oldOp = op;
-    op = newOp;
+    String oldRefsetFieldName = refsetFieldName;
+    refsetFieldName = newRefsetFieldName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MODULE_FILTER__OP, oldOp, op));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME, oldRefsetFieldName, refsetFieldName));
   }
 
   /**
@@ -125,9 +125,9 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public FilterValue getModuleId()
+  public Comparison getComparison()
   {
-    return moduleId;
+    return comparison;
   }
 
   /**
@@ -135,13 +135,13 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetModuleId(FilterValue newModuleId, NotificationChain msgs)
+  public NotificationChain basicSetComparison(Comparison newComparison, NotificationChain msgs)
   {
-    FilterValue oldModuleId = moduleId;
-    moduleId = newModuleId;
+    Comparison oldComparison = comparison;
+    comparison = newComparison;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.MODULE_FILTER__MODULE_ID, oldModuleId, newModuleId);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.MEMBER_FIELD_FILTER__COMPARISON, oldComparison, newComparison);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
    * @generated
    */
   @Override
-  public void setModuleId(FilterValue newModuleId)
+  public void setComparison(Comparison newComparison)
   {
-    if (newModuleId != moduleId)
+    if (newComparison != comparison)
     {
       NotificationChain msgs = null;
-      if (moduleId != null)
-        msgs = ((InternalEObject)moduleId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.MODULE_FILTER__MODULE_ID, null, msgs);
-      if (newModuleId != null)
-        msgs = ((InternalEObject)newModuleId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.MODULE_FILTER__MODULE_ID, null, msgs);
-      msgs = basicSetModuleId(newModuleId, msgs);
+      if (comparison != null)
+        msgs = ((InternalEObject)comparison).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.MEMBER_FIELD_FILTER__COMPARISON, null, msgs);
+      if (newComparison != null)
+        msgs = ((InternalEObject)newComparison).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.MEMBER_FIELD_FILTER__COMPARISON, null, msgs);
+      msgs = basicSetComparison(newComparison, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MODULE_FILTER__MODULE_ID, newModuleId, newModuleId));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.MEMBER_FIELD_FILTER__COMPARISON, newComparison, newComparison));
   }
 
   /**
@@ -179,8 +179,8 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__MODULE_ID:
-        return basicSetModuleId(null, msgs);
+      case EclPackage.MEMBER_FIELD_FILTER__COMPARISON:
+        return basicSetComparison(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,10 +195,10 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__OP:
-        return getOp();
-      case EclPackage.MODULE_FILTER__MODULE_ID:
-        return getModuleId();
+      case EclPackage.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME:
+        return getRefsetFieldName();
+      case EclPackage.MEMBER_FIELD_FILTER__COMPARISON:
+        return getComparison();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,11 +213,11 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__OP:
-        setOp((String)newValue);
+      case EclPackage.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME:
+        setRefsetFieldName((String)newValue);
         return;
-      case EclPackage.MODULE_FILTER__MODULE_ID:
-        setModuleId((FilterValue)newValue);
+      case EclPackage.MEMBER_FIELD_FILTER__COMPARISON:
+        setComparison((Comparison)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,11 +233,11 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__OP:
-        setOp(OP_EDEFAULT);
+      case EclPackage.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME:
+        setRefsetFieldName(REFSET_FIELD_NAME_EDEFAULT);
         return;
-      case EclPackage.MODULE_FILTER__MODULE_ID:
-        setModuleId((FilterValue)null);
+      case EclPackage.MEMBER_FIELD_FILTER__COMPARISON:
+        setComparison((Comparison)null);
         return;
     }
     super.eUnset(featureID);
@@ -253,10 +253,10 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
   {
     switch (featureID)
     {
-      case EclPackage.MODULE_FILTER__OP:
-        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case EclPackage.MODULE_FILTER__MODULE_ID:
-        return moduleId != null;
+      case EclPackage.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME:
+        return REFSET_FIELD_NAME_EDEFAULT == null ? refsetFieldName != null : !REFSET_FIELD_NAME_EDEFAULT.equals(refsetFieldName);
+      case EclPackage.MEMBER_FIELD_FILTER__COMPARISON:
+        return comparison != null;
     }
     return super.eIsSet(featureID);
   }
@@ -272,10 +272,10 @@ public class ModuleFilterImpl extends PropertyFilterImpl implements ModuleFilter
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (op: ");
-    result.append(op);
+    result.append(" (refsetFieldName: ");
+    result.append(refsetFieldName);
     result.append(')');
     return result.toString();
   }
 
-} //ModuleFilterImpl
+} //MemberFieldFilterImpl

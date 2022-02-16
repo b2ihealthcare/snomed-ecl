@@ -18,17 +18,47 @@ package com.b2international.snomed.ecl.ecl.impl;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expression Constraint</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.ExpressionConstraintImpl#getProfile <em>Profile</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExpressionConstraintImpl extends FilterValueImpl implements ExpressionConstraint
 {
+  /**
+   * The default value of the '{@link #getProfile() <em>Profile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProfile()
+   * @generated
+   * @ordered
+   */
+  protected static final String PROFILE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getProfile() <em>Profile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProfile()
+   * @generated
+   * @ordered
+   */
+  protected String profile = PROFILE_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +78,114 @@ public class ExpressionConstraintImpl extends FilterValueImpl implements Express
   protected EClass eStaticClass()
   {
     return EclPackage.Literals.EXPRESSION_CONSTRAINT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getProfile()
+  {
+    return profile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setProfile(String newProfile)
+  {
+    String oldProfile = profile;
+    profile = newProfile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.EXPRESSION_CONSTRAINT__PROFILE, oldProfile, profile));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case EclPackage.EXPRESSION_CONSTRAINT__PROFILE:
+        return getProfile();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case EclPackage.EXPRESSION_CONSTRAINT__PROFILE:
+        setProfile((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case EclPackage.EXPRESSION_CONSTRAINT__PROFILE:
+        setProfile(PROFILE_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case EclPackage.EXPRESSION_CONSTRAINT__PROFILE:
+        return PROFILE_EDEFAULT == null ? profile != null : !PROFILE_EDEFAULT.equals(profile);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (profile: ");
+    result.append(profile);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExpressionConstraintImpl

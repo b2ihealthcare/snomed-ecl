@@ -49,11 +49,14 @@ import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.HistorySupplement;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
+import com.b2international.snomed.ecl.ecl.MemberFieldFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
@@ -68,11 +71,13 @@ import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.Script;
 import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
+import com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.TermFilter;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
-import com.b2international.snomed.ecl.ecl.TypedTermFilter;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterClause;
-import com.b2international.snomed.ecl.ecl.TypedTermFilterSet;
+import com.b2international.snomed.ecl.ecl.TypedSearchTerm;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermClause;
+import com.b2international.snomed.ecl.ecl.TypedSearchTermSet;
 import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -214,11 +219,17 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT:
 				sequence_ExclusionExpressionConstraint(context, (ExclusionExpressionConstraint) semanticObject); 
 				return; 
+			case EclPackage.EXPRESSION_CONSTRAINT:
+				sequence_HistoryProfile(context, (ExpressionConstraint) semanticObject); 
+				return; 
 			case EclPackage.FILTER_CONSTRAINT:
 				sequence_FilterConstraint(context, (FilterConstraint) semanticObject); 
 				return; 
 			case EclPackage.FILTERED_EXPRESSION_CONSTRAINT:
 				sequence_FilteredExpressionConstraint(context, (FilteredExpressionConstraint) semanticObject); 
+				return; 
+			case EclPackage.HISTORY_SUPPLEMENT:
+				sequence_HistorySupplement(context, (HistorySupplement) semanticObject); 
 				return; 
 			case EclPackage.INTEGER_VALUE_COMPARISON:
 				sequence_IntegerValueComparison(context, (IntegerValueComparison) semanticObject); 
@@ -228,6 +239,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.LANGUAGE_REF_SET_FILTER:
 				sequence_LanguageRefSetFilter(context, (LanguageRefSetFilter) semanticObject); 
+				return; 
+			case EclPackage.MEMBER_FIELD_FILTER:
+				sequence_MemberFieldFilter(context, (MemberFieldFilter) semanticObject); 
 				return; 
 			case EclPackage.MEMBER_OF:
 				sequence_MemberOf(context, (MemberOf) semanticObject); 
@@ -301,20 +315,26 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.STRING_VALUE_COMPARISON:
 				sequence_StringValueComparison(context, (StringValueComparison) semanticObject); 
 				return; 
+			case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT:
+				sequence_SupplementExpressionConstraint(context, (SupplementExpressionConstraint) semanticObject); 
+				return; 
+			case EclPackage.TERM_FILTER:
+				sequence_TermFilter(context, (TermFilter) semanticObject); 
+				return; 
 			case EclPackage.TYPE_ID_FILTER:
 				sequence_TypeIdFilter(context, (TypeIdFilter) semanticObject); 
 				return; 
 			case EclPackage.TYPE_TOKEN_FILTER:
 				sequence_TypeTokenFilter(context, (TypeTokenFilter) semanticObject); 
 				return; 
-			case EclPackage.TYPED_TERM_FILTER:
-				sequence_TypedTermFilter(context, (TypedTermFilter) semanticObject); 
+			case EclPackage.TYPED_SEARCH_TERM:
+				sequence_TypedSearchTerm(context, (TypedSearchTerm) semanticObject); 
 				return; 
-			case EclPackage.TYPED_TERM_FILTER_CLAUSE:
-				sequence_TypedTermFilterClause(context, (TypedTermFilterClause) semanticObject); 
+			case EclPackage.TYPED_SEARCH_TERM_CLAUSE:
+				sequence_TypedSearchTermClause(context, (TypedSearchTermClause) semanticObject); 
 				return; 
-			case EclPackage.TYPED_TERM_FILTER_SET:
-				sequence_TypedTermFilterSet(context, (TypedTermFilterSet) semanticObject); 
+			case EclPackage.TYPED_SEARCH_TERM_SET:
+				sequence_TypedSearchTermSet(context, (TypedSearchTermSet) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -388,14 +408,17 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ActiveFilter returns ActiveFilter
 	 *
 	 * Constraint:
-	 *     active=ActiveBoolean
+	 *     (op=NON_NUMERIC_OPERATOR active=ActiveBoolean)
 	 */
 	protected void sequence_ActiveFilter(ISerializationContext context, ActiveFilter semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACTIVE_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACTIVE_FILTER__OP));
 			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACTIVE_FILTER__ACTIVE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACTIVE_FILTER__ACTIVE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getActiveFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getActiveFilterAccess().getActiveActiveBooleanParserRuleCall_2_0(), semanticObject.isActive());
 		feeder.finish();
 	}
@@ -416,6 +439,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOf
 	 *     FilteredExpressionConstraint returns AncestorOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOf
+	 *     SupplementExpressionConstraint returns AncestorOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns AncestorOf
 	 *     SubExpressionConstraint returns AncestorOf
 	 *     AncestorOf returns AncestorOf
 	 *     FilterValue returns AncestorOf
@@ -449,6 +474,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     FilteredExpressionConstraint returns AncestorOrSelfOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOrSelfOf
+	 *     SupplementExpressionConstraint returns AncestorOrSelfOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     SubExpressionConstraint returns AncestorOrSelfOf
 	 *     AncestorOrSelfOf returns AncestorOrSelfOf
 	 *     FilterValue returns AncestorOrSelfOf
@@ -557,6 +584,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns Any
 	 *     FilteredExpressionConstraint returns Any
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns Any
+	 *     SupplementExpressionConstraint returns Any
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns Any
 	 *     SubExpressionConstraint returns Any
 	 *     EclFocusConcept returns Any
 	 *     Any returns Any
@@ -699,6 +728,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOf
 	 *     FilteredExpressionConstraint returns ChildOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOf
+	 *     SupplementExpressionConstraint returns ChildOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ChildOf
 	 *     SubExpressionConstraint returns ChildOf
 	 *     ChildOf returns ChildOf
 	 *     FilterValue returns ChildOf
@@ -732,6 +763,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     FilteredExpressionConstraint returns ChildOrSelfOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     SupplementExpressionConstraint returns ChildOrSelfOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     SubExpressionConstraint returns ChildOrSelfOf
 	 *     ChildOrSelfOf returns ChildOrSelfOf
 	 *     FilterValue returns ChildOrSelfOf
@@ -860,6 +893,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOf
 	 *     FilteredExpressionConstraint returns DescendantOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOf
+	 *     SupplementExpressionConstraint returns DescendantOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns DescendantOf
 	 *     SubExpressionConstraint returns DescendantOf
 	 *     DescendantOf returns DescendantOf
 	 *     FilterValue returns DescendantOf
@@ -893,6 +928,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     FilteredExpressionConstraint returns DescendantOrSelfOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOrSelfOf
+	 *     SupplementExpressionConstraint returns DescendantOrSelfOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     SubExpressionConstraint returns DescendantOrSelfOf
 	 *     DescendantOrSelfOf returns DescendantOrSelfOf
 	 *     FilterValue returns DescendantOrSelfOf
@@ -1073,6 +1110,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns EclConceptReference
 	 *     FilteredExpressionConstraint returns EclConceptReference
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns EclConceptReference
+	 *     SupplementExpressionConstraint returns EclConceptReference
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns EclConceptReference
 	 *     SubExpressionConstraint returns EclConceptReference
 	 *     EclFocusConcept returns EclConceptReference
 	 *     EclConceptReference returns EclConceptReference
@@ -1187,6 +1226,37 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     HistoryProfile returns ExpressionConstraint
+	 *
+	 * Constraint:
+	 *     profile=HISTORY_PROFILE_TYPE
+	 */
+	protected void sequence_HistoryProfile(ISerializationContext context, ExpressionConstraint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXPRESSION_CONSTRAINT__PROFILE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXPRESSION_CONSTRAINT__PROFILE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHistoryProfileAccess().getProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0(), semanticObject.getProfile());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Supplement returns HistorySupplement
+	 *     HistorySupplement returns HistorySupplement
+	 *
+	 * Constraint:
+	 *     (history=HistoryProfile | history=NestedExpression)?
+	 */
+	protected void sequence_HistorySupplement(ISerializationContext context, HistorySupplement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Comparison returns IntegerValueComparison
 	 *     DataTypeComparison returns IntegerValueComparison
 	 *     IntegerValueComparison returns IntegerValueComparison
@@ -1252,6 +1322,33 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Filter returns MemberFieldFilter
+	 *     DisjunctionFilter returns MemberFieldFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns MemberFieldFilter
+	 *     ConjunctionFilter returns MemberFieldFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns MemberFieldFilter
+	 *     PropertyFilter returns MemberFieldFilter
+	 *     MemberFieldFilter returns MemberFieldFilter
+	 *
+	 * Constraint:
+	 *     (refsetFieldName=UnquotedString comparison=Comparison)
+	 */
+	protected void sequence_MemberFieldFilter(ISerializationContext context, MemberFieldFilter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__COMPARISON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__COMPARISON));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMemberFieldFilterAccess().getRefsetFieldNameUnquotedStringParserRuleCall_0_0(), semanticObject.getRefsetFieldName());
+		feeder.accept(grammarAccess.getMemberFieldFilterAccess().getComparisonComparisonParserRuleCall_1_0(), semanticObject.getComparison());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ExpressionConstraint returns MemberOf
 	 *     OrExpressionConstraint returns MemberOf
 	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns MemberOf
@@ -1265,13 +1362,15 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns MemberOf
 	 *     FilteredExpressionConstraint returns MemberOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns MemberOf
+	 *     SupplementExpressionConstraint returns MemberOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns MemberOf
 	 *     SubExpressionConstraint returns MemberOf
 	 *     EclFocusConcept returns MemberOf
 	 *     MemberOf returns MemberOf
 	 *     FilterValue returns MemberOf
 	 *
 	 * Constraint:
-	 *     (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression)
+	 *     ((refsetFields+=UnquotedString refsetFields+=UnquotedString*)? (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression))
 	 */
 	protected void sequence_MemberOf(ISerializationContext context, MemberOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1289,14 +1388,17 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ModuleFilter returns ModuleFilter
 	 *
 	 * Constraint:
-	 *     moduleId=FilterValue
+	 *     (op=NON_NUMERIC_OPERATOR moduleId=FilterValue)
 	 */
 	protected void sequence_ModuleFilter(ISerializationContext context, ModuleFilter semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MODULE_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MODULE_FILTER__OP));
 			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MODULE_FILTER__MODULE_ID) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MODULE_FILTER__MODULE_ID));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModuleFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getModuleFilterAccess().getModuleIdFilterValueParserRuleCall_2_0(), semanticObject.getModuleId());
 		feeder.finish();
 	}
@@ -1341,6 +1443,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns NestedExpression
 	 *     FilteredExpressionConstraint returns NestedExpression
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns NestedExpression
+	 *     SupplementExpressionConstraint returns NestedExpression
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns NestedExpression
 	 *     SubExpressionConstraint returns NestedExpression
 	 *     EclFocusConcept returns NestedExpression
 	 *     NestedExpression returns NestedExpression
@@ -1492,6 +1596,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOf
 	 *     FilteredExpressionConstraint returns ParentOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOf
+	 *     SupplementExpressionConstraint returns ParentOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ParentOf
 	 *     SubExpressionConstraint returns ParentOf
 	 *     ParentOf returns ParentOf
 	 *     FilterValue returns ParentOf
@@ -1525,6 +1631,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     FilteredExpressionConstraint returns ParentOrSelfOf
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     SupplementExpressionConstraint returns ParentOrSelfOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     SubExpressionConstraint returns ParentOrSelfOf
 	 *     ParentOrSelfOf returns ParentOrSelfOf
 	 *     FilterValue returns ParentOrSelfOf
@@ -1641,7 +1749,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     StringValueComparison returns StringValueComparison
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR value=STRING)
+	 *     (op=NON_NUMERIC_OPERATOR value=SearchTerm)
 	 */
 	protected void sequence_StringValueComparison(ISerializationContext context, StringValueComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -1652,7 +1760,70 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStringValueComparisonAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getStringValueComparisonAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getStringValueComparisonAccess().getValueSearchTermParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpressionConstraint returns SupplementExpressionConstraint
+	 *     OrExpressionConstraint returns SupplementExpressionConstraint
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     AndExpressionConstraint returns SupplementExpressionConstraint
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     ExclusionExpressionConstraint returns SupplementExpressionConstraint
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     RefinedExpressionConstraint returns SupplementExpressionConstraint
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     DottedExpressionConstraint returns SupplementExpressionConstraint
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     FilteredExpressionConstraint returns SupplementExpressionConstraint
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     SupplementExpressionConstraint returns SupplementExpressionConstraint
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns SupplementExpressionConstraint
+	 *     FilterValue returns SupplementExpressionConstraint
+	 *
+	 * Constraint:
+	 *     (constraint=SupplementExpressionConstraint_SupplementExpressionConstraint_1_0 supplement=Supplement)
+	 */
+	protected void sequence_SupplementExpressionConstraint(ISerializationContext context, SupplementExpressionConstraint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.SUPPLEMENT_EXPRESSION_CONSTRAINT__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.SUPPLEMENT_EXPRESSION_CONSTRAINT__CONSTRAINT));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.SUPPLEMENT_EXPRESSION_CONSTRAINT__SUPPLEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.SUPPLEMENT_EXPRESSION_CONSTRAINT__SUPPLEMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0(), semanticObject.getConstraint());
+		feeder.accept(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementSupplementParserRuleCall_1_1_0(), semanticObject.getSupplement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Filter returns TermFilter
+	 *     DisjunctionFilter returns TermFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TermFilter
+	 *     ConjunctionFilter returns TermFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TermFilter
+	 *     PropertyFilter returns TermFilter
+	 *     TermFilter returns TermFilter
+	 *
+	 * Constraint:
+	 *     (op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm)
+	 */
+	protected void sequence_TermFilter(ISerializationContext context, TermFilter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TERM_FILTER__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TERM_FILTER__OP));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TERM_FILTER__SEARCH_TERM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TERM_FILTER__SEARCH_TERM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTermFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getTermFilterAccess().getSearchTermSearchTermParserRuleCall_2_0(), semanticObject.getSearchTerm());
 		feeder.finish();
 	}
 	
@@ -1706,59 +1877,44 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     TypedTermFilterClause returns TypedTermFilterClause
+	 *     TypedSearchTermClause returns TypedSearchTermClause
 	 *
 	 * Constraint:
 	 *     ((lexicalSearchType=LEXICAL_SEARCH_TYPE? term=STRING) | (lexicalSearchType=REGEX_KEYWORD term=RegularExpression))
 	 */
-	protected void sequence_TypedTermFilterClause(ISerializationContext context, TypedTermFilterClause semanticObject) {
+	protected void sequence_TypedSearchTermClause(ISerializationContext context, TypedSearchTermClause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Filter returns TypedTermFilterSet
-	 *     DisjunctionFilter returns TypedTermFilterSet
-	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilterSet
-	 *     ConjunctionFilter returns TypedTermFilterSet
-	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilterSet
-	 *     PropertyFilter returns TypedTermFilterSet
-	 *     TermFilter returns TypedTermFilterSet
-	 *     TypedTermFilterSet returns TypedTermFilterSet
+	 *     SearchTerm returns TypedSearchTermSet
+	 *     TypedSearchTermSet returns TypedSearchTermSet
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR clauses+=TypedTermFilterClause+)
+	 *     clauses+=TypedSearchTermClause+
 	 */
-	protected void sequence_TypedTermFilterSet(ISerializationContext context, TypedTermFilterSet semanticObject) {
+	protected void sequence_TypedSearchTermSet(ISerializationContext context, TypedSearchTermSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Filter returns TypedTermFilter
-	 *     DisjunctionFilter returns TypedTermFilter
-	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns TypedTermFilter
-	 *     ConjunctionFilter returns TypedTermFilter
-	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns TypedTermFilter
-	 *     PropertyFilter returns TypedTermFilter
-	 *     TermFilter returns TypedTermFilter
-	 *     TypedTermFilter returns TypedTermFilter
+	 *     SearchTerm returns TypedSearchTerm
+	 *     TypedSearchTerm returns TypedSearchTerm
 	 *
 	 * Constraint:
-	 *     (op=NON_NUMERIC_OPERATOR clause=TypedTermFilterClause)
+	 *     clause=TypedSearchTermClause
 	 */
-	protected void sequence_TypedTermFilter(ISerializationContext context, TypedTermFilter semanticObject) {
+	protected void sequence_TypedSearchTerm(ISerializationContext context, TypedSearchTerm semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TERM_FILTER__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TERM_FILTER__OP));
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TYPED_TERM_FILTER__CLAUSE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TYPED_TERM_FILTER__CLAUSE));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TYPED_SEARCH_TERM__CLAUSE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TYPED_SEARCH_TERM__CLAUSE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypedTermFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getTypedTermFilterAccess().getClauseTypedTermFilterClauseParserRuleCall_1_0(), semanticObject.getClause());
+		feeder.accept(grammarAccess.getTypedSearchTermAccess().getClauseTypedSearchTermClauseParserRuleCall_0(), semanticObject.getClause());
 		feeder.finish();
 	}
 	

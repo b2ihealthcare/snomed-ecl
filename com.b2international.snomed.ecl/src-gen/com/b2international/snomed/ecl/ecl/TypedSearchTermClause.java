@@ -19,22 +19,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Typed Term Filter Clause</b></em>'.
+ * A representation of the model object '<em><b>Typed Search Term Clause</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getLexicalSearchType <em>Lexical Search Type</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getTerm <em>Term</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getLexicalSearchType <em>Lexical Search Type</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getTerm <em>Term</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterClause()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTermClause()
  * @model
  * @generated
  */
-public interface TypedTermFilterClause extends EObject
+public interface TypedSearchTermClause extends EObject
 {
   /**
    * Returns the value of the '<em><b>Lexical Search Type</b></em>' attribute.
@@ -42,14 +42,14 @@ public interface TypedTermFilterClause extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lexical Search Type</em>' attribute.
    * @see #setLexicalSearchType(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterClause_LexicalSearchType()
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTermClause_LexicalSearchType()
    * @model
    * @generated
    */
   String getLexicalSearchType();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getLexicalSearchType <em>Lexical Search Type</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getLexicalSearchType <em>Lexical Search Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Lexical Search Type</em>' attribute.
@@ -64,14 +64,14 @@ public interface TypedTermFilterClause extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Term</em>' attribute.
    * @see #setTerm(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterClause_Term()
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTermClause_Term()
    * @model
    * @generated
    */
   String getTerm();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause#getTerm <em>Term</em>}' attribute.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause#getTerm <em>Term</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Term</em>' attribute.
@@ -80,4 +80,4 @@ public interface TypedTermFilterClause extends EObject
    */
   void setTerm(String value);
 
-} // TypedTermFilterClause
+} // TypedSearchTermClause

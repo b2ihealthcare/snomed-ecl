@@ -40,31 +40,31 @@ import com.google.common.collect.Sets;
 public class EclValidator extends AbstractEclValidator {
 	
 	private static final String AMBIGUOUS_PRECEDENCE_MESSAGE = "Ambiguous binary operator, use parenthesis to disambiguate the meaning of the expression";
-	private static final String AMBIGUOUS_PRECEDENCE_CODE = "binaryoperator.ambiguous.precedence";
+	public static final String AMBIGUOUS_PRECEDENCE_CODE = "binaryoperator.ambiguous.precedence";
 	
 	private static final String CARDINALITY_RANGE_ERROR_MESSAGE = "Cardinality minimum value should not be greater than maximum value";
-	private static final String CARDINALITY_RANGE_ERROR_CODE = "cardinality.range.error";
+	public static final String CARDINALITY_RANGE_ERROR_CODE = "cardinality.range.error";
 	
 	private static final String UNSUPPORTED_TYPE_TOKEN_MESSAGE = "Unsupported type token";
-	private static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
+	public static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
 
 	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE = "Unsupported acceptability token";
-	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE = "dialectfilter.tokens.unsupported";
+	public static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE = "dialectfilter.tokens.unsupported";
 	
 	private static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_MESSAGE = "Unsupported definition status token";
-	private static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_CODE = "definitionstatusfilter.tokens.unsupported";
+	public static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_CODE = "definitionstatusfilter.tokens.unsupported";
 	
 	private static final String DOMAIN_INCONSISTENCY_MESSAGE = "Domain of filter(s) should be consistent with each other and the domain of the filter constraint";
-	private static final String DOMAIN_INCONSISTENCY_CODE = "filter.inconsistentdomain";
+	public static final String DOMAIN_INCONSISTENCY_CODE = "filter.inconsistentdomain";
 
 	private static final String LANGUAGE_CODE_NONEXISITING_MESSAGE = "Non-existent ISO-639 language code present in filter";
-	private static final String LANGUAGE_CODE_NONEXISITING_CODE = "languagecode.nonexisting";
+	public static final String LANGUAGE_CODE_NONEXISITING_CODE = "languagecode.nonexisting";
 
 	private static final String AMBIGUOUS_TYPE_MESSAGE = "Ambiguous binary operator, use parenthesis to separate constraints from refinements";
-	private static final String AMBIGUOUS_TYPE_CODE = "binaryoperator.ambiguous.type";
+	public static final String AMBIGUOUS_TYPE_CODE = "binaryoperator.ambiguous.type";
 	
 	private static final String CONSTRAINT_REQUIRES_COMPARISON = "A comparison is required for the attribute constraint";
-	private static final String CONSTRAINT_REQUIRES_COMPARISON_CODE = "constraint.comparison.missing";
+	public static final String CONSTRAINT_REQUIRES_COMPARISON_CODE = "constraint.comparison.missing";
 
 	private static final String EFFECTIVE_TIME_ERROR = "Effective time could not be parsed to the expected yyyyMMdd format";
 	public static final String EFFECTIVE_TIME_ERROR_CODE = "effective.time.error";
@@ -209,9 +209,9 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkTypedTermFilterClause(TypedTermFilterClause it) {
+	public void checkTypedTermFilterClause(TypedSearchTermClause it) {
 		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
-			error(String.format("At least %d characters are required for term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_TERM_FILTER_CLAUSE__TERM);
+			error(String.format("At least %d characters are required for term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_SEARCH_TERM_CLAUSE__TERM);
 		}
 	}
 	

@@ -16,8 +16,8 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.SearchTerm;
-import com.b2international.snomed.ecl.ecl.StringValueComparison;
+import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.HistorySupplement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,35 +29,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Value Comparison</b></em>'.
+ * An implementation of the model object '<em><b>History Supplement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.StringValueComparisonImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.HistorySupplementImpl#getHistory <em>History</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringValueComparisonImpl extends DataTypeComparisonImpl implements StringValueComparison
+public class HistorySupplementImpl extends SupplementImpl implements HistorySupplement
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getHistory() <em>History</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getHistory()
    * @generated
    * @ordered
    */
-  protected SearchTerm value;
+  protected ExpressionConstraint history;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StringValueComparisonImpl()
+  protected HistorySupplementImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   @Override
   protected EClass eStaticClass()
   {
-    return EclPackage.Literals.STRING_VALUE_COMPARISON;
+    return EclPackage.Literals.HISTORY_SUPPLEMENT;
   }
 
   /**
@@ -79,9 +79,9 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    */
   @Override
-  public SearchTerm getValue()
+  public ExpressionConstraint getHistory()
   {
-    return value;
+    return history;
   }
 
   /**
@@ -89,13 +89,13 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(SearchTerm newValue, NotificationChain msgs)
+  public NotificationChain basicSetHistory(ExpressionConstraint newHistory, NotificationChain msgs)
   {
-    SearchTerm oldValue = value;
-    value = newValue;
+    ExpressionConstraint oldHistory = history;
+    history = newHistory;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.STRING_VALUE_COMPARISON__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclPackage.HISTORY_SUPPLEMENT__HISTORY, oldHistory, newHistory);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
    * @generated
    */
   @Override
-  public void setValue(SearchTerm newValue)
+  public void setHistory(ExpressionConstraint newHistory)
   {
-    if (newValue != value)
+    if (newHistory != history)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.STRING_VALUE_COMPARISON__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.STRING_VALUE_COMPARISON__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (history != null)
+        msgs = ((InternalEObject)history).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclPackage.HISTORY_SUPPLEMENT__HISTORY, null, msgs);
+      if (newHistory != null)
+        msgs = ((InternalEObject)newHistory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclPackage.HISTORY_SUPPLEMENT__HISTORY, null, msgs);
+      msgs = basicSetHistory(newHistory, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.STRING_VALUE_COMPARISON__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.HISTORY_SUPPLEMENT__HISTORY, newHistory, newHistory));
   }
 
   /**
@@ -133,8 +133,8 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   {
     switch (featureID)
     {
-      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        return basicSetValue(null, msgs);
+      case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
+        return basicSetHistory(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -149,8 +149,8 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   {
     switch (featureID)
     {
-      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        return getValue();
+      case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
+        return getHistory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,8 +165,8 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   {
     switch (featureID)
     {
-      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue((SearchTerm)newValue);
+      case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
+        setHistory((ExpressionConstraint)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,8 +182,8 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   {
     switch (featureID)
     {
-      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        setValue((SearchTerm)null);
+      case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
+        setHistory((ExpressionConstraint)null);
         return;
     }
     super.eUnset(featureID);
@@ -199,10 +199,10 @@ public class StringValueComparisonImpl extends DataTypeComparisonImpl implements
   {
     switch (featureID)
     {
-      case EclPackage.STRING_VALUE_COMPARISON__VALUE:
-        return value != null;
+      case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
+        return history != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //StringValueComparisonImpl
+} //HistorySupplementImpl

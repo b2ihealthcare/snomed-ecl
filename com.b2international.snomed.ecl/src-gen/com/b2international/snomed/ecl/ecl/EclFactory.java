@@ -315,6 +315,15 @@ public interface EclFactory extends EFactory
   PropertyFilter createPropertyFilter();
 
   /**
+   * Returns a new object of class '<em>Member Field Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member Field Filter</em>'.
+   * @generated
+   */
+  MemberFieldFilter createMemberFieldFilter();
+
+  /**
    * Returns a new object of class '<em>Term Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -324,31 +333,40 @@ public interface EclFactory extends EFactory
   TermFilter createTermFilter();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter</em>'.
+   * Returns a new object of class '<em>Search Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter</em>'.
+   * @return a new object of class '<em>Search Term</em>'.
    * @generated
    */
-  TypedTermFilter createTypedTermFilter();
+  SearchTerm createSearchTerm();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter Set</em>'.
+   * Returns a new object of class '<em>Typed Search Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter Set</em>'.
+   * @return a new object of class '<em>Typed Search Term</em>'.
    * @generated
    */
-  TypedTermFilterSet createTypedTermFilterSet();
+  TypedSearchTerm createTypedSearchTerm();
 
   /**
-   * Returns a new object of class '<em>Typed Term Filter Clause</em>'.
+   * Returns a new object of class '<em>Typed Search Term Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Typed Term Filter Clause</em>'.
+   * @return a new object of class '<em>Typed Search Term Set</em>'.
    * @generated
    */
-  TypedTermFilterClause createTypedTermFilterClause();
+  TypedSearchTermSet createTypedSearchTermSet();
+
+  /**
+   * Returns a new object of class '<em>Typed Search Term Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Search Term Clause</em>'.
+   * @generated
+   */
+  TypedSearchTermClause createTypedSearchTermClause();
 
   /**
    * Returns a new object of class '<em>Language Filter</em>'.
@@ -567,6 +585,24 @@ public interface EclFactory extends EFactory
   FilterValue createFilterValue();
 
   /**
+   * Returns a new object of class '<em>Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Supplement</em>'.
+   * @generated
+   */
+  Supplement createSupplement();
+
+  /**
+   * Returns a new object of class '<em>History Supplement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>History Supplement</em>'.
+   * @generated
+   */
+  HistorySupplement createHistorySupplement();
+
+  /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -619,6 +655,15 @@ public interface EclFactory extends EFactory
    * @generated
    */
   FilteredExpressionConstraint createFilteredExpressionConstraint();
+
+  /**
+   * Returns a new object of class '<em>Supplement Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Supplement Expression Constraint</em>'.
+   * @generated
+   */
+  SupplementExpressionConstraint createSupplementExpressionConstraint();
 
   /**
    * Returns a new object of class '<em>Or Refinement</em>'.

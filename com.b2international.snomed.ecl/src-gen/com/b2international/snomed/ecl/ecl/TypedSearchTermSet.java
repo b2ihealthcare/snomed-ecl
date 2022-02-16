@@ -19,32 +19,32 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Typed Term Filter Set</b></em>'.
+ * A representation of the model object '<em><b>Typed Search Term Set</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.TypedTermFilterSet#getClauses <em>Clauses</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.TypedSearchTermSet#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterSet()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTermSet()
  * @model
  * @generated
  */
-public interface TypedTermFilterSet extends TermFilter
+public interface TypedSearchTermSet extends SearchTerm
 {
   /**
    * Returns the value of the '<em><b>Clauses</b></em>' containment reference list.
-   * The list contents are of type {@link com.b2international.snomed.ecl.ecl.TypedTermFilterClause}.
+   * The list contents are of type {@link com.b2international.snomed.ecl.ecl.TypedSearchTermClause}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Clauses</em>' containment reference list.
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedTermFilterSet_Clauses()
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getTypedSearchTermSet_Clauses()
    * @model containment="true"
    * @generated
    */
-  EList<TypedTermFilterClause> getClauses();
+  EList<TypedSearchTermClause> getClauses();
 
-} // TypedTermFilterSet
+} // TypedSearchTermSet

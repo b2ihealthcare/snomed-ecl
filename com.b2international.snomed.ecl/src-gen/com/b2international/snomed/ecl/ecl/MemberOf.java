@@ -15,6 +15,7 @@
  */
 package com.b2international.snomed.ecl.ecl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +26,7 @@ package com.b2international.snomed.ecl.ecl;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.MemberOf#getRefsetFields <em>Refset Fields</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.MemberOf#getConstraint <em>Constraint</em>}</li>
  * </ul>
  *
@@ -34,6 +36,18 @@ package com.b2international.snomed.ecl.ecl;
  */
 public interface MemberOf extends ExpressionConstraint
 {
+  /**
+   * Returns the value of the '<em><b>Refset Fields</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Refset Fields</em>' attribute list.
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getMemberOf_RefsetFields()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getRefsetFields();
+
   /**
    * Returns the value of the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
