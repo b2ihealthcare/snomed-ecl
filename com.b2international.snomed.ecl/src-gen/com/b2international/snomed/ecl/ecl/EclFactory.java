@@ -315,6 +315,15 @@ public interface EclFactory extends EFactory
   PropertyFilter createPropertyFilter();
 
   /**
+   * Returns a new object of class '<em>Member Field Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member Field Filter</em>'.
+   * @generated
+   */
+  MemberFieldFilter createMemberFieldFilter();
+
+  /**
    * Returns a new object of class '<em>Term Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -56,6 +56,7 @@ import com.b2international.snomed.ecl.ecl.HistorySupplement;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
+import com.b2international.snomed.ecl.ecl.MemberFieldFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
@@ -237,6 +238,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.LANGUAGE_REF_SET_FILTER:
 				sequence_LanguageRefSetFilter(context, (LanguageRefSetFilter) semanticObject); 
+				return; 
+			case EclPackage.MEMBER_FIELD_FILTER:
+				sequence_MemberFieldFilter(context, (MemberFieldFilter) semanticObject); 
 				return; 
 			case EclPackage.MEMBER_OF:
 				sequence_MemberOf(context, (MemberOf) semanticObject); 
@@ -1305,6 +1309,33 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLanguageRefSetFilterAccess().getLanguageRefSetIdFilterValueParserRuleCall_2_0(), semanticObject.getLanguageRefSetId());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Filter returns MemberFieldFilter
+	 *     DisjunctionFilter returns MemberFieldFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns MemberFieldFilter
+	 *     ConjunctionFilter returns MemberFieldFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns MemberFieldFilter
+	 *     PropertyFilter returns MemberFieldFilter
+	 *     MemberFieldFilter returns MemberFieldFilter
+	 *
+	 * Constraint:
+	 *     (refsetFieldName=UnquotedString comparison=Comparison)
+	 */
+	protected void sequence_MemberFieldFilter(ISerializationContext context, MemberFieldFilter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__REFSET_FIELD_NAME));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__COMPARISON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.MEMBER_FIELD_FILTER__COMPARISON));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMemberFieldFilterAccess().getRefsetFieldNameUnquotedStringParserRuleCall_0_0(), semanticObject.getRefsetFieldName());
+		feeder.accept(grammarAccess.getMemberFieldFilterAccess().getComparisonComparisonParserRuleCall_1_0(), semanticObject.getComparison());
 		feeder.finish();
 	}
 	

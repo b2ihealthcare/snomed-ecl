@@ -865,10 +865,42 @@ class EclParsingTest {
 	
 	@Test
 	def void test_history_supplement_custom_expression() {
-		// TODO add {{ M targetComponentId = << 195967001 |Asthma| }} as refinement for consistency with the official examples (once we have member filters)
 		'''
-			* {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| ) }}
+			* {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| {{ M targetComponentId = << 195967001 |Asthma| }} ) }}
 		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_boolean_field() {
+		'''
+			* {{ M isVaccine = true }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_integer_field() {
+		'''
+			* {{ M numberOfPacks = #2 }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_decimal_field() {
+		'''
+			* {{ M strengthNumeratorValue = #2.0 }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_string_field() {
+		'''
+			* {{ M tradeName = "PANADOL" }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_member_filter_time_field() {
+		
 	}
 
 	private def void assertNoErrors(CharSequence it) throws Exception {

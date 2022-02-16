@@ -138,6 +138,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConjunctionFilterAccess().getGroup(), "rule__ConjunctionFilter__Group__0");
 			builder.put(grammarAccess.getConjunctionFilterAccess().getGroup_1(), "rule__ConjunctionFilter__Group_1__0");
 			builder.put(grammarAccess.getNestedFilterAccess().getGroup(), "rule__NestedFilter__Group__0");
+			builder.put(grammarAccess.getMemberFieldFilterAccess().getGroup(), "rule__MemberFieldFilter__Group__0");
 			builder.put(grammarAccess.getTermFilterAccess().getGroup(), "rule__TermFilter__Group__0");
 			builder.put(grammarAccess.getTypedTermFilterAccess().getGroup(), "rule__TypedTermFilter__Group__0");
 			builder.put(grammarAccess.getTypedTermFilterSetAccess().getGroup(), "rule__TypedTermFilterSet__Group__0");
@@ -222,6 +223,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDisjunctionFilterAccess().getRightAssignment_1_2(), "rule__DisjunctionFilter__RightAssignment_1_2");
 			builder.put(grammarAccess.getConjunctionFilterAccess().getRightAssignment_1_2(), "rule__ConjunctionFilter__RightAssignment_1_2");
 			builder.put(grammarAccess.getNestedFilterAccess().getNestedAssignment_1(), "rule__NestedFilter__NestedAssignment_1");
+			builder.put(grammarAccess.getMemberFieldFilterAccess().getRefsetFieldNameAssignment_0(), "rule__MemberFieldFilter__RefsetFieldNameAssignment_0");
+			builder.put(grammarAccess.getMemberFieldFilterAccess().getComparisonAssignment_1(), "rule__MemberFieldFilter__ComparisonAssignment_1");
 			builder.put(grammarAccess.getTypedTermFilterAccess().getOpAssignment_0(), "rule__TypedTermFilter__OpAssignment_0");
 			builder.put(grammarAccess.getTypedTermFilterAccess().getClauseAssignment_1(), "rule__TypedTermFilter__ClauseAssignment_1");
 			builder.put(grammarAccess.getTypedTermFilterSetAccess().getOpAssignment_0(), "rule__TypedTermFilterSet__OpAssignment_0");

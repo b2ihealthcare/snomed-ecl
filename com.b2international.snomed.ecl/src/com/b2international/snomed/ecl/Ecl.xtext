@@ -83,7 +83,7 @@ EclConceptReference:
 	id=SnomedIdentifier (term=PIPE_DELIMITED_STRING)?;
 
 EclConceptReferenceSet:
-	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE; 
+	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE;
 
 Any:
 	WILDCARD {Any};
@@ -175,14 +175,16 @@ NestedFilter:
 	ROUND_OPEN nested=Filter ROUND_CLOSE;
 
 PropertyFilter:
+	// Member filters in ECL 2.0
+	MemberFieldFilter
 	// Description filters in ECL 1.6
-	TermFilter 
+	| TermFilter 
 	| LanguageFilter 
 	| TypeFilter 
 	| DialectFilter 
 	// Concept filters in ECL 1.6
 	| DefinitionStatusFilter
-	// Concept filters in ECL 1.6, component filters in QL 0.1 (extension)
+	// Concept (Description and Member) filters in ECL 1.6, component filters in QL 0.1 (extension)
 	| ModuleFilter
 	| EffectiveTimeFilter
 	| ActiveFilter 
@@ -195,7 +197,10 @@ PropertyFilter:
 	| CaseSignificanceFilter 
 	// Allows grouping filters for boolean operators
 	| NestedFilter;
- 
+
+MemberFieldFilter:
+	refsetFieldName=UnquotedString comparison=Comparison;
+
 TermFilter:
 	TERM_KEYWORD (TypedTermFilter | TypedTermFilterSet);
 
@@ -370,6 +375,7 @@ UnquotedString
 	| CONJUNCTION_KEYWORD 
 	| DISJUNCTION_KEYWORD 
 	| REVERSED
+	| MEMBER_SHORT_KEYWORD
 	| DESCRIPTION_SHORT_KEYWORD 
 	| CONCEPT_SHORT_KEYWORD
 	| KEYWORD;
@@ -397,6 +403,7 @@ HISTORY_PROFILE_TYPE
 SHORT_DOMAIN
 	: CONCEPT_SHORT_KEYWORD 
 	| DESCRIPTION_SHORT_KEYWORD
+	| MEMBER_SHORT_KEYWORD // from ECL 2.0
 	; 
 
 NON_NUMERIC_OPERATOR:
@@ -503,6 +510,9 @@ terminal DISJUNCTION_KEYWORD:
 
 terminal REVERSED:
 	'R';
+
+terminal MEMBER_SHORT_KEYWORD:
+	'M' | 'm';
 
 terminal DESCRIPTION_SHORT_KEYWORD: 
 	'D' | 'd';

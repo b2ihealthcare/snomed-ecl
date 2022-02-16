@@ -243,6 +243,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createPropertyFilterAdapter();
       }
       @Override
+      public Adapter caseMemberFieldFilter(MemberFieldFilter object)
+      {
+        return createMemberFieldFilterAdapter();
+      }
+      @Override
       public Adapter caseTermFilter(TermFilter object)
       {
         return createTermFilterAdapter();
@@ -930,6 +935,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPropertyFilterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.MemberFieldFilter <em>Member Field Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.MemberFieldFilter
+   * @generated
+   */
+  public Adapter createMemberFieldFilterAdapter()
   {
     return null;
   }

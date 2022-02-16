@@ -65,6 +65,7 @@ import com.b2international.snomed.ecl.ecl.HistorySupplement;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
+import com.b2international.snomed.ecl.ecl.MemberFieldFilter;
 import com.b2international.snomed.ecl.ecl.MemberOf;
 import com.b2international.snomed.ecl.ecl.ModuleFilter;
 import com.b2international.snomed.ecl.ecl.NestedExpression;
@@ -321,6 +322,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass propertyFilterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass memberFieldFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1374,6 +1382,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EClass getPropertyFilter()
   {
     return propertyFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMemberFieldFilter()
+  {
+    return memberFieldFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMemberFieldFilter_RefsetFieldName()
+  {
+    return (EAttribute)memberFieldFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMemberFieldFilter_Comparison()
+  {
+    return (EReference)memberFieldFilterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2558,6 +2599,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     propertyFilterEClass = createEClass(PROPERTY_FILTER);
 
+    memberFieldFilterEClass = createEClass(MEMBER_FIELD_FILTER);
+    createEAttribute(memberFieldFilterEClass, MEMBER_FIELD_FILTER__REFSET_FIELD_NAME);
+    createEReference(memberFieldFilterEClass, MEMBER_FIELD_FILTER__COMPARISON);
+
     termFilterEClass = createEClass(TERM_FILTER);
     createEAttribute(termFilterEClass, TERM_FILTER__OP);
 
@@ -2750,6 +2795,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     nestedExpressionEClass.getESuperTypes().add(this.getExpressionConstraint());
     nestedFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     propertyFilterEClass.getESuperTypes().add(this.getFilter());
+    memberFieldFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     termFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     typedTermFilterEClass.getESuperTypes().add(this.getTermFilter());
     typedTermFilterSetEClass.getESuperTypes().add(this.getTermFilter());
@@ -2881,6 +2927,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getNestedFilter_Nested(), this.getFilter(), null, "nested", null, 0, 1, NestedFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyFilterEClass, PropertyFilter.class, "PropertyFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(memberFieldFilterEClass, MemberFieldFilter.class, "MemberFieldFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMemberFieldFilter_RefsetFieldName(), ecorePackage.getEString(), "refsetFieldName", null, 0, 1, MemberFieldFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberFieldFilter_Comparison(), this.getComparison(), null, "comparison", null, 0, 1, MemberFieldFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(termFilterEClass, TermFilter.class, "TermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTermFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, TermFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -96,6 +96,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//NestedFilter/nested"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//PropertyFilter"/>
+    <genClasses ecoreClass="Ecl.ecore#//MemberFieldFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//MemberFieldFilter/refsetFieldName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//MemberFieldFilter/comparison"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TermFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
     </genClasses>
