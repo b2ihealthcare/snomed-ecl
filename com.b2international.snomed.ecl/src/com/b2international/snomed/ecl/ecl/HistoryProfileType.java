@@ -22,9 +22,9 @@ import java.util.Arrays;
  */
 public enum HistoryProfileType {
 
-	MIN("match"), 
-	MOD("wild"),
-	MAX("regex");
+	MIN("min"), 
+	MOD("mod"),
+	MAX("max");
 
 	private String profileType;
 
