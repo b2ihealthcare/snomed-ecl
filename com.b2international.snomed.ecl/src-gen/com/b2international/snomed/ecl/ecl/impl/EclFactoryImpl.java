@@ -145,8 +145,8 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
       case EclPackage.REFINED_EXPRESSION_CONSTRAINT: return createRefinedExpressionConstraint();
       case EclPackage.DOTTED_EXPRESSION_CONSTRAINT: return createDottedExpressionConstraint();
-      case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
       case EclPackage.SUPPLEMENT_EXPRESSION_CONSTRAINT: return createSupplementExpressionConstraint();
+      case EclPackage.FILTERED_EXPRESSION_CONSTRAINT: return createFilteredExpressionConstraint();
       case EclPackage.OR_REFINEMENT: return createOrRefinement();
       case EclPackage.AND_REFINEMENT: return createAndRefinement();
       case EclPackage.DISJUNCTION_FILTER: return createDisjunctionFilter();
@@ -978,10 +978,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public FilteredExpressionConstraint createFilteredExpressionConstraint()
+  public SupplementExpressionConstraint createSupplementExpressionConstraint()
   {
-    FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
-    return filteredExpressionConstraint;
+    SupplementExpressionConstraintImpl supplementExpressionConstraint = new SupplementExpressionConstraintImpl();
+    return supplementExpressionConstraint;
   }
 
   /**
@@ -990,10 +990,10 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
    * @generated
    */
   @Override
-  public SupplementExpressionConstraint createSupplementExpressionConstraint()
+  public FilteredExpressionConstraint createFilteredExpressionConstraint()
   {
-    SupplementExpressionConstraintImpl supplementExpressionConstraint = new SupplementExpressionConstraintImpl();
-    return supplementExpressionConstraint;
+    FilteredExpressionConstraintImpl filteredExpressionConstraint = new FilteredExpressionConstraintImpl();
+    return filteredExpressionConstraint;
   }
 
   /**

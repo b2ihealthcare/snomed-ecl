@@ -38,13 +38,13 @@ RefinedExpressionConstraint returns ExpressionConstraint:
 	DottedExpressionConstraint ({RefinedExpressionConstraint.constraint=current} COLON refinement=EclRefinement)?;
 
 DottedExpressionConstraint returns ExpressionConstraint:
-	FilteredExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=FilteredExpressionConstraint)*;
-
-FilteredExpressionConstraint returns ExpressionConstraint:
-	SupplementExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
+	SupplementExpressionConstraint ({DottedExpressionConstraint.constraint=current} DOT attribute=SupplementExpressionConstraint)*;
 
 SupplementExpressionConstraint returns ExpressionConstraint:
-	SubExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)*;
+	FilteredExpressionConstraint ({SupplementExpressionConstraint.constraint=current} supplement=Supplement)?;
+	
+FilteredExpressionConstraint returns ExpressionConstraint:
+	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 	
 SubExpressionConstraint returns ExpressionConstraint:
 	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;

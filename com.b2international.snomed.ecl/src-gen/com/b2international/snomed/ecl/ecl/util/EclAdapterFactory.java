@@ -428,14 +428,14 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createDottedExpressionConstraintAdapter();
       }
       @Override
-      public Adapter caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
-      {
-        return createFilteredExpressionConstraintAdapter();
-      }
-      @Override
       public Adapter caseSupplementExpressionConstraint(SupplementExpressionConstraint object)
       {
         return createSupplementExpressionConstraintAdapter();
+      }
+      @Override
+      public Adapter caseFilteredExpressionConstraint(FilteredExpressionConstraint object)
+      {
+        return createFilteredExpressionConstraintAdapter();
       }
       @Override
       public Adapter caseOrRefinement(OrRefinement object)
@@ -1500,21 +1500,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint <em>Filtered Expression Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint
-   * @generated
-   */
-  public Adapter createFilteredExpressionConstraintAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint <em>Supplement Expression Constraint</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1525,6 +1510,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSupplementExpressionConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint <em>Filtered Expression Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint
+   * @generated
+   */
+  public Adapter createFilteredExpressionConstraintAdapter()
   {
     return null;
   }

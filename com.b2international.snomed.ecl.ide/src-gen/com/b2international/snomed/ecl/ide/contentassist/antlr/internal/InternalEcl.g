@@ -237,31 +237,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleFilteredExpressionConstraint
-entryRuleFilteredExpressionConstraint
-:
-{ before(grammarAccess.getFilteredExpressionConstraintRule()); }
-	 ruleFilteredExpressionConstraint
-{ after(grammarAccess.getFilteredExpressionConstraintRule()); } 
-	 EOF 
-;
-
-// Rule FilteredExpressionConstraint
-ruleFilteredExpressionConstraint 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); }
-		(rule__FilteredExpressionConstraint__Group__0)
-		{ after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleSupplementExpressionConstraint
 entryRuleSupplementExpressionConstraint
 :
@@ -281,6 +256,31 @@ ruleSupplementExpressionConstraint
 		{ before(grammarAccess.getSupplementExpressionConstraintAccess().getGroup()); }
 		(rule__SupplementExpressionConstraint__Group__0)
 		{ after(grammarAccess.getSupplementExpressionConstraintAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleFilteredExpressionConstraint
+entryRuleFilteredExpressionConstraint
+:
+{ before(grammarAccess.getFilteredExpressionConstraintRule()); }
+	 ruleFilteredExpressionConstraint
+{ after(grammarAccess.getFilteredExpressionConstraintRule()); } 
+	 EOF 
+;
+
+// Rule FilteredExpressionConstraint
+ruleFilteredExpressionConstraint 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); }
+		(rule__FilteredExpressionConstraint__Group__0)
+		{ after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); }
 	)
 ;
 finally {
@@ -4534,9 +4534,9 @@ rule__DottedExpressionConstraint__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDottedExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); }
-	ruleFilteredExpressionConstraint
-	{ after(grammarAccess.getDottedExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); }
+	{ before(grammarAccess.getDottedExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); }
+	ruleSupplementExpressionConstraint
+	{ after(grammarAccess.getDottedExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); }
 )
 ;
 finally {
@@ -4651,6 +4651,114 @@ finally {
 }
 
 
+rule__SupplementExpressionConstraint__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SupplementExpressionConstraint__Group__0__Impl
+	rule__SupplementExpressionConstraint__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); }
+	ruleFilteredExpressionConstraint
+	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SupplementExpressionConstraint__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); }
+	(rule__SupplementExpressionConstraint__Group_1__0)?
+	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SupplementExpressionConstraint__Group_1__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SupplementExpressionConstraint__Group_1__0__Impl
+	rule__SupplementExpressionConstraint__Group_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group_1__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0()); }
+	()
+	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group_1__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SupplementExpressionConstraint__Group_1__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SupplementExpressionConstraint__Group_1__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1()); }
+	(rule__SupplementExpressionConstraint__SupplementAssignment_1_1)
+	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__FilteredExpressionConstraint__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -4669,9 +4777,9 @@ rule__FilteredExpressionConstraint__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getFilteredExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); }
-	ruleSupplementExpressionConstraint
-	{ after(grammarAccess.getFilteredExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); }
+	{ before(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); }
+	ruleSubExpressionConstraint
+	{ after(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); }
 )
 ;
 finally {
@@ -4752,114 +4860,6 @@ rule__FilteredExpressionConstraint__Group_1__1__Impl
 	{ before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); }
 	(rule__FilteredExpressionConstraint__FilterAssignment_1_1)
 	{ after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__SupplementExpressionConstraint__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__SupplementExpressionConstraint__Group__0__Impl
-	rule__SupplementExpressionConstraint__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); }
-	ruleSubExpressionConstraint
-	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__SupplementExpressionConstraint__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); }
-	(rule__SupplementExpressionConstraint__Group_1__0)*
-	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__SupplementExpressionConstraint__Group_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__SupplementExpressionConstraint__Group_1__0__Impl
-	rule__SupplementExpressionConstraint__Group_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0()); }
-	()
-	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__SupplementExpressionConstraint__Group_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SupplementExpressionConstraint__Group_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1()); }
-	(rule__SupplementExpressionConstraint__SupplementAssignment_1_1)
-	{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1()); }
 )
 ;
 finally {
@@ -10512,24 +10512,9 @@ rule__DottedExpressionConstraint__AttributeAssignment_1_2
 	}
 :
 	(
-		{ before(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0()); }
-		ruleFilteredExpressionConstraint
-		{ after(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__FilteredExpressionConstraint__FilterAssignment_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); }
-		ruleFilterConstraint
-		{ after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0()); }
+		ruleSupplementExpressionConstraint
+		{ after(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0()); }
 	)
 ;
 finally {
@@ -10545,6 +10530,21 @@ rule__SupplementExpressionConstraint__SupplementAssignment_1_1
 		{ before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementSupplementParserRuleCall_1_1_0()); }
 		ruleSupplement
 		{ after(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementSupplementParserRuleCall_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FilteredExpressionConstraint__FilterAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); }
+		ruleFilterConstraint
+		{ after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); }
 	)
 ;
 finally {

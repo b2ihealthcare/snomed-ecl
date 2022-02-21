@@ -437,10 +437,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AncestorOf
 	 *     DottedExpressionConstraint returns AncestorOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOf
-	 *     FilteredExpressionConstraint returns AncestorOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOf
 	 *     SupplementExpressionConstraint returns AncestorOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns AncestorOf
+	 *     FilteredExpressionConstraint returns AncestorOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOf
 	 *     SubExpressionConstraint returns AncestorOf
 	 *     AncestorOf returns AncestorOf
 	 *     FilterValue returns AncestorOf
@@ -472,10 +472,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     DottedExpressionConstraint returns AncestorOrSelfOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AncestorOrSelfOf
-	 *     FilteredExpressionConstraint returns AncestorOrSelfOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     SupplementExpressionConstraint returns AncestorOrSelfOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns AncestorOrSelfOf
+	 *     FilteredExpressionConstraint returns AncestorOrSelfOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AncestorOrSelfOf
 	 *     SubExpressionConstraint returns AncestorOrSelfOf
 	 *     AncestorOrSelfOf returns AncestorOrSelfOf
 	 *     FilterValue returns AncestorOrSelfOf
@@ -582,10 +582,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns Any
 	 *     DottedExpressionConstraint returns Any
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns Any
-	 *     FilteredExpressionConstraint returns Any
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns Any
 	 *     SupplementExpressionConstraint returns Any
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns Any
+	 *     FilteredExpressionConstraint returns Any
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns Any
 	 *     SubExpressionConstraint returns Any
 	 *     EclFocusConcept returns Any
 	 *     Any returns Any
@@ -726,10 +726,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ChildOf
 	 *     DottedExpressionConstraint returns ChildOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOf
-	 *     FilteredExpressionConstraint returns ChildOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOf
 	 *     SupplementExpressionConstraint returns ChildOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ChildOf
+	 *     FilteredExpressionConstraint returns ChildOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOf
 	 *     SubExpressionConstraint returns ChildOf
 	 *     ChildOf returns ChildOf
 	 *     FilterValue returns ChildOf
@@ -761,10 +761,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     DottedExpressionConstraint returns ChildOrSelfOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ChildOrSelfOf
-	 *     FilteredExpressionConstraint returns ChildOrSelfOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     SupplementExpressionConstraint returns ChildOrSelfOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ChildOrSelfOf
+	 *     FilteredExpressionConstraint returns ChildOrSelfOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ChildOrSelfOf
 	 *     SubExpressionConstraint returns ChildOrSelfOf
 	 *     ChildOrSelfOf returns ChildOrSelfOf
 	 *     FilterValue returns ChildOrSelfOf
@@ -891,10 +891,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DescendantOf
 	 *     DottedExpressionConstraint returns DescendantOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOf
-	 *     FilteredExpressionConstraint returns DescendantOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOf
 	 *     SupplementExpressionConstraint returns DescendantOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns DescendantOf
+	 *     FilteredExpressionConstraint returns DescendantOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOf
 	 *     SubExpressionConstraint returns DescendantOf
 	 *     DescendantOf returns DescendantOf
 	 *     FilterValue returns DescendantOf
@@ -926,10 +926,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     DottedExpressionConstraint returns DescendantOrSelfOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DescendantOrSelfOf
-	 *     FilteredExpressionConstraint returns DescendantOrSelfOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     SupplementExpressionConstraint returns DescendantOrSelfOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns DescendantOrSelfOf
+	 *     FilteredExpressionConstraint returns DescendantOrSelfOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns DescendantOrSelfOf
 	 *     SubExpressionConstraint returns DescendantOrSelfOf
 	 *     DescendantOrSelfOf returns DescendantOrSelfOf
 	 *     FilterValue returns DescendantOrSelfOf
@@ -1048,7 +1048,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns DottedExpressionConstraint
 	 *
 	 * Constraint:
-	 *     (constraint=DottedExpressionConstraint_DottedExpressionConstraint_1_0 attribute=FilteredExpressionConstraint)
+	 *     (constraint=DottedExpressionConstraint_DottedExpressionConstraint_1_0 attribute=SupplementExpressionConstraint)
 	 */
 	protected void sequence_DottedExpressionConstraint(ISerializationContext context, DottedExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1059,7 +1059,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getDottedExpressionConstraintConstraintAction_1_0(), semanticObject.getConstraint());
-		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0(), semanticObject.getAttribute());
 		feeder.finish();
 	}
 	
@@ -1108,10 +1108,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns EclConceptReference
 	 *     DottedExpressionConstraint returns EclConceptReference
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns EclConceptReference
-	 *     FilteredExpressionConstraint returns EclConceptReference
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns EclConceptReference
 	 *     SupplementExpressionConstraint returns EclConceptReference
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns EclConceptReference
+	 *     FilteredExpressionConstraint returns EclConceptReference
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns EclConceptReference
 	 *     SubExpressionConstraint returns EclConceptReference
 	 *     EclFocusConcept returns EclConceptReference
 	 *     EclConceptReference returns EclConceptReference
@@ -1203,6 +1203,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns FilteredExpressionConstraint
 	 *     DottedExpressionConstraint returns FilteredExpressionConstraint
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns FilteredExpressionConstraint
+	 *     SupplementExpressionConstraint returns FilteredExpressionConstraint
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns FilteredExpressionConstraint
 	 *     FilteredExpressionConstraint returns FilteredExpressionConstraint
 	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns FilteredExpressionConstraint
 	 *     FilterValue returns FilteredExpressionConstraint
@@ -1360,10 +1362,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns MemberOf
 	 *     DottedExpressionConstraint returns MemberOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns MemberOf
-	 *     FilteredExpressionConstraint returns MemberOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns MemberOf
 	 *     SupplementExpressionConstraint returns MemberOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns MemberOf
+	 *     FilteredExpressionConstraint returns MemberOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns MemberOf
 	 *     SubExpressionConstraint returns MemberOf
 	 *     EclFocusConcept returns MemberOf
 	 *     MemberOf returns MemberOf
@@ -1441,10 +1443,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns NestedExpression
 	 *     DottedExpressionConstraint returns NestedExpression
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns NestedExpression
-	 *     FilteredExpressionConstraint returns NestedExpression
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns NestedExpression
 	 *     SupplementExpressionConstraint returns NestedExpression
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns NestedExpression
+	 *     FilteredExpressionConstraint returns NestedExpression
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns NestedExpression
 	 *     SubExpressionConstraint returns NestedExpression
 	 *     EclFocusConcept returns NestedExpression
 	 *     NestedExpression returns NestedExpression
@@ -1594,10 +1596,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ParentOf
 	 *     DottedExpressionConstraint returns ParentOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOf
-	 *     FilteredExpressionConstraint returns ParentOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOf
 	 *     SupplementExpressionConstraint returns ParentOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ParentOf
+	 *     FilteredExpressionConstraint returns ParentOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOf
 	 *     SubExpressionConstraint returns ParentOf
 	 *     ParentOf returns ParentOf
 	 *     FilterValue returns ParentOf
@@ -1629,10 +1631,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     DottedExpressionConstraint returns ParentOrSelfOf
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ParentOrSelfOf
-	 *     FilteredExpressionConstraint returns ParentOrSelfOf
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     SupplementExpressionConstraint returns ParentOrSelfOf
 	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ParentOrSelfOf
+	 *     FilteredExpressionConstraint returns ParentOrSelfOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ParentOrSelfOf
 	 *     SubExpressionConstraint returns ParentOrSelfOf
 	 *     ParentOrSelfOf returns ParentOrSelfOf
 	 *     FilterValue returns ParentOrSelfOf
@@ -1778,11 +1780,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns SupplementExpressionConstraint
 	 *     DottedExpressionConstraint returns SupplementExpressionConstraint
 	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns SupplementExpressionConstraint
-	 *     FilteredExpressionConstraint returns SupplementExpressionConstraint
-	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns SupplementExpressionConstraint
 	 *     SupplementExpressionConstraint returns SupplementExpressionConstraint
-	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns SupplementExpressionConstraint
-	 *     FilterValue returns SupplementExpressionConstraint
 	 *
 	 * Constraint:
 	 *     (constraint=SupplementExpressionConstraint_SupplementExpressionConstraint_1_0 supplement=Supplement)

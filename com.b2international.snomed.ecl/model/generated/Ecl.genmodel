@@ -215,13 +215,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DottedExpressionConstraint/constraint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DottedExpressionConstraint/attribute"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//FilteredExpressionConstraint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/constraint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/filter"/>
-    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//SupplementExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/constraint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//SupplementExpressionConstraint/supplement"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//FilteredExpressionConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//FilteredExpressionConstraint/filter"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrRefinement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrRefinement/left"/>

@@ -441,11 +441,11 @@ ruleDottedExpressionConstraint returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getDottedExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0());
+			newCompositeNode(grammarAccess.getDottedExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0());
 		}
-		this_FilteredExpressionConstraint_0=ruleFilteredExpressionConstraint
+		this_SupplementExpressionConstraint_0=ruleSupplementExpressionConstraint
 		{
-			$current = $this_FilteredExpressionConstraint_0.current;
+			$current = $this_SupplementExpressionConstraint_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		(
@@ -466,9 +466,9 @@ ruleDottedExpressionConstraint returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0());
 					}
-					lv_attribute_3_0=ruleFilteredExpressionConstraint
+					lv_attribute_3_0=ruleSupplementExpressionConstraint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDottedExpressionConstraintRule());
@@ -477,68 +477,7 @@ ruleDottedExpressionConstraint returns [EObject current=null]
 							$current,
 							"attribute",
 							lv_attribute_3_0,
-							"com.b2international.snomed.ecl.Ecl.FilteredExpressionConstraint");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleFilteredExpressionConstraint
-entryRuleFilteredExpressionConstraint returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFilteredExpressionConstraintRule()); }
-	iv_ruleFilteredExpressionConstraint=ruleFilteredExpressionConstraint
-	{ $current=$iv_ruleFilteredExpressionConstraint.current; }
-	EOF;
-
-// Rule FilteredExpressionConstraint
-ruleFilteredExpressionConstraint returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0());
-		}
-		this_SupplementExpressionConstraint_0=ruleSupplementExpressionConstraint
-		{
-			$current = $this_SupplementExpressionConstraint_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					/* */
-				}
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0(),
-						$current);
-				}
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0());
-					}
-					lv_filter_2_0=ruleFilterConstraint
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFilteredExpressionConstraintRule());
-						}
-						set(
-							$current,
-							"filter",
-							lv_filter_2_0,
-							"com.b2international.snomed.ecl.Ecl.FilterConstraint");
+							"com.b2international.snomed.ecl.Ecl.SupplementExpressionConstraint");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -567,11 +506,11 @@ ruleSupplementExpressionConstraint returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getSupplementExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0());
+			newCompositeNode(grammarAccess.getSupplementExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0());
 		}
-		this_SubExpressionConstraint_0=ruleSubExpressionConstraint
+		this_FilteredExpressionConstraint_0=ruleFilteredExpressionConstraint
 		{
-			$current = $this_SubExpressionConstraint_0.current;
+			$current = $this_FilteredExpressionConstraint_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		(
@@ -600,6 +539,67 @@ ruleSupplementExpressionConstraint returns [EObject current=null]
 							"supplement",
 							lv_supplement_2_0,
 							"com.b2international.snomed.ecl.Ecl.Supplement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleFilteredExpressionConstraint
+entryRuleFilteredExpressionConstraint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFilteredExpressionConstraintRule()); }
+	iv_ruleFilteredExpressionConstraint=ruleFilteredExpressionConstraint
+	{ $current=$iv_ruleFilteredExpressionConstraint.current; }
+	EOF;
+
+// Rule FilteredExpressionConstraint
+ruleFilteredExpressionConstraint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0());
+		}
+		this_SubExpressionConstraint_0=ruleSubExpressionConstraint
+		{
+			$current = $this_SubExpressionConstraint_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0());
+					}
+					lv_filter_2_0=ruleFilterConstraint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFilteredExpressionConstraintRule());
+						}
+						set(
+							$current,
+							"filter",
+							lv_filter_2_0,
+							"com.b2international.snomed.ecl.Ecl.FilterConstraint");
 						afterParserOrEnumRuleCall();
 					}
 				)

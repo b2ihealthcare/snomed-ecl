@@ -648,15 +648,6 @@ public interface EclFactory extends EFactory
   DottedExpressionConstraint createDottedExpressionConstraint();
 
   /**
-   * Returns a new object of class '<em>Filtered Expression Constraint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Filtered Expression Constraint</em>'.
-   * @generated
-   */
-  FilteredExpressionConstraint createFilteredExpressionConstraint();
-
-  /**
    * Returns a new object of class '<em>Supplement Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -664,6 +655,15 @@ public interface EclFactory extends EFactory
    * @generated
    */
   SupplementExpressionConstraint createSupplementExpressionConstraint();
+
+  /**
+   * Returns a new object of class '<em>Filtered Expression Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filtered Expression Constraint</em>'.
+   * @generated
+   */
+  FilteredExpressionConstraint createFilteredExpressionConstraint();
 
   /**
    * Returns a new object of class '<em>Or Refinement</em>'.

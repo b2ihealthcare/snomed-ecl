@@ -15,9 +15,11 @@
  */
 package com.b2international.snomed.ecl.tests
 
+import com.b2international.snomed.ecl.ecl.Script
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
+import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,7 +34,15 @@ import org.junit.runner.RunWith
 @FixMethodOrder(NAME_ASCENDING)
 class EclParsingHistorySupplementTest {
 	
+	@Inject extension ParseHelper<Script>
 	@Inject extension EclTestHelper
+	
+	@Test
+	def void test_history_supplement_single_expression_only() {
+		'''
+			* {{ + HISTORY }} {{  }}
+		'''.parse
+	}
 	
 	@Test
 	def void test_history_supplement_profile_default() {
@@ -66,6 +76,20 @@ class EclParsingHistorySupplementTest {
 	def void test_history_supplement_custom_expression() {
 		'''
 			* {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| {{ M targetComponentId = << 195967001 |Asthma| }} ) }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_with_pre_filter() {
+		'''
+			* {{ d moduleId = 900000000000207008 }} {{ c definitionStatusId = 900000000000073002 }} {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| {{ M targetComponentId = << 195967001 |Asthma| }} ) }}
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_history_supplement_with_post_filter() {
+		'''
+			(* {{ + HISTORY ( ^ 900000000000527005 |SAME AS association reference set| {{ M targetComponentId = << 195967001 |Asthma| }} ) }}) {{ d moduleId = 900000000000207008 }} {{ c definitionStatusId = 900000000000073002 }}
 		'''.assertNoErrors
 	}
 	

@@ -96,10 +96,10 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRefinedExpressionConstraintAccess().getGroup_1(), "rule__RefinedExpressionConstraint__Group_1__0");
 			builder.put(grammarAccess.getDottedExpressionConstraintAccess().getGroup(), "rule__DottedExpressionConstraint__Group__0");
 			builder.put(grammarAccess.getDottedExpressionConstraintAccess().getGroup_1(), "rule__DottedExpressionConstraint__Group_1__0");
-			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getGroup(), "rule__FilteredExpressionConstraint__Group__0");
-			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1(), "rule__FilteredExpressionConstraint__Group_1__0");
 			builder.put(grammarAccess.getSupplementExpressionConstraintAccess().getGroup(), "rule__SupplementExpressionConstraint__Group__0");
 			builder.put(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1(), "rule__SupplementExpressionConstraint__Group_1__0");
+			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getGroup(), "rule__FilteredExpressionConstraint__Group__0");
+			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1(), "rule__FilteredExpressionConstraint__Group_1__0");
 			builder.put(grammarAccess.getChildOfAccess().getGroup(), "rule__ChildOf__Group__0");
 			builder.put(grammarAccess.getChildOrSelfOfAccess().getGroup(), "rule__ChildOrSelfOf__Group__0");
 			builder.put(grammarAccess.getDescendantOfAccess().getGroup(), "rule__DescendantOf__Group__0");
@@ -182,8 +182,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExclusionExpressionConstraintAccess().getRightAssignment_1_2(), "rule__ExclusionExpressionConstraint__RightAssignment_1_2");
 			builder.put(grammarAccess.getRefinedExpressionConstraintAccess().getRefinementAssignment_1_2(), "rule__RefinedExpressionConstraint__RefinementAssignment_1_2");
 			builder.put(grammarAccess.getDottedExpressionConstraintAccess().getAttributeAssignment_1_2(), "rule__DottedExpressionConstraint__AttributeAssignment_1_2");
-			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1(), "rule__FilteredExpressionConstraint__FilterAssignment_1_1");
 			builder.put(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1(), "rule__SupplementExpressionConstraint__SupplementAssignment_1_1");
+			builder.put(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1(), "rule__FilteredExpressionConstraint__FilterAssignment_1_1");
 			builder.put(grammarAccess.getChildOfAccess().getConstraintAssignment_1(), "rule__ChildOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getChildOrSelfOfAccess().getConstraintAssignment_1(), "rule__ChildOrSelfOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getDescendantOfAccess().getConstraintAssignment_1(), "rule__DescendantOf__ConstraintAssignment_1");

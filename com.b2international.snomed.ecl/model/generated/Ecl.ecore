@@ -265,16 +265,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//ExpressionConstraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilteredExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//FilterConstraint"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupplementExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supplement" eType="#//Supplement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilteredExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//FilterConstraint"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrRefinement" eSuperTypes="#//EclRefinement">

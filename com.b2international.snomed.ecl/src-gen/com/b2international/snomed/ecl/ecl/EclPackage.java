@@ -2361,52 +2361,6 @@ public interface EclPackage extends EPackage
   int DOTTED_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
-   * @generated
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT = 68;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
-
-  /**
-   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Filter</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT__FILTER = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Filtered Expression Constraint</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.SupplementExpressionConstraintImpl <em>Supplement Expression Constraint</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2414,7 +2368,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplementExpressionConstraint()
    * @generated
    */
-  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 69;
+  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 68;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2451,6 +2405,52 @@ public interface EclPackage extends EPackage
    * @ordered
    */
   int SUPPLEMENT_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
+   * @generated
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT = 69;
+
+  /**
+   * The feature id for the '<em><b>Profile</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Filter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT__FILTER = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Filtered Expression Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTERED_EXPRESSION_CONSTRAINT_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.OrRefinementImpl <em>Or Refinement</em>}' class.
@@ -4184,38 +4184,6 @@ public interface EclPackage extends EPackage
   EReference getDottedExpressionConstraint_Attribute();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint <em>Filtered Expression Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Filtered Expression Constraint</em>'.
-   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint
-   * @generated
-   */
-  EClass getFilteredExpressionConstraint();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint <em>Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Constraint</em>'.
-   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint()
-   * @see #getFilteredExpressionConstraint()
-   * @generated
-   */
-  EReference getFilteredExpressionConstraint_Constraint();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter <em>Filter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Filter</em>'.
-   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter()
-   * @see #getFilteredExpressionConstraint()
-   * @generated
-   */
-  EReference getFilteredExpressionConstraint_Filter();
-
-  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint <em>Supplement Expression Constraint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4246,6 +4214,38 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EReference getSupplementExpressionConstraint_Supplement();
+
+  /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint <em>Filtered Expression Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filtered Expression Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint
+   * @generated
+   */
+  EClass getFilteredExpressionConstraint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getConstraint()
+   * @see #getFilteredExpressionConstraint()
+   * @generated
+   */
+  EReference getFilteredExpressionConstraint_Constraint();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filter</em>'.
+   * @see com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint#getFilter()
+   * @see #getFilteredExpressionConstraint()
+   * @generated
+   */
+  EReference getFilteredExpressionConstraint_Filter();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.OrRefinement <em>Or Refinement</em>}'.
@@ -5735,32 +5735,6 @@ public interface EclPackage extends EPackage
     EReference DOTTED_EXPRESSION_CONSTRAINT__ATTRIBUTE = eINSTANCE.getDottedExpressionConstraint_Attribute();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
-     * @generated
-     */
-    EClass FILTERED_EXPRESSION_CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint();
-
-    /**
-     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint_Constraint();
-
-    /**
-     * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FILTERED_EXPRESSION_CONSTRAINT__FILTER = eINSTANCE.getFilteredExpressionConstraint_Filter();
-
-    /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.SupplementExpressionConstraintImpl <em>Supplement Expression Constraint</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5785,6 +5759,32 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EReference SUPPLEMENT_EXPRESSION_CONSTRAINT__SUPPLEMENT = eINSTANCE.getSupplementExpressionConstraint_Supplement();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl <em>Filtered Expression Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.FilteredExpressionConstraintImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
+     * @generated
+     */
+    EClass FILTERED_EXPRESSION_CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTERED_EXPRESSION_CONSTRAINT__CONSTRAINT = eINSTANCE.getFilteredExpressionConstraint_Constraint();
+
+    /**
+     * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTERED_EXPRESSION_CONSTRAINT__FILTER = eINSTANCE.getFilteredExpressionConstraint_Filter();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.OrRefinementImpl <em>Or Refinement</em>}' class.

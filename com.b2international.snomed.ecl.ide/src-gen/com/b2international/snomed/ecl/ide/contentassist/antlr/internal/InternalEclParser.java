@@ -722,97 +722,12 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDottedExpressionConstraint"
 
 
-    // $ANTLR start "entryRuleFilteredExpressionConstraint"
-    // InternalEcl.g:241:1: entryRuleFilteredExpressionConstraint : ruleFilteredExpressionConstraint EOF ;
-    public final void entryRuleFilteredExpressionConstraint() throws RecognitionException {
-        try {
-            // InternalEcl.g:242:1: ( ruleFilteredExpressionConstraint EOF )
-            // InternalEcl.g:243:1: ruleFilteredExpressionConstraint EOF
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintRule()); 
-            }
-            pushFollow(FollowSets000.FOLLOW_1);
-            ruleFilteredExpressionConstraint();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintRule()); 
-            }
-            match(input,EOF,FollowSets000.FOLLOW_2); if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleFilteredExpressionConstraint"
-
-
-    // $ANTLR start "ruleFilteredExpressionConstraint"
-    // InternalEcl.g:250:1: ruleFilteredExpressionConstraint : ( ( rule__FilteredExpressionConstraint__Group__0 ) ) ;
-    public final void ruleFilteredExpressionConstraint() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:254:2: ( ( ( rule__FilteredExpressionConstraint__Group__0 ) ) )
-            // InternalEcl.g:255:2: ( ( rule__FilteredExpressionConstraint__Group__0 ) )
-            {
-            // InternalEcl.g:255:2: ( ( rule__FilteredExpressionConstraint__Group__0 ) )
-            // InternalEcl.g:256:3: ( rule__FilteredExpressionConstraint__Group__0 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); 
-            }
-            // InternalEcl.g:257:3: ( rule__FilteredExpressionConstraint__Group__0 )
-            // InternalEcl.g:257:4: rule__FilteredExpressionConstraint__Group__0
-            {
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__Group__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleFilteredExpressionConstraint"
-
-
     // $ANTLR start "entryRuleSupplementExpressionConstraint"
-    // InternalEcl.g:266:1: entryRuleSupplementExpressionConstraint : ruleSupplementExpressionConstraint EOF ;
+    // InternalEcl.g:241:1: entryRuleSupplementExpressionConstraint : ruleSupplementExpressionConstraint EOF ;
     public final void entryRuleSupplementExpressionConstraint() throws RecognitionException {
         try {
-            // InternalEcl.g:267:1: ( ruleSupplementExpressionConstraint EOF )
-            // InternalEcl.g:268:1: ruleSupplementExpressionConstraint EOF
+            // InternalEcl.g:242:1: ( ruleSupplementExpressionConstraint EOF )
+            // InternalEcl.g:243:1: ruleSupplementExpressionConstraint EOF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintRule()); 
@@ -842,23 +757,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleSupplementExpressionConstraint"
-    // InternalEcl.g:275:1: ruleSupplementExpressionConstraint : ( ( rule__SupplementExpressionConstraint__Group__0 ) ) ;
+    // InternalEcl.g:250:1: ruleSupplementExpressionConstraint : ( ( rule__SupplementExpressionConstraint__Group__0 ) ) ;
     public final void ruleSupplementExpressionConstraint() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:279:2: ( ( ( rule__SupplementExpressionConstraint__Group__0 ) ) )
-            // InternalEcl.g:280:2: ( ( rule__SupplementExpressionConstraint__Group__0 ) )
+            // InternalEcl.g:254:2: ( ( ( rule__SupplementExpressionConstraint__Group__0 ) ) )
+            // InternalEcl.g:255:2: ( ( rule__SupplementExpressionConstraint__Group__0 ) )
             {
-            // InternalEcl.g:280:2: ( ( rule__SupplementExpressionConstraint__Group__0 ) )
-            // InternalEcl.g:281:3: ( rule__SupplementExpressionConstraint__Group__0 )
+            // InternalEcl.g:255:2: ( ( rule__SupplementExpressionConstraint__Group__0 ) )
+            // InternalEcl.g:256:3: ( rule__SupplementExpressionConstraint__Group__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getGroup()); 
             }
-            // InternalEcl.g:282:3: ( rule__SupplementExpressionConstraint__Group__0 )
-            // InternalEcl.g:282:4: rule__SupplementExpressionConstraint__Group__0
+            // InternalEcl.g:257:3: ( rule__SupplementExpressionConstraint__Group__0 )
+            // InternalEcl.g:257:4: rule__SupplementExpressionConstraint__Group__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SupplementExpressionConstraint__Group__0();
@@ -890,6 +805,91 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "ruleSupplementExpressionConstraint"
+
+
+    // $ANTLR start "entryRuleFilteredExpressionConstraint"
+    // InternalEcl.g:266:1: entryRuleFilteredExpressionConstraint : ruleFilteredExpressionConstraint EOF ;
+    public final void entryRuleFilteredExpressionConstraint() throws RecognitionException {
+        try {
+            // InternalEcl.g:267:1: ( ruleFilteredExpressionConstraint EOF )
+            // InternalEcl.g:268:1: ruleFilteredExpressionConstraint EOF
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintRule()); 
+            }
+            pushFollow(FollowSets000.FOLLOW_1);
+            ruleFilteredExpressionConstraint();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintRule()); 
+            }
+            match(input,EOF,FollowSets000.FOLLOW_2); if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleFilteredExpressionConstraint"
+
+
+    // $ANTLR start "ruleFilteredExpressionConstraint"
+    // InternalEcl.g:275:1: ruleFilteredExpressionConstraint : ( ( rule__FilteredExpressionConstraint__Group__0 ) ) ;
+    public final void ruleFilteredExpressionConstraint() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:279:2: ( ( ( rule__FilteredExpressionConstraint__Group__0 ) ) )
+            // InternalEcl.g:280:2: ( ( rule__FilteredExpressionConstraint__Group__0 ) )
+            {
+            // InternalEcl.g:280:2: ( ( rule__FilteredExpressionConstraint__Group__0 ) )
+            // InternalEcl.g:281:3: ( rule__FilteredExpressionConstraint__Group__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); 
+            }
+            // InternalEcl.g:282:3: ( rule__FilteredExpressionConstraint__Group__0 )
+            // InternalEcl.g:282:4: rule__FilteredExpressionConstraint__Group__0
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__Group__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleFilteredExpressionConstraint"
 
 
     // $ANTLR start "entryRuleSubExpressionConstraint"
@@ -9874,20 +9874,16 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             case RULE_NOT_EQUAL:
                 {
                 switch ( input.LA(2) ) {
-                case RULE_WILDCARD:
-                case RULE_DIGIT_NONZERO:
-                case RULE_DIGIT_ZERO:
-                case RULE_GT:
-                case RULE_LT:
-                case RULE_LT_EM:
-                case RULE_DBL_LT_EM:
-                case RULE_DBL_LT:
-                case RULE_GT_EM:
-                case RULE_DBL_GT_EM:
-                case RULE_DBL_GT:
-                case RULE_CARET:
+                case RULE_STRING:
+                case RULE_TRUE_KEYWORD:
+                case RULE_FALSE_KEYWORD:
+                case RULE_EXACT_KEYWORD:
+                case RULE_MATCH_KEYWORD:
+                case RULE_REGEX_KEYWORD:
+                case RULE_WILD_KEYWORD:
+                case RULE_HASH:
                     {
-                    alt13=1;
+                    alt13=2;
                     }
                     break;
                 case RULE_ROUND_OPEN:
@@ -9909,16 +9905,20 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                     }
                     }
                     break;
-                case RULE_STRING:
-                case RULE_TRUE_KEYWORD:
-                case RULE_FALSE_KEYWORD:
-                case RULE_EXACT_KEYWORD:
-                case RULE_MATCH_KEYWORD:
-                case RULE_REGEX_KEYWORD:
-                case RULE_WILD_KEYWORD:
-                case RULE_HASH:
+                case RULE_WILDCARD:
+                case RULE_DIGIT_NONZERO:
+                case RULE_DIGIT_ZERO:
+                case RULE_GT:
+                case RULE_LT:
+                case RULE_LT_EM:
+                case RULE_DBL_LT_EM:
+                case RULE_DBL_LT:
+                case RULE_GT_EM:
+                case RULE_DBL_GT_EM:
+                case RULE_DBL_GT:
+                case RULE_CARET:
                     {
-                    alt13=2;
+                    alt13=1;
                     }
                     break;
                 default:
@@ -11348,11 +11348,11 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
             if ( (LA25_0==RULE_ROUND_OPEN) ) {
                 int LA25_1 = input.LA(2);
 
-                if ( (LA25_1==RULE_CONJUNCTION_KEYWORD||(LA25_1>=RULE_TRUE_KEYWORD && LA25_1<=RULE_KEYWORD)) ) {
-                    alt25=2;
-                }
-                else if ( ((LA25_1>=RULE_DIGIT_NONZERO && LA25_1<=RULE_DIGIT_ZERO)) ) {
+                if ( ((LA25_1>=RULE_DIGIT_NONZERO && LA25_1<=RULE_DIGIT_ZERO)) ) {
                     alt25=1;
+                }
+                else if ( (LA25_1==RULE_CONJUNCTION_KEYWORD||(LA25_1>=RULE_TRUE_KEYWORD && LA25_1<=RULE_KEYWORD)) ) {
+                    alt25=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -16037,28 +16037,28 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DottedExpressionConstraint__Group__0__Impl"
-    // InternalEcl.g:4531:1: rule__DottedExpressionConstraint__Group__0__Impl : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:4531:1: rule__DottedExpressionConstraint__Group__0__Impl : ( ruleSupplementExpressionConstraint ) ;
     public final void rule__DottedExpressionConstraint__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4535:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:4536:1: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:4535:1: ( ( ruleSupplementExpressionConstraint ) )
+            // InternalEcl.g:4536:1: ( ruleSupplementExpressionConstraint )
             {
-            // InternalEcl.g:4536:1: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:4537:2: ruleFilteredExpressionConstraint
+            // InternalEcl.g:4536:1: ( ruleSupplementExpressionConstraint )
+            // InternalEcl.g:4537:2: ruleSupplementExpressionConstraint
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDottedExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); 
+               before(grammarAccess.getDottedExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); 
             }
             pushFollow(FollowSets000.FOLLOW_2);
-            ruleFilteredExpressionConstraint();
+            ruleSupplementExpressionConstraint();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDottedExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); 
+               after(grammarAccess.getDottedExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); 
             }
 
             }
@@ -16425,363 +16425,15 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DottedExpressionConstraint__Group_1__2__Impl"
 
 
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group__0"
-    // InternalEcl.g:4654:1: rule__FilteredExpressionConstraint__Group__0 : rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1 ;
-    public final void rule__FilteredExpressionConstraint__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4658:1: ( rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1 )
-            // InternalEcl.g:4659:2: rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1
-            {
-            pushFollow(FollowSets000.FOLLOW_15);
-            rule__FilteredExpressionConstraint__Group__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__Group__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group__0"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group__0__Impl"
-    // InternalEcl.g:4666:1: rule__FilteredExpressionConstraint__Group__0__Impl : ( ruleSupplementExpressionConstraint ) ;
-    public final void rule__FilteredExpressionConstraint__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4670:1: ( ( ruleSupplementExpressionConstraint ) )
-            // InternalEcl.g:4671:1: ( ruleSupplementExpressionConstraint )
-            {
-            // InternalEcl.g:4671:1: ( ruleSupplementExpressionConstraint )
-            // InternalEcl.g:4672:2: ruleSupplementExpressionConstraint
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); 
-            }
-            pushFollow(FollowSets000.FOLLOW_2);
-            ruleSupplementExpressionConstraint();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getSupplementExpressionConstraintParserRuleCall_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group__0__Impl"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group__1"
-    // InternalEcl.g:4681:1: rule__FilteredExpressionConstraint__Group__1 : rule__FilteredExpressionConstraint__Group__1__Impl ;
-    public final void rule__FilteredExpressionConstraint__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4685:1: ( rule__FilteredExpressionConstraint__Group__1__Impl )
-            // InternalEcl.g:4686:2: rule__FilteredExpressionConstraint__Group__1__Impl
-            {
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__Group__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group__1"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group__1__Impl"
-    // InternalEcl.g:4692:1: rule__FilteredExpressionConstraint__Group__1__Impl : ( ( rule__FilteredExpressionConstraint__Group_1__0 )* ) ;
-    public final void rule__FilteredExpressionConstraint__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4696:1: ( ( ( rule__FilteredExpressionConstraint__Group_1__0 )* ) )
-            // InternalEcl.g:4697:1: ( ( rule__FilteredExpressionConstraint__Group_1__0 )* )
-            {
-            // InternalEcl.g:4697:1: ( ( rule__FilteredExpressionConstraint__Group_1__0 )* )
-            // InternalEcl.g:4698:2: ( rule__FilteredExpressionConstraint__Group_1__0 )*
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1()); 
-            }
-            // InternalEcl.g:4699:2: ( rule__FilteredExpressionConstraint__Group_1__0 )*
-            loop52:
-            do {
-                int alt52=2;
-                int LA52_0 = input.LA(1);
-
-                if ( (LA52_0==RULE_DOUBLE_CURLY_OPEN) ) {
-                    alt52=1;
-                }
-
-
-                switch (alt52) {
-            	case 1 :
-            	    // InternalEcl.g:4699:3: rule__FilteredExpressionConstraint__Group_1__0
-            	    {
-            	    pushFollow(FollowSets000.FOLLOW_16);
-            	    rule__FilteredExpressionConstraint__Group_1__0();
-
-            	    state._fsp--;
-            	    if (state.failed) return ;
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop52;
-                }
-            } while (true);
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group__1__Impl"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__0"
-    // InternalEcl.g:4708:1: rule__FilteredExpressionConstraint__Group_1__0 : rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1 ;
-    public final void rule__FilteredExpressionConstraint__Group_1__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4712:1: ( rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1 )
-            // InternalEcl.g:4713:2: rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1
-            {
-            pushFollow(FollowSets000.FOLLOW_15);
-            rule__FilteredExpressionConstraint__Group_1__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__Group_1__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__0"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__0__Impl"
-    // InternalEcl.g:4720:1: rule__FilteredExpressionConstraint__Group_1__0__Impl : ( () ) ;
-    public final void rule__FilteredExpressionConstraint__Group_1__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4724:1: ( ( () ) )
-            // InternalEcl.g:4725:1: ( () )
-            {
-            // InternalEcl.g:4725:1: ( () )
-            // InternalEcl.g:4726:2: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0()); 
-            }
-            // InternalEcl.g:4727:2: ()
-            // InternalEcl.g:4727:3: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__0__Impl"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__1"
-    // InternalEcl.g:4735:1: rule__FilteredExpressionConstraint__Group_1__1 : rule__FilteredExpressionConstraint__Group_1__1__Impl ;
-    public final void rule__FilteredExpressionConstraint__Group_1__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4739:1: ( rule__FilteredExpressionConstraint__Group_1__1__Impl )
-            // InternalEcl.g:4740:2: rule__FilteredExpressionConstraint__Group_1__1__Impl
-            {
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__Group_1__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__1"
-
-
-    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__1__Impl"
-    // InternalEcl.g:4746:1: rule__FilteredExpressionConstraint__Group_1__1__Impl : ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) ) ;
-    public final void rule__FilteredExpressionConstraint__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:4750:1: ( ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) ) )
-            // InternalEcl.g:4751:1: ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) )
-            {
-            // InternalEcl.g:4751:1: ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) )
-            // InternalEcl.g:4752:2: ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); 
-            }
-            // InternalEcl.g:4753:2: ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 )
-            // InternalEcl.g:4753:3: rule__FilteredExpressionConstraint__FilterAssignment_1_1
-            {
-            pushFollow(FollowSets000.FOLLOW_2);
-            rule__FilteredExpressionConstraint__FilterAssignment_1_1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__1__Impl"
-
-
     // $ANTLR start "rule__SupplementExpressionConstraint__Group__0"
-    // InternalEcl.g:4762:1: rule__SupplementExpressionConstraint__Group__0 : rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1 ;
+    // InternalEcl.g:4654:1: rule__SupplementExpressionConstraint__Group__0 : rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1 ;
     public final void rule__SupplementExpressionConstraint__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4766:1: ( rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1 )
-            // InternalEcl.g:4767:2: rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1
+            // InternalEcl.g:4658:1: ( rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1 )
+            // InternalEcl.g:4659:2: rule__SupplementExpressionConstraint__Group__0__Impl rule__SupplementExpressionConstraint__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_15);
             rule__SupplementExpressionConstraint__Group__0__Impl();
@@ -16812,28 +16464,28 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group__0__Impl"
-    // InternalEcl.g:4774:1: rule__SupplementExpressionConstraint__Group__0__Impl : ( ruleSubExpressionConstraint ) ;
+    // InternalEcl.g:4666:1: rule__SupplementExpressionConstraint__Group__0__Impl : ( ruleFilteredExpressionConstraint ) ;
     public final void rule__SupplementExpressionConstraint__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4778:1: ( ( ruleSubExpressionConstraint ) )
-            // InternalEcl.g:4779:1: ( ruleSubExpressionConstraint )
+            // InternalEcl.g:4670:1: ( ( ruleFilteredExpressionConstraint ) )
+            // InternalEcl.g:4671:1: ( ruleFilteredExpressionConstraint )
             {
-            // InternalEcl.g:4779:1: ( ruleSubExpressionConstraint )
-            // InternalEcl.g:4780:2: ruleSubExpressionConstraint
+            // InternalEcl.g:4671:1: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:4672:2: ruleFilteredExpressionConstraint
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSupplementExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); 
+               before(grammarAccess.getSupplementExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); 
             }
             pushFollow(FollowSets000.FOLLOW_2);
-            ruleSubExpressionConstraint();
+            ruleFilteredExpressionConstraint();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSupplementExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); 
+               after(grammarAccess.getSupplementExpressionConstraintAccess().getFilteredExpressionConstraintParserRuleCall_0()); 
             }
 
             }
@@ -16857,14 +16509,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group__1"
-    // InternalEcl.g:4789:1: rule__SupplementExpressionConstraint__Group__1 : rule__SupplementExpressionConstraint__Group__1__Impl ;
+    // InternalEcl.g:4681:1: rule__SupplementExpressionConstraint__Group__1 : rule__SupplementExpressionConstraint__Group__1__Impl ;
     public final void rule__SupplementExpressionConstraint__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4793:1: ( rule__SupplementExpressionConstraint__Group__1__Impl )
-            // InternalEcl.g:4794:2: rule__SupplementExpressionConstraint__Group__1__Impl
+            // InternalEcl.g:4685:1: ( rule__SupplementExpressionConstraint__Group__1__Impl )
+            // InternalEcl.g:4686:2: rule__SupplementExpressionConstraint__Group__1__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SupplementExpressionConstraint__Group__1__Impl();
@@ -16890,55 +16542,42 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group__1__Impl"
-    // InternalEcl.g:4800:1: rule__SupplementExpressionConstraint__Group__1__Impl : ( ( rule__SupplementExpressionConstraint__Group_1__0 )* ) ;
+    // InternalEcl.g:4692:1: rule__SupplementExpressionConstraint__Group__1__Impl : ( ( rule__SupplementExpressionConstraint__Group_1__0 )? ) ;
     public final void rule__SupplementExpressionConstraint__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4804:1: ( ( ( rule__SupplementExpressionConstraint__Group_1__0 )* ) )
-            // InternalEcl.g:4805:1: ( ( rule__SupplementExpressionConstraint__Group_1__0 )* )
+            // InternalEcl.g:4696:1: ( ( ( rule__SupplementExpressionConstraint__Group_1__0 )? ) )
+            // InternalEcl.g:4697:1: ( ( rule__SupplementExpressionConstraint__Group_1__0 )? )
             {
-            // InternalEcl.g:4805:1: ( ( rule__SupplementExpressionConstraint__Group_1__0 )* )
-            // InternalEcl.g:4806:2: ( rule__SupplementExpressionConstraint__Group_1__0 )*
+            // InternalEcl.g:4697:1: ( ( rule__SupplementExpressionConstraint__Group_1__0 )? )
+            // InternalEcl.g:4698:2: ( rule__SupplementExpressionConstraint__Group_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); 
             }
-            // InternalEcl.g:4807:2: ( rule__SupplementExpressionConstraint__Group_1__0 )*
-            loop53:
-            do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
+            // InternalEcl.g:4699:2: ( rule__SupplementExpressionConstraint__Group_1__0 )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-                if ( (LA53_0==RULE_DOUBLE_CURLY_OPEN) ) {
-                    int LA53_2 = input.LA(2);
+            if ( (LA52_0==RULE_DOUBLE_CURLY_OPEN) ) {
+                alt52=1;
+            }
+            switch (alt52) {
+                case 1 :
+                    // InternalEcl.g:4699:3: rule__SupplementExpressionConstraint__Group_1__0
+                    {
+                    pushFollow(FollowSets000.FOLLOW_2);
+                    rule__SupplementExpressionConstraint__Group_1__0();
 
-                    if ( (LA53_2==RULE_PLUS) ) {
-                        alt53=1;
+                    state._fsp--;
+                    if (state.failed) return ;
+
                     }
+                    break;
 
-
-                }
-
-
-                switch (alt53) {
-            	case 1 :
-            	    // InternalEcl.g:4807:3: rule__SupplementExpressionConstraint__Group_1__0
-            	    {
-            	    pushFollow(FollowSets000.FOLLOW_16);
-            	    rule__SupplementExpressionConstraint__Group_1__0();
-
-            	    state._fsp--;
-            	    if (state.failed) return ;
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop53;
-                }
-            } while (true);
+            }
 
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSupplementExpressionConstraintAccess().getGroup_1()); 
@@ -16965,14 +16604,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group_1__0"
-    // InternalEcl.g:4816:1: rule__SupplementExpressionConstraint__Group_1__0 : rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1 ;
+    // InternalEcl.g:4708:1: rule__SupplementExpressionConstraint__Group_1__0 : rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1 ;
     public final void rule__SupplementExpressionConstraint__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4820:1: ( rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1 )
-            // InternalEcl.g:4821:2: rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1
+            // InternalEcl.g:4712:1: ( rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1 )
+            // InternalEcl.g:4713:2: rule__SupplementExpressionConstraint__Group_1__0__Impl rule__SupplementExpressionConstraint__Group_1__1
             {
             pushFollow(FollowSets000.FOLLOW_15);
             rule__SupplementExpressionConstraint__Group_1__0__Impl();
@@ -17003,23 +16642,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group_1__0__Impl"
-    // InternalEcl.g:4828:1: rule__SupplementExpressionConstraint__Group_1__0__Impl : ( () ) ;
+    // InternalEcl.g:4720:1: rule__SupplementExpressionConstraint__Group_1__0__Impl : ( () ) ;
     public final void rule__SupplementExpressionConstraint__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4832:1: ( ( () ) )
-            // InternalEcl.g:4833:1: ( () )
+            // InternalEcl.g:4724:1: ( ( () ) )
+            // InternalEcl.g:4725:1: ( () )
             {
-            // InternalEcl.g:4833:1: ( () )
-            // InternalEcl.g:4834:2: ()
+            // InternalEcl.g:4725:1: ( () )
+            // InternalEcl.g:4726:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementExpressionConstraintConstraintAction_1_0()); 
             }
-            // InternalEcl.g:4835:2: ()
-            // InternalEcl.g:4835:3: 
+            // InternalEcl.g:4727:2: ()
+            // InternalEcl.g:4727:3: 
             {
             }
 
@@ -17044,14 +16683,14 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group_1__1"
-    // InternalEcl.g:4843:1: rule__SupplementExpressionConstraint__Group_1__1 : rule__SupplementExpressionConstraint__Group_1__1__Impl ;
+    // InternalEcl.g:4735:1: rule__SupplementExpressionConstraint__Group_1__1 : rule__SupplementExpressionConstraint__Group_1__1__Impl ;
     public final void rule__SupplementExpressionConstraint__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4847:1: ( rule__SupplementExpressionConstraint__Group_1__1__Impl )
-            // InternalEcl.g:4848:2: rule__SupplementExpressionConstraint__Group_1__1__Impl
+            // InternalEcl.g:4739:1: ( rule__SupplementExpressionConstraint__Group_1__1__Impl )
+            // InternalEcl.g:4740:2: rule__SupplementExpressionConstraint__Group_1__1__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SupplementExpressionConstraint__Group_1__1__Impl();
@@ -17077,23 +16716,23 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SupplementExpressionConstraint__Group_1__1__Impl"
-    // InternalEcl.g:4854:1: rule__SupplementExpressionConstraint__Group_1__1__Impl : ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) ) ;
+    // InternalEcl.g:4746:1: rule__SupplementExpressionConstraint__Group_1__1__Impl : ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) ) ;
     public final void rule__SupplementExpressionConstraint__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:4858:1: ( ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) ) )
-            // InternalEcl.g:4859:1: ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) )
+            // InternalEcl.g:4750:1: ( ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) ) )
+            // InternalEcl.g:4751:1: ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) )
             {
-            // InternalEcl.g:4859:1: ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) )
-            // InternalEcl.g:4860:2: ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 )
+            // InternalEcl.g:4751:1: ( ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 ) )
+            // InternalEcl.g:4752:2: ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementAssignment_1_1()); 
             }
-            // InternalEcl.g:4861:2: ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 )
-            // InternalEcl.g:4861:3: rule__SupplementExpressionConstraint__SupplementAssignment_1_1
+            // InternalEcl.g:4753:2: ( rule__SupplementExpressionConstraint__SupplementAssignment_1_1 )
+            // InternalEcl.g:4753:3: rule__SupplementExpressionConstraint__SupplementAssignment_1_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SupplementExpressionConstraint__SupplementAssignment_1_1();
@@ -17125,6 +16764,360 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__SupplementExpressionConstraint__Group_1__1__Impl"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group__0"
+    // InternalEcl.g:4762:1: rule__FilteredExpressionConstraint__Group__0 : rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1 ;
+    public final void rule__FilteredExpressionConstraint__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4766:1: ( rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1 )
+            // InternalEcl.g:4767:2: rule__FilteredExpressionConstraint__Group__0__Impl rule__FilteredExpressionConstraint__Group__1
+            {
+            pushFollow(FollowSets000.FOLLOW_15);
+            rule__FilteredExpressionConstraint__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group__0"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group__0__Impl"
+    // InternalEcl.g:4774:1: rule__FilteredExpressionConstraint__Group__0__Impl : ( ruleSubExpressionConstraint ) ;
+    public final void rule__FilteredExpressionConstraint__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4778:1: ( ( ruleSubExpressionConstraint ) )
+            // InternalEcl.g:4779:1: ( ruleSubExpressionConstraint )
+            {
+            // InternalEcl.g:4779:1: ( ruleSubExpressionConstraint )
+            // InternalEcl.g:4780:2: ruleSubExpressionConstraint
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); 
+            }
+            pushFollow(FollowSets000.FOLLOW_2);
+            ruleSubExpressionConstraint();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getSubExpressionConstraintParserRuleCall_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group__0__Impl"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group__1"
+    // InternalEcl.g:4789:1: rule__FilteredExpressionConstraint__Group__1 : rule__FilteredExpressionConstraint__Group__1__Impl ;
+    public final void rule__FilteredExpressionConstraint__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4793:1: ( rule__FilteredExpressionConstraint__Group__1__Impl )
+            // InternalEcl.g:4794:2: rule__FilteredExpressionConstraint__Group__1__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group__1"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group__1__Impl"
+    // InternalEcl.g:4800:1: rule__FilteredExpressionConstraint__Group__1__Impl : ( ( rule__FilteredExpressionConstraint__Group_1__0 )* ) ;
+    public final void rule__FilteredExpressionConstraint__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4804:1: ( ( ( rule__FilteredExpressionConstraint__Group_1__0 )* ) )
+            // InternalEcl.g:4805:1: ( ( rule__FilteredExpressionConstraint__Group_1__0 )* )
+            {
+            // InternalEcl.g:4805:1: ( ( rule__FilteredExpressionConstraint__Group_1__0 )* )
+            // InternalEcl.g:4806:2: ( rule__FilteredExpressionConstraint__Group_1__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1()); 
+            }
+            // InternalEcl.g:4807:2: ( rule__FilteredExpressionConstraint__Group_1__0 )*
+            loop53:
+            do {
+                int alt53=2;
+                int LA53_0 = input.LA(1);
+
+                if ( (LA53_0==RULE_DOUBLE_CURLY_OPEN) ) {
+                    int LA53_2 = input.LA(2);
+
+                    if ( (LA53_2==RULE_CONJUNCTION_KEYWORD||(LA53_2>=RULE_TRUE_KEYWORD && LA53_2<=RULE_KEYWORD)||LA53_2==RULE_ROUND_OPEN) ) {
+                        alt53=1;
+                    }
+
+
+                }
+
+
+                switch (alt53) {
+            	case 1 :
+            	    // InternalEcl.g:4807:3: rule__FilteredExpressionConstraint__Group_1__0
+            	    {
+            	    pushFollow(FollowSets000.FOLLOW_16);
+            	    rule__FilteredExpressionConstraint__Group_1__0();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop53;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getGroup_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group__1__Impl"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__0"
+    // InternalEcl.g:4816:1: rule__FilteredExpressionConstraint__Group_1__0 : rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1 ;
+    public final void rule__FilteredExpressionConstraint__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4820:1: ( rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1 )
+            // InternalEcl.g:4821:2: rule__FilteredExpressionConstraint__Group_1__0__Impl rule__FilteredExpressionConstraint__Group_1__1
+            {
+            pushFollow(FollowSets000.FOLLOW_15);
+            rule__FilteredExpressionConstraint__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__Group_1__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__0"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__0__Impl"
+    // InternalEcl.g:4828:1: rule__FilteredExpressionConstraint__Group_1__0__Impl : ( () ) ;
+    public final void rule__FilteredExpressionConstraint__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4832:1: ( ( () ) )
+            // InternalEcl.g:4833:1: ( () )
+            {
+            // InternalEcl.g:4833:1: ( () )
+            // InternalEcl.g:4834:2: ()
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0()); 
+            }
+            // InternalEcl.g:4835:2: ()
+            // InternalEcl.g:4835:3: 
+            {
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilteredExpressionConstraintConstraintAction_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__1"
+    // InternalEcl.g:4843:1: rule__FilteredExpressionConstraint__Group_1__1 : rule__FilteredExpressionConstraint__Group_1__1__Impl ;
+    public final void rule__FilteredExpressionConstraint__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4847:1: ( rule__FilteredExpressionConstraint__Group_1__1__Impl )
+            // InternalEcl.g:4848:2: rule__FilteredExpressionConstraint__Group_1__1__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__Group_1__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__1"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__Group_1__1__Impl"
+    // InternalEcl.g:4854:1: rule__FilteredExpressionConstraint__Group_1__1__Impl : ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) ) ;
+    public final void rule__FilteredExpressionConstraint__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:4858:1: ( ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) ) )
+            // InternalEcl.g:4859:1: ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) )
+            {
+            // InternalEcl.g:4859:1: ( ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 ) )
+            // InternalEcl.g:4860:2: ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); 
+            }
+            // InternalEcl.g:4861:2: ( rule__FilteredExpressionConstraint__FilterAssignment_1_1 )
+            // InternalEcl.g:4861:3: rule__FilteredExpressionConstraint__FilterAssignment_1_1
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__FilteredExpressionConstraint__FilterAssignment_1_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterAssignment_1_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__Group_1__1__Impl"
 
 
     // $ANTLR start "rule__ChildOf__Group__0"
@@ -34954,28 +34947,28 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DottedExpressionConstraint__AttributeAssignment_1_2"
-    // InternalEcl.g:10509:1: rule__DottedExpressionConstraint__AttributeAssignment_1_2 : ( ruleFilteredExpressionConstraint ) ;
+    // InternalEcl.g:10509:1: rule__DottedExpressionConstraint__AttributeAssignment_1_2 : ( ruleSupplementExpressionConstraint ) ;
     public final void rule__DottedExpressionConstraint__AttributeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10513:1: ( ( ruleFilteredExpressionConstraint ) )
-            // InternalEcl.g:10514:2: ( ruleFilteredExpressionConstraint )
+            // InternalEcl.g:10513:1: ( ( ruleSupplementExpressionConstraint ) )
+            // InternalEcl.g:10514:2: ( ruleSupplementExpressionConstraint )
             {
-            // InternalEcl.g:10514:2: ( ruleFilteredExpressionConstraint )
-            // InternalEcl.g:10515:3: ruleFilteredExpressionConstraint
+            // InternalEcl.g:10514:2: ( ruleSupplementExpressionConstraint )
+            // InternalEcl.g:10515:3: ruleSupplementExpressionConstraint
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0()); 
+               before(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0()); 
             }
             pushFollow(FollowSets000.FOLLOW_2);
-            ruleFilteredExpressionConstraint();
+            ruleSupplementExpressionConstraint();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDottedExpressionConstraintAccess().getAttributeFilteredExpressionConstraintParserRuleCall_1_2_0()); 
+               after(grammarAccess.getDottedExpressionConstraintAccess().getAttributeSupplementExpressionConstraintParserRuleCall_1_2_0()); 
             }
 
             }
@@ -34998,63 +34991,18 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DottedExpressionConstraint__AttributeAssignment_1_2"
 
 
-    // $ANTLR start "rule__FilteredExpressionConstraint__FilterAssignment_1_1"
-    // InternalEcl.g:10524:1: rule__FilteredExpressionConstraint__FilterAssignment_1_1 : ( ruleFilterConstraint ) ;
-    public final void rule__FilteredExpressionConstraint__FilterAssignment_1_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEcl.g:10528:1: ( ( ruleFilterConstraint ) )
-            // InternalEcl.g:10529:2: ( ruleFilterConstraint )
-            {
-            // InternalEcl.g:10529:2: ( ruleFilterConstraint )
-            // InternalEcl.g:10530:3: ruleFilterConstraint
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); 
-            }
-            pushFollow(FollowSets000.FOLLOW_2);
-            ruleFilterConstraint();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FilteredExpressionConstraint__FilterAssignment_1_1"
-
-
     // $ANTLR start "rule__SupplementExpressionConstraint__SupplementAssignment_1_1"
-    // InternalEcl.g:10539:1: rule__SupplementExpressionConstraint__SupplementAssignment_1_1 : ( ruleSupplement ) ;
+    // InternalEcl.g:10524:1: rule__SupplementExpressionConstraint__SupplementAssignment_1_1 : ( ruleSupplement ) ;
     public final void rule__SupplementExpressionConstraint__SupplementAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEcl.g:10543:1: ( ( ruleSupplement ) )
-            // InternalEcl.g:10544:2: ( ruleSupplement )
+            // InternalEcl.g:10528:1: ( ( ruleSupplement ) )
+            // InternalEcl.g:10529:2: ( ruleSupplement )
             {
-            // InternalEcl.g:10544:2: ( ruleSupplement )
-            // InternalEcl.g:10545:3: ruleSupplement
+            // InternalEcl.g:10529:2: ( ruleSupplement )
+            // InternalEcl.g:10530:3: ruleSupplement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSupplementExpressionConstraintAccess().getSupplementSupplementParserRuleCall_1_1_0()); 
@@ -35086,6 +35034,51 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__SupplementExpressionConstraint__SupplementAssignment_1_1"
+
+
+    // $ANTLR start "rule__FilteredExpressionConstraint__FilterAssignment_1_1"
+    // InternalEcl.g:10539:1: rule__FilteredExpressionConstraint__FilterAssignment_1_1 : ( ruleFilterConstraint ) ;
+    public final void rule__FilteredExpressionConstraint__FilterAssignment_1_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEcl.g:10543:1: ( ( ruleFilterConstraint ) )
+            // InternalEcl.g:10544:2: ( ruleFilterConstraint )
+            {
+            // InternalEcl.g:10544:2: ( ruleFilterConstraint )
+            // InternalEcl.g:10545:3: ruleFilterConstraint
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); 
+            }
+            pushFollow(FollowSets000.FOLLOW_2);
+            ruleFilterConstraint();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFilteredExpressionConstraintAccess().getFilterFilterConstraintParserRuleCall_1_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FilteredExpressionConstraint__FilterAssignment_1_1"
 
 
     // $ANTLR start "rule__ChildOf__ConstraintAssignment_1"
@@ -40150,7 +40143,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
     static final String dfa_3s = "\1\5\1\uffff\45\0\1\uffff";
     static final String dfa_4s = "\1\107\1\uffff\45\0\1\uffff";
     static final String dfa_5s = "\1\uffff\1\2\45\uffff\1\1";
-    static final String dfa_6s = "\2\uffff\1\35\1\25\1\42\1\12\1\4\1\30\1\0\1\22\1\15\1\43\1\10\1\36\1\26\1\6\1\21\1\3\1\40\1\17\1\32\1\13\1\5\1\31\1\1\1\23\1\16\1\44\1\11\1\37\1\27\1\7\1\41\1\20\1\33\1\14\1\34\1\2\1\24\1\uffff}>";
+    static final String dfa_6s = "\2\uffff\1\11\1\41\1\2\1\31\1\0\1\25\1\20\1\43\1\14\1\37\1\27\1\12\1\23\1\3\1\42\1\22\1\35\1\16\1\5\1\32\1\1\1\26\1\21\1\44\1\15\1\40\1\30\1\13\1\24\1\4\1\36\1\17\1\6\1\33\1\7\1\10\1\34\1\uffff}>";
     static final String[] dfa_7s = {
             "\1\2\1\1\1\uffff\1\4\1\uffff\1\46\1\45\1\uffff\1\32\1\26\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\1\3\1\40\1\41\1\42\1\43\1\44\21\uffff\2\1\5\uffff\2\1",
             "",
@@ -40223,66 +40216,6 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA3_8 = input.LA(1);
-
-                         
-                        int index3_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA3_24 = input.LA(1);
-
-                         
-                        int index3_24 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_24);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA3_37 = input.LA(1);
-
-                         
-                        int index3_37 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_37);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA3_17 = input.LA(1);
-
-                         
-                        int index3_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
                         int LA3_6 = input.LA(1);
 
                          
@@ -40297,7 +40230,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_6);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
+                    case 1 : 
                         int LA3_22 = input.LA(1);
 
                          
@@ -40312,427 +40245,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_22);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
-                        int LA3_15 = input.LA(1);
-
-                         
-                        int index3_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA3_31 = input.LA(1);
-
-                         
-                        int index3_31 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_31);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA3_12 = input.LA(1);
-
-                         
-                        int index3_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA3_28 = input.LA(1);
-
-                         
-                        int index3_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA3_5 = input.LA(1);
-
-                         
-                        int index3_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA3_21 = input.LA(1);
-
-                         
-                        int index3_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA3_35 = input.LA(1);
-
-                         
-                        int index3_35 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_35);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
-                        int LA3_10 = input.LA(1);
-
-                         
-                        int index3_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA3_26 = input.LA(1);
-
-                         
-                        int index3_26 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_26);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA3_19 = input.LA(1);
-
-                         
-                        int index3_19 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_19);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA3_33 = input.LA(1);
-
-                         
-                        int index3_33 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_33);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA3_16 = input.LA(1);
-
-                         
-                        int index3_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA3_9 = input.LA(1);
-
-                         
-                        int index3_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA3_25 = input.LA(1);
-
-                         
-                        int index3_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA3_38 = input.LA(1);
-
-                         
-                        int index3_38 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_38);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA3_3 = input.LA(1);
-
-                         
-                        int index3_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA3_14 = input.LA(1);
-
-                         
-                        int index3_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA3_30 = input.LA(1);
-
-                         
-                        int index3_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 24 : 
-                        int LA3_7 = input.LA(1);
-
-                         
-                        int index3_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
-                        int LA3_23 = input.LA(1);
-
-                         
-                        int index3_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 26 : 
-                        int LA3_20 = input.LA(1);
-
-                         
-                        int index3_20 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_20);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 27 : 
-                        int LA3_34 = input.LA(1);
-
-                         
-                        int index3_34 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_34);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
-                        int LA3_36 = input.LA(1);
-
-                         
-                        int index3_36 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_36);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 29 : 
-                        int LA3_2 = input.LA(1);
-
-                         
-                        int index3_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 30 : 
-                        int LA3_13 = input.LA(1);
-
-                         
-                        int index3_13 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_13);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 31 : 
-                        int LA3_29 = input.LA(1);
-
-                         
-                        int index3_29 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_29);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 32 : 
-                        int LA3_18 = input.LA(1);
-
-                         
-                        int index3_18 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_18);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 33 : 
-                        int LA3_32 = input.LA(1);
-
-                         
-                        int index3_32 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred3_InternalEcl()) ) {s = 39;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index3_32);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 34 : 
+                    case 2 : 
                         int LA3_4 = input.LA(1);
 
                          
@@ -40747,7 +40260,427 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 35 : 
+                    case 3 : 
+                        int LA3_15 = input.LA(1);
+
+                         
+                        int index3_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA3_31 = input.LA(1);
+
+                         
+                        int index3_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA3_20 = input.LA(1);
+
+                         
+                        int index3_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA3_34 = input.LA(1);
+
+                         
+                        int index3_34 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_34);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA3_36 = input.LA(1);
+
+                         
+                        int index3_36 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_36);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA3_37 = input.LA(1);
+
+                         
+                        int index3_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA3_2 = input.LA(1);
+
+                         
+                        int index3_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA3_13 = input.LA(1);
+
+                         
+                        int index3_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA3_29 = input.LA(1);
+
+                         
+                        int index3_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA3_10 = input.LA(1);
+
+                         
+                        int index3_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA3_26 = input.LA(1);
+
+                         
+                        int index3_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA3_19 = input.LA(1);
+
+                         
+                        int index3_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA3_33 = input.LA(1);
+
+                         
+                        int index3_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA3_8 = input.LA(1);
+
+                         
+                        int index3_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA3_24 = input.LA(1);
+
+                         
+                        int index3_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA3_17 = input.LA(1);
+
+                         
+                        int index3_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA3_14 = input.LA(1);
+
+                         
+                        int index3_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA3_30 = input.LA(1);
+
+                         
+                        int index3_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA3_7 = input.LA(1);
+
+                         
+                        int index3_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA3_23 = input.LA(1);
+
+                         
+                        int index3_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA3_12 = input.LA(1);
+
+                         
+                        int index3_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA3_28 = input.LA(1);
+
+                         
+                        int index3_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA3_5 = input.LA(1);
+
+                         
+                        int index3_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA3_21 = input.LA(1);
+
+                         
+                        int index3_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA3_35 = input.LA(1);
+
+                         
+                        int index3_35 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_35);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA3_38 = input.LA(1);
+
+                         
+                        int index3_38 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_38);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA3_18 = input.LA(1);
+
+                         
+                        int index3_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA3_32 = input.LA(1);
+
+                         
+                        int index3_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_32);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
                         int LA3_11 = input.LA(1);
 
                          
@@ -40762,7 +40695,7 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
                         input.seek(index3_11);
                         if ( s>=0 ) return s;
                         break;
-                    case 36 : 
+                    case 32 : 
                         int LA3_27 = input.LA(1);
 
                          
@@ -40775,6 +40708,66 @@ public class InternalEclParser extends AbstractInternalContentAssistParser {
 
                          
                         input.seek(index3_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 33 : 
+                        int LA3_3 = input.LA(1);
+
+                         
+                        int index3_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 34 : 
+                        int LA3_16 = input.LA(1);
+
+                         
+                        int index3_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 35 : 
+                        int LA3_9 = input.LA(1);
+
+                         
+                        int index3_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 36 : 
+                        int LA3_25 = input.LA(1);
+
+                         
+                        int index3_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalEcl()) ) {s = 39;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index3_25);
                         if ( s>=0 ) return s;
                         break;
             }
