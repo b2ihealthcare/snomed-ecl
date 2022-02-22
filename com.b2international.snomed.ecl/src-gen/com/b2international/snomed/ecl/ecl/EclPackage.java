@@ -127,22 +127,13 @@ public interface EclPackage extends EPackage
   int EXPRESSION_CONSTRAINT = 1;
 
   /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_CONSTRAINT__PROFILE = FILTER_VALUE_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Expression Constraint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = FILTER_VALUE_FEATURE_COUNT + 1;
+  int EXPRESSION_CONSTRAINT_FEATURE_COUNT = FILTER_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOfImpl <em>Child Of</em>}' class.
@@ -153,15 +144,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int CHILD_OF = 2;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -192,15 +174,6 @@ public interface EclPackage extends EPackage
   int CHILD_OR_SELF_OF = 3;
 
   /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHILD_OR_SELF_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -227,15 +200,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int DESCENDANT_OF = 4;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -266,15 +230,6 @@ public interface EclPackage extends EPackage
   int DESCENDANT_OR_SELF_OF = 5;
 
   /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DESCENDANT_OR_SELF_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -301,15 +256,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int PARENT_OF = 6;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -340,15 +286,6 @@ public interface EclPackage extends EPackage
   int PARENT_OR_SELF_OF = 7;
 
   /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENT_OR_SELF_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -375,15 +312,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ANCESTOR_OF = 8;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -414,15 +342,6 @@ public interface EclPackage extends EPackage
   int ANCESTOR_OR_SELF_OF = 9;
 
   /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANCESTOR_OR_SELF_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
-
-  /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -449,15 +368,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int MEMBER_OF = 10;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_OF__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Refset Fields</b></em>' attribute list.
@@ -495,15 +405,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ECL_CONCEPT_REFERENCE = 11;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ECL_CONCEPT_REFERENCE__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -569,15 +470,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int ANY = 13;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANY__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The number of structural features of the '<em>Any</em>' class.
@@ -1014,15 +906,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   int NESTED_EXPRESSION = 26;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_EXPRESSION__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
 
   /**
    * The feature id for the '<em><b>Nested</b></em>' containment reference.
@@ -2131,14 +2014,14 @@ public interface EclPackage extends EPackage
   int HISTORY_SUPPLEMENT_FEATURE_COUNT = SUPPLEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl <em>Or Expression Constraint</em>}' class.
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.HistoryProfileImpl <em>History Profile</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
+   * @see com.b2international.snomed.ecl.ecl.impl.HistoryProfileImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getHistoryProfile()
    * @generated
    */
-  int OR_EXPRESSION_CONSTRAINT = 63;
+  int HISTORY_PROFILE = 63;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2147,7 +2030,26 @@ public interface EclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OR_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int HISTORY_PROFILE__PROFILE = 0;
+
+  /**
+   * The number of structural features of the '<em>History Profile</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HISTORY_PROFILE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl <em>Or Expression Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl
+   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
+   * @generated
+   */
+  int OR_EXPRESSION_CONSTRAINT = 64;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2184,16 +2086,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndExpressionConstraint()
    * @generated
    */
-  int AND_EXPRESSION_CONSTRAINT = 64;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int AND_EXPRESSION_CONSTRAINT = 65;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2230,16 +2123,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getExclusionExpressionConstraint()
    * @generated
    */
-  int EXCLUSION_EXPRESSION_CONSTRAINT = 65;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXCLUSION_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int EXCLUSION_EXPRESSION_CONSTRAINT = 66;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2276,16 +2160,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getRefinedExpressionConstraint()
    * @generated
    */
-  int REFINED_EXPRESSION_CONSTRAINT = 66;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFINED_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int REFINED_EXPRESSION_CONSTRAINT = 67;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2322,16 +2197,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDottedExpressionConstraint()
    * @generated
    */
-  int DOTTED_EXPRESSION_CONSTRAINT = 67;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOTTED_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int DOTTED_EXPRESSION_CONSTRAINT = 68;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2368,16 +2234,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplementExpressionConstraint()
    * @generated
    */
-  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 68;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUPPLEMENT_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 69;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2414,16 +2271,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
    * @generated
    */
-  int FILTERED_EXPRESSION_CONSTRAINT = 69;
-
-  /**
-   * The feature id for the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILTERED_EXPRESSION_CONSTRAINT__PROFILE = EXPRESSION_CONSTRAINT__PROFILE;
+  int FILTERED_EXPRESSION_CONSTRAINT = 70;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2460,7 +2308,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 70;
+  int OR_REFINEMENT = 71;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2497,7 +2345,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 71;
+  int AND_REFINEMENT = 72;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2534,7 +2382,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDisjunctionFilter()
    * @generated
    */
-  int DISJUNCTION_FILTER = 72;
+  int DISJUNCTION_FILTER = 73;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2571,7 +2419,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getConjunctionFilter()
    * @generated
    */
-  int CONJUNCTION_FILTER = 73;
+  int CONJUNCTION_FILTER = 74;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2631,17 +2479,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EClass getExpressionConstraint();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile <em>Profile</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Profile</em>'.
-   * @see com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile()
-   * @see #getExpressionConstraint()
-   * @generated
-   */
-  EAttribute getExpressionConstraint_Profile();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.ChildOf <em>Child Of</em>}'.
@@ -4024,6 +3861,27 @@ public interface EclPackage extends EPackage
   EReference getHistorySupplement_History();
 
   /**
+   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.HistoryProfile <em>History Profile</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>History Profile</em>'.
+   * @see com.b2international.snomed.ecl.ecl.HistoryProfile
+   * @generated
+   */
+  EClass getHistoryProfile();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.HistoryProfile#getProfile <em>Profile</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Profile</em>'.
+   * @see com.b2international.snomed.ecl.ecl.HistoryProfile#getProfile()
+   * @see #getHistoryProfile()
+   * @generated
+   */
+  EAttribute getHistoryProfile_Profile();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.OrExpressionConstraint <em>Or Expression Constraint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4425,14 +4283,6 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION_CONSTRAINT = eINSTANCE.getExpressionConstraint();
-
-    /**
-     * The meta object literal for the '<em><b>Profile</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION_CONSTRAINT__PROFILE = eINSTANCE.getExpressionConstraint_Profile();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.ChildOfImpl <em>Child Of</em>}' class.
@@ -5603,6 +5453,24 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EReference HISTORY_SUPPLEMENT__HISTORY = eINSTANCE.getHistorySupplement_History();
+
+    /**
+     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.HistoryProfileImpl <em>History Profile</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.b2international.snomed.ecl.ecl.impl.HistoryProfileImpl
+     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getHistoryProfile()
+     * @generated
+     */
+    EClass HISTORY_PROFILE = eINSTANCE.getHistoryProfile();
+
+    /**
+     * The meta object literal for the '<em><b>Profile</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HISTORY_PROFILE__PROFILE = eINSTANCE.getHistoryProfile_Profile();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.OrExpressionConstraintImpl <em>Or Expression Constraint</em>}' class.

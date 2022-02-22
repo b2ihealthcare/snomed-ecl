@@ -316,7 +316,7 @@ Supplement:
 HistorySupplement:
 	DOUBLE_CURLY_OPEN PLUS HISTORY_KEYWORD {HistorySupplement} history=(HistoryProfile | NestedExpression)? DOUBLE_CURLY_CLOSE;
 
-HistoryProfile returns ExpressionConstraint:
+HistoryProfile:
 	(DASH | UNDERSCORE) profile = HISTORY_PROFILE_TYPE;
 	
 /*

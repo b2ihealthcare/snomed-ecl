@@ -619,6 +619,13 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.HISTORY_PROFILE:
+      {
+        HistoryProfile historyProfile = (HistoryProfile)theEObject;
+        T result = caseHistoryProfile(historyProfile);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.OR_EXPRESSION_CONSTRAINT:
       {
         OrExpressionConstraint orExpressionConstraint = (OrExpressionConstraint)theEObject;
@@ -1722,6 +1729,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHistorySupplement(HistorySupplement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>History Profile</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>History Profile</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHistoryProfile(HistoryProfile object)
   {
     return null;
   }

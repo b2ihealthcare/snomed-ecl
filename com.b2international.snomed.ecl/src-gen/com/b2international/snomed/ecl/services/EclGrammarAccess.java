@@ -2657,7 +2657,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cProfileAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0 = (RuleCall)cProfileAssignment_1.eContents().get(0);
 		
-		//HistoryProfile ExpressionConstraint:
+		//HistoryProfile:
 		//	(DASH | UNDERSCORE) profile=HISTORY_PROFILE_TYPE;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4467,7 +4467,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getHistorySupplementAccess().getRule();
 	}
 	
-	//HistoryProfile ExpressionConstraint:
+	//HistoryProfile:
 	//	(DASH | UNDERSCORE) profile=HISTORY_PROFILE_TYPE;
 	public HistoryProfileElements getHistoryProfileAccess() {
 		return pHistoryProfile;

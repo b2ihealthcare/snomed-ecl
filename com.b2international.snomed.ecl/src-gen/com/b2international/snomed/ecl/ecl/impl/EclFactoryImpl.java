@@ -140,6 +140,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.FILTER_VALUE: return createFilterValue();
       case EclPackage.SUPPLEMENT: return createSupplement();
       case EclPackage.HISTORY_SUPPLEMENT: return createHistorySupplement();
+      case EclPackage.HISTORY_PROFILE: return createHistoryProfile();
       case EclPackage.OR_EXPRESSION_CONSTRAINT: return createOrExpressionConstraint();
       case EclPackage.AND_EXPRESSION_CONSTRAINT: return createAndExpressionConstraint();
       case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT: return createExclusionExpressionConstraint();
@@ -910,6 +911,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     HistorySupplementImpl historySupplement = new HistorySupplementImpl();
     return historySupplement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HistoryProfile createHistoryProfile()
+  {
+    HistoryProfileImpl historyProfile = new HistoryProfileImpl();
+    return historyProfile;
   }
 
   /**

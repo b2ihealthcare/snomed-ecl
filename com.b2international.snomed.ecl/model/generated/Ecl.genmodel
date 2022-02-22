@@ -9,9 +9,7 @@
     <genClasses ecoreClass="Ecl.ecore#//Script">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Script/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//ExpressionConstraint/profile"/>
-    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//ExpressionConstraint"/>
     <genClasses ecoreClass="Ecl.ecore#//ChildOf">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//ChildOf/constraint"/>
     </genClasses>
@@ -194,6 +192,9 @@
     <genClasses ecoreClass="Ecl.ecore#//Supplement"/>
     <genClasses ecoreClass="Ecl.ecore#//HistorySupplement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//HistorySupplement/history"/>
+    </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//HistoryProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//HistoryProfile/profile"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//OrExpressionConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//OrExpressionConstraint/left"/>

@@ -403,6 +403,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createHistorySupplementAdapter();
       }
       @Override
+      public Adapter caseHistoryProfile(HistoryProfile object)
+      {
+        return createHistoryProfileAdapter();
+      }
+      @Override
       public Adapter caseOrExpressionConstraint(OrExpressionConstraint object)
       {
         return createOrExpressionConstraintAdapter();
@@ -1420,6 +1425,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHistorySupplementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.HistoryProfile <em>History Profile</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.HistoryProfile
+   * @generated
+   */
+  public Adapter createHistoryProfileAdapter()
   {
     return null;
   }

@@ -16,13 +16,13 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.EclPackage;
-import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.HistorySupplement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -50,7 +50,7 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
    * @generated
    * @ordered
    */
-  protected ExpressionConstraint history;
+  protected EObject history;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
    * @generated
    */
   @Override
-  public ExpressionConstraint getHistory()
+  public EObject getHistory()
   {
     return history;
   }
@@ -89,9 +89,9 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetHistory(ExpressionConstraint newHistory, NotificationChain msgs)
+  public NotificationChain basicSetHistory(EObject newHistory, NotificationChain msgs)
   {
-    ExpressionConstraint oldHistory = history;
+    EObject oldHistory = history;
     history = newHistory;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
    * @generated
    */
   @Override
-  public void setHistory(ExpressionConstraint newHistory)
+  public void setHistory(EObject newHistory)
   {
     if (newHistory != history)
     {
@@ -166,7 +166,7 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
     switch (featureID)
     {
       case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
-        setHistory((ExpressionConstraint)newValue);
+        setHistory((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,7 +183,7 @@ public class HistorySupplementImpl extends SupplementImpl implements HistorySupp
     switch (featureID)
     {
       case EclPackage.HISTORY_SUPPLEMENT__HISTORY:
-        setHistory((ExpressionConstraint)null);
+        setHistory((EObject)null);
         return;
     }
     super.eUnset(featureID);

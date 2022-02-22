@@ -603,6 +603,15 @@ public interface EclFactory extends EFactory
   HistorySupplement createHistorySupplement();
 
   /**
+   * Returns a new object of class '<em>History Profile</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>History Profile</em>'.
+   * @generated
+   */
+  HistoryProfile createHistoryProfile();
+
+  /**
    * Returns a new object of class '<em>Or Expression Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

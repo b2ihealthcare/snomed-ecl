@@ -21,12 +21,6 @@ package com.b2international.snomed.ecl.ecl;
  * A representation of the model object '<em><b>Expression Constraint</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile <em>Profile</em>}</li>
- * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getExpressionConstraint()
  * @model
@@ -34,26 +28,4 @@ package com.b2international.snomed.ecl.ecl;
  */
 public interface ExpressionConstraint extends FilterValue
 {
-  /**
-   * Returns the value of the '<em><b>Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Profile</em>' attribute.
-   * @see #setProfile(String)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getExpressionConstraint_Profile()
-   * @model
-   * @generated
-   */
-  String getProfile();
-
-  /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.ExpressionConstraint#getProfile <em>Profile</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Profile</em>' attribute.
-   * @see #getProfile()
-   * @generated
-   */
-  void setProfile(String value);
-
 } // ExpressionConstraint

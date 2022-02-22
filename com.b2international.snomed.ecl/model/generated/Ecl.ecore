@@ -5,9 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionConstraint" eSuperTypes="#//FilterValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionConstraint" eSuperTypes="#//FilterValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChildOf" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//ExpressionConstraint"
         containment="true"/>
@@ -232,8 +230,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="FilterValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="Supplement"/>
   <eClassifiers xsi:type="ecore:EClass" name="HistorySupplement" eSuperTypes="#//Supplement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="history" eType="#//ExpressionConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="history" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HistoryProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrExpressionConstraint" eSuperTypes="#//ExpressionConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ExpressionConstraint"

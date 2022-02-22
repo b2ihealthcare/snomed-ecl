@@ -49,9 +49,9 @@ import com.b2international.snomed.ecl.ecl.EclConceptReferenceSet;
 import com.b2international.snomed.ecl.ecl.EclPackage;
 import com.b2international.snomed.ecl.ecl.EffectiveTimeFilter;
 import com.b2international.snomed.ecl.ecl.ExclusionExpressionConstraint;
-import com.b2international.snomed.ecl.ecl.ExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.HistoryProfile;
 import com.b2international.snomed.ecl.ecl.HistorySupplement;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
@@ -219,14 +219,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.EXCLUSION_EXPRESSION_CONSTRAINT:
 				sequence_ExclusionExpressionConstraint(context, (ExclusionExpressionConstraint) semanticObject); 
 				return; 
-			case EclPackage.EXPRESSION_CONSTRAINT:
-				sequence_HistoryProfile(context, (ExpressionConstraint) semanticObject); 
-				return; 
 			case EclPackage.FILTER_CONSTRAINT:
 				sequence_FilterConstraint(context, (FilterConstraint) semanticObject); 
 				return; 
 			case EclPackage.FILTERED_EXPRESSION_CONSTRAINT:
 				sequence_FilteredExpressionConstraint(context, (FilteredExpressionConstraint) semanticObject); 
+				return; 
+			case EclPackage.HISTORY_PROFILE:
+				sequence_HistoryProfile(context, (HistoryProfile) semanticObject); 
 				return; 
 			case EclPackage.HISTORY_SUPPLEMENT:
 				sequence_HistorySupplement(context, (HistorySupplement) semanticObject); 
@@ -1228,15 +1228,15 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     HistoryProfile returns ExpressionConstraint
+	 *     HistoryProfile returns HistoryProfile
 	 *
 	 * Constraint:
 	 *     profile=HISTORY_PROFILE_TYPE
 	 */
-	protected void sequence_HistoryProfile(ISerializationContext context, ExpressionConstraint semanticObject) {
+	protected void sequence_HistoryProfile(ISerializationContext context, HistoryProfile semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.EXPRESSION_CONSTRAINT__PROFILE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.EXPRESSION_CONSTRAINT__PROFILE));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.HISTORY_PROFILE__PROFILE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.HISTORY_PROFILE__PROFILE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getHistoryProfileAccess().getProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0(), semanticObject.getProfile());

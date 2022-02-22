@@ -19,42 +19,42 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>History Supplement</b></em>'.
+ * A representation of the model object '<em><b>History Profile</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.b2international.snomed.ecl.ecl.HistorySupplement#getHistory <em>History</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.HistoryProfile#getProfile <em>Profile</em>}</li>
  * </ul>
  *
- * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistorySupplement()
+ * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistoryProfile()
  * @model
  * @generated
  */
-public interface HistorySupplement extends Supplement
+public interface HistoryProfile extends EObject
 {
   /**
-   * Returns the value of the '<em><b>History</b></em>' containment reference.
+   * Returns the value of the '<em><b>Profile</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>History</em>' containment reference.
-   * @see #setHistory(EObject)
-   * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistorySupplement_History()
-   * @model containment="true"
+   * @return the value of the '<em>Profile</em>' attribute.
+   * @see #setProfile(String)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getHistoryProfile_Profile()
+   * @model
    * @generated
    */
-  EObject getHistory();
+  String getProfile();
 
   /**
-   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.HistorySupplement#getHistory <em>History</em>}' containment reference.
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.HistoryProfile#getProfile <em>Profile</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>History</em>' containment reference.
-   * @see #getHistory()
+   * @param value the new value of the '<em>Profile</em>' attribute.
+   * @see #getProfile()
    * @generated
    */
-  void setHistory(EObject value);
+  void setProfile(String value);
 
-} // HistorySupplement
+} // HistoryProfile
