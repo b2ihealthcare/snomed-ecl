@@ -276,10 +276,12 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkFilterConstraint(FilterConstraint it) {
 		final Domain constraintDomain = Ecl.getDomain(it);
-		final Domain filterDomain = Ecl.getDomain(it.getFilter());
-		
-		if (constraintDomain != filterDomain) {
-			error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.FILTER_CONSTRAINT__FILTER, DOMAIN_INCONSISTENCY_CODE);
+		if (it.getFilter() != null) {
+			final Domain filterDomain = Ecl.getDomain(it.getFilter());
+			
+			if (constraintDomain != filterDomain) {
+				error(DOMAIN_INCONSISTENCY_MESSAGE, it, EclPackage.Literals.FILTER_CONSTRAINT__FILTER, DOMAIN_INCONSISTENCY_CODE);
+			}
 		}
 	}
 
