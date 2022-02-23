@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,17 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.AbstractRule;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.*;
 import org.eclipse.xtext.ide.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ide.editor.contentassist.ContentAssistEntry;
 import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor;
 import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 
+import com.b2international.snomed.ecl.ecl.HistorySupplement;
+import com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint;
 import com.b2international.snomed.ecl.services.EclGrammarAccess;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -74,55 +71,56 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 	@Inject
 	private void initializeDescriptions() {
 		 ruleDescriptions = Map.ofEntries(
-				Map.entry(ga.getCONJUNCTION_KEYWORDRule(),             "Conjunction"),
-				Map.entry(ga.getCOMMARule(),                           "Conjunction"),
-				Map.entry(ga.getDISJUNCTION_KEYWORDRule(),             "Disjunction"),
-				Map.entry(ga.getEXCLUSION_KEYWORDRule(),               "Exclusion"),
-				Map.entry(ga.getCOLONRule(),                           "Refinement"),
-				Map.entry(ga.getDOTRule(),                             "Dotted attribute"),
-				Map.entry(ga.getCURLY_OPENRule(),                      "Opening attribute group"),
-				Map.entry(ga.getCURLY_CLOSERule(),                     "Closing attribute group"),
-				Map.entry(ga.getSQUARE_OPENRule(),                     "Opening cardinality"),
-				Map.entry(ga.getSQUARE_CLOSERule(),                    "Closing cardinality"),
-				Map.entry(ga.getTORule(),                              "Cardinality range"),
-				Map.entry(ga.getPLUSRule(),                            "Numeric value"),
-				Map.entry(ga.getDASHRule(),                            "Numeric value"),
-				Map.entry(ga.getCARETRule(),                           "Member of"),
-				Map.entry(ga.getWILDCARDRule(),                        "Any"),
-				Map.entry(ga.getEQUALRule(),                           "Equals"),
-				Map.entry(ga.getNOT_EQUALRule(),                       "Not equals"),
-				Map.entry(ga.getLTRule(),                              "Descendant of"),
-				Map.entry(ga.getGTRule(),                              "Ancestor of"),
-				Map.entry(ga.getDBL_LTRule(),                          "Descendant or self of"),
-				Map.entry(ga.getDBL_GTRule(),                          "Ancestor or self of"),
-				Map.entry(ga.getLT_EMRule(),                           "Child of"),
-				Map.entry(ga.getGT_EMRule(),                           "Parent of"),
-				Map.entry(ga.getDBL_LT_EMRule(),                       "Child or self of"),
-				Map.entry(ga.getDBL_GT_EMRule(),                       "Parent or self of"),
-				Map.entry(ga.getGTERule(),                             "Greater than or equals"),
-				Map.entry(ga.getLTERule(),                             "Less than or equals"),
-				Map.entry(ga.getREVERSEDRule(),                        "Reverse attribute"),
-				Map.entry(ga.getROUND_CLOSERule(),                     "Closing nested expression"),
-				Map.entry(ga.getROUND_OPENRule(),                      "Opening nested expression"),
-				Map.entry(ga.getDOUBLE_CURLY_OPENRule(),               "Opening filter constraint"),
-				Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),              "Closing filter constraint"),
-				Map.entry(ga.getTERM_KEYWORDRule(),                    "Description term filter"),
-				Map.entry(ga.getLANGUAGE_KEYWORDRule(),                "Description language filter"),
-				Map.entry(ga.getTYPEID_KEYWORDRule(),                  "Description type ID filter"),
-				Map.entry(ga.getTYPE_KEYWORDRule(),                    "Description type tag filter"),
-				Map.entry(ga.getDIALECTID_KEYWORDRule(),               "Description dialect ID filter"),
-				Map.entry(ga.getDIALECT_KEYWORDRule(),                 "Description dialect tag filter"),
-				Map.entry(ga.getDEFINITION_STATUS_ID_KEYWORDRule(),    "Concept definition status ID filter"),
-				Map.entry(ga.getDEFINITION_STATUS_TOKEN_KEYWORDRule(), "Concept definition status tag filter"),
-				Map.entry(ga.getACTIVE_KEYWORDRule(),                  "Component status filter"),
-				Map.entry(ga.getMODULEID_KEYWORDRule(),                "Component module filter"),
-				Map.entry(ga.getSEMANTIC_TAG_KEYWORDRule(),            "Component semantic tag filter"),
-				Map.entry(ga.getEFFECTIVE_TIME_KEYWORDRule(),          "Component effective time filter"),
-				Map.entry(ga.getPREFERRED_IN_KEYWORDRule(),            "Description acceptability filter"),
-				Map.entry(ga.getACCEPTABLE_IN_KEYWORDRule(),           "Description acceptability filter"),
-				Map.entry(ga.getLANGUAGE_REFSET_ID_KEYWORDRule(),      "Description acceptability filter"),
-				Map.entry(ga.getCASE_SIGNIFICANCE_ID_KEYWORDRule(),    "Description case significance filter"),
-				Map.entry(ga.getPIPE_DELIMITED_STRINGRule(),           "Concept term")
+			Map.entry(ga.getCONJUNCTION_KEYWORDRule(),             "Conjunction"),
+			Map.entry(ga.getCOMMARule(),                           "Conjunction"),
+			Map.entry(ga.getDISJUNCTION_KEYWORDRule(),             "Disjunction"),
+			Map.entry(ga.getEXCLUSION_KEYWORDRule(),               "Exclusion"),
+			Map.entry(ga.getCOLONRule(),                           "Refinement"),
+			Map.entry(ga.getDOTRule(),                             "Dotted attribute"),
+			Map.entry(ga.getCURLY_OPENRule(),                      "Opening attribute group"),
+			Map.entry(ga.getCURLY_CLOSERule(),                     "Closing attribute group"),
+			Map.entry(ga.getSQUARE_OPENRule(),                     "Opening cardinality"),
+			Map.entry(ga.getSQUARE_CLOSERule(),                    "Closing cardinality"),
+			Map.entry(ga.getTORule(),                              "Cardinality range"),
+			Map.entry(ga.getCARETRule(),                           "Member of"),
+			Map.entry(ga.getWILDCARDRule(),                        "Any"),
+			Map.entry(ga.getEQUALRule(),                           "Equals"),
+			Map.entry(ga.getNOT_EQUALRule(),                       "Not equals"),
+			Map.entry(ga.getLTRule(),                              "Descendant of"),
+			Map.entry(ga.getGTRule(),                              "Ancestor of"),
+			Map.entry(ga.getDBL_LTRule(),                          "Descendant or self of"),
+			Map.entry(ga.getDBL_GTRule(),                          "Ancestor or self of"),
+			Map.entry(ga.getLT_EMRule(),                           "Child of"),
+			Map.entry(ga.getGT_EMRule(),                           "Parent of"),
+			Map.entry(ga.getDBL_LT_EMRule(),                       "Child or self of"),
+			Map.entry(ga.getDBL_GT_EMRule(),                       "Parent or self of"),
+			Map.entry(ga.getGTERule(),                             "Greater than or equals"),
+			Map.entry(ga.getLTERule(),                             "Less than or equals"),
+			Map.entry(ga.getREVERSEDRule(),                        "Reverse attribute"),
+			Map.entry(ga.getROUND_CLOSERule(),                     "Closing nested expression"),
+			Map.entry(ga.getROUND_OPENRule(),                      "Opening nested expression"),
+			Map.entry(ga.getDOUBLE_CURLY_OPENRule(),               "Opening filter constraint|supplement"),
+			Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),              "Closing filter constraint|supplement"),
+			Map.entry(ga.getTERM_KEYWORDRule(),                    "Description term filter"),
+			Map.entry(ga.getLANGUAGE_KEYWORDRule(),                "Description language filter"),
+			Map.entry(ga.getTYPEID_KEYWORDRule(),                  "Description type ID filter"),
+			Map.entry(ga.getTYPE_KEYWORDRule(),                    "Description type tag filter"),
+			Map.entry(ga.getDIALECTID_KEYWORDRule(),               "Description dialect ID filter"),
+			Map.entry(ga.getDIALECT_KEYWORDRule(),                 "Description dialect tag filter"),
+			Map.entry(ga.getDEFINITION_STATUS_ID_KEYWORDRule(),    "Concept definition status ID filter"),
+			Map.entry(ga.getDEFINITION_STATUS_TOKEN_KEYWORDRule(), "Concept definition status tag filter"),
+			Map.entry(ga.getACTIVE_KEYWORDRule(),                  "Component status filter"),
+			Map.entry(ga.getMODULEID_KEYWORDRule(),                "Component module filter"),
+			Map.entry(ga.getSEMANTIC_TAG_KEYWORDRule(),            "Component semantic tag filter"),
+			Map.entry(ga.getEFFECTIVE_TIME_KEYWORDRule(),          "Component effective time filter"),
+			Map.entry(ga.getPREFERRED_IN_KEYWORDRule(),            "Description acceptability filter"),
+			Map.entry(ga.getACCEPTABLE_IN_KEYWORDRule(),           "Description acceptability filter"),
+			Map.entry(ga.getLANGUAGE_REFSET_ID_KEYWORDRule(),      "Description acceptability filter"),
+			Map.entry(ga.getCASE_SIGNIFICANCE_ID_KEYWORDRule(),    "Description case significance filter"),
+			Map.entry(ga.getHISTORY_KEYWORDRule(),                 "History Supplement"),
+			Map.entry(ga.getMIN_KEYWORDRule(),                     "Minimum Profile (Same As refset only)"),
+			Map.entry(ga.getMOD_KEYWORDRule(),                     "Moderate Profile (Same As, Was A, Replaced By, Partially Replaced By refsets)"),
+			Map.entry(ga.getMAX_KEYWORDRule(),                     "Maximum Profile (all historical association refsets)")
 		);
 	}
 	
@@ -182,6 +180,11 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		}
 	}
 	
+	@Override
+	protected void _createProposals(Keyword keyword, ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
+		createKeywordProposal(keyword.getValue(), context, acceptor, "");
+	}
+	
 	// Not overridden
 	protected void _createProposals(final Alternatives alternatives, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
@@ -214,8 +217,7 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 			prefix = prefix + "|";
 		}
 		
-		final AbstractRule rule = ruleCall.getRule();
-		createKeywordProposal(prefix, context, acceptor, ruleDescriptions.get(rule));
+		createKeywordProposal(prefix, context, acceptor, "Concept term");
 	}
 
 	public void complete_WS(final RuleCall ruleCall, final ContentAssistContext context, 
@@ -238,6 +240,33 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		// No suggestions should be offered for SCTIDs ("raw numbers")
 	}
 	
+	public void complete_PLUS(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		if (context.getCurrentModel() instanceof SupplementExpressionConstraint) {
+			createKeywordProposal("+", context, acceptor, "History Supplement");
+		} else {
+			createKeywordProposal("+", context, acceptor, "Numeric value");
+		}
+	}
+	
+	public void complete_DASH(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		if (context.getCurrentModel() instanceof HistorySupplement) {
+			createKeywordProposal("-", context, acceptor, "History Profile");
+		} else {
+			createKeywordProposal("-", context, acceptor, "Numeric value");
+		}
+	}
+	
+	public void complete_UNDERSCORE(final RuleCall ruleCall, final ContentAssistContext context, 
+			final IIdeContentProposalAcceptor acceptor) {
+		if (context.getCurrentModel() instanceof HistorySupplement) {
+			createKeywordProposal("_", context, acceptor, "History Profile");
+		} else {
+			createKeywordProposal("_", context, acceptor, null);
+		}
+	}
+	
 	public void complete_SHORT_DOMAIN(final RuleCall ruleCall, final ContentAssistContext context, 
 			final IIdeContentProposalAcceptor acceptor) {
 		
@@ -250,6 +279,10 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 		if (prefix.equalsIgnoreCase("D") || prefix.isEmpty()) {
 			createKeywordProposal("d", context, acceptor, "Description filter constraint");
 		}
+		
+		if (prefix.equalsIgnoreCase("M") || prefix.isEmpty()) {
+			createKeywordProposal("m", context, acceptor, "Member filter constraint");
+		}
 	}
 
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context,
@@ -258,14 +291,32 @@ public class EclIdeProposalProvider extends IdeContentProposalProvider {
 	}
 	
 	private void createKeywordProposal(final AbstractElement element, final ContentAssistContext context, 
-			final IIdeContentProposalAcceptor acceptor, final String description) {
+			final IIdeContentProposalAcceptor acceptor, String description) {
 		if (element instanceof Keyword) {
 			final Keyword keyword = (Keyword) element;
 			createKeywordProposal(keyword.getValue(), context, acceptor, description);
 		} else if (element instanceof RuleCall) {
 			final RuleCall ruleCall = (RuleCall) element;
-			final AbstractElement alternatives = ruleCall.getRule().getAlternatives();
-			createKeywordProposal(alternatives, context, acceptor, description);
+			
+			// use complete_RULECALL method if present instead of going deeper
+			final AbstractRule rule = ruleCall.getRule();
+			final String name = rule.getName();
+			final Method completeMethod = completeMethods.getUnchecked(name);
+			
+			if (completeMethod != FALLBACK_METHOD) {
+				try {
+					completeMethod.invoke(this, ruleCall, context, acceptor);
+				} catch (IllegalAccessException | InvocationTargetException e) {
+					throw new RuntimeException(e);
+				}
+			} else {
+				// override description from the Map if present for this rule
+				description = ruleDescriptions.getOrDefault(ruleCall.getRule(), description);
+				
+				final AbstractElement alternatives = ruleCall.getRule().getAlternatives();
+				createKeywordProposal(alternatives, context, acceptor, description);
+			}
+			
 		} else if (element instanceof Alternatives) {
 			final Alternatives alternatives = (Alternatives) element;
 			for (final AbstractElement e : alternatives.getElements()) {
