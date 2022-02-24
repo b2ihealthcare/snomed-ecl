@@ -77,7 +77,7 @@ AncestorOrSelfOf:
 	DBL_GT constraint=EclFocusConcept;
 
 MemberOf:
-	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
+	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
 
 EclConceptReference:
 	id=SnomedIdentifier (term=PIPE_DELIMITED_STRING)?;
@@ -382,6 +382,7 @@ UnquotedString
 	| MEMBER_SHORT_KEYWORD
 	| DESCRIPTION_SHORT_KEYWORD 
 	| CONCEPT_SHORT_KEYWORD
+	| WILDCARD
 	| KEYWORD;
 
 DialectAliasValue hidden():

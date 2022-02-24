@@ -584,15 +584,13 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cCARETTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final RuleCall cSQUARE_OPENTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
-		private final Assignment cRefsetFieldsAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
-		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0 = (RuleCall)cRefsetFieldsAssignment_1_1_0_0.eContents().get(0);
-		private final Group cGroup_1_1_0_1 = (Group)cGroup_1_1_0.eContents().get(1);
-		private final RuleCall cCOMMATerminalRuleCall_1_1_0_1_0 = (RuleCall)cGroup_1_1_0_1.eContents().get(0);
-		private final Assignment cRefsetFieldsAssignment_1_1_0_1_1 = (Assignment)cGroup_1_1_0_1.eContents().get(1);
-		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0 = (RuleCall)cRefsetFieldsAssignment_1_1_0_1_1.eContents().get(0);
-		private final RuleCall cWILDCARDTerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Assignment cRefsetFieldsAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0 = (RuleCall)cRefsetFieldsAssignment_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_1_1_1_0 = (RuleCall)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cRefsetFieldsAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cRefsetFieldsUnquotedStringParserRuleCall_1_1_1_1_0 = (RuleCall)cRefsetFieldsAssignment_1_1_1_1.eContents().get(0);
 		private final RuleCall cSQUARE_CLOSETerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Assignment cConstraintAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Alternatives cConstraintAlternatives_2_0 = (Alternatives)cConstraintAssignment_2.eContents().get(0);
@@ -601,49 +599,43 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cConstraintNestedExpressionParserRuleCall_2_0_2 = (RuleCall)cConstraintAlternatives_2_0.eContents().get(2);
 		
 		//MemberOf:
-		//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)?
 		//	constraint=(EclConceptReference | Any | NestedExpression);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		//CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)?
 		//constraint=(EclConceptReference | Any | NestedExpression)
 		public Group getGroup() { return cGroup; }
 		
 		//CARET
 		public RuleCall getCARETTerminalRuleCall_0() { return cCARETTerminalRuleCall_0; }
 		
-		//(SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+		//(SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//SQUARE_OPEN
 		public RuleCall getSQUARE_OPENTerminalRuleCall_1_0() { return cSQUARE_OPENTerminalRuleCall_1_0; }
 		
-		//(refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD)
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
-		
-		//refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*
-		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		//(refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*)
+		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//refsetFields+=UnquotedString
-		public Assignment getRefsetFieldsAssignment_1_1_0_0() { return cRefsetFieldsAssignment_1_1_0_0; }
+		public Assignment getRefsetFieldsAssignment_1_1_0() { return cRefsetFieldsAssignment_1_1_0; }
 		
 		//UnquotedString
-		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0; }
+		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0; }
 		
 		//(COMMA refsetFields+=UnquotedString)*
-		public Group getGroup_1_1_0_1() { return cGroup_1_1_0_1; }
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 		
 		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_1_1_0_1_0() { return cCOMMATerminalRuleCall_1_1_0_1_0; }
+		public RuleCall getCOMMATerminalRuleCall_1_1_1_0() { return cCOMMATerminalRuleCall_1_1_1_0; }
 		
 		//refsetFields+=UnquotedString
-		public Assignment getRefsetFieldsAssignment_1_1_0_1_1() { return cRefsetFieldsAssignment_1_1_0_1_1; }
+		public Assignment getRefsetFieldsAssignment_1_1_1_1() { return cRefsetFieldsAssignment_1_1_1_1; }
 		
 		//UnquotedString
-		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0; }
-		
-		//WILDCARD
-		public RuleCall getWILDCARDTerminalRuleCall_1_1_1() { return cWILDCARDTerminalRuleCall_1_1_1; }
+		public RuleCall getRefsetFieldsUnquotedStringParserRuleCall_1_1_1_1_0() { return cRefsetFieldsUnquotedStringParserRuleCall_1_1_1_1_0; }
 		
 		//SQUARE_CLOSE
 		public RuleCall getSQUARE_CLOSETerminalRuleCall_1_2() { return cSQUARE_CLOSETerminalRuleCall_1_2; }
@@ -2898,7 +2890,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cMEMBER_SHORT_KEYWORDTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
 		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
 		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
-		private final RuleCall cKEYWORDTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
+		private final RuleCall cWILDCARDTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
+		private final RuleCall cKEYWORDTerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
 		
 		//// Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 		//UnquotedString:
@@ -2935,6 +2928,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| MEMBER_SHORT_KEYWORD
 		//	| DESCRIPTION_SHORT_KEYWORD
 		//	| CONCEPT_SHORT_KEYWORD
+		//	| WILDCARD
 		//	| KEYWORD;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2943,7 +2937,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SEMANTIC_TAG_KEYWORD | DIALECTID_KEYWORD | LANGUAGE_KEYWORD | MODULEID_KEYWORD | DIALECT_KEYWORD | ACTIVE_KEYWORD |
 		//TYPEID_KEYWORD | EXCLUSION_KEYWORD | EXACT_KEYWORD | FALSE_KEYWORD | MATCH_KEYWORD | REGEX_KEYWORD | TERM_KEYWORD |
 		//TRUE_KEYWORD | TYPE_KEYWORD | WILD_KEYWORD | MIN_KEYWORD | MOD_KEYWORD | MAX_KEYWORD | CONJUNCTION_KEYWORD |
-		//DISJUNCTION_KEYWORD | REVERSED | MEMBER_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD | KEYWORD
+		//DISJUNCTION_KEYWORD | REVERSED | MEMBER_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD | WILDCARD |
+		//KEYWORD
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//HISTORY_KEYWORD
@@ -3045,8 +3040,11 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CONCEPT_SHORT_KEYWORD
 		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_32; }
 		
+		//WILDCARD
+		public RuleCall getWILDCARDTerminalRuleCall_33() { return cWILDCARDTerminalRuleCall_33; }
+		
 		//KEYWORD
-		public RuleCall getKEYWORDTerminalRuleCall_33() { return cKEYWORDTerminalRuleCall_33; }
+		public RuleCall getKEYWORDTerminalRuleCall_34() { return cKEYWORDTerminalRuleCall_34; }
 	}
 	public class DialectAliasValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DialectAliasValue");
@@ -3780,7 +3778,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//MemberOf:
-	//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)* | WILDCARD) SQUARE_CLOSE)?
+	//	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)?
 	//	constraint=(EclConceptReference | Any | NestedExpression);
 	public MemberOfElements getMemberOfAccess() {
 		return pMemberOf;
@@ -4595,6 +4593,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	| MEMBER_SHORT_KEYWORD
 	//	| DESCRIPTION_SHORT_KEYWORD
 	//	| CONCEPT_SHORT_KEYWORD
+	//	| WILDCARD
 	//	| KEYWORD;
 	public UnquotedStringElements getUnquotedStringAccess() {
 		return pUnquotedString;

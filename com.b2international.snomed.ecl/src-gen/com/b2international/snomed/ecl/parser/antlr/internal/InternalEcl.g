@@ -1164,11 +1164,34 @@ ruleMemberOf returns [EObject current=null]
 			(
 				(
 					(
+						{
+							newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0());
+						}
+						lv_refsetFields_2_0=ruleUnquotedString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMemberOfRule());
+							}
+							add(
+								$current,
+								"refsetFields",
+								lv_refsetFields_2_0,
+								"com.b2international.snomed.ecl.Ecl.UnquotedString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					this_COMMA_3=RULE_COMMA
+					{
+						newLeafNode(this_COMMA_3, grammarAccess.getMemberOfAccess().getCOMMATerminalRuleCall_1_1_1_0());
+					}
+					(
 						(
 							{
-								newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_0_0());
+								newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_1_1_0());
 							}
-							lv_refsetFields_2_0=ruleUnquotedString
+							lv_refsetFields_4_0=ruleUnquotedString
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1176,47 +1199,17 @@ ruleMemberOf returns [EObject current=null]
 								add(
 									$current,
 									"refsetFields",
-									lv_refsetFields_2_0,
+									lv_refsetFields_4_0,
 									"com.b2international.snomed.ecl.Ecl.UnquotedString");
 								afterParserOrEnumRuleCall();
 							}
 						)
 					)
-					(
-						this_COMMA_3=RULE_COMMA
-						{
-							newLeafNode(this_COMMA_3, grammarAccess.getMemberOfAccess().getCOMMATerminalRuleCall_1_1_0_1_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getMemberOfAccess().getRefsetFieldsUnquotedStringParserRuleCall_1_1_0_1_1_0());
-								}
-								lv_refsetFields_4_0=ruleUnquotedString
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getMemberOfRule());
-									}
-									add(
-										$current,
-										"refsetFields",
-										lv_refsetFields_4_0,
-										"com.b2international.snomed.ecl.Ecl.UnquotedString");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)*
-				)
-				    |
-				this_WILDCARD_5=RULE_WILDCARD
-				{
-					newLeafNode(this_WILDCARD_5, grammarAccess.getMemberOfAccess().getWILDCARDTerminalRuleCall_1_1_1());
-				}
+				)*
 			)
-			this_SQUARE_CLOSE_6=RULE_SQUARE_CLOSE
+			this_SQUARE_CLOSE_5=RULE_SQUARE_CLOSE
 			{
-				newLeafNode(this_SQUARE_CLOSE_6, grammarAccess.getMemberOfAccess().getSQUARE_CLOSETerminalRuleCall_1_2());
+				newLeafNode(this_SQUARE_CLOSE_5, grammarAccess.getMemberOfAccess().getSQUARE_CLOSETerminalRuleCall_1_2());
 			}
 		)?
 		(
@@ -1225,7 +1218,7 @@ ruleMemberOf returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintEclConceptReferenceParserRuleCall_2_0_0());
 					}
-					lv_constraint_7_1=ruleEclConceptReference
+					lv_constraint_6_1=ruleEclConceptReference
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1233,7 +1226,7 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_7_1,
+							lv_constraint_6_1,
 							"com.b2international.snomed.ecl.Ecl.EclConceptReference");
 						afterParserOrEnumRuleCall();
 					}
@@ -1241,7 +1234,7 @@ ruleMemberOf returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintAnyParserRuleCall_2_0_1());
 					}
-					lv_constraint_7_2=ruleAny
+					lv_constraint_6_2=ruleAny
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1249,7 +1242,7 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_7_2,
+							lv_constraint_6_2,
 							"com.b2international.snomed.ecl.Ecl.Any");
 						afterParserOrEnumRuleCall();
 					}
@@ -1257,7 +1250,7 @@ ruleMemberOf returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getMemberOfAccess().getConstraintNestedExpressionParserRuleCall_2_0_2());
 					}
-					lv_constraint_7_3=ruleNestedExpression
+					lv_constraint_6_3=ruleNestedExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMemberOfRule());
@@ -1265,7 +1258,7 @@ ruleMemberOf returns [EObject current=null]
 						set(
 							$current,
 							"constraint",
-							lv_constraint_7_3,
+							lv_constraint_6_3,
 							"com.b2international.snomed.ecl.Ecl.NestedExpression");
 						afterParserOrEnumRuleCall();
 					}
@@ -5726,12 +5719,20 @@ ruleUnquotedString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 			newLeafNode(this_CONCEPT_SHORT_KEYWORD_32, grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32());
 		}
 		    |
-		this_KEYWORD_33=RULE_KEYWORD
+		this_WILDCARD_33=RULE_WILDCARD
 		{
-			$current.merge(this_KEYWORD_33);
+			$current.merge(this_WILDCARD_33);
 		}
 		{
-			newLeafNode(this_KEYWORD_33, grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_33());
+			newLeafNode(this_WILDCARD_33, grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_33());
+		}
+		    |
+		this_KEYWORD_34=RULE_KEYWORD
+		{
+			$current.merge(this_KEYWORD_34);
+		}
+		{
+			newLeafNode(this_KEYWORD_34, grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_34());
 		}
 	)
 ;
