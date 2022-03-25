@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ public class EclSemanticHighlightingCalculator implements ISemanticHighlightingC
 				final RuleCall ruleCall = (RuleCall) grammarElement;
 				final AbstractRule rule = ruleCall.getRule();
 				
-				if (rule == ga.getSnomedIdentifierRule()) {
+				if (rule == ga.getIdentifierRule()) {
 					acceptor.addPosition(abstractNode.getOffset(), abstractNode.getLength(), EclHighlightingRuleIDs.CONSTANT_NUMERIC_INTEGER_OTHER_ID);
 				} else if (rule == ga.getPIPE_DELIMITED_STRINGRule()) {					
 					// pipes

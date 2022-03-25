@@ -1118,7 +1118,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FilterValue returns EclConceptReference
 	 *
 	 * Constraint:
-	 *     (id=SnomedIdentifier term=PIPE_DELIMITED_STRING?)
+	 *     (id=Identifier term=PIPE_DELIMITED_STRING?)
 	 */
 	protected void sequence_EclConceptReference(ISerializationContext context, EclConceptReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

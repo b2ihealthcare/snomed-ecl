@@ -659,22 +659,22 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EclConceptReference");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cIdSnomedIdentifierParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
+		private final RuleCall cIdIdentifierParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
 		private final Assignment cTermAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTermPIPE_DELIMITED_STRINGTerminalRuleCall_1_0 = (RuleCall)cTermAssignment_1.eContents().get(0);
 		
 		//EclConceptReference:
-		//	id=SnomedIdentifier term=PIPE_DELIMITED_STRING?;
+		//	id=Identifier term=PIPE_DELIMITED_STRING?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=SnomedIdentifier term=PIPE_DELIMITED_STRING?
+		//id=Identifier term=PIPE_DELIMITED_STRING?
 		public Group getGroup() { return cGroup; }
 		
-		//id=SnomedIdentifier
+		//id=Identifier
 		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 		
-		//SnomedIdentifier
-		public RuleCall getIdSnomedIdentifierParserRuleCall_0_0() { return cIdSnomedIdentifierParserRuleCall_0_0; }
+		//Identifier
+		public RuleCall getIdIdentifierParserRuleCall_0_0() { return cIdIdentifierParserRuleCall_0_0; }
 		
 		//term=PIPE_DELIMITED_STRING?
 		public Assignment getTermAssignment_1() { return cTermAssignment_1; }
@@ -2671,60 +2671,120 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//HISTORY_PROFILE_TYPE
 		public RuleCall getProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0() { return cProfileHISTORY_PROFILE_TYPEParserRuleCall_1_0; }
 	}
-	public class SnomedIdentifierElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.SnomedIdentifier");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDIGIT_NONZEROTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDIGIT_ZEROTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+	public class IdentifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.Identifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final RuleCall cDIGITTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cALPHATerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
+		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
+		private final RuleCall cREVERSEDTerminalRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
+		private final RuleCall cKEYWORDTerminalRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cDASHTerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final RuleCall cUNDERSCORETerminalRuleCall_1_0_2 = (RuleCall)cAlternatives_1_0.eContents().get(2);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final RuleCall cDIGITTerminalRuleCall_1_1_0 = (RuleCall)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cALPHATerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_1_2 = (RuleCall)cAlternatives_1_1.eContents().get(2);
+		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3 = (RuleCall)cAlternatives_1_1.eContents().get(3);
+		private final RuleCall cREVERSEDTerminalRuleCall_1_1_4 = (RuleCall)cAlternatives_1_1.eContents().get(4);
+		private final RuleCall cKEYWORDTerminalRuleCall_1_1_5 = (RuleCall)cAlternatives_1_1.eContents().get(5);
 		
 		///*
 		// * Datatype rules
-		// */ SnomedIdentifier hidden():
-		//	(DIGIT_NONZERO | DIGIT_ZERO)+;
+		// */ Identifier:
+		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
+		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DIGIT_NONZERO | DIGIT_ZERO)+
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		public Group getGroup() { return cGroup; }
 		
-		//DIGIT_NONZERO
-		public RuleCall getDIGIT_NONZEROTerminalRuleCall_0() { return cDIGIT_NONZEROTerminalRuleCall_0; }
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//DIGIT_ZERO
-		public RuleCall getDIGIT_ZEROTerminalRuleCall_1() { return cDIGIT_ZEROTerminalRuleCall_1; }
+		//DIGIT
+		public RuleCall getDIGITTerminalRuleCall_0_0() { return cDIGITTerminalRuleCall_0_0; }
+		
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_0_1() { return cALPHATerminalRuleCall_0_1; }
+		
+		//CONCEPT_SHORT_KEYWORD
+		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_0_2() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_0_2; }
+		
+		//DESCRIPTION_SHORT_KEYWORD
+		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3; }
+		
+		//REVERSED
+		public RuleCall getREVERSEDTerminalRuleCall_0_4() { return cREVERSEDTerminalRuleCall_0_4; }
+		
+		//KEYWORD
+		public RuleCall getKEYWORDTerminalRuleCall_0_5() { return cKEYWORDTerminalRuleCall_0_5; }
+		
+		//((DOT | DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//(DOT | DASH | UNDERSCORE)
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_1_0_0() { return cDOTTerminalRuleCall_1_0_0; }
+		
+		//DASH
+		public RuleCall getDASHTerminalRuleCall_1_0_1() { return cDASHTerminalRuleCall_1_0_1; }
+		
+		//UNDERSCORE
+		public RuleCall getUNDERSCORETerminalRuleCall_1_0_2() { return cUNDERSCORETerminalRuleCall_1_0_2; }
+		
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		
+		//DIGIT
+		public RuleCall getDIGITTerminalRuleCall_1_1_0() { return cDIGITTerminalRuleCall_1_1_0; }
+		
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_1_1_1() { return cALPHATerminalRuleCall_1_1_1; }
+		
+		//CONCEPT_SHORT_KEYWORD
+		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_1_2() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_1_2; }
+		
+		//DESCRIPTION_SHORT_KEYWORD
+		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3; }
+		
+		//REVERSED
+		public RuleCall getREVERSEDTerminalRuleCall_1_1_4() { return cREVERSEDTerminalRuleCall_1_1_4; }
+		
+		//KEYWORD
+		public RuleCall getKEYWORDTerminalRuleCall_1_1_5() { return cKEYWORDTerminalRuleCall_1_1_5; }
 	}
 	public class NonNegativeIntegerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.NonNegativeInteger");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDIGIT_NONZEROTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDIGIT_ZEROTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDIGITTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//NonNegativeInteger ecore::EInt hidden():
-		//	(DIGIT_NONZERO | DIGIT_ZERO)+;
+		//	DIGIT+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DIGIT_NONZERO | DIGIT_ZERO)+
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//DIGIT_NONZERO
-		public RuleCall getDIGIT_NONZEROTerminalRuleCall_0() { return cDIGIT_NONZEROTerminalRuleCall_0; }
-		
-		//DIGIT_ZERO
-		public RuleCall getDIGIT_ZEROTerminalRuleCall_1() { return cDIGIT_ZEROTerminalRuleCall_1; }
+		//DIGIT+
+		public RuleCall getDIGITTerminalRuleCall() { return cDIGITTerminalRuleCall; }
 	}
 	public class NonNegativeDecimalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.NonNegativeDecimal");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cNonNegativeIntegerParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cDOTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final RuleCall cDIGIT_NONZEROTerminalRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
-		private final RuleCall cDIGIT_ZEROTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
+		private final RuleCall cDIGITTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//NonNegativeDecimal ecore::EBigDecimal hidden():
-		//	NonNegativeInteger DOT (DIGIT_NONZERO | DIGIT_ZERO)*;
+		//	NonNegativeInteger DOT DIGIT*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NonNegativeInteger DOT (DIGIT_NONZERO | DIGIT_ZERO)*
+		//NonNegativeInteger DOT DIGIT*
 		public Group getGroup() { return cGroup; }
 		
 		//NonNegativeInteger
@@ -2733,14 +2793,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DOT
 		public RuleCall getDOTTerminalRuleCall_1() { return cDOTTerminalRuleCall_1; }
 		
-		//(DIGIT_NONZERO | DIGIT_ZERO)*
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//DIGIT_NONZERO
-		public RuleCall getDIGIT_NONZEROTerminalRuleCall_2_0() { return cDIGIT_NONZEROTerminalRuleCall_2_0; }
-		
-		//DIGIT_ZERO
-		public RuleCall getDIGIT_ZEROTerminalRuleCall_2_1() { return cDIGIT_ZEROTerminalRuleCall_2_1; }
+		//DIGIT*
+		public RuleCall getDIGITTerminalRuleCall_2() { return cDIGITTerminalRuleCall_2; }
 	}
 	public class MaxValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MaxValue");
@@ -3051,14 +3105,13 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDASHTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cUnquotedStringParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDIGIT_ZEROTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDIGIT_NONZEROTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDIGITTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//DialectAliasValue hidden():
-		//	(DASH | UnquotedString | DIGIT_ZERO | DIGIT_NONZERO)+;
+		//	(DASH | UnquotedString | DIGIT)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DASH | UnquotedString | DIGIT_ZERO | DIGIT_NONZERO)+
+		//(DASH | UnquotedString | DIGIT)+
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DASH
@@ -3067,11 +3120,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//UnquotedString
 		public RuleCall getUnquotedStringParserRuleCall_1() { return cUnquotedStringParserRuleCall_1; }
 		
-		//DIGIT_ZERO
-		public RuleCall getDIGIT_ZEROTerminalRuleCall_2() { return cDIGIT_ZEROTerminalRuleCall_2; }
-		
-		//DIGIT_NONZERO
-		public RuleCall getDIGIT_NONZEROTerminalRuleCall_3() { return cDIGIT_NONZEROTerminalRuleCall_3; }
+		//DIGIT
+		public RuleCall getDIGITTerminalRuleCall_2() { return cDIGITTerminalRuleCall_2; }
 	}
 	public class LEXICAL_SEARCH_TYPEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.LEXICAL_SEARCH_TYPE");
@@ -3296,7 +3346,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final SupplementElements pSupplement;
 	private final HistorySupplementElements pHistorySupplement;
 	private final HistoryProfileElements pHistoryProfile;
-	private final SnomedIdentifierElements pSnomedIdentifier;
+	private final IdentifierElements pIdentifier;
 	private final NonNegativeIntegerElements pNonNegativeInteger;
 	private final NonNegativeDecimalElements pNonNegativeDecimal;
 	private final MaxValueElements pMaxValue;
@@ -3344,6 +3394,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tMEMBER_SHORT_KEYWORD;
 	private final TerminalRule tDESCRIPTION_SHORT_KEYWORD;
 	private final TerminalRule tCONCEPT_SHORT_KEYWORD;
+	private final TerminalRule tALPHA;
 	private final TerminalRule tKEYWORD;
 	private final TerminalRule tDBL_LT_EM;
 	private final TerminalRule tDBL_GT_EM;
@@ -3359,8 +3410,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tSTRING;
 	private final TerminalRule tTO;
 	private final TerminalRule tCOMMA;
-	private final TerminalRule tDIGIT_ZERO;
-	private final TerminalRule tDIGIT_NONZERO;
+	private final TerminalRule tDIGIT;
 	private final TerminalRule tCOLON;
 	private final TerminalRule tCURLY_OPEN;
 	private final TerminalRule tCURLY_CLOSE;
@@ -3472,7 +3522,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pSupplement = new SupplementElements();
 		this.pHistorySupplement = new HistorySupplementElements();
 		this.pHistoryProfile = new HistoryProfileElements();
-		this.pSnomedIdentifier = new SnomedIdentifierElements();
+		this.pIdentifier = new IdentifierElements();
 		this.pNonNegativeInteger = new NonNegativeIntegerElements();
 		this.pNonNegativeDecimal = new NonNegativeDecimalElements();
 		this.pMaxValue = new MaxValueElements();
@@ -3520,6 +3570,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tMEMBER_SHORT_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MEMBER_SHORT_KEYWORD");
 		this.tDESCRIPTION_SHORT_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DESCRIPTION_SHORT_KEYWORD");
 		this.tCONCEPT_SHORT_KEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CONCEPT_SHORT_KEYWORD");
+		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ALPHA");
 		this.tKEYWORD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.KEYWORD");
 		this.tDBL_LT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_LT_EM");
 		this.tDBL_GT_EM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DBL_GT_EM");
@@ -3535,8 +3586,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.STRING");
 		this.tTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TO");
 		this.tCOMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.COMMA");
-		this.tDIGIT_ZERO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DIGIT_ZERO");
-		this.tDIGIT_NONZERO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DIGIT_NONZERO");
+		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DIGIT");
 		this.tCOLON = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.COLON");
 		this.tCURLY_OPEN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CURLY_OPEN");
 		this.tCURLY_CLOSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CURLY_CLOSE");
@@ -3789,7 +3839,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//EclConceptReference:
-	//	id=SnomedIdentifier term=PIPE_DELIMITED_STRING?;
+	//	id=Identifier term=PIPE_DELIMITED_STRING?;
 	public EclConceptReferenceElements getEclConceptReferenceAccess() {
 		return pEclConceptReference;
 	}
@@ -4477,18 +4527,19 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	///*
 	// * Datatype rules
-	// */ SnomedIdentifier hidden():
-	//	(DIGIT_NONZERO | DIGIT_ZERO)+;
-	public SnomedIdentifierElements getSnomedIdentifierAccess() {
-		return pSnomedIdentifier;
+	// */ Identifier:
+	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
+	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
+	public IdentifierElements getIdentifierAccess() {
+		return pIdentifier;
 	}
 	
-	public ParserRule getSnomedIdentifierRule() {
-		return getSnomedIdentifierAccess().getRule();
+	public ParserRule getIdentifierRule() {
+		return getIdentifierAccess().getRule();
 	}
 	
 	//NonNegativeInteger ecore::EInt hidden():
-	//	(DIGIT_NONZERO | DIGIT_ZERO)+;
+	//	DIGIT+;
 	public NonNegativeIntegerElements getNonNegativeIntegerAccess() {
 		return pNonNegativeInteger;
 	}
@@ -4498,7 +4549,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//NonNegativeDecimal ecore::EBigDecimal hidden():
-	//	NonNegativeInteger DOT (DIGIT_NONZERO | DIGIT_ZERO)*;
+	//	NonNegativeInteger DOT DIGIT*;
 	public NonNegativeDecimalElements getNonNegativeDecimalAccess() {
 		return pNonNegativeDecimal;
 	}
@@ -4604,7 +4655,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//DialectAliasValue hidden():
-	//	(DASH | UnquotedString | DIGIT_ZERO | DIGIT_NONZERO)+;
+	//	(DASH | UnquotedString | DIGIT)+;
 	public DialectAliasValueElements getDialectAliasValueAccess() {
 		return pDialectAliasValue;
 	}
@@ -4884,8 +4935,14 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return tCONCEPT_SHORT_KEYWORD;
 	}
 	
+	//terminal ALPHA:
+	//	'a'..'z' | 'A'..'Z';
+	public TerminalRule getALPHARule() {
+		return tALPHA;
+	}
+	
 	//terminal KEYWORD:
-	//	'a'..'z' | 'A'..'Z'+;
+	//	ALPHA ALPHA+;
 	public TerminalRule getKEYWORDRule() {
 		return tKEYWORD;
 	}
@@ -4975,16 +5032,10 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return tCOMMA;
 	}
 	
-	//terminal DIGIT_ZERO:
-	//	'0';
-	public TerminalRule getDIGIT_ZERORule() {
-		return tDIGIT_ZERO;
-	}
-	
-	//terminal DIGIT_NONZERO:
-	//	'1'..'9';
-	public TerminalRule getDIGIT_NONZERORule() {
-		return tDIGIT_NONZERO;
+	//terminal DIGIT:
+	//	'0'..'9';
+	public TerminalRule getDIGITRule() {
+		return tDIGIT;
 	}
 	
 	//terminal COLON:

@@ -80,7 +80,7 @@ MemberOf:
 	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
 
 EclConceptReference:
-	id=SnomedIdentifier (term=PIPE_DELIMITED_STRING)?;
+	id=Identifier (term=PIPE_DELIMITED_STRING)?;
 
 EclConceptReferenceSet:
 	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE;
@@ -322,14 +322,14 @@ HistoryProfile:
 /*
  * Datatype rules
  */
-SnomedIdentifier hidden():
-	(DIGIT_NONZERO | DIGIT_ZERO)+;
+Identifier returns ecore::EString:
+	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
 
 NonNegativeInteger returns ecore::EInt hidden():
-	(DIGIT_NONZERO | DIGIT_ZERO)+;
+	(DIGIT)+;
 
 NonNegativeDecimal returns ecore::EBigDecimal hidden():
-	NonNegativeInteger DOT (DIGIT_NONZERO | DIGIT_ZERO)*;
+	NonNegativeInteger DOT (DIGIT)*;
 
 MaxValue returns ecore::EInt hidden():
 	NonNegativeInteger | WILDCARD;
@@ -386,7 +386,7 @@ UnquotedString
 	| KEYWORD;
 
 DialectAliasValue hidden():
-	(DASH | UnquotedString | DIGIT_ZERO | DIGIT_NONZERO)+;
+	(DASH | UnquotedString | DIGIT)+;
 
 LEXICAL_SEARCH_TYPE
 	// Lexical search types supported in ECL 1.5 
@@ -525,9 +525,12 @@ terminal DESCRIPTION_SHORT_KEYWORD:
 terminal CONCEPT_SHORT_KEYWORD: 
 	'C' | 'c';
 
+terminal ALPHA:
+	'a'..'z' | 'A'..'Z';
+	
 terminal KEYWORD:
-	('a'..'z' | 'A'..'Z')+;
- 
+	ALPHA (ALPHA)+;
+	
 terminal DBL_LT_EM:
 	'<<!';
 	
@@ -572,11 +575,8 @@ terminal TO:
 terminal COMMA:
 	',';
 	
-terminal DIGIT_ZERO:
-	'0';
-
-terminal DIGIT_NONZERO:
-	'1'..'9';
+terminal DIGIT:
+	'0'..'9';
 
 terminal COLON:
 	':';
