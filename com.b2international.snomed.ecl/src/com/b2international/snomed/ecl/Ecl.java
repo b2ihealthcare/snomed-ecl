@@ -36,6 +36,14 @@ public final class Ecl {
 
 	private Ecl() {}
 
+	public static boolean isAnyExpression(ExpressionConstraint expression) {
+		return expression instanceof Any || expression instanceof NestedExpression && ((NestedExpression) expression).getNested() instanceof Any;
+	}
+	
+	public static boolean isEclConceptReference(ExpressionConstraint expression) {
+		return expression instanceof EclConceptReference || expression instanceof NestedExpression && ((NestedExpression) expression).getNested() instanceof EclConceptReference;
+	}
+	
 	public static String or(String... eclExpressions) {
 		final StringBuilder builder = new StringBuilder();
 		builder.append('(');
@@ -173,4 +181,5 @@ public final class Ecl {
 
 		return domain;
 	}
+	
 }
