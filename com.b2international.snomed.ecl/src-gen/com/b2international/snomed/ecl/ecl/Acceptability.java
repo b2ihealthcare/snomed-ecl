@@ -22,6 +22,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Acceptability</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.Acceptability#getAcceptabilities <em>Acceptabilities</em>}</li>
+ * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getAcceptability()
  * @model
@@ -29,4 +35,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Acceptability extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Acceptabilities</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Acceptabilities</em>' containment reference.
+   * @see #setAcceptabilities(EclConceptReferenceSet)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getAcceptability_Acceptabilities()
+   * @model containment="true"
+   * @generated
+   */
+  EclConceptReferenceSet getAcceptabilities();
+
+  /**
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.Acceptability#getAcceptabilities <em>Acceptabilities</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Acceptabilities</em>' containment reference.
+   * @see #getAcceptabilities()
+   * @generated
+   */
+  void setAcceptabilities(EclConceptReferenceSet value);
+
 } // Acceptability

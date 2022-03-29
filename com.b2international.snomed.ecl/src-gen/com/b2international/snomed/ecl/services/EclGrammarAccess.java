@@ -2125,16 +2125,15 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAliasAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAliasDialectAliasValueParserRuleCall_0_0 = (RuleCall)cAliasAssignment_0.eContents().get(0);
-		private final RuleCall cWSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cAcceptabilityAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAcceptabilityAcceptabilityParserRuleCall_2_0 = (RuleCall)cAcceptabilityAssignment_2.eContents().get(0);
+		private final Assignment cAcceptabilityAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAcceptabilityAcceptabilityParserRuleCall_1_0 = (RuleCall)cAcceptabilityAssignment_1.eContents().get(0);
 		
 		//// Whitespace is significant (indicates an unquoted string boundary) in this rule, so WS tokens can not be hidden
-		//DialectAlias hidden():
-		//	alias=DialectAliasValue WS* acceptability=Acceptability?;
+		//DialectAlias:
+		//	alias=DialectAliasValue acceptability=Acceptability?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//alias=DialectAliasValue WS* acceptability=Acceptability?
+		//alias=DialectAliasValue acceptability=Acceptability?
 		public Group getGroup() { return cGroup; }
 		
 		//alias=DialectAliasValue
@@ -2143,40 +2142,20 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DialectAliasValue
 		public RuleCall getAliasDialectAliasValueParserRuleCall_0_0() { return cAliasDialectAliasValueParserRuleCall_0_0; }
 		
-		//WS*
-		public RuleCall getWSTerminalRuleCall_1() { return cWSTerminalRuleCall_1; }
-		
 		//acceptability=Acceptability?
-		public Assignment getAcceptabilityAssignment_2() { return cAcceptabilityAssignment_2; }
+		public Assignment getAcceptabilityAssignment_1() { return cAcceptabilityAssignment_1; }
 		
 		//Acceptability
-		public RuleCall getAcceptabilityAcceptabilityParserRuleCall_2_0() { return cAcceptabilityAcceptabilityParserRuleCall_2_0; }
+		public RuleCall getAcceptabilityAcceptabilityParserRuleCall_1_0() { return cAcceptabilityAcceptabilityParserRuleCall_1_0; }
 	}
 	public class AcceptabilityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.Acceptability");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAcceptabilityIdSetParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cAcceptabilityTokenSetParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Acceptability:
-		//	AcceptabilityIdSet | AcceptabilityTokenSet;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//AcceptabilityIdSet | AcceptabilityTokenSet
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//AcceptabilityIdSet
-		public RuleCall getAcceptabilityIdSetParserRuleCall_0() { return cAcceptabilityIdSetParserRuleCall_0; }
-		
-		//AcceptabilityTokenSet
-		public RuleCall getAcceptabilityTokenSetParserRuleCall_1() { return cAcceptabilityTokenSetParserRuleCall_1; }
-	}
-	public class AcceptabilityIdSetElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.AcceptabilityIdSet");
 		private final Assignment cAcceptabilitiesAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cAcceptabilitiesEclConceptReferenceSetParserRuleCall_0 = (RuleCall)cAcceptabilitiesAssignment.eContents().get(0);
 		
-		//AcceptabilityIdSet:
+		//// while the official specification splits this into to separate rules, in order to allow any ID to be parsed in the EclConceptReference rule, it is necessary to treat token aliases as EclConceptReferences
+		//// validation will handle both the token cases (restrict it to the available set ("accept"/"prefer", case insensitive)) and SCTID cases 
+		//Acceptability:
 		//	acceptabilities=EclConceptReferenceSet;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2186,41 +2165,19 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//EclConceptReferenceSet
 		public RuleCall getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0() { return cAcceptabilitiesEclConceptReferenceSetParserRuleCall_0; }
 	}
-	public class AcceptabilityTokenSetElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.AcceptabilityTokenSet");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cROUND_OPENTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cAcceptabilitiesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAcceptabilitiesUnquotedStringParserRuleCall_1_0 = (RuleCall)cAcceptabilitiesAssignment_1.eContents().get(0);
-		private final RuleCall cROUND_CLOSETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		
-		//// Any unquoted string is allowed as an acceptability token here, validator will restrict it 
-		//// to the available set ("accept"/"prefer", case insensitive)
-		//AcceptabilityTokenSet:
-		//	ROUND_OPEN acceptabilities+=UnquotedString+ ROUND_CLOSE;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//ROUND_OPEN acceptabilities+=UnquotedString+ ROUND_CLOSE
-		public Group getGroup() { return cGroup; }
-		
-		//ROUND_OPEN
-		public RuleCall getROUND_OPENTerminalRuleCall_0() { return cROUND_OPENTerminalRuleCall_0; }
-		
-		//acceptabilities+=UnquotedString+
-		public Assignment getAcceptabilitiesAssignment_1() { return cAcceptabilitiesAssignment_1; }
-		
-		//UnquotedString
-		public RuleCall getAcceptabilitiesUnquotedStringParserRuleCall_1_0() { return cAcceptabilitiesUnquotedStringParserRuleCall_1_0; }
-		
-		//ROUND_CLOSE
-		public RuleCall getROUND_CLOSETerminalRuleCall_2() { return cROUND_CLOSETerminalRuleCall_2; }
-	}
 	public class DefinitionStatusFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DefinitionStatusFilter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDefinitionStatusIdFilterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDefinitionStatusTokenFilterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
+		//// keeping the original pre-2.0 rules commented for reference
+		////Acceptability:
+		////	AcceptabilityIdSet | AcceptabilityTokenSet;
+		////AcceptabilityIdSet:
+		////	acceptabilities=EclConceptReferenceSet;
+		////AcceptabilityTokenSet:
+		////	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
 		//DefinitionStatusFilter:
 		//	DefinitionStatusIdFilter | DefinitionStatusTokenFilter;
 		@Override public ParserRule getRule() { return rule; }
@@ -3100,21 +3057,21 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DialectAliasValue");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDASHTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cUnquotedStringParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cKEYWORDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDIGITTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//DialectAliasValue hidden():
-		//	(DASH | UnquotedString | DIGIT)+;
+		//DialectAliasValue:
+		//	(DASH | KEYWORD | DIGIT)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DASH | UnquotedString | DIGIT)+
+		//(DASH | KEYWORD | DIGIT)+
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DASH
 		public RuleCall getDASHTerminalRuleCall_0() { return cDASHTerminalRuleCall_0; }
 		
-		//UnquotedString
-		public RuleCall getUnquotedStringParserRuleCall_1() { return cUnquotedStringParserRuleCall_1; }
+		//KEYWORD
+		public RuleCall getKEYWORDTerminalRuleCall_1() { return cKEYWORDTerminalRuleCall_1; }
 		
 		//DIGIT
 		public RuleCall getDIGITTerminalRuleCall_2() { return cDIGITTerminalRuleCall_2; }
@@ -3325,8 +3282,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final DialectElements pDialect;
 	private final DialectAliasElements pDialectAlias;
 	private final AcceptabilityElements pAcceptability;
-	private final AcceptabilityIdSetElements pAcceptabilityIdSet;
-	private final AcceptabilityTokenSetElements pAcceptabilityTokenSet;
 	private final DefinitionStatusFilterElements pDefinitionStatusFilter;
 	private final DefinitionStatusIdFilterElements pDefinitionStatusIdFilter;
 	private final DefinitionStatusTokenFilterElements pDefinitionStatusTokenFilter;
@@ -3501,8 +3456,6 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pDialect = new DialectElements();
 		this.pDialectAlias = new DialectAliasElements();
 		this.pAcceptability = new AcceptabilityElements();
-		this.pAcceptabilityIdSet = new AcceptabilityIdSetElements();
-		this.pAcceptabilityTokenSet = new AcceptabilityTokenSetElements();
 		this.pDefinitionStatusFilter = new DefinitionStatusFilterElements();
 		this.pDefinitionStatusIdFilter = new DefinitionStatusIdFilterElements();
 		this.pDefinitionStatusTokenFilter = new DefinitionStatusTokenFilterElements();
@@ -4320,8 +4273,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//// Whitespace is significant (indicates an unquoted string boundary) in this rule, so WS tokens can not be hidden
-	//DialectAlias hidden():
-	//	alias=DialectAliasValue WS* acceptability=Acceptability?;
+	//DialectAlias:
+	//	alias=DialectAliasValue acceptability=Acceptability?;
 	public DialectAliasElements getDialectAliasAccess() {
 		return pDialectAlias;
 	}
@@ -4330,8 +4283,10 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getDialectAliasAccess().getRule();
 	}
 	
+	//// while the official specification splits this into to separate rules, in order to allow any ID to be parsed in the EclConceptReference rule, it is necessary to treat token aliases as EclConceptReferences
+	//// validation will handle both the token cases (restrict it to the available set ("accept"/"prefer", case insensitive)) and SCTID cases 
 	//Acceptability:
-	//	AcceptabilityIdSet | AcceptabilityTokenSet;
+	//	acceptabilities=EclConceptReferenceSet;
 	public AcceptabilityElements getAcceptabilityAccess() {
 		return pAcceptability;
 	}
@@ -4340,28 +4295,13 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getAcceptabilityAccess().getRule();
 	}
 	
-	//AcceptabilityIdSet:
-	//	acceptabilities=EclConceptReferenceSet;
-	public AcceptabilityIdSetElements getAcceptabilityIdSetAccess() {
-		return pAcceptabilityIdSet;
-	}
-	
-	public ParserRule getAcceptabilityIdSetRule() {
-		return getAcceptabilityIdSetAccess().getRule();
-	}
-	
-	//// Any unquoted string is allowed as an acceptability token here, validator will restrict it 
-	//// to the available set ("accept"/"prefer", case insensitive)
-	//AcceptabilityTokenSet:
-	//	ROUND_OPEN acceptabilities+=UnquotedString+ ROUND_CLOSE;
-	public AcceptabilityTokenSetElements getAcceptabilityTokenSetAccess() {
-		return pAcceptabilityTokenSet;
-	}
-	
-	public ParserRule getAcceptabilityTokenSetRule() {
-		return getAcceptabilityTokenSetAccess().getRule();
-	}
-	
+	//// keeping the original pre-2.0 rules commented for reference
+	////Acceptability:
+	////	AcceptabilityIdSet | AcceptabilityTokenSet;
+	////AcceptabilityIdSet:
+	////	acceptabilities=EclConceptReferenceSet;
+	////AcceptabilityTokenSet:
+	////	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
 	//DefinitionStatusFilter:
 	//	DefinitionStatusIdFilter | DefinitionStatusTokenFilter;
 	public DefinitionStatusFilterElements getDefinitionStatusFilterAccess() {
@@ -4650,8 +4590,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getUnquotedStringAccess().getRule();
 	}
 	
-	//DialectAliasValue hidden():
-	//	(DASH | UnquotedString | DIGIT)+;
+	//DialectAliasValue:
+	//	(DASH | KEYWORD | DIGIT)+;
 	public DialectAliasValueElements getDialectAliasValueAccess() {
 		return pDialectAliasValue;
 	}

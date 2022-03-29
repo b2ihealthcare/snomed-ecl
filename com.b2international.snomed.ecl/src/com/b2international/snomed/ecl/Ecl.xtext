@@ -252,19 +252,21 @@ Dialect:
 	languageRefSetId=FilteredExpressionConstraint (acceptability=Acceptability)?;
 
 // Whitespace is significant (indicates an unquoted string boundary) in this rule, so WS tokens can not be hidden
-DialectAlias hidden():
-	alias=DialectAliasValue WS* (acceptability=Acceptability)?;
+DialectAlias:
+	alias=DialectAliasValue (acceptability=Acceptability)?;
 
+// while the official specification splits this into to separate rules, in order to allow any ID to be parsed in the EclConceptReference rule, it is necessary to treat token aliases as EclConceptReferences
+// validation will handle both the token cases (restrict it to the available set ("accept"/"prefer", case insensitive)) and SCTID cases 
 Acceptability:
-	AcceptabilityIdSet | AcceptabilityTokenSet;
-
-AcceptabilityIdSet:
 	acceptabilities=EclConceptReferenceSet;
-
-// Any unquoted string is allowed as an acceptability token here, validator will restrict it 
-// to the available set ("accept"/"prefer", case insensitive)
-AcceptabilityTokenSet:
-	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
+	
+// keeping the original pre-2.0 rules commented for reference
+//Acceptability:
+//	AcceptabilityIdSet | AcceptabilityTokenSet;
+//AcceptabilityIdSet:
+//	acceptabilities=EclConceptReferenceSet;
+//AcceptabilityTokenSet:
+//	ROUND_OPEN (acceptabilities+=UnquotedString)+ ROUND_CLOSE;
 
 DefinitionStatusFilter:
 	DefinitionStatusIdFilter | DefinitionStatusTokenFilter;
@@ -385,8 +387,8 @@ UnquotedString
 	| WILDCARD
 	| KEYWORD;
 
-DialectAliasValue hidden():
-	(DASH | UnquotedString | DIGIT)+;
+DialectAliasValue:
+	(DASH | KEYWORD | DIGIT)+;
 
 LEXICAL_SEARCH_TYPE
 	// Lexical search types supported in ECL 1.5 

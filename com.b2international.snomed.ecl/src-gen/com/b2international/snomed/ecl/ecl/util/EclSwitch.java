@@ -480,22 +480,6 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclPackage.ACCEPTABILITY_ID_SET:
-      {
-        AcceptabilityIdSet acceptabilityIdSet = (AcceptabilityIdSet)theEObject;
-        T result = caseAcceptabilityIdSet(acceptabilityIdSet);
-        if (result == null) result = caseAcceptability(acceptabilityIdSet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclPackage.ACCEPTABILITY_TOKEN_SET:
-      {
-        AcceptabilityTokenSet acceptabilityTokenSet = (AcceptabilityTokenSet)theEObject;
-        T result = caseAcceptabilityTokenSet(acceptabilityTokenSet);
-        if (result == null) result = caseAcceptability(acceptabilityTokenSet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case EclPackage.DEFINITION_STATUS_FILTER:
       {
         DefinitionStatusFilter definitionStatusFilter = (DefinitionStatusFilter)theEObject;
@@ -1473,38 +1457,6 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAcceptability(Acceptability object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Acceptability Id Set</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Acceptability Id Set</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAcceptabilityIdSet(AcceptabilityIdSet object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Acceptability Token Set</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Acceptability Token Set</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAcceptabilityTokenSet(AcceptabilityTokenSet object)
   {
     return null;
   }

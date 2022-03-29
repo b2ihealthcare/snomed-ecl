@@ -124,8 +124,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.DIALECT: return createDialect();
       case EclPackage.DIALECT_ALIAS: return createDialectAlias();
       case EclPackage.ACCEPTABILITY: return createAcceptability();
-      case EclPackage.ACCEPTABILITY_ID_SET: return createAcceptabilityIdSet();
-      case EclPackage.ACCEPTABILITY_TOKEN_SET: return createAcceptabilityTokenSet();
       case EclPackage.DEFINITION_STATUS_FILTER: return createDefinitionStatusFilter();
       case EclPackage.DEFINITION_STATUS_ID_FILTER: return createDefinitionStatusIdFilter();
       case EclPackage.DEFINITION_STATUS_TOKEN_FILTER: return createDefinitionStatusTokenFilter();
@@ -719,30 +717,6 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     AcceptabilityImpl acceptability = new AcceptabilityImpl();
     return acceptability;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AcceptabilityIdSet createAcceptabilityIdSet()
-  {
-    AcceptabilityIdSetImpl acceptabilityIdSet = new AcceptabilityIdSetImpl();
-    return acceptabilityIdSet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AcceptabilityTokenSet createAcceptabilityTokenSet()
-  {
-    AcceptabilityTokenSetImpl acceptabilityTokenSet = new AcceptabilityTokenSetImpl();
-    return acceptabilityTokenSet;
   }
 
   /**

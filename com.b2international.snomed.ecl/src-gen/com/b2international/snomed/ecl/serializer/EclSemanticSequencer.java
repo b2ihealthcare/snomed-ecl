@@ -15,8 +15,7 @@
  */
 package com.b2international.snomed.ecl.serializer;
 
-import com.b2international.snomed.ecl.ecl.AcceptabilityIdSet;
-import com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet;
+import com.b2international.snomed.ecl.ecl.Acceptability;
 import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
 import com.b2international.snomed.ecl.ecl.ActiveFilter;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
@@ -105,11 +104,8 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EclPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EclPackage.ACCEPTABILITY_ID_SET:
-				sequence_AcceptabilityIdSet(context, (AcceptabilityIdSet) semanticObject); 
-				return; 
-			case EclPackage.ACCEPTABILITY_TOKEN_SET:
-				sequence_AcceptabilityTokenSet(context, (AcceptabilityTokenSet) semanticObject); 
+			case EclPackage.ACCEPTABILITY:
+				sequence_Acceptability(context, (Acceptability) semanticObject); 
 				return; 
 			case EclPackage.ACCEPTABLE_IN_FILTER:
 				sequence_AcceptableInFilter(context, (AcceptableInFilter) semanticObject); 
@@ -343,33 +339,19 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Acceptability returns AcceptabilityIdSet
-	 *     AcceptabilityIdSet returns AcceptabilityIdSet
+	 *     Acceptability returns Acceptability
 	 *
 	 * Constraint:
 	 *     acceptabilities=EclConceptReferenceSet
 	 */
-	protected void sequence_AcceptabilityIdSet(ISerializationContext context, AcceptabilityIdSet semanticObject) {
+	protected void sequence_Acceptability(ISerializationContext context, Acceptability semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACCEPTABILITY_ID_SET__ACCEPTABILITIES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACCEPTABILITY_ID_SET__ACCEPTABILITIES));
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.ACCEPTABILITY__ACCEPTABILITIES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.ACCEPTABILITY__ACCEPTABILITIES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0(), semanticObject.getAcceptabilities());
+		feeder.accept(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0(), semanticObject.getAcceptabilities());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Acceptability returns AcceptabilityTokenSet
-	 *     AcceptabilityTokenSet returns AcceptabilityTokenSet
-	 *
-	 * Constraint:
-	 *     acceptabilities+=UnquotedString+
-	 */
-	protected void sequence_AcceptabilityTokenSet(ISerializationContext context, AcceptabilityTokenSet semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -105,7 +105,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilterValue()
    * @generated
    */
-  int FILTER_VALUE = 60;
+  int FILTER_VALUE = 58;
 
   /**
    * The number of structural features of the '<em>Filter Value</em>' class.
@@ -1540,69 +1540,22 @@ public interface EclPackage extends EPackage
   int ACCEPTABILITY = 46;
 
   /**
-   * The number of structural features of the '<em>Acceptability</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCEPTABILITY_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.AcceptabilityIdSetImpl <em>Acceptability Id Set</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.AcceptabilityIdSetImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityIdSet()
-   * @generated
-   */
-  int ACCEPTABILITY_ID_SET = 47;
-
-  /**
    * The feature id for the '<em><b>Acceptabilities</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACCEPTABILITY_ID_SET__ACCEPTABILITIES = ACCEPTABILITY_FEATURE_COUNT + 0;
+  int ACCEPTABILITY__ACCEPTABILITIES = 0;
 
   /**
-   * The number of structural features of the '<em>Acceptability Id Set</em>' class.
+   * The number of structural features of the '<em>Acceptability</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACCEPTABILITY_ID_SET_FEATURE_COUNT = ACCEPTABILITY_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.AcceptabilityTokenSetImpl <em>Acceptability Token Set</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.b2international.snomed.ecl.ecl.impl.AcceptabilityTokenSetImpl
-   * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityTokenSet()
-   * @generated
-   */
-  int ACCEPTABILITY_TOKEN_SET = 48;
-
-  /**
-   * The feature id for the '<em><b>Acceptabilities</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES = ACCEPTABILITY_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Acceptability Token Set</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCEPTABILITY_TOKEN_SET_FEATURE_COUNT = ACCEPTABILITY_FEATURE_COUNT + 1;
+  int ACCEPTABILITY_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl <em>Definition Status Filter</em>}' class.
@@ -1612,7 +1565,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusFilter()
    * @generated
    */
-  int DEFINITION_STATUS_FILTER = 49;
+  int DEFINITION_STATUS_FILTER = 47;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1640,7 +1593,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusIdFilter()
    * @generated
    */
-  int DEFINITION_STATUS_ID_FILTER = 50;
+  int DEFINITION_STATUS_ID_FILTER = 48;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1677,7 +1630,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDefinitionStatusTokenFilter()
    * @generated
    */
-  int DEFINITION_STATUS_TOKEN_FILTER = 51;
+  int DEFINITION_STATUS_TOKEN_FILTER = 49;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1714,7 +1667,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getModuleFilter()
    * @generated
    */
-  int MODULE_FILTER = 52;
+  int MODULE_FILTER = 50;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1751,7 +1704,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getEffectiveTimeFilter()
    * @generated
    */
-  int EFFECTIVE_TIME_FILTER = 53;
+  int EFFECTIVE_TIME_FILTER = 51;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1788,7 +1741,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getActiveFilter()
    * @generated
    */
-  int ACTIVE_FILTER = 54;
+  int ACTIVE_FILTER = 52;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1825,7 +1778,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSemanticTagFilter()
    * @generated
    */
-  int SEMANTIC_TAG_FILTER = 55;
+  int SEMANTIC_TAG_FILTER = 53;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1862,7 +1815,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getPreferredInFilter()
    * @generated
    */
-  int PREFERRED_IN_FILTER = 56;
+  int PREFERRED_IN_FILTER = 54;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1890,7 +1843,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptableInFilter()
    * @generated
    */
-  int ACCEPTABLE_IN_FILTER = 57;
+  int ACCEPTABLE_IN_FILTER = 55;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1918,7 +1871,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getLanguageRefSetFilter()
    * @generated
    */
-  int LANGUAGE_REF_SET_FILTER = 58;
+  int LANGUAGE_REF_SET_FILTER = 56;
 
   /**
    * The feature id for the '<em><b>Language Ref Set Id</b></em>' containment reference.
@@ -1946,7 +1899,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getCaseSignificanceFilter()
    * @generated
    */
-  int CASE_SIGNIFICANCE_FILTER = 59;
+  int CASE_SIGNIFICANCE_FILTER = 57;
 
   /**
    * The feature id for the '<em><b>Case Significance Id</b></em>' containment reference.
@@ -1974,7 +1927,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplement()
    * @generated
    */
-  int SUPPLEMENT = 61;
+  int SUPPLEMENT = 59;
 
   /**
    * The number of structural features of the '<em>Supplement</em>' class.
@@ -1993,7 +1946,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getHistorySupplement()
    * @generated
    */
-  int HISTORY_SUPPLEMENT = 62;
+  int HISTORY_SUPPLEMENT = 60;
 
   /**
    * The feature id for the '<em><b>History</b></em>' containment reference.
@@ -2021,7 +1974,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getHistoryProfile()
    * @generated
    */
-  int HISTORY_PROFILE = 63;
+  int HISTORY_PROFILE = 61;
 
   /**
    * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -2049,7 +2002,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrExpressionConstraint()
    * @generated
    */
-  int OR_EXPRESSION_CONSTRAINT = 64;
+  int OR_EXPRESSION_CONSTRAINT = 62;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2086,7 +2039,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndExpressionConstraint()
    * @generated
    */
-  int AND_EXPRESSION_CONSTRAINT = 65;
+  int AND_EXPRESSION_CONSTRAINT = 63;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2123,7 +2076,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getExclusionExpressionConstraint()
    * @generated
    */
-  int EXCLUSION_EXPRESSION_CONSTRAINT = 66;
+  int EXCLUSION_EXPRESSION_CONSTRAINT = 64;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2160,7 +2113,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getRefinedExpressionConstraint()
    * @generated
    */
-  int REFINED_EXPRESSION_CONSTRAINT = 67;
+  int REFINED_EXPRESSION_CONSTRAINT = 65;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2197,7 +2150,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDottedExpressionConstraint()
    * @generated
    */
-  int DOTTED_EXPRESSION_CONSTRAINT = 68;
+  int DOTTED_EXPRESSION_CONSTRAINT = 66;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2234,7 +2187,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getSupplementExpressionConstraint()
    * @generated
    */
-  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 69;
+  int SUPPLEMENT_EXPRESSION_CONSTRAINT = 67;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2271,7 +2224,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getFilteredExpressionConstraint()
    * @generated
    */
-  int FILTERED_EXPRESSION_CONSTRAINT = 70;
+  int FILTERED_EXPRESSION_CONSTRAINT = 68;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' containment reference.
@@ -2308,7 +2261,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getOrRefinement()
    * @generated
    */
-  int OR_REFINEMENT = 71;
+  int OR_REFINEMENT = 69;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2345,7 +2298,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAndRefinement()
    * @generated
    */
-  int AND_REFINEMENT = 72;
+  int AND_REFINEMENT = 70;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2382,7 +2335,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getDisjunctionFilter()
    * @generated
    */
-  int DISJUNCTION_FILTER = 73;
+  int DISJUNCTION_FILTER = 71;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2419,7 +2372,7 @@ public interface EclPackage extends EPackage
    * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getConjunctionFilter()
    * @generated
    */
-  int CONJUNCTION_FILTER = 74;
+  int CONJUNCTION_FILTER = 72;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3503,46 +3456,15 @@ public interface EclPackage extends EPackage
   EClass getAcceptability();
 
   /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityIdSet <em>Acceptability Id Set</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Acceptability Id Set</em>'.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityIdSet
-   * @generated
-   */
-  EClass getAcceptabilityIdSet();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.AcceptabilityIdSet#getAcceptabilities <em>Acceptabilities</em>}'.
+   * Returns the meta object for the containment reference '{@link com.b2international.snomed.ecl.ecl.Acceptability#getAcceptabilities <em>Acceptabilities</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Acceptabilities</em>'.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityIdSet#getAcceptabilities()
-   * @see #getAcceptabilityIdSet()
+   * @see com.b2international.snomed.ecl.ecl.Acceptability#getAcceptabilities()
+   * @see #getAcceptability()
    * @generated
    */
-  EReference getAcceptabilityIdSet_Acceptabilities();
-
-  /**
-   * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet <em>Acceptability Token Set</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Acceptability Token Set</em>'.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet
-   * @generated
-   */
-  EClass getAcceptabilityTokenSet();
-
-  /**
-   * Returns the meta object for the attribute list '{@link com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet#getAcceptabilities <em>Acceptabilities</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Acceptabilities</em>'.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet#getAcceptabilities()
-   * @see #getAcceptabilityTokenSet()
-   * @generated
-   */
-  EAttribute getAcceptabilityTokenSet_Acceptabilities();
+  EReference getAcceptability_Acceptabilities();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.DefinitionStatusFilter <em>Definition Status Filter</em>}'.
@@ -5151,40 +5073,12 @@ public interface EclPackage extends EPackage
     EClass ACCEPTABILITY = eINSTANCE.getAcceptability();
 
     /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.AcceptabilityIdSetImpl <em>Acceptability Id Set</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.AcceptabilityIdSetImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityIdSet()
-     * @generated
-     */
-    EClass ACCEPTABILITY_ID_SET = eINSTANCE.getAcceptabilityIdSet();
-
-    /**
      * The meta object literal for the '<em><b>Acceptabilities</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ACCEPTABILITY_ID_SET__ACCEPTABILITIES = eINSTANCE.getAcceptabilityIdSet_Acceptabilities();
-
-    /**
-     * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.AcceptabilityTokenSetImpl <em>Acceptability Token Set</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.b2international.snomed.ecl.ecl.impl.AcceptabilityTokenSetImpl
-     * @see com.b2international.snomed.ecl.ecl.impl.EclPackageImpl#getAcceptabilityTokenSet()
-     * @generated
-     */
-    EClass ACCEPTABILITY_TOKEN_SET = eINSTANCE.getAcceptabilityTokenSet();
-
-    /**
-     * The meta object literal for the '<em><b>Acceptabilities</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES = eINSTANCE.getAcceptabilityTokenSet_Acceptabilities();
+    EReference ACCEPTABILITY__ACCEPTABILITIES = eINSTANCE.getAcceptability_Acceptabilities();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.DefinitionStatusFilterImpl <em>Definition Status Filter</em>}' class.

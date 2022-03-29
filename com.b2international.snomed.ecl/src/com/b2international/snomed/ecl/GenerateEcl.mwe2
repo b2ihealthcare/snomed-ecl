@@ -73,6 +73,8 @@ Workflow {
                   backtrack = true
                   classSplitting = true
               }
+              // can be used to generate a debuggable grammar for ANTLRWorks
+              debugGrammar = false
             }
 			serializer = {
 				generateStub = false

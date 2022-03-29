@@ -144,12 +144,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DialectAlias/alias"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//DialectAlias/acceptability"/>
     </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//Acceptability"/>
-    <genClasses ecoreClass="Ecl.ecore#//AcceptabilityIdSet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//AcceptabilityIdSet/acceptabilities"/>
-    </genClasses>
-    <genClasses ecoreClass="Ecl.ecore#//AcceptabilityTokenSet">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AcceptabilityTokenSet/acceptabilities"/>
+    <genClasses ecoreClass="Ecl.ecore#//Acceptability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//Acceptability/acceptabilities"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//DefinitionStatusFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//DefinitionStatusFilter/op"/>

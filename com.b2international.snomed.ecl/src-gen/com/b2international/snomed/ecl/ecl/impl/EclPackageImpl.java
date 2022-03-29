@@ -16,8 +16,6 @@
 package com.b2international.snomed.ecl.ecl.impl;
 
 import com.b2international.snomed.ecl.ecl.Acceptability;
-import com.b2international.snomed.ecl.ecl.AcceptabilityIdSet;
-import com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet;
 import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
 import com.b2international.snomed.ecl.ecl.ActiveFilter;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
@@ -436,20 +434,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass acceptabilityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass acceptabilityIdSetEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass acceptabilityTokenSetEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1802,42 +1786,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EClass getAcceptabilityIdSet()
+  public EReference getAcceptability_Acceptabilities()
   {
-    return acceptabilityIdSetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getAcceptabilityIdSet_Acceptabilities()
-  {
-    return (EReference)acceptabilityIdSetEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getAcceptabilityTokenSet()
-  {
-    return acceptabilityTokenSetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getAcceptabilityTokenSet_Acceptabilities()
-  {
-    return (EAttribute)acceptabilityTokenSetEClass.getEStructuralFeatures().get(0);
+    return (EReference)acceptabilityEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2732,12 +2683,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEReference(dialectAliasEClass, DIALECT_ALIAS__ACCEPTABILITY);
 
     acceptabilityEClass = createEClass(ACCEPTABILITY);
-
-    acceptabilityIdSetEClass = createEClass(ACCEPTABILITY_ID_SET);
-    createEReference(acceptabilityIdSetEClass, ACCEPTABILITY_ID_SET__ACCEPTABILITIES);
-
-    acceptabilityTokenSetEClass = createEClass(ACCEPTABILITY_TOKEN_SET);
-    createEAttribute(acceptabilityTokenSetEClass, ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES);
+    createEReference(acceptabilityEClass, ACCEPTABILITY__ACCEPTABILITIES);
 
     definitionStatusFilterEClass = createEClass(DEFINITION_STATUS_FILTER);
     createEAttribute(definitionStatusFilterEClass, DEFINITION_STATUS_FILTER__OP);
@@ -2896,8 +2842,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     dialectFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     dialectIdFilterEClass.getESuperTypes().add(this.getDialectFilter());
     dialectAliasFilterEClass.getESuperTypes().add(this.getDialectFilter());
-    acceptabilityIdSetEClass.getESuperTypes().add(this.getAcceptability());
-    acceptabilityTokenSetEClass.getESuperTypes().add(this.getAcceptability());
     definitionStatusFilterEClass.getESuperTypes().add(this.getPropertyFilter());
     definitionStatusIdFilterEClass.getESuperTypes().add(this.getDefinitionStatusFilter());
     definitionStatusTokenFilterEClass.getESuperTypes().add(this.getDefinitionStatusFilter());
@@ -3069,12 +3013,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEReference(getDialectAlias_Acceptability(), this.getAcceptability(), null, "acceptability", null, 0, 1, DialectAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(acceptabilityEClass, Acceptability.class, "Acceptability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(acceptabilityIdSetEClass, AcceptabilityIdSet.class, "AcceptabilityIdSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAcceptabilityIdSet_Acceptabilities(), this.getEclConceptReferenceSet(), null, "acceptabilities", null, 0, 1, AcceptabilityIdSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(acceptabilityTokenSetEClass, AcceptabilityTokenSet.class, "AcceptabilityTokenSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAcceptabilityTokenSet_Acceptabilities(), ecorePackage.getEString(), "acceptabilities", null, 0, -1, AcceptabilityTokenSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAcceptability_Acceptabilities(), this.getEclConceptReferenceSet(), null, "acceptabilities", null, 0, 1, Acceptability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionStatusFilterEClass, DefinitionStatusFilter.class, "DefinitionStatusFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefinitionStatusFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, DefinitionStatusFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

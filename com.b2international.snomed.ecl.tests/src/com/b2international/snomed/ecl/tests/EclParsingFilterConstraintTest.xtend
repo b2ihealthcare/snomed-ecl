@@ -182,6 +182,26 @@ class EclParsingFilterConstraintTest {
 	def void test_filter_description_semanticTag_w_domain() {
 		'* {{ d semanticTag = "finding" }}'.assertNoErrors;
 	}
+	
+	@Test
+	def void test_filter_dialect_alias_single() {
+		'* {{ dialect = en }}'.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_dialect_alias_multi() {
+		'* {{ dialect = (en de) }}'.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_dialect_alias_single_acceptability() {
+		'* {{ dialect = en (prefer) }}'.assertNoErrors
+	}
+	
+	@Test
+	def void test_filter_dialect_alias_dash() {
+		'* {{ dialect = en-gb }}'.assertNoErrors
+	}
 
 	@Test
 	def void test_filter_concept_definitionStatus_wo_domain() {

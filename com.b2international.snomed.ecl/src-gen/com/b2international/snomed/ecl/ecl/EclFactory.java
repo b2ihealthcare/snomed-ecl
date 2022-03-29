@@ -459,24 +459,6 @@ public interface EclFactory extends EFactory
   Acceptability createAcceptability();
 
   /**
-   * Returns a new object of class '<em>Acceptability Id Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Acceptability Id Set</em>'.
-   * @generated
-   */
-  AcceptabilityIdSet createAcceptabilityIdSet();
-
-  /**
-   * Returns a new object of class '<em>Acceptability Token Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Acceptability Token Set</em>'.
-   * @generated
-   */
-  AcceptabilityTokenSet createAcceptabilityTokenSet();
-
-  /**
    * Returns a new object of class '<em>Definition Status Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -323,16 +323,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createAcceptabilityAdapter();
       }
       @Override
-      public Adapter caseAcceptabilityIdSet(AcceptabilityIdSet object)
-      {
-        return createAcceptabilityIdSetAdapter();
-      }
-      @Override
-      public Adapter caseAcceptabilityTokenSet(AcceptabilityTokenSet object)
-      {
-        return createAcceptabilityTokenSetAdapter();
-      }
-      @Override
       public Adapter caseDefinitionStatusFilter(DefinitionStatusFilter object)
       {
         return createDefinitionStatusFilterAdapter();
@@ -1185,36 +1175,6 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAcceptabilityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityIdSet <em>Acceptability Id Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityIdSet
-   * @generated
-   */
-  public Adapter createAcceptabilityIdSetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet <em>Acceptability Token Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.b2international.snomed.ecl.ecl.AcceptabilityTokenSet
-   * @generated
-   */
-  public Adapter createAcceptabilityTokenSetAdapter()
   {
     return null;
   }

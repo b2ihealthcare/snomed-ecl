@@ -63,7 +63,6 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDialectFilterAccess().getAlternatives(), "rule__DialectFilter__Alternatives");
 			builder.put(grammarAccess.getDialectIdFilterAccess().getAlternatives_2(), "rule__DialectIdFilter__Alternatives_2");
 			builder.put(grammarAccess.getDialectAliasFilterAccess().getAlternatives_2(), "rule__DialectAliasFilter__Alternatives_2");
-			builder.put(grammarAccess.getAcceptabilityAccess().getAlternatives(), "rule__Acceptability__Alternatives");
 			builder.put(grammarAccess.getDefinitionStatusFilterAccess().getAlternatives(), "rule__DefinitionStatusFilter__Alternatives");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getAlternatives_2(), "rule__DefinitionStatusTokenFilter__Alternatives_2");
 			builder.put(grammarAccess.getFilterValueAccess().getAlternatives(), "rule__FilterValue__Alternatives");
@@ -158,7 +157,6 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDialectAliasFilterAccess().getGroup_2_1(), "rule__DialectAliasFilter__Group_2_1__0");
 			builder.put(grammarAccess.getDialectAccess().getGroup(), "rule__Dialect__Group__0");
 			builder.put(grammarAccess.getDialectAliasAccess().getGroup(), "rule__DialectAlias__Group__0");
-			builder.put(grammarAccess.getAcceptabilityTokenSetAccess().getGroup(), "rule__AcceptabilityTokenSet__Group__0");
 			builder.put(grammarAccess.getDefinitionStatusIdFilterAccess().getGroup(), "rule__DefinitionStatusIdFilter__Group__0");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getGroup(), "rule__DefinitionStatusTokenFilter__Group__0");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getGroup_2_1(), "rule__DefinitionStatusTokenFilter__Group_2_1__0");
@@ -256,9 +254,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDialectAccess().getLanguageRefSetIdAssignment_0(), "rule__Dialect__LanguageRefSetIdAssignment_0");
 			builder.put(grammarAccess.getDialectAccess().getAcceptabilityAssignment_1(), "rule__Dialect__AcceptabilityAssignment_1");
 			builder.put(grammarAccess.getDialectAliasAccess().getAliasAssignment_0(), "rule__DialectAlias__AliasAssignment_0");
-			builder.put(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_2(), "rule__DialectAlias__AcceptabilityAssignment_2");
-			builder.put(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesAssignment(), "rule__AcceptabilityIdSet__AcceptabilitiesAssignment");
-			builder.put(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesAssignment_1(), "rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1");
+			builder.put(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_1(), "rule__DialectAlias__AcceptabilityAssignment_1");
+			builder.put(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesAssignment(), "rule__Acceptability__AcceptabilitiesAssignment");
 			builder.put(grammarAccess.getDefinitionStatusIdFilterAccess().getOpAssignment_1(), "rule__DefinitionStatusIdFilter__OpAssignment_1");
 			builder.put(grammarAccess.getDefinitionStatusIdFilterAccess().getDefinitionStatusAssignment_2(), "rule__DefinitionStatusIdFilter__DefinitionStatusAssignment_2");
 			builder.put(grammarAccess.getDefinitionStatusTokenFilterAccess().getOpAssignment_1(), "rule__DefinitionStatusTokenFilter__OpAssignment_1");

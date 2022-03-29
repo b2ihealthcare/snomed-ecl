@@ -4025,22 +4025,16 @@ ruleDialect returns [EObject current=null]
 ;
 
 // Entry rule entryRuleDialectAlias
-entryRuleDialectAlias returns [EObject current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleDialectAlias returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDialectAliasRule()); }
 	iv_ruleDialectAlias=ruleDialectAlias
 	{ $current=$iv_ruleDialectAlias.current; }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule DialectAlias
 ruleDialectAlias returns [EObject current=null]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -4066,17 +4060,11 @@ ruleDialectAlias returns [EObject current=null]
 			)
 		)
 		(
-			this_WS_1=RULE_WS
-			{
-				newLeafNode(this_WS_1, grammarAccess.getDialectAliasAccess().getWSTerminalRuleCall_1());
-			}
-		)*
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_1_0());
 				}
-				lv_acceptability_2_0=ruleAcceptability
+				lv_acceptability_1_0=ruleAcceptability
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDialectAliasRule());
@@ -4084,7 +4072,7 @@ ruleDialectAlias returns [EObject current=null]
 					set(
 						$current,
 						"acceptability",
-						lv_acceptability_2_0,
+						lv_acceptability_1_0,
 						"com.b2international.snomed.ecl.Ecl.Acceptability");
 					afterParserOrEnumRuleCall();
 				}
@@ -4092,9 +4080,6 @@ ruleDialectAlias returns [EObject current=null]
 		)?
 	)
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleAcceptability
 entryRuleAcceptability returns [EObject current=null]:
@@ -4112,56 +4097,14 @@ ruleAcceptability returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getAcceptabilityAccess().getAcceptabilityIdSetParserRuleCall_0());
-		}
-		this_AcceptabilityIdSet_0=ruleAcceptabilityIdSet
-		{
-			$current = $this_AcceptabilityIdSet_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getAcceptabilityAccess().getAcceptabilityTokenSetParserRuleCall_1());
-		}
-		this_AcceptabilityTokenSet_1=ruleAcceptabilityTokenSet
-		{
-			$current = $this_AcceptabilityTokenSet_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleAcceptabilityIdSet
-entryRuleAcceptabilityIdSet returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAcceptabilityIdSetRule()); }
-	iv_ruleAcceptabilityIdSet=ruleAcceptabilityIdSet
-	{ $current=$iv_ruleAcceptabilityIdSet.current; }
-	EOF;
-
-// Rule AcceptabilityIdSet
-ruleAcceptabilityIdSet returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
 			{
-				newCompositeNode(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0());
+				newCompositeNode(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0());
 			}
 			lv_acceptabilities_0_0=ruleEclConceptReferenceSet
 			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getAcceptabilityIdSetRule());
+					$current = createModelElementForParent(grammarAccess.getAcceptabilityRule());
 				}
 				set(
 					$current,
@@ -4171,52 +4114,6 @@ ruleAcceptabilityIdSet returns [EObject current=null]
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleAcceptabilityTokenSet
-entryRuleAcceptabilityTokenSet returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAcceptabilityTokenSetRule()); }
-	iv_ruleAcceptabilityTokenSet=ruleAcceptabilityTokenSet
-	{ $current=$iv_ruleAcceptabilityTokenSet.current; }
-	EOF;
-
-// Rule AcceptabilityTokenSet
-ruleAcceptabilityTokenSet returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ROUND_OPEN_0=RULE_ROUND_OPEN
-		{
-			newLeafNode(this_ROUND_OPEN_0, grammarAccess.getAcceptabilityTokenSetAccess().getROUND_OPENTerminalRuleCall_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesUnquotedStringParserRuleCall_1_0());
-				}
-				lv_acceptabilities_1_0=ruleUnquotedString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAcceptabilityTokenSetRule());
-					}
-					add(
-						$current,
-						"acceptabilities",
-						lv_acceptabilities_1_0,
-						"com.b2international.snomed.ecl.Ecl.UnquotedString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)+
-		this_ROUND_CLOSE_2=RULE_ROUND_CLOSE
-		{
-			newLeafNode(this_ROUND_CLOSE_2, grammarAccess.getAcceptabilityTokenSetAccess().getROUND_CLOSETerminalRuleCall_2());
-		}
 	)
 ;
 
@@ -5815,22 +5712,16 @@ ruleUnquotedString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 ;
 
 // Entry rule entryRuleDialectAliasValue
-entryRuleDialectAliasValue returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleDialectAliasValue returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getDialectAliasValueRule()); }
 	iv_ruleDialectAliasValue=ruleDialectAliasValue
 	{ $current=$iv_ruleDialectAliasValue.current.getText(); }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule DialectAliasValue
 ruleDialectAliasValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5844,15 +5735,12 @@ ruleDialectAliasValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 			newLeafNode(this_DASH_0, grammarAccess.getDialectAliasValueAccess().getDASHTerminalRuleCall_0());
 		}
 		    |
+		this_KEYWORD_1=RULE_KEYWORD
 		{
-			newCompositeNode(grammarAccess.getDialectAliasValueAccess().getUnquotedStringParserRuleCall_1());
-		}
-		this_UnquotedString_1=ruleUnquotedString
-		{
-			$current.merge(this_UnquotedString_1);
+			$current.merge(this_KEYWORD_1);
 		}
 		{
-			afterParserOrEnumRuleCall();
+			newLeafNode(this_KEYWORD_1, grammarAccess.getDialectAliasValueAccess().getKEYWORDTerminalRuleCall_1());
 		}
 		    |
 		this_DIGIT_2=RULE_DIGIT
@@ -5864,9 +5752,6 @@ ruleDialectAliasValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 		}
 	)+
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleLEXICAL_SEARCH_TYPE
 entryRuleLEXICAL_SEARCH_TYPE returns [String current=null]:

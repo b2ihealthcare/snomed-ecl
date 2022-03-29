@@ -1689,23 +1689,16 @@ finally {
 
 // Entry rule entryRuleDialectAlias
 entryRuleDialectAlias
-@init { 
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
 :
 { before(grammarAccess.getDialectAliasRule()); }
 	 ruleDialectAlias
 { after(grammarAccess.getDialectAliasRule()); } 
 	 EOF 
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule DialectAlias
 ruleDialectAlias 
 	@init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 		int stackSize = keepStackSize();
 	}
 	:
@@ -1717,7 +1710,6 @@ ruleDialectAlias
 ;
 finally {
 	restoreStackSize(stackSize);
-	myHiddenTokenState.restore();
 }
 
 // Entry rule entryRuleAcceptability
@@ -1736,59 +1728,9 @@ ruleAcceptability
 	}
 	:
 	(
-		{ before(grammarAccess.getAcceptabilityAccess().getAlternatives()); }
-		(rule__Acceptability__Alternatives)
-		{ after(grammarAccess.getAcceptabilityAccess().getAlternatives()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleAcceptabilityIdSet
-entryRuleAcceptabilityIdSet
-:
-{ before(grammarAccess.getAcceptabilityIdSetRule()); }
-	 ruleAcceptabilityIdSet
-{ after(grammarAccess.getAcceptabilityIdSetRule()); } 
-	 EOF 
-;
-
-// Rule AcceptabilityIdSet
-ruleAcceptabilityIdSet 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesAssignment()); }
-		(rule__AcceptabilityIdSet__AcceptabilitiesAssignment)
-		{ after(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleAcceptabilityTokenSet
-entryRuleAcceptabilityTokenSet
-:
-{ before(grammarAccess.getAcceptabilityTokenSetRule()); }
-	 ruleAcceptabilityTokenSet
-{ after(grammarAccess.getAcceptabilityTokenSetRule()); } 
-	 EOF 
-;
-
-// Rule AcceptabilityTokenSet
-ruleAcceptabilityTokenSet 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getAcceptabilityTokenSetAccess().getGroup()); }
-		(rule__AcceptabilityTokenSet__Group__0)
-		{ after(grammarAccess.getAcceptabilityTokenSetAccess().getGroup()); }
+		{ before(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesAssignment()); }
+		(rule__Acceptability__AcceptabilitiesAssignment)
+		{ after(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesAssignment()); }
 	)
 ;
 finally {
@@ -2460,23 +2402,16 @@ finally {
 
 // Entry rule entryRuleDialectAliasValue
 entryRuleDialectAliasValue
-@init { 
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}
 :
 { before(grammarAccess.getDialectAliasValueRule()); }
 	 ruleDialectAliasValue
 { after(grammarAccess.getDialectAliasValueRule()); } 
 	 EOF 
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule DialectAliasValue
 ruleDialectAliasValue 
 	@init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 		int stackSize = keepStackSize();
 	}
 	:
@@ -2495,7 +2430,6 @@ ruleDialectAliasValue
 ;
 finally {
 	restoreStackSize(stackSize);
-	myHiddenTokenState.restore();
 }
 
 // Entry rule entryRuleLEXICAL_SEARCH_TYPE
@@ -3199,27 +3133,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Acceptability__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getAcceptabilityAccess().getAcceptabilityIdSetParserRuleCall_0()); }
-		ruleAcceptabilityIdSet
-		{ after(grammarAccess.getAcceptabilityAccess().getAcceptabilityIdSetParserRuleCall_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getAcceptabilityAccess().getAcceptabilityTokenSetParserRuleCall_1()); }
-		ruleAcceptabilityTokenSet
-		{ after(grammarAccess.getAcceptabilityAccess().getAcceptabilityTokenSetParserRuleCall_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__DefinitionStatusFilter__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -3772,9 +3685,9 @@ rule__DialectAliasValue__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getDialectAliasValueAccess().getUnquotedStringParserRuleCall_1()); }
-		ruleUnquotedString
-		{ after(grammarAccess.getDialectAliasValueAccess().getUnquotedStringParserRuleCall_1()); }
+		{ before(grammarAccess.getDialectAliasValueAccess().getKEYWORDTerminalRuleCall_1()); }
+		RULE_KEYWORD
+		{ after(grammarAccess.getDialectAliasValueAccess().getKEYWORDTerminalRuleCall_1()); }
 	)
 	|
 	(
@@ -9004,7 +8917,6 @@ rule__DialectAlias__Group__1
 	}
 :
 	rule__DialectAlias__Group__1__Impl
-	rule__DialectAlias__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -9016,123 +8928,9 @@ rule__DialectAlias__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDialectAliasAccess().getWSTerminalRuleCall_1()); }
-	(RULE_WS)*
-	{ after(grammarAccess.getDialectAliasAccess().getWSTerminalRuleCall_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DialectAlias__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DialectAlias__Group__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DialectAlias__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_2()); }
-	(rule__DialectAlias__AcceptabilityAssignment_2)?
-	{ after(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__AcceptabilityTokenSet__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__AcceptabilityTokenSet__Group__0__Impl
-	rule__AcceptabilityTokenSet__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getAcceptabilityTokenSetAccess().getROUND_OPENTerminalRuleCall_0()); }
-	RULE_ROUND_OPEN
-	{ after(grammarAccess.getAcceptabilityTokenSetAccess().getROUND_OPENTerminalRuleCall_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__AcceptabilityTokenSet__Group__1__Impl
-	rule__AcceptabilityTokenSet__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	(
-		{ before(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesAssignment_1()); }
-		(rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1)
-		{ after(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesAssignment_1()); }
-	)
-	(
-		{ before(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesAssignment_1()); }
-		(rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1)*
-		{ after(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesAssignment_1()); }
-	)
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__AcceptabilityTokenSet__Group__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getAcceptabilityTokenSetAccess().getROUND_CLOSETerminalRuleCall_2()); }
-	RULE_ROUND_CLOSE
-	{ after(grammarAccess.getAcceptabilityTokenSetAccess().getROUND_CLOSETerminalRuleCall_2()); }
+	{ before(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_1()); }
+	(rule__DialectAlias__AcceptabilityAssignment_1)?
+	{ after(grammarAccess.getDialectAliasAccess().getAcceptabilityAssignment_1()); }
 )
 ;
 finally {
@@ -11750,45 +11548,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DialectAlias__AcceptabilityAssignment_2
+rule__DialectAlias__AcceptabilityAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_2_0()); }
+		{ before(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_1_0()); }
 		ruleAcceptability
-		{ after(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_2_0()); }
+		{ after(grammarAccess.getDialectAliasAccess().getAcceptabilityAcceptabilityParserRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AcceptabilityIdSet__AcceptabilitiesAssignment
+rule__Acceptability__AcceptabilitiesAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0()); }
+		{ before(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0()); }
 		ruleEclConceptReferenceSet
-		{ after(grammarAccess.getAcceptabilityIdSetAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__AcceptabilityTokenSet__AcceptabilitiesAssignment_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesUnquotedStringParserRuleCall_1_0()); }
-		ruleUnquotedString
-		{ after(grammarAccess.getAcceptabilityTokenSetAccess().getAcceptabilitiesUnquotedStringParserRuleCall_1_0()); }
+		{ after(grammarAccess.getAcceptabilityAccess().getAcceptabilitiesEclConceptReferenceSetParserRuleCall_0()); }
 	)
 ;
 finally {

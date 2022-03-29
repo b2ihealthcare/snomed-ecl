@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,11 @@ package com.b2international.snomed.ecl.validation;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -29,7 +31,6 @@ import com.b2international.snomed.ecl.Ecl;
 import com.b2international.snomed.ecl.ecl.*;
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Sets;
 
 /**
@@ -48,7 +49,7 @@ public class EclValidator extends AbstractEclValidator {
 	private static final String UNSUPPORTED_TYPE_TOKEN_MESSAGE = "Unsupported type token";
 	public static final String UNSUPPORTED_TYPE_TOKEN_CODE = "typetokenfilter.tokens.unsupported";
 
-	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE = "Unsupported acceptability token";
+	private static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE = "Unsupported acceptability token or acceptability concept identifier";
 	public static final String UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE = "dialectfilter.tokens.unsupported";
 	
 	private static final String UNSUPPORTED_DEFINITION_STATUS_TOKEN_MESSAGE = "Unsupported definition status token";
@@ -76,7 +77,7 @@ public class EclValidator extends AbstractEclValidator {
 	private static final Set<String> SUPPORTED_DEFINITION_STATUS_TOKENS = Set.of("primitive", "defined");
 	private static final Set<String> SUPPORTED_ACCEPTABILITY_TOKENS = Set.of("accept", "prefer");
 	
-	private static final Supplier<Set<String>> SUPPORTED_LANGUAGE_CODES = Suppliers.memoize(() -> toCaseInsensitiveSet(List.of(Locale.getISOLanguages())));
+	private static final Supplier<Set<String>> SUPPORTED_LANGUAGE_CODES = Suppliers.memoize(() -> Arrays.stream(Locale.getISOLanguages()).map(EclValidator::toCaseInsensitive).collect(Collectors.toUnmodifiableSet()));
 	private static final int SUPPORTED_MIN_TERM_LENGTH = 2;
 	
 	// Copied from EffectiveTimes
@@ -86,10 +87,12 @@ public class EclValidator extends AbstractEclValidator {
 	// Copied from DateFormats
 	private static final String SHORT_DATE_FORMAT = "yyyyMMdd";
 	
-	private static final Set<String> toCaseInsensitiveSet(final Iterable<String> iterable) {
-		return FluentIterable.from(iterable)
-			.transform(l -> l.toLowerCase(Locale.ENGLISH))
-			.toSet();				
+	private static final String toCaseInsensitive(String value) {
+		return value.toLowerCase(Locale.ENGLISH);
+	}
+	
+	private static final Set<String> toCaseInsensitiveSet(Collection<String> values) {
+		return values.stream().map(EclValidator::toCaseInsensitive).collect(Collectors.toUnmodifiableSet());
 	}
 	
 	@Override
@@ -256,11 +259,21 @@ public class EclValidator extends AbstractEclValidator {
 	}
 	
 	@Check
-	public void checkAcceptabilityTokenSet(AcceptabilityTokenSet it) {
-		final Set<String> tokens = toCaseInsensitiveSet(it.getAcceptabilities());
-		final Set<String> unsupportedTokens = Sets.difference(tokens, SUPPORTED_ACCEPTABILITY_TOKENS);
-		if (!unsupportedTokens.isEmpty()) {
-			error(UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE, it, EclPackage.Literals.ACCEPTABILITY_TOKEN_SET__ACCEPTABILITIES, UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE);
+	public void checkAcceptabilityTokenSet(Acceptability it) {
+		final Set<String> tokens = it.getAcceptabilities().getConcepts().stream()
+				.map(EclConceptReference::getId)
+				.map(EclValidator::toCaseInsensitive)
+				.collect(Collectors.toSet());
+		
+		// remove any supported acceptability token aliases
+		tokens.removeIf(SUPPORTED_ACCEPTABILITY_TOKENS::contains);
+		
+		// remove any SCT identifiers that are valid
+		tokens.removeIf(SnomedIdentifiers::isValid);
+		
+		// any remaining token should be reported as unsupported token
+		if (!tokens.isEmpty()) {
+			error(UNSUPPORTED_ACCEPTABILITY_TOKEN_MESSAGE, it, EclPackage.Literals.ACCEPTABILITY__ACCEPTABILITIES, UNSUPPORTED_ACCEPTABILITY_TOKEN_CODE);
 		}
 	}
 	
@@ -287,6 +300,10 @@ public class EclValidator extends AbstractEclValidator {
 
 	@Check
 	public void checkSctid(EclConceptReference it) {
+		// skip validation of EclConceptReferenceSet inside Acceptability parts of the language
+		if (it.eContainer() instanceof EclConceptReferenceSet && it.eContainer().eContainer() instanceof Acceptability) {
+			return;
+		}
 		try {
 			SnomedIdentifiers.validate(it.getId());
 		} catch (IllegalArgumentException e) {
