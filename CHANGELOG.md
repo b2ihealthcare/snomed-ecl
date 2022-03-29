@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0.0
+
+- [lang] support the latest official [ECL 2.0.0](TODO link to the final spec) specification changes
+  * Support history supplements
+  * Support memberField filters
+  * Support memberField selection
+  * Minor non-breaking syntax changes
+- [lang] support matching any kind of ID from the following alphabet (`a-zA-Z0-9-_`)
+
+## 1.6.0
+
+- [lang] support grammar constructs, property filters introduced in ECL 1.6 language specification (#6)
+
 ## 1.5.0
 - [lang] support ECL specification [1.5.0](https://confluence.ihtsdotools.org/download/attachments/33493263/doc_ExpressionConstraintLanguage_v1.5-en-US_INT_20210215.pdf?api=v2) (#4)
   * Support official filter constraints, like `TermFilter`, `Language Filter`, `Description Type Filter`, `Dialect Filter`, `Acceptability Filter`
