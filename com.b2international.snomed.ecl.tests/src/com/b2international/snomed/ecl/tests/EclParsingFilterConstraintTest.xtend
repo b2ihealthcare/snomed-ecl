@@ -64,6 +64,11 @@ class EclParsingFilterConstraintTest {
 	}
 	
 	@Test
+	def void test_filter_default_domain_inconsistency() {
+		'* {{ active=true OR definitionStatusId = 900000000000207008 }}'.assertError(EclPackage.Literals.FILTER_CONSTRAINT, EclValidator.DOMAIN_INCONSISTENCY_CODE)
+	}
+	
+	@Test
 	def void test_filter_default_domain_active_or_module() {
 		'* {{ active = true OR moduleId = 900000000000207008 }}'.assertNoErrors;
 	}
