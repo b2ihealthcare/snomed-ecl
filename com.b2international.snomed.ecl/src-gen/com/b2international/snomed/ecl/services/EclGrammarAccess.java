@@ -2683,9 +2683,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cKEYWORDTerminalRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final RuleCall cDOTTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cDASHTerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cUNDERSCORETerminalRuleCall_1_0_2 = (RuleCall)cAlternatives_1_0.eContents().get(2);
+		private final RuleCall cDASHTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cUNDERSCORETerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
 		private final RuleCall cDIGITTerminalRuleCall_1_1_0 = (RuleCall)cAlternatives_1_1.eContents().get(0);
 		private final RuleCall cALPHATerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
@@ -2697,12 +2696,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		///*
 		// * Datatype rules
 		// */ Identifier:
-		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
-		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
+		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT
+		//	| ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
-		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT |
+		//ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
 		public Group getGroup() { return cGroup; }
 		
 		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
@@ -2726,20 +2725,17 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//KEYWORD
 		public RuleCall getKEYWORDTerminalRuleCall_0_5() { return cKEYWORDTerminalRuleCall_0_5; }
 		
-		//((DOT | DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		//((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//(DOT | DASH | UNDERSCORE)
+		//(DASH | UNDERSCORE)
 		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
-		//DOT
-		public RuleCall getDOTTerminalRuleCall_1_0_0() { return cDOTTerminalRuleCall_1_0_0; }
-		
 		//DASH
-		public RuleCall getDASHTerminalRuleCall_1_0_1() { return cDASHTerminalRuleCall_1_0_1; }
+		public RuleCall getDASHTerminalRuleCall_1_0_0() { return cDASHTerminalRuleCall_1_0_0; }
 		
 		//UNDERSCORE
-		public RuleCall getUNDERSCORETerminalRuleCall_1_0_2() { return cUNDERSCORETerminalRuleCall_1_0_2; }
+		public RuleCall getUNDERSCORETerminalRuleCall_1_0_1() { return cUNDERSCORETerminalRuleCall_1_0_1; }
 		
 		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
@@ -4528,8 +4524,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	///*
 	// * Datatype rules
 	// */ Identifier:
-	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DOT | DASH | UNDERSCORE)
-	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
+	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT
+	//	| ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
 	public IdentifierElements getIdentifierAccess() {
 		return pIdentifier;
 	}

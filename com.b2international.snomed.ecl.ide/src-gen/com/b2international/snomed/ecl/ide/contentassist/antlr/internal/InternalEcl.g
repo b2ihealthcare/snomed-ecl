@@ -3376,21 +3376,15 @@ rule__Identifier__Alternatives_1_0
 	}
 :
 	(
-		{ before(grammarAccess.getIdentifierAccess().getDOTTerminalRuleCall_1_0_0()); }
-		RULE_DOT
-		{ after(grammarAccess.getIdentifierAccess().getDOTTerminalRuleCall_1_0_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_0_1()); }
+		{ before(grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_0_0()); }
 		RULE_DASH
-		{ after(grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_0_1()); }
+		{ after(grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_0_2()); }
+		{ before(grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_0_1()); }
 		RULE_UNDERSCORE
-		{ after(grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_0_2()); }
+		{ after(grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_0_1()); }
 	)
 ;
 finally {
