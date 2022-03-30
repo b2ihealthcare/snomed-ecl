@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 
 import com.b2international.snomed.ecl.Ecl;
 import com.b2international.snomed.ecl.ecl.*;
@@ -93,6 +94,18 @@ public class EclValidator extends AbstractEclValidator {
 	
 	private static final Set<String> toCaseInsensitiveSet(Collection<String> values) {
 		return values.stream().map(EclValidator::toCaseInsensitive).collect(Collectors.toUnmodifiableSet());
+	}
+	
+	public EclValidator() {
+		super();
+		// this will wrap this message acceptor with syntax error ignoring logic
+		setMessageAcceptor(this);
+	}
+	
+	@Override
+	public StateAccess setMessageAcceptor(ValidationMessageAcceptor messageAcceptor) {
+		// always wrap the given message acceptor in our error ignoring message acceptor
+		return super.setMessageAcceptor(new ValidationErrorIgnoringMessageAcceptor(messageAcceptor));
 	}
 	
 	@Override
