@@ -3,7 +3,7 @@ Automatic-Module-Name: com.b2international.snomed.ecl
 Bundle-ManifestVersion: 2
 Bundle-Name: SNOMED CT Expression Constraint Language Core
 Bundle-Vendor: B2i Healthcare
-Bundle-Version: 2.0.0
+Bundle-Version: 2.0.1.qualifier
 Bundle-SymbolicName: com.b2international.snomed.ecl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.equinox.common;bundle-version="3.5.0",
