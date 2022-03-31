@@ -120,6 +120,11 @@ class EclParsingFilterConstraintTest {
 	}
 	
 	@Test
+	def void test_filter_description_term_tooshort() {
+		'* {{ d term = "C" }}'.assertError(EclPackage.Literals.TYPED_SEARCH_TERM_CLAUSE, EclValidator.TOO_SHORT_TERM_CODE);
+	}
+	
+	@Test
 	def void test_filter_description_term_match() {
 		'* {{ d term = match:"clin find" }}'.assertNoErrors;
 	}

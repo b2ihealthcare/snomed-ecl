@@ -73,6 +73,8 @@ public class EclValidator extends AbstractEclValidator {
 	
 	public static final String SCTID_ERROR_CODE = "sctid.error";
 	
+	public static final String TOO_SHORT_TERM_CODE = "term.tooshort";
+	
 	// TODO: Make supported description type tokens configurable
 	private static final Set<String> SUPPORTED_TYPE_TOKENS = Set.of("syn", "fsn", "def");
 	private static final Set<String> SUPPORTED_DEFINITION_STATUS_TOKENS = Set.of("primitive", "defined");
@@ -227,7 +229,7 @@ public class EclValidator extends AbstractEclValidator {
 	@Check
 	public void checkTypedTermFilterClause(TypedSearchTermClause it) {
 		if (it.getTerm().length() < SUPPORTED_MIN_TERM_LENGTH) {
-			error(String.format("At least %d characters are required for term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_SEARCH_TERM_CLAUSE__TERM);
+			error(String.format("At least %d characters are required for term filter", SUPPORTED_MIN_TERM_LENGTH), it, EclPackage.Literals.TYPED_SEARCH_TERM_CLAUSE__TERM, TOO_SHORT_TERM_CODE);
 		}
 	}
 	
