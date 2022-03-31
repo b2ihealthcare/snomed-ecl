@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0.1
+
+- [validation] support configuration of `ignoredSyntaxErrorCodes` via System property. An example to ignore SCTID errors: `-DignoredSyntaxErrorCodes=sctid.error`
+
 ## 2.0.0
 
 - [lang] support the latest official [ECL 2.0.0](TODO link to the final spec) specification changes
