@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0.2
+
+- [validation] add missing error code to too short term value
+- [validation] prevent NPE when a validation rule does not provide an error code
+
 ## 2.0.1
 
 - [validation] support configuration of `ignoredSyntaxErrorCodes` via System property. An example to ignore SCTID errors: `-DignoredSyntaxErrorCodes=sctid.error`
