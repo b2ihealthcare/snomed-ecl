@@ -89,7 +89,7 @@ public class ValidationErrorIgnoringMessageAcceptor implements ValidationMessage
 	}
 	
 	private boolean isIgnoredErrorCode(String code) {
-		return ignoredSyntaxErrorCodes.contains(code);
+		return !Strings.isNullOrEmpty(code) && ignoredSyntaxErrorCodes.contains(code);
 	}
 
 }
