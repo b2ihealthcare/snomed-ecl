@@ -2636,8 +2636,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cALPHATerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
 		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
 		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
-		private final RuleCall cREVERSEDTerminalRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
-		private final RuleCall cKEYWORDTerminalRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
+		private final RuleCall cMEMBER_SHORT_KEYWORDTerminalRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
+		private final RuleCall cREVERSEDTerminalRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
+		private final RuleCall cKEYWORDTerminalRuleCall_0_6 = (RuleCall)cAlternatives_0.eContents().get(6);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
 		private final RuleCall cDASHTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
@@ -2647,21 +2648,24 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cALPHATerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
 		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_1_2 = (RuleCall)cAlternatives_1_1.eContents().get(2);
 		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3 = (RuleCall)cAlternatives_1_1.eContents().get(3);
-		private final RuleCall cREVERSEDTerminalRuleCall_1_1_4 = (RuleCall)cAlternatives_1_1.eContents().get(4);
-		private final RuleCall cKEYWORDTerminalRuleCall_1_1_5 = (RuleCall)cAlternatives_1_1.eContents().get(5);
+		private final RuleCall cMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4 = (RuleCall)cAlternatives_1_1.eContents().get(4);
+		private final RuleCall cREVERSEDTerminalRuleCall_1_1_5 = (RuleCall)cAlternatives_1_1.eContents().get(5);
+		private final RuleCall cKEYWORDTerminalRuleCall_1_1_6 = (RuleCall)cAlternatives_1_1.eContents().get(6);
 		
 		///*
 		// * Datatype rules
 		// */ Identifier:
-		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT
-		//	| ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
+		//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+
+		//	((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD |
+		//	REVERSED | KEYWORD)+)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT |
-		//ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH
+		//| UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED |
+		//KEYWORD)+)*
 		public Group getGroup() { return cGroup; }
 		
-		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//DIGIT
@@ -2676,13 +2680,17 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DESCRIPTION_SHORT_KEYWORD
 		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_3; }
 		
+		//MEMBER_SHORT_KEYWORD
+		public RuleCall getMEMBER_SHORT_KEYWORDTerminalRuleCall_0_4() { return cMEMBER_SHORT_KEYWORDTerminalRuleCall_0_4; }
+		
 		//REVERSED
-		public RuleCall getREVERSEDTerminalRuleCall_0_4() { return cREVERSEDTerminalRuleCall_0_4; }
+		public RuleCall getREVERSEDTerminalRuleCall_0_5() { return cREVERSEDTerminalRuleCall_0_5; }
 		
 		//KEYWORD
-		public RuleCall getKEYWORDTerminalRuleCall_0_5() { return cKEYWORDTerminalRuleCall_0_5; }
+		public RuleCall getKEYWORDTerminalRuleCall_0_6() { return cKEYWORDTerminalRuleCall_0_6; }
 		
-		//((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*
+		//((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD |
+		//REVERSED | KEYWORD)+)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//(DASH | UNDERSCORE)
@@ -2694,7 +2702,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//UNDERSCORE
 		public RuleCall getUNDERSCORETerminalRuleCall_1_0_1() { return cUNDERSCORETerminalRuleCall_1_0_1; }
 		
-		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+
+		//(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
 		//DIGIT
@@ -2709,11 +2717,14 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DESCRIPTION_SHORT_KEYWORD
 		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3; }
 		
+		//MEMBER_SHORT_KEYWORD
+		public RuleCall getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4() { return cMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4; }
+		
 		//REVERSED
-		public RuleCall getREVERSEDTerminalRuleCall_1_1_4() { return cREVERSEDTerminalRuleCall_1_1_4; }
+		public RuleCall getREVERSEDTerminalRuleCall_1_1_5() { return cREVERSEDTerminalRuleCall_1_1_5; }
 		
 		//KEYWORD
-		public RuleCall getKEYWORDTerminalRuleCall_1_1_5() { return cKEYWORDTerminalRuleCall_1_1_5; }
+		public RuleCall getKEYWORDTerminalRuleCall_1_1_6() { return cKEYWORDTerminalRuleCall_1_1_6; }
 	}
 	public class NonNegativeIntegerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.NonNegativeInteger");
@@ -4464,8 +4475,9 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	///*
 	// * Datatype rules
 	// */ Identifier:
-	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT
-	//	| ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
+	//	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+
+	//	((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD |
+	//	REVERSED | KEYWORD)+)*;
 	public IdentifierElements getIdentifierAccess() {
 		return pIdentifier;
 	}

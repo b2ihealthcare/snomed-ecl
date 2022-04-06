@@ -41,6 +41,12 @@ class EclValidatorIgnoreSyntaxErrorTest {
 		try {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of(EclValidator.SCTID_ERROR_CODE))
 			'ABC123'.assertNoErrors
+			// special cases where the short domain c|d|m value is being used in the ID, this should still parse without errors
+			'<<5mlYo8Z5XclDemQMwojjD9'.assertNoErrors
+			'm123'.assertNoErrors
+			'c123'.assertNoErrors
+			'd123'.assertNoErrors
+			'<<CDT15'.assertNoErrors
 		} finally {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of())
 		}

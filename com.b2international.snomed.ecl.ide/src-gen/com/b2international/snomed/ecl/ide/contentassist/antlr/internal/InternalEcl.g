@@ -3268,15 +3268,21 @@ rule__Identifier__Alternatives_0
 	)
 	|
 	(
-		{ before(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_0_4()); }
-		RULE_REVERSED
-		{ after(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_0_4()); }
+		{ before(grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_0_4()); }
+		RULE_MEMBER_SHORT_KEYWORD
+		{ after(grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_0_4()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_0_5()); }
+		{ before(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_0_5()); }
+		RULE_REVERSED
+		{ after(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_0_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_0_6()); }
 		RULE_KEYWORD
-		{ after(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_0_5()); }
+		{ after(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_0_6()); }
 	)
 ;
 finally {
@@ -3334,15 +3340,21 @@ rule__Identifier__Alternatives_1_1
 	)
 	|
 	(
-		{ before(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_1_4()); }
-		RULE_REVERSED
-		{ after(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_1_4()); }
+		{ before(grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4()); }
+		RULE_MEMBER_SHORT_KEYWORD
+		{ after(grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_1_5()); }
+		{ before(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_1_5()); }
+		RULE_REVERSED
+		{ after(grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_1_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_1_6()); }
 		RULE_KEYWORD
-		{ after(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_1_5()); }
+		{ after(grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_1_6()); }
 	)
 ;
 finally {
