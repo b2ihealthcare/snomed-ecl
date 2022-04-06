@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0.3
+
+- [lang] include missing member short domain keyword (`m`) when parsing Identifier rule content to properly detect all supported IDs
+
 ## 2.0.2
 
 - [validation] add missing error code to too short term value
