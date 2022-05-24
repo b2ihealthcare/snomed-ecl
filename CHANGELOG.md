@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0.4
+
+- [ui] Fix keyword proposals in Eclipse UI proposal provider; add suggestions for history profiles; add an image to filter constraint domains
+
 ## 2.0.3
 
 - [lang] include missing member short domain keyword (`m`) when parsing Identifier rule content to properly detect all supported IDs
