@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.eclipse.text.edits.InsertEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.AbstractRule;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
@@ -83,7 +84,7 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 			Map.entry(ga.getSQUARE_OPENRule(),                     "Opening cardinality"),
 			Map.entry(ga.getSQUARE_CLOSERule(),                    "Closing cardinality"),
 			Map.entry(ga.getTORule(),                              "Cardinality range"),
-			Map.entry(ga.getPLUSRule(),                            "Numeric value"),
+			Map.entry(ga.getPLUSRule(),                            "Numeric value or history supplement"),
 			Map.entry(ga.getDASHRule(),                            "Numeric value"),
 			Map.entry(ga.getCARETRule(),                           "Member of"),
 			Map.entry(ga.getWILDCARDRule(),                        "Any"),
@@ -175,21 +176,50 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 		String prefix = context.getPrefix().trim();
 		
 		if (prefix.equalsIgnoreCase("C") || prefix.isEmpty()) {
-			// TODO: get image for keywords
-			acceptor.accept(createCompletionProposal("c", "Concept filter constraint", null, context));
+			completeRuleCall(ruleCall, "c", "Concept filter constraint", context, acceptor);
 		}
 		
 		if (prefix.equalsIgnoreCase("D") || prefix.isEmpty()) {
-			// TODO: get image for keywords
-			acceptor.accept(createCompletionProposal("d", "Description filter constraint", null, context));
+			completeRuleCall(ruleCall, "d", "Description filter constraint", context, acceptor);
 		}
+	}
+	
+	@Override
+	public void complete_HISTORY_KEYWORD(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(ruleCall, "HISTORY-MIN", "Minimum history supplement profile", context, acceptor);
+		completeRuleCall(ruleCall, "HISTORY-MOD", "Moderate history supplement profile", context, acceptor);
+		completeRuleCall(ruleCall, "HISTORY-MAX", "Maximum history supplement profile", context, acceptor);
+	}
+
+	private void completeRuleCall(RuleCall ruleCall, String suggestion, String description, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		final StyledString displayString = new StyledString(suggestion);
+		displayString.append(" - ", GRAY);			
+		displayString.append(description, GRAY);			
+		
+		acceptor.accept(createCompletionProposal(suggestion, displayString, getImage(ruleCall), context));
+	}
+
+	@Override
+	public void completeRuleCall(RuleCall ruleCall, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
+		final AbstractRule abstractRule = ruleCall.getRule();
+		if (ruleDescriptions.containsKey(abstractRule)) {
+			AbstractElement alternatives = abstractRule.getAlternatives();
+
+			// Rules for which we have a description typically consist of a single keyword 
+			if (alternatives instanceof Keyword) {
+				completeKeyword((Keyword) alternatives, contentAssistContext, acceptor);
+			}
+		}
+		
+		// Also try the reflective method call-based completion
+		super.completeRuleCall(ruleCall, contentAssistContext, acceptor);
 	}
 	
 	@Override
 	protected StyledString getKeywordDisplayString(Keyword keyword) {
 		StyledString result = new StyledString(keyword.getValue());
 		
-		String description = getKeywordDescription(keyword.getValue());
+		String description = getKeywordDescription(keyword.eContainer());
 		if (!Strings.isNullOrEmpty(description)) {
 			result.append(" - ", GRAY);
 			result.append(description, GRAY);
@@ -198,7 +228,7 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 		return result;
 	}
 	
-	protected String getKeywordDescription(String keyword) {
-		return ruleDescriptions.getOrDefault(keyword, "");
+	protected String getKeywordDescription(EObject container) {
+		return ruleDescriptions.getOrDefault(container, "");
 	}
 }
