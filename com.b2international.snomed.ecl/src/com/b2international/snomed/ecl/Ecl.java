@@ -143,6 +143,8 @@ public final class Ecl {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof EffectiveTimeFilter) {
 			return getDomain(getParentConstraint(filter));
+		} else if (filter instanceof IdFilter) {
+			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageRefSetFilter) {

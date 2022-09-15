@@ -71,8 +71,9 @@ public class EclValidator extends AbstractEclValidator {
 	private static final String EFFECTIVE_TIME_ERROR = "Effective time could not be parsed to the expected yyyyMMdd format";
 	public static final String EFFECTIVE_TIME_ERROR_CODE = "effective.time.error";
 	
+	private static final String INVALID_DESCRIPTION_ID_PARTITION = "Description identifier does not have a '01' or '11' partition";
 	public static final String SCTID_ERROR_CODE = "sctid.error";
-	
+
 	public static final String TOO_SHORT_TERM_CODE = "term.tooshort";
 	
 	// TODO: Make supported description type tokens configurable
@@ -89,6 +90,8 @@ public class EclValidator extends AbstractEclValidator {
 	
 	// Copied from DateFormats
 	private static final String SHORT_DATE_FORMAT = "yyyyMMdd";
+	
+	private static final Set<String> DESCRIPTION_PARTITION_IDS = Set.of("01", "11");
 	
 	private static final String toCaseInsensitive(String value) {
 		return value.toLowerCase(Locale.ENGLISH);
@@ -184,6 +187,21 @@ public class EclValidator extends AbstractEclValidator {
 		}
 	}
 	
+	@Check
+	public void checkDescriptionIdFilter(IdFilter it) {
+		for (String sctId : it.getIds()) {
+			try {
+				SnomedIdentifiers.validate(sctId);
+				
+				if (!DESCRIPTION_PARTITION_IDS.contains(SnomedIdentifiers.getPartitionId(sctId))) {
+					error(INVALID_DESCRIPTION_ID_PARTITION, it, EclPackage.Literals.ID_FILTER__IDS, SCTID_ERROR_CODE);	
+				}
+			} catch (IllegalArgumentException e) {
+				error(e.getMessage(), it, EclPackage.Literals.ID_FILTER__IDS, SCTID_ERROR_CODE);
+			}
+		}	
+	}
+
 	@Check
 	public void checkLanguageFilter(LanguageFilter it) {
 		final Set<String> codes = toCaseInsensitiveSet(it.getLanguageCodes());
@@ -324,6 +342,7 @@ public class EclValidator extends AbstractEclValidator {
 		if (it.eContainer() instanceof EclConceptReferenceSet && it.eContainer().eContainer() instanceof Acceptability) {
 			return;
 		}
+		
 		try {
 			SnomedIdentifiers.validate(it.getId());
 		} catch (IllegalArgumentException e) {

@@ -84,6 +84,17 @@ class EclParsingFilterConstraintTest {
 	}
 	
 	@Test
+	def void test_filter_default_domain_id() {
+		'* {{ id = 943764881231234117 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_concept_domain_id_not_allowed() {
+		'* {{ c id = 900000000000550004 }}'
+			.assertError(EclPackage.Literals.FILTER_CONSTRAINT, EclValidator.DOMAIN_INCONSISTENCY_CODE);
+	}
+	
+	@Test
 	def void test_filter_concept_domain_active_invalid_value() {
 		'* {{ c active = 200 }}'
 			.assertError(EclPackage.Literals.ACTIVE_FILTER, Diagnostic.SYNTAX_DIAGNOSTIC, "Invalid active boolean value");
@@ -273,6 +284,21 @@ class EclParsingFilterConstraintTest {
 	def void test_filter_description_effectiveTime_invalid_format() {
 		'* {{ c effectiveTime = "yesterday" }}'
 			.assertError(EclPackage.Literals.EFFECTIVE_TIME_FILTER, EclValidator.EFFECTIVE_TIME_ERROR_CODE);
+	}
+	
+	@Test
+	def void test_filter_description_id_equals() {
+		'* {{ d id = 943764881231234117 }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_id_set_equals() {
+		'* {{ d id = (943764881231234117 899335721231234118) }}'.assertNoErrors;
+	}
+	
+	@Test
+	def void test_filter_description_id_ne() {
+		'* {{ d id != 943764881231234117 }}'.assertNoErrors;
 	}
 	
 	@Test

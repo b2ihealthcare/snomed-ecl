@@ -47,6 +47,7 @@ class EclValidatorIgnoreSyntaxErrorTest {
 			'c123'.assertNoErrors
 			'd123'.assertNoErrors
 			'<<CDT15'.assertNoErrors
+			'9876 {{ id = d_54321 }}'.assertNoErrors
 		} finally {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of())
 		}
