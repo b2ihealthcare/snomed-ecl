@@ -52,6 +52,7 @@ import com.b2international.snomed.ecl.ecl.FilterConstraint;
 import com.b2international.snomed.ecl.ecl.FilteredExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.HistoryProfile;
 import com.b2international.snomed.ecl.ecl.HistorySupplement;
+import com.b2international.snomed.ecl.ecl.IdFilter;
 import com.b2international.snomed.ecl.ecl.IntegerValueComparison;
 import com.b2international.snomed.ecl.ecl.LanguageFilter;
 import com.b2international.snomed.ecl.ecl.LanguageRefSetFilter;
@@ -226,6 +227,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.HISTORY_SUPPLEMENT:
 				sequence_HistorySupplement(context, (HistorySupplement) semanticObject); 
+				return; 
+			case EclPackage.ID_FILTER:
+				sequence_IdFilter(context, (IdFilter) semanticObject); 
 				return; 
 			case EclPackage.INTEGER_VALUE_COMPARISON:
 				sequence_IntegerValueComparison(context, (IntegerValueComparison) semanticObject); 
@@ -1235,6 +1239,24 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (history=HistoryProfile | history=NestedExpression)?
 	 */
 	protected void sequence_HistorySupplement(ISerializationContext context, HistorySupplement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Filter returns IdFilter
+	 *     DisjunctionFilter returns IdFilter
+	 *     DisjunctionFilter.DisjunctionFilter_1_0 returns IdFilter
+	 *     ConjunctionFilter returns IdFilter
+	 *     ConjunctionFilter.ConjunctionFilter_1_0 returns IdFilter
+	 *     PropertyFilter returns IdFilter
+	 *     IdFilter returns IdFilter
+	 *
+	 * Constraint:
+	 *     (op=NON_NUMERIC_OPERATOR (ids+=Identifier | ids+=Identifier+))
+	 */
+	protected void sequence_IdFilter(ISerializationContext context, IdFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

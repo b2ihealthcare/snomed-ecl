@@ -55,6 +55,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDataTypeComparisonAccess().getAlternatives(), "rule__DataTypeComparison__Alternatives");
 			builder.put(grammarAccess.getConjunctionFilterAccess().getAlternatives_1_1(), "rule__ConjunctionFilter__Alternatives_1_1");
 			builder.put(grammarAccess.getPropertyFilterAccess().getAlternatives(), "rule__PropertyFilter__Alternatives");
+			builder.put(grammarAccess.getIdFilterAccess().getAlternatives_2(), "rule__IdFilter__Alternatives_2");
 			builder.put(grammarAccess.getSearchTermAccess().getAlternatives(), "rule__SearchTerm__Alternatives");
 			builder.put(grammarAccess.getTypedSearchTermClauseAccess().getAlternatives(), "rule__TypedSearchTermClause__Alternatives");
 			builder.put(grammarAccess.getLanguageFilterAccess().getAlternatives_2(), "rule__LanguageFilter__Alternatives_2");
@@ -141,6 +142,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConjunctionFilterAccess().getGroup_1(), "rule__ConjunctionFilter__Group_1__0");
 			builder.put(grammarAccess.getNestedFilterAccess().getGroup(), "rule__NestedFilter__Group__0");
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getGroup(), "rule__MemberFieldFilter__Group__0");
+			builder.put(grammarAccess.getIdFilterAccess().getGroup(), "rule__IdFilter__Group__0");
+			builder.put(grammarAccess.getIdFilterAccess().getGroup_2_1(), "rule__IdFilter__Group_2_1__0");
 			builder.put(grammarAccess.getTermFilterAccess().getGroup(), "rule__TermFilter__Group__0");
 			builder.put(grammarAccess.getTypedSearchTermSetAccess().getGroup(), "rule__TypedSearchTermSet__Group__0");
 			builder.put(grammarAccess.getTypedSearchTermClauseAccess().getGroup_0(), "rule__TypedSearchTermClause__Group_0__0");
@@ -195,7 +198,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMemberOfAccess().getRefsetFieldsAssignment_1_1_1_1(), "rule__MemberOf__RefsetFieldsAssignment_1_1_1_1");
 			builder.put(grammarAccess.getMemberOfAccess().getConstraintAssignment_2(), "rule__MemberOf__ConstraintAssignment_2");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getIdAssignment_0(), "rule__EclConceptReference__IdAssignment_0");
-			builder.put(grammarAccess.getEclConceptReferenceAccess().getTermAssignment_1(), "rule__EclConceptReference__TermAssignment_1");
+			builder.put(grammarAccess.getEclConceptReferenceAccess().getTermAssignment_2(), "rule__EclConceptReference__TermAssignment_2");
 			builder.put(grammarAccess.getEclConceptReferenceSetAccess().getConceptsAssignment_1(), "rule__EclConceptReferenceSet__ConceptsAssignment_1");
 			builder.put(grammarAccess.getOrRefinementAccess().getRightAssignment_1_0_2(), "rule__OrRefinement__RightAssignment_1_0_2");
 			builder.put(grammarAccess.getAndRefinementAccess().getRightAssignment_1_0_2(), "rule__AndRefinement__RightAssignment_1_0_2");
@@ -229,6 +232,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNestedFilterAccess().getNestedAssignment_1(), "rule__NestedFilter__NestedAssignment_1");
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getRefsetFieldNameAssignment_0(), "rule__MemberFieldFilter__RefsetFieldNameAssignment_0");
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getComparisonAssignment_1(), "rule__MemberFieldFilter__ComparisonAssignment_1");
+			builder.put(grammarAccess.getIdFilterAccess().getOpAssignment_1(), "rule__IdFilter__OpAssignment_1");
+			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_2_0(), "rule__IdFilter__IdsAssignment_2_0");
+			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_2_1_1(), "rule__IdFilter__IdsAssignment_2_1_1");
 			builder.put(grammarAccess.getTermFilterAccess().getOpAssignment_1(), "rule__TermFilter__OpAssignment_1");
 			builder.put(grammarAccess.getTermFilterAccess().getSearchTermAssignment_2(), "rule__TermFilter__SearchTermAssignment_2");
 			builder.put(grammarAccess.getTypedSearchTermAccess().getClauseAssignment(), "rule__TypedSearchTerm__ClauseAssignment");

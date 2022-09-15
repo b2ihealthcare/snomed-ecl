@@ -353,6 +353,15 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.ID_FILTER:
+      {
+        IdFilter idFilter = (IdFilter)theEObject;
+        T result = caseIdFilter(idFilter);
+        if (result == null) result = casePropertyFilter(idFilter);
+        if (result == null) result = caseFilter(idFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.TERM_FILTER:
       {
         TermFilter termFilter = (TermFilter)theEObject;
@@ -1217,6 +1226,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMemberFieldFilter(MemberFieldFilter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Id Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdFilter(IdFilter object)
   {
     return null;
   }

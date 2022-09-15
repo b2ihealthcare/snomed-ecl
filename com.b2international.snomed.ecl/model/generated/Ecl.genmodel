@@ -99,6 +99,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//MemberFieldFilter/refsetFieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//MemberFieldFilter/comparison"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//IdFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IdFilter/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IdFilter/ids"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TermFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//TermFilter/searchTerm"/>

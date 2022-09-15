@@ -324,6 +324,15 @@ public interface EclFactory extends EFactory
   MemberFieldFilter createMemberFieldFilter();
 
   /**
+   * Returns a new object of class '<em>Id Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Id Filter</em>'.
+   * @generated
+   */
+  IdFilter createIdFilter();
+
+  /**
    * Returns a new object of class '<em>Term Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

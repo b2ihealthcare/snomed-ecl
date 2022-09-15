@@ -1304,10 +1304,16 @@ ruleEclConceptReference returns [EObject current=null]
 			)
 		)
 		(
+			this_WS_1=RULE_WS
+			{
+				newLeafNode(this_WS_1, grammarAccess.getEclConceptReferenceAccess().getWSTerminalRuleCall_1());
+			}
+		)*
+		(
 			(
-				lv_term_1_0=RULE_PIPE_DELIMITED_STRING
+				lv_term_2_0=RULE_PIPE_DELIMITED_STRING
 				{
-					newLeafNode(lv_term_1_0, grammarAccess.getEclConceptReferenceAccess().getTermPIPE_DELIMITED_STRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_term_2_0, grammarAccess.getEclConceptReferenceAccess().getTermPIPE_DELIMITED_STRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1316,7 +1322,7 @@ ruleEclConceptReference returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"term",
-						lv_term_1_0,
+						lv_term_2_0,
 						"com.b2international.snomed.ecl.Ecl.PIPE_DELIMITED_STRING");
 				}
 			)
@@ -2946,11 +2952,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_4());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getIdFilterParserRuleCall_4());
 		}
-		this_DefinitionStatusFilter_4=ruleDefinitionStatusFilter
+		this_IdFilter_4=ruleIdFilter
 		{
-			$current = $this_DefinitionStatusFilter_4.current;
+			$current = $this_IdFilter_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -2958,11 +2964,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_5());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getDefinitionStatusFilterParserRuleCall_5());
 		}
-		this_ModuleFilter_5=ruleModuleFilter
+		this_DefinitionStatusFilter_5=ruleDefinitionStatusFilter
 		{
-			$current = $this_ModuleFilter_5.current;
+			$current = $this_DefinitionStatusFilter_5.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -2970,11 +2976,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_6());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getModuleFilterParserRuleCall_6());
 		}
-		this_EffectiveTimeFilter_6=ruleEffectiveTimeFilter
+		this_ModuleFilter_6=ruleModuleFilter
 		{
-			$current = $this_EffectiveTimeFilter_6.current;
+			$current = $this_ModuleFilter_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -2982,11 +2988,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_7());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getEffectiveTimeFilterParserRuleCall_7());
 		}
-		this_ActiveFilter_7=ruleActiveFilter
+		this_EffectiveTimeFilter_7=ruleEffectiveTimeFilter
 		{
-			$current = $this_ActiveFilter_7.current;
+			$current = $this_EffectiveTimeFilter_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -2994,11 +3000,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_8());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getActiveFilterParserRuleCall_8());
 		}
-		this_SemanticTagFilter_8=ruleSemanticTagFilter
+		this_ActiveFilter_8=ruleActiveFilter
 		{
-			$current = $this_SemanticTagFilter_8.current;
+			$current = $this_ActiveFilter_8.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3006,11 +3012,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_9());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getSemanticTagFilterParserRuleCall_9());
 		}
-		this_PreferredInFilter_9=rulePreferredInFilter
+		this_SemanticTagFilter_9=ruleSemanticTagFilter
 		{
-			$current = $this_PreferredInFilter_9.current;
+			$current = $this_SemanticTagFilter_9.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3018,11 +3024,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_10());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getPreferredInFilterParserRuleCall_10());
 		}
-		this_AcceptableInFilter_10=ruleAcceptableInFilter
+		this_PreferredInFilter_10=rulePreferredInFilter
 		{
-			$current = $this_AcceptableInFilter_10.current;
+			$current = $this_PreferredInFilter_10.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3030,11 +3036,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_11());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getAcceptableInFilterParserRuleCall_11());
 		}
-		this_LanguageRefSetFilter_11=ruleLanguageRefSetFilter
+		this_AcceptableInFilter_11=ruleAcceptableInFilter
 		{
-			$current = $this_LanguageRefSetFilter_11.current;
+			$current = $this_AcceptableInFilter_11.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3042,11 +3048,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_12());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getLanguageRefSetFilterParserRuleCall_12());
 		}
-		this_CaseSignificanceFilter_12=ruleCaseSignificanceFilter
+		this_LanguageRefSetFilter_12=ruleLanguageRefSetFilter
 		{
-			$current = $this_CaseSignificanceFilter_12.current;
+			$current = $this_LanguageRefSetFilter_12.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3054,11 +3060,11 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_13());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getCaseSignificanceFilterParserRuleCall_13());
 		}
-		this_MemberFieldFilter_13=ruleMemberFieldFilter
+		this_CaseSignificanceFilter_13=ruleCaseSignificanceFilter
 		{
-			$current = $this_MemberFieldFilter_13.current;
+			$current = $this_CaseSignificanceFilter_13.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3066,11 +3072,23 @@ rulePropertyFilter returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPropertyFilterAccess().getNestedFilterParserRuleCall_14());
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getMemberFieldFilterParserRuleCall_14());
 		}
-		this_NestedFilter_14=ruleNestedFilter
+		this_MemberFieldFilter_14=ruleMemberFieldFilter
 		{
-			$current = $this_NestedFilter_14.current;
+			$current = $this_MemberFieldFilter_14.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getPropertyFilterAccess().getNestedFilterParserRuleCall_15());
+		}
+		this_NestedFilter_15=ruleNestedFilter
+		{
+			$current = $this_NestedFilter_15.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -3127,6 +3145,99 @@ ruleMemberFieldFilter returns [EObject current=null]
 						lv_comparison_1_0,
 						"com.b2international.snomed.ecl.Ecl.Comparison");
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleIdFilter
+entryRuleIdFilter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIdFilterRule()); }
+	iv_ruleIdFilter=ruleIdFilter
+	{ $current=$iv_ruleIdFilter.current; }
+	EOF;
+
+// Rule IdFilter
+ruleIdFilter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_KEYWORD_0=RULE_ID_KEYWORD
+		{
+			newLeafNode(this_ID_KEYWORD_0, grammarAccess.getIdFilterAccess().getID_KEYWORDTerminalRuleCall_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0());
+				}
+				lv_op_1_0=ruleNON_NUMERIC_OPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+					}
+					set(
+						$current,
+						"op",
+						lv_op_1_0,
+						"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_2_0_0());
+					}
+					lv_ids_2_0=ruleIdentifier
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+						}
+						add(
+							$current,
+							"ids",
+							lv_ids_2_0,
+							"com.b2international.snomed.ecl.Ecl.Identifier");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				this_ROUND_OPEN_3=RULE_ROUND_OPEN
+				{
+					newLeafNode(this_ROUND_OPEN_3, grammarAccess.getIdFilterAccess().getROUND_OPENTerminalRuleCall_2_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_2_1_1_0());
+						}
+						lv_ids_4_0=ruleIdentifier
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+							}
+							add(
+								$current,
+								"ids",
+								lv_ids_4_0,
+								"com.b2international.snomed.ecl.Ecl.Identifier");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)+
+				this_ROUND_CLOSE_5=RULE_ROUND_CLOSE
+				{
+					newLeafNode(this_ROUND_CLOSE_5, grammarAccess.getIdFilterAccess().getROUND_CLOSETerminalRuleCall_2_1_2());
 				}
 			)
 		)
@@ -4941,16 +5052,22 @@ ruleHistoryProfile returns [EObject current=null]
 ;
 
 // Entry rule entryRuleIdentifier
-entryRuleIdentifier returns [String current=null]:
+entryRuleIdentifier returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
 	{ newCompositeNode(grammarAccess.getIdentifierRule()); }
 	iv_ruleIdentifier=ruleIdentifier
 	{ $current=$iv_ruleIdentifier.current.getText(); }
 	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule Identifier
 ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5091,6 +5208,9 @@ ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 		)*
 	)
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Entry rule entryRuleNonNegativeInteger
 entryRuleNonNegativeInteger returns [String current=null]@init {
@@ -5182,22 +5302,16 @@ finally {
 }
 
 // Entry rule entryRuleMaxValue
-entryRuleMaxValue returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleMaxValue returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getMaxValueRule()); }
 	iv_ruleMaxValue=ruleMaxValue
 	{ $current=$iv_ruleMaxValue.current.getText(); }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule MaxValue
 ruleMaxValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5223,9 +5337,6 @@ ruleMaxValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 		}
 	)
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleInteger
 entryRuleInteger returns [String current=null]@init {
@@ -5338,22 +5449,16 @@ finally {
 }
 
 // Entry rule entryRuleBoolean
-entryRuleBoolean returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleBoolean returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getBooleanRule()); }
 	iv_ruleBoolean=ruleBoolean
 	{ $current=$iv_ruleBoolean.current.getText(); }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule Boolean
 ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5376,27 +5481,18 @@ ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		}
 	)
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleActiveBoolean
-entryRuleActiveBoolean returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleActiveBoolean returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getActiveBooleanRule()); }
 	iv_ruleActiveBoolean=ruleActiveBoolean
 	{ $current=$iv_ruleActiveBoolean.current.getText(); }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule ActiveBoolean
 ruleActiveBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5425,9 +5521,6 @@ ruleActiveBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 		}
 	)
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleUnquotedString
 entryRuleUnquotedString returns [String current=null]:
@@ -5728,16 +5821,22 @@ ruleUnquotedString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 ;
 
 // Entry rule entryRuleDialectAliasValue
-entryRuleDialectAliasValue returns [String current=null]:
+entryRuleDialectAliasValue returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
 	{ newCompositeNode(grammarAccess.getDialectAliasValueRule()); }
 	iv_ruleDialectAliasValue=ruleDialectAliasValue
 	{ $current=$iv_ruleDialectAliasValue.current.getText(); }
 	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule DialectAliasValue
 ruleDialectAliasValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 }
 @after {
 	leaveRule();
@@ -5768,6 +5867,9 @@ ruleDialectAliasValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 		}
 	)+
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Entry rule entryRuleLEXICAL_SEARCH_TYPE
 entryRuleLEXICAL_SEARCH_TYPE returns [String current=null]:
@@ -6052,6 +6154,8 @@ RULE_MAX_KEYWORD : ('MAX'|('M'|'m') ('A'|'a') ('X'|'x'));
 RULE_CONJUNCTION_KEYWORD : ('AND'|('A'|'a') ('N'|'n') ('D'|'d'));
 
 RULE_DISJUNCTION_KEYWORD : ('OR'|('O'|'o') ('R'|'r'));
+
+RULE_ID_KEYWORD : ('ID'|('I'|'i') ('D'|'d'));
 
 RULE_REVERSED : 'R';
 

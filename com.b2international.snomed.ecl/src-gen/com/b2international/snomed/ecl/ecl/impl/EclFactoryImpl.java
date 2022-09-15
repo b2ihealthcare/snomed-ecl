@@ -109,6 +109,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.NESTED_FILTER: return createNestedFilter();
       case EclPackage.PROPERTY_FILTER: return createPropertyFilter();
       case EclPackage.MEMBER_FIELD_FILTER: return createMemberFieldFilter();
+      case EclPackage.ID_FILTER: return createIdFilter();
       case EclPackage.TERM_FILTER: return createTermFilter();
       case EclPackage.SEARCH_TERM: return createSearchTerm();
       case EclPackage.TYPED_SEARCH_TERM: return createTypedSearchTerm();
@@ -537,6 +538,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     MemberFieldFilterImpl memberFieldFilter = new MemberFieldFilterImpl();
     return memberFieldFilter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IdFilter createIdFilter()
+  {
+    IdFilterImpl idFilter = new IdFilterImpl();
+    return idFilter;
   }
 
   /**

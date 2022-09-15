@@ -37,6 +37,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0;
 	protected AbstractElementAlias match_AndRefinement_COMMATerminalRuleCall_1_0_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0;
 	protected AbstractElementAlias match_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0;
+	protected AbstractElementAlias match_EclConceptReference_WSTerminalRuleCall_1_a;
 	protected AbstractElementAlias match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1;
 	
 	@Inject
@@ -46,6 +47,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndExpressionConstraintAccess().getCOMMATerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getAndExpressionConstraintAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_1_0()));
 		match_AndRefinement_COMMATerminalRuleCall_1_0_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndRefinementAccess().getCOMMATerminalRuleCall_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getAndRefinementAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0()));
 		match_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConjunctionFilterAccess().getCOMMATerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getConjunctionFilterAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_1_0()));
+		match_EclConceptReference_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getEclConceptReferenceAccess().getWSTerminalRuleCall_1());
 		match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHistoryProfileAccess().getDASHTerminalRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getHistoryProfileAccess().getUNDERSCORETerminalRuleCall_0_1()));
 	}
 	
@@ -109,6 +111,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getHASHToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getHISTORY_KEYWORDRule())
 			return getHISTORY_KEYWORDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getID_KEYWORDRule())
+			return getID_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLANGUAGE_KEYWORDRule())
 			return getLANGUAGE_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLANGUAGE_REFSET_ID_KEYWORDRule())
@@ -147,6 +151,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getUNDERSCOREToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getWILDCARDRule())
 			return getWILDCARDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getWSRule())
+			return getWSToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -441,6 +447,16 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal ID_KEYWORD:
+	 * 	'ID' | ('I'|'i')('D'|'d');
+	 */
+	protected String getID_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "ID";
+	}
+	
+	/**
 	 * terminal LANGUAGE_KEYWORD: 
 	 * 	'language' | ('L'|'l')('A'|'a')('N'|'n')('G'|'g')('U'|'u')('A'|'a')('G'|'g')('E'|'e');
 	 */
@@ -630,6 +646,16 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "*";
 	}
 	
+	/**
+	 * terminal WS:
+	 * 	(' ' | '\t' | '\n' | '\r');
+	 */
+	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return " ";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -644,6 +670,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AndRefinement_COMMATerminalRuleCall_1_0_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0.equals(syntax))
 				emit_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EclConceptReference_WSTerminalRuleCall_1_a.equals(syntax))
+				emit_EclConceptReference_WSTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1.equals(syntax))
 				emit_HistoryProfile_DASHTerminalRuleCall_0_0_or_UNDERSCORETerminalRuleCall_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -691,6 +719,18 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     {ConjunctionFilter.left=} (ambiguity) right=PropertyFilter
 	 */
 	protected void emit_ConjunctionFilter_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=Identifier (ambiguity) (rule end)
+	 *     id=Identifier (ambiguity) term=PIPE_DELIMITED_STRING
+	 */
+	protected void emit_EclConceptReference_WSTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
