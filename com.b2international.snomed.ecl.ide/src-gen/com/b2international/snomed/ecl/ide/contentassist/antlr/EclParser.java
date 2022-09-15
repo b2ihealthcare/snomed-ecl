@@ -70,8 +70,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHistorySupplementAccess().getHistoryAlternatives_4_0(), "rule__HistorySupplement__HistoryAlternatives_4_0");
 			builder.put(grammarAccess.getHistoryProfileAccess().getAlternatives_0(), "rule__HistoryProfile__Alternatives_0");
 			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_0(), "rule__Identifier__Alternatives_0");
-			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_1_0(), "rule__Identifier__Alternatives_1_0");
-			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_1_1(), "rule__Identifier__Alternatives_1_1");
+			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_1(), "rule__Identifier__Alternatives_1");
 			builder.put(grammarAccess.getMaxValueAccess().getAlternatives(), "rule__MaxValue__Alternatives");
 			builder.put(grammarAccess.getIntegerAccess().getAlternatives_0(), "rule__Integer__Alternatives_0");
 			builder.put(grammarAccess.getDecimalAccess().getAlternatives_0(), "rule__Decimal__Alternatives_0");
@@ -174,7 +173,6 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHistorySupplementAccess().getGroup(), "rule__HistorySupplement__Group__0");
 			builder.put(grammarAccess.getHistoryProfileAccess().getGroup(), "rule__HistoryProfile__Group__0");
 			builder.put(grammarAccess.getIdentifierAccess().getGroup(), "rule__Identifier__Group__0");
-			builder.put(grammarAccess.getIdentifierAccess().getGroup_1(), "rule__Identifier__Group_1__0");
 			builder.put(grammarAccess.getNonNegativeDecimalAccess().getGroup(), "rule__NonNegativeDecimal__Group__0");
 			builder.put(grammarAccess.getIntegerAccess().getGroup(), "rule__Integer__Group__0");
 			builder.put(grammarAccess.getDecimalAccess().getGroup(), "rule__Decimal__Group__0");

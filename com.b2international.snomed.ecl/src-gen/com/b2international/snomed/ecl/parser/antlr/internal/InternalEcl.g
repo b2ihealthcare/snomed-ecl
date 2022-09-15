@@ -5129,82 +5129,79 @@ ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 			{
 				newLeafNode(this_KEYWORD_6, grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_0_6());
 			}
-		)+
+		)
 		(
-			(
-				this_DASH_7=RULE_DASH
-				{
-					$current.merge(this_DASH_7);
-				}
-				{
-					newLeafNode(this_DASH_7, grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_0_0());
-				}
-				    |
-				this_UNDERSCORE_8=RULE_UNDERSCORE
-				{
-					$current.merge(this_UNDERSCORE_8);
-				}
-				{
-					newLeafNode(this_UNDERSCORE_8, grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_0_1());
-				}
-			)
-			(
-				this_DIGIT_9=RULE_DIGIT
-				{
-					$current.merge(this_DIGIT_9);
-				}
-				{
-					newLeafNode(this_DIGIT_9, grammarAccess.getIdentifierAccess().getDIGITTerminalRuleCall_1_1_0());
-				}
-				    |
-				this_ALPHA_10=RULE_ALPHA
-				{
-					$current.merge(this_ALPHA_10);
-				}
-				{
-					newLeafNode(this_ALPHA_10, grammarAccess.getIdentifierAccess().getALPHATerminalRuleCall_1_1_1());
-				}
-				    |
-				this_CONCEPT_SHORT_KEYWORD_11=RULE_CONCEPT_SHORT_KEYWORD
-				{
-					$current.merge(this_CONCEPT_SHORT_KEYWORD_11);
-				}
-				{
-					newLeafNode(this_CONCEPT_SHORT_KEYWORD_11, grammarAccess.getIdentifierAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_1_2());
-				}
-				    |
-				this_DESCRIPTION_SHORT_KEYWORD_12=RULE_DESCRIPTION_SHORT_KEYWORD
-				{
-					$current.merge(this_DESCRIPTION_SHORT_KEYWORD_12);
-				}
-				{
-					newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_12, grammarAccess.getIdentifierAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_1_3());
-				}
-				    |
-				this_MEMBER_SHORT_KEYWORD_13=RULE_MEMBER_SHORT_KEYWORD
-				{
-					$current.merge(this_MEMBER_SHORT_KEYWORD_13);
-				}
-				{
-					newLeafNode(this_MEMBER_SHORT_KEYWORD_13, grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_1_4());
-				}
-				    |
-				this_REVERSED_14=RULE_REVERSED
-				{
-					$current.merge(this_REVERSED_14);
-				}
-				{
-					newLeafNode(this_REVERSED_14, grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_1_5());
-				}
-				    |
-				this_KEYWORD_15=RULE_KEYWORD
-				{
-					$current.merge(this_KEYWORD_15);
-				}
-				{
-					newLeafNode(this_KEYWORD_15, grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_1_6());
-				}
-			)+
+			this_DIGIT_7=RULE_DIGIT
+			{
+				$current.merge(this_DIGIT_7);
+			}
+			{
+				newLeafNode(this_DIGIT_7, grammarAccess.getIdentifierAccess().getDIGITTerminalRuleCall_1_0());
+			}
+			    |
+			this_ALPHA_8=RULE_ALPHA
+			{
+				$current.merge(this_ALPHA_8);
+			}
+			{
+				newLeafNode(this_ALPHA_8, grammarAccess.getIdentifierAccess().getALPHATerminalRuleCall_1_1());
+			}
+			    |
+			this_CONCEPT_SHORT_KEYWORD_9=RULE_CONCEPT_SHORT_KEYWORD
+			{
+				$current.merge(this_CONCEPT_SHORT_KEYWORD_9);
+			}
+			{
+				newLeafNode(this_CONCEPT_SHORT_KEYWORD_9, grammarAccess.getIdentifierAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_2());
+			}
+			    |
+			this_DESCRIPTION_SHORT_KEYWORD_10=RULE_DESCRIPTION_SHORT_KEYWORD
+			{
+				$current.merge(this_DESCRIPTION_SHORT_KEYWORD_10);
+			}
+			{
+				newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_10, grammarAccess.getIdentifierAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_3());
+			}
+			    |
+			this_MEMBER_SHORT_KEYWORD_11=RULE_MEMBER_SHORT_KEYWORD
+			{
+				$current.merge(this_MEMBER_SHORT_KEYWORD_11);
+			}
+			{
+				newLeafNode(this_MEMBER_SHORT_KEYWORD_11, grammarAccess.getIdentifierAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_4());
+			}
+			    |
+			this_REVERSED_12=RULE_REVERSED
+			{
+				$current.merge(this_REVERSED_12);
+			}
+			{
+				newLeafNode(this_REVERSED_12, grammarAccess.getIdentifierAccess().getREVERSEDTerminalRuleCall_1_5());
+			}
+			    |
+			this_KEYWORD_13=RULE_KEYWORD
+			{
+				$current.merge(this_KEYWORD_13);
+			}
+			{
+				newLeafNode(this_KEYWORD_13, grammarAccess.getIdentifierAccess().getKEYWORDTerminalRuleCall_1_6());
+			}
+			    |
+			this_DASH_14=RULE_DASH
+			{
+				$current.merge(this_DASH_14);
+			}
+			{
+				newLeafNode(this_DASH_14, grammarAccess.getIdentifierAccess().getDASHTerminalRuleCall_1_7());
+			}
+			    |
+			this_UNDERSCORE_15=RULE_UNDERSCORE
+			{
+				$current.merge(this_UNDERSCORE_15);
+			}
+			{
+				newLeafNode(this_UNDERSCORE_15, grammarAccess.getIdentifierAccess().getUNDERSCORETerminalRuleCall_1_8());
+			}
 		)*
 	)
 ;
