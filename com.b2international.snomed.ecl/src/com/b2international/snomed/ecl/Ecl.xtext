@@ -80,7 +80,7 @@ MemberOf:
 	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
 
 EclConceptReference:
-	id=Identifier (term=PIPE_DELIMITED_STRING)?;
+	id=Identifier WS* (term=PIPE_DELIMITED_STRING)?;
 
 EclConceptReferenceSet:
 	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE;
@@ -180,6 +180,8 @@ PropertyFilter:
 	| LanguageFilter 
 	| TypeFilter 
 	| DialectFilter 
+	// Description filters in ECL 2.1
+	| IdFilter
 	// Concept filters in ECL 1.6
 	| DefinitionStatusFilter
 	// Concept (Description and Member) filters in ECL 1.6, component filters in QL 0.1 (extension)
@@ -201,6 +203,9 @@ PropertyFilter:
 
 MemberFieldFilter:
 	refsetFieldName=UnquotedString comparison=Comparison;
+
+IdFilter:
+	ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE);
 
 TermFilter:
 	TERM_KEYWORD op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm;
@@ -324,7 +329,7 @@ HistoryProfile:
 /*
  * Datatype rules
  */
-Identifier returns ecore::EString:
+Identifier returns ecore::EString hidden():
 	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+ ((DASH | UNDERSCORE) (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | KEYWORD)+)*;
 
 NonNegativeInteger returns ecore::EInt hidden():
@@ -333,7 +338,7 @@ NonNegativeInteger returns ecore::EInt hidden():
 NonNegativeDecimal returns ecore::EBigDecimal hidden():
 	NonNegativeInteger DOT (DIGIT)*;
 
-MaxValue returns ecore::EInt hidden():
+MaxValue returns ecore::EInt:
 	NonNegativeInteger | WILDCARD;
 
 Integer returns ecore::EInt hidden():
@@ -342,16 +347,16 @@ Integer returns ecore::EInt hidden():
 Decimal returns ecore::EBigDecimal hidden():
 	(PLUS | DASH)? NonNegativeDecimal;
 	
-Boolean returns ecore::EBoolean hidden(): 
+Boolean returns ecore::EBoolean: 
 	TRUE_KEYWORD | FALSE_KEYWORD;
 
 // Value converter and validation checks for allowed integers 0 and 1
-ActiveBoolean returns ecore::EBoolean hidden():
+ActiveBoolean returns ecore::EBoolean:
 	NonNegativeInteger | Boolean;
 
 // Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
-UnquotedString
-	: HISTORY_KEYWORD
+UnquotedString: 
+	HISTORY_KEYWORD
 	| CASE_SIGNIFICANCE_ID_KEYWORD
 	| DEFINITION_STATUS_ID_KEYWORD
 	| DEFINITION_STATUS_TOKEN_KEYWORD 
@@ -385,14 +390,15 @@ UnquotedString
 	| DESCRIPTION_SHORT_KEYWORD 
 	| CONCEPT_SHORT_KEYWORD
 	| WILDCARD
-	| KEYWORD;
+	| KEYWORD
+	;
 
-DialectAliasValue:
+DialectAliasValue hidden():
 	(DASH | KEYWORD | DIGIT)+;
 
-LEXICAL_SEARCH_TYPE
+LEXICAL_SEARCH_TYPE:
 	// Lexical search types supported in ECL 1.5 
-	: MATCH_KEYWORD 
+	MATCH_KEYWORD 
 	| WILD_KEYWORD
 	// Lexical search type extensions 
 	// REGEX_KEYWORD is used directly in the parser rule, as it requires a special term argument
@@ -400,15 +406,15 @@ LEXICAL_SEARCH_TYPE
 	;
 
 // History Supplement Profile Suffix from ECL 2.0 
-HISTORY_PROFILE_TYPE
-	: MIN_KEYWORD 
+HISTORY_PROFILE_TYPE:
+	MIN_KEYWORD 
 	| MOD_KEYWORD 
 	| MAX_KEYWORD
 	;
 
 // Single-letter domains for filterConstraints is an ECL 1.6 feature
-SHORT_DOMAIN
-	: CONCEPT_SHORT_KEYWORD 
+SHORT_DOMAIN: 
+	CONCEPT_SHORT_KEYWORD 
 	| DESCRIPTION_SHORT_KEYWORD
 	| MEMBER_SHORT_KEYWORD // from ECL 2.0
 	; 
@@ -514,6 +520,9 @@ terminal CONJUNCTION_KEYWORD:
 
 terminal DISJUNCTION_KEYWORD: 
 	'OR' | ('O'|'o')('R'|'r');
+	
+terminal ID_KEYWORD:
+	'ID' | ('I'|'i')('D'|'d');
 
 terminal REVERSED:
 	'R';
