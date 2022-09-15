@@ -15,15 +15,21 @@
  */
 package com.b2international.snomed.ecl.tests
 
+import static org.junit.Assert.assertEquals
+
+import com.b2international.snomed.ecl.ecl.AttributeComparison
+import com.b2international.snomed.ecl.ecl.AttributeConstraint
+import com.b2international.snomed.ecl.ecl.EclConceptReference
+import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint
 import com.b2international.snomed.ecl.validation.EclValidator
+import com.b2international.snomed.ecl.validation.ValidationErrorIgnoringMessageAcceptor
 import com.google.inject.Inject
+import java.util.Set
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.b2international.snomed.ecl.validation.ValidationErrorIgnoringMessageAcceptor
-import java.util.Set
 
 /**
  * @since 2.0
@@ -48,6 +54,20 @@ class EclValidatorIgnoreSyntaxErrorTest {
 			'd123'.assertNoErrors
 			'<<CDT15'.assertNoErrors
 			'9876 {{ id = d_54321 }}'.assertNoErrors
+			'R'.assertNoErrors
+		
+			val constraint = '<<R : R S = D'.assertNoErrors
+				.constraint as RefinedExpressionConstraint;
+			
+			val refinement = constraint.refinement as AttributeConstraint
+			val attribute = refinement.attribute as EclConceptReference
+			val comparison = refinement.comparison as AttributeComparison
+			val value = comparison.value as EclConceptReference
+			
+			assertEquals(true, refinement.reversed)
+			assertEquals("S", attribute.id)
+			assertEquals("D", value.id)
+			
 		} finally {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of())
 		}

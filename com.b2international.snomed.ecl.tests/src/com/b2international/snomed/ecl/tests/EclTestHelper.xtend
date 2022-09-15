@@ -28,10 +28,11 @@ class EclTestHelper {
 	@Inject extension ParseHelper<Script>
 	@Inject extension ValidationTestHelper
 	
-	def void assertNoErrors(CharSequence it) throws Exception {
+	def assertNoErrors(CharSequence it) throws Exception {
 		val script = parse;
 		assertNotNull('''Cannot parse expression: «it».''', script);
 		script.assertNoErrors;
+		return script;
 	}
 	
 	def void assertError(CharSequence it, EClass target, String issueCode, String...messageParts) throws Exception {
