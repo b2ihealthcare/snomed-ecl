@@ -107,6 +107,7 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 			Map.entry(ga.getDOUBLE_CURLY_CLOSERule(),              "Closing filter constraint"),
 			Map.entry(ga.getTERM_KEYWORDRule(),                    "Description term filter"),
 			Map.entry(ga.getLANGUAGE_KEYWORDRule(),                "Description language filter"),
+			Map.entry(ga.getID_KEYWORDRule(),                      "Description ID filter"),
 			Map.entry(ga.getTYPEID_KEYWORDRule(),                  "Description type ID filter"),
 			Map.entry(ga.getTYPE_KEYWORDRule(),                    "Description type tag filter"),
 			Map.entry(ga.getDIALECTID_KEYWORDRule(),               "Description dialect ID filter"),
