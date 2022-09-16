@@ -3681,39 +3681,45 @@ rule__UnquotedString__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_29()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getID_KEYWORDTerminalRuleCall_29()); }
+		RULE_ID_KEYWORD
+		{ after(grammarAccess.getUnquotedStringAccess().getID_KEYWORDTerminalRuleCall_29()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_30()); }
 		RULE_REVERSED
-		{ after(grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_29()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_30()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_30()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_31()); }
 		RULE_MEMBER_SHORT_KEYWORD
-		{ after(grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_30()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_31()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32()); }
 		RULE_DESCRIPTION_SHORT_KEYWORD
-		{ after(grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_33()); }
 		RULE_CONCEPT_SHORT_KEYWORD
-		{ after(grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_33()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_33()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_34()); }
 		RULE_WILDCARD
-		{ after(grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_33()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_34()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_34()); }
+		{ before(grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_35()); }
 		RULE_KEYWORD
-		{ after(grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_34()); }
+		{ after(grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_35()); }
 	)
 ;
 finally {

@@ -5767,52 +5767,60 @@ ruleUnquotedString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 			newLeafNode(this_DISJUNCTION_KEYWORD_28, grammarAccess.getUnquotedStringAccess().getDISJUNCTION_KEYWORDTerminalRuleCall_28());
 		}
 		    |
-		this_REVERSED_29=RULE_REVERSED
+		this_ID_KEYWORD_29=RULE_ID_KEYWORD
 		{
-			$current.merge(this_REVERSED_29);
+			$current.merge(this_ID_KEYWORD_29);
 		}
 		{
-			newLeafNode(this_REVERSED_29, grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_29());
-		}
-		    |
-		this_MEMBER_SHORT_KEYWORD_30=RULE_MEMBER_SHORT_KEYWORD
-		{
-			$current.merge(this_MEMBER_SHORT_KEYWORD_30);
-		}
-		{
-			newLeafNode(this_MEMBER_SHORT_KEYWORD_30, grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_30());
+			newLeafNode(this_ID_KEYWORD_29, grammarAccess.getUnquotedStringAccess().getID_KEYWORDTerminalRuleCall_29());
 		}
 		    |
-		this_DESCRIPTION_SHORT_KEYWORD_31=RULE_DESCRIPTION_SHORT_KEYWORD
+		this_REVERSED_30=RULE_REVERSED
 		{
-			$current.merge(this_DESCRIPTION_SHORT_KEYWORD_31);
+			$current.merge(this_REVERSED_30);
 		}
 		{
-			newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_31, grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31());
-		}
-		    |
-		this_CONCEPT_SHORT_KEYWORD_32=RULE_CONCEPT_SHORT_KEYWORD
-		{
-			$current.merge(this_CONCEPT_SHORT_KEYWORD_32);
-		}
-		{
-			newLeafNode(this_CONCEPT_SHORT_KEYWORD_32, grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32());
+			newLeafNode(this_REVERSED_30, grammarAccess.getUnquotedStringAccess().getREVERSEDTerminalRuleCall_30());
 		}
 		    |
-		this_WILDCARD_33=RULE_WILDCARD
+		this_MEMBER_SHORT_KEYWORD_31=RULE_MEMBER_SHORT_KEYWORD
 		{
-			$current.merge(this_WILDCARD_33);
+			$current.merge(this_MEMBER_SHORT_KEYWORD_31);
 		}
 		{
-			newLeafNode(this_WILDCARD_33, grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_33());
+			newLeafNode(this_MEMBER_SHORT_KEYWORD_31, grammarAccess.getUnquotedStringAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_31());
 		}
 		    |
-		this_KEYWORD_34=RULE_KEYWORD
+		this_DESCRIPTION_SHORT_KEYWORD_32=RULE_DESCRIPTION_SHORT_KEYWORD
 		{
-			$current.merge(this_KEYWORD_34);
+			$current.merge(this_DESCRIPTION_SHORT_KEYWORD_32);
 		}
 		{
-			newLeafNode(this_KEYWORD_34, grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_34());
+			newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_32, grammarAccess.getUnquotedStringAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32());
+		}
+		    |
+		this_CONCEPT_SHORT_KEYWORD_33=RULE_CONCEPT_SHORT_KEYWORD
+		{
+			$current.merge(this_CONCEPT_SHORT_KEYWORD_33);
+		}
+		{
+			newLeafNode(this_CONCEPT_SHORT_KEYWORD_33, grammarAccess.getUnquotedStringAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_33());
+		}
+		    |
+		this_WILDCARD_34=RULE_WILDCARD
+		{
+			$current.merge(this_WILDCARD_34);
+		}
+		{
+			newLeafNode(this_WILDCARD_34, grammarAccess.getUnquotedStringAccess().getWILDCARDTerminalRuleCall_34());
+		}
+		    |
+		this_KEYWORD_35=RULE_KEYWORD
+		{
+			$current.merge(this_KEYWORD_35);
+		}
+		{
+			newLeafNode(this_KEYWORD_35, grammarAccess.getUnquotedStringAccess().getKEYWORDTerminalRuleCall_35());
 		}
 	)
 ;

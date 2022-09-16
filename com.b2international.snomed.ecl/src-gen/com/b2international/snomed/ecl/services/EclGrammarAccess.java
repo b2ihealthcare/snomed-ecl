@@ -2962,12 +2962,13 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cMAX_KEYWORDTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
 		private final RuleCall cCONJUNCTION_KEYWORDTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
 		private final RuleCall cDISJUNCTION_KEYWORDTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
-		private final RuleCall cREVERSEDTerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
-		private final RuleCall cMEMBER_SHORT_KEYWORDTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
-		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
-		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
-		private final RuleCall cWILDCARDTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
-		private final RuleCall cKEYWORDTerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
+		private final RuleCall cID_KEYWORDTerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
+		private final RuleCall cREVERSEDTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
+		private final RuleCall cMEMBER_SHORT_KEYWORDTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
+		private final RuleCall cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
+		private final RuleCall cCONCEPT_SHORT_KEYWORDTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
+		private final RuleCall cWILDCARDTerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
+		private final RuleCall cKEYWORDTerminalRuleCall_35 = (RuleCall)cAlternatives.eContents().get(35);
 		
 		//// Unquoted strings also need to cover any keywords caught by the lexer, earlier in the process. They are terminated by whitespace.
 		//UnquotedString:
@@ -3000,6 +3001,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//	| MAX_KEYWORD
 		//	| CONJUNCTION_KEYWORD
 		//	| DISJUNCTION_KEYWORD
+		//	| ID_KEYWORD
 		//	| REVERSED
 		//	| MEMBER_SHORT_KEYWORD
 		//	| DESCRIPTION_SHORT_KEYWORD
@@ -3013,8 +3015,8 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SEMANTIC_TAG_KEYWORD | DIALECTID_KEYWORD | LANGUAGE_KEYWORD | MODULEID_KEYWORD | DIALECT_KEYWORD | ACTIVE_KEYWORD |
 		//TYPEID_KEYWORD | EXCLUSION_KEYWORD | EXACT_KEYWORD | FALSE_KEYWORD | MATCH_KEYWORD | REGEX_KEYWORD | TERM_KEYWORD |
 		//TRUE_KEYWORD | TYPE_KEYWORD | WILD_KEYWORD | MIN_KEYWORD | MOD_KEYWORD | MAX_KEYWORD | CONJUNCTION_KEYWORD |
-		//DISJUNCTION_KEYWORD | REVERSED | MEMBER_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD | WILDCARD |
-		//KEYWORD
+		//DISJUNCTION_KEYWORD | ID_KEYWORD | REVERSED | MEMBER_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | CONCEPT_SHORT_KEYWORD
+		//| WILDCARD | KEYWORD
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//HISTORY_KEYWORD
@@ -3104,23 +3106,26 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DISJUNCTION_KEYWORD
 		public RuleCall getDISJUNCTION_KEYWORDTerminalRuleCall_28() { return cDISJUNCTION_KEYWORDTerminalRuleCall_28; }
 		
+		//ID_KEYWORD
+		public RuleCall getID_KEYWORDTerminalRuleCall_29() { return cID_KEYWORDTerminalRuleCall_29; }
+		
 		//REVERSED
-		public RuleCall getREVERSEDTerminalRuleCall_29() { return cREVERSEDTerminalRuleCall_29; }
+		public RuleCall getREVERSEDTerminalRuleCall_30() { return cREVERSEDTerminalRuleCall_30; }
 		
 		//MEMBER_SHORT_KEYWORD
-		public RuleCall getMEMBER_SHORT_KEYWORDTerminalRuleCall_30() { return cMEMBER_SHORT_KEYWORDTerminalRuleCall_30; }
+		public RuleCall getMEMBER_SHORT_KEYWORDTerminalRuleCall_31() { return cMEMBER_SHORT_KEYWORDTerminalRuleCall_31; }
 		
 		//DESCRIPTION_SHORT_KEYWORD
-		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_31; }
+		public RuleCall getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32() { return cDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_32; }
 		
 		//CONCEPT_SHORT_KEYWORD
-		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_32() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_32; }
+		public RuleCall getCONCEPT_SHORT_KEYWORDTerminalRuleCall_33() { return cCONCEPT_SHORT_KEYWORDTerminalRuleCall_33; }
 		
 		//WILDCARD
-		public RuleCall getWILDCARDTerminalRuleCall_33() { return cWILDCARDTerminalRuleCall_33; }
+		public RuleCall getWILDCARDTerminalRuleCall_34() { return cWILDCARDTerminalRuleCall_34; }
 		
 		//KEYWORD
-		public RuleCall getKEYWORDTerminalRuleCall_34() { return cKEYWORDTerminalRuleCall_34; }
+		public RuleCall getKEYWORDTerminalRuleCall_35() { return cKEYWORDTerminalRuleCall_35; }
 	}
 	public class DialectAliasValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DialectAliasValue");
@@ -4663,6 +4668,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//	| MAX_KEYWORD
 	//	| CONJUNCTION_KEYWORD
 	//	| DISJUNCTION_KEYWORD
+	//	| ID_KEYWORD
 	//	| REVERSED
 	//	| MEMBER_SHORT_KEYWORD
 	//	| DESCRIPTION_SHORT_KEYWORD
