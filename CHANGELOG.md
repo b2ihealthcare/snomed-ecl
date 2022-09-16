@@ -1,9 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.0
+
+- [lang] support description ID filter introduced in [ECL 2.1](https://confluence.ihtsdotools.org/download/attachments/33493263/doc_ExpressionConstraintLanguage_v2.1-en-US_INT_20220824.pdf?api=v2)
+
 ## 2.0.4
 
-- [ui] Fix keyword proposals in Eclipse UI proposal provider; add suggestions for history profiles; add an image to filter constraint domains
+- [ui] fix keyword proposals in Eclipse UI proposal provider; add suggestions for history profiles; add an image to filter constraint domains
 
 ## 2.0.3
 
@@ -20,7 +24,7 @@ All notable changes to this project will be documented in this file.
 
 ## 2.0.0
 
-- [lang] support the latest official [ECL 2.0.0](TODO link to the final spec) specification changes
+- [lang] support the latest official [ECL 2.0](https://confluence.ihtsdotools.org/download/attachments/33493263/doc_ExpressionConstraintLanguage_v2.0-en-US_INT_20220404.pdf?api=v2) specification changes
   * Support history supplements
   * Support memberField filters
   * Support memberField selection
