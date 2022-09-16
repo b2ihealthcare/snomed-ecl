@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.1
+
+- [ui] fix missing keyword suggestion in Eclipse UI proposal provider
+
 ## 2.1.0
 
 - [lang] support description ID filter introduced in [ECL 2.1](https://confluence.ihtsdotools.org/download/attachments/33493263/doc_ExpressionConstraintLanguage_v2.1-en-US_INT_20220824.pdf?api=v2)
