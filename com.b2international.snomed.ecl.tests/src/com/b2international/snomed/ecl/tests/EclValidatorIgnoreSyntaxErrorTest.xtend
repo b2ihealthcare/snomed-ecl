@@ -68,6 +68,8 @@ class EclValidatorIgnoreSyntaxErrorTest {
 			assertEquals("S", attribute.id)
 			assertEquals("D", value.id)
 			
+			'Q64ANDT43'.assertNoErrors
+			
 		} finally {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of())
 		}
