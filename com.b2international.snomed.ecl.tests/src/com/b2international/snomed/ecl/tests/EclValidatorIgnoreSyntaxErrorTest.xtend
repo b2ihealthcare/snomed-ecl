@@ -53,13 +53,15 @@ class EclValidatorIgnoreSyntaxErrorTest {
 			'c123'.assertNoErrors
 			'd123'.assertNoErrors
 			'<<CDT15'.assertNoErrors
+			'C-ID-3443'.assertNoErrors
+			'E1___u32E9'.assertNoErrors
 			'9876 {{ id = d_54321 }}'.assertNoErrors
 			'R'.assertNoErrors
 		
-			val constraint = '<<R : R S = D'.assertNoErrors
+			val constraint2 = '<<R : R S = D'.assertNoErrors
 				.constraint as RefinedExpressionConstraint;
 			
-			val refinement = constraint.refinement as AttributeConstraint
+			val refinement = constraint2.refinement as AttributeConstraint
 			val attribute = refinement.attribute as EclConceptReference
 			val comparison = refinement.comparison as AttributeComparison
 			val value = comparison.value as EclConceptReference
@@ -67,8 +69,6 @@ class EclValidatorIgnoreSyntaxErrorTest {
 			assertEquals(true, refinement.reversed)
 			assertEquals("S", attribute.id)
 			assertEquals("D", value.id)
-			
-			'Q64ANDT43'.assertNoErrors
 			
 		} finally {
 			(validator.messageAcceptor as ValidationErrorIgnoringMessageAcceptor).setIgnoredSyntaxErrorCodes(Set.of())
