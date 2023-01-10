@@ -2,7 +2,7 @@
 
 SNOMED CT Expression Constraint Language Implementation with IDE integration(s), user interface using Xtext.
 
-[![build status](https://img.shields.io/github/workflow/status/b2ihealthcare/snomed-ecl/Java%20CI/main?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/actions)
+[![build status](https://img.shields.io/github/actions/status/b2ihealthcare/snomed-ecl/maven.yml?branch=main&style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/actions)
 [![latest release](https://img.shields.io/github/tag/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.1.1)
 [![GitHub](https://img.shields.io/github/license/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/blob/main/LICENSE)
 
