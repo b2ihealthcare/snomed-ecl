@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.2
+
+- [dependencies] bump Xtext/Xtend to 2.23.0 (ff60902)
+- [docs] fix build badge due to shields API change (3a9fbf8, c5afb77)
+
 ## 2.1.1
 
 - [ui] fix missing keyword suggestion in Eclipse UI proposal provider
