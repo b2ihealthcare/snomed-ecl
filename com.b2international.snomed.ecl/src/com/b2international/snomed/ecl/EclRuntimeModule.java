@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2023 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,11 @@ package com.b2international.snomed.ecl;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
+import org.eclipse.xtext.validation.CompositeEValidator;
 
 import com.b2international.snomed.ecl.converter.EclValueConverterService;
 import com.b2international.snomed.ecl.validation.EclSyntaxErrorMessageProvider;
+import com.google.inject.name.Names;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -34,4 +36,12 @@ public class EclRuntimeModule extends AbstractEclRuntimeModule {
 	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
 		return EclSyntaxErrorMessageProvider.class;
 	}
+	
+	/**
+	 * Disable unnecessary EObjectValidator usage inside the {@link CompositeEValidator} to prevent unnecessary recursion and slowness when validating larger ECL expressions.
+	 */
+	public void configureEObjectValidator(com.google.inject.Binder binder) {
+		binder.bind(Boolean.TYPE).annotatedWith(Names.named(CompositeEValidator.USE_EOBJECT_VALIDATOR)).toInstance(Boolean.FALSE);
+	}
+	
 }
