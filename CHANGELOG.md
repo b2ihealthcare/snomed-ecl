@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.3
+
+- [validation] significantly speed up validation performance for large ECL expressions by disabling unnecessary Xtext object validation (3a06a68)
+
 ## 2.1.2
 
 - [dependencies] bump Xtext/Xtend to 2.23.0 (ff60902)
