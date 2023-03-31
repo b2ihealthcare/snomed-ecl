@@ -3,7 +3,7 @@
 SNOMED CT Expression Constraint Language Implementation with IDE integration(s), user interface using Xtext.
 
 [![build status](https://img.shields.io/github/actions/workflow/status/b2ihealthcare/snomed-ecl/maven.yml?branch=main&style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/actions)
-[![latest release](https://img.shields.io/github/tag/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.1.3)
+[![latest release](https://img.shields.io/github/tag/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.1.4)
 [![GitHub](https://img.shields.io/github/license/b2ihealthcare/snomed-ecl.svg?style=flat-square)](https://github.com/b2ihealthcare/snomed-ecl/blob/main/LICENSE)
 
 # Documentation
@@ -12,7 +12,7 @@ See the official documentation [here](http://snomed.org/ecl)
 
 # Supported versions
 
-* https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.1.3 - ECL 2.1
+* https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.1.4 - ECL 2.1
 * https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v2.0.4 - ECL 2.0
 * https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.6.0 - ECL 1.6
 * https://github.com/b2ihealthcare/snomed-ecl/releases/tag/v1.5.2 - ECL 1.5
