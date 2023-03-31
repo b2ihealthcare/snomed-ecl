@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.4
+
+- [lang] support `id ` filtering for concept and member domains (e3b0acc)
+
 ## 2.1.3
 
 - [validation] significantly speed up validation performance for large ECL expressions by disabling unnecessary Xtext object validation (3a06a68)
