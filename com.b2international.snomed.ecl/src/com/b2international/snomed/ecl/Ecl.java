@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2023 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package com.b2international.snomed.ecl;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.eclipse.xtext.EcoreUtil2;
 
@@ -41,7 +42,23 @@ public final class Ecl {
 	}
 	
 	public static boolean isEclConceptReference(ExpressionConstraint expression) {
-		return expression instanceof EclConceptReference || expression instanceof NestedExpression && ((NestedExpression) expression).getNested() instanceof EclConceptReference;
+		if (expression instanceof EclConceptReference) {
+			return true;
+		} else if (expression instanceof NestedExpression) {
+			return isEclConceptReference(((NestedExpression) expression).getNested());
+		} else {
+			return false;
+		}
+	}
+	
+	public static Optional<EclConceptReference> extractEclConceptReference(ExpressionConstraint expression) {
+		if (expression instanceof EclConceptReference) {
+			return Optional.of((EclConceptReference) expression);
+		} else if (expression instanceof NestedExpression) {
+			return extractEclConceptReference(((NestedExpression) expression).getNested());
+		} else {
+			return Optional.empty();
+		}
 	}
 	
 	public static String or(String... eclExpressions) {
@@ -131,34 +148,39 @@ public final class Ecl {
 				throw new IllegalStateException("Disjunction filter has inconsistent left and right domains.");
 			}
 			return leftDomain;
-		} else if (filter instanceof AcceptableInFilter) {
-			return Domain.DESCRIPTION;
+			
+		// generic filters
+		} else if (filter instanceof IdFilter) {
+			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof ActiveFilter) {
 			return getDomain(getParentConstraint(filter));
-		} else if (filter instanceof CaseSignificanceFilter) {
-			return Domain.DESCRIPTION;
-		} else if (filter instanceof DefinitionStatusFilter) {
-			return Domain.CONCEPT;
-		} else if (filter instanceof DialectFilter) {
-			return Domain.DESCRIPTION;
 		} else if (filter instanceof EffectiveTimeFilter) {
 			return getDomain(getParentConstraint(filter));
-		} else if (filter instanceof IdFilter) {
+		} else if (filter instanceof ModuleFilter) {
+			return getDomain(getParentConstraint(filter));
+		} else if (filter instanceof SemanticTagFilter) {
+			return getDomain(getParentConstraint(filter));
+		// concept filters
+		} else if (filter instanceof DefinitionStatusFilter) {
+			return Domain.CONCEPT;
+		// description filters
+		} else if (filter instanceof AcceptableInFilter) {
+			return Domain.DESCRIPTION;
+		} else if (filter instanceof CaseSignificanceFilter) {
+			return Domain.DESCRIPTION;
+		} else if (filter instanceof DialectFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof LanguageRefSetFilter) {
 			return Domain.DESCRIPTION;
-		} else if (filter instanceof ModuleFilter) {
-			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof PreferredInFilter) {
 			return Domain.DESCRIPTION;
-		} else if (filter instanceof SemanticTagFilter) {
-			return getDomain(getParentConstraint(filter));
 		} else if (filter instanceof TermFilter) {
 			return Domain.DESCRIPTION;
 		} else if (filter instanceof TypeFilter) {
 			return Domain.DESCRIPTION;
+		// member filters
 		} else if (filter instanceof MemberFieldFilter) {
 			return Domain.MEMBER;
 		} else {
@@ -183,5 +205,5 @@ public final class Ecl {
 
 		return domain;
 	}
-	
+
 }

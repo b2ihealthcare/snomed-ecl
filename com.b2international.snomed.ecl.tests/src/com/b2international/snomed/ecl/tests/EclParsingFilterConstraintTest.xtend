@@ -90,8 +90,7 @@ class EclParsingFilterConstraintTest {
 	
 	@Test
 	def void test_filter_concept_domain_id_not_allowed() {
-		'* {{ c id = 900000000000550004 }}'
-			.assertError(EclPackage.Literals.FILTER_CONSTRAINT, EclValidator.DOMAIN_INCONSISTENCY_CODE);
+		'* {{ c id = 900000000000550004 }}'.assertNoErrors;
 	}
 	
 	@Test
