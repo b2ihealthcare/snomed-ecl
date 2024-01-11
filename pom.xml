@@ -46,11 +46,6 @@
 			<url>https://download.eclipse.org/eclipse/updates/4.30/R-4.30-202312010110/</url>
 			<layout>p2</layout>
 		</repository>
-<!--		<repository>-->
-<!--			<id>orbit</id>-->
-<!--			<url>https://download.eclipse.org/tools/orbit/downloads/drops/R20200224183213/repository/</url>-->
-<!--			<layout>p2</layout>-->
-<!--		</repository>-->
 		<repository>
 			<id>emf</id>
 			<url>https://download.eclipse.org/modeling/emf/emf/builds/release/2.35.0/</url>
@@ -179,14 +174,14 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.1.1</version>
 					<configuration>
 						<installAtEnd>true</installAtEnd>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
-					<version>3.0.0-M2</version>
+					<version>3.1.1</version>
 					<configuration>
 						<deployAtEnd>true</deployAtEnd>
 					</configuration>
