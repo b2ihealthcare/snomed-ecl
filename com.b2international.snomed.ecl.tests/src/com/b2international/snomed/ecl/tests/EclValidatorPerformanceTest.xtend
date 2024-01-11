@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2023-2024 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import com.b2international.snomed.ecl.ecl.Script
 import java.io.StringReader
 import java.util.stream.Collectors
 import java.util.stream.IntStream
-import javax.inject.Inject
+import jakarta.inject.Inject
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl
 import org.eclipse.xtext.parser.IParser
 import org.eclipse.xtext.testing.InjectWith
