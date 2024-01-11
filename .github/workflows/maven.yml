@@ -32,10 +32,10 @@ jobs:
       with:
         servers: '[{ "id": "nexus_deployment", "username": "${env.NEXUS_DEPLOYMENT_USER}", "password": "${env.NEXUS_DEPLOYMENT_PASS}" }]'
     - name: Build Packages 
-      run: mvn -ntp clean verify
+      run: ./mvnw -ntp clean verify
       if: github.ref != 'refs/heads/main'
     - name: Build and Deploy Packages 
-      run: mvn -ntp clean deploy
+      run: ./mvnw -ntp clean deploy
       if: github.ref == 'refs/heads/main'
       env: 
         NEXUS_DEPLOYMENT_USER: ${{ secrets.NEXUS_DEPLOYMENT_USER }}
