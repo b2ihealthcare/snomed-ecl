@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1.5
+
+- [dependencies] upgrade Eclipse to e4.30 and Xtext to 2.33.0 (573a343)
+- [build] move to Tycho 4.0.4 (9d036b3)
+
 ## 2.1.4
 
 - [lang] support `id ` filtering for concept and member domains (e3b0acc)
