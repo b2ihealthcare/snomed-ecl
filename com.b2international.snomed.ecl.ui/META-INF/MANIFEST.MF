@@ -3,7 +3,7 @@ Automatic-Module-Name: com.b2international.snomed.ecl.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: SNOMED CT Expression Constraint Language UI Plug-in
 Bundle-Vendor: B2i Healthcare
-Bundle-Version: 2.1.5
+Bundle-Version: 2.1.6.qualifier
 Bundle-SymbolicName: com.b2international.snomed.ecl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.b2international.snomed.ecl.ide;visibility:=reexport,
