@@ -26,6 +26,7 @@ import com.b2international.snomed.ecl.ecl.Any;
 import com.b2international.snomed.ecl.ecl.AttributeComparison;
 import com.b2international.snomed.ecl.ecl.AttributeConstraint;
 import com.b2international.snomed.ecl.ecl.BooleanValueComparison;
+import com.b2international.snomed.ecl.ecl.Bottom;
 import com.b2international.snomed.ecl.ecl.Cardinality;
 import com.b2international.snomed.ecl.ecl.CaseSignificanceFilter;
 import com.b2international.snomed.ecl.ecl.ChildOf;
@@ -73,6 +74,7 @@ import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
 import com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.TermFilter;
+import com.b2international.snomed.ecl.ecl.Top;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
 import com.b2international.snomed.ecl.ecl.TypedSearchTerm;
@@ -152,6 +154,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.BOOLEAN_VALUE_COMPARISON:
 				sequence_BooleanValueComparison(context, (BooleanValueComparison) semanticObject); 
+				return; 
+			case EclPackage.BOTTOM:
+				sequence_Bottom(context, (Bottom) semanticObject); 
 				return; 
 			case EclPackage.CARDINALITY:
 				sequence_Cardinality(context, (Cardinality) semanticObject); 
@@ -321,6 +326,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EclPackage.TERM_FILTER:
 				sequence_TermFilter(context, (TermFilter) semanticObject); 
 				return; 
+			case EclPackage.TOP:
+				sequence_Top(context, (Top) semanticObject); 
+				return; 
 			case EclPackage.TYPE_ID_FILTER:
 				sequence_TypeIdFilter(context, (TypeIdFilter) semanticObject); 
 				return; 
@@ -342,11 +350,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	}
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Acceptability returns Acceptability
 	 *
 	 * Constraint:
 	 *     acceptabilities=EclConceptReferenceSet
+	 * </pre>
 	 */
 	protected void sequence_Acceptability(ISerializationContext context, Acceptability semanticObject) {
 		if (errorAcceptor != null) {
@@ -360,6 +370,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns AcceptableInFilter
 	 *     DisjunctionFilter returns AcceptableInFilter
@@ -371,6 +382,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     languageRefSetId=FilterValue
+	 * </pre>
 	 */
 	protected void sequence_AcceptableInFilter(ISerializationContext context, AcceptableInFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -384,6 +396,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns ActiveFilter
 	 *     DisjunctionFilter returns ActiveFilter
@@ -395,6 +408,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR active=ActiveBoolean)
+	 * </pre>
 	 */
 	protected void sequence_ActiveFilter(ISerializationContext context, ActiveFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -411,6 +425,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns AncestorOf
 	 *     OrExpressionConstraint returns AncestorOf
@@ -433,6 +448,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_AncestorOf(ISerializationContext context, AncestorOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -446,6 +462,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns AncestorOrSelfOf
 	 *     OrExpressionConstraint returns AncestorOrSelfOf
@@ -468,6 +485,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_AncestorOrSelfOf(ISerializationContext context, AncestorOrSelfOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -481,6 +499,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclAttributeSet returns AndRefinement
 	 *     OrAttributeSet returns AndRefinement
@@ -490,6 +509,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=AndAttributeSet_AndRefinement_1_0 right=SubAttributeSet)
+	 * </pre>
 	 */
 	protected void sequence_AndAttributeSet(ISerializationContext context, AndRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -506,6 +526,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns AndExpressionConstraint
 	 *     OrExpressionConstraint returns AndExpressionConstraint
@@ -515,6 +536,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=AndExpressionConstraint_AndExpressionConstraint_1_0 right=ExclusionExpressionConstraint)
+	 * </pre>
 	 */
 	protected void sequence_AndExpressionConstraint(ISerializationContext context, AndExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -531,6 +553,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclRefinement returns AndRefinement
 	 *     OrRefinement returns AndRefinement
@@ -540,6 +563,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=AndRefinement_AndRefinement_1_0_0 right=SubRefinement)
+	 * </pre>
 	 */
 	protected void sequence_AndRefinement(ISerializationContext context, AndRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -556,6 +580,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns Any
 	 *     OrExpressionConstraint returns Any
@@ -579,6 +604,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     {Any}
+	 * </pre>
 	 */
 	protected void sequence_Any(ISerializationContext context, Any semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -586,12 +612,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Comparison returns AttributeComparison
 	 *     AttributeComparison returns AttributeComparison
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR value=FilteredExpressionConstraint)
+	 * </pre>
 	 */
 	protected void sequence_AttributeComparison(ISerializationContext context, AttributeComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -608,6 +636,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclRefinement returns AttributeConstraint
 	 *     OrRefinement returns AttributeConstraint
@@ -625,6 +654,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (cardinality=Cardinality? reversed?=REVERSED? attribute=FilteredExpressionConstraint comparison=Comparison?)
+	 * </pre>
 	 */
 	protected void sequence_AttributeConstraint(ISerializationContext context, AttributeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -632,6 +662,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Comparison returns BooleanValueComparison
 	 *     DataTypeComparison returns BooleanValueComparison
@@ -639,6 +670,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR value=Boolean)
+	 * </pre>
 	 */
 	protected void sequence_BooleanValueComparison(ISerializationContext context, BooleanValueComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -655,11 +687,50 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
+	 * Contexts:
+	 *     ExpressionConstraint returns Bottom
+	 *     OrExpressionConstraint returns Bottom
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns Bottom
+	 *     AndExpressionConstraint returns Bottom
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns Bottom
+	 *     ExclusionExpressionConstraint returns Bottom
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns Bottom
+	 *     RefinedExpressionConstraint returns Bottom
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns Bottom
+	 *     DottedExpressionConstraint returns Bottom
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns Bottom
+	 *     SupplementExpressionConstraint returns Bottom
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns Bottom
+	 *     FilteredExpressionConstraint returns Bottom
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns Bottom
+	 *     SubExpressionConstraint returns Bottom
+	 *     Bottom returns Bottom
+	 *     FilterValue returns Bottom
+	 *
+	 * Constraint:
+	 *     constraint=EclFocusConcept
+	 * </pre>
+	 */
+	protected void sequence_Bottom(ISerializationContext context, Bottom semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.BOTTOM__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.BOTTOM__CONSTRAINT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBottomAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
 	 * Contexts:
 	 *     Cardinality returns Cardinality
 	 *
 	 * Constraint:
 	 *     (min=NonNegativeInteger max=MaxValue)
+	 * </pre>
 	 */
 	protected void sequence_Cardinality(ISerializationContext context, Cardinality semanticObject) {
 		if (errorAcceptor != null) {
@@ -676,6 +747,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns CaseSignificanceFilter
 	 *     DisjunctionFilter returns CaseSignificanceFilter
@@ -687,6 +759,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     caseSignificanceId=FilterValue
+	 * </pre>
 	 */
 	protected void sequence_CaseSignificanceFilter(ISerializationContext context, CaseSignificanceFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -700,6 +773,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns ChildOf
 	 *     OrExpressionConstraint returns ChildOf
@@ -722,6 +796,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_ChildOf(ISerializationContext context, ChildOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -735,6 +810,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns ChildOrSelfOf
 	 *     OrExpressionConstraint returns ChildOrSelfOf
@@ -757,6 +833,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_ChildOrSelfOf(ISerializationContext context, ChildOrSelfOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -770,6 +847,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns ConjunctionFilter
 	 *     DisjunctionFilter returns ConjunctionFilter
@@ -779,6 +857,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=ConjunctionFilter_ConjunctionFilter_1_0 right=PropertyFilter)
+	 * </pre>
 	 */
 	protected void sequence_ConjunctionFilter(ISerializationContext context, ConjunctionFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -795,6 +874,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Comparison returns DecimalValueComparison
 	 *     DataTypeComparison returns DecimalValueComparison
@@ -802,6 +882,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NUMERIC_OPERATOR value=Decimal)
+	 * </pre>
 	 */
 	protected void sequence_DecimalValueComparison(ISerializationContext context, DecimalValueComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -818,6 +899,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns DefinitionStatusIdFilter
 	 *     DisjunctionFilter returns DefinitionStatusIdFilter
@@ -830,6 +912,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR definitionStatus=FilterValue)
+	 * </pre>
 	 */
 	protected void sequence_DefinitionStatusIdFilter(ISerializationContext context, DefinitionStatusIdFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -846,6 +929,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns DefinitionStatusTokenFilter
 	 *     DisjunctionFilter returns DefinitionStatusTokenFilter
@@ -858,6 +942,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (definitionStatusTokens+=UnquotedString | definitionStatusTokens+=UnquotedString+))
+	 * </pre>
 	 */
 	protected void sequence_DefinitionStatusTokenFilter(ISerializationContext context, DefinitionStatusTokenFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -865,6 +950,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns DescendantOf
 	 *     OrExpressionConstraint returns DescendantOf
@@ -887,6 +973,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_DescendantOf(ISerializationContext context, DescendantOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -900,6 +987,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns DescendantOrSelfOf
 	 *     OrExpressionConstraint returns DescendantOrSelfOf
@@ -922,6 +1010,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_DescendantOrSelfOf(ISerializationContext context, DescendantOrSelfOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -935,6 +1024,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns DialectAliasFilter
 	 *     DisjunctionFilter returns DialectAliasFilter
@@ -947,6 +1037,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (dialects+=DialectAlias | dialects+=DialectAlias+))
+	 * </pre>
 	 */
 	protected void sequence_DialectAliasFilter(ISerializationContext context, DialectAliasFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -954,11 +1045,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     DialectAlias returns DialectAlias
 	 *
 	 * Constraint:
 	 *     (alias=DialectAliasValue acceptability=Acceptability?)
+	 * </pre>
 	 */
 	protected void sequence_DialectAlias(ISerializationContext context, DialectAlias semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -966,6 +1059,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns DialectIdFilter
 	 *     DisjunctionFilter returns DialectIdFilter
@@ -978,6 +1072,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (dialects+=Dialect | dialects+=Dialect+))
+	 * </pre>
 	 */
 	protected void sequence_DialectIdFilter(ISerializationContext context, DialectIdFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -985,11 +1080,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Dialect returns Dialect
 	 *
 	 * Constraint:
 	 *     (languageRefSetId=FilteredExpressionConstraint acceptability=Acceptability?)
+	 * </pre>
 	 */
 	protected void sequence_Dialect(ISerializationContext context, Dialect semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -997,6 +1094,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns DisjunctionFilter
 	 *     DisjunctionFilter returns DisjunctionFilter
@@ -1004,6 +1102,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=DisjunctionFilter_DisjunctionFilter_1_0 right=ConjunctionFilter)
+	 * </pre>
 	 */
 	protected void sequence_DisjunctionFilter(ISerializationContext context, DisjunctionFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1020,6 +1119,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns DottedExpressionConstraint
 	 *     OrExpressionConstraint returns DottedExpressionConstraint
@@ -1035,6 +1135,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (constraint=DottedExpressionConstraint_DottedExpressionConstraint_1_0 attribute=SupplementExpressionConstraint)
+	 * </pre>
 	 */
 	protected void sequence_DottedExpressionConstraint(ISerializationContext context, DottedExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1051,6 +1152,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclRefinement returns EclAttributeGroup
 	 *     OrRefinement returns EclAttributeGroup
@@ -1062,6 +1164,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (cardinality=Cardinality? refinement=EclAttributeSet)
+	 * </pre>
 	 */
 	protected void sequence_EclAttributeGroup(ISerializationContext context, EclAttributeGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1069,12 +1172,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclConceptReferenceSet returns EclConceptReferenceSet
 	 *     FilterValue returns EclConceptReferenceSet
 	 *
 	 * Constraint:
 	 *     concepts+=EclConceptReference+
+	 * </pre>
 	 */
 	protected void sequence_EclConceptReferenceSet(ISerializationContext context, EclConceptReferenceSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1082,6 +1187,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns EclConceptReference
 	 *     OrExpressionConstraint returns EclConceptReference
@@ -1105,6 +1211,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (id=Identifier term=PIPE_DELIMITED_STRING?)
+	 * </pre>
 	 */
 	protected void sequence_EclConceptReference(ISerializationContext context, EclConceptReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1112,6 +1219,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns EffectiveTimeFilter
 	 *     DisjunctionFilter returns EffectiveTimeFilter
@@ -1123,6 +1231,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NUMERIC_OPERATOR effectiveTime=STRING)
+	 * </pre>
 	 */
 	protected void sequence_EffectiveTimeFilter(ISerializationContext context, EffectiveTimeFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1139,6 +1248,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns ExclusionExpressionConstraint
 	 *     OrExpressionConstraint returns ExclusionExpressionConstraint
@@ -1149,6 +1259,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=ExclusionExpressionConstraint_ExclusionExpressionConstraint_1_0 right=RefinedExpressionConstraint)
+	 * </pre>
 	 */
 	protected void sequence_ExclusionExpressionConstraint(ISerializationContext context, ExclusionExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1165,11 +1276,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     FilterConstraint returns FilterConstraint
 	 *
 	 * Constraint:
 	 *     (domain=SHORT_DOMAIN? filter=Filter)
+	 * </pre>
 	 */
 	protected void sequence_FilterConstraint(ISerializationContext context, FilterConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1177,6 +1290,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns FilteredExpressionConstraint
 	 *     OrExpressionConstraint returns FilteredExpressionConstraint
@@ -1197,6 +1311,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (constraint=FilteredExpressionConstraint_FilteredExpressionConstraint_1_0 filter=FilterConstraint)
+	 * </pre>
 	 */
 	protected void sequence_FilteredExpressionConstraint(ISerializationContext context, FilteredExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1213,11 +1328,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     HistoryProfile returns HistoryProfile
 	 *
 	 * Constraint:
 	 *     profile=HISTORY_PROFILE_TYPE
+	 * </pre>
 	 */
 	protected void sequence_HistoryProfile(ISerializationContext context, HistoryProfile semanticObject) {
 		if (errorAcceptor != null) {
@@ -1231,12 +1348,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Supplement returns HistorySupplement
 	 *     HistorySupplement returns HistorySupplement
 	 *
 	 * Constraint:
 	 *     (history=HistoryProfile | history=NestedExpression)?
+	 * </pre>
 	 */
 	protected void sequence_HistorySupplement(ISerializationContext context, HistorySupplement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1244,6 +1363,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns IdFilter
 	 *     DisjunctionFilter returns IdFilter
@@ -1255,6 +1375,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (ids+=Identifier | ids+=Identifier+))
+	 * </pre>
 	 */
 	protected void sequence_IdFilter(ISerializationContext context, IdFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1262,6 +1383,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Comparison returns IntegerValueComparison
 	 *     DataTypeComparison returns IntegerValueComparison
@@ -1269,6 +1391,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NUMERIC_OPERATOR value=Integer)
+	 * </pre>
 	 */
 	protected void sequence_IntegerValueComparison(ISerializationContext context, IntegerValueComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -1285,6 +1408,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns LanguageFilter
 	 *     DisjunctionFilter returns LanguageFilter
@@ -1296,6 +1420,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (languageCodes+=UnquotedString | languageCodes+=UnquotedString+))
+	 * </pre>
 	 */
 	protected void sequence_LanguageFilter(ISerializationContext context, LanguageFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1303,6 +1428,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns LanguageRefSetFilter
 	 *     DisjunctionFilter returns LanguageRefSetFilter
@@ -1314,6 +1440,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     languageRefSetId=FilterValue
+	 * </pre>
 	 */
 	protected void sequence_LanguageRefSetFilter(ISerializationContext context, LanguageRefSetFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1327,6 +1454,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns MemberFieldFilter
 	 *     DisjunctionFilter returns MemberFieldFilter
@@ -1338,6 +1466,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (refsetFieldName=UnquotedString comparison=Comparison)
+	 * </pre>
 	 */
 	protected void sequence_MemberFieldFilter(ISerializationContext context, MemberFieldFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1354,6 +1483,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns MemberOf
 	 *     OrExpressionConstraint returns MemberOf
@@ -1377,6 +1507,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     ((refsetFields+=UnquotedString refsetFields+=UnquotedString*)? (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression))
+	 * </pre>
 	 */
 	protected void sequence_MemberOf(ISerializationContext context, MemberOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1384,6 +1515,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns ModuleFilter
 	 *     DisjunctionFilter returns ModuleFilter
@@ -1395,6 +1527,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR moduleId=FilterValue)
+	 * </pre>
 	 */
 	protected void sequence_ModuleFilter(ISerializationContext context, ModuleFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1411,6 +1544,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclAttributeSet returns NestedRefinement
 	 *     OrAttributeSet returns NestedRefinement
@@ -1422,6 +1556,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     nested=EclAttributeSet
+	 * </pre>
 	 */
 	protected void sequence_NestedAttributeSet(ISerializationContext context, NestedRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -1435,6 +1570,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns NestedExpression
 	 *     OrExpressionConstraint returns NestedExpression
@@ -1458,6 +1594,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     nested=ExpressionConstraint
+	 * </pre>
 	 */
 	protected void sequence_NestedExpression(ISerializationContext context, NestedExpression semanticObject) {
 		if (errorAcceptor != null) {
@@ -1471,6 +1608,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns NestedFilter
 	 *     DisjunctionFilter returns NestedFilter
@@ -1482,6 +1620,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     nested=Filter
+	 * </pre>
 	 */
 	protected void sequence_NestedFilter(ISerializationContext context, NestedFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1495,6 +1634,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclRefinement returns NestedRefinement
 	 *     OrRefinement returns NestedRefinement
@@ -1506,6 +1646,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     nested=EclRefinement
+	 * </pre>
 	 */
 	protected void sequence_NestedRefinement(ISerializationContext context, NestedRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -1519,6 +1660,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclAttributeSet returns OrRefinement
 	 *     OrAttributeSet returns OrRefinement
@@ -1526,6 +1668,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=OrAttributeSet_OrRefinement_1_0 right=AndAttributeSet)
+	 * </pre>
 	 */
 	protected void sequence_OrAttributeSet(ISerializationContext context, OrRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -1542,6 +1685,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns OrExpressionConstraint
 	 *     OrExpressionConstraint returns OrExpressionConstraint
@@ -1549,6 +1693,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=OrExpressionConstraint_OrExpressionConstraint_1_0 right=AndExpressionConstraint)
+	 * </pre>
 	 */
 	protected void sequence_OrExpressionConstraint(ISerializationContext context, OrExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1565,6 +1710,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     EclRefinement returns OrRefinement
 	 *     OrRefinement returns OrRefinement
@@ -1572,6 +1718,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (left=OrRefinement_OrRefinement_1_0_0 right=AndRefinement)
+	 * </pre>
 	 */
 	protected void sequence_OrRefinement(ISerializationContext context, OrRefinement semanticObject) {
 		if (errorAcceptor != null) {
@@ -1588,6 +1735,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns ParentOf
 	 *     OrExpressionConstraint returns ParentOf
@@ -1610,6 +1758,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_ParentOf(ISerializationContext context, ParentOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -1623,6 +1772,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns ParentOrSelfOf
 	 *     OrExpressionConstraint returns ParentOrSelfOf
@@ -1645,6 +1795,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     constraint=EclFocusConcept
+	 * </pre>
 	 */
 	protected void sequence_ParentOrSelfOf(ISerializationContext context, ParentOrSelfOf semanticObject) {
 		if (errorAcceptor != null) {
@@ -1658,6 +1809,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns PreferredInFilter
 	 *     DisjunctionFilter returns PreferredInFilter
@@ -1669,6 +1821,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     languageRefSetId=FilterValue
+	 * </pre>
 	 */
 	protected void sequence_PreferredInFilter(ISerializationContext context, PreferredInFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1682,6 +1835,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns RefinedExpressionConstraint
 	 *     OrExpressionConstraint returns RefinedExpressionConstraint
@@ -1694,6 +1848,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (constraint=RefinedExpressionConstraint_RefinedExpressionConstraint_1_0 refinement=EclRefinement)
+	 * </pre>
 	 */
 	protected void sequence_RefinedExpressionConstraint(ISerializationContext context, RefinedExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1710,11 +1865,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Script returns Script
 	 *
 	 * Constraint:
 	 *     constraint=ExpressionConstraint?
+	 * </pre>
 	 */
 	protected void sequence_Script(ISerializationContext context, Script semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1722,6 +1879,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns SemanticTagFilter
 	 *     DisjunctionFilter returns SemanticTagFilter
@@ -1733,6 +1891,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR semanticTag=STRING)
+	 * </pre>
 	 */
 	protected void sequence_SemanticTagFilter(ISerializationContext context, SemanticTagFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1749,6 +1908,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Comparison returns StringValueComparison
 	 *     DataTypeComparison returns StringValueComparison
@@ -1756,6 +1916,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR value=SearchTerm)
+	 * </pre>
 	 */
 	protected void sequence_StringValueComparison(ISerializationContext context, StringValueComparison semanticObject) {
 		if (errorAcceptor != null) {
@@ -1772,6 +1933,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ExpressionConstraint returns SupplementExpressionConstraint
 	 *     OrExpressionConstraint returns SupplementExpressionConstraint
@@ -1788,6 +1950,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (constraint=SupplementExpressionConstraint_SupplementExpressionConstraint_1_0 supplement=Supplement)
+	 * </pre>
 	 */
 	protected void sequence_SupplementExpressionConstraint(ISerializationContext context, SupplementExpressionConstraint semanticObject) {
 		if (errorAcceptor != null) {
@@ -1804,6 +1967,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns TermFilter
 	 *     DisjunctionFilter returns TermFilter
@@ -1815,6 +1979,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm)
+	 * </pre>
 	 */
 	protected void sequence_TermFilter(ISerializationContext context, TermFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1831,6 +1996,44 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
+	 * Contexts:
+	 *     ExpressionConstraint returns Top
+	 *     OrExpressionConstraint returns Top
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns Top
+	 *     AndExpressionConstraint returns Top
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns Top
+	 *     ExclusionExpressionConstraint returns Top
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns Top
+	 *     RefinedExpressionConstraint returns Top
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns Top
+	 *     DottedExpressionConstraint returns Top
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns Top
+	 *     SupplementExpressionConstraint returns Top
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns Top
+	 *     FilteredExpressionConstraint returns Top
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns Top
+	 *     SubExpressionConstraint returns Top
+	 *     Top returns Top
+	 *     FilterValue returns Top
+	 *
+	 * Constraint:
+	 *     constraint=EclFocusConcept
+	 * </pre>
+	 */
+	protected void sequence_Top(ISerializationContext context, Top semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EclPackage.Literals.TOP__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EclPackage.Literals.TOP__CONSTRAINT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTopAccess().getConstraintEclFocusConceptParserRuleCall_1_0(), semanticObject.getConstraint());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns TypeIdFilter
 	 *     DisjunctionFilter returns TypeIdFilter
@@ -1843,6 +2046,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR type=FilterValue)
+	 * </pre>
 	 */
 	protected void sequence_TypeIdFilter(ISerializationContext context, TypeIdFilter semanticObject) {
 		if (errorAcceptor != null) {
@@ -1859,6 +2063,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Filter returns TypeTokenFilter
 	 *     DisjunctionFilter returns TypeTokenFilter
@@ -1871,6 +2076,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (op=NON_NUMERIC_OPERATOR (tokens+=UnquotedString | tokens+=UnquotedString+))
+	 * </pre>
 	 */
 	protected void sequence_TypeTokenFilter(ISerializationContext context, TypeTokenFilter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1878,11 +2084,13 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     TypedSearchTermClause returns TypedSearchTermClause
 	 *
 	 * Constraint:
 	 *     ((lexicalSearchType=LEXICAL_SEARCH_TYPE? term=STRING) | (lexicalSearchType=REGEX_KEYWORD term=RegularExpression))
+	 * </pre>
 	 */
 	protected void sequence_TypedSearchTermClause(ISerializationContext context, TypedSearchTermClause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1890,12 +2098,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SearchTerm returns TypedSearchTermSet
 	 *     TypedSearchTermSet returns TypedSearchTermSet
 	 *
 	 * Constraint:
 	 *     clauses+=TypedSearchTermClause+
+	 * </pre>
 	 */
 	protected void sequence_TypedSearchTermSet(ISerializationContext context, TypedSearchTermSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1903,12 +2113,14 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SearchTerm returns TypedSearchTerm
 	 *     TypedSearchTerm returns TypedSearchTerm
 	 *
 	 * Constraint:
 	 *     clause=TypedSearchTermClause
+	 * </pre>
 	 */
 	protected void sequence_TypedSearchTerm(ISerializationContext context, TypedSearchTerm semanticObject) {
 		if (errorAcceptor != null) {

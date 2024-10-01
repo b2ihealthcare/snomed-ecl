@@ -26,6 +26,7 @@ import com.b2international.snomed.ecl.ecl.Any;
 import com.b2international.snomed.ecl.ecl.AttributeComparison;
 import com.b2international.snomed.ecl.ecl.AttributeConstraint;
 import com.b2international.snomed.ecl.ecl.BooleanValueComparison;
+import com.b2international.snomed.ecl.ecl.Bottom;
 import com.b2international.snomed.ecl.ecl.Cardinality;
 import com.b2international.snomed.ecl.ecl.CaseSignificanceFilter;
 import com.b2international.snomed.ecl.ecl.ChildOf;
@@ -85,6 +86,7 @@ import com.b2international.snomed.ecl.ecl.StringValueComparison;
 import com.b2international.snomed.ecl.ecl.Supplement;
 import com.b2international.snomed.ecl.ecl.SupplementExpressionConstraint;
 import com.b2international.snomed.ecl.ecl.TermFilter;
+import com.b2international.snomed.ecl.ecl.Top;
 import com.b2international.snomed.ecl.ecl.TypeFilter;
 import com.b2international.snomed.ecl.ecl.TypeIdFilter;
 import com.b2international.snomed.ecl.ecl.TypeTokenFilter;
@@ -176,6 +178,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass ancestorOrSelfOfEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass topEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bottomEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -644,7 +660,6 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   {
     super(eNS_URI, EclFactory.eINSTANCE);
   }
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -895,6 +910,50 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EReference getAncestorOrSelfOf_Constraint()
   {
     return (EReference)ancestorOrSelfOfEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTop()
+  {
+    return topEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTop_Constraint()
+  {
+    return (EReference)topEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBottom()
+  {
+    return bottomEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBottom_Constraint()
+  {
+    return (EReference)bottomEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2607,6 +2666,12 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     ancestorOrSelfOfEClass = createEClass(ANCESTOR_OR_SELF_OF);
     createEReference(ancestorOrSelfOfEClass, ANCESTOR_OR_SELF_OF__CONSTRAINT);
 
+    topEClass = createEClass(TOP);
+    createEReference(topEClass, TOP__CONSTRAINT);
+
+    bottomEClass = createEClass(BOTTOM);
+    createEReference(bottomEClass, BOTTOM__CONSTRAINT);
+
     memberOfEClass = createEClass(MEMBER_OF);
     createEAttribute(memberOfEClass, MEMBER_OF__REFSET_FIELDS);
     createEReference(memberOfEClass, MEMBER_OF__CONSTRAINT);
@@ -2860,6 +2925,8 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     parentOrSelfOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     ancestorOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     ancestorOrSelfOfEClass.getESuperTypes().add(this.getExpressionConstraint());
+    topEClass.getESuperTypes().add(this.getExpressionConstraint());
+    bottomEClass.getESuperTypes().add(this.getExpressionConstraint());
     memberOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceSetEClass.getESuperTypes().add(this.getFilterValue());
@@ -2941,6 +3008,12 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(ancestorOrSelfOfEClass, AncestorOrSelfOf.class, "AncestorOrSelfOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAncestorOrSelfOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, AncestorOrSelfOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(topEClass, Top.class, "Top", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTop_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Top.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bottomEClass, Bottom.class, "Bottom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBottom_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Bottom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberOfEClass, MemberOf.class, "MemberOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMemberOf_RefsetFields(), ecorePackage.getEString(), "refsetFields", null, 0, -1, MemberOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

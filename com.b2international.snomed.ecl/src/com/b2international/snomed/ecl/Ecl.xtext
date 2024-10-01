@@ -47,7 +47,7 @@ FilteredExpressionConstraint returns ExpressionConstraint:
 	SubExpressionConstraint ({FilteredExpressionConstraint.constraint=current} filter=FilterConstraint)*;
 	
 SubExpressionConstraint returns ExpressionConstraint:
-	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | EclFocusConcept;
+	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | Top | Bottom | EclFocusConcept;
 
 EclFocusConcept returns ExpressionConstraint:
 	MemberOf | EclConceptReference | Any | NestedExpression;
@@ -75,6 +75,12 @@ AncestorOf:
 
 AncestorOrSelfOf:
 	DBL_GT constraint=EclFocusConcept;
+
+Top:
+	DBL_EM_GT constraint=EclFocusConcept;
+
+Bottom:
+	DBL_EM_LT constraint=EclFocusConcept;
 
 MemberOf:
 	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
@@ -561,6 +567,12 @@ terminal LT_EM:
 
 terminal GT_EM:
 	'>!';
+
+terminal DBL_EM_LT:
+	'!!<';
+	
+terminal DBL_EM_GT:
+	'!!>';
 
 terminal GTE:
 	'>=';
