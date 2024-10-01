@@ -89,7 +89,7 @@ EclConceptReference:
 	id=Identifier WS* (term=PIPE_DELIMITED_STRING)?;
 
 AlternateIdentifier:
-	scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS*;
+	scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS* (term=PIPE_DELIMITED_STRING)?;
 
 EclConceptReferenceSet:
 	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE;

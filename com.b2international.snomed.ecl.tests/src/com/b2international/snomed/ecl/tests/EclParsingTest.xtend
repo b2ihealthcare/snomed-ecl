@@ -183,6 +183,20 @@ class EclParsingTest {
 	}
 
 	@Test
+	def void test_6_1_12_AlternateIdentifier_3() {
+		'''
+			LOINC#54486-6 |Mass concentration of glucose in water at point in time|
+		'''.assertNoErrors
+	}
+
+	@Test
+	def void test_6_1_12_AlternateIdentifier_4() {
+		'''
+			LOINC#"54486-6"|Mass concentration of glucose in water at point in time|
+		'''.assertNoErrors
+	}
+
+	@Test
 	def void test_6_2_1_Attribute_1() {
 		'''
 			< 19829001 |disorder of lung|: 
