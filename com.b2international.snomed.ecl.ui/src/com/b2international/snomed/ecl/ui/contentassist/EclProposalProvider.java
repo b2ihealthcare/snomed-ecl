@@ -100,6 +100,8 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 			Map.entry(ga.getDBL_GT_EMRule(),                       "Parent or self of"),
 			Map.entry(ga.getGTERule(),                             "Greater than or equals"),
 			Map.entry(ga.getLTERule(),                             "Less than or equals"),
+			Map.entry(ga.getDBL_EM_LTRule(),                       "Bottom"),
+			Map.entry(ga.getDBL_EM_GTRule(),                       "Top"),
 			Map.entry(ga.getREVERSEDRule(),                        "Reverse attribute"),
 			Map.entry(ga.getROUND_CLOSERule(),                     "Closing nested expression"),
 			Map.entry(ga.getROUND_OPENRule(),                      "Opening nested expression"),
