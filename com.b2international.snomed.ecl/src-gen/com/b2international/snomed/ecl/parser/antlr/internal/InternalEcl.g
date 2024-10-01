@@ -814,11 +814,23 @@ ruleEclFocusConcept returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getNestedExpressionParserRuleCall_3());
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getAlternateIdentifierParserRuleCall_3());
 		}
-		this_NestedExpression_3=ruleNestedExpression
+		this_AlternateIdentifier_3=ruleAlternateIdentifier
 		{
-			$current = $this_NestedExpression_3.current;
+			$current = $this_AlternateIdentifier_3.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getNestedExpressionParserRuleCall_4());
+		}
+		this_NestedExpression_4=ruleNestedExpression
+		{
+			$current = $this_NestedExpression_4.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1431,6 +1443,108 @@ ruleEclConceptReference returns [EObject current=null]
 						$current,
 						"term",
 						lv_term_2_0,
+						"com.b2international.snomed.ecl.Ecl.PIPE_DELIMITED_STRING");
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleAlternateIdentifier
+entryRuleAlternateIdentifier returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAlternateIdentifierRule()); }
+	iv_ruleAlternateIdentifier=ruleAlternateIdentifier
+	{ $current=$iv_ruleAlternateIdentifier.current; }
+	EOF;
+
+// Rule AlternateIdentifier
+ruleAlternateIdentifier returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAlternateIdentifierAccess().getSchemeAlternateSchemeParserRuleCall_0_0());
+				}
+				lv_scheme_0_0=ruleAlternateScheme
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAlternateIdentifierRule());
+					}
+					set(
+						$current,
+						"scheme",
+						lv_scheme_0_0,
+						"com.b2international.snomed.ecl.Ecl.AlternateScheme");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_HASH_1=RULE_HASH
+		{
+			newLeafNode(this_HASH_1, grammarAccess.getAlternateIdentifierAccess().getHASHTerminalRuleCall_1());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAlternateIdentifierAccess().getCodeAlternateCodeParserRuleCall_2_0_0());
+					}
+					lv_code_2_1=ruleAlternateCode
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAlternateIdentifierRule());
+						}
+						set(
+							$current,
+							"code",
+							lv_code_2_1,
+							"com.b2international.snomed.ecl.Ecl.AlternateCode");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					lv_code_2_2=RULE_STRING
+					{
+						newLeafNode(lv_code_2_2, grammarAccess.getAlternateIdentifierAccess().getCodeSTRINGTerminalRuleCall_2_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAlternateIdentifierRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"code",
+							lv_code_2_2,
+							"com.b2international.snomed.ecl.Ecl.STRING");
+					}
+				)
+			)
+		)
+		(
+			this_WS_3=RULE_WS
+			{
+				newLeafNode(this_WS_3, grammarAccess.getAlternateIdentifierAccess().getWSTerminalRuleCall_3());
+			}
+		)*
+		(
+			(
+				lv_term_4_0=RULE_PIPE_DELIMITED_STRING
+				{
+					newLeafNode(lv_term_4_0, grammarAccess.getAlternateIdentifierAccess().getTermPIPE_DELIMITED_STRINGTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAlternateIdentifierRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"term",
+						lv_term_4_0,
 						"com.b2international.snomed.ecl.Ecl.PIPE_DELIMITED_STRING");
 				}
 			)
@@ -5328,6 +5442,271 @@ ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 			}
 		)*
 	)
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Entry rule entryRuleAlternateScheme
+entryRuleAlternateScheme returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
+	{ newCompositeNode(grammarAccess.getAlternateSchemeRule()); }
+	iv_ruleAlternateScheme=ruleAlternateScheme
+	{ $current=$iv_ruleAlternateScheme.current.getText(); }
+	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule AlternateScheme
+ruleAlternateScheme returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			this_ALPHA_0=RULE_ALPHA
+			{
+				$current.merge(this_ALPHA_0);
+			}
+			{
+				newLeafNode(this_ALPHA_0, grammarAccess.getAlternateSchemeAccess().getALPHATerminalRuleCall_0_0());
+			}
+			    |
+			this_CONCEPT_SHORT_KEYWORD_1=RULE_CONCEPT_SHORT_KEYWORD
+			{
+				$current.merge(this_CONCEPT_SHORT_KEYWORD_1);
+			}
+			{
+				newLeafNode(this_CONCEPT_SHORT_KEYWORD_1, grammarAccess.getAlternateSchemeAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_0_1());
+			}
+			    |
+			this_DESCRIPTION_SHORT_KEYWORD_2=RULE_DESCRIPTION_SHORT_KEYWORD
+			{
+				$current.merge(this_DESCRIPTION_SHORT_KEYWORD_2);
+			}
+			{
+				newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_2, grammarAccess.getAlternateSchemeAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_0_2());
+			}
+			    |
+			this_MEMBER_SHORT_KEYWORD_3=RULE_MEMBER_SHORT_KEYWORD
+			{
+				$current.merge(this_MEMBER_SHORT_KEYWORD_3);
+			}
+			{
+				newLeafNode(this_MEMBER_SHORT_KEYWORD_3, grammarAccess.getAlternateSchemeAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_0_3());
+			}
+			    |
+			this_REVERSED_4=RULE_REVERSED
+			{
+				$current.merge(this_REVERSED_4);
+			}
+			{
+				newLeafNode(this_REVERSED_4, grammarAccess.getAlternateSchemeAccess().getREVERSEDTerminalRuleCall_0_4());
+			}
+			    |
+			this_ID_KEYWORD_5=RULE_ID_KEYWORD
+			{
+				$current.merge(this_ID_KEYWORD_5);
+			}
+			{
+				newLeafNode(this_ID_KEYWORD_5, grammarAccess.getAlternateSchemeAccess().getID_KEYWORDTerminalRuleCall_0_5());
+			}
+			    |
+			this_KEYWORD_6=RULE_KEYWORD
+			{
+				$current.merge(this_KEYWORD_6);
+			}
+			{
+				newLeafNode(this_KEYWORD_6, grammarAccess.getAlternateSchemeAccess().getKEYWORDTerminalRuleCall_0_6());
+			}
+		)
+		(
+			this_DIGIT_7=RULE_DIGIT
+			{
+				$current.merge(this_DIGIT_7);
+			}
+			{
+				newLeafNode(this_DIGIT_7, grammarAccess.getAlternateSchemeAccess().getDIGITTerminalRuleCall_1_0());
+			}
+			    |
+			this_ALPHA_8=RULE_ALPHA
+			{
+				$current.merge(this_ALPHA_8);
+			}
+			{
+				newLeafNode(this_ALPHA_8, grammarAccess.getAlternateSchemeAccess().getALPHATerminalRuleCall_1_1());
+			}
+			    |
+			this_CONCEPT_SHORT_KEYWORD_9=RULE_CONCEPT_SHORT_KEYWORD
+			{
+				$current.merge(this_CONCEPT_SHORT_KEYWORD_9);
+			}
+			{
+				newLeafNode(this_CONCEPT_SHORT_KEYWORD_9, grammarAccess.getAlternateSchemeAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_1_2());
+			}
+			    |
+			this_DESCRIPTION_SHORT_KEYWORD_10=RULE_DESCRIPTION_SHORT_KEYWORD
+			{
+				$current.merge(this_DESCRIPTION_SHORT_KEYWORD_10);
+			}
+			{
+				newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_10, grammarAccess.getAlternateSchemeAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_1_3());
+			}
+			    |
+			this_MEMBER_SHORT_KEYWORD_11=RULE_MEMBER_SHORT_KEYWORD
+			{
+				$current.merge(this_MEMBER_SHORT_KEYWORD_11);
+			}
+			{
+				newLeafNode(this_MEMBER_SHORT_KEYWORD_11, grammarAccess.getAlternateSchemeAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_1_4());
+			}
+			    |
+			this_REVERSED_12=RULE_REVERSED
+			{
+				$current.merge(this_REVERSED_12);
+			}
+			{
+				newLeafNode(this_REVERSED_12, grammarAccess.getAlternateSchemeAccess().getREVERSEDTerminalRuleCall_1_5());
+			}
+			    |
+			this_ID_KEYWORD_13=RULE_ID_KEYWORD
+			{
+				$current.merge(this_ID_KEYWORD_13);
+			}
+			{
+				newLeafNode(this_ID_KEYWORD_13, grammarAccess.getAlternateSchemeAccess().getID_KEYWORDTerminalRuleCall_1_6());
+			}
+			    |
+			this_KEYWORD_14=RULE_KEYWORD
+			{
+				$current.merge(this_KEYWORD_14);
+			}
+			{
+				newLeafNode(this_KEYWORD_14, grammarAccess.getAlternateSchemeAccess().getKEYWORDTerminalRuleCall_1_7());
+			}
+			    |
+			this_DASH_15=RULE_DASH
+			{
+				$current.merge(this_DASH_15);
+			}
+			{
+				newLeafNode(this_DASH_15, grammarAccess.getAlternateSchemeAccess().getDASHTerminalRuleCall_1_8());
+			}
+		)*
+	)
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Entry rule entryRuleAlternateCode
+entryRuleAlternateCode returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
+	{ newCompositeNode(grammarAccess.getAlternateCodeRule()); }
+	iv_ruleAlternateCode=ruleAlternateCode
+	{ $current=$iv_ruleAlternateCode.current.getText(); }
+	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule AlternateCode
+ruleAlternateCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_DIGIT_0=RULE_DIGIT
+		{
+			$current.merge(this_DIGIT_0);
+		}
+		{
+			newLeafNode(this_DIGIT_0, grammarAccess.getAlternateCodeAccess().getDIGITTerminalRuleCall_0());
+		}
+		    |
+		this_ALPHA_1=RULE_ALPHA
+		{
+			$current.merge(this_ALPHA_1);
+		}
+		{
+			newLeafNode(this_ALPHA_1, grammarAccess.getAlternateCodeAccess().getALPHATerminalRuleCall_1());
+		}
+		    |
+		this_CONCEPT_SHORT_KEYWORD_2=RULE_CONCEPT_SHORT_KEYWORD
+		{
+			$current.merge(this_CONCEPT_SHORT_KEYWORD_2);
+		}
+		{
+			newLeafNode(this_CONCEPT_SHORT_KEYWORD_2, grammarAccess.getAlternateCodeAccess().getCONCEPT_SHORT_KEYWORDTerminalRuleCall_2());
+		}
+		    |
+		this_DESCRIPTION_SHORT_KEYWORD_3=RULE_DESCRIPTION_SHORT_KEYWORD
+		{
+			$current.merge(this_DESCRIPTION_SHORT_KEYWORD_3);
+		}
+		{
+			newLeafNode(this_DESCRIPTION_SHORT_KEYWORD_3, grammarAccess.getAlternateCodeAccess().getDESCRIPTION_SHORT_KEYWORDTerminalRuleCall_3());
+		}
+		    |
+		this_MEMBER_SHORT_KEYWORD_4=RULE_MEMBER_SHORT_KEYWORD
+		{
+			$current.merge(this_MEMBER_SHORT_KEYWORD_4);
+		}
+		{
+			newLeafNode(this_MEMBER_SHORT_KEYWORD_4, grammarAccess.getAlternateCodeAccess().getMEMBER_SHORT_KEYWORDTerminalRuleCall_4());
+		}
+		    |
+		this_REVERSED_5=RULE_REVERSED
+		{
+			$current.merge(this_REVERSED_5);
+		}
+		{
+			newLeafNode(this_REVERSED_5, grammarAccess.getAlternateCodeAccess().getREVERSEDTerminalRuleCall_5());
+		}
+		    |
+		this_ID_KEYWORD_6=RULE_ID_KEYWORD
+		{
+			$current.merge(this_ID_KEYWORD_6);
+		}
+		{
+			newLeafNode(this_ID_KEYWORD_6, grammarAccess.getAlternateCodeAccess().getID_KEYWORDTerminalRuleCall_6());
+		}
+		    |
+		this_KEYWORD_7=RULE_KEYWORD
+		{
+			$current.merge(this_KEYWORD_7);
+		}
+		{
+			newLeafNode(this_KEYWORD_7, grammarAccess.getAlternateCodeAccess().getKEYWORDTerminalRuleCall_7());
+		}
+		    |
+		this_DOT_8=RULE_DOT
+		{
+			$current.merge(this_DOT_8);
+		}
+		{
+			newLeafNode(this_DOT_8, grammarAccess.getAlternateCodeAccess().getDOTTerminalRuleCall_8());
+		}
+		    |
+		this_DASH_9=RULE_DASH
+		{
+			$current.merge(this_DASH_9);
+		}
+		{
+			newLeafNode(this_DASH_9, grammarAccess.getAlternateCodeAccess().getDASHTerminalRuleCall_9());
+		}
+	)+
 ;
 finally {
 	myHiddenTokenState.restore();

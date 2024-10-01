@@ -18,6 +18,7 @@ package com.b2international.snomed.ecl.serializer;
 import com.b2international.snomed.ecl.ecl.Acceptability;
 import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
 import com.b2international.snomed.ecl.ecl.ActiveFilter;
+import com.b2international.snomed.ecl.ecl.AlternateIdentifier;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
 import com.b2international.snomed.ecl.ecl.AncestorOrSelfOf;
 import com.b2international.snomed.ecl.ecl.AndExpressionConstraint;
@@ -115,6 +116,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.ACTIVE_FILTER:
 				sequence_ActiveFilter(context, (ActiveFilter) semanticObject); 
+				return; 
+			case EclPackage.ALTERNATE_IDENTIFIER:
+				sequence_AlternateIdentifier(context, (AlternateIdentifier) semanticObject); 
 				return; 
 			case EclPackage.ANCESTOR_OF:
 				sequence_AncestorOf(context, (AncestorOf) semanticObject); 
@@ -421,6 +425,38 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getActiveFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getActiveFilterAccess().getActiveActiveBooleanParserRuleCall_2_0(), semanticObject.isActive());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ExpressionConstraint returns AlternateIdentifier
+	 *     OrExpressionConstraint returns AlternateIdentifier
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     AndExpressionConstraint returns AlternateIdentifier
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     ExclusionExpressionConstraint returns AlternateIdentifier
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     RefinedExpressionConstraint returns AlternateIdentifier
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     DottedExpressionConstraint returns AlternateIdentifier
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     SupplementExpressionConstraint returns AlternateIdentifier
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     FilteredExpressionConstraint returns AlternateIdentifier
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns AlternateIdentifier
+	 *     SubExpressionConstraint returns AlternateIdentifier
+	 *     EclFocusConcept returns AlternateIdentifier
+	 *     AlternateIdentifier returns AlternateIdentifier
+	 *     FilterValue returns AlternateIdentifier
+	 *
+	 * Constraint:
+	 *     (scheme=AlternateScheme (code=AlternateCode | code=STRING) term=PIPE_DELIMITED_STRING?)
+	 * </pre>
+	 */
+	protected void sequence_AlternateIdentifier(ISerializationContext context, AlternateIdentifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

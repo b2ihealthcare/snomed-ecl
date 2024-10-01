@@ -48,6 +48,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EclConceptReference/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//EclConceptReference/term"/>
     </genClasses>
+    <genClasses ecoreClass="Ecl.ecore#//AlternateIdentifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AlternateIdentifier/scheme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AlternateIdentifier/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//AlternateIdentifier/term"/>
+    </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//EclConceptReferenceSet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ecl.ecore#//EclConceptReferenceSet/concepts"/>
     </genClasses>
