@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.AlternateIdentifierImpl#getScheme <em>Scheme</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.AlternateIdentifierImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.AlternateIdentifierImpl#getTerm <em>Term</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +80,26 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
    * @ordered
    */
   protected String code = CODE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTerm() <em>Term</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTerm()
+   * @generated
+   * @ordered
+   */
+  protected static final String TERM_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTerm() <em>Term</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTerm()
+   * @generated
+   * @ordered
+   */
+  protected String term = TERM_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -157,6 +178,31 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
    * @generated
    */
   @Override
+  public String getTerm()
+  {
+    return term;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTerm(String newTerm)
+  {
+    String oldTerm = term;
+    term = newTerm;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ALTERNATE_IDENTIFIER__TERM, oldTerm, term));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -165,6 +211,8 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
         return getScheme();
       case EclPackage.ALTERNATE_IDENTIFIER__CODE:
         return getCode();
+      case EclPackage.ALTERNATE_IDENTIFIER__TERM:
+        return getTerm();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,6 +232,9 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
         return;
       case EclPackage.ALTERNATE_IDENTIFIER__CODE:
         setCode((String)newValue);
+        return;
+      case EclPackage.ALTERNATE_IDENTIFIER__TERM:
+        setTerm((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -205,6 +256,9 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
       case EclPackage.ALTERNATE_IDENTIFIER__CODE:
         setCode(CODE_EDEFAULT);
         return;
+      case EclPackage.ALTERNATE_IDENTIFIER__TERM:
+        setTerm(TERM_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -223,6 +277,8 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
         return SCHEME_EDEFAULT == null ? scheme != null : !SCHEME_EDEFAULT.equals(scheme);
       case EclPackage.ALTERNATE_IDENTIFIER__CODE:
         return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+      case EclPackage.ALTERNATE_IDENTIFIER__TERM:
+        return TERM_EDEFAULT == null ? term != null : !TERM_EDEFAULT.equals(term);
     }
     return super.eIsSet(featureID);
   }
@@ -242,6 +298,8 @@ public class AlternateIdentifierImpl extends ExpressionConstraintImpl implements
     result.append(scheme);
     result.append(", code: ");
     result.append(code);
+    result.append(", term: ");
+    result.append(term);
     result.append(')');
     return result.toString();
   }

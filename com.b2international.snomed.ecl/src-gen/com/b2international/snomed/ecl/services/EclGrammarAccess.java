@@ -745,12 +745,14 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cCodeAlternateCodeParserRuleCall_2_0_0 = (RuleCall)cCodeAlternatives_2_0.eContents().get(0);
 		private final RuleCall cCodeSTRINGTerminalRuleCall_2_0_1 = (RuleCall)cCodeAlternatives_2_0.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTermAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTermPIPE_DELIMITED_STRINGTerminalRuleCall_4_0 = (RuleCall)cTermAssignment_4.eContents().get(0);
 		
 		//AlternateIdentifier:
-		//    scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS*;
+		//    scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS* (term=PIPE_DELIMITED_STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS*
+		//scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS* (term=PIPE_DELIMITED_STRING)?
 		public Group getGroup() { return cGroup; }
 		
 		//scheme=AlternateScheme
@@ -776,6 +778,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//WS*
 		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
+		
+		//(term=PIPE_DELIMITED_STRING)?
+		public Assignment getTermAssignment_4() { return cTermAssignment_4; }
+		
+		//PIPE_DELIMITED_STRING
+		public RuleCall getTermPIPE_DELIMITED_STRINGTerminalRuleCall_4_0() { return cTermPIPE_DELIMITED_STRINGTerminalRuleCall_4_0; }
 	}
 	public class EclConceptReferenceSetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EclConceptReferenceSet");
@@ -2919,7 +2927,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cKEYWORDTerminalRuleCall_1_7 = (RuleCall)cAlternatives_1.eContents().get(7);
 		private final RuleCall cDASHTerminalRuleCall_1_8 = (RuleCall)cAlternatives_1.eContents().get(8);
 		
-		//// Differences from Identifier: no leading digits, underscores not allowed in any position
+		//// Differences from Identifier: no leading digits; underscores not allowed in any position
 		//AlternateScheme returns ecore::EString hidden():
 		//    (ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD)
 		//    (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD | DASH)*;
@@ -4196,7 +4204,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//AlternateIdentifier:
-	//    scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS*;
+	//    scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS* (term=PIPE_DELIMITED_STRING)?;
 	public AlternateIdentifierElements getAlternateIdentifierAccess() {
 		return pAlternateIdentifier;
 	}
@@ -4895,7 +4903,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getIdentifierAccess().getRule();
 	}
 	
-	//// Differences from Identifier: no leading digits, underscores not allowed in any position
+	//// Differences from Identifier: no leading digits; underscores not allowed in any position
 	//AlternateScheme returns ecore::EString hidden():
 	//    (ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD)
 	//    (DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD | DASH)*;

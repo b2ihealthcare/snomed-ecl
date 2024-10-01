@@ -27,6 +27,7 @@ package com.b2international.snomed.ecl.ecl;
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier#getScheme <em>Scheme</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier#getCode <em>Code</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier#getTerm <em>Term</em>}</li>
  * </ul>
  *
  * @see com.b2international.snomed.ecl.ecl.EclPackage#getAlternateIdentifier()
@@ -78,5 +79,27 @@ public interface AlternateIdentifier extends ExpressionConstraint
    * @generated
    */
   void setCode(String value);
+
+  /**
+   * Returns the value of the '<em><b>Term</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Term</em>' attribute.
+   * @see #setTerm(String)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getAlternateIdentifier_Term()
+   * @model
+   * @generated
+   */
+  String getTerm();
+
+  /**
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier#getTerm <em>Term</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Term</em>' attribute.
+   * @see #getTerm()
+   * @generated
+   */
+  void setTerm(String value);
 
 } // AlternateIdentifier

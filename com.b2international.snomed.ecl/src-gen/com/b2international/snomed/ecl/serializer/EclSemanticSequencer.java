@@ -452,7 +452,7 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FilterValue returns AlternateIdentifier
 	 *
 	 * Constraint:
-	 *     (scheme=AlternateScheme (code=AlternateCode | code=STRING))
+	 *     (scheme=AlternateScheme (code=AlternateCode | code=STRING) term=PIPE_DELIMITED_STRING?)
 	 * </pre>
 	 */
 	protected void sequence_AlternateIdentifier(ISerializationContext context, AlternateIdentifier semanticObject) {

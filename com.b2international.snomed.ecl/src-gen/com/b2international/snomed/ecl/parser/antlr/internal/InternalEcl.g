@@ -1531,6 +1531,24 @@ ruleAlternateIdentifier returns [EObject current=null]
 				newLeafNode(this_WS_3, grammarAccess.getAlternateIdentifierAccess().getWSTerminalRuleCall_3());
 			}
 		)*
+		(
+			(
+				lv_term_4_0=RULE_PIPE_DELIMITED_STRING
+				{
+					newLeafNode(lv_term_4_0, grammarAccess.getAlternateIdentifierAccess().getTermPIPE_DELIMITED_STRINGTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAlternateIdentifierRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"term",
+						lv_term_4_0,
+						"com.b2international.snomed.ecl.Ecl.PIPE_DELIMITED_STRING");
+				}
+			)
+		)?
 	)
 ;
 

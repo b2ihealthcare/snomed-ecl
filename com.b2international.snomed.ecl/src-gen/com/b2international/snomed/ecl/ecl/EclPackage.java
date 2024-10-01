@@ -518,13 +518,22 @@ public interface EclPackage extends EPackage
   int ALTERNATE_IDENTIFIER__CODE = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Term</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALTERNATE_IDENTIFIER__TERM = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Alternate Identifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ALTERNATE_IDENTIFIER_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 2;
+  int ALTERNATE_IDENTIFIER_FEATURE_COUNT = EXPRESSION_CONSTRAINT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.b2international.snomed.ecl.ecl.impl.EclConceptReferenceSetImpl <em>Concept Reference Set</em>}' class.
@@ -2870,6 +2879,17 @@ public interface EclPackage extends EPackage
   EAttribute getAlternateIdentifier_Code();
 
   /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier#getTerm <em>Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Term</em>'.
+   * @see com.b2international.snomed.ecl.ecl.AlternateIdentifier#getTerm()
+   * @see #getAlternateIdentifier()
+   * @generated
+   */
+  EAttribute getAlternateIdentifier_Term();
+
+  /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.EclConceptReferenceSet <em>Concept Reference Set</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4699,6 +4719,14 @@ public interface EclPackage extends EPackage
      * @generated
      */
     EAttribute ALTERNATE_IDENTIFIER__CODE = eINSTANCE.getAlternateIdentifier_Code();
+
+    /**
+     * The meta object literal for the '<em><b>Term</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALTERNATE_IDENTIFIER__TERM = eINSTANCE.getAlternateIdentifier_Term();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.EclConceptReferenceSetImpl <em>Concept Reference Set</em>}' class.

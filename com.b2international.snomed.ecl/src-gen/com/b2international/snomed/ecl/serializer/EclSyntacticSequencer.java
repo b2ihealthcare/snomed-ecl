@@ -713,7 +713,9 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     code=AlternateCode (ambiguity) (rule end)
+	 *     code=AlternateCode (ambiguity) term=PIPE_DELIMITED_STRING
 	 *     code=STRING (ambiguity) (rule end)
+	 *     code=STRING (ambiguity) term=PIPE_DELIMITED_STRING
 	 
 	 * </pre>
 	 */

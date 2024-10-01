@@ -1069,6 +1069,17 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
+  public EAttribute getAlternateIdentifier_Term()
+  {
+    return (EAttribute)alternateIdentifierEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEclConceptReferenceSet()
   {
     return eclConceptReferenceSetEClass;
@@ -2724,6 +2735,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     alternateIdentifierEClass = createEClass(ALTERNATE_IDENTIFIER);
     createEAttribute(alternateIdentifierEClass, ALTERNATE_IDENTIFIER__SCHEME);
     createEAttribute(alternateIdentifierEClass, ALTERNATE_IDENTIFIER__CODE);
+    createEAttribute(alternateIdentifierEClass, ALTERNATE_IDENTIFIER__TERM);
 
     eclConceptReferenceSetEClass = createEClass(ECL_CONCEPT_REFERENCE_SET);
     createEReference(eclConceptReferenceSetEClass, ECL_CONCEPT_REFERENCE_SET__CONCEPTS);
@@ -3072,6 +3084,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(alternateIdentifierEClass, AlternateIdentifier.class, "AlternateIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAlternateIdentifier_Scheme(), ecorePackage.getEString(), "scheme", null, 0, 1, AlternateIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAlternateIdentifier_Code(), ecorePackage.getEString(), "code", null, 0, 1, AlternateIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAlternateIdentifier_Term(), ecorePackage.getEString(), "term", null, 0, 1, AlternateIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eclConceptReferenceSetEClass, EclConceptReferenceSet.class, "EclConceptReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEclConceptReferenceSet_Concepts(), this.getEclConceptReference(), null, "concepts", null, 0, -1, EclConceptReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
