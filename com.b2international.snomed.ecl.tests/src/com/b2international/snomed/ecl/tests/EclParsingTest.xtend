@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2022 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2011-2024 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -659,6 +659,36 @@ class EclParsingTest {
 			<  404684003 |Clinical finding|  :
 			 47429007 |Associated with|  = (<  404684003 |Clinical finding|  : 
 			 116676008 |Associated morphology|  = <<  55641003 |Infarct|  )
+		'''.assertNoErrors
+	}
+
+	@Test
+	def void test_6_12_Top_1() {
+		'''
+			 !!> ( <  386617003 |Digestive system finding|  .  363698007 |Finding site|  )
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_6_12_Top_2() {
+		'''
+			 ( <  386617003 |Digestive system finding|  .  363698007 |Finding site|  )
+			 MINUS < ( <  386617003 |Digestive system finding|  .  363698007 |Finding site|  )
+		'''.assertNoErrors
+	}
+
+	@Test
+	def void test_6_12_Bottom_1() {
+		'''
+			  !!< ( >>  427089005 |Diabetes mellitus due to cystic fibrosis|  AND ^  816080008 |International Patient Summary|  )
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_6_12_Bottom_2() {
+		'''
+			( >>  427089005 |Diabetes mellitus due to cystic fibrosis|  AND ^  816080008 |International Patient Summary|  )
+			MINUS > ( >>  427089005 |Diabetes mellitus due to cystic fibrosis|  AND ^  816080008 |International Patient Summary|  )
 		'''.assertNoErrors
 	}
 	
