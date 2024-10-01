@@ -724,11 +724,35 @@ ruleSubExpressionConstraint returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_8());
+			newCompositeNode(grammarAccess.getSubExpressionConstraintAccess().getTopParserRuleCall_8());
 		}
-		this_EclFocusConcept_8=ruleEclFocusConcept
+		this_Top_8=ruleTop
 		{
-			$current = $this_EclFocusConcept_8.current;
+			$current = $this_Top_8.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getSubExpressionConstraintAccess().getBottomParserRuleCall_9());
+		}
+		this_Bottom_9=ruleBottom
+		{
+			$current = $this_Bottom_9.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getSubExpressionConstraintAccess().getEclFocusConceptParserRuleCall_10());
+		}
+		this_EclFocusConcept_10=ruleEclFocusConcept
+		{
+			$current = $this_EclFocusConcept_10.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1123,6 +1147,90 @@ ruleAncestorOrSelfOf returns [EObject current=null]
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAncestorOrSelfOfRule());
+					}
+					set(
+						$current,
+						"constraint",
+						lv_constraint_1_0,
+						"com.b2international.snomed.ecl.Ecl.EclFocusConcept");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleTop
+entryRuleTop returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTopRule()); }
+	iv_ruleTop=ruleTop
+	{ $current=$iv_ruleTop.current; }
+	EOF;
+
+// Rule Top
+ruleTop returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_DBL_EM_GT_0=RULE_DBL_EM_GT
+		{
+			newLeafNode(this_DBL_EM_GT_0, grammarAccess.getTopAccess().getDBL_EM_GTTerminalRuleCall_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTopAccess().getConstraintEclFocusConceptParserRuleCall_1_0());
+				}
+				lv_constraint_1_0=ruleEclFocusConcept
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTopRule());
+					}
+					set(
+						$current,
+						"constraint",
+						lv_constraint_1_0,
+						"com.b2international.snomed.ecl.Ecl.EclFocusConcept");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleBottom
+entryRuleBottom returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBottomRule()); }
+	iv_ruleBottom=ruleBottom
+	{ $current=$iv_ruleBottom.current; }
+	EOF;
+
+// Rule Bottom
+ruleBottom returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_DBL_EM_LT_0=RULE_DBL_EM_LT
+		{
+			newLeafNode(this_DBL_EM_LT_0, grammarAccess.getBottomAccess().getDBL_EM_LTTerminalRuleCall_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBottomAccess().getConstraintEclFocusConceptParserRuleCall_1_0());
+				}
+				lv_constraint_1_0=ruleEclFocusConcept
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBottomRule());
 					}
 					set(
 						$current,
@@ -6201,6 +6309,10 @@ RULE_DBL_GT : '>>';
 RULE_LT_EM : '<!';
 
 RULE_GT_EM : '>!';
+
+RULE_DBL_EM_LT : '!!<';
+
+RULE_DBL_EM_GT : '!!>';
 
 RULE_GTE : '>=';
 

@@ -87,6 +87,8 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.PARENT_OR_SELF_OF: return createParentOrSelfOf();
       case EclPackage.ANCESTOR_OF: return createAncestorOf();
       case EclPackage.ANCESTOR_OR_SELF_OF: return createAncestorOrSelfOf();
+      case EclPackage.TOP: return createTop();
+      case EclPackage.BOTTOM: return createBottom();
       case EclPackage.MEMBER_OF: return createMemberOf();
       case EclPackage.ECL_CONCEPT_REFERENCE: return createEclConceptReference();
       case EclPackage.ECL_CONCEPT_REFERENCE_SET: return createEclConceptReferenceSet();
@@ -274,6 +276,30 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     AncestorOrSelfOfImpl ancestorOrSelfOf = new AncestorOrSelfOfImpl();
     return ancestorOrSelfOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Top createTop()
+  {
+    TopImpl top = new TopImpl();
+    return top;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Bottom createBottom()
+  {
+    BottomImpl bottom = new BottomImpl();
+    return bottom;
   }
 
   /**

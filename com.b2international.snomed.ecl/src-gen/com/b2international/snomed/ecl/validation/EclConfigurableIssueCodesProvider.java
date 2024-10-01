@@ -20,7 +20,6 @@ import org.eclipse.xtext.util.IAcceptor;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 import org.eclipse.xtext.validation.SeverityConverter;
 
-@SuppressWarnings("restriction")
 public class EclConfigurableIssueCodesProvider extends ConfigurableIssueCodesProvider {
 	protected static final String ISSUE_CODE_PREFIX = "com.b2international.snomed.ecl.";
 

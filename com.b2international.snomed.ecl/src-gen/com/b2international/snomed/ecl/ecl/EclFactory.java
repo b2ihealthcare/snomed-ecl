@@ -126,6 +126,24 @@ public interface EclFactory extends EFactory
   AncestorOrSelfOf createAncestorOrSelfOf();
 
   /**
+   * Returns a new object of class '<em>Top</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Top</em>'.
+   * @generated
+   */
+  Top createTop();
+
+  /**
+   * Returns a new object of class '<em>Bottom</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bottom</em>'.
+   * @generated
+   */
+  Bottom createBottom();
+
+  /**
    * Returns a new object of class '<em>Member Of</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

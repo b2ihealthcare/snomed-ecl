@@ -138,6 +138,16 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createAncestorOrSelfOfAdapter();
       }
       @Override
+      public Adapter caseTop(Top object)
+      {
+        return createTopAdapter();
+      }
+      @Override
+      public Adapter caseBottom(Bottom object)
+      {
+        return createBottomAdapter();
+      }
+      @Override
       public Adapter caseMemberOf(MemberOf object)
       {
         return createMemberOfAdapter();
@@ -625,6 +635,36 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAncestorOrSelfOfAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Top <em>Top</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Top
+   * @generated
+   */
+  public Adapter createTopAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.Bottom <em>Bottom</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.Bottom
+   * @generated
+   */
+  public Adapter createBottomAdapter()
   {
     return null;
   }
