@@ -33,6 +33,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EclGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_AlternateIdentifier_WSTerminalRuleCall_3_a;
 	protected AbstractElementAlias match_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0;
 	protected AbstractElementAlias match_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0;
 	protected AbstractElementAlias match_AndRefinement_COMMATerminalRuleCall_1_0_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0;
@@ -43,6 +44,7 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EclGrammarAccess) access;
+		match_AlternateIdentifier_WSTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getAlternateIdentifierAccess().getWSTerminalRuleCall_3());
 		match_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndAttributeSetAccess().getCOMMATerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getAndAttributeSetAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_1_0()));
 		match_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndExpressionConstraintAccess().getCOMMATerminalRuleCall_1_1_1()), new TokenAlias(false, false, grammarAccess.getAndExpressionConstraintAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_1_0()));
 		match_AndRefinement_COMMATerminalRuleCall_1_0_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndRefinementAccess().getCOMMATerminalRuleCall_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getAndRefinementAccess().getCONJUNCTION_KEYWORDTerminalRuleCall_1_0_1_0()));
@@ -686,7 +688,9 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0.equals(syntax))
+			if (match_AlternateIdentifier_WSTerminalRuleCall_3_a.equals(syntax))
+				emit_AlternateIdentifier_WSTerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0.equals(syntax))
 				emit_AndAttributeSet_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0.equals(syntax))
 				emit_AndExpressionConstraint_COMMATerminalRuleCall_1_1_1_or_CONJUNCTION_KEYWORDTerminalRuleCall_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -702,6 +706,21 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     code=AlternateCode (ambiguity) (rule end)
+	 *     code=STRING (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_AlternateIdentifier_WSTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:

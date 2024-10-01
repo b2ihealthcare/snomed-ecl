@@ -162,6 +162,15 @@ public interface EclFactory extends EFactory
   EclConceptReference createEclConceptReference();
 
   /**
+   * Returns a new object of class '<em>Alternate Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Alternate Identifier</em>'.
+   * @generated
+   */
+  AlternateIdentifier createAlternateIdentifier();
+
+  /**
    * Returns a new object of class '<em>Concept Reference Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

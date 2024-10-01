@@ -158,6 +158,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createEclConceptReferenceAdapter();
       }
       @Override
+      public Adapter caseAlternateIdentifier(AlternateIdentifier object)
+      {
+        return createAlternateIdentifierAdapter();
+      }
+      @Override
       public Adapter caseEclConceptReferenceSet(EclConceptReferenceSet object)
       {
         return createEclConceptReferenceSetAdapter();
@@ -695,6 +700,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEclConceptReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.AlternateIdentifier <em>Alternate Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.AlternateIdentifier
+   * @generated
+   */
+  public Adapter createAlternateIdentifierAdapter()
   {
     return null;
   }

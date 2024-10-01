@@ -18,6 +18,7 @@ package com.b2international.snomed.ecl.ecl.impl;
 import com.b2international.snomed.ecl.ecl.Acceptability;
 import com.b2international.snomed.ecl.ecl.AcceptableInFilter;
 import com.b2international.snomed.ecl.ecl.ActiveFilter;
+import com.b2international.snomed.ecl.ecl.AlternateIdentifier;
 import com.b2international.snomed.ecl.ecl.AncestorOf;
 import com.b2international.snomed.ecl.ecl.AncestorOrSelfOf;
 import com.b2international.snomed.ecl.ecl.AndExpressionConstraint;
@@ -206,6 +207,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass eclConceptReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass alternateIdentifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1020,6 +1028,39 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EAttribute getEclConceptReference_Term()
   {
     return (EAttribute)eclConceptReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAlternateIdentifier()
+  {
+    return alternateIdentifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAlternateIdentifier_Scheme()
+  {
+    return (EAttribute)alternateIdentifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAlternateIdentifier_Code()
+  {
+    return (EAttribute)alternateIdentifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2680,6 +2721,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     createEAttribute(eclConceptReferenceEClass, ECL_CONCEPT_REFERENCE__ID);
     createEAttribute(eclConceptReferenceEClass, ECL_CONCEPT_REFERENCE__TERM);
 
+    alternateIdentifierEClass = createEClass(ALTERNATE_IDENTIFIER);
+    createEAttribute(alternateIdentifierEClass, ALTERNATE_IDENTIFIER__SCHEME);
+    createEAttribute(alternateIdentifierEClass, ALTERNATE_IDENTIFIER__CODE);
+
     eclConceptReferenceSetEClass = createEClass(ECL_CONCEPT_REFERENCE_SET);
     createEReference(eclConceptReferenceSetEClass, ECL_CONCEPT_REFERENCE_SET__CONCEPTS);
 
@@ -2929,6 +2974,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     bottomEClass.getESuperTypes().add(this.getExpressionConstraint());
     memberOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceEClass.getESuperTypes().add(this.getExpressionConstraint());
+    alternateIdentifierEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceSetEClass.getESuperTypes().add(this.getFilterValue());
     anyEClass.getESuperTypes().add(this.getExpressionConstraint());
     nestedRefinementEClass.getESuperTypes().add(this.getEclRefinement());
@@ -3022,6 +3068,10 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     initEClass(eclConceptReferenceEClass, EclConceptReference.class, "EclConceptReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEclConceptReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, EclConceptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEclConceptReference_Term(), ecorePackage.getEString(), "term", null, 0, 1, EclConceptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(alternateIdentifierEClass, AlternateIdentifier.class, "AlternateIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAlternateIdentifier_Scheme(), ecorePackage.getEString(), "scheme", null, 0, 1, AlternateIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAlternateIdentifier_Code(), ecorePackage.getEString(), "code", null, 0, 1, AlternateIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eclConceptReferenceSetEClass, EclConceptReferenceSet.class, "EclConceptReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEclConceptReferenceSet_Concepts(), this.getEclConceptReference(), null, "concepts", null, 0, -1, EclConceptReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

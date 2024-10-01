@@ -91,6 +91,7 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
       case EclPackage.BOTTOM: return createBottom();
       case EclPackage.MEMBER_OF: return createMemberOf();
       case EclPackage.ECL_CONCEPT_REFERENCE: return createEclConceptReference();
+      case EclPackage.ALTERNATE_IDENTIFIER: return createAlternateIdentifier();
       case EclPackage.ECL_CONCEPT_REFERENCE_SET: return createEclConceptReferenceSet();
       case EclPackage.ANY: return createAny();
       case EclPackage.ECL_REFINEMENT: return createEclRefinement();
@@ -324,6 +325,18 @@ public class EclFactoryImpl extends EFactoryImpl implements EclFactory
   {
     EclConceptReferenceImpl eclConceptReference = new EclConceptReferenceImpl();
     return eclConceptReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AlternateIdentifier createAlternateIdentifier()
+  {
+    AlternateIdentifierImpl alternateIdentifier = new AlternateIdentifierImpl();
+    return alternateIdentifier;
   }
 
   /**

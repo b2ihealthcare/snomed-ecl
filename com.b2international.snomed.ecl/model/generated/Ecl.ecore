@@ -56,6 +56,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternateIdentifier" eSuperTypes="#//ExpressionConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EclConceptReferenceSet" eSuperTypes="#//FilterValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
         eType="#//EclConceptReference" containment="true"/>

@@ -47,6 +47,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubExpressionConstraintAccess().getAlternatives(), "rule__SubExpressionConstraint__Alternatives");
 			builder.put(grammarAccess.getEclFocusConceptAccess().getAlternatives(), "rule__EclFocusConcept__Alternatives");
 			builder.put(grammarAccess.getMemberOfAccess().getConstraintAlternatives_2_0(), "rule__MemberOf__ConstraintAlternatives_2_0");
+			builder.put(grammarAccess.getAlternateIdentifierAccess().getCodeAlternatives_2_0(), "rule__AlternateIdentifier__CodeAlternatives_2_0");
 			builder.put(grammarAccess.getAndRefinementAccess().getAlternatives_1_0_1(), "rule__AndRefinement__Alternatives_1_0_1");
 			builder.put(grammarAccess.getSubRefinementAccess().getAlternatives(), "rule__SubRefinement__Alternatives");
 			builder.put(grammarAccess.getAndAttributeSetAccess().getAlternatives_1_1(), "rule__AndAttributeSet__Alternatives_1_1");
@@ -71,6 +72,9 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHistoryProfileAccess().getAlternatives_0(), "rule__HistoryProfile__Alternatives_0");
 			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_0(), "rule__Identifier__Alternatives_0");
 			builder.put(grammarAccess.getIdentifierAccess().getAlternatives_1(), "rule__Identifier__Alternatives_1");
+			builder.put(grammarAccess.getAlternateSchemeAccess().getAlternatives_0(), "rule__AlternateScheme__Alternatives_0");
+			builder.put(grammarAccess.getAlternateSchemeAccess().getAlternatives_1(), "rule__AlternateScheme__Alternatives_1");
+			builder.put(grammarAccess.getAlternateCodeAccess().getAlternatives(), "rule__AlternateCode__Alternatives");
 			builder.put(grammarAccess.getMaxValueAccess().getAlternatives(), "rule__MaxValue__Alternatives");
 			builder.put(grammarAccess.getIntegerAccess().getAlternatives_0(), "rule__Integer__Alternatives_0");
 			builder.put(grammarAccess.getDecimalAccess().getAlternatives_0(), "rule__Decimal__Alternatives_0");
@@ -113,6 +117,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMemberOfAccess().getGroup_1_1(), "rule__MemberOf__Group_1_1__0");
 			builder.put(grammarAccess.getMemberOfAccess().getGroup_1_1_1(), "rule__MemberOf__Group_1_1_1__0");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getGroup(), "rule__EclConceptReference__Group__0");
+			builder.put(grammarAccess.getAlternateIdentifierAccess().getGroup(), "rule__AlternateIdentifier__Group__0");
 			builder.put(grammarAccess.getEclConceptReferenceSetAccess().getGroup(), "rule__EclConceptReferenceSet__Group__0");
 			builder.put(grammarAccess.getAnyAccess().getGroup(), "rule__Any__Group__0");
 			builder.put(grammarAccess.getOrRefinementAccess().getGroup(), "rule__OrRefinement__Group__0");
@@ -175,6 +180,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHistorySupplementAccess().getGroup(), "rule__HistorySupplement__Group__0");
 			builder.put(grammarAccess.getHistoryProfileAccess().getGroup(), "rule__HistoryProfile__Group__0");
 			builder.put(grammarAccess.getIdentifierAccess().getGroup(), "rule__Identifier__Group__0");
+			builder.put(grammarAccess.getAlternateSchemeAccess().getGroup(), "rule__AlternateScheme__Group__0");
 			builder.put(grammarAccess.getNonNegativeDecimalAccess().getGroup(), "rule__NonNegativeDecimal__Group__0");
 			builder.put(grammarAccess.getIntegerAccess().getGroup(), "rule__Integer__Group__0");
 			builder.put(grammarAccess.getDecimalAccess().getGroup(), "rule__Decimal__Group__0");
@@ -201,6 +207,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMemberOfAccess().getConstraintAssignment_2(), "rule__MemberOf__ConstraintAssignment_2");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getIdAssignment_0(), "rule__EclConceptReference__IdAssignment_0");
 			builder.put(grammarAccess.getEclConceptReferenceAccess().getTermAssignment_2(), "rule__EclConceptReference__TermAssignment_2");
+			builder.put(grammarAccess.getAlternateIdentifierAccess().getSchemeAssignment_0(), "rule__AlternateIdentifier__SchemeAssignment_0");
+			builder.put(grammarAccess.getAlternateIdentifierAccess().getCodeAssignment_2(), "rule__AlternateIdentifier__CodeAssignment_2");
 			builder.put(grammarAccess.getEclConceptReferenceSetAccess().getConceptsAssignment_1(), "rule__EclConceptReferenceSet__ConceptsAssignment_1");
 			builder.put(grammarAccess.getOrRefinementAccess().getRightAssignment_1_0_2(), "rule__OrRefinement__RightAssignment_1_0_2");
 			builder.put(grammarAccess.getAndRefinementAccess().getRightAssignment_1_0_2(), "rule__AndRefinement__RightAssignment_1_0_2");
