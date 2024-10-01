@@ -50,7 +50,7 @@ SubExpressionConstraint returns ExpressionConstraint:
 	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | Top | Bottom | EclFocusConcept;
 
 EclFocusConcept returns ExpressionConstraint:
-	MemberOf | EclConceptReference | Any | NestedExpression;
+	MemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
 	
 ChildOf:
 	LT_EM constraint=EclFocusConcept;
@@ -87,6 +87,9 @@ MemberOf:
 
 EclConceptReference:
 	id=Identifier WS* (term=PIPE_DELIMITED_STRING)?;
+
+AlternateIdentifier:
+	scheme=AlternateScheme HASH code=(AlternateCode | STRING) WS*;
 
 EclConceptReferenceSet:
 	ROUND_OPEN (concepts+=EclConceptReference)+ ROUND_CLOSE;
@@ -338,6 +341,15 @@ HistoryProfile:
 Identifier returns ecore::EString hidden():
 	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD) 
 	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD | DASH | UNDERSCORE)*;
+	
+// Differences from Identifier: no leading digits; underscores not allowed in any position
+AlternateScheme returns ecore::EString hidden():
+	(ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD) 
+	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD | DASH)*;
+
+// Differences from Identifier: no underscores but periods and dashes are permitted, even in leading position	
+AlternateCode returns ecore::EString hidden():
+	(DIGIT | ALPHA | CONCEPT_SHORT_KEYWORD | DESCRIPTION_SHORT_KEYWORD | MEMBER_SHORT_KEYWORD | REVERSED | ID_KEYWORD | KEYWORD | DOT | DASH)+;
 
 NonNegativeInteger returns ecore::EInt hidden():
 	(DIGIT)+;
