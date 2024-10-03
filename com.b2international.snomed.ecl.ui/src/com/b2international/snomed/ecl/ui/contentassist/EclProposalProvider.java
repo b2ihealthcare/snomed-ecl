@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2022 B2i Healthcare Pte Ltd, http://b2i.sg
+ * Copyright 2021-2024 B2i Healthcare Pte Ltd, http://b2i.sg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,7 @@ import org.eclipse.text.edits.InsertEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.AbstractRule;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.*;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
@@ -205,13 +202,23 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 	@Override
 	public void completeRuleCall(RuleCall ruleCall, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
 		final AbstractRule abstractRule = ruleCall.getRule();
+		
+		AbstractElement alternatives = abstractRule.getAlternatives();
+		
+		if (alternatives instanceof Alternatives) {
+			for (AbstractElement element : ((Alternatives) alternatives).getElements()) {
+				DefaultContentAssistProcessorSwitch defaultContentAssistProcessorSwitch = new DefaultContentAssistProcessorSwitch(contentAssistContext, acceptor);
+				defaultContentAssistProcessorSwitch.accept(element);
+			}
+		}
+		
 		if (ruleDescriptions.containsKey(abstractRule)) {
-			AbstractElement alternatives = abstractRule.getAlternatives();
 
 			// Rules for which we have a description typically consist of a single keyword 
 			if (alternatives instanceof Keyword) {
 				completeKeyword((Keyword) alternatives, contentAssistContext, acceptor);
 			}
+			
 		}
 		
 		// Also try the reflective method call-based completion
@@ -229,6 +236,31 @@ public class EclProposalProvider extends AbstractEclProposalProvider {
 		}
 		
 		return result;
+	}
+	
+	@Override
+	public void completeIntegerValueComparison_Op(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		RuleCall terminal = (RuleCall) assignment.getTerminal();
+		if (terminal.getRule().equals(ga.getNUMERIC_OPERATORRule())) {
+			
+			RuleCall ruleCall = (RuleCall) assignment.getTerminal();
+			Alternatives alternatives = (Alternatives) ruleCall.getRule().getAlternatives();
+			
+			for (AbstractElement element : alternatives.getElements()) {
+				RuleCall nestedRuleCall = (RuleCall) element;
+				
+				if (nestedRuleCall.getRule().equals(ga.getGTRule())) {
+					completeRuleCall(nestedRuleCall, ">", "Greater than", context, acceptor);
+				} else if (nestedRuleCall.getRule().equals(ga.getLTRule())) {
+					completeRuleCall(nestedRuleCall, "<", "Less than", context, acceptor);
+				} else {
+					completeRuleCall(nestedRuleCall, context, acceptor);
+				}
+			}
+		} else {
+			super.completeIntegerValueComparison_Op(model, assignment, context, acceptor);
+		}
 	}
 	
 	protected String getKeywordDescription(EObject container) {
