@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.2.0
+
+- [ui] fix alternative keyword suggestions in Eclipse UI proposal provider (f5f5d55)
+- [lang] support parsing of alternative identifiers (02a6278)
+- [lang] support "top of set" and "bottom of set" expressions (8a56297)
+
 ## 2.1.5
 
 - [dependencies] upgrade Eclipse to e4.30 and Xtext to 2.33.0 (573a343)
