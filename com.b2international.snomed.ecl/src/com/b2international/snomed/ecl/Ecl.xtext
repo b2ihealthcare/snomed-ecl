@@ -215,7 +215,7 @@ MemberFieldFilter:
 
 IdFilter
 	: ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-	| ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON RegularExpression
+	| ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON conceptId=RegularExpression
 	;
 
 TermFilter:
