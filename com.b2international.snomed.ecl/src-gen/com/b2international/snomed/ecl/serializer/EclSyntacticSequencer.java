@@ -141,8 +141,6 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getROUND_CLOSEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getROUND_OPENRule())
 			return getROUND_OPENToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getRegularExpressionRule())
-			return getRegularExpressionToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSEMANTIC_TAG_KEYWORDRule())
 			return getSEMANTIC_TAG_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSQUARE_CLOSERule())
@@ -594,16 +592,6 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "(";
-	}
-	
-	/**
-	 * RegularExpression:
-	 * 	STRING;
-	 */
-	protected String getRegularExpressionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
 	}
 	
 	/**

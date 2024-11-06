@@ -3498,16 +3498,25 @@ ruleIdFilter returns [EObject current=null]
 			{
 				newLeafNode(this_COLON_9, grammarAccess.getIdFilterAccess().getCOLONTerminalRuleCall_1_3());
 			}
-			{
-				/* */
-			}
-			{
-				newCompositeNode(grammarAccess.getIdFilterAccess().getRegularExpressionParserRuleCall_1_4());
-			}
-			ruleRegularExpression
-			{
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIdFilterAccess().getConceptIdRegularExpressionParserRuleCall_1_4_0());
+					}
+					lv_conceptId_10_0=ruleRegularExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+						}
+						set(
+							$current,
+							"conceptId",
+							lv_conceptId_10_0,
+							"com.b2international.snomed.ecl.Ecl.RegularExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 	)
 ;

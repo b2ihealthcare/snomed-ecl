@@ -1779,16 +1779,17 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
 		private final RuleCall cREGEX_KEYWORDTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final RuleCall cCOLONTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final RuleCall cRegularExpressionParserRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
+		private final Assignment cConceptIdAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cConceptIdRegularExpressionParserRuleCall_1_4_0 = (RuleCall)cConceptIdAssignment_1_4.eContents().get(0);
 		
 		//IdFilter
 		//    : ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-		//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON RegularExpression
+		//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON conceptId=RegularExpression
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-		//   | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON RegularExpression
+		//   | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON conceptId=RegularExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
@@ -1827,7 +1828,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ROUND_CLOSE
 		public RuleCall getROUND_CLOSETerminalRuleCall_0_2_1_2() { return cROUND_CLOSETerminalRuleCall_0_2_1_2; }
 		
-		//ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON RegularExpression
+		//ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON conceptId=RegularExpression
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//ID_KEYWORD
@@ -1845,8 +1846,11 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//COLON
 		public RuleCall getCOLONTerminalRuleCall_1_3() { return cCOLONTerminalRuleCall_1_3; }
 		
+		//conceptId=RegularExpression
+		public Assignment getConceptIdAssignment_1_4() { return cConceptIdAssignment_1_4; }
+		
 		//RegularExpression
-		public RuleCall getRegularExpressionParserRuleCall_1_4() { return cRegularExpressionParserRuleCall_1_4; }
+		public RuleCall getConceptIdRegularExpressionParserRuleCall_1_4_0() { return cConceptIdRegularExpressionParserRuleCall_1_4_0; }
 	}
 	public class TermFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TermFilter");
@@ -4581,7 +4585,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//IdFilter
 	//    : ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-	//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON RegularExpression
+	//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR REGEX_KEYWORD COLON conceptId=RegularExpression
 	//    ;
 	public IdFilterElements getIdFilterAccess() {
 		return pIdFilter;

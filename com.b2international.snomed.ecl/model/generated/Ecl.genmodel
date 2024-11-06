@@ -113,6 +113,7 @@
     <genClasses ecoreClass="Ecl.ecore#//IdFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IdFilter/op"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IdFilter/ids"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//IdFilter/conceptId"/>
     </genClasses>
     <genClasses ecoreClass="Ecl.ecore#//TermFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ecl.ecore#//TermFilter/op"/>

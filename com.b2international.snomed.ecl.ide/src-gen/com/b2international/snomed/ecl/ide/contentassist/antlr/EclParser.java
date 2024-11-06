@@ -249,6 +249,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_2_0(), "rule__IdFilter__IdsAssignment_0_2_0");
 			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_2_1_1(), "rule__IdFilter__IdsAssignment_0_2_1_1");
 			builder.put(grammarAccess.getIdFilterAccess().getOpAssignment_1_1(), "rule__IdFilter__OpAssignment_1_1");
+			builder.put(grammarAccess.getIdFilterAccess().getConceptIdAssignment_1_4(), "rule__IdFilter__ConceptIdAssignment_1_4");
 			builder.put(grammarAccess.getTermFilterAccess().getOpAssignment_1(), "rule__TermFilter__OpAssignment_1");
 			builder.put(grammarAccess.getTermFilterAccess().getSearchTermAssignment_2(), "rule__TermFilter__SearchTermAssignment_2");
 			builder.put(grammarAccess.getTypedSearchTermAccess().getClauseAssignment(), "rule__TypedSearchTerm__ClauseAssignment");

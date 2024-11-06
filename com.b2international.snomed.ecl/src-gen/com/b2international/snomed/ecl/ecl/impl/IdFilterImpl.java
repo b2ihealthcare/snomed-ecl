@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getOp <em>Op</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getIds <em>Ids</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getConceptId <em>Concept Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +76,26 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @ordered
    */
   protected EList<String> ids;
+
+  /**
+   * The default value of the '{@link #getConceptId() <em>Concept Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConceptId()
+   * @generated
+   * @ordered
+   */
+  protected static final String CONCEPT_ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getConceptId() <em>Concept Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConceptId()
+   * @generated
+   * @ordered
+   */
+  protected String conceptId = CONCEPT_ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,6 +164,31 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @generated
    */
   @Override
+  public String getConceptId()
+  {
+    return conceptId;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConceptId(String newConceptId)
+  {
+    String oldConceptId = conceptId;
+    conceptId = newConceptId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ID_FILTER__CONCEPT_ID, oldConceptId, conceptId));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -151,6 +197,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
         return getOp();
       case EclPackage.ID_FILTER__IDS:
         return getIds();
+      case EclPackage.ID_FILTER__CONCEPT_ID:
+        return getConceptId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -173,6 +221,9 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
         getIds().clear();
         getIds().addAll((Collection<? extends String>)newValue);
         return;
+      case EclPackage.ID_FILTER__CONCEPT_ID:
+        setConceptId((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -193,6 +244,9 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
       case EclPackage.ID_FILTER__IDS:
         getIds().clear();
         return;
+      case EclPackage.ID_FILTER__CONCEPT_ID:
+        setConceptId(CONCEPT_ID_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -211,6 +265,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case EclPackage.ID_FILTER__IDS:
         return ids != null && !ids.isEmpty();
+      case EclPackage.ID_FILTER__CONCEPT_ID:
+        return CONCEPT_ID_EDEFAULT == null ? conceptId != null : !CONCEPT_ID_EDEFAULT.equals(conceptId);
     }
     return super.eIsSet(featureID);
   }
@@ -230,6 +286,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     result.append(op);
     result.append(", ids: ");
     result.append(ids);
+    result.append(", conceptId: ");
+    result.append(conceptId);
     result.append(')');
     return result.toString();
   }
