@@ -3389,61 +3389,37 @@ ruleIdFilter returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		this_ID_KEYWORD_0=RULE_ID_KEYWORD
-		{
-			newLeafNode(this_ID_KEYWORD_0, grammarAccess.getIdFilterAccess().getID_KEYWORDTerminalRuleCall_0());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_0());
-				}
-				lv_op_1_0=ruleNON_NUMERIC_OPERATOR
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getIdFilterRule());
-					}
-					set(
-						$current,
-						"op",
-						lv_op_1_0,
-						"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
+			this_ID_KEYWORD_0=RULE_ID_KEYWORD
+			{
+				newLeafNode(this_ID_KEYWORD_0, grammarAccess.getIdFilterAccess().getID_KEYWORDTerminalRuleCall_0_0());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_2_0_0());
+						newCompositeNode(grammarAccess.getIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_0_1_0());
 					}
-					lv_ids_2_0=ruleIdentifier
+					lv_op_1_0=ruleNON_NUMERIC_OPERATOR
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIdFilterRule());
 						}
-						add(
+						set(
 							$current,
-							"ids",
-							lv_ids_2_0,
-							"com.b2international.snomed.ecl.Ecl.Identifier");
+							"op",
+							lv_op_1_0,
+							"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			    |
 			(
-				this_ROUND_OPEN_3=RULE_ROUND_OPEN
-				{
-					newLeafNode(this_ROUND_OPEN_3, grammarAccess.getIdFilterAccess().getROUND_OPENTerminalRuleCall_2_1_0());
-				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_2_1_1_0());
+							newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_0_2_0_0());
 						}
-						lv_ids_4_0=ruleIdentifier
+						lv_ids_2_0=ruleIdentifier
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getIdFilterRule());
@@ -3451,17 +3427,87 @@ ruleIdFilter returns [EObject current=null]
 							add(
 								$current,
 								"ids",
-								lv_ids_4_0,
+								lv_ids_2_0,
 								"com.b2international.snomed.ecl.Ecl.Identifier");
 							afterParserOrEnumRuleCall();
 						}
 					)
-				)+
-				this_ROUND_CLOSE_5=RULE_ROUND_CLOSE
-				{
-					newLeafNode(this_ROUND_CLOSE_5, grammarAccess.getIdFilterAccess().getROUND_CLOSETerminalRuleCall_2_1_2());
-				}
+				)
+				    |
+				(
+					this_ROUND_OPEN_3=RULE_ROUND_OPEN
+					{
+						newLeafNode(this_ROUND_OPEN_3, grammarAccess.getIdFilterAccess().getROUND_OPENTerminalRuleCall_0_2_1_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getIdFilterAccess().getIdsIdentifierParserRuleCall_0_2_1_1_0());
+							}
+							lv_ids_4_0=ruleIdentifier
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+								}
+								add(
+									$current,
+									"ids",
+									lv_ids_4_0,
+									"com.b2international.snomed.ecl.Ecl.Identifier");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)+
+					this_ROUND_CLOSE_5=RULE_ROUND_CLOSE
+					{
+						newLeafNode(this_ROUND_CLOSE_5, grammarAccess.getIdFilterAccess().getROUND_CLOSETerminalRuleCall_0_2_1_2());
+					}
+				)
 			)
+		)
+		    |
+		(
+			this_ID_KEYWORD_6=RULE_ID_KEYWORD
+			{
+				newLeafNode(this_ID_KEYWORD_6, grammarAccess.getIdFilterAccess().getID_KEYWORDTerminalRuleCall_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIdFilterAccess().getOpNON_NUMERIC_OPERATORParserRuleCall_1_1_0());
+					}
+					lv_op_7_0=ruleNON_NUMERIC_OPERATOR
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIdFilterRule());
+						}
+						set(
+							$current,
+							"op",
+							lv_op_7_0,
+							"com.b2international.snomed.ecl.Ecl.NON_NUMERIC_OPERATOR");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_REGEX_KEYWORD_8=RULE_REGEX_KEYWORD
+			{
+				newLeafNode(this_REGEX_KEYWORD_8, grammarAccess.getIdFilterAccess().getREGEX_KEYWORDTerminalRuleCall_1_2());
+			}
+			this_COLON_9=RULE_COLON
+			{
+				newLeafNode(this_COLON_9, grammarAccess.getIdFilterAccess().getCOLONTerminalRuleCall_1_3());
+			}
+			{
+				/* */
+			}
+			{
+				newCompositeNode(grammarAccess.getIdFilterAccess().getRegularExpressionParserRuleCall_1_4());
+			}
+			ruleRegularExpression
+			{
+				afterParserOrEnumRuleCall();
+			}
 		)
 	)
 ;
