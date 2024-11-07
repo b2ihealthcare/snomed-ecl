@@ -57,7 +57,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConjunctionFilterAccess().getAlternatives_1_1(), "rule__ConjunctionFilter__Alternatives_1_1");
 			builder.put(grammarAccess.getPropertyFilterAccess().getAlternatives(), "rule__PropertyFilter__Alternatives");
 			builder.put(grammarAccess.getIdFilterAccess().getAlternatives(), "rule__IdFilter__Alternatives");
-			builder.put(grammarAccess.getIdFilterAccess().getAlternatives_0_2(), "rule__IdFilter__Alternatives_0_2");
+			builder.put(grammarAccess.getIdFilterAccess().getAlternatives_0_3(), "rule__IdFilter__Alternatives_0_3");
 			builder.put(grammarAccess.getSearchTermAccess().getAlternatives(), "rule__SearchTerm__Alternatives");
 			builder.put(grammarAccess.getTypedSearchTermClauseAccess().getAlternatives(), "rule__TypedSearchTermClause__Alternatives");
 			builder.put(grammarAccess.getLanguageFilterAccess().getAlternatives_2(), "rule__LanguageFilter__Alternatives_2");
@@ -150,7 +150,8 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNestedFilterAccess().getGroup(), "rule__NestedFilter__Group__0");
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getGroup(), "rule__MemberFieldFilter__Group__0");
 			builder.put(grammarAccess.getIdFilterAccess().getGroup_0(), "rule__IdFilter__Group_0__0");
-			builder.put(grammarAccess.getIdFilterAccess().getGroup_0_2_1(), "rule__IdFilter__Group_0_2_1__0");
+			builder.put(grammarAccess.getIdFilterAccess().getGroup_0_2(), "rule__IdFilter__Group_0_2__0");
+			builder.put(grammarAccess.getIdFilterAccess().getGroup_0_3_1(), "rule__IdFilter__Group_0_3_1__0");
 			builder.put(grammarAccess.getIdFilterAccess().getGroup_1(), "rule__IdFilter__Group_1__0");
 			builder.put(grammarAccess.getTermFilterAccess().getGroup(), "rule__TermFilter__Group__0");
 			builder.put(grammarAccess.getTypedSearchTermSetAccess().getGroup(), "rule__TypedSearchTermSet__Group__0");
@@ -246,10 +247,12 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getRefsetFieldNameAssignment_0(), "rule__MemberFieldFilter__RefsetFieldNameAssignment_0");
 			builder.put(grammarAccess.getMemberFieldFilterAccess().getComparisonAssignment_1(), "rule__MemberFieldFilter__ComparisonAssignment_1");
 			builder.put(grammarAccess.getIdFilterAccess().getOpAssignment_0_1(), "rule__IdFilter__OpAssignment_0_1");
-			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_2_0(), "rule__IdFilter__IdsAssignment_0_2_0");
-			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_2_1_1(), "rule__IdFilter__IdsAssignment_0_2_1_1");
+			builder.put(grammarAccess.getIdFilterAccess().getSearchTypeAssignment_0_2_0(), "rule__IdFilter__SearchTypeAssignment_0_2_0");
+			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_3_0(), "rule__IdFilter__IdsAssignment_0_3_0");
+			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_0_3_1_1(), "rule__IdFilter__IdsAssignment_0_3_1_1");
 			builder.put(grammarAccess.getIdFilterAccess().getOpAssignment_1_1(), "rule__IdFilter__OpAssignment_1_1");
-			builder.put(grammarAccess.getIdFilterAccess().getConceptIdAssignment_1_4(), "rule__IdFilter__ConceptIdAssignment_1_4");
+			builder.put(grammarAccess.getIdFilterAccess().getSearchTypeAssignment_1_2(), "rule__IdFilter__SearchTypeAssignment_1_2");
+			builder.put(grammarAccess.getIdFilterAccess().getIdsAssignment_1_4(), "rule__IdFilter__IdsAssignment_1_4");
 			builder.put(grammarAccess.getTermFilterAccess().getOpAssignment_1(), "rule__TermFilter__OpAssignment_1");
 			builder.put(grammarAccess.getTermFilterAccess().getSearchTermAssignment_2(), "rule__TermFilter__SearchTermAssignment_2");
 			builder.put(grammarAccess.getTypedSearchTermAccess().getClauseAssignment(), "rule__TypedSearchTerm__ClauseAssignment");

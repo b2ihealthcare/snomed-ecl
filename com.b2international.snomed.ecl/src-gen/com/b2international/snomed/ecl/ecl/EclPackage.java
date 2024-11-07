@@ -1187,22 +1187,22 @@ public interface EclPackage extends EPackage
   int ID_FILTER__OP = PROPERTY_FILTER_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Search Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_FILTER__SEARCH_TYPE = PROPERTY_FILTER_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Ids</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ID_FILTER__IDS = PROPERTY_FILTER_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Concept Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ID_FILTER__CONCEPT_ID = PROPERTY_FILTER_FEATURE_COUNT + 2;
+  int ID_FILTER__IDS = PROPERTY_FILTER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Id Filter</em>' class.
@@ -3362,6 +3362,17 @@ public interface EclPackage extends EPackage
   EAttribute getIdFilter_Op();
 
   /**
+   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.IdFilter#getSearchType <em>Search Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Search Type</em>'.
+   * @see com.b2international.snomed.ecl.ecl.IdFilter#getSearchType()
+   * @see #getIdFilter()
+   * @generated
+   */
+  EAttribute getIdFilter_SearchType();
+
+  /**
    * Returns the meta object for the attribute list '{@link com.b2international.snomed.ecl.ecl.IdFilter#getIds <em>Ids</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3371,17 +3382,6 @@ public interface EclPackage extends EPackage
    * @generated
    */
   EAttribute getIdFilter_Ids();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.b2international.snomed.ecl.ecl.IdFilter#getConceptId <em>Concept Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Concept Id</em>'.
-   * @see com.b2international.snomed.ecl.ecl.IdFilter#getConceptId()
-   * @see #getIdFilter()
-   * @generated
-   */
-  EAttribute getIdFilter_ConceptId();
 
   /**
    * Returns the meta object for class '{@link com.b2international.snomed.ecl.ecl.TermFilter <em>Term Filter</em>}'.
@@ -5143,20 +5143,20 @@ public interface EclPackage extends EPackage
     EAttribute ID_FILTER__OP = eINSTANCE.getIdFilter_Op();
 
     /**
+     * The meta object literal for the '<em><b>Search Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ID_FILTER__SEARCH_TYPE = eINSTANCE.getIdFilter_SearchType();
+
+    /**
      * The meta object literal for the '<em><b>Ids</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ID_FILTER__IDS = eINSTANCE.getIdFilter_Ids();
-
-    /**
-     * The meta object literal for the '<em><b>Concept Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ID_FILTER__CONCEPT_ID = eINSTANCE.getIdFilter_ConceptId();
 
     /**
      * The meta object literal for the '{@link com.b2international.snomed.ecl.ecl.impl.TermFilterImpl <em>Term Filter</em>}' class.

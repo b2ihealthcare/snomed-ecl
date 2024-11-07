@@ -1410,7 +1410,10 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IdFilter returns IdFilter
 	 *
 	 * Constraint:
-	 *     ((op=NON_NUMERIC_OPERATOR (ids+=Identifier | ids+=Identifier+)) | (op=NON_NUMERIC_OPERATOR conceptId=RegularExpression))
+	 *     (
+	 *         (op=NON_NUMERIC_OPERATOR searchType=EXACT_KEYWORD? (ids+=Identifier | ids+=Identifier+)) | 
+	 *         (op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD ids+=RegularExpression)
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_IdFilter(ISerializationContext context, IdFilter semanticObject) {

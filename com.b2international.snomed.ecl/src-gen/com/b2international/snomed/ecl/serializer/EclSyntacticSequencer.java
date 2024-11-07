@@ -133,8 +133,6 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getPLUSToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getPREFERRED_IN_KEYWORDRule())
 			return getPREFERRED_IN_KEYWORDToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getREGEX_KEYWORDRule())
-			return getREGEX_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getREVERSEDRule())
 			return getREVERSEDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getROUND_CLOSERule())
@@ -552,16 +550,6 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "preferredIn";
-	}
-	
-	/**
-	 * terminal REGEX_KEYWORD: 
-	 * 	'regex' | ('R'|'r')('E'|'e')('G'|'g')('E'|'e')('X'|'x');
-	 */
-	protected String getREGEX_KEYWORDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "regex";
 	}
 	
 	/**

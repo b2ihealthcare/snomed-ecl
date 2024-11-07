@@ -39,8 +39,8 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getSearchType <em>Search Type</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getIds <em>Ids</em>}</li>
- *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getConceptId <em>Concept Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +68,26 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
   protected String op = OP_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getSearchType() <em>Search Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSearchType()
+   * @generated
+   * @ordered
+   */
+  protected static final String SEARCH_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSearchType() <em>Search Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSearchType()
+   * @generated
+   * @ordered
+   */
+  protected String searchType = SEARCH_TYPE_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getIds() <em>Ids</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,26 +96,6 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @ordered
    */
   protected EList<String> ids;
-
-  /**
-   * The default value of the '{@link #getConceptId() <em>Concept Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConceptId()
-   * @generated
-   * @ordered
-   */
-  protected static final String CONCEPT_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getConceptId() <em>Concept Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConceptId()
-   * @generated
-   * @ordered
-   */
-  protected String conceptId = CONCEPT_ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,6 +149,31 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @generated
    */
   @Override
+  public String getSearchType()
+  {
+    return searchType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSearchType(String newSearchType)
+  {
+    String oldSearchType = searchType;
+    searchType = newSearchType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ID_FILTER__SEARCH_TYPE, oldSearchType, searchType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<String> getIds()
   {
     if (ids == null)
@@ -164,41 +189,16 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @generated
    */
   @Override
-  public String getConceptId()
-  {
-    return conceptId;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setConceptId(String newConceptId)
-  {
-    String oldConceptId = conceptId;
-    conceptId = newConceptId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ID_FILTER__CONCEPT_ID, oldConceptId, conceptId));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case EclPackage.ID_FILTER__OP:
         return getOp();
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        return getSearchType();
       case EclPackage.ID_FILTER__IDS:
         return getIds();
-      case EclPackage.ID_FILTER__CONCEPT_ID:
-        return getConceptId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,12 +217,12 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
       case EclPackage.ID_FILTER__OP:
         setOp((String)newValue);
         return;
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        setSearchType((String)newValue);
+        return;
       case EclPackage.ID_FILTER__IDS:
         getIds().clear();
         getIds().addAll((Collection<? extends String>)newValue);
-        return;
-      case EclPackage.ID_FILTER__CONCEPT_ID:
-        setConceptId((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,11 +241,11 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
       case EclPackage.ID_FILTER__OP:
         setOp(OP_EDEFAULT);
         return;
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        setSearchType(SEARCH_TYPE_EDEFAULT);
+        return;
       case EclPackage.ID_FILTER__IDS:
         getIds().clear();
-        return;
-      case EclPackage.ID_FILTER__CONCEPT_ID:
-        setConceptId(CONCEPT_ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -263,10 +263,10 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     {
       case EclPackage.ID_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        return SEARCH_TYPE_EDEFAULT == null ? searchType != null : !SEARCH_TYPE_EDEFAULT.equals(searchType);
       case EclPackage.ID_FILTER__IDS:
         return ids != null && !ids.isEmpty();
-      case EclPackage.ID_FILTER__CONCEPT_ID:
-        return CONCEPT_ID_EDEFAULT == null ? conceptId != null : !CONCEPT_ID_EDEFAULT.equals(conceptId);
     }
     return super.eIsSet(featureID);
   }
@@ -284,10 +284,10 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (op: ");
     result.append(op);
+    result.append(", searchType: ");
+    result.append(searchType);
     result.append(", ids: ");
     result.append(ids);
-    result.append(", conceptId: ");
-    result.append(conceptId);
     result.append(')');
     return result.toString();
   }
