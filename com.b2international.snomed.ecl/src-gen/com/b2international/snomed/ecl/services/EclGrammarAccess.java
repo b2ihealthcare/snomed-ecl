@@ -1760,58 +1760,117 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class IdFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.IdFilter");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cID_KEYWORDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cIdsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cIdsIdentifierParserRuleCall_2_0_0 = (RuleCall)cIdsAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final RuleCall cROUND_OPENTerminalRuleCall_2_1_0 = (RuleCall)cGroup_2_1.eContents().get(0);
-		private final Assignment cIdsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cIdsIdentifierParserRuleCall_2_1_1_0 = (RuleCall)cIdsAssignment_2_1_1.eContents().get(0);
-		private final RuleCall cROUND_CLOSETerminalRuleCall_2_1_2 = (RuleCall)cGroup_2_1.eContents().get(2);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cID_KEYWORDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Assignment cOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_0_1_0 = (RuleCall)cOpAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Assignment cSearchTypeAssignment_0_2_0 = (Assignment)cGroup_0_2.eContents().get(0);
+		private final RuleCall cSearchTypeEXACT_KEYWORDTerminalRuleCall_0_2_0_0 = (RuleCall)cSearchTypeAssignment_0_2_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_0_2_1 = (RuleCall)cGroup_0_2.eContents().get(1);
+		private final Alternatives cAlternatives_0_3 = (Alternatives)cGroup_0.eContents().get(3);
+		private final Assignment cIdsAssignment_0_3_0 = (Assignment)cAlternatives_0_3.eContents().get(0);
+		private final RuleCall cIdsIdentifierParserRuleCall_0_3_0_0 = (RuleCall)cIdsAssignment_0_3_0.eContents().get(0);
+		private final Group cGroup_0_3_1 = (Group)cAlternatives_0_3.eContents().get(1);
+		private final RuleCall cROUND_OPENTerminalRuleCall_0_3_1_0 = (RuleCall)cGroup_0_3_1.eContents().get(0);
+		private final Assignment cIdsAssignment_0_3_1_1 = (Assignment)cGroup_0_3_1.eContents().get(1);
+		private final RuleCall cIdsIdentifierParserRuleCall_0_3_1_1_0 = (RuleCall)cIdsAssignment_0_3_1_1.eContents().get(0);
+		private final RuleCall cROUND_CLOSETerminalRuleCall_0_3_1_2 = (RuleCall)cGroup_0_3_1.eContents().get(2);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cID_KEYWORDTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOpNON_NUMERIC_OPERATORParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
+		private final Assignment cSearchTypeAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cSearchTypeREGEX_KEYWORDTerminalRuleCall_1_2_0 = (RuleCall)cSearchTypeAssignment_1_2.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Assignment cIdsAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cIdsRegularExpressionParserRuleCall_1_4_0 = (RuleCall)cIdsAssignment_1_4.eContents().get(0);
 		
-		//IdFilter:
-		//    ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE);
+		//IdFilter
+		//    : ID_KEYWORD op=NON_NUMERIC_OPERATOR (searchType=EXACT_KEYWORD COLON)? (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
+		//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD COLON ids+=RegularExpression
+		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-		public Group getGroup() { return cGroup; }
+		//ID_KEYWORD op=NON_NUMERIC_OPERATOR (searchType=EXACT_KEYWORD COLON)? (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
+		//   | ID_KEYWORD op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD COLON ids+=RegularExpression
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID_KEYWORD op=NON_NUMERIC_OPERATOR (searchType=EXACT_KEYWORD COLON)? (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//ID_KEYWORD
-		public RuleCall getID_KEYWORDTerminalRuleCall_0() { return cID_KEYWORDTerminalRuleCall_0; }
+		public RuleCall getID_KEYWORDTerminalRuleCall_0_0() { return cID_KEYWORDTerminalRuleCall_0_0; }
 		
 		//op=NON_NUMERIC_OPERATOR
-		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
+		public Assignment getOpAssignment_0_1() { return cOpAssignment_0_1; }
 		
 		//NON_NUMERIC_OPERATOR
-		public RuleCall getOpNON_NUMERIC_OPERATORParserRuleCall_1_0() { return cOpNON_NUMERIC_OPERATORParserRuleCall_1_0; }
+		public RuleCall getOpNON_NUMERIC_OPERATORParserRuleCall_0_1_0() { return cOpNON_NUMERIC_OPERATORParserRuleCall_0_1_0; }
+		
+		//(searchType=EXACT_KEYWORD COLON)?
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//searchType=EXACT_KEYWORD
+		public Assignment getSearchTypeAssignment_0_2_0() { return cSearchTypeAssignment_0_2_0; }
+		
+		//EXACT_KEYWORD
+		public RuleCall getSearchTypeEXACT_KEYWORDTerminalRuleCall_0_2_0_0() { return cSearchTypeEXACT_KEYWORDTerminalRuleCall_0_2_0_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_0_2_1() { return cCOLONTerminalRuleCall_0_2_1; }
 		
 		//(ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		public Alternatives getAlternatives_0_3() { return cAlternatives_0_3; }
 		
 		//ids+=Identifier
-		public Assignment getIdsAssignment_2_0() { return cIdsAssignment_2_0; }
+		public Assignment getIdsAssignment_0_3_0() { return cIdsAssignment_0_3_0; }
 		
 		//Identifier
-		public RuleCall getIdsIdentifierParserRuleCall_2_0_0() { return cIdsIdentifierParserRuleCall_2_0_0; }
+		public RuleCall getIdsIdentifierParserRuleCall_0_3_0_0() { return cIdsIdentifierParserRuleCall_0_3_0_0; }
 		
 		//ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_0_3_1() { return cGroup_0_3_1; }
 		
 		//ROUND_OPEN
-		public RuleCall getROUND_OPENTerminalRuleCall_2_1_0() { return cROUND_OPENTerminalRuleCall_2_1_0; }
+		public RuleCall getROUND_OPENTerminalRuleCall_0_3_1_0() { return cROUND_OPENTerminalRuleCall_0_3_1_0; }
 		
 		//(ids+=Identifier)+
-		public Assignment getIdsAssignment_2_1_1() { return cIdsAssignment_2_1_1; }
+		public Assignment getIdsAssignment_0_3_1_1() { return cIdsAssignment_0_3_1_1; }
 		
 		//Identifier
-		public RuleCall getIdsIdentifierParserRuleCall_2_1_1_0() { return cIdsIdentifierParserRuleCall_2_1_1_0; }
+		public RuleCall getIdsIdentifierParserRuleCall_0_3_1_1_0() { return cIdsIdentifierParserRuleCall_0_3_1_1_0; }
 		
 		//ROUND_CLOSE
-		public RuleCall getROUND_CLOSETerminalRuleCall_2_1_2() { return cROUND_CLOSETerminalRuleCall_2_1_2; }
+		public RuleCall getROUND_CLOSETerminalRuleCall_0_3_1_2() { return cROUND_CLOSETerminalRuleCall_0_3_1_2; }
+		
+		//ID_KEYWORD op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD COLON ids+=RegularExpression
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ID_KEYWORD
+		public RuleCall getID_KEYWORDTerminalRuleCall_1_0() { return cID_KEYWORDTerminalRuleCall_1_0; }
+		
+		//op=NON_NUMERIC_OPERATOR
+		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
+		
+		//NON_NUMERIC_OPERATOR
+		public RuleCall getOpNON_NUMERIC_OPERATORParserRuleCall_1_1_0() { return cOpNON_NUMERIC_OPERATORParserRuleCall_1_1_0; }
+		
+		//searchType=REGEX_KEYWORD
+		public Assignment getSearchTypeAssignment_1_2() { return cSearchTypeAssignment_1_2; }
+		
+		//REGEX_KEYWORD
+		public RuleCall getSearchTypeREGEX_KEYWORDTerminalRuleCall_1_2_0() { return cSearchTypeREGEX_KEYWORDTerminalRuleCall_1_2_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1_3() { return cCOLONTerminalRuleCall_1_3; }
+		
+		//ids+=RegularExpression
+		public Assignment getIdsAssignment_1_4() { return cIdsAssignment_1_4; }
+		
+		//RegularExpression
+		public RuleCall getIdsRegularExpressionParserRuleCall_1_4_0() { return cIdsRegularExpressionParserRuleCall_1_4_0; }
 	}
 	public class TermFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.TermFilter");
@@ -4544,8 +4603,10 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getMemberFieldFilterAccess().getRule();
 	}
 	
-	//IdFilter:
-	//    ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE);
+	//IdFilter
+	//    : ID_KEYWORD op=NON_NUMERIC_OPERATOR (searchType=EXACT_KEYWORD COLON)? (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
+	//    | ID_KEYWORD op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD COLON ids+=RegularExpression
+	//    ;
 	public IdFilterElements getIdFilterAccess() {
 		return pIdFilter;
 	}

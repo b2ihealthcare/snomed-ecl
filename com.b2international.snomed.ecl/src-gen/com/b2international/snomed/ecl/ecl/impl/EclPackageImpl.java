@@ -1564,9 +1564,20 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   @Override
-  public EAttribute getIdFilter_Ids()
+  public EAttribute getIdFilter_SearchType()
   {
     return (EAttribute)idFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIdFilter_Ids()
+  {
+    return (EAttribute)idFilterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2801,6 +2812,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     idFilterEClass = createEClass(ID_FILTER);
     createEAttribute(idFilterEClass, ID_FILTER__OP);
+    createEAttribute(idFilterEClass, ID_FILTER__SEARCH_TYPE);
     createEAttribute(idFilterEClass, ID_FILTER__IDS);
 
     termFilterEClass = createEClass(TERM_FILTER);
@@ -3150,6 +3162,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(idFilterEClass, IdFilter.class, "IdFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIdFilter_Op(), ecorePackage.getEString(), "op", null, 0, 1, IdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIdFilter_SearchType(), ecorePackage.getEString(), "searchType", null, 0, 1, IdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIdFilter_Ids(), ecorePackage.getEString(), "ids", null, 0, -1, IdFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(termFilterEClass, TermFilter.class, "TermFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

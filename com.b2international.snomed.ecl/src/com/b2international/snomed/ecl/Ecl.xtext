@@ -213,8 +213,10 @@ PropertyFilter:
 MemberFieldFilter:
 	refsetFieldName=UnquotedString comparison=Comparison;
 
-IdFilter:
-	ID_KEYWORD op=NON_NUMERIC_OPERATOR (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE);
+IdFilter
+	: ID_KEYWORD op=NON_NUMERIC_OPERATOR (searchType=EXACT_KEYWORD COLON)? (ids+=Identifier | ROUND_OPEN (ids+=Identifier)+ ROUND_CLOSE)
+	| ID_KEYWORD op=NON_NUMERIC_OPERATOR searchType=REGEX_KEYWORD COLON ids+=RegularExpression
+	;
 
 TermFilter:
 	TERM_KEYWORD op=NON_NUMERIC_OPERATOR searchTerm=SearchTerm;

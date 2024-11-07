@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getSearchType <em>Search Type</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.impl.IdFilterImpl#getIds <em>Ids</em>}</li>
  * </ul>
  *
@@ -65,6 +66,26 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @ordered
    */
   protected String op = OP_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSearchType() <em>Search Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSearchType()
+   * @generated
+   * @ordered
+   */
+  protected static final String SEARCH_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSearchType() <em>Search Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSearchType()
+   * @generated
+   * @ordered
+   */
+  protected String searchType = SEARCH_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getIds() <em>Ids</em>}' attribute list.
@@ -128,6 +149,31 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
    * @generated
    */
   @Override
+  public String getSearchType()
+  {
+    return searchType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSearchType(String newSearchType)
+  {
+    String oldSearchType = searchType;
+    searchType = newSearchType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclPackage.ID_FILTER__SEARCH_TYPE, oldSearchType, searchType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<String> getIds()
   {
     if (ids == null)
@@ -149,6 +195,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     {
       case EclPackage.ID_FILTER__OP:
         return getOp();
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        return getSearchType();
       case EclPackage.ID_FILTER__IDS:
         return getIds();
     }
@@ -168,6 +216,9 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     {
       case EclPackage.ID_FILTER__OP:
         setOp((String)newValue);
+        return;
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        setSearchType((String)newValue);
         return;
       case EclPackage.ID_FILTER__IDS:
         getIds().clear();
@@ -190,6 +241,9 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
       case EclPackage.ID_FILTER__OP:
         setOp(OP_EDEFAULT);
         return;
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        setSearchType(SEARCH_TYPE_EDEFAULT);
+        return;
       case EclPackage.ID_FILTER__IDS:
         getIds().clear();
         return;
@@ -209,6 +263,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     {
       case EclPackage.ID_FILTER__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+      case EclPackage.ID_FILTER__SEARCH_TYPE:
+        return SEARCH_TYPE_EDEFAULT == null ? searchType != null : !SEARCH_TYPE_EDEFAULT.equals(searchType);
       case EclPackage.ID_FILTER__IDS:
         return ids != null && !ids.isEmpty();
     }
@@ -228,6 +284,8 @@ public class IdFilterImpl extends PropertyFilterImpl implements IdFilter
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (op: ");
     result.append(op);
+    result.append(", searchType: ");
+    result.append(searchType);
     result.append(", ids: ");
     result.append(ids);
     result.append(')');

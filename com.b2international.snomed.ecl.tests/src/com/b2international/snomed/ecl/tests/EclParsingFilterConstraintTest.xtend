@@ -370,4 +370,11 @@ class EclParsingFilterConstraintTest {
 		'''.assertError(EclPackage.eINSTANCE.filterConstraint, EclValidator.DOMAIN_INCONSISTENCY_CODE)
 	}
 	
+	@Test
+	def void test_filter_concept_id_regex() {
+		'* {{ C id = regex:"[^ \\t\\r\\n\\f]{4}[0-9]" }}'.assertNoErrors;
+	}
+	
+	
+	
 }

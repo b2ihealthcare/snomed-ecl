@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.b2international.snomed.ecl.ecl.IdFilter#getOp <em>Op</em>}</li>
+ *   <li>{@link com.b2international.snomed.ecl.ecl.IdFilter#getSearchType <em>Search Type</em>}</li>
  *   <li>{@link com.b2international.snomed.ecl.ecl.IdFilter#getIds <em>Ids</em>}</li>
  * </ul>
  *
@@ -57,6 +58,28 @@ public interface IdFilter extends PropertyFilter
    * @generated
    */
   void setOp(String value);
+
+  /**
+   * Returns the value of the '<em><b>Search Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Search Type</em>' attribute.
+   * @see #setSearchType(String)
+   * @see com.b2international.snomed.ecl.ecl.EclPackage#getIdFilter_SearchType()
+   * @model
+   * @generated
+   */
+  String getSearchType();
+
+  /**
+   * Sets the value of the '{@link com.b2international.snomed.ecl.ecl.IdFilter#getSearchType <em>Search Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Search Type</em>' attribute.
+   * @see #getSearchType()
+   * @generated
+   */
+  void setSearchType(String value);
 
   /**
    * Returns the value of the '<em><b>Ids</b></em>' attribute list.
