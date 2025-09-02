@@ -748,4 +748,19 @@ class EclParsingTest {
 		'''.assertNoErrors
 	}
 	
+	@Test
+	def void test_reverse_memberOf() {
+		'''
+			^R 427089005 |Diabetes mellitus due to cystic fibrosis|
+		'''.assertNoErrors
+	}
+	
+	@Test
+	def void test_reverse_memberOf_separate_reversed_keyword() {
+		// since the next language bit is an ecl concept ref's ID we are going to report an SCT ID error if an extra space gets between the caret and the R
+		'''
+			^ R 427089005 |Diabetes mellitus due to cystic fibrosis|
+		'''.assertError(EclPackage.Literals.ECL_CONCEPT_REFERENCE, EclValidator.SCTID_ERROR_CODE, "SCTID length must be between 6-18 characters.")
+	}
+	
 }
