@@ -34,7 +34,7 @@ jobs:
         servers: '[{ "id": "nexus_deployment", "username": "${env.NEXUS_DEPLOYMENT_USER}", "password": "${env.NEXUS_DEPLOYMENT_PASS}" }]'
     - name: Build Packages 
       run: ./mvnw -ntp clean verify
-      if: github.ref != 'refs/heads/main'
+      if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/feature/ecl-2.3'
     - name: Build and Deploy Packages 
       run: ./mvnw -ntp clean deploy
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feature/ecl-2.3'
