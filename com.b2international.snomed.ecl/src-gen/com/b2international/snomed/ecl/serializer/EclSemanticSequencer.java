@@ -70,6 +70,7 @@ import com.b2international.snomed.ecl.ecl.ParentOf;
 import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
 import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.ReverseMemberOf;
 import com.b2international.snomed.ecl.ecl.Script;
 import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
 import com.b2international.snomed.ecl.ecl.StringValueComparison;
@@ -314,6 +315,9 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case EclPackage.REFINED_EXPRESSION_CONSTRAINT:
 				sequence_RefinedExpressionConstraint(context, (RefinedExpressionConstraint) semanticObject); 
+				return; 
+			case EclPackage.REVERSE_MEMBER_OF:
+				sequence_ReverseMemberOf(context, (ReverseMemberOf) semanticObject); 
 				return; 
 			case EclPackage.SCRIPT:
 				sequence_Script(context, (Script) semanticObject); 
@@ -1900,6 +1904,38 @@ public class EclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getRefinedExpressionConstraintAccess().getRefinedExpressionConstraintConstraintAction_1_0(), semanticObject.getConstraint());
 		feeder.accept(grammarAccess.getRefinedExpressionConstraintAccess().getRefinementEclRefinementParserRuleCall_1_2_0(), semanticObject.getRefinement());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ExpressionConstraint returns ReverseMemberOf
+	 *     OrExpressionConstraint returns ReverseMemberOf
+	 *     OrExpressionConstraint.OrExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     AndExpressionConstraint returns ReverseMemberOf
+	 *     AndExpressionConstraint.AndExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     ExclusionExpressionConstraint returns ReverseMemberOf
+	 *     ExclusionExpressionConstraint.ExclusionExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     RefinedExpressionConstraint returns ReverseMemberOf
+	 *     RefinedExpressionConstraint.RefinedExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     DottedExpressionConstraint returns ReverseMemberOf
+	 *     DottedExpressionConstraint.DottedExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     SupplementExpressionConstraint returns ReverseMemberOf
+	 *     SupplementExpressionConstraint.SupplementExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     FilteredExpressionConstraint returns ReverseMemberOf
+	 *     FilteredExpressionConstraint.FilteredExpressionConstraint_1_0 returns ReverseMemberOf
+	 *     SubExpressionConstraint returns ReverseMemberOf
+	 *     EclFocusConcept returns ReverseMemberOf
+	 *     ReverseMemberOf returns ReverseMemberOf
+	 *     FilterValue returns ReverseMemberOf
+	 *
+	 * Constraint:
+	 *     (constraint=EclConceptReference | constraint=Any | constraint=NestedExpression)
+	 * </pre>
+	 */
+	protected void sequence_ReverseMemberOf(ISerializationContext context, ReverseMemberOf semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

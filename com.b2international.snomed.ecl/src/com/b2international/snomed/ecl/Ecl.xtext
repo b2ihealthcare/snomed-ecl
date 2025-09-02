@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2022 B2i Healthcare, https://b2ihealthcare.com
+ * Copyright 2021-2025 B2i Healthcare, https://b2ihealthcare.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ SubExpressionConstraint returns ExpressionConstraint:
 	ChildOf | ChildOrSelfOf | DescendantOf | DescendantOrSelfOf | ParentOf | ParentOrSelfOf | AncestorOf | AncestorOrSelfOf | Top | Bottom | EclFocusConcept;
 
 EclFocusConcept returns ExpressionConstraint:
-	MemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
+	MemberOf | ReverseMemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
 	
 ChildOf:
 	LT_EM constraint=EclFocusConcept;
@@ -81,6 +81,9 @@ Top:
 
 Bottom:
 	DBL_EM_LT constraint=EclFocusConcept;
+
+ReverseMemberOf:
+	CARET_REVERSED constraint=(EclConceptReference | Any | NestedExpression);
 
 MemberOf:
 	CARET (SQUARE_OPEN (refsetFields+=UnquotedString (COMMA refsetFields+=UnquotedString)*) SQUARE_CLOSE)? constraint=(EclConceptReference | Any | NestedExpression);
@@ -649,6 +652,9 @@ terminal UNDERSCORE:
 
 terminal CARET:
 	'^';
+
+terminal CARET_REVERSED:
+	'^R';
 
 terminal DOT:
 	'.';

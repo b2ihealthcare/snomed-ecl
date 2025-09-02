@@ -61,6 +61,8 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getACTIVE_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getCARETRule())
 			return getCARETToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getCARET_REVERSEDRule())
+			return getCARET_REVERSEDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getCASE_SIGNIFICANCE_ID_KEYWORDRule())
 			return getCASE_SIGNIFICANCE_ID_KEYWORDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getCOLONRule())
@@ -190,6 +192,16 @@ public class EclSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "^";
+	}
+	
+	/**
+	 * terminal CARET_REVERSED:
+	 * 	'^R';
+	 */
+	protected String getCARET_REVERSEDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "^R";
 	}
 	
 	/**

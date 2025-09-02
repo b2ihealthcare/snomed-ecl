@@ -371,32 +371,36 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EclFocusConcept");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMemberOfParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cEclConceptReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cAnyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cAlternateIdentifierParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNestedExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cReverseMemberOfParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEclConceptReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cAnyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cAlternateIdentifierParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cNestedExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//EclFocusConcept returns ExpressionConstraint:
-		//    MemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
+		//    MemberOf | ReverseMemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression
+		//MemberOf | ReverseMemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MemberOf
 		public RuleCall getMemberOfParserRuleCall_0() { return cMemberOfParserRuleCall_0; }
 		
+		//ReverseMemberOf
+		public RuleCall getReverseMemberOfParserRuleCall_1() { return cReverseMemberOfParserRuleCall_1; }
+		
 		//EclConceptReference
-		public RuleCall getEclConceptReferenceParserRuleCall_1() { return cEclConceptReferenceParserRuleCall_1; }
+		public RuleCall getEclConceptReferenceParserRuleCall_2() { return cEclConceptReferenceParserRuleCall_2; }
 		
 		//Any
-		public RuleCall getAnyParserRuleCall_2() { return cAnyParserRuleCall_2; }
+		public RuleCall getAnyParserRuleCall_3() { return cAnyParserRuleCall_3; }
 		
 		//AlternateIdentifier
-		public RuleCall getAlternateIdentifierParserRuleCall_3() { return cAlternateIdentifierParserRuleCall_3; }
+		public RuleCall getAlternateIdentifierParserRuleCall_4() { return cAlternateIdentifierParserRuleCall_4; }
 		
 		//NestedExpression
-		public RuleCall getNestedExpressionParserRuleCall_4() { return cNestedExpressionParserRuleCall_4; }
+		public RuleCall getNestedExpressionParserRuleCall_5() { return cNestedExpressionParserRuleCall_5; }
 	}
 	public class ChildOfElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ChildOf");
@@ -627,6 +631,41 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//EclFocusConcept
 		public RuleCall getConstraintEclFocusConceptParserRuleCall_1_0() { return cConstraintEclFocusConceptParserRuleCall_1_0; }
+	}
+	public class ReverseMemberOfElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.ReverseMemberOf");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cCARET_REVERSEDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cConstraintAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cConstraintAlternatives_1_0 = (Alternatives)cConstraintAssignment_1.eContents().get(0);
+		private final RuleCall cConstraintEclConceptReferenceParserRuleCall_1_0_0 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(0);
+		private final RuleCall cConstraintAnyParserRuleCall_1_0_1 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(1);
+		private final RuleCall cConstraintNestedExpressionParserRuleCall_1_0_2 = (RuleCall)cConstraintAlternatives_1_0.eContents().get(2);
+		
+		//ReverseMemberOf:
+		//    CARET_REVERSED constraint=(EclConceptReference | Any | NestedExpression);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CARET_REVERSED constraint=(EclConceptReference | Any | NestedExpression)
+		public Group getGroup() { return cGroup; }
+		
+		//CARET_REVERSED
+		public RuleCall getCARET_REVERSEDTerminalRuleCall_0() { return cCARET_REVERSEDTerminalRuleCall_0; }
+		
+		//constraint=(EclConceptReference | Any | NestedExpression)
+		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
+		
+		//(EclConceptReference | Any | NestedExpression)
+		public Alternatives getConstraintAlternatives_1_0() { return cConstraintAlternatives_1_0; }
+		
+		//EclConceptReference
+		public RuleCall getConstraintEclConceptReferenceParserRuleCall_1_0_0() { return cConstraintEclConceptReferenceParserRuleCall_1_0_0; }
+		
+		//Any
+		public RuleCall getConstraintAnyParserRuleCall_1_0_1() { return cConstraintAnyParserRuleCall_1_0_1; }
+		
+		//NestedExpression
+		public RuleCall getConstraintNestedExpressionParserRuleCall_1_0_2() { return cConstraintNestedExpressionParserRuleCall_1_0_2; }
 	}
 	public class MemberOfElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.MemberOf");
@@ -3668,6 +3707,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final AncestorOrSelfOfElements pAncestorOrSelfOf;
 	private final TopElements pTop;
 	private final BottomElements pBottom;
+	private final ReverseMemberOfElements pReverseMemberOf;
 	private final MemberOfElements pMemberOf;
 	private final EclConceptReferenceElements pEclConceptReference;
 	private final AlternateIdentifierElements pAlternateIdentifier;
@@ -3814,6 +3854,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final TerminalRule tDASH;
 	private final TerminalRule tUNDERSCORE;
 	private final TerminalRule tCARET;
+	private final TerminalRule tCARET_REVERSED;
 	private final TerminalRule tDOT;
 	private final TerminalRule tWILDCARD;
 	private final TerminalRule tEQUAL;
@@ -3851,6 +3892,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pAncestorOrSelfOf = new AncestorOrSelfOfElements();
 		this.pTop = new TopElements();
 		this.pBottom = new BottomElements();
+		this.pReverseMemberOf = new ReverseMemberOfElements();
 		this.pMemberOf = new MemberOfElements();
 		this.pEclConceptReference = new EclConceptReferenceElements();
 		this.pAlternateIdentifier = new AlternateIdentifierElements();
@@ -3997,6 +4039,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.tDASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DASH");
 		this.tUNDERSCORE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.UNDERSCORE");
 		this.tCARET = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CARET");
+		this.tCARET_REVERSED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.CARET_REVERSED");
 		this.tDOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.DOT");
 		this.tWILDCARD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.WILDCARD");
 		this.tEQUAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.b2international.snomed.ecl.Ecl.EQUAL");
@@ -4133,7 +4176,7 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//EclFocusConcept returns ExpressionConstraint:
-	//    MemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
+	//    MemberOf | ReverseMemberOf | EclConceptReference | Any | AlternateIdentifier | NestedExpression;
 	public EclFocusConceptElements getEclFocusConceptAccess() {
 		return pEclFocusConcept;
 	}
@@ -4240,6 +4283,16 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getBottomRule() {
 		return getBottomAccess().getRule();
+	}
+	
+	//ReverseMemberOf:
+	//    CARET_REVERSED constraint=(EclConceptReference | Any | NestedExpression);
+	public ReverseMemberOfElements getReverseMemberOfAccess() {
+		return pReverseMemberOf;
+	}
+	
+	public ParserRule getReverseMemberOfRule() {
+		return getReverseMemberOfAccess().getRule();
 	}
 	
 	//MemberOf:
@@ -5571,6 +5624,12 @@ public class EclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    '^';
 	public TerminalRule getCARETRule() {
 		return tCARET;
+	}
+	
+	//terminal CARET_REVERSED:
+	//    '^R';
+	public TerminalRule getCARET_REVERSEDRule() {
+		return tCARET_REVERSED;
 	}
 	
 	//terminal DOT:

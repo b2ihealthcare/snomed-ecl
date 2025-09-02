@@ -46,6 +46,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAndExpressionConstraintAccess().getAlternatives_1_1(), "rule__AndExpressionConstraint__Alternatives_1_1");
 			builder.put(grammarAccess.getSubExpressionConstraintAccess().getAlternatives(), "rule__SubExpressionConstraint__Alternatives");
 			builder.put(grammarAccess.getEclFocusConceptAccess().getAlternatives(), "rule__EclFocusConcept__Alternatives");
+			builder.put(grammarAccess.getReverseMemberOfAccess().getConstraintAlternatives_1_0(), "rule__ReverseMemberOf__ConstraintAlternatives_1_0");
 			builder.put(grammarAccess.getMemberOfAccess().getConstraintAlternatives_2_0(), "rule__MemberOf__ConstraintAlternatives_2_0");
 			builder.put(grammarAccess.getAlternateIdentifierAccess().getCodeAlternatives_2_0(), "rule__AlternateIdentifier__CodeAlternatives_2_0");
 			builder.put(grammarAccess.getAndRefinementAccess().getAlternatives_1_0_1(), "rule__AndRefinement__Alternatives_1_0_1");
@@ -113,6 +114,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAncestorOrSelfOfAccess().getGroup(), "rule__AncestorOrSelfOf__Group__0");
 			builder.put(grammarAccess.getTopAccess().getGroup(), "rule__Top__Group__0");
 			builder.put(grammarAccess.getBottomAccess().getGroup(), "rule__Bottom__Group__0");
+			builder.put(grammarAccess.getReverseMemberOfAccess().getGroup(), "rule__ReverseMemberOf__Group__0");
 			builder.put(grammarAccess.getMemberOfAccess().getGroup(), "rule__MemberOf__Group__0");
 			builder.put(grammarAccess.getMemberOfAccess().getGroup_1(), "rule__MemberOf__Group_1__0");
 			builder.put(grammarAccess.getMemberOfAccess().getGroup_1_1(), "rule__MemberOf__Group_1_1__0");
@@ -205,6 +207,7 @@ public class EclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAncestorOrSelfOfAccess().getConstraintAssignment_1(), "rule__AncestorOrSelfOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getTopAccess().getConstraintAssignment_1(), "rule__Top__ConstraintAssignment_1");
 			builder.put(grammarAccess.getBottomAccess().getConstraintAssignment_1(), "rule__Bottom__ConstraintAssignment_1");
+			builder.put(grammarAccess.getReverseMemberOfAccess().getConstraintAssignment_1(), "rule__ReverseMemberOf__ConstraintAssignment_1");
 			builder.put(grammarAccess.getMemberOfAccess().getRefsetFieldsAssignment_1_1_0(), "rule__MemberOf__RefsetFieldsAssignment_1_1_0");
 			builder.put(grammarAccess.getMemberOfAccess().getRefsetFieldsAssignment_1_1_1_1(), "rule__MemberOf__RefsetFieldsAssignment_1_1_1_1");
 			builder.put(grammarAccess.getMemberOfAccess().getConstraintAssignment_2(), "rule__MemberOf__ConstraintAssignment_2");

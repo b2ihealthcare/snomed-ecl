@@ -80,6 +80,7 @@ import com.b2international.snomed.ecl.ecl.ParentOrSelfOf;
 import com.b2international.snomed.ecl.ecl.PreferredInFilter;
 import com.b2international.snomed.ecl.ecl.PropertyFilter;
 import com.b2international.snomed.ecl.ecl.RefinedExpressionConstraint;
+import com.b2international.snomed.ecl.ecl.ReverseMemberOf;
 import com.b2international.snomed.ecl.ecl.Script;
 import com.b2international.snomed.ecl.ecl.SearchTerm;
 import com.b2international.snomed.ecl.ecl.SemanticTagFilter;
@@ -193,6 +194,13 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
    * @generated
    */
   private EClass bottomEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reverseMemberOfEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -962,6 +970,28 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
   public EReference getBottom_Constraint()
   {
     return (EReference)bottomEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReverseMemberOf()
+  {
+    return reverseMemberOfEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReverseMemberOf_Constraint()
+  {
+    return (EReference)reverseMemberOfEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2735,6 +2765,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     bottomEClass = createEClass(BOTTOM);
     createEReference(bottomEClass, BOTTOM__CONSTRAINT);
 
+    reverseMemberOfEClass = createEClass(REVERSE_MEMBER_OF);
+    createEReference(reverseMemberOfEClass, REVERSE_MEMBER_OF__CONSTRAINT);
+
     memberOfEClass = createEClass(MEMBER_OF);
     createEAttribute(memberOfEClass, MEMBER_OF__REFSET_FIELDS);
     createEReference(memberOfEClass, MEMBER_OF__CONSTRAINT);
@@ -2996,6 +3029,7 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
     ancestorOrSelfOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     topEClass.getESuperTypes().add(this.getExpressionConstraint());
     bottomEClass.getESuperTypes().add(this.getExpressionConstraint());
+    reverseMemberOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     memberOfEClass.getESuperTypes().add(this.getExpressionConstraint());
     eclConceptReferenceEClass.getESuperTypes().add(this.getExpressionConstraint());
     alternateIdentifierEClass.getESuperTypes().add(this.getExpressionConstraint());
@@ -3084,6 +3118,9 @@ public class EclPackageImpl extends EPackageImpl implements EclPackage
 
     initEClass(bottomEClass, Bottom.class, "Bottom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBottom_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, Bottom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reverseMemberOfEClass, ReverseMemberOf.class, "ReverseMemberOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReverseMemberOf_Constraint(), this.getExpressionConstraint(), null, "constraint", null, 0, 1, ReverseMemberOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberOfEClass, MemberOf.class, "MemberOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMemberOf_RefsetFields(), ecorePackage.getEString(), "refsetFields", null, 0, -1, MemberOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

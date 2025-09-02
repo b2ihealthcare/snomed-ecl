@@ -190,6 +190,15 @@ public class EclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclPackage.REVERSE_MEMBER_OF:
+      {
+        ReverseMemberOf reverseMemberOf = (ReverseMemberOf)theEObject;
+        T result = caseReverseMemberOf(reverseMemberOf);
+        if (result == null) result = caseExpressionConstraint(reverseMemberOf);
+        if (result == null) result = caseFilterValue(reverseMemberOf);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclPackage.MEMBER_OF:
       {
         MemberOf memberOf = (MemberOf)theEObject;
@@ -933,6 +942,22 @@ public class EclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBottom(Bottom object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reverse Member Of</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reverse Member Of</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReverseMemberOf(ReverseMemberOf object)
   {
     return null;
   }

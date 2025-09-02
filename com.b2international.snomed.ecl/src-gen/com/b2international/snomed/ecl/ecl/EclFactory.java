@@ -144,6 +144,15 @@ public interface EclFactory extends EFactory
   Bottom createBottom();
 
   /**
+   * Returns a new object of class '<em>Reverse Member Of</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reverse Member Of</em>'.
+   * @generated
+   */
+  ReverseMemberOf createReverseMemberOf();
+
+  /**
    * Returns a new object of class '<em>Member Of</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

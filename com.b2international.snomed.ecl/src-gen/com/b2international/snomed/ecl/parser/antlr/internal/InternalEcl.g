@@ -790,11 +790,11 @@ ruleEclFocusConcept returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getEclConceptReferenceParserRuleCall_1());
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getReverseMemberOfParserRuleCall_1());
 		}
-		this_EclConceptReference_1=ruleEclConceptReference
+		this_ReverseMemberOf_1=ruleReverseMemberOf
 		{
-			$current = $this_EclConceptReference_1.current;
+			$current = $this_ReverseMemberOf_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -802,11 +802,11 @@ ruleEclFocusConcept returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getAnyParserRuleCall_2());
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getEclConceptReferenceParserRuleCall_2());
 		}
-		this_Any_2=ruleAny
+		this_EclConceptReference_2=ruleEclConceptReference
 		{
-			$current = $this_Any_2.current;
+			$current = $this_EclConceptReference_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -814,11 +814,11 @@ ruleEclFocusConcept returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getAlternateIdentifierParserRuleCall_3());
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getAnyParserRuleCall_3());
 		}
-		this_AlternateIdentifier_3=ruleAlternateIdentifier
+		this_Any_3=ruleAny
 		{
-			$current = $this_AlternateIdentifier_3.current;
+			$current = $this_Any_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -826,11 +826,23 @@ ruleEclFocusConcept returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getNestedExpressionParserRuleCall_4());
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getAlternateIdentifierParserRuleCall_4());
 		}
-		this_NestedExpression_4=ruleNestedExpression
+		this_AlternateIdentifier_4=ruleAlternateIdentifier
 		{
-			$current = $this_NestedExpression_4.current;
+			$current = $this_AlternateIdentifier_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getEclFocusConceptAccess().getNestedExpressionParserRuleCall_5());
+		}
+		this_NestedExpression_5=ruleNestedExpression
+		{
+			$current = $this_NestedExpression_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1251,6 +1263,82 @@ ruleBottom returns [EObject current=null]
 						"com.b2international.snomed.ecl.Ecl.EclFocusConcept");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleReverseMemberOf
+entryRuleReverseMemberOf returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReverseMemberOfRule()); }
+	iv_ruleReverseMemberOf=ruleReverseMemberOf
+	{ $current=$iv_ruleReverseMemberOf.current; }
+	EOF;
+
+// Rule ReverseMemberOf
+ruleReverseMemberOf returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_CARET_REVERSED_0=RULE_CARET_REVERSED
+		{
+			newLeafNode(this_CARET_REVERSED_0, grammarAccess.getReverseMemberOfAccess().getCARET_REVERSEDTerminalRuleCall_0());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getReverseMemberOfAccess().getConstraintEclConceptReferenceParserRuleCall_1_0_0());
+					}
+					lv_constraint_1_1=ruleEclConceptReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReverseMemberOfRule());
+						}
+						set(
+							$current,
+							"constraint",
+							lv_constraint_1_1,
+							"com.b2international.snomed.ecl.Ecl.EclConceptReference");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getReverseMemberOfAccess().getConstraintAnyParserRuleCall_1_0_1());
+					}
+					lv_constraint_1_2=ruleAny
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReverseMemberOfRule());
+						}
+						set(
+							$current,
+							"constraint",
+							lv_constraint_1_2,
+							"com.b2international.snomed.ecl.Ecl.Any");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getReverseMemberOfAccess().getConstraintNestedExpressionParserRuleCall_1_0_2());
+					}
+					lv_constraint_1_3=ruleNestedExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReverseMemberOfRule());
+						}
+						set(
+							$current,
+							"constraint",
+							lv_constraint_1_3,
+							"com.b2international.snomed.ecl.Ecl.NestedExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 	)
@@ -6825,6 +6913,8 @@ RULE_DASH : '-';
 RULE_UNDERSCORE : '_';
 
 RULE_CARET : '^';
+
+RULE_CARET_REVERSED : '^R';
 
 RULE_DOT : '.';
 

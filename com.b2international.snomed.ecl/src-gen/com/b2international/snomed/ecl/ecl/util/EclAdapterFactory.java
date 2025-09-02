@@ -148,6 +148,11 @@ public class EclAdapterFactory extends AdapterFactoryImpl
         return createBottomAdapter();
       }
       @Override
+      public Adapter caseReverseMemberOf(ReverseMemberOf object)
+      {
+        return createReverseMemberOfAdapter();
+      }
+      @Override
       public Adapter caseMemberOf(MemberOf object)
       {
         return createMemberOfAdapter();
@@ -670,6 +675,21 @@ public class EclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBottomAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.b2international.snomed.ecl.ecl.ReverseMemberOf <em>Reverse Member Of</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.b2international.snomed.ecl.ecl.ReverseMemberOf
+   * @generated
+   */
+  public Adapter createReverseMemberOfAdapter()
   {
     return null;
   }
