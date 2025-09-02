@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/ecl-2.3
   pull_request:
     branches:
       - main
@@ -36,7 +37,7 @@ jobs:
       if: github.ref != 'refs/heads/main'
     - name: Build and Deploy Packages 
       run: ./mvnw -ntp clean deploy
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feature/ecl-2.3'
       env: 
         NEXUS_DEPLOYMENT_USER: ${{ secrets.NEXUS_DEPLOYMENT_USER }}
         NEXUS_DEPLOYMENT_PASS: ${{ secrets.NEXUS_DEPLOYMENT_PASS }}
