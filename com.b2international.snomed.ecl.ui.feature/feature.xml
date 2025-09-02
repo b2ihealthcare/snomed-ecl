@@ -2,7 +2,7 @@
 <feature
       id="com.b2international.snomed.ecl.ui.feature"
       label="SNOMED CT Expression Constraint Language UI Feature"
-      version="2.2.1.qualifier"
+      version="2.3.0.qualifier"
       provider-name="B2i Healthcare">
 
    <description url="http://www.example.com/description">
@@ -23,9 +23,6 @@
 
    <plugin
          id="com.b2international.snomed.ecl.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
