@@ -1,3 +1,15 @@
+# 📢 We've Moved 📢
+
+B2i Healthcare is now part of IQVIA, and our open-source projects have a new home within the IQVIA GitHub organization.
+
+👉 Please visit: https://github.com/iqvia-hds-oss/snomed-ecl
+
+This repository is no longer actively maintained here and is being kept available for historical reference. For the latest source code, releases, issue tracking, and ongoing development, please use the corresponding repository in our new organization.
+
+We'd be delighted to see you there and appreciate your continued interest in our work!
+
+------------------------------------
+
 # snomed-ecl
 
 SNOMED CT Expression Constraint Language Implementation with IDE integration(s), user interface using Xtext.
